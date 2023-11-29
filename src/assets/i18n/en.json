@@ -1,0 +1,13 @@
+{
+  "sidebarMenuButton": "Expand",
+  "sidebarTeamDashboard": "Group View",
+  "sidebarAdminPanel": "Administration Panel",
+  "sidebarSettings": "Settings",
+  "sidebarLanguage": "Language",
+  "languagesDropdown": [
+    { "name": "Spanish", "code": "es" },
+    { "name": "English", "code": "en" },
+    { "name": "Italian", "code": "it" }
+  ],
+  "sidebarSignOut": "Sign Out"
+}

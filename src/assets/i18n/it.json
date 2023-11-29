@@ -1,0 +1,13 @@
+{
+  "sidebarMenuButton": "Espandi",
+  "sidebarTeamDashboard": "Vista di gruppo",
+  "sidebarAdminPanel": "Pannello di amministrazione",
+  "sidebarSettings": "Impostazioni",
+  "sidebarLanguage": "Lingua",
+  "languagesDropdown": [
+    { "name": "Spagnolo", "code": "es" },
+    { "name": "Inglese", "code": "en" },
+    { "name": "Italiano", "code": "it" }
+  ],
+  "sidebarSignOut": "Esci"
+}

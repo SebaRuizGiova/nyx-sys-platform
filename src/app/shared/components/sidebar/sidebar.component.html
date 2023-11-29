@@ -10,7 +10,7 @@
       *ngIf="!show; else menuIcon"
       class="pi pi-bars"
       style="font-size: 1.3rem"
-      pTooltip="Desplegar"
+      [pTooltip]="'sidebarMenuButton' | translate"
       [showDelay]="300"
       (click)="toggleSidebar()"
     ></i>
@@ -40,8 +40,7 @@
         [options]="languages"
         [(ngModel)]="selectedLanguage"
         optionLabel="name"
-        placeholder="Selecciona idioma"
-        [style]="{ 'width': '100%' }"
+        (onChange)="selectLanguage($event.value.code)"
       ></p-dropdown>
     </shared-item-sidebar>
     <div

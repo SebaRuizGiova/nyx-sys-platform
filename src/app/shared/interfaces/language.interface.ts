@@ -1,4 +1,4 @@
 export interface Language {
   name: string;
-  code: string;
+  code: 'es' | 'en' | 'it';
 }

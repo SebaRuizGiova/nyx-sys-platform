@@ -1,0 +1,13 @@
+{
+  "sidebarMenuButton": "Desplegar",
+  "sidebarTeamDashboard": "Vista grupal",
+  "sidebarAdminPanel": "Panel de administración",
+  "sidebarSettings": "Configuración",
+  "sidebarLanguage": "Idioma",
+  "languagesDropdown": [
+    { "name": "Español", "code": "es" },
+    { "name": "Inglés", "code": "en" },
+    { "name": "Italiano", "code": "it" }
+  ],
+  "sidebarSignOut": "Cerrar sesión"
+}
