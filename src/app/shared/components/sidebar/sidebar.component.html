@@ -1,3 +1,58 @@
-<div class="sidebar">
-  Sidebar
+<div class="sidebar" [ngClass]="{ show: show }">
+  <div class="header-sidebar" [ngClass]="{ show: show }">
+    <img
+      src="../../../../assets/logos/NYXSYS_WHITE.svg"
+      alt="Logo nyxsys"
+      class="logo"
+      *ngIf="show"
+    />
+    <i
+      *ngIf="!show; else menuIcon"
+      class="pi pi-bars"
+      style="font-size: 1.3rem"
+      pTooltip="Desplegar"
+      [showDelay]="300"
+      (click)="toggleSidebar()"
+    ></i>
+    <ng-template #menuIcon>
+      <img
+        src="'../../../../assets/icons/menu.svg"
+        alt=""
+        class="icon"
+        (click)="toggleSidebar()"
+      />
+    </ng-template>
+  </div>
+  <hr />
+  <div class="content-sidebar">
+    <shared-item-sidebar
+      *ngFor="let item of items"
+      [item]="item"
+      [expand]="show"
+    />
+  </div>
+  <hr />
+  <div class="footer-sidebar" [ngClass]="{ show: show }">
+    <shared-item-sidebar [item]="configItem" [expand]="show" />
+    <shared-item-sidebar [item]="languageItem" [expand]="show" (showSidebar)="toggleSidebar($event)">
+      <p-dropdown
+        #element
+        [options]="languages"
+        [(ngModel)]="selectedLanguage"
+        optionLabel="name"
+        placeholder="Selecciona idioma"
+        [style]="{ 'width': '100%' }"
+      ></p-dropdown>
+    </shared-item-sidebar>
+    <div
+      class="sesion"
+      [pTooltip]="show ? '' : 'Cerrar sesión'"
+      [showDelay]="300"
+      [ngClass]="{ show: show }"
+    >
+      <i class="pi pi-sign-out" style="font-size: 1.3rem"></i>
+      <span *ngIf="show">Cerrar sesión</span>
+    </div>
+  </div>
 </div>
+<div *ngIf="show" class="bg-sidebar" (click)="toggleSidebar()"></div>

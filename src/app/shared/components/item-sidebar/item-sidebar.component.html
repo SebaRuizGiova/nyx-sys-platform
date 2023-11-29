@@ -1,0 +1,11 @@
+<div
+  class="item-button"
+  [pTooltip]="expand ? '' : item.label"
+  [showDelay]="300"
+  [ngClass]="{ expand: expand }"
+  (click)="actionButton()"
+>
+  <img [src]="'../../../../assets/icons/' + item.icon" alt="" class="icon" />
+  <span *ngIf="expand && !containElements">{{ item.label }}</span>
+  <ng-content *ngIf="expand && containElements"></ng-content>
+</div>
