@@ -26,7 +26,7 @@
   <hr />
   <div class="content-sidebar">
     <shared-item-sidebar
-      *ngFor="let item of items"
+      *ngFor="let item of dinamicItems"
       [item]="item"
       [expand]="show"
     />
@@ -45,12 +45,12 @@
     </shared-item-sidebar>
     <div
       class="sesion"
-      [pTooltip]="show ? '' : 'Cerrar sesión'"
+      [pTooltip]="show ? '' : 'sidebarSignOut' | translate"
       [showDelay]="300"
       [ngClass]="{ show: show }"
     >
       <i class="pi pi-sign-out" style="font-size: 1.3rem"></i>
-      <span *ngIf="show">Cerrar sesión</span>
+      <span *ngIf="show">{{ 'sidebarSignOut' | translate }}</span>
     </div>
   </div>
 </div>

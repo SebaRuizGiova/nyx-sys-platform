@@ -1,9 +1,23 @@
 {
   "sidebarMenuButton": "Desplegar",
-  "sidebarTeamDashboard": "Vista grupal",
-  "sidebarAdminPanel": "Panel de administración",
-  "sidebarSettings": "Configuración",
-  "sidebarLanguage": "Idioma",
+  "sidebarTeamsItems": [
+    {
+      "label": "Vista de grupo",
+      "icon": "grid-icon.svg"
+    },
+    {
+      "label": "Panel de administración",
+      "icon": "settings-gear-combination.svg"
+    }
+  ],
+  "sidebarSettings": {
+    "label": "Configuración",
+    "icon": "settings.svg"
+  },
+  "sidebarLanguage": {
+    "label": "Idioma",
+    "icon": "earth.svg"
+  },
   "languagesDropdown": [
     { "name": "Español", "code": "es" },
     { "name": "Inglés", "code": "en" },

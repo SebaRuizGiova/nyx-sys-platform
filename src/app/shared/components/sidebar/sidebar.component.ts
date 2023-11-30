@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ItemSidebar } from '../../interfaces/item-sidebar.interface';
 import { Language } from '../../interfaces/language.interface';
 import { TranslateService } from '@ngx-translate/core';
+import { CurrentRouteService } from '../../services/currentRoute.service';
 
 @Component({
   selector: 'shared-sidebar',
@@ -14,8 +15,7 @@ export class SidebarComponent implements OnInit {
   @Input()
   show: boolean = false;
 
-  public items: ItemSidebar[] = [];
-
+  public dinamicItems: ItemSidebar[] = [];
   public configItem: ItemSidebar = {
     label: 'Configuración',
     icon: 'settings.svg',
@@ -24,50 +24,52 @@ export class SidebarComponent implements OnInit {
     label: 'Idioma',
     icon: 'earth.svg',
   };
-  public languages: any[] = [
-    { name: 'Español', code: 'es' },
-    { name: 'Inglés', code: 'en' },
-    { name: 'Italiano', code: 'it' },
-  ];
+  public languages: any[] = [];
   public selectedLanguage?: Language;
+  public currentRoute: string = '';
+  public currentLang: string = '';
 
   constructor(
-    private route: ActivatedRoute,
+    private currentRouteService: CurrentRouteService,
     public translate: TranslateService
-  ) {
-    const currentLang = localStorage.getItem('lang');
-    if (currentLang) {
-      translate.setDefaultLang(currentLang);
-      this.loadTranslations(currentLang);
-      this.selectedLanguage = this.languages.find( lang => lang.code === currentLang );
+  ) {}
+
+  ngOnInit(): void {
+    this.currentRoute = this.currentRouteService.currentRoute;
+    this.currentLang = localStorage.getItem('lang') || '';
+    if (this.currentLang) {
+      this.translate.setDefaultLang(this.currentLang);
+      this.loadTranslations(this.currentLang);
+      this.selectedLanguage = this.languages.find(
+        (lang) => lang.code === this.currentLang
+      );
     } else {
-      translate.setDefaultLang('es');
+      this.translate.setDefaultLang('es');
       this.loadTranslations('es');
-      this.selectedLanguage = { name: 'Inglés', code: 'es' };
+      this.selectedLanguage = { name: 'Español', code: 'es' };
     }
   }
 
-  ngOnInit() {
-    this.route.url.subscribe((segments) => {
-      this.updateItems(segments);
+  private updateItems() {
+    this.getItems(this.currentRoute);
+    this.getDefaultItems(this.currentRoute);
+  }
+
+  private getItems(path: string): void {
+    if (path.includes('teams')) {
+      this.translate.get('sidebarTeamsItems').subscribe((translations: any) => {
+        this.dinamicItems = translations;
+      });
+    }
+  }
+
+  private getDefaultItems(path: string): void {
+    this.translate.get('sidebarSettings').subscribe((translation: any) => {
+      this.configItem = translation;
     });
-  }
-
-  private updateItems(segments: any[]) {
-    this.items = this.getItems(segments);
-  }
-
-  private getItems(segments: any[]): ItemSidebar[] {
-    return [
-      {
-        label: 'Vista grupal',
-        icon: 'grid-icon.svg',
-      },
-      {
-        label: 'Panel de administración',
-        icon: 'settings-gear-combination.svg',
-      },
-    ];
+    this.translate.get('sidebarLanguage').subscribe((translation: any) => {
+      this.languageItem = translation;
+    });
   }
 
   toggleSidebar(value?: boolean): void {
@@ -82,7 +84,6 @@ export class SidebarComponent implements OnInit {
     this.translate.use(languageCode);
     this.translate.get('languagesDropdown').subscribe((translations: any) => {
       this.languages = translations;
-      localStorage.setItem('lang', languageCode);
       const [currentLang] = this.languages.filter(
         (lang) => lang.code === languageCode
       );
@@ -91,20 +92,11 @@ export class SidebarComponent implements OnInit {
       );
       this.languages.unshift(currentLang);
     });
-    this.translate.get('languagesDropdown').subscribe((translations: any) => {
-      this.languages = translations;
-      localStorage.setItem('lang', languageCode);
-      const [currentLang] = this.languages.filter(
-        (lang) => lang.code === languageCode
-      );
-      this.languages = this.languages.filter(
-        (lang) => lang.code !== languageCode
-      );
-      this.languages.unshift(currentLang);
-    });
+    this.updateItems();
   }
 
   selectLanguage(code: string): void {
     this.loadTranslations(code);
+    localStorage.setItem('lang', code);
   }
 }
