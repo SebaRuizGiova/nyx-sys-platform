@@ -1,0 +1,126 @@
+@import "../../../../variables.scss";
+
+.login-container {
+  background: #000A3D;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+
+  .login-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .logo {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      .logo-nyxsys, .word-nyxsys {
+        width: 55%;
+      }
+
+      .slogan {
+        color: $green-dream;
+        font-style: italic;
+      }
+    }
+
+    .login-form {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 15px;
+
+      h3 {
+        color: $nyxsys-white;
+        font-weight: 600;
+      }
+
+      .inputs {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+
+        .input-text {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      .button-login {
+        margin-top: 15px;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+
+        .remember {
+          color: $nyxsys-white;
+          font-weight: 600;
+          font-size: 14px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .languages {
+    color: $green-dream;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .link-lang {
+      cursor: pointer;
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      width: 100%;
+      color: $green-dream;
+      background-color: $green-dream;
+    }
+  }
+}
+
+:host ::ng-deep .p-inputwrapper {
+  width: 100%;
+}
+:host ::ng-deep .p-inputtext {
+  width: 100%;
+}
+:host ::ng-deep .p-password-panel {
+  display: none;
+}
+:host ::ng-deep .p-button {
+  background-color: $nyxsys-white;
+
+  &:hover {
+    background-color: darken($nyxsys-white, 10%);
+  }
+  &:focus {
+    background-color: $nyxsys-white;
+  }
+}
+:host ::ng-deep .p-button-icon,
+:host ::ng-deep .p-button-label {
+  color: $grey-light;
+}

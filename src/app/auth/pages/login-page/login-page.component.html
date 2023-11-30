@@ -1,1 +1,49 @@
-<p>login works!</p>
+<div class="login-container">
+  <div class="login-content">
+    <div class="logo">
+      <img
+        src="../../../../assets/logos/N_WHITE.svg"
+        alt="Logo"
+        class="logo-nyxsys"
+      />
+      <img
+        src="../../../../assets/logos/NYXSYS WHITE_WORD.png"
+        alt="NyxSys"
+        class="word-nyxsys"
+      />
+      <span class="slogan">Dream In-Performance</span>
+    </div>
+    <div class="login-form">
+      <h3>Bienvenido/a</h3>
+      <div class="inputs">
+        <div class="input-text">
+          <input
+            pInputText
+            placeholder="Email"
+            aria-describedby="email-help"
+            [(ngModel)]="emailText"
+            class="p-inputtext-sm"
+          />
+          <small id="email-help">Enter your email</small>
+        </div>
+        <p-password
+          placeholder="Contraseña"
+          [(ngModel)]="passwordText"
+          [toggleMask]="true"
+          class="p-inputtext-sm"
+        ></p-password>
+      </div>
+      <div class="button-login">
+        <p-button label="Iniciar sesión" icon="pi pi-sign-in" iconPos="right"></p-button>
+        <a class="remember">¿Olvidaste tu contraseña?</a>
+      </div>
+    </div>
+  </div>
+  <div class="languages">
+    <div>
+      <a class="link-lang">Inglés</a> - <a class="link-lang">Español</a> -
+      <a class="link-lang">Italiano</a>
+    </div>
+    <hr />
+  </div>
+</div>

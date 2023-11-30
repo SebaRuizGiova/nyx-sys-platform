@@ -10,6 +10,7 @@ import { ItemSidebarComponent } from './components/item-sidebar/item-sidebar.com
 
 import { TooltipModule } from 'primeng/tooltip';
 import { DropdownModule } from 'primeng/dropdown';
+
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
