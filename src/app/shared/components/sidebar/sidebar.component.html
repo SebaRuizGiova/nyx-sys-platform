@@ -1,11 +1,12 @@
 <div class="sidebar" [ngClass]="{ show: show }">
   <div class="header-sidebar" [ngClass]="{ show: show }">
-    <img
-      src="../../../../assets/logos/NYXSYS_WHITE.svg"
-      alt="Logo nyxsys"
-      class="logo"
-      *ngIf="show"
-    />
+    <div *ngIf="show" class="logo">
+      <img
+        src="../../../../assets/logos/NYXSYS_WHITE.svg"
+        alt="Logo nyxsys"
+      />
+      <span class="slogan">Dream In-Performance</span>
+    </div>
     <i
       *ngIf="!show; else menuIcon"
       class="pi pi-bars"

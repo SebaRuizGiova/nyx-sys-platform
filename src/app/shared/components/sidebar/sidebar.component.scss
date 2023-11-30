@@ -14,7 +14,7 @@
   justify-content: space-between;
   padding: 15px 10px;
   overflow: hidden;
-  transition: .3s;
+  transition: 0.3s;
   font-size: 14px;
   z-index: 100;
 
@@ -53,6 +53,15 @@
     .logo {
       width: 190px;
       cursor: pointer;
+      position: relative;
+
+      .slogan {
+        position: absolute;
+        left: 70px;
+        bottom: -1px;
+        font-size: 10px;
+        color: #1EE280;
+      }
     }
 
     .pi {
@@ -99,7 +108,7 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      transition: .3s;
+      transition: 0.3s;
 
       &.show {
         justify-content: flex-start;
@@ -121,7 +130,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 :host ::ng-deep .p-dropdown {
