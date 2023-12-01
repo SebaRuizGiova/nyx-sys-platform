@@ -8,8 +8,13 @@ import { ThemeSelectionService } from 'src/app/shared/services/themeSelection.se
 export class LoginPageComponent {
   public emailText: string = '';
   public passwordText: string = '';
+  public isFlipped: boolean = true;
 
   constructor(private themeSelectionService: ThemeSelectionService) {
     themeSelectionService.changeTheme(false)
+  }
+
+  toggleCard() {
+    this.isFlipped = !this.isFlipped;
   }
 }

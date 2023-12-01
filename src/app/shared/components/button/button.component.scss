@@ -1,0 +1,16 @@
+@import "../../../../variables.scss";
+
+:host ::ng-deep .p-button {
+  background-color: $nyxsys-white;
+
+  &:hover {
+    background-color: darken($nyxsys-white, 10%);
+  }
+  &:focus {
+    background-color: $nyxsys-white;
+  }
+}
+:host ::ng-deep .p-button-icon,
+:host ::ng-deep .p-button-label {
+  color: $grey-light;
+}

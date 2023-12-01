@@ -1,0 +1,16 @@
+.input-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+:host ::ng-deep .p-inputwrapper {
+  width: 100%;
+}
+:host ::ng-deep .p-inputtext {
+  width: 100%;
+}
+:host ::ng-deep .ng-invalid {
+  border: 2px solid #E12F2F;
+}

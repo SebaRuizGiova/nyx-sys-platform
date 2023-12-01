@@ -10,8 +10,14 @@ import { ItemSidebarComponent } from './components/item-sidebar/item-sidebar.com
 
 import { TooltipModule } from 'primeng/tooltip';
 import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
 
 import { TranslateModule } from '@ngx-translate/core';
+import { ButtonComponent } from './components/button/button.component';
+import { InputTextComponent } from './components/input-text/input-text.component';
+import { InputPasswordComponent } from './components/input-password/input-password.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +25,9 @@ import { TranslateModule } from '@ngx-translate/core';
     Error404PageComponent,
     LayoutPageComponent,
     ItemSidebarComponent,
+    ButtonComponent,
+    InputTextComponent,
+    InputPasswordComponent,
   ],
   imports: [
     CommonModule,
@@ -26,11 +35,17 @@ import { TranslateModule } from '@ngx-translate/core';
     TooltipModule,
     DropdownModule,
     FormsModule,
-    TranslateModule
+    TranslateModule,
+    ButtonModule,
+    InputTextModule,
+    PasswordModule
   ],
   exports: [
     SidebarComponent,
     Error404PageComponent,
+    ButtonComponent,
+    InputTextComponent,
+    InputPasswordComponent
   ]
 })
 export class SharedModule { }

@@ -14,28 +14,48 @@
       <span class="slogan">Dream In-Performance</span>
     </div>
     <div class="login-form">
-      <h3>Bienvenido/a</h3>
-      <div class="inputs">
-        <div class="input-text">
-          <input
-            pInputText
-            placeholder="Email"
-            aria-describedby="email-help"
-            [(ngModel)]="emailText"
-            class="p-inputtext-sm"
-          />
-          <small id="email-help">Enter your email</small>
+      <div class="flip-card" [ngClass]="{ flipped: isFlipped }">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Bienvenido/a</h3>
+            <div class="inputs">
+              <shared-input-text
+                placeholder="Email"
+                [value]="emailText"
+                helper="Enter your email"
+                [error]="false"
+              />
+              <shared-input-password
+                placeholder="Contraseña"
+                [value]="passwordText"
+                helper="Enter your password"
+                [error]="false"
+              />
+            </div>
+            <div class="button-login">
+              <shared-button label="Iniciar sesión" icon="pi-sign-in" />
+              <a class="remember" (click)="toggleCard()"
+                >¿Olvidaste tu contraseña?</a
+              >
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <div class="title">
+              <i class="pi pi-arrow-circle-left" style="font-size: 1.5rem" (click)="toggleCard()"></i>
+              <h3>Restablecer contraseña</h3>
+            </div>
+            <!-- TODO: Definir valores -->
+            <shared-input-text
+              placeholder="Email"
+              [value]="emailText"
+              helper="Enter your email"
+              [error]="false"
+            />
+            <div class="button-send">
+              <shared-button label="Enviar" />
+            </div>
+          </div>
         </div>
-        <p-password
-          placeholder="Contraseña"
-          [(ngModel)]="passwordText"
-          [toggleMask]="true"
-          class="p-inputtext-sm"
-        ></p-password>
-      </div>
-      <div class="button-login">
-        <p-button label="Iniciar sesión" icon="pi pi-sign-in" iconPos="right"></p-button>
-        <a class="remember">¿Olvidaste tu contraseña?</a>
       </div>
     </div>
   </div>
