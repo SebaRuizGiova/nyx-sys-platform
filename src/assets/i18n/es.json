@@ -23,5 +23,16 @@
     { "name": "Inglés", "code": "en" },
     { "name": "Italiano", "code": "it" }
   ],
-  "sidebarSignOut": "Cerrar sesión"
+  "sidebarSignOut": "Cerrar sesión",
+
+  "loginWelcome": "Bienvenido/a",
+  "loginForget": "Restablecer contraseña",
+  "loginPlaceholderEmail": "Email",
+  "loginPlaceholderPassword": "Contraseña",
+  "loginButtonSignIn": "Iniciar sesión",
+  "loginButtonSend": "Enviar",
+  "loginForgetPassword": "¿Olvidaste tu contraseña?",
+  "loginLangES": "Español",
+  "loginLangEN": "Inglés",
+  "loginLangIT": "Italiano"
 }

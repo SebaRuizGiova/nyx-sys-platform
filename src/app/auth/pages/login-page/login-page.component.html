@@ -17,41 +17,41 @@
       <div class="flip-card" [ngClass]="{ flipped: isFlipped }">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <h3>Bienvenido/a</h3>
+            <h3>{{ 'loginWelcome' | translate }}</h3>
             <div class="inputs">
               <shared-input-text
-                placeholder="Email"
+                [placeholder]="'loginPlaceholderEmail' | translate"
                 [value]="emailText"
                 helper="Enter your email"
                 [error]="false"
               />
               <shared-input-password
-                placeholder="Contraseña"
+                [placeholder]="'loginPlaceholderPassword' | translate"
                 [value]="passwordText"
                 helper="Enter your password"
                 [error]="false"
               />
             </div>
             <div class="button-login">
-              <shared-button label="Iniciar sesión" icon="pi-sign-in" />
+              <shared-button [label]="'loginButtonSignIn' | translate" icon="pi-sign-in" />
               <a class="remember" (click)="toggleCard()"
-                >¿Olvidaste tu contraseña?</a
+                >{{ 'loginForgetPassword' | translate }}</a
               >
             </div>
           </div>
           <div class="flip-card-back">
             <div class="title">
               <i class="pi pi-arrow-circle-left" style="font-size: 1.5rem" (click)="toggleCard()"></i>
-              <h3>Restablecer contraseña</h3>
+              <h3>{{ 'loginForget' | translate }}</h3>
             </div>
             <shared-input-text
-              placeholder="Email"
+              [placeholder]="'loginPlaceholderEmail' | translate"
               [value]="emailTextRestore"
               helper="Enter your email"
               [error]="false"
             />
             <div class="button-send">
-              <shared-button label="Enviar" />
+              <shared-button [label]="'loginButtonSend' | translate" />
             </div>
           </div>
         </div>
@@ -60,8 +60,8 @@
   </div>
   <div class="languages">
     <div>
-      <a class="link-lang">Inglés</a> - <a class="link-lang">Español</a> -
-      <a class="link-lang">Italiano</a>
+      <a class="link-lang" (click)="switchLanguage('en')">{{ 'loginLangEN' | translate }}</a> - <a class="link-lang" (click)="switchLanguage('es')">{{ 'loginLangES' | translate }}</a> -
+      <a class="link-lang" (click)="switchLanguage('it')">{{ 'loginLangIT' | translate }}</a>
     </div>
     <hr />
   </div>

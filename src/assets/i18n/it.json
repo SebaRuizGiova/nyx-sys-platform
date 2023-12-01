@@ -23,5 +23,16 @@
     { "name": "Inglese", "code": "en" },
     { "name": "Italiano", "code": "it" }
   ],
-  "sidebarSignOut": "Esci"
+  "sidebarSignOut": "Esci",
+
+  "loginWelcome": "Benvenuto/a",
+  "loginForget": "Password dimenticata",
+  "loginPlaceholderEmail": "Email",
+  "loginPlaceholderPassword": "Password",
+  "loginButtonSignIn": "Accedi",
+  "loginButtonSend": "Invia",
+  "loginForgetPassword": "Hai dimenticato la password?",
+  "loginLangES": "Spagnolo",
+  "loginLangEN": "Inglese",
+  "loginLangIT": "Italiano"
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 
@@ -17,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     AuthRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ]
 })
 export class AuthModule { }
