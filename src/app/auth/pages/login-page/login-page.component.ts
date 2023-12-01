@@ -7,8 +7,9 @@ import { ThemeSelectionService } from 'src/app/shared/services/themeSelection.se
 })
 export class LoginPageComponent {
   public emailText: string = '';
+  public emailTextRestore: string = '';
   public passwordText: string = '';
-  public isFlipped: boolean = true;
+  public isFlipped: boolean = false;
 
   constructor(private themeSelectionService: ThemeSelectionService) {
     themeSelectionService.changeTheme(false)
