@@ -34,5 +34,6 @@
   "loginForgetPassword": "¿Olvidaste tu contraseña?",
   "loginLangES": "Español",
   "loginLangEN": "Inglés",
-  "loginLangIT": "Italiano"
+  "loginLangIT": "Italiano",
+  "loginTooltipBack": "Atrás"
 }

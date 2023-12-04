@@ -49,11 +49,16 @@
           </div>
           <div class="flip-card-back">
             <div class="title">
-              <i
-                class="pi pi-arrow-circle-left"
-                style="font-size: 1.5rem"
-                (click)="toggleCard()"
-              ></i>
+              <div
+                [pTooltip]="'loginTooltipBack' | translate"
+                tooltipPosition="left"
+              >
+                <i
+                  class="pi pi-arrow-circle-left"
+                  style="font-size: 1.5rem"
+                  (click)="toggleCard()"
+                ></i>
+              </div>
               <h3>{{ "loginForget" | translate }}</h3>
             </div>
             <form autocomplete="off" [formGroup]="forgetForm">
