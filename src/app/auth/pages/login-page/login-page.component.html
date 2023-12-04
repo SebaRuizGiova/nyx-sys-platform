@@ -17,42 +17,57 @@
       <div class="flip-card" [ngClass]="{ flipped: isFlipped }">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <h3>{{ 'loginWelcome' | translate }}</h3>
-            <div class="inputs">
-              <shared-input-text
-                [placeholder]="'loginPlaceholderEmail' | translate"
-                [value]="emailText"
-                helper="Enter your email"
-                [error]="false"
-              />
-              <shared-input-password
-                [placeholder]="'loginPlaceholderPassword' | translate"
-                [value]="passwordText"
-                helper="Enter your password"
-                [error]="false"
-              />
-            </div>
-            <div class="button-login">
-              <shared-button [label]="'loginButtonSignIn' | translate" icon="pi-sign-in" />
-              <a class="remember" (click)="toggleCard()"
-                >{{ 'loginForgetPassword' | translate }}</a
-              >
-            </div>
+            <h3>{{ "loginWelcome" | translate }}</h3>
+            <form autocomplete="off" [formGroup]="loginForm">
+              <div class="inputs">
+                <shared-input-text
+                  [placeholder]="'loginPlaceholderEmail' | translate"
+                  helper="Debe ingresar un correo electrónico válido"
+                  [error]="isValidFieldLogin('emailLogin')"
+                  [formGroup]="loginForm"
+                  formControlName="emailLogin"
+                />
+                <shared-input-password
+                  [placeholder]="'loginPlaceholderPassword' | translate"
+                  helper="Debe ingresar una contraseña"
+                  [error]="isValidFieldLogin('passwordLogin')"
+                  [formGroup]="loginForm"
+                  formControlName="passwordLogin"
+                />
+              </div>
+              <div class="button-login">
+                <shared-button
+                  [label]="'loginButtonSignIn' | translate"
+                  icon="pi-sign-in"
+                  (click)="onLogin()"
+                />
+                <a class="remember" (click)="toggleCard()">{{
+                  "loginForgetPassword" | translate
+                }}</a>
+              </div>
+            </form>
           </div>
           <div class="flip-card-back">
             <div class="title">
-              <i class="pi pi-arrow-circle-left" style="font-size: 1.5rem" (click)="toggleCard()"></i>
-              <h3>{{ 'loginForget' | translate }}</h3>
+              <i
+                class="pi pi-arrow-circle-left"
+                style="font-size: 1.5rem"
+                (click)="toggleCard()"
+              ></i>
+              <h3>{{ "loginForget" | translate }}</h3>
             </div>
-            <shared-input-text
-              [placeholder]="'loginPlaceholderEmail' | translate"
-              [value]="emailTextRestore"
-              helper="Enter your email"
-              [error]="false"
-            />
-            <div class="button-send">
-              <shared-button [label]="'loginButtonSend' | translate" />
-            </div>
+            <form autocomplete="off" [formGroup]="forgetForm">
+              <shared-input-text
+                [placeholder]="'loginPlaceholderEmail' | translate"
+                helper="Debe ingresar un correo electrónico válido"
+                [error]="isValidFieldForget('emailForget')"
+                [formGroup]="forgetForm"
+                formControlName="emailForget"
+              />
+              <div class="button-send">
+                <shared-button [label]="'loginButtonSend' | translate" />
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -60,8 +75,17 @@
   </div>
   <div class="languages">
     <div>
-      <a class="link-lang" (click)="switchLanguage('en')">{{ 'loginLangEN' | translate }}</a> - <a class="link-lang" (click)="switchLanguage('es')">{{ 'loginLangES' | translate }}</a> -
-      <a class="link-lang" (click)="switchLanguage('it')">{{ 'loginLangIT' | translate }}</a>
+      <a class="link-lang" (click)="switchLanguage('en')">{{
+        "loginLangEN" | translate
+      }}</a>
+      -
+      <a class="link-lang" (click)="switchLanguage('es')">{{
+        "loginLangES" | translate
+      }}</a>
+      -
+      <a class="link-lang" (click)="switchLanguage('it')">{{
+        "loginLangIT" | translate
+      }}</a>
     </div>
     <hr />
   </div>

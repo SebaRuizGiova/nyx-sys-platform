@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { Error404PageComponent } from './pages/error404-page/error404-page.component';
@@ -38,7 +38,8 @@ import { InputPasswordComponent } from './components/input-password/input-passwo
     TranslateModule,
     ButtonModule,
     InputTextModule,
-    PasswordModule
+    PasswordModule,
+    ReactiveFormsModule
   ],
   exports: [
     SidebarComponent,

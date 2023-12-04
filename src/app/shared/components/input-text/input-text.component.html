@@ -1,12 +1,14 @@
-<div class="input-text">
-  <input
-    pInputText
-    [placeholder]="placeholder"
-    aria-describedby="helperRef"
-    [(ngModel)]="value"
-    class="p-inputtext-sm"
-    [class.ng-invalid]="error"
-    [class.ng-dirty]="error"
-  />
-  <small *ngIf="error" id="helperRef" class="p-error">{{ helper }}</small>
-</div>
+<form autocomplete="off" [formGroup]="formGroup">
+  <div class="input-text">
+    <input
+      pInputText
+      [placeholder]="placeholder"
+      aria-describedby="helperRef"
+      [formControlName]="formControlName"
+      class="p-inputtext-sm"
+      [class.ng-invalid]="error"
+      [class.ng-dirty]="error"
+    />
+    <small *ngIf="error" id="helperRef" class="p-error">{{ helper }}</small>
+  </div>
+</form>
