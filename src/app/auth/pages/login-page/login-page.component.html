@@ -22,14 +22,14 @@
               <div class="inputs">
                 <shared-input-text
                   [placeholder]="'loginPlaceholderEmail' | translate"
-                  helper="Debe ingresar un correo electrónico válido"
+                  [helper]="'loginInvalidEmail' | translate"
                   [error]="isValidFieldLogin('emailLogin')"
                   [formGroup]="loginForm"
                   formControlName="emailLogin"
                 />
                 <shared-input-password
                   [placeholder]="'loginPlaceholderPassword' | translate"
-                  helper="Debe ingresar una contraseña"
+                  [helper]="'loginInvalidPassword' | translate"
                   [error]="isValidFieldLogin('passwordLogin')"
                   [formGroup]="loginForm"
                   formControlName="passwordLogin"
@@ -64,7 +64,7 @@
             <form autocomplete="off" [formGroup]="forgetForm">
               <shared-input-text
                 [placeholder]="'loginPlaceholderEmail' | translate"
-                helper="Debe ingresar un correo electrónico válido"
+                [helper]="'loginInvalidEmail' | translate"
                 [error]="isValidFieldForget('emailForget')"
                 [formGroup]="forgetForm"
                 formControlName="emailForget"

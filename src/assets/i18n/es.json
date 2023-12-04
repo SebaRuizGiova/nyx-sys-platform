@@ -35,5 +35,7 @@
   "loginLangES": "Español",
   "loginLangEN": "Inglés",
   "loginLangIT": "Italiano",
-  "loginTooltipBack": "Atrás"
+  "loginTooltipBack": "Atrás",
+  "loginInvalidEmail": "Debe ingresar un correo electrónico válido",
+  "loginInvalidPassword": "Debe ingresar una contraseña"
 }
