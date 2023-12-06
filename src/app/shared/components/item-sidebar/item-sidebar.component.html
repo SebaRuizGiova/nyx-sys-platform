@@ -5,7 +5,7 @@
   [ngClass]="{ expand: expand }"
   (click)="actionButton()"
 >
-  <img [src]="'../../../../assets/icons/' + item.icon" alt="" class="icon" />
+  <img [src]="'assets/icons/' + item.icon" alt="" class="icon" />
   <span *ngIf="expand && !containElements">{{ item.label }}</span>
   <ng-content *ngIf="expand && containElements"></ng-content>
 </div>

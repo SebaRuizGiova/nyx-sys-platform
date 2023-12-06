@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 import { ThemeSelectionService } from 'src/app/shared/services/themeSelection.service';
-import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { ValidatorsService } from 'src/app/shared/services/validators.service';
+import { AuthService } from '../../services/auth.service';
+import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
+  providers: [MessageService],
 })
 export class LoginPageComponent implements OnInit {
   public emailText: string = '';
@@ -22,18 +24,31 @@ export class LoginPageComponent implements OnInit {
     private validatorsService: ValidatorsService,
     private translate: TranslateService,
     private fb: FormBuilder,
-    private fireAuth: AngularFireAuth,
-    private database: DatabaseService
+    private authService: AuthService,
+    private messageService: MessageService,
+    private router: Router
   ) {
     themeSelectionService.changeTheme(false);
   }
 
   public loginForm: FormGroup = this.fb.group({
-    emailLogin: ['', [ Validators.required, Validators.pattern(this.validatorsService.emailPattern) ]],
-    passwordLogin: ['', [ Validators.required ]],
+    emailLogin: [
+      'lucas.gonzalez@nyx-sys.com',
+      [
+        Validators.required,
+        Validators.pattern(this.validatorsService.emailPattern),
+      ],
+    ],
+    passwordLogin: ['lucas.gonzaleznyxsys2023', [Validators.required]],
   });
   public forgetForm: FormGroup = this.fb.group({
-    emailForget: ['', [ Validators.required, Validators.pattern(this.validatorsService.emailPattern) ]],
+    emailForget: [
+      'lucas.gonzalez@nyx-sys.com',
+      [
+        Validators.required,
+        Validators.pattern(this.validatorsService.emailPattern),
+      ],
+    ],
   });
 
   ngOnInit() {
@@ -56,59 +71,64 @@ export class LoginPageComponent implements OnInit {
     localStorage.setItem('lang', code);
   }
 
-  isValidFieldLogin( field: string ): boolean {
-    return this.validatorsService.isValidField( this.loginForm, field );
+  isValidFieldLogin(field: string): boolean {
+    return this.validatorsService.isValidField(this.loginForm, field);
   }
 
-  isValidFieldForget( field: string ): boolean {
-    return this.validatorsService.isValidField( this.forgetForm, field );
+  isValidFieldForget(field: string): boolean {
+    return this.validatorsService.isValidField(this.forgetForm, field);
   }
 
-  async onLogin() {
-    if ( this.loginForm.invalid ) {
+  onLogin() {
+    if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
       return;
-    };
+    }
 
     const email = this.loginForm.controls['emailLogin'].value;
     const password = this.loginForm.controls['passwordLogin'].value;
 
-    try {
-      await this.fireAuth
-        .signInWithEmailAndPassword(email, password)
-        .then(async (result) => {
-          var getUser: any;
-          const docRef = this.database.getAllUsers();
-          const snapshot = await docRef.ref
-            .where('UID', '==', result.user?.uid)
-            .get();
-
-          if (snapshot.empty) {
-            const question = 'Error!';
-            const explanation = 'This login has no account associated with it!';
-            console.log(explanation);
-          } else {
-            snapshot.forEach((doc) => {
-              getUser = doc.data();
-            });
-
-            localStorage.setItem('currentUser', JSON.stringify(getUser?.UID));
-
-            if (getUser) {
-              // window.location.reload();
-            }
-          }
-        })
-        .catch((error) => {
-          const question = '';
-          const explanation = 'User or password entered is not correct';
-
-          console.log(explanation);
+    this.authService
+      .login(email, password)
+      .then(() => window.location.reload())
+      .catch(() => {
+        const errorTitle = this.translate.instant('ToastTitleError');
+        const errorMessage = this.translate.instant('loginToastErrorLogin');
+        this.messageService.add({
+          severity: 'error',
+          summary: errorTitle,
+          detail: errorMessage,
         });
-    } catch (err) {
-      console.log(err);
+      });
+  }
+
+  onForgetPassword() {
+    if (this.forgetForm.invalid) {
+      this.forgetForm.markAllAsTouched();
+      return;
     }
 
-    // this.loading = false;
+    const email = this.forgetForm.controls['emailForget'].value;
+
+    this.authService
+      .resetPassword(email)
+      .then(() => {
+        const successTitle = this.translate.instant('ToastTitleCorrect');
+        const successMessage = this.translate.instant('loginToastSendEmail');
+        this.messageService.add({
+          severity: 'success',
+          summary: successTitle,
+          detail: successMessage,
+        })
+      })
+      .catch(() => {
+        const errorTitle = this.translate.instant('ToastTitleError');
+        const errorMessage = this.translate.instant('loginToastErrorSendEmail');
+        this.messageService.add({
+          severity: 'error',
+          summary: errorTitle,
+          detail: errorMessage,
+        });
+      });
   }
 }

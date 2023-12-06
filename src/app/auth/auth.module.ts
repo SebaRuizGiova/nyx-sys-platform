@@ -7,7 +7,9 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { SharedModule } from '../shared/shared.module';
+
 import { TooltipModule } from 'primeng/tooltip';
+import { ToastModule } from 'primeng/toast';
 
 
 
@@ -22,7 +24,8 @@ import { TooltipModule } from 'primeng/tooltip';
     SharedModule,
     TranslateModule,
     ReactiveFormsModule,
-    TooltipModule
+    TooltipModule,
+    ToastModule
   ]
 })
 export class AuthModule { }

@@ -112,6 +112,11 @@
           flex-direction: column;
           gap: 20px;
         }
+        .button-back {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
         .button-send {
           width: 100%;
           display: flex;

@@ -37,5 +37,10 @@
   "loginLangIT": "Italiano",
   "loginTooltipBack": "Atrás",
   "loginInvalidEmail": "Debe ingresar un correo electrónico válido",
-  "loginInvalidPassword": "Debe ingresar una contraseña"
+  "loginInvalidPassword": "Debe ingresar una contraseña",
+  "loginToastErrorLogin": "Usuario y/o contraseña incorrectos",
+  "loginToastSendEmail": "Email enviado correctamente",
+  "loginToastErrorSendEmail": "Hubo un error al enviar el email",
+  "ToastTitleCorrect": "Correcto",
+  "ToastTitleError": "Error"
 }

@@ -37,5 +37,10 @@
   "loginLangIT": "Italiano",
   "loginTooltipBack": "Indietro",
   "loginInvalidEmail": "È necessario inserire un indirizzo e-mail valido",
-  "loginInvalidPassword": "È necessario inserire una password"
+  "loginInvalidPassword": "È necessario inserire una password",
+  "loginToastErrorLogin": "Nome utente e/o password non corretti",
+  "loginToastSendEmail": "Email inviata correttamente",
+  "loginToastErrorSendEmail": "Si è verificato un errore nell'invio dell'email",
+  "ToastTitleCorrect": "Corretto",
+  "ToastTitleError": "Errore"
 }

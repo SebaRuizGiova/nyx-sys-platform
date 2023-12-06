@@ -1,13 +1,14 @@
 <div class="login-container">
+  <p-toast></p-toast>
   <div class="login-content">
     <div class="logo">
       <img
-        src="../../../../assets/logos/N_WHITE.svg"
+        src="assets/logos/N_WHITE.svg"
         alt="Logo"
         class="logo-nyxsys"
       />
       <img
-        src="../../../../assets/logos/NYXSYS WHITE_WORD.png"
+        src="assets/logos/NYXSYS WHITE_WORD.png"
         alt="NyxSys"
         class="word-nyxsys"
       />
@@ -52,6 +53,7 @@
               <div
                 [pTooltip]="'loginTooltipBack' | translate"
                 tooltipPosition="left"
+                class="button-back"
               >
                 <i
                   class="pi pi-arrow-circle-left"
@@ -70,7 +72,7 @@
                 formControlName="emailForget"
               />
               <div class="button-send">
-                <shared-button [label]="'loginButtonSend' | translate" />
+                <shared-button [label]="'loginButtonSend' | translate" (click)="onForgetPassword()" />
               </div>
             </form>
           </div>
