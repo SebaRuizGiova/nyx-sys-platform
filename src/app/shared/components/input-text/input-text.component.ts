@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, forwardRef } from '@angular/core';
+import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormGroup } from '@angular/forms';
 
 @Component({
@@ -27,7 +27,7 @@ export class InputTextComponent implements ControlValueAccessor {
 
   writeValue(value: string): void {
     this.innerValue = value;
-    this.onChange(value); // Notify the form about the initial value
+    this.onChange(value);
   }
 
   registerOnChange(fn: any): void {

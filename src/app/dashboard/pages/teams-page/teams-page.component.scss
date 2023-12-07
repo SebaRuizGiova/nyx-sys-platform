@@ -4,6 +4,17 @@
   align-items: center;
   height: 53px;
 
+  .selectTeam {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    i {
+      cursor: pointer;
+    }
+  }
+
   .buttons-right {
     display: flex;
     justify-content: flex-end;

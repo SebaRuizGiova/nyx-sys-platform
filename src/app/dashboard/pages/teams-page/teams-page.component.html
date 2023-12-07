@@ -10,6 +10,30 @@
       formControlName="period"
     />
   </form>
+  <form [formGroup]="teamForm" class="selectTeam">
+    <i
+      class="pi pi-arrow-left"
+      style="font-size: 1rem"
+      pTooltip="Ir al grupo anterior"
+      tooltipPosition="left"
+    ></i>
+    <shared-dropdown
+      labelButton="Grupo ejemplo"
+      position="center-bottom"
+      pTooltip="Ver todos los grupos"
+      tooltipPosition="bottom"
+      [items]="periodItems"
+      [formGroup]="teamForm"
+      formControlName="selectedTeam"
+      [noButton]="true"
+    />
+    <i
+      class="pi pi-arrow-right"
+      style="font-size: 1rem"
+      pTooltip="Ir al grupo siguiente"
+      tooltipPosition="right"
+    ></i>
+  </form>
   <div class="buttons-right">
     <shared-dropdown
       labelButton="Descargar reporte"
@@ -44,7 +68,12 @@
       <div class="content-dropdown">
         <div class="selects">
           <span class="p-input-icon-right">
-            <input type="text" pInputText formControlName="searchByName" placeholder="Buscar por nombre..." />
+            <input
+              type="text"
+              pInputText
+              formControlName="searchByName"
+              placeholder="Buscar por nombre..."
+            />
             <i class="pi pi-search"></i>
           </span>
           <shared-select

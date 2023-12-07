@@ -16,6 +16,11 @@ form {
   justify-content: center;
   position: relative;
 
+  .buttonText {
+    cursor: pointer;
+    user-select: none;
+  }
+
   .popup {
     height: 0px;
     border: none;
@@ -64,6 +69,11 @@ form {
     &.left-top {
       bottom: 45px;
       left: 0;
+    }
+    &.center-bottom {
+      top: 45px;
+      left: -50%;
+      right: -50%;
     }
 
     &.show {
