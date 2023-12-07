@@ -12,6 +12,9 @@ import { SharedModule } from '../shared/shared.module';
 
 import { DropdownModule } from 'primeng/dropdown';
 import { TooltipModule } from 'primeng/tooltip';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputSwitchModule } from 'primeng/inputswitch';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -29,7 +32,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     DropdownModule,
     TooltipModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputTextModule,
+    InputSwitchModule
   ]
 })
 export class DashboardModule { }

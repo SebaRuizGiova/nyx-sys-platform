@@ -16,14 +16,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    gap: 10px;
+    gap: 20px;
 
     .selects {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      gap: 10px;
+      align-items: flex-end;
+      gap: 16px;
+
+      .switch {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+
+        span {
+          font-size: 12px;
+        }
+      }
     }
   }
+}
+
+shared-select {
+  width: 100%;
+}
+
+:host ::ng-deep .p-inputtext {
+  height: 45px;
 }

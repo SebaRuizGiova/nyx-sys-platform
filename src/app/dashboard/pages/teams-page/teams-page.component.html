@@ -1,48 +1,65 @@
 <header class="header">
-  <shared-dropdown
-    iconButton="pi-calendar"
-    position="left-bottom"
-    pTooltip="Seleccionar periodo"
-    tooltipPosition="right"
-    [items]="periodItems"
-  />
+  <form [formGroup]="periodForm">
+    <shared-dropdown
+      iconButton="pi-calendar"
+      position="left-bottom"
+      pTooltip="Seleccionar periodo"
+      tooltipPosition="right"
+      [items]="periodItems"
+      [formGroup]="periodForm"
+      formControlName="period"
+    />
+  </form>
   <div class="buttons-right">
-    <shared-dropdown labelButton="Descargar reporte" iconButton="pi-angle-down">
+    <shared-dropdown
+      labelButton="Descargar reporte"
+      iconButton="pi-angle-down"
+      [formGroup]="downloadForm"
+    >
       <div class="content-dropdown">
         <div class="selects">
-          <p-dropdown
+          <shared-select
             [options]="[]"
             optionLabel="name"
-            [showClear]="true"
-            placeholder="Select a City"
-          ></p-dropdown>
-          <p-dropdown
+            placeholder="Seleccionar formato"
+            [formGroup]="downloadForm"
+            formControlName="format"
+          />
+          <shared-select
             [options]="[]"
             optionLabel="name"
-            [showClear]="true"
-            placeholder="Select a City"
-          ></p-dropdown>
+            placeholder="Seleccionar rango"
+            [formGroup]="downloadForm"
+            formControlName="range"
+          />
         </div>
         <shared-button label="Descargar" icon="pi-download" />
       </div>
     </shared-dropdown>
-    <shared-dropdown iconButton="pi-filter" pTooltip="Filtros">
+    <shared-dropdown
+      iconButton="pi-filter"
+      pTooltip="Filtros"
+      [formGroup]="filtersForm"
+    >
       <div class="content-dropdown">
         <div class="selects">
-          <p-dropdown
+          <span class="p-input-icon-right">
+            <input type="text" pInputText formControlName="searchByName" placeholder="Buscar por nombre..." />
+            <i class="pi pi-search"></i>
+          </span>
+          <shared-select
             [options]="[]"
             optionLabel="name"
-            [showClear]="true"
-            placeholder="Select a City"
-          ></p-dropdown>
-          <p-dropdown
-            [options]="[]"
-            optionLabel="name"
-            [showClear]="true"
-            placeholder="Select a City"
-          ></p-dropdown>
+            placeholder="Ordenar por..."
+            [formGroup]="filtersForm"
+            formControlName="orderBy"
+          />
+          <span class="switch">
+            <span>Mostrar todos</span>
+            <p-inputSwitch formControlName="actualProfile" />
+          </span>
         </div>
-        <shared-button label="Descargar" icon="pi-download" />
+        <shared-button label="Borrar filtros" />
       </div>
     </shared-dropdown>
   </div>

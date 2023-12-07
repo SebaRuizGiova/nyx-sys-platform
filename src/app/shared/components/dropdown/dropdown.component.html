@@ -1,5 +1,5 @@
 <div class="background" *ngIf="showPopup" (click)="tooglePopup()"></div>
-<div class="dropdown">
+<div class="dropdown" [formGroup]="formGroup">
   <shared-button
     [label]="labelButton"
     [icon]="iconButton"
@@ -7,8 +7,18 @@
     [pTooltip]="!labelButton && tooltipButton ? tooltipButton : ''"
     [tooltipPosition]="tooltipPosition || 'left'"
   />
-  <div [class]="'popup ' + position" [ngClass]="{ show: showPopup, 'no-padding': items?.length }">
+  <div
+    [class]="'popup ' + position"
+    [ngClass]="{ show: showPopup, 'no-padding': items?.length }"
+  >
     <ng-content *ngIf="showPopup"></ng-content>
-    <div *ngFor="let item of items" class="item" [ngClass]="{ show: showPopup }">{{ item?.label }}</div>
+    <div
+      *ngFor="let item of items"
+      class="item"
+      [ngClass]="{ show: showPopup }"
+      (click)="selectItem(item.value || '')"
+    >
+      {{ item?.label }}
+    </div>
   </div>
 </div>

@@ -27,4 +27,16 @@ export class TeamsPageComponent {
   public periodForm: FormGroup = this.fb.group({
     period: '',
   });
+  public teamForm: FormGroup = this.fb.group({
+    selectedTeam: '',
+  });
+  public downloadForm: FormGroup = this.fb.group({
+    format: '',
+    range: ''
+  });
+  public filtersForm: FormGroup = this.fb.group({
+    searchByName: '',
+    orderBy: '',
+    actualProfile: false,
+  });
 }
