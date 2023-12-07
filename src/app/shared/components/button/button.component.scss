@@ -9,7 +9,9 @@
   &:focus {
     background-color: $nyxsys-white;
   }
+
 }
+
 :host ::ng-deep .p-button-icon,
 :host ::ng-deep .p-button-label {
   color: $grey-light;

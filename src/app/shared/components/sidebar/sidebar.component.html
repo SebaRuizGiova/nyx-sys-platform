@@ -17,7 +17,7 @@
     ></i>
     <ng-template #menuIcon>
       <img
-        src="'assets/icons/menu.svg"
+        src="assets/icons/menu.svg"
         alt=""
         class="icon"
         (click)="toggleSidebar()"
@@ -49,6 +49,7 @@
       [pTooltip]="show ? '' : 'sidebarSignOut' | translate"
       [showDelay]="300"
       [ngClass]="{ show: show }"
+      (click)="onLogout()"
     >
       <i class="pi pi-sign-out" style="font-size: 1.3rem"></i>
       <span *ngIf="show">{{ 'sidebarSignOut' | translate }}</span>

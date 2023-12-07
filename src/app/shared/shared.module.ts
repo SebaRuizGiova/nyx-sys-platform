@@ -18,6 +18,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent } from './components/button/button.component';
 import { InputTextComponent } from './components/input-text/input-text.component';
 import { InputPasswordComponent } from './components/input-password/input-password.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { SelectComponent } from './components/select/select.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { InputPasswordComponent } from './components/input-password/input-passwo
     ButtonComponent,
     InputTextComponent,
     InputPasswordComponent,
+    DropdownComponent,
+    SelectComponent,
   ],
   imports: [
     CommonModule,
@@ -46,7 +50,9 @@ import { InputPasswordComponent } from './components/input-password/input-passwo
     Error404PageComponent,
     ButtonComponent,
     InputTextComponent,
-    InputPasswordComponent
+    InputPasswordComponent,
+    DropdownComponent,
+    SelectComponent
   ]
 })
 export class SharedModule { }

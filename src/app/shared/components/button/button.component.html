@@ -1,1 +1,7 @@
-<p-button [label]="label" [icon]="icon ? 'pi ' + icon : ''" [iconPos]="iconPos"></p-button>
+<p-button
+  [label]="label ? label : ''"
+  [icon]="icon ? 'pi ' + icon : ''"
+  [iconPos]="iconPos"
+  [pTooltip]="tooltipButton || ''"
+  [tooltipPosition]="tooltipPosition || 'left'"
+></p-button>

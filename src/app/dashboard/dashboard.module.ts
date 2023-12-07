@@ -10,6 +10,10 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
 
+import { DropdownModule } from 'primeng/dropdown';
+import { TooltipModule } from 'primeng/tooltip';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -22,7 +26,10 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    SharedModule
+    SharedModule,
+    DropdownModule,
+    TooltipModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

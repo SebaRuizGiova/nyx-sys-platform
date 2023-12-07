@@ -1,1 +1,50 @@
-<p>teams-page works!</p>
+<header class="header">
+  <shared-dropdown
+    iconButton="pi-calendar"
+    position="left-bottom"
+    pTooltip="Seleccionar periodo"
+    tooltipPosition="right"
+    [items]="periodItems"
+  />
+  <div class="buttons-right">
+    <shared-dropdown labelButton="Descargar reporte" iconButton="pi-angle-down">
+      <div class="content-dropdown">
+        <div class="selects">
+          <p-dropdown
+            [options]="[]"
+            optionLabel="name"
+            [showClear]="true"
+            placeholder="Select a City"
+          ></p-dropdown>
+          <p-dropdown
+            [options]="[]"
+            optionLabel="name"
+            [showClear]="true"
+            placeholder="Select a City"
+          ></p-dropdown>
+        </div>
+        <shared-button label="Descargar" icon="pi-download" />
+      </div>
+    </shared-dropdown>
+    <shared-dropdown iconButton="pi-filter" pTooltip="Filtros">
+      <div class="content-dropdown">
+        <div class="selects">
+          <p-dropdown
+            [options]="[]"
+            optionLabel="name"
+            [showClear]="true"
+            placeholder="Select a City"
+          ></p-dropdown>
+          <p-dropdown
+            [options]="[]"
+            optionLabel="name"
+            [showClear]="true"
+            placeholder="Select a City"
+          ></p-dropdown>
+        </div>
+        <shared-button label="Descargar" icon="pi-download" />
+      </div>
+    </shared-dropdown>
+  </div>
+</header>
+<hr />

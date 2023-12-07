@@ -5,6 +5,7 @@ import { ItemSidebar } from '../../interfaces/item-sidebar.interface';
 import { Language } from '../../interfaces/language.interface';
 import { TranslateService } from '@ngx-translate/core';
 import { CurrentRouteService } from '../../services/currentRoute.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'shared-sidebar',
@@ -31,6 +32,7 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     private currentRouteService: CurrentRouteService,
+    private authService: AuthService,
     public translate: TranslateService
   ) {}
 
@@ -98,5 +100,10 @@ export class SidebarComponent implements OnInit {
   selectLanguage(code: string): void {
     this.loadTranslations(code);
     localStorage.setItem('lang', code);
+  }
+
+  onLogout() {
+    this.authService.logout();
+    window.location.reload();
   }
 }
