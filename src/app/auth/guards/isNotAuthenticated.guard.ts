@@ -16,7 +16,7 @@ export class isNotAuthenticatedGuard implements CanActivate {
     return this.authService.isAuthenticated().pipe(
       map((isAuthenticated) => {
         if (isAuthenticated) {
-          this.router.navigateByUrl('/dashboard/teams');
+          this.router.navigateByUrl('/dashboard/groups');
         }
         return !isAuthenticated;
       })

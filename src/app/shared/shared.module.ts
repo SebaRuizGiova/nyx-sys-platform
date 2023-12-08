@@ -31,7 +31,7 @@ import { SelectComponent } from './components/select/select.component';
     InputTextComponent,
     InputPasswordComponent,
     DropdownComponent,
-    SelectComponent
+    SelectComponent,
   ],
   imports: [
     CommonModule,
@@ -52,7 +52,7 @@ import { SelectComponent } from './components/select/select.component';
     InputTextComponent,
     InputPasswordComponent,
     DropdownComponent,
-    SelectComponent
+    SelectComponent,
   ]
 })
 export class SharedModule { }

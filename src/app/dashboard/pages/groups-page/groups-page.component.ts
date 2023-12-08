@@ -3,10 +3,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 
 @Component({
-  templateUrl: './teams-page.component.html',
-  styleUrls: ['./teams-page.component.scss'],
+  templateUrl: './groups-page.component.html',
+  styleUrls: ['./groups-page.component.scss'],
 })
-export class TeamsPageComponent {
+export class GroupsPageComponent {
   public periodItems: ItemDropdown[] = [
     {
       label: 'Periodo 1',

@@ -58,7 +58,7 @@ export class SidebarComponent implements OnInit {
   }
 
   private getItems(path: string): void {
-    if (path.includes('teams')) {
+    if (path.includes('groups')) {
       this.translate.get('sidebarTeamsItems').subscribe((translations: any) => {
         this.dinamicItems = translations;
       });

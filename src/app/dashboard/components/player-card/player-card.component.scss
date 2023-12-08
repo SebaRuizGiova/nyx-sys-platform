@@ -1,0 +1,78 @@
+@import "../../../../variables.scss";
+
+.card-player {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: auto;
+  background: $grey-light;
+  padding: 16px;
+  border-radius: 5px;
+  font-size: 14px;
+
+  hr {
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: $grey-super-light;
+    color: $grey-super-light;
+    margin-top: 0;
+  }
+
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    .device-name {
+      font-size: 12px;
+      color: lighten($grey-super-light, 20%);
+    }
+  }
+
+  .card-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+
+    .hrv,
+    .recovery {
+      display: flex;
+      align-items: center;
+    }
+
+    .value-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+
+      .value {
+        font-weight: 700;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+      }
+
+      .description {
+        font-weight: 400;
+        font-size: 12px;
+
+        &-hrv {
+          margin: 0 0 0 19px;
+        }
+        &-recovery {
+          margin: 0 15px 0 0;
+        }
+      }
+    }
+
+    .sleep-core {
+      // width: 90px;
+      // height: 90px;
+    }
+  }
+}

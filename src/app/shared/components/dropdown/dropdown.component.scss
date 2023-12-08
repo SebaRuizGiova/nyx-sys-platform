@@ -26,7 +26,7 @@ form {
     border: none;
     position: absolute;
     padding: 0;
-    background: #242526;
+    background: $grey-light;
     border-radius: 5px;
     z-index: 210;
 
@@ -41,7 +41,7 @@ form {
       border-bottom: 1px solid #3f3f3f;
       min-width: 150px;
       display: none;
-      background: #242526;
+      background: $grey-light;
       user-select: none;
       text-wrap: nowrap;
 
@@ -50,7 +50,7 @@ form {
       }
 
       &:hover {
-        background: lighten(#242526, 10%);
+        background: lighten($grey-light, 10%);
       }
     }
 
