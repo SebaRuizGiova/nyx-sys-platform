@@ -7,10 +7,22 @@
         : "Ningún dispositivo asociado"
     }}</span>
     <span
+      *ngIf="status === 'Online' || status === 'Offline'; else active"
       class="status-device"
       [pTooltip]="status"
       tooltipPosition="right"
+      [style]="{
+        background: status === 'Online' ? '#1EE280' : '#898989'
+      }"
     ></span>
+    <ng-template #active>
+      <img
+        src="assets/icons/heart-rate.svg"
+        class="status-device active"
+        [pTooltip]="status"
+        tooltipPosition="right"
+      />
+    </ng-template>
   </div>
   <hr />
   <div class="card-content">
@@ -47,7 +59,9 @@
       </div>
       <i
         *ngIf="recovery"
-        [class]="recovery > 0 ? 'pi pi-angle-up recovery' : 'pi pi-angle-down recovery'"
+        [class]="
+          recovery > 0 ? 'pi pi-angle-up recovery' : 'pi pi-angle-down recovery'
+        "
         style="color: slateblue"
         pTooltip="Indica un aumento/disminución de la recuperación comparado al último
         periodo de sueño"
