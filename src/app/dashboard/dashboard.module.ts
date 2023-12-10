@@ -16,7 +16,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputSwitchModule } from 'primeng/inputswitch';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { PlayerCardComponent } from './components/player-card/player-card.component';
+import { ProfileCardComponent } from './components/player-card/profile-card.component';
 
 
 
@@ -26,7 +26,7 @@ import { PlayerCardComponent } from './components/player-card/player-card.compon
     LayoutPageComponent,
     ProfilePageComponent,
     AdminPageComponent,
-    PlayerCardComponent
+    ProfileCardComponent
   ],
   imports: [
     CommonModule,

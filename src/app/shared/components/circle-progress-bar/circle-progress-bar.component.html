@@ -1,0 +1,29 @@
+<div class="progress-bar" pTooltip="Se basa en la cantidad de horas de sueño y el desarrollo
+de sus fases (Light, Deep y Rem)." tooltipPosition="bottom">
+  <div class="value">
+    <img src="assets/icons/diamond.svg" />
+    <span> {{ sleepScore }} </span>
+  </div>
+  <round-progress
+    [current]="sleepScore"
+    [max]="max"
+    [color]="'url(#gradient)'"
+    [background]="'#2f2f2f'"
+    [radius]="40"
+    [stroke]="10"
+    [rounded]="true"
+    [clockwise]="true"
+    [responsive]="false"
+    [duration]="800"
+    [animation]="'easeInOutQuart'"
+    [animationDelay]="0"
+  />
+  <svg>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="5%" stop-color="#7993EE" />
+      <stop offset="25%" stop-color="#3043CE" />
+      <stop offset="75%" stop-color="#1D2C95" />
+      <stop offset="95%" stop-color="#000A3D" />
+    </linearGradient>
+  </svg>
+</div>

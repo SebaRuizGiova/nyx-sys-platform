@@ -13,6 +13,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent } from './components/button/button.component';
@@ -20,6 +21,7 @@ import { InputTextComponent } from './components/input-text/input-text.component
 import { InputPasswordComponent } from './components/input-password/input-password.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { SelectComponent } from './components/select/select.component';
+import { CircleProgressBarComponent } from './components/circle-progress-bar/circle-progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { SelectComponent } from './components/select/select.component';
     InputPasswordComponent,
     DropdownComponent,
     SelectComponent,
+    CircleProgressBarComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +46,8 @@ import { SelectComponent } from './components/select/select.component';
     ButtonModule,
     InputTextModule,
     PasswordModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RoundProgressModule
   ],
   exports: [
     SidebarComponent,
@@ -53,6 +57,7 @@ import { SelectComponent } from './components/select/select.component';
     InputPasswordComponent,
     DropdownComponent,
     SelectComponent,
+    CircleProgressBarComponent
   ]
 })
 export class SharedModule { }
