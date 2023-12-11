@@ -16,7 +16,7 @@ import { DropdownComponent } from '../dropdown/dropdown.component';
   ],
 })
 export class SelectComponent implements ControlValueAccessor {
-  @Input({ required: true }) options!: DropdownItem[];
+  @Input({ required: true }) options!: any[];
   @Input() placeholder?: string;
   @Input() optionLabel?: string;
   @Input() optionValue?: string;

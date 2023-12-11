@@ -3,7 +3,7 @@
     <shared-dropdown
       iconButton="pi-calendar"
       position="left-bottom"
-      pTooltip="Seleccionar periodo"
+      [pTooltip]="'groupPeriodSelect' | translate"
       tooltipPosition="right"
       [items]="periodItems"
       [formGroup]="periodForm"
@@ -14,13 +14,13 @@
     <i
       class="pi pi-arrow-left"
       style="font-size: 1rem"
-      pTooltip="Ir al grupo anterior"
+      [pTooltip]="'groupForwardTooltip' | translate"
       tooltipPosition="left"
     ></i>
     <shared-dropdown
       labelButton="Grupo ejemplo"
       position="center-bottom"
-      pTooltip="Ver todos los grupos"
+      [pTooltip]="'groupAllTooltip' | translate"
       tooltipPosition="bottom"
       [items]="periodItems"
       [formGroup]="teamForm"
@@ -30,39 +30,37 @@
     <i
       class="pi pi-arrow-right"
       style="font-size: 1rem"
-      pTooltip="Ir al grupo siguiente"
+      [pTooltip]="'groupNextTooltip' | translate"
       tooltipPosition="right"
     ></i>
   </form>
   <div class="buttons-right">
     <shared-dropdown
-      labelButton="Descargar reporte"
+      [labelButton]="'groupDownloadReportLabel' | translate"
       iconButton="pi-angle-down"
       [formGroup]="downloadForm"
     >
       <div class="content-dropdown">
         <div class="selects">
           <shared-select
-            [options]="[]"
-            optionLabel="name"
-            placeholder="Seleccionar formato"
+            [options]="formatDownloadItems"
+            [placeholder]="'groupSelectFormatPlaceholder' | translate"
             [formGroup]="downloadForm"
             formControlName="format"
           />
           <shared-select
-            [options]="[]"
-            optionLabel="name"
-            placeholder="Seleccionar rango"
+            [options]="rangeDownloadItems"
+            [placeholder]="'groupSelectRangePlaceholder' | translate"
             [formGroup]="downloadForm"
             formControlName="range"
           />
         </div>
-        <shared-button label="Descargar" icon="pi-download" />
+        <shared-button [label]="'groupDownloadLabel' | translate" icon="pi-download" />
       </div>
     </shared-dropdown>
     <shared-dropdown
       iconButton="pi-filter"
-      pTooltip="Filtros"
+      [pTooltip]="'groupFilterTooltip' | translate"
       [formGroup]="filtersForm"
     >
       <div class="content-dropdown">
@@ -72,23 +70,22 @@
               type="text"
               pInputText
               formControlName="searchByName"
-              placeholder="Buscar por nombre..."
+              [placeholder]="'groupSearchByName' | translate"
             />
             <i class="pi pi-search"></i>
           </span>
           <shared-select
-            [options]="[]"
-            optionLabel="name"
-            placeholder="Ordenar por..."
+            [options]="orderByItems"
+            [placeholder]="'groupOrderBy' | translate"
             [formGroup]="filtersForm"
             formControlName="orderBy"
           />
           <span class="switch">
-            <span>Mostrar todos</span>
+            <span>{{ filtersForm.value.actualProfile ? ('groupShowAll' | translate) : ('groupShowCurrentPeriod' | translate)}}</span>
             <p-inputSwitch formControlName="actualProfile" />
           </span>
         </div>
-        <shared-button label="Borrar filtros" />
+        <shared-button [label]="'groupDeleteFilters' | translate" />
       </div>
     </shared-dropdown>
   </div>

@@ -1,6 +1,6 @@
 {
   "sidebarMenuButton": "Desplegar",
-  "sidebarTeamsItems": [
+  "sidebarGroupsItems": [
     {
       "label": "Vista de grupo",
       "icon": "grid-icon.svg"
@@ -42,5 +42,31 @@
   "loginToastSendEmail": "Email enviado correctamente",
   "loginToastErrorSendEmail": "Hubo un error al enviar el email",
   "ToastTitleCorrect": "Correcto",
-  "ToastTitleError": "Error"
+  "ToastTitleError": "Error",
+
+  "groupRangeDownloadItems": [
+    "Periodo actual",
+    "7 días",
+    "15 días",
+    "30 días",
+    "Histórico"
+  ],
+  "groupOrderByItems": [
+    "Puntaje de sueño: mayor a menor",
+    "Puntaje de sueño: menor a mayor"
+  ],
+  "groupPeriodSelect": "Seleccionar periodo",
+  "groupForwardTooltip": "Ir al grupo anterior",
+  "groupNextTooltip": "Ir al grupo siguiente",
+  "groupAllTooltip": "Ver todos los grupos",
+  "groupDownloadReportLabel": "Descargar reporte",
+  "groupDownloadLabel": "Descargar",
+  "groupSelectFormatPlaceholder": "Seleccionar formato",
+  "groupSelectRangePlaceholder": "Seleccionar rango",
+  "groupFilterTooltip": "Filtros",
+  "groupSearchByName": "Buscar por nombre...",
+  "groupOrderBy": "Ordenar por...",
+  "groupShowAll": "Mostrar todos",
+  "groupShowCurrentPeriod": "Mostrar solo perfiles con un periodo actual",
+  "groupDeleteFilters": "Borrar filtros"
 }

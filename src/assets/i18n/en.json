@@ -1,6 +1,6 @@
 {
   "sidebarMenuButton": "Expand",
-  "sidebarTeamsItems": [
+  "sidebarGroupsItems": [
     {
       "label": "Group View",
       "icon": "grid-icon.svg"
@@ -42,5 +42,28 @@
   "loginToastSendEmail": "Email sent successfully",
   "loginToastErrorSendEmail": "There was an error sending the email",
   "ToastTitleCorrect": "Correct",
-  "ToastTitleError": "Error"
+  "ToastTitleError": "Error",
+
+  "groupRangeDownloadItems": [
+    "Current period",
+    "7 days",
+    "15 days",
+    "30 days",
+    "Historical"
+  ],
+  "groupOrderByItems": ["Sleep score: high to low", "Sleep score: low to high"],
+  "groupPeriodSelect": "Select period",
+  "groupForwardTooltip": "Go to the previous group",
+  "groupNextTooltip": "Go to the next group",
+  "groupAllTooltip": "View all groups",
+  "groupDownloadReportLabel": "Download report",
+  "groupDownloadLabel": "Download",
+  "groupSelectFormatPlaceholder": "Select format",
+  "groupSelectRangePlaceholder": "Select range",
+  "groupFilterTooltip": "Filters",
+  "groupSearchByName": "Search by name...",
+  "groupOrderBy": "Order by...",
+  "groupShowAll": "Show all",
+  "groupShowCurrentPeriod": "Show only profiles with current period",
+  "groupDeleteFilters": "Clear filters"
 }

@@ -15,7 +15,7 @@
       </span>
     </ng-template>
     <div
-      [class]="'popup ' + position"
+      [class]="'popup ' + position + (items?.length ? ' items' : '')"
       [ngClass]="{ show: showPopup, 'no-padding': items?.length }"
     >
       <ng-content *ngIf="showPopup"></ng-content>

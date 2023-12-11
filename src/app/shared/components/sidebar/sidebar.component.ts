@@ -6,6 +6,7 @@ import { Language } from '../../interfaces/language.interface';
 import { TranslateService } from '@ngx-translate/core';
 import { CurrentRouteService } from '../../services/currentRoute.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'shared-sidebar',
@@ -28,48 +29,41 @@ export class SidebarComponent implements OnInit {
   public languages: any[] = [];
   public selectedLanguage?: Language;
   public currentRoute: string = '';
-  public currentLang: string = '';
 
   constructor(
     private currentRouteService: CurrentRouteService,
     private authService: AuthService,
-    public translate: TranslateService
+    public languageService: LanguageService
   ) {}
 
   ngOnInit(): void {
     this.currentRoute = this.currentRouteService.currentRoute;
-    this.currentLang = localStorage.getItem('lang') || '';
-    if (this.currentLang) {
-      this.translate.setDefaultLang(this.currentLang);
-      this.loadTranslations(this.currentLang);
-      this.selectedLanguage = this.languages.find(
-        (lang) => lang.code === this.currentLang
-      );
-    } else {
-      this.translate.setDefaultLang('es');
-      this.loadTranslations('es');
-      this.selectedLanguage = { name: 'Español', code: 'es' };
-    }
+    this.loadTranslations();
+    this.selectedLanguage = this.languages.find(
+      (lang) => lang.code === this.languageService.currentLang
+    );
   }
 
   private updateItems() {
     this.getItems(this.currentRoute);
-    this.getDefaultItems(this.currentRoute);
+    this.getDefaultItems();
   }
 
   private getItems(path: string): void {
     if (path.includes('groups')) {
-      this.translate.get('sidebarTeamsItems').subscribe((translations: any) => {
-        this.dinamicItems = translations;
-      });
+      this.languageService
+        .getTranslate('sidebarGroupsItems')
+        .subscribe((translations: any) => {
+          this.dinamicItems = translations;
+        });
     }
   }
 
-  private getDefaultItems(path: string): void {
-    this.translate.get('sidebarSettings').subscribe((translation: any) => {
+  private getDefaultItems(): void {
+    this.languageService.getTranslate('sidebarSettings').subscribe((translation: any) => {
       this.configItem = translation;
     });
-    this.translate.get('sidebarLanguage').subscribe((translation: any) => {
+    this.languageService.getTranslate('sidebarLanguage').subscribe((translation: any) => {
       this.languageItem = translation;
     });
   }
@@ -82,15 +76,14 @@ export class SidebarComponent implements OnInit {
     this.show = !this.show;
   }
 
-  private loadTranslations(languageCode: string) {
-    this.translate.use(languageCode);
-    this.translate.get('languagesDropdown').subscribe((translations: any) => {
+  private loadTranslations() {
+    this.languageService.getTranslate('languagesDropdown').subscribe((translations: any) => {
       this.languages = translations;
       const [currentLang] = this.languages.filter(
-        (lang) => lang.code === languageCode
+        (lang) => lang.code === this.languageService.currentLang
       );
       this.languages = this.languages.filter(
-        (lang) => lang.code !== languageCode
+        (lang) => lang.code !== this.languageService.currentLang
       );
       this.languages.unshift(currentLang);
     });
@@ -98,7 +91,8 @@ export class SidebarComponent implements OnInit {
   }
 
   selectLanguage(code: string): void {
-    this.loadTranslations(code);
+    this.languageService.selectLang(code);
+    this.loadTranslations();
     localStorage.setItem('lang', code);
   }
 

@@ -9,6 +9,7 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { DropdownModule } from 'primeng/dropdown';
 import { TooltipModule } from 'primeng/tooltip';
@@ -36,7 +37,8 @@ import { ProfileCardComponent } from './components/player-card/profile-card.comp
     TooltipModule,
     ReactiveFormsModule,
     InputTextModule,
-    InputSwitchModule
+    InputSwitchModule,
+    TranslateModule
   ]
 })
 export class DashboardModule { }
