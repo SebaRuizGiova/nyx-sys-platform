@@ -3,8 +3,8 @@
     <span class="player-name">{{ playerName }}</span>
     <span class="device-name">{{
       deviceName
-        ? "Dispositivo NS: " + deviceName
-        : "Ningún dispositivo asociado"
+        ? ('profileCardDeviceName' | translate) + deviceName
+        : ('profileCardAnyDevice' | translate)
     }}</span>
     <span
       *ngIf="status === 'Online' || status === 'Offline'; else active"
@@ -27,46 +27,56 @@
   <hr />
   <div class="card-content">
     <div class="value-content">
-      <i
-        *ngIf="hrv"
-        [class]="hrv > 0 ? 'pi pi-angle-up hrv' : 'pi pi-angle-down hrv'"
-        style="color: slateblue"
-      ></i>
       <div class="value">
-        <span>{{ hrv || "-" }}</span>
-        <span
-          class="description"
-          pTooltip="Es un indicador del nivel de salud cardiovascular
-        y funciona como un marcador biológico
-        del estado emocional."
-          tooltipPosition="bottom"
-        >
-          HRV
-        </span>
-      </div>
-    </div>
-    <shared-circle-progress-bar [sleepScore]="sleepScore" />
-    <div class="value-content">
-      <div class="value">
+        <i
+          *ngIf="recovery"
+          [class]="
+            recovery > 0
+              ? 'pi pi-angle-up recovery'
+              : 'pi pi-angle-down recovery'
+          "
+          style="color: slateblue"
+          [pTooltip]="
+            recovery > 0
+              ? ('profileCardRecoveryAscArrow' | translate)
+              : ('profileCardRecoveryDescArrow' | translate)
+          "
+          tooltipPosition="left"
+        ></i>
         <span>{{ recovery || "-" }}</span>
         <span
           class="description"
-          pTooltip="Representa la recuperación física durante el descanso respecto a la rutina diaria."
+          [pTooltip]="'profileCardRecoveryDescriptionTooltip' | translate"
           tooltipPosition="bottom"
         >
-          Recovery
+          {{ 'profileCardRecoveryDescription' | translate }}
         </span>
       </div>
-      <i
-        *ngIf="recovery"
-        [class]="
-          recovery > 0 ? 'pi pi-angle-up recovery' : 'pi pi-angle-down recovery'
-        "
-        style="color: slateblue"
-        pTooltip="Indica un aumento/disminución de la recuperación comparado al último
-        periodo de sueño"
-        tooltipPosition="right"
-      ></i>
+    </div>
+
+    <shared-circle-progress-bar [sleepScore]="sleepScore" />
+
+    <div class="value-content">
+      <div class="value">
+        <div *ngIf="sna; else empty" class="sna">
+          <span
+            [pTooltip]="'profileCardSNASTooltip' | translate"
+            >{{ sna.simpatic }}<small>S</small>/</span
+          >
+          <span
+            [pTooltip]="'profileCardSNAPTooltip' | translate"
+            >{{ sna.parasimpatic }}<small>P</small></span
+          >
+        </div>
+        <ng-template #empty>-</ng-template>
+        <span
+          class="description"
+          [pTooltip]="'profileCardSNADescriptionTooltip' | translate"
+          tooltipPosition="bottom"
+        >
+          {{ 'profileCardSNADescription' | translate }}
+        </span>
+      </div>
     </div>
   </div>
 </div>

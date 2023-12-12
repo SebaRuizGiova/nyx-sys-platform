@@ -65,5 +65,19 @@
   "groupOrderBy": "Order by...",
   "groupShowAll": "Show all",
   "groupShowCurrentPeriod": "Show only profiles with current period",
-  "groupDeleteFilters": "Clear filters"
+  "groupDeleteFilters": "Clear filters",
+
+  "profileCardDeviceName": "Device NS: ",
+  "profileCardAnyDevice": "No associated device",
+  "profileCardRecoveryDescription": "Recovery",
+  "profileCardRecoveryDescriptionTooltip": "Represents the adaptation and physical recovery during rest in relation to your daily routine",
+  "profileCardRecoveryAscArrow": "You’ve had a greater recovery compared to the last period",
+  "profileCardRecoveryDescArrow": "You’ve had a lower recovery compared to the last period",
+  "profileCardSNADescription": "ANS",
+  "profileCardSNADescriptionTooltip": "The autonomic nervous system controls the functions of your body; it is divided into sympathetic and parasympathetic",
+  "profileCardSNASTooltip": "Sympathetic System, controls your active physical response",
+  "profileCardSNAPTooltip": "Parasympathetic system, regulates rest and metabolism",
+
+  "sleepScoreTooltip": "Score based on the amount of hours of sleep and its phases Light, Deep, and REM",
+  "sleepScoreTooltipDiamond": "Optimal sleep score"
 }

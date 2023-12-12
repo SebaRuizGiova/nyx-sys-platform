@@ -68,5 +68,19 @@
   "groupOrderBy": "Ordina per...",
   "groupShowAll": "Mostra tutto",
   "groupShowCurrentPeriod": "Mostra solo profili con periodo attuale",
-  "groupDeleteFilters": "Cancella filtri"
+  "groupDeleteFilters": "Cancella filtri",
+
+  "profileCardDeviceName": "Dispositivo NS: ",
+  "profileCardAnyDevice": "Nessun dispositivo associato",
+  "profileCardRecoveryDescription": "Recupero",
+  "profileCardRecoveryDescriptionTooltip": "Rappresenta l'adattamento e il recupero fisico durante il riposo rispetto alla tua routine quotidiana",
+  "profileCardRecoveryAscArrow": "Hai avuto un maggior recupero rispetto all'ultimo periodo",
+  "profileCardRecoveryDescArrow": "Hai avuto un minor recupero rispetto all'ultimo periodo",
+  "profileCardSNADescription": "SNA",
+  "profileCardSNADescriptionTooltip": "Il sistema nervoso autonomo controlla le funzioni del tuo corpo; si divide in simpatico e parasimpatico",
+  "profileCardSNASTooltip": "Sistema simpatico, controlla la tua risposta fisica attiva",
+  "profileCardSNAPTooltip": "Sistema parasimpatico, regola il riposo e il metabolismo",
+
+  "sleepScoreTooltip": "Punteggio basato sul numero di ore di sonno e sulle fasi Leggero, Profondo e REM",
+  "sleepScoreTooltipDiamond": "Punteggio di sonno ottimale"
 }

@@ -1,8 +1,12 @@
-<div class="progress-bar" pTooltip="Se basa en la cantidad de horas de sueño y el desarrollo
-de sus fases (Light, Deep y Rem)." tooltipPosition="bottom">
+<div class="progress-bar">
   <div class="value">
-    <img src="assets/icons/diamond.svg" />
-    <span> {{ sleepScore }} </span>
+    <img src="assets/icons/diamond.svg" [pTooltip]="'sleepScoreTooltipDiamond' | translate" />
+    <span
+      [pTooltip]="'sleepScoreTooltip' | translate"
+      tooltipPosition="bottom"
+    >
+      {{ sleepScore }}
+    </span>
   </div>
   <round-progress
     [current]="sleepScore"

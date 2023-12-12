@@ -1,5 +1,10 @@
 import { Component, Input } from '@angular/core';
 
+interface SNA {
+  simpatic: number;
+  parasimpatic: number;
+}
+
 @Component({
   selector: 'dashboard-profile-card',
   templateUrl: './profile-card.component.html',
@@ -9,7 +14,7 @@ export class ProfileCardComponent {
   @Input() playerName: string = '';
   @Input() deviceName: string = '';
   @Input() status: string = '';
-  @Input() hrv: number = 0;
+  @Input() sna: SNA | null = null;
   @Input() recovery: number = 0;
   @Input() sleepScore: number = 0;
 }
