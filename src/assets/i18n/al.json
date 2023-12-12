@@ -1,0 +1,93 @@
+{
+  "sidebarMenuButton": "Aufklappen",
+  "sidebarItems": [
+    {
+      "label": "Gruppenansicht",
+      "icon": "grid-icon.svg"
+    },
+    {
+      "label": "Administrationspanel",
+      "icon": "settings-gear-combination.svg"
+    }
+  ],
+  "sidebarItemsGroupView": [
+    {
+      "label": "Administrationspanel",
+      "icon": "settings-gear-combination.svg"
+    }
+  ],
+  "sidebarSettings": {
+    "label": "Einstellungen",
+    "icon": "settings.svg"
+  },
+  "sidebarLanguage": {
+    "label": "Sprache",
+    "icon": "earth.svg"
+  },
+  "languagesDropdown": [
+    { "name": "Spanisch", "code": "es" },
+    { "name": "Englisch", "code": "en" },
+    { "name": "Italienisch", "code": "it" },
+    { "name": "Deutsch", "code": "al" }
+  ],
+  "sidebarSignOut": "Abmelden",
+
+  "loginWelcome": "Willkommen",
+  "loginForget": "Passwort zurücksetzen",
+  "loginPlaceholderEmail": "E-Mail",
+  "loginPlaceholderPassword": "Passwort",
+  "loginButtonSignIn": "Anmelden",
+  "loginButtonSend": "Senden",
+  "loginForgetPassword": "Passwort vergessen?",
+  "loginLangES": "Spanisch",
+  "loginLangEN": "Englisch",
+  "loginLangIT": "Italienisch",
+  "loginTooltipBack": "Zurück",
+  "loginInvalidEmail": "Sie müssen eine gültige E-Mail-Adresse eingeben",
+  "loginInvalidPassword": "Sie müssen ein Passwort eingeben",
+  "loginToastErrorLogin": "Falscher Benutzername und/oder falsches Passwort",
+  "loginToastSendEmail": "E-Mail erfolgreich gesendet",
+  "loginToastErrorSendEmail": "Es gab einen Fehler beim Senden der E-Mail",
+  "ToastTitleCorrect": "Korrekt",
+  "ToastTitleError": "Fehler",
+
+  "groupRangeDownloadItems": [
+    "Aktueller Zeitraum",
+    "7 Tage",
+    "15 Tage",
+    "30 Tage",
+    "Historisch"
+  ],
+  "groupOrderByItems": [
+    "Schlafbewertung: Hoch bis Niedrig",
+    "Schlafbewertung: Niedrig bis Hoch"
+  ],
+  "groupPeriodSelect": "Zeitraum auswählen",
+  "groupForwardTooltip": "Zur vorherigen Gruppe gehen",
+  "groupNextTooltip": "Zur nächsten Gruppe gehen",
+  "groupAllTooltip": "Alle Gruppen anzeigen",
+  "groupDownloadReportLabel": "Bericht herunterladen",
+  "groupDownloadLabel": "Herunterladen",
+  "groupSelectFormatPlaceholder": "Format auswählen",
+  "groupSelectRangePlaceholder": "Bereich auswählen",
+  "groupFilterTooltip": "Filter",
+  "groupSearchByName": "Nach Namen suchen...",
+  "groupOrderBy": "Sortieren nach...",
+  "groupShowAll": "Alle anzeigen",
+  "groupShowCurrentPeriod": "Nur Profile mit aktuellem Zeitraum anzeigen",
+  "groupDeleteFilters": "Filter löschen",
+
+  "profileCardDeviceName": "NS-Gerät: ",
+  "profileCardAnyDevice": "Kein zugeordnetes Gerät",
+  "profileCardRecoveryDescription": "Erholung",
+  "profileCardRecoveryDescriptionTooltip": "Stellt die Anpassung und physische Erholung während der Ruhe im Vergleich zu Ihrer täglichen Routine dar",
+  "profileCardRecoveryAscArrow": "Sie hatten eine höhere Erholung im Vergleich zum letzten Zeitraum",
+  "profileCardRecoveryDescArrow": "Sie hatten eine geringere Erholung im Vergleich zum letzten Zeitraum",
+  "profileCardSNADescription": "SNA",
+  "profileCardSNADescriptionTooltip": "Das autonome Nervensystem steuert die Funktionen Ihres Körpers; es teilt sich in das sympathische und das parasympathische System auf",
+  "profileCardSNASTooltip": "Sympathisches Nervensystem, steuert Ihre aktive körperliche Reaktion",
+  "profileCardSNAPTooltip": "Parasympathisches Nervensystem, reguliert Ruhe und Stoffwechsel",
+
+  "sleepScoreTooltip": "Bewertung basierend auf der Menge an Schlafstunden und den Phasen Leicht, Tief und REM",
+  "sleepScoreTooltipDiamond": "Optimale Schlafbewertung"
+}

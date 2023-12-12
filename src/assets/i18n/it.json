@@ -1,10 +1,16 @@
 {
   "sidebarMenuButton": "Espandi",
-  "sidebarGroupsItems": [
+  "sidebarItems": [
     {
       "label": "Vista di gruppo",
       "icon": "grid-icon.svg"
     },
+    {
+      "label": "Pannello di amministrazione",
+      "icon": "settings-gear-combination.svg"
+    }
+  ],
+  "sidebarItemsGroupView": [
     {
       "label": "Pannello di amministrazione",
       "icon": "settings-gear-combination.svg"
@@ -21,7 +27,8 @@
   "languagesDropdown": [
     { "name": "Spagnolo", "code": "es" },
     { "name": "Inglese", "code": "en" },
-    { "name": "Italiano", "code": "it" }
+    { "name": "Italiano", "code": "it" },
+    { "name": "Tedesco", "code": "al" }
   ],
   "sidebarSignOut": "Esci",
 

@@ -52,7 +52,13 @@ export class SidebarComponent implements OnInit {
   private getItems(path: string): void {
     if (path.includes('groups')) {
       this.languageService
-        .getTranslate('sidebarGroupsItems')
+        .getTranslate('sidebarItemsGroupView')
+        .subscribe((translations: any) => {
+          this.dinamicItems = translations;
+        });
+    } else {
+      this.languageService
+        .getTranslate('sidebarItems')
         .subscribe((translations: any) => {
           this.dinamicItems = translations;
         });
