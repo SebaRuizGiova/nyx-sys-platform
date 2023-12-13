@@ -59,7 +59,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     InputPasswordComponent,
     DropdownComponent,
     SelectComponent,
-    CircleProgressBarComponent
+    CircleProgressBarComponent,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

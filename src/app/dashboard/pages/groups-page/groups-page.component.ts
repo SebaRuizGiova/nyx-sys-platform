@@ -1,9 +1,18 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import {
+  Subscription,
+  concatMap,
+  flatMap,
+  map,
+  mergeMap,
+  mergeMapTo,
+  of,
+} from 'rxjs';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
+import { LoadingService } from 'src/app/shared/services/loading.service';
 
 @Component({
   templateUrl: './groups-page.component.html',
@@ -39,13 +48,14 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
   ];
   public userId!: string;
   public usersList: any;
-  public teamsList: any[] = [];
+  public teamsList: ItemDropdown[] = [];
   public selectedTeamIndex: number = 0;
 
   constructor(
     private fb: FormBuilder,
     private languageService: LanguageService,
-    private databaseService: DatabaseService
+    private databaseService: DatabaseService,
+    private loadingService: LoadingService
   ) {
     this.langSubscription = this.languageService.langChanged$.subscribe(() => {
       this.loadTranslations();
@@ -91,62 +101,83 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
   }
 
   getTeamsList() {
-    this.databaseService.getAllUsers().subscribe(
-      (users) => {
-        users.forEach((user: any) => {
-          this.databaseService.getTeamsUserAdmin(user.id).subscribe((teams) => {
+    this.loadingService.setLoading(true);
+    this.databaseService.getAllUsers().subscribe((users) => {
+      users.forEach((user: any) => {
+        this.databaseService.getTeamsUserAdmin(user.id).subscribe({
+          next: (teams) => {
             const formattedTeams = teams.map((team: any) => ({
               label: team.teamName,
               value: team.id,
             }));
             this.teamsList = [...this.teamsList, ...formattedTeams];
-
-            if (this.teamsList.length > 0 && !this.teamForm.value.selectedTeam) {
+          },
+          complete: () => {
+            if (
+              this.teamsList.length > 0 &&
+              !this.teamForm.value.selectedTeam
+            ) {
               const currentTeamId = localStorage.getItem('selectedTeam');
               let currentTeam;
               let currentTeamIndex;
               if (currentTeamId) {
-                currentTeam = this.teamsList.find( team => team.value === currentTeamId)
-                currentTeamIndex = this.teamsList.findIndex( team => team.value === currentTeamId)
+                currentTeam = this.teamsList.find(
+                  (team) => team.value === currentTeamId
+                );
+                currentTeamIndex = this.teamsList.findIndex(
+                  (team) => team.value === currentTeamId
+                );
                 this.teamForm.patchValue({
-                  selectedTeam: currentTeam
+                  selectedTeam: currentTeam,
                 });
                 this.selectedTeamIndex = currentTeamIndex;
                 return;
               }
               this.teamForm.patchValue({
-                selectedTeam: this.teamsList[0]
+                selectedTeam: this.teamsList[0],
               });
             }
-          });
+            this.loadingService.setLoading(false);
+          },
         });
-      }
-    );
+      });
+    });
   }
 
   nextGroup() {
     if (this.teamsList[this.selectedTeamIndex + 1]) {
       this.teamForm.patchValue({
-        selectedTeam: this.teamsList[this.selectedTeamIndex + 1]
-      })
+        selectedTeam: this.teamsList[this.selectedTeamIndex + 1],
+      });
       this.selectedTeamIndex = this.selectedTeamIndex + 1;
-      localStorage.setItem('selectedTeam', this.teamForm.value.selectedTeam.value);
+      localStorage.setItem(
+        'selectedTeam',
+        this.teamForm.value.selectedTeam.value
+      );
     }
   }
 
   backGroup() {
     if (this.teamsList[this.selectedTeamIndex - 1]) {
       this.teamForm.patchValue({
-        selectedTeam: this.teamsList[this.selectedTeamIndex - 1]
-      })
+        selectedTeam: this.teamsList[this.selectedTeamIndex - 1],
+      });
       this.selectedTeamIndex = this.selectedTeamIndex - 1;
-      localStorage.setItem('selectedTeam', this.teamForm.value.selectedTeam.value);
+      localStorage.setItem(
+        'selectedTeam',
+        this.teamForm.value.selectedTeam.value
+      );
     }
   }
 
   selectTeam() {
-    const indexSelected = this.teamsList.findIndex( team => team.value === this.teamForm.value.selectedTeam.value);
+    const indexSelected = this.teamsList.findIndex(
+      (team) => team.value === this.teamForm.value.selectedTeam.value
+    );
     this.selectedTeamIndex = indexSelected;
-    localStorage.setItem('selectedTeam', this.teamForm.value.selectedTeam.value);
+    localStorage.setItem(
+      'selectedTeam',
+      this.teamForm.value.selectedTeam.value
+    );
   }
 }
