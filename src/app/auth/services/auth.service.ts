@@ -11,7 +11,7 @@ export class AuthService {
   public authStatus: boolean = false;
   public currentUser: string = localStorage.getItem('currentUser') || '';
   public userId: string = localStorage.getItem('userId') || '';
-  public role: string = localStorage.getItem('role') || '';
+  public role: string = '';
 
   constructor(
     private fireAuth: AngularFireAuth,
@@ -50,7 +50,6 @@ export class AuthService {
                 this.userId = userData.id;
                 localStorage.setItem('userId', userData.id);
                 this.role = userData.role;
-                localStorage.setItem('role', userData.role);
               } else {
                 console.log('No se encontró usuario');
               }
@@ -69,7 +68,11 @@ export class AuthService {
   }
 
   async logout(): Promise<void> {
+    const selectedTeam = localStorage.getItem('selectedTeam');
     localStorage.clear();
+    if (selectedTeam) {
+      localStorage.setItem('selectedTeam', selectedTeam);
+    }
     return await this.fireAuth.signOut();
   }
 

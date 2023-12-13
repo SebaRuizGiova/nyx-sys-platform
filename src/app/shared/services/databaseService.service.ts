@@ -78,8 +78,17 @@ export class DatabaseService {
                       currentTeam.value.toString()
                     );
                   }
-                  this.setSelectedTeamIndex(currentTeamIndex);
+                } else {
+                  currentTeam = this.teamsList[0];
+                  currentTeamIndex = 0;
+                  if (currentTeam) {
+                    localStorage.setItem(
+                      'selectedTeam',
+                      currentTeam.value.toString()
+                    );
+                  }
                 }
+                this.setSelectedTeamIndex(currentTeamIndex);
               }
               this.loadingService.setLoading(false);
             },
@@ -114,8 +123,17 @@ export class DatabaseService {
                   currentTeam.value.toString()
                 );
               }
-              this.setSelectedTeamIndex(currentTeamIndex);
+            } else {
+              currentTeam = this.teamsList[0];
+              currentTeamIndex = 0;
+              if (currentTeam) {
+                localStorage.setItem(
+                  'selectedTeam',
+                  currentTeam.value.toString()
+                );
+              }
             }
+            this.setSelectedTeamIndex(currentTeamIndex || 0);
           }
           this.loadingService.setLoading(false);
         },
