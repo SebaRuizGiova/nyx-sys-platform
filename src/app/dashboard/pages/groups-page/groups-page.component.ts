@@ -1,11 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/auth/services/auth.service';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
-import { LoadingService } from 'src/app/shared/services/loading.service';
 
 @Component({
   templateUrl: './groups-page.component.html',
@@ -38,18 +36,25 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
   constructor(
     private fb: FormBuilder,
     private languageService: LanguageService,
-    private databaseService: DatabaseService,
-    private loadingService: LoadingService,
-    private authService: AuthService
+    private databaseService: DatabaseService
   ) {
     this.langSubscription = this.languageService.langChanged$.subscribe(() => {
       this.loadTranslations();
+    });
+    this.databaseService.teamsList$.subscribe((teams) => {
+      this.teamsList = teams;
+    });
+
+    this.databaseService.selectedTeamIndex$.subscribe((index) => {
+      this.selectedTeamIndex = index;
+      this.teamForm.patchValue({
+        selectedTeam: this.teamsList[this.selectedTeamIndex],
+      });
     });
   }
 
   ngOnInit(): void {
     this.loadTranslations();
-    this.getTeamsList();
   }
 
   ngOnDestroy(): void {
@@ -90,106 +95,16 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
       });
   }
 
-  private getTeamsList() {
-    if (this.authService.role === 'superAdmin') {
-      this.loadingService.setLoading(true);
-      this.databaseService.getAllUsers().subscribe((users) => {
-        users.forEach((user: any) => {
-          this.databaseService.getTeamsUserAdmin(user.id).subscribe({
-            next: (teams) => {
-              const formattedTeams = teams.map((team: any) => ({
-                label: team.teamName,
-                value: team.id,
-              }));
-              this.teamsList = [...this.teamsList, ...formattedTeams];
-            },
-            complete: () => {
-              if (this.teamsList.length) {
-                const currentTeamId = localStorage.getItem('selectedTeam');
-                let currentTeam;
-                let currentTeamIndex;
-                if (currentTeamId) {
-                  currentTeam = this.teamsList.find(
-                    (team) => team.value === currentTeamId
-                  );
-                  currentTeamIndex = this.teamsList.findIndex(
-                    (team) => team.value === currentTeamId
-                  );
-                  if (currentTeam) {
-                    this.teamForm.patchValue({
-                      selectedTeam: currentTeam,
-                    });
-                    localStorage.setItem(
-                      'selectedTeam',
-                      currentTeam.value.toString()
-                    );
-                  }
-                  this.selectedTeamIndex = currentTeamIndex;
-                } else {
-                  this.teamForm.patchValue({
-                    selectedTeam: this.teamsList[0],
-                  });
-                }
-              }
-              this.loadingService.setLoading(false);
-            },
-          });
-        });
-      });
-    } else {
-      this.loadingService.setLoading(true);
-      this.databaseService.getTeamsUser(this.authService.userId).subscribe({
-        next: (teams) => {
-          const formattedTeams = teams.map((team: any) => ({
-            label: team.teamName,
-            value: team.id,
-          }));
-          this.teamsList = [...this.teamsList, ...formattedTeams];
-        },
-        complete: () => {
-          if (this.teamsList.length) {
-            const currentTeamId = localStorage.getItem('selectedTeam');
-            let currentTeam;
-            let currentTeamIndex;
-            if (currentTeamId) {
-              currentTeam = this.teamsList.find(
-                (team) => team.value === currentTeamId
-              );
-              currentTeamIndex = this.teamsList.findIndex(
-                (team) => team.value === currentTeamId
-              );
-              if (currentTeam) {
-                this.teamForm.patchValue({
-                  selectedTeam: currentTeam,
-                });
-                localStorage.setItem(
-                  'selectedTeam',
-                  currentTeam.value.toString()
-                );
-              }
-              this.selectedTeamIndex = currentTeamIndex;
-            } else {
-              this.teamForm.patchValue({
-                selectedTeam: this.teamsList[0],
-              });
-            }
-          }
-          this.loadingService.setLoading(false);
-        },
-      });
-    }
-  }
-
   nextGroup() {
     if (this.teamsList[this.selectedTeamIndex + 1]) {
       this.teamForm.patchValue({
         selectedTeam: this.teamsList[this.selectedTeamIndex + 1],
       });
-      this.selectedTeamIndex = this.selectedTeamIndex + 1;
       localStorage.setItem(
         'selectedTeam',
         this.teamForm.value.selectedTeam.value
       );
+      this.databaseService.setSelectedTeamIndex(this.selectedTeamIndex + 1);
     }
   }
 
@@ -198,11 +113,11 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
       this.teamForm.patchValue({
         selectedTeam: this.teamsList[this.selectedTeamIndex - 1],
       });
-      this.selectedTeamIndex = this.selectedTeamIndex - 1;
       localStorage.setItem(
         'selectedTeam',
         this.teamForm.value.selectedTeam.value
       );
+      this.databaseService.setSelectedTeamIndex(this.selectedTeamIndex - 1);
     }
   }
 
