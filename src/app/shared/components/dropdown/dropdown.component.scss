@@ -41,7 +41,8 @@ form {
       display: unset;
 
       &.show {
-        height: 301px;
+        height: min-content;
+        max-height: 301px;
         overflow-y: scroll;
       }
     }

@@ -24,19 +24,29 @@ export class DatabaseService {
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
-  getUserByUID(): Observable<any> {
-    const usersCollection = this.firestore.collection(
-      `users/${environment.client}/content`,
-      (ref) => ref.where('UID', '==', this.UID)
-    );
-
-    return usersCollection.get();
-  }
+  // getUserByUID(): Observable<any> {
+  //   return this.firestore
+  //     .collection(`users/${environment.client}/content`, (ref) =>
+  //       ref.where('UID', '==', this.UID)
+  //     )
+  //     .get()
+  //     .pipe(
+  //       map((snapshot) => {
+  //         if (snapshot.docs.length === 0) {
+  //           // No se encontró ningún usuario con el UID proporcionado
+  //           return null;
+  //         }
+  //         // Devolver el primer usuario encontrado
+  //         return snapshot.docs[0].data() as any;
+  //       })
+  //     );
+  // }
 
   getTeamsUser(userId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
-      .get();
+      .get()
+      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
   getTeamsUserAdmin(userId: string): Observable<any[]> {

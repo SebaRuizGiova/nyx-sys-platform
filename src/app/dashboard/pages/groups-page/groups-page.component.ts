@@ -9,6 +9,7 @@ import {
   mergeMapTo,
   of,
 } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
@@ -55,7 +56,8 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
     private fb: FormBuilder,
     private languageService: LanguageService,
     private databaseService: DatabaseService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private authService: AuthService
   ) {
     this.langSubscription = this.languageService.langChanged$.subscribe(() => {
       this.loadTranslations();
@@ -101,47 +103,88 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
   }
 
   getTeamsList() {
-    this.loadingService.setLoading(true);
-    this.databaseService.getAllUsers().subscribe((users) => {
-      users.forEach((user: any) => {
-        this.databaseService.getTeamsUserAdmin(user.id).subscribe({
-          next: (teams) => {
-            const formattedTeams = teams.map((team: any) => ({
-              label: team.teamName,
-              value: team.id,
-            }));
-            this.teamsList = [...this.teamsList, ...formattedTeams];
-          },
-          complete: () => {
-            if (
-              this.teamsList.length > 0 &&
-              !this.teamForm.value.selectedTeam
-            ) {
-              const currentTeamId = localStorage.getItem('selectedTeam');
-              let currentTeam;
-              let currentTeamIndex;
-              if (currentTeamId) {
-                currentTeam = this.teamsList.find(
-                  (team) => team.value === currentTeamId
-                );
-                currentTeamIndex = this.teamsList.findIndex(
-                  (team) => team.value === currentTeamId
-                );
+    if (this.authService.role === 'superAdmin') {
+      this.loadingService.setLoading(true);
+      this.databaseService.getAllUsers().subscribe((users) => {
+        users.forEach((user: any) => {
+          this.databaseService.getTeamsUserAdmin(user.id).subscribe({
+            next: (teams) => {
+              const formattedTeams = teams.map((team: any) => ({
+                label: team.teamName,
+                value: team.id,
+              }));
+              this.teamsList = [...this.teamsList, ...formattedTeams];
+            },
+            complete: () => {
+              if (
+                this.teamsList.length > 0 &&
+                !this.teamForm.value.selectedTeam
+              ) {
+                const currentTeamId = localStorage.getItem('selectedTeam');
+                let currentTeam;
+                let currentTeamIndex;
+                if (currentTeamId) {
+                  currentTeam = this.teamsList.find(
+                    (team) => team.value === currentTeamId
+                  );
+                  currentTeamIndex = this.teamsList.findIndex(
+                    (team) => team.value === currentTeamId
+                  );
+                  this.teamForm.patchValue({
+                    selectedTeam: currentTeam,
+                  });
+                  this.selectedTeamIndex = currentTeamIndex;
+                  return;
+                }
                 this.teamForm.patchValue({
-                  selectedTeam: currentTeam,
+                  selectedTeam: this.teamsList[0],
                 });
-                this.selectedTeamIndex = currentTeamIndex;
-                return;
               }
-              this.teamForm.patchValue({
-                selectedTeam: this.teamsList[0],
-              });
-            }
-            this.loadingService.setLoading(false);
-          },
+              this.loadingService.setLoading(false);
+            },
+          });
         });
       });
-    });
+    } else {
+      this.loadingService.setLoading(true);
+      this.databaseService.getTeamsUser(this.authService.userId).subscribe({
+        next: (teams) => {
+          console.log(teams)
+          const formattedTeams = teams.map((team: any) => ({
+            label: team.teamName,
+            value: team.id,
+          }));
+          this.teamsList = [...this.teamsList, ...formattedTeams];
+        },
+        complete: () => {
+          if (
+            this.teamsList.length > 0 &&
+            !this.teamForm.value.selectedTeam
+          ) {
+            const currentTeamId = localStorage.getItem('selectedTeam');
+            let currentTeam;
+            let currentTeamIndex;
+            if (currentTeamId) {
+              currentTeam = this.teamsList.find(
+                (team) => team.value === currentTeamId
+              );
+              currentTeamIndex = this.teamsList.findIndex(
+                (team) => team.value === currentTeamId
+              );
+              this.teamForm.patchValue({
+                selectedTeam: currentTeam,
+              });
+              this.selectedTeamIndex = currentTeamIndex;
+              return;
+            }
+            this.teamForm.patchValue({
+              selectedTeam: this.teamsList[0],
+            });
+          }
+          this.loadingService.setLoading(false);
+        },
+      })
+    }
   }
 
   nextGroup() {

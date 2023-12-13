@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import { UserCredential } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, first, from, map, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   public authStatus: boolean = false;
-  public currentUser: string = '';
+  public currentUser: string = localStorage.getItem('currentUser') || '';
+  public userId: string = localStorage.getItem('userId') || '';
+  public role: string = localStorage.getItem('role') || '';
 
   constructor(
     private fireAuth: AngularFireAuth,
@@ -19,20 +21,55 @@ export class AuthService {
   }
 
   async login(email: string, password: string): Promise<any> {
-    const user = await this.fireAuth.signInWithEmailAndPassword(
-      email,
-      password
-    );
-    if (user.user?.uid) {
-      localStorage.setItem('currentUser', user.user?.uid);
-    } else {
-      throw new Error();
+    try {
+      const user = await this.fireAuth.signInWithEmailAndPassword(email, password);
+
+      if (user.user?.uid) {
+        this.currentUser = user.user?.uid;
+        localStorage.setItem('currentUser', user.user?.uid);
+
+        await this.firestore
+          .collection(`users/${environment.client}/content`, (ref) =>
+            ref.where('UID', '==', user.user?.uid)
+          )
+          .get()
+          .pipe(
+            map((snapshot) => {
+              if (snapshot.docs.length === 0) {
+                return null;
+              }
+              return snapshot.docs[0].data() as any;
+            }),
+            first(),
+            catchError((error) => {
+              console.error(error);
+              return from([]);
+            }),
+            tap((userData) => {
+              if (userData) {
+                this.userId = userData.id;
+                localStorage.setItem('userId', userData.id);
+                this.role = userData.role;
+                localStorage.setItem('role', userData.role);
+              } else {
+                console.log('No se encontró usuario');
+              }
+            })
+          )
+          .toPromise();
+
+        return user;
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      console.error(error);
+      throw error;
     }
-    return user;
   }
 
   async logout(): Promise<void> {
-    localStorage.removeItem('currentUser');
+    localStorage.clear();
     return await this.fireAuth.signOut();
   }
 
