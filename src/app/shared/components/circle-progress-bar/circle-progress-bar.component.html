@@ -1,13 +1,19 @@
 <div class="progress-bar">
-  <div class="value">
-    <img src="assets/icons/diamond.svg" [pTooltip]="'sleepScoreTooltipDiamond' | translate" />
-    <span
-      [pTooltip]="'sleepScoreTooltip' | translate"
-      tooltipPosition="bottom"
-    >
-      {{ sleepScore }}
-    </span>
-  </div>
+  <img
+    *ngIf="sleepScore >= 90"
+    src="assets/icons/diamond.svg"
+    [pTooltip]="'sleepScoreTooltipDiamond' | translate"
+    [showDelay]="400"
+    class="diamond"
+  />
+  <span
+    [pTooltip]="'sleepScoreTooltip' | translate"
+    tooltipPosition="bottom"
+    [showDelay]="400"
+    class="value"
+  >
+    {{ sleepScore }}
+  </span>
   <round-progress
     [current]="sleepScore"
     [max]="max"

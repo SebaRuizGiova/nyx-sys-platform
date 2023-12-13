@@ -12,7 +12,7 @@
       class="pi pi-bars"
       style="font-size: 1.3rem"
       [pTooltip]="'sidebarMenuButton' | translate"
-      [showDelay]="300"
+      [showDelay]="400"
       (click)="toggleSidebar()"
     ></i>
     <ng-template #menuIcon>
@@ -47,7 +47,7 @@
     <div
       class="sesion"
       [pTooltip]="show ? '' : 'sidebarSignOut' | translate"
-      [showDelay]="300"
+      [showDelay]="400"
       [ngClass]="{ show: show }"
       (click)="onLogout()"
     >

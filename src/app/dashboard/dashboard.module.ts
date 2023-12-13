@@ -18,6 +18,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileCardComponent } from './components/player-card/profile-card.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -38,7 +39,8 @@ import { ProfileCardComponent } from './components/player-card/profile-card.comp
     ReactiveFormsModule,
     InputTextModule,
     InputSwitchModule,
-    TranslateModule
+    TranslateModule,
+    RouterModule
   ]
 })
 export class DashboardModule { }

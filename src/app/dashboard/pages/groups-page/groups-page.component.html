@@ -5,7 +5,7 @@
       position="left-bottom"
       [pTooltip]="'groupPeriodSelect' | translate"
       tooltipPosition="right"
-      [showDelay]="300"
+      [showDelay]="400"
       [items]="periodItems"
       [formGroup]="periodForm"
       formControlName="period"
@@ -17,7 +17,7 @@
       style="font-size: 1rem"
       [pTooltip]="'groupForwardTooltip' | translate"
       tooltipPosition="left"
-      [showDelay]="300"
+      [showDelay]="400"
       (click)="backGroup()"
       *ngIf="selectedTeamIndex !== 0"
     ></i>
@@ -37,7 +37,7 @@
       style="font-size: 1rem"
       [pTooltip]="'groupNextTooltip' | translate"
       tooltipPosition="right"
-      [showDelay]="300"
+      [showDelay]="400"
       (click)="nextGroup()"
       *ngIf="selectedTeamIndex !== teamsList.length - 1"
     ></i>
@@ -73,7 +73,7 @@
     <shared-dropdown
       iconButton="pi-filter"
       [pTooltip]="'groupFilterTooltip' | translate"
-      [showDelay]="300"
+      [showDelay]="400"
       [formGroup]="filtersForm"
     >
       <div class="content-dropdown">
@@ -129,7 +129,7 @@
       parasimpatic: 51
     }"
     [recovery]="10"
-    [sleepScore]="95"
+    [sleepScore]="85"
   />
   <dashboard-profile-card
     playerName="Lucas Gonzalez"

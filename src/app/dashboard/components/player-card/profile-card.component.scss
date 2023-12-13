@@ -10,6 +10,12 @@
   border-radius: 5px;
   font-size: 14px;
   position: relative;
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 
   hr {
     width: 100%;

@@ -11,7 +11,7 @@ const routes: Routes = [
     component: LayoutPageComponent,
     children: [
       { path: 'groups', component: GroupsPageComponent },
-      { path: 'profile', component: ProfilePageComponent },
+      { path: 'profile/:id', component: ProfilePageComponent },
       { path: 'admin', component: AdminPageComponent },
       { path: '**', redirectTo: 'groups' }
     ]
