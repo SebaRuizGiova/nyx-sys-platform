@@ -40,6 +40,7 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
   public userId!: string;
   public usersList: any;
   public teamsList: any[] = [];
+  public selectedTeamIndex: number = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -101,6 +102,18 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
             this.teamsList = [...this.teamsList, ...formattedTeams];
 
             if (this.teamsList.length > 0 && !this.teamForm.value.selectedTeam) {
+              const currentTeamId = localStorage.getItem('selectedTeam');
+              let currentTeam;
+              let currentTeamIndex;
+              if (currentTeamId) {
+                currentTeam = this.teamsList.find( team => team.value === currentTeamId)
+                currentTeamIndex = this.teamsList.findIndex( team => team.value === currentTeamId)
+                this.teamForm.patchValue({
+                  selectedTeam: currentTeam
+                });
+                this.selectedTeamIndex = currentTeamIndex;
+                return;
+              }
               this.teamForm.patchValue({
                 selectedTeam: this.teamsList[0]
               });
@@ -109,5 +122,31 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
         });
       }
     );
+  }
+
+  nextGroup() {
+    if (this.teamsList[this.selectedTeamIndex + 1]) {
+      this.teamForm.patchValue({
+        selectedTeam: this.teamsList[this.selectedTeamIndex + 1]
+      })
+      this.selectedTeamIndex = this.selectedTeamIndex + 1;
+      localStorage.setItem('selectedTeam', this.teamForm.value.selectedTeam.value);
+    }
+  }
+
+  backGroup() {
+    if (this.teamsList[this.selectedTeamIndex - 1]) {
+      this.teamForm.patchValue({
+        selectedTeam: this.teamsList[this.selectedTeamIndex - 1]
+      })
+      this.selectedTeamIndex = this.selectedTeamIndex - 1;
+      localStorage.setItem('selectedTeam', this.teamForm.value.selectedTeam.value);
+    }
+  }
+
+  selectTeam() {
+    const indexSelected = this.teamsList.findIndex( team => team.value === this.teamForm.value.selectedTeam.value);
+    this.selectedTeamIndex = indexSelected;
+    localStorage.setItem('selectedTeam', this.teamForm.value.selectedTeam.value);
   }
 }

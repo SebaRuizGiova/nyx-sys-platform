@@ -18,6 +18,8 @@
       [pTooltip]="'groupForwardTooltip' | translate"
       tooltipPosition="left"
       [showDelay]="300"
+      (click)="backGroup()"
+      *ngIf="selectedTeamIndex !== 0"
     ></i>
     <shared-dropdown
       [labelButton]="teamForm.value.selectedTeam.label"
@@ -28,6 +30,7 @@
       [formGroup]="teamForm"
       formControlName="selectedTeam"
       [noButton]="true"
+      [secondaryAction]="selectTeam.bind(this)"
     />
     <i
       class="pi pi-arrow-right"
@@ -35,6 +38,8 @@
       [pTooltip]="'groupNextTooltip' | translate"
       tooltipPosition="right"
       [showDelay]="300"
+      (click)="nextGroup()"
+      *ngIf="selectedTeamIndex !== teamsList.length - 1"
     ></i>
   </form>
   <div class="buttons-right">

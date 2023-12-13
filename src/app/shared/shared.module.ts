@@ -22,6 +22,7 @@ import { InputPasswordComponent } from './components/input-password/input-passwo
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { SelectComponent } from './components/select/select.component';
 import { CircleProgressBarComponent } from './components/circle-progress-bar/circle-progress-bar.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CircleProgressBarComponent } from './components/circle-progress-bar/cir
     DropdownComponent,
     SelectComponent,
     CircleProgressBarComponent,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,

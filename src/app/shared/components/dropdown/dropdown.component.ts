@@ -29,6 +29,7 @@ export class DropdownComponent implements ControlValueAccessor {
   @Input() formGroup!: FormGroup;
   @Input() formControlName!: string;
   @Input() noButton: boolean = false;
+  @Input() secondaryAction?: Function;
 
   public showPopup: boolean = false;
   private onChange: any = () => {};
@@ -43,6 +44,10 @@ export class DropdownComponent implements ControlValueAccessor {
     const selectedControl = this.formGroup.get(this.formControlName);
     if (selectedControl) {
       selectedControl.setValue(value);
+      this.showPopup = false
+      if (this.secondaryAction) {
+        this.secondaryAction();
+      }
     }
   }
 
