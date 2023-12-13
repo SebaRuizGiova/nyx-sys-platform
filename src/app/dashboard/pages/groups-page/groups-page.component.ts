@@ -1,14 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  Subscription,
-  concatMap,
-  flatMap,
-  map,
-  mergeMap,
-  mergeMapTo,
-  of,
-} from 'rxjs';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
@@ -35,18 +27,9 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
       value: 3,
     },
   ];
-  public formatDownloadItems: string[] = ['PDF', 'Excel'];
-  public rangeDownloadItems: string[] = [
-    'Periodo actual',
-    '7 días',
-    '15 días',
-    '30 días',
-    'Histórico',
-  ];
-  public orderByItems: string[] = [
-    'Puntaje de sueño: mayor a menor',
-    'Puntaje de sueño: menor a mayor',
-  ];
+  public formatDownloadItems?: string[];
+  public rangeDownloadItems?: string[];
+  public orderByItems?: string[];
   public userId!: string;
   public usersList: any;
   public teamsList: ItemDropdown[] = [];
@@ -77,7 +60,7 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
     period: '',
   });
   public teamForm: FormGroup = this.fb.group({
-    selectedTeam: '',
+    selectedTeam: null,
   });
   public downloadForm: FormGroup = this.fb.group({
     format: ['', Validators.required],
@@ -91,6 +74,11 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
 
   private loadTranslations() {
     this.languageService
+      .getTranslate('groupFormatDownloadItems')
+      .subscribe((translations: any) => {
+        this.formatDownloadItems = translations;
+      });
+    this.languageService
       .getTranslate('groupRangeDownloadItems')
       .subscribe((translations: any) => {
         this.rangeDownloadItems = translations;
@@ -102,7 +90,7 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
       });
   }
 
-  getTeamsList() {
+  private getTeamsList() {
     if (this.authService.role === 'superAdmin') {
       this.loadingService.setLoading(true);
       this.databaseService.getAllUsers().subscribe((users) => {
@@ -116,10 +104,7 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
               this.teamsList = [...this.teamsList, ...formattedTeams];
             },
             complete: () => {
-              if (
-                this.teamsList.length > 0 &&
-                !this.teamForm.value.selectedTeam
-              ) {
+              if (this.teamsList.length) {
                 const currentTeamId = localStorage.getItem('selectedTeam');
                 let currentTeam;
                 let currentTeamIndex;
@@ -130,15 +115,21 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
                   currentTeamIndex = this.teamsList.findIndex(
                     (team) => team.value === currentTeamId
                   );
-                  this.teamForm.patchValue({
-                    selectedTeam: currentTeam,
-                  });
+                  if (currentTeam) {
+                    this.teamForm.patchValue({
+                      selectedTeam: currentTeam,
+                    });
+                    localStorage.setItem(
+                      'selectedTeam',
+                      currentTeam.value.toString()
+                    );
+                  }
                   this.selectedTeamIndex = currentTeamIndex;
-                  return;
+                } else {
+                  this.teamForm.patchValue({
+                    selectedTeam: this.teamsList[0],
+                  });
                 }
-                this.teamForm.patchValue({
-                  selectedTeam: this.teamsList[0],
-                });
               }
               this.loadingService.setLoading(false);
             },
@@ -149,7 +140,6 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
       this.loadingService.setLoading(true);
       this.databaseService.getTeamsUser(this.authService.userId).subscribe({
         next: (teams) => {
-          console.log(teams)
           const formattedTeams = teams.map((team: any) => ({
             label: team.teamName,
             value: team.id,
@@ -157,10 +147,7 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
           this.teamsList = [...this.teamsList, ...formattedTeams];
         },
         complete: () => {
-          if (
-            this.teamsList.length > 0 &&
-            !this.teamForm.value.selectedTeam
-          ) {
+          if (this.teamsList.length) {
             const currentTeamId = localStorage.getItem('selectedTeam');
             let currentTeam;
             let currentTeamIndex;
@@ -171,19 +158,25 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
               currentTeamIndex = this.teamsList.findIndex(
                 (team) => team.value === currentTeamId
               );
-              this.teamForm.patchValue({
-                selectedTeam: currentTeam,
-              });
+              if (currentTeam) {
+                this.teamForm.patchValue({
+                  selectedTeam: currentTeam,
+                });
+                localStorage.setItem(
+                  'selectedTeam',
+                  currentTeam.value.toString()
+                );
+              }
               this.selectedTeamIndex = currentTeamIndex;
-              return;
+            } else {
+              this.teamForm.patchValue({
+                selectedTeam: this.teamsList[0],
+              });
             }
-            this.teamForm.patchValue({
-              selectedTeam: this.teamsList[0],
-            });
           }
           this.loadingService.setLoading(false);
         },
-      })
+      });
     }
   }
 

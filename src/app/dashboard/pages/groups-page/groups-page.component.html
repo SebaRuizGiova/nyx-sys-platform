@@ -51,19 +51,23 @@
       <div class="content-dropdown">
         <div class="selects">
           <shared-select
-            [options]="formatDownloadItems"
+            [options]="formatDownloadItems || []"
             [placeholder]="'groupSelectFormatPlaceholder' | translate"
             [formGroup]="downloadForm"
             formControlName="format"
           />
           <shared-select
-            [options]="rangeDownloadItems"
+            [options]="rangeDownloadItems || []"
             [placeholder]="'groupSelectRangePlaceholder' | translate"
             [formGroup]="downloadForm"
             formControlName="range"
           />
         </div>
-        <shared-button [label]="'groupDownloadLabel' | translate" icon="pi-download" />
+        <shared-button
+          [label]="'groupDownloadLabel' | translate"
+          icon="pi-download"
+          [disabled]="!downloadForm.valid"
+        />
       </div>
     </shared-dropdown>
     <shared-dropdown
@@ -84,13 +88,17 @@
             <i class="pi pi-search"></i>
           </span>
           <shared-select
-            [options]="orderByItems"
+            [options]="orderByItems || []"
             [placeholder]="'groupOrderBy' | translate"
             [formGroup]="filtersForm"
             formControlName="orderBy"
           />
           <span class="switch">
-            <span>{{ filtersForm.value.actualProfile ? ('groupShowAll' | translate) : ('groupShowCurrentPeriod' | translate)}}</span>
+            <span>{{
+              filtersForm.value.actualProfile
+                ? ("groupShowAll" | translate)
+                : ("groupShowCurrentPeriod" | translate)
+            }}</span>
             <p-inputSwitch formControlName="actualProfile" />
           </span>
         </div>

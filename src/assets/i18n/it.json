@@ -51,6 +51,10 @@
   "ToastTitleCorrect": "Corretto",
   "ToastTitleError": "Errore",
 
+  "groupFormatDownloadItems": [
+    "PDF",
+    "Excel"
+  ],
   "groupRangeDownloadItems": [
     "Periodo attuale",
     "7 giorni",

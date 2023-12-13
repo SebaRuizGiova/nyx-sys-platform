@@ -8,6 +8,15 @@ import { AuthService } from '../../services/auth.service';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 
+const user = {
+  user: 'imendoza@fmf.mx',
+  password: 'nyxsys2023'
+}
+const userAdmin = {
+  user: 'lucas.gonzalez@nyx-sys.com',
+  password: 'lucas.gonzaleznyxsys2023'
+}
+
 @Component({
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
@@ -33,17 +42,17 @@ export class LoginPageComponent implements OnInit {
 
   public loginForm: FormGroup = this.fb.group({
     emailLogin: [
-      'imendoza@fmf.mx',
+      user.user,
       [
         Validators.required,
         Validators.pattern(this.validatorsService.emailPattern),
       ],
     ],
-    passwordLogin: ['nyxsys2023', [Validators.required]],
+    passwordLogin: [user.password, [Validators.required]],
   });
   public forgetForm: FormGroup = this.fb.group({
     emailForget: [
-      'lucas.gonzalez@nyx-sys.com',
+      userAdmin.user,
       [
         Validators.required,
         Validators.pattern(this.validatorsService.emailPattern),
