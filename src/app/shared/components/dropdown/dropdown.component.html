@@ -10,20 +10,29 @@
       [tooltipPosition]="tooltipPosition || 'left'"
     />
     <ng-template #buttonText>
-      <span class="buttonText" (click)="tooglePopup()">
+      <span
+        class="buttonText"
+        (click)="tooglePopup()"
+        [pTooltip]="tooltipButton || ''"
+        [tooltipPosition]="tooltipPosition || 'left'"
+      >
         {{ labelButton }}
       </span>
     </ng-template>
     <div
-      [class]="'popup ' + position + (items?.length ? ' items' : '')"
-      [ngClass]="{ show: showPopup, 'no-padding': items?.length }"
+      [class]="'popup ' + position"
+      [ngClass]="{
+        show: showPopup,
+        'no-padding': items?.length,
+        items: items?.length
+      }"
     >
       <ng-content *ngIf="showPopup"></ng-content>
       <div
         *ngFor="let item of items"
         class="item"
         [ngClass]="{ show: showPopup }"
-        (click)="selectItem(item.value || '')"
+        (click)="selectItem(item)"
       >
         {{ item?.label }}
       </div>

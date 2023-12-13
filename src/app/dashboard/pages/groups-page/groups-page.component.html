@@ -5,6 +5,7 @@
       position="left-bottom"
       [pTooltip]="'groupPeriodSelect' | translate"
       tooltipPosition="right"
+      [showDelay]="300"
       [items]="periodItems"
       [formGroup]="periodForm"
       formControlName="period"
@@ -16,13 +17,14 @@
       style="font-size: 1rem"
       [pTooltip]="'groupForwardTooltip' | translate"
       tooltipPosition="left"
+      [showDelay]="300"
     ></i>
     <shared-dropdown
-      labelButton="Grupo ejemplo"
+      [labelButton]="teamForm.value.selectedTeam.label"
       position="center-bottom"
-      [pTooltip]="'groupAllTooltip' | translate"
+      [tooltipButton]="'groupAllTooltip' | translate"
       tooltipPosition="bottom"
-      [items]="periodItems"
+      [items]="teamsList"
       [formGroup]="teamForm"
       formControlName="selectedTeam"
       [noButton]="true"
@@ -32,6 +34,7 @@
       style="font-size: 1rem"
       [pTooltip]="'groupNextTooltip' | translate"
       tooltipPosition="right"
+      [showDelay]="300"
     ></i>
   </form>
   <div class="buttons-right">
@@ -61,6 +64,7 @@
     <shared-dropdown
       iconButton="pi-filter"
       [pTooltip]="'groupFilterTooltip' | translate"
+      [showDelay]="300"
       [formGroup]="filtersForm"
     >
       <div class="content-dropdown">

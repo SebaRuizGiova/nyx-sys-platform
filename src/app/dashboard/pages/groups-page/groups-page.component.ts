@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
+import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
 
 @Component({
@@ -36,10 +37,14 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
     'Puntaje de sueño: mayor a menor',
     'Puntaje de sueño: menor a mayor',
   ];
+  public userId!: string;
+  public usersList: any;
+  public teamsList: any[] = [];
 
   constructor(
     private fb: FormBuilder,
-    public languageService: LanguageService
+    private languageService: LanguageService,
+    private databaseService: DatabaseService
   ) {
     this.langSubscription = this.languageService.langChanged$.subscribe(() => {
       this.loadTranslations();
@@ -48,6 +53,7 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
 
   ngOnInit(): void {
     this.loadTranslations();
+    this.getTeamsList();
   }
 
   ngOnDestroy(): void {
@@ -71,11 +77,37 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
   });
 
   private loadTranslations() {
-    this.languageService.getTranslate('groupRangeDownloadItems').subscribe((translations: any) => {
-      this.rangeDownloadItems = translations;
-    });
-    this.languageService.getTranslate('groupOrderByItems').subscribe((translations: any) => {
-      this.orderByItems = translations;
-    });
+    this.languageService
+      .getTranslate('groupRangeDownloadItems')
+      .subscribe((translations: any) => {
+        this.rangeDownloadItems = translations;
+      });
+    this.languageService
+      .getTranslate('groupOrderByItems')
+      .subscribe((translations: any) => {
+        this.orderByItems = translations;
+      });
+  }
+
+  getTeamsList() {
+    this.databaseService.getAllUsers().subscribe(
+      (users) => {
+        users.forEach((user: any) => {
+          this.databaseService.getTeamsUserAdmin(user.id).subscribe((teams) => {
+            const formattedTeams = teams.map((team: any) => ({
+              label: team.teamName,
+              value: team.id,
+            }));
+            this.teamsList = [...this.teamsList, ...formattedTeams];
+
+            if (this.teamsList.length > 0 && !this.teamForm.value.selectedTeam) {
+              this.teamForm.patchValue({
+                selectedTeam: this.teamsList[0]
+              });
+            }
+          });
+        });
+      }
+    );
   }
 }

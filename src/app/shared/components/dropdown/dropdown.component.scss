@@ -39,6 +39,11 @@ form {
 
     &.items {
       display: unset;
+
+      &.show {
+        height: 301px;
+        overflow-y: scroll;
+      }
     }
 
     .selects {

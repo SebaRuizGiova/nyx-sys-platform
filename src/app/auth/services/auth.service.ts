@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserCredential } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
@@ -8,9 +9,12 @@ import { Observable, map } from 'rxjs';
 })
 export class AuthService {
   public authStatus: boolean = false;
-  private currentUser: string = '';
+  public currentUser: string = '';
 
-  constructor(private fireAuth: AngularFireAuth) {
+  constructor(
+    private fireAuth: AngularFireAuth,
+    private firestore: AngularFirestore
+  ) {
     this.currentUser = localStorage.getItem('currentUser') || '';
   }
 

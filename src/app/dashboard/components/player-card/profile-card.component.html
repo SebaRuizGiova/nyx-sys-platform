@@ -3,14 +3,15 @@
     <span class="player-name">{{ playerName }}</span>
     <span class="device-name">{{
       deviceName
-        ? ('profileCardDeviceName' | translate) + deviceName
-        : ('profileCardAnyDevice' | translate)
+        ? ("profileCardDeviceName" | translate) + deviceName
+        : ("profileCardAnyDevice" | translate)
     }}</span>
     <span
       *ngIf="status === 'Online' || status === 'Offline'; else active"
       class="status-device"
       [pTooltip]="status"
       tooltipPosition="right"
+      [showDelay]="300"
       [style]="{
         background: status === 'Online' ? '#1EE280' : '#898989'
       }"
@@ -21,6 +22,7 @@
         class="status-device active"
         [pTooltip]="status"
         tooltipPosition="right"
+        [showDelay]="300"
       />
     </ng-template>
   </div>
@@ -42,14 +44,16 @@
               : ('profileCardRecoveryDescArrow' | translate)
           "
           tooltipPosition="left"
+          [showDelay]="300"
         ></i>
         <span>{{ recovery || "-" }}</span>
         <span
           class="description"
           [pTooltip]="'profileCardRecoveryDescriptionTooltip' | translate"
           tooltipPosition="bottom"
+          [showDelay]="300"
         >
-          {{ 'profileCardRecoveryDescription' | translate }}
+          {{ "profileCardRecoveryDescription" | translate }}
         </span>
       </div>
     </div>
@@ -61,10 +65,12 @@
         <div *ngIf="sna; else empty" class="sna">
           <span
             [pTooltip]="'profileCardSNASTooltip' | translate"
+            [showDelay]="300"
             >{{ sna.simpatic }}<small>S</small>/</span
           >
           <span
             [pTooltip]="'profileCardSNAPTooltip' | translate"
+            [showDelay]="300"
             >{{ sna.parasimpatic }}<small>P</small></span
           >
         </div>
@@ -73,8 +79,9 @@
           class="description"
           [pTooltip]="'profileCardSNADescriptionTooltip' | translate"
           tooltipPosition="bottom"
+          [showDelay]="300"
         >
-          {{ 'profileCardSNADescription' | translate }}
+          {{ "profileCardSNADescription" | translate }}
         </span>
       </div>
     </div>
