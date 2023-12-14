@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 interface SNA {
-  simpatic: number;
-  parasimpatic: number;
+  sympathetic: number;
+  parasympathetic: number;
 }
 
 @Component({

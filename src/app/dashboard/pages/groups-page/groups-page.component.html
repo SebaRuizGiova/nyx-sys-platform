@@ -110,97 +110,13 @@
 <hr />
 <main class="main-content">
   <dashboard-profile-card
-    playerName="Lucas Gonzalez"
+    *ngFor="let player of players"
+    [playerName]="player.name + ' ' + player.lastName"
     deviceName="000535"
     status="En actividad"
     [sna]="{
-      simpatic: 45,
-      parasimpatic: 51
-    }"
-    [recovery]="-1"
-    [sleepScore]="95"
-  />
-  <dashboard-profile-card
-    playerName="Lucas Gonzalez"
-    deviceName="000535"
-    status="Online"
-    [sna]="{
-      simpatic: 45,
-      parasimpatic: 51
-    }"
-    [recovery]="10"
-    [sleepScore]="85"
-  />
-  <dashboard-profile-card
-    playerName="Lucas Gonzalez"
-    deviceName="000535"
-    status="Offline"
-    [sna]="{
-      simpatic: 45,
-      parasimpatic: 51
-    }"
-    [recovery]="-1"
-    [sleepScore]="95"
-  />
-  <dashboard-profile-card
-    playerName="Lucas Gonzalez"
-    deviceName=""
-    status="Offline"
-    [sna]="null"
-    [recovery]="0"
-    [sleepScore]="0"
-  />
-  <dashboard-profile-card
-    playerName="Lucas Gonzalez"
-    deviceName="000535"
-    status="En actividad"
-    [sna]="{
-      simpatic: 45,
-      parasimpatic: 51
-    }"
-    [recovery]="-1"
-    [sleepScore]="95"
-  />
-  <dashboard-profile-card
-    playerName="Lucas Gonzalez"
-    deviceName="000535"
-    status="En actividad"
-    [sna]="{
-      simpatic: 45,
-      parasimpatic: 51
-    }"
-    [recovery]="-1"
-    [sleepScore]="95"
-  />
-  <dashboard-profile-card
-    playerName="Lucas Gonzalez"
-    deviceName="000535"
-    status="En actividad"
-    [sna]="{
-      simpatic: 45,
-      parasimpatic: 51
-    }"
-    [recovery]="-1"
-    [sleepScore]="95"
-  />
-  <dashboard-profile-card
-    playerName="Lucas Gonzalez"
-    deviceName="000535"
-    status="En actividad"
-    [sna]="{
-      simpatic: 45,
-      parasimpatic: 51
-    }"
-    [recovery]="-1"
-    [sleepScore]="95"
-  />
-  <dashboard-profile-card
-    playerName="Lucas Gonzalez"
-    deviceName="000535"
-    status="En actividad"
-    [sna]="{
-      simpatic: 45,
-      parasimpatic: 51
+      sympathetic: 45,
+      parasympathetic: 51
     }"
     [recovery]="-1"
     [sleepScore]="95"
