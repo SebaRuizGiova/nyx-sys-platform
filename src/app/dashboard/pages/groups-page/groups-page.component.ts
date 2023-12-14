@@ -69,7 +69,6 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
           )
           .subscribe({
             next: (players) => {
-              console.log(players);
               this.players = players;
             },
             complete: () => {

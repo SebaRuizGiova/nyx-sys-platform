@@ -112,7 +112,7 @@
   <dashboard-profile-card
     *ngFor="let player of players"
     [playerName]="player.name + ' ' + player.lastName"
-    deviceName="000535"
+    [deviceName]="player.deviceSN"
     status="En actividad"
     [sna]="{
       sympathetic: 45,

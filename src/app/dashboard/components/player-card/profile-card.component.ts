@@ -12,7 +12,7 @@ interface SNA {
 })
 export class ProfileCardComponent {
   @Input() playerName: string = '';
-  @Input() deviceName: string = '';
+  @Input() deviceName: string | boolean = '';
   @Input() status: string = '';
   @Input() sna: SNA | null = null;
   @Input() recovery: number = 0;
