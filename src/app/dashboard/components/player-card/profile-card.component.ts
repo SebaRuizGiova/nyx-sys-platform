@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 interface SNA {
-  sympathetic: number;
-  parasympathetic: number;
+  sympathetic: number | null;
+  parasympathetic: number | null;
 }
 
 @Component({
@@ -15,6 +15,6 @@ export class ProfileCardComponent {
   @Input() deviceName: string | boolean = '';
   @Input() status: string = '';
   @Input() sna: SNA | null = null;
-  @Input() recovery: number = 0;
-  @Input() sleepScore: number = 0;
+  @Input() recovery: number | null = 0;
+  @Input() sleepScore: number | null = 0;
 }

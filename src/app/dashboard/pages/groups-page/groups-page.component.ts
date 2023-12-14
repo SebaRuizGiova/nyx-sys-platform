@@ -1,10 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  Subscription,
-  mergeMap,
-  tap,
-} from 'rxjs';
+import { Subscription, mergeMap, tap } from 'rxjs';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
@@ -15,8 +11,11 @@ import { Profile } from '../../interfaces/profile.interface';
   templateUrl: './groups-page.component.html',
   styleUrls: ['./groups-page.component.scss'],
 })
-export class GroupsPageComponent implements OnDestroy, OnInit {
-  private langSubscription: Subscription;
+export class GroupsPageComponent implements OnInit {
+  // private langSubscription: Subscription;
+  // private groupsListSubscription: Subscription;
+  // private selectedGroupIndexSubscription: Subscription;
+  // private profilesSubscription: Subscription;
   public periodItems: ItemDropdown[] = [
     {
       label: 'Periodo 1',
@@ -36,10 +35,10 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
   public orderByItems?: string[];
   public userId!: string;
   public usersList: any;
-  public groupsList: ItemDropdown[] = [];
-  public selectedGroup: string = '';
-  public selectedGroupIndex: number = 0;
-  public players: Profile[] = [];
+  public groupsList: ItemDropdown[];
+  public selectedGroupId: string;
+  public selectedGroupIndex: number;
+  public profiles: Profile[];
   private role: string | null = localStorage.getItem('role');
 
   constructor(
@@ -48,9 +47,20 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
     private databaseService: DatabaseService,
     private loadingService: LoadingService
   ) {
-    this.langSubscription = this.languageService.langChanged$.subscribe(() => {
+    this.groupsList = this.databaseService.groupsList;
+    this.selectedGroupId = this.databaseService.selectedGroupId;
+    this.selectedGroupIndex = this.databaseService.selectedGroupIndex;
+    this.profiles = this.databaseService.profiles;
+    this.groupForm.patchValue({
+      selectedGroup: this.groupsList[this.selectedGroupIndex],
+    });
+  }
+
+  ngOnInit(): void {
+    this.languageService.langChanged$.subscribe(() => {
       this.loadTranslations();
     });
+
     this.databaseService.groupsList$.subscribe((groups) => {
       this.groupsList = groups;
     });
@@ -62,9 +72,9 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
       });
     });
 
-    this.databaseService.selectedGroup$
+    this.databaseService.selectedGroupId$
       .pipe(
-        tap(() => loadingService.setLoading(true)),
+        tap(() => this.loadingService.setLoading(true)),
         mergeMap((selectedGroup) => {
           const profiles$ =
             this.role === 'superAdmin'
@@ -77,20 +87,19 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
           return profiles$;
         })
       )
-      .subscribe((players) => {
-        this.players = players;
-        this.databaseService.setProfiles(players);
-        loadingService.setLoading(false)
+      .subscribe((profiles) => {
+        this.profiles = profiles;
+        this.databaseService.setProfiles(profiles);
+        this.loadingService.setLoading(false);
       });
   }
 
-  ngOnInit(): void {
-    this.loadTranslations();
-  }
-
-  ngOnDestroy(): void {
-    this.langSubscription.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   this.langSubscription.unsubscribe();
+  //   this.groupsListSubscription.unsubscribe();
+  //   this.selectedGroupIndexSubscription.unsubscribe();
+  //   this.profilesSubscription.unsubscribe();
+  // }
 
   public periodForm: FormGroup = this.fb.group({
     period: '',
@@ -157,7 +166,7 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
       (group) => group.value === this.groupForm.value.selectedGroup.value
     );
     this.databaseService.setSelectedGroupIndex(indexSelected);
-    this.databaseService.setSelectedGroup(
+    this.databaseService.setSelectedGroupId(
       this.groupForm.value.selectedGroup.value
     );
     localStorage.setItem(

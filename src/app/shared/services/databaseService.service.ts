@@ -19,15 +19,15 @@ import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
   providedIn: 'root',
 })
 export class DatabaseService {
-  private groupsList: any[] = [];
+  public groupsList: any[] = [];
   private groupsListSubject = new Subject<any[]>();
   groupsList$: Observable<any[]> = this.groupsListSubject.asObservable();
 
-  private selectedGroup: string = '';
-  private selectedGroupSubject = new Subject<string>();
-  selectedGroup$: Observable<string> = this.selectedGroupSubject.asObservable();
+  public selectedGroupId: string = '';
+  private selectedGroupIdSubject = new Subject<string>();
+  selectedGroupId$: Observable<string> = this.selectedGroupIdSubject.asObservable();
 
-  private selectedGroupIndex: number = 0;
+  public selectedGroupIndex: number = 0;
   private selectedGroupIndexSubject = new Subject<number>();
   selectedGroupIndex$: Observable<number> =
     this.selectedGroupIndexSubject.asObservable();
@@ -154,9 +154,9 @@ export class DatabaseService {
     this.groupsListSubject.next(groups);
   }
 
-  setSelectedGroup(groupId: string): void {
-    this.selectedGroup = groupId;
-    this.selectedGroupSubject.next(groupId);
+  setSelectedGroupId(groupId: string): void {
+    this.selectedGroupId = groupId;
+    this.selectedGroupIdSubject.next(groupId);
   }
 
   setSelectedGroupIndex(index: number): void {
@@ -184,7 +184,7 @@ export class DatabaseService {
           (group) => group.value === currentGroupId
         );
         this.setSelectedGroupIndex(currentGroupIndex);
-        this.setSelectedGroup(currentGroupId);
+        this.setSelectedGroupId(currentGroupId);
         if (currentGroup) {
           localStorage.setItem('selectedGroup', currentGroup.value);
         }
@@ -192,7 +192,7 @@ export class DatabaseService {
         currentGroup = this.groupsList[0];
         currentGroupIndex = 0;
         this.setSelectedGroupIndex(currentGroupIndex);
-        this.setSelectedGroup(this.groupsList[0].value);
+        this.setSelectedGroupId(this.groupsList[0].value);
         if (currentGroup) {
           localStorage.setItem('selectedGroup', currentGroup.value);
         }

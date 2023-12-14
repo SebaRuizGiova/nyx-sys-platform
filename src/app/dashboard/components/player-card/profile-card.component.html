@@ -1,4 +1,4 @@
-<div class="card-player" [routerLink]="['/dashboard/profile/1']" >
+<div class="card-player" [routerLink]="['/dashboard/profile/1']">
   <div class="card-header">
     <span class="player-name">{{ playerName }}</span>
     <span class="device-name">{{
@@ -10,7 +10,7 @@
       *ngIf="status === 'Online' || status === 'Offline'; else active"
       class="status-device"
       [pTooltip]="status"
-      tooltipPosition="right"
+      tooltipPosition="left"
       [showDelay]="400"
       [style]="{
         background: status === 'Online' ? '#1EE280' : '#898989'
@@ -21,7 +21,7 @@
         src="assets/icons/heart-rate.svg"
         class="status-device active"
         [pTooltip]="status"
-        tooltipPosition="right"
+        tooltipPosition="left"
         [showDelay]="400"
       />
     </ng-template>
@@ -58,20 +58,20 @@
       </div>
     </div>
 
-    <shared-circle-progress-bar [sleepScore]="sleepScore" />
+    <shared-circle-progress-bar [sleepScore]="sleepScore || 0" />
 
     <div class="value-content">
       <div class="value">
-        <div *ngIf="sna; else empty" class="sna">
+        <div *ngIf="sna?.sympathetic && sna?.parasympathetic; else empty" class="sna">
           <span
             [pTooltip]="'profileCardSNASTooltip' | translate"
             [showDelay]="400"
-            >{{ sna.sympathetic }}<small>S</small>/</span
+            >{{ sna?.sympathetic || 0 }}<small>S</small>/</span
           >
           <span
             [pTooltip]="'profileCardSNAPTooltip' | translate"
             [showDelay]="400"
-            >{{ sna.parasympathetic }}<small>P</small></span
+            >{{ sna?.parasympathetic || 0 }}<small>P</small></span
           >
         </div>
         <ng-template #empty>-</ng-template>

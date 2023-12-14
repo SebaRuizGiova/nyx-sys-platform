@@ -110,15 +110,19 @@
 <hr />
 <main class="main-content">
   <dashboard-profile-card
-    *ngFor="let player of players"
-    [playerName]="player.name + ' ' + player.lastName"
-    [deviceName]="player.deviceSN"
+    *ngFor="let profile of profiles"
+    [playerName]="profile.name + ' ' + profile.lastName"
+    [deviceName]="profile.deviceSN"
     status="En actividad"
     [sna]="{
-      sympathetic: 45,
-      parasympathetic: 51
+      sympathetic: profile.sleepData.hrv_rmssd_data?.length
+        ? profile.sleepData.hrv_rmssd_data[0].lf
+        : null,
+      parasympathetic: profile.sleepData.hrv_rmssd_data?.length
+        ? profile.sleepData.hrv_rmssd_data[0].hf
+        : null
     }"
-    [recovery]="-1"
-    [sleepScore]="95"
+    [recovery]="profile.sleepData.hrv_data?.length ? profile.sleepData.hrv_data[0].totalRecovery : null"
+    [sleepScore]="profile.sleepData.sleep_score || 0"
   />
 </main>
