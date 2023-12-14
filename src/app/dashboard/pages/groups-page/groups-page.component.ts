@@ -1,11 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import {
+  Subscription,
+  mergeMap,
+  tap,
+} from 'rxjs';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
-import { Player } from '../../interfaces/player.interface';
+import { Profile } from '../../interfaces/profile.interface';
 
 @Component({
   templateUrl: './groups-page.component.html',
@@ -35,7 +39,7 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
   public groupsList: ItemDropdown[] = [];
   public selectedGroup: string = '';
   public selectedGroupIndex: number = 0;
-  public players: Player[] = [];
+  public players: Profile[] = [];
   private role: string | null = localStorage.getItem('role');
 
   constructor(
@@ -58,35 +62,26 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
       });
     });
 
-    this.databaseService.selectedGroup$.subscribe((selectedGroup) => {
-      this.selectedGroup = selectedGroup;
-      loadingService.setLoading(true);
-      if (this.role === 'superAdmin') {
-        this.databaseService
-          .getProfilesByGroup(
-            selectedGroup,
-            this.groupForm.value.selectedGroup?.userId
-          )
-          .subscribe({
-            next: (players) => {
-              this.players = players;
-            },
-            complete: () => {
-              loadingService.setLoading(false);
-            },
-          });
-      } else {
-        this.databaseService.getProfilesByGroup(selectedGroup).subscribe({
-          next: (players) => {
-            console.log(players);
-            this.players = players;
-          },
-          complete: () => {
-            loadingService.setLoading(false);
-          },
-        });
-      }
-    });
+    this.databaseService.selectedGroup$
+      .pipe(
+        tap(() => loadingService.setLoading(true)),
+        mergeMap((selectedGroup) => {
+          const profiles$ =
+            this.role === 'superAdmin'
+              ? this.databaseService.getProfilesByGroup(
+                  selectedGroup,
+                  this.groupForm.value.selectedGroup?.userId
+                )
+              : this.databaseService.getProfilesByGroup(selectedGroup);
+
+          return profiles$;
+        })
+      )
+      .subscribe((players) => {
+        this.players = players;
+        this.databaseService.setProfiles(players);
+        loadingService.setLoading(false)
+      });
   }
 
   ngOnInit(): void {
