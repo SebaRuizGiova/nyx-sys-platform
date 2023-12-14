@@ -27,6 +27,7 @@ export class LoginPageComponent implements OnInit {
   public emailTextRestore: string = '';
   public passwordText: string = '';
   public isFlipped: boolean = false;
+  public loading: boolean = false;
 
   constructor(
     private themeSelectionService: ThemeSelectionService,
@@ -96,10 +97,15 @@ export class LoginPageComponent implements OnInit {
     const email = this.loginForm.controls['emailLogin'].value;
     const password = this.loginForm.controls['passwordLogin'].value;
 
+    this.loading = true;
     this.authService
       .login(email, password)
-      .then(() => window.location.reload())
+      .then(() => {
+        this.loading = false;
+        window.location.reload()
+      })
       .catch(() => {
+        this.loading = false;
         const errorTitle = this.translate.instant('ToastTitleError');
         const errorMessage = this.translate.instant('loginToastErrorLogin');
         this.messageService.add({

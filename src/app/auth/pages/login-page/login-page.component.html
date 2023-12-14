@@ -2,11 +2,7 @@
   <p-toast></p-toast>
   <div class="login-content">
     <div class="logo">
-      <img
-        src="assets/logos/N_WHITE.svg"
-        alt="Logo"
-        class="logo-nyxsys"
-      />
+      <img src="assets/logos/N_WHITE.svg" alt="Logo" class="logo-nyxsys" />
       <img
         src="assets/logos/NYXSYS WHITE_WORD.png"
         alt="NyxSys"
@@ -39,7 +35,7 @@
               <div class="button-login">
                 <shared-button
                   [label]="'loginButtonSignIn' | translate"
-                  icon="pi-sign-in"
+                  [icon]="loading ? 'pi-spin pi-spinner' : 'pi-sign-in'"
                   (click)="onLogin()"
                 />
                 <a class="remember" (click)="toggleCard()">{{
@@ -72,7 +68,11 @@
                 formControlName="emailForget"
               />
               <div class="button-send">
-                <shared-button [label]="'loginButtonSend' | translate" (click)="onForgetPassword()" />
+                <shared-button
+                  [label]="'loginButtonSend' | translate"
+                  (click)="onForgetPassword()"
+                  [icon]="loading ? 'pi-spin pi-spinner' : 'pi-send'"
+                />
               </div>
             </form>
           </div>
