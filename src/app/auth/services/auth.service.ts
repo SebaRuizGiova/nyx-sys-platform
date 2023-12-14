@@ -11,7 +11,6 @@ export class AuthService {
   public authStatus: boolean = false;
   public currentUser: string = localStorage.getItem('currentUser') || '';
   public userId: string = localStorage.getItem('userId') || '';
-  public role: string = '';
 
   constructor(
     private fireAuth: AngularFireAuth,
@@ -49,7 +48,11 @@ export class AuthService {
               if (userData) {
                 this.userId = userData.id;
                 localStorage.setItem('userId', userData.id);
-                this.role = userData.role;
+                const actualRole = localStorage.getItem('role');
+                if (userData.role !== actualRole) {
+                  localStorage.removeItem('selectedGroup')
+                }
+                localStorage.setItem('role', userData.role)
               } else {
                 console.log('No se encontró usuario');
               }

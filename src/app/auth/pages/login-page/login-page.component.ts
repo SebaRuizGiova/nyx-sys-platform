@@ -34,8 +34,7 @@ export class LoginPageComponent implements OnInit {
     private translate: TranslateService,
     private fb: FormBuilder,
     private authService: AuthService,
-    private messageService: MessageService,
-    private router: Router
+    private messageService: MessageService
   ) {
     themeSelectionService.changeTheme(false);
   }

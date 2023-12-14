@@ -19,7 +19,10 @@ export class DatabaseService {
 
   private selectedGroupIndex: number = 0;
   private selectedGroupIndexSubject = new Subject<number>();
-  selectedGroupIndex$: Observable<number> = this.selectedGroupIndexSubject.asObservable();
+  selectedGroupIndex$: Observable<number> =
+    this.selectedGroupIndexSubject.asObservable();
+
+  private role: string | null = localStorage.getItem('role');
 
   constructor(
     private firestore: AngularFirestore,
@@ -36,13 +39,20 @@ export class DatabaseService {
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
-  getProfilesByGroup(groupId: string): Observable<any> {
+  getProfilesByGroup(groupId: string, userId?: string): Observable<any> {
+    console.log(groupId);
     return this.firestore
-      .collection(`/users/${environment.client}/content/${this.authService.userId}/players`)
+      .collection(
+        `/users/${environment.client}/content/${
+          userId || this.authService.userId
+        }/players`
+      )
       .get()
       .pipe(
         map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
-        map( profiles => profiles.filter( profile => profile.teamID === groupId))
+        map((profiles) =>
+          profiles.filter((profile) => profile.teamID === groupId)
+        )
       );
   }
 
@@ -62,7 +72,7 @@ export class DatabaseService {
 
   private getGroupsListToDatabase() {
     this.loadingService.setLoading(true);
-    if (this.authService.role === 'superAdmin') {
+    if (this.role === 'superAdmin') {
       this.getAllUsers().subscribe((users) => {
         users.forEach((user: any) => {
           this.getGroupsUserAdmin(user.id).subscribe({
@@ -70,6 +80,7 @@ export class DatabaseService {
               const formattedGroups = groups.map((group: any) => ({
                 label: group.teamName,
                 value: group.id,
+                userId: group.userID,
               }));
               this.setGroupsList([...this.groupsList, ...formattedGroups]);
             },
@@ -113,9 +124,10 @@ export class DatabaseService {
   setGroupData() {
     if (this.groupsList.length) {
       const currentGroupId = localStorage.getItem('selectedGroup');
+      const existGroupInArray = this.groupsList.some( group => group.value === currentGroupId )
       let currentGroup;
       let currentGroupIndex;
-      if (currentGroupId) {
+      if (currentGroupId && existGroupInArray) {
         this.setSelectedGroup(currentGroupId);
         currentGroup = this.groupsList.find(
           (group) => group.value === currentGroupId
@@ -124,20 +136,14 @@ export class DatabaseService {
           (group) => group.value === currentGroupId
         );
         if (currentGroup) {
-          localStorage.setItem(
-            'selectedGroup',
-            currentGroup.value.toString()
-          );
+          localStorage.setItem('selectedGroup', currentGroup.value);
         }
       } else {
         currentGroup = this.groupsList[0];
         currentGroupIndex = 0;
+        this.setSelectedGroup(this.groupsList[0].value);
         if (currentGroup) {
-          localStorage.setItem(
-            'selectedGroup',
-            currentGroup.value.toString()
-          );
-          this.setSelectedGroup(currentGroup.id);
+          localStorage.setItem('selectedGroup', currentGroup.value);
         }
       }
       this.setSelectedGroupIndex(currentGroupIndex);

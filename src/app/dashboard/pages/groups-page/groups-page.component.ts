@@ -36,6 +36,7 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
   public selectedGroup: string = '';
   public selectedGroupIndex: number = 0;
   public players: Player[] = [];
+  private role: string | null = localStorage.getItem('role');
 
   constructor(
     private fb: FormBuilder,
@@ -50,24 +51,42 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
       this.groupsList = groups;
     });
 
-    this.databaseService.selectedGroup$.subscribe((id) => {
-      this.selectedGroup = id;
-      loadingService.setLoading(true);
-      this.databaseService.getProfilesByGroup(this.selectedGroup).subscribe({
-        next: players => {
-          this.players = players;
-        },
-        complete: () => {
-          loadingService.setLoading(false);
-        }
-      })
+    this.databaseService.selectedGroupIndex$.subscribe((selectedGroupIndex) => {
+      this.selectedGroupIndex = selectedGroupIndex;
+      this.groupForm.patchValue({
+        selectedGroup: this.groupsList[selectedGroupIndex],
+      });
     });
 
-    this.databaseService.selectedGroupIndex$.subscribe((index) => {
-      this.selectedGroupIndex = index;
-      this.groupForm.patchValue({
-        selectedGroup: this.groupsList[this.selectedGroupIndex],
-      });
+    this.databaseService.selectedGroup$.subscribe((selectedGroup) => {
+      this.selectedGroup = selectedGroup;
+      loadingService.setLoading(true);
+      if (this.role === 'superAdmin') {
+        this.databaseService
+          .getProfilesByGroup(
+            selectedGroup,
+            this.groupForm.value.selectedGroup?.userId
+          )
+          .subscribe({
+            next: (players) => {
+              console.log(players);
+              this.players = players;
+            },
+            complete: () => {
+              loadingService.setLoading(false);
+            },
+          });
+      } else {
+        this.databaseService.getProfilesByGroup(selectedGroup).subscribe({
+          next: (players) => {
+            console.log(players);
+            this.players = players;
+          },
+          complete: () => {
+            loadingService.setLoading(false);
+          },
+        });
+      }
     });
   }
 
@@ -122,7 +141,7 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
         'selectedGroup',
         this.groupForm.value.selectedGroup.value
       );
-      this.databaseService.setSelectedGroupIndex(this.selectedGroupIndex + 1);
+      this.selectGroup();
     }
   }
 
@@ -135,7 +154,7 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
         'selectedGroup',
         this.groupForm.value.selectedGroup.value
       );
-      this.databaseService.setSelectedGroupIndex(this.selectedGroupIndex - 1);
+      this.selectGroup();
     }
   }
 
@@ -144,7 +163,9 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
       (group) => group.value === this.groupForm.value.selectedGroup.value
     );
     this.databaseService.setSelectedGroupIndex(indexSelected);
-    this.databaseService.setSelectedGroup(this.groupForm.value.selectedGroup.value);
+    this.databaseService.setSelectedGroup(
+      this.groupForm.value.selectedGroup.value
+    );
     localStorage.setItem(
       'selectedGroup',
       this.groupForm.value.selectedGroup.value

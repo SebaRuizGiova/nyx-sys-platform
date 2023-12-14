@@ -4,6 +4,7 @@ import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/for
 export interface ItemDropdown {
   label: string;
   value: string | number;
+  userId?: string;
 }
 
 @Component({
