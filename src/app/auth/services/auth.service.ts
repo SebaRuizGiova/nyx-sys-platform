@@ -68,10 +68,10 @@ export class AuthService {
   }
 
   async logout(): Promise<void> {
-    const selectedTeam = localStorage.getItem('selectedTeam');
+    const selectedGroup = localStorage.getItem('selectedGroup');
     localStorage.clear();
-    if (selectedTeam) {
-      localStorage.setItem('selectedTeam', selectedTeam);
+    if (selectedGroup) {
+      localStorage.setItem('selectedGroup', selectedGroup);
     }
     return await this.fireAuth.signOut();
   }

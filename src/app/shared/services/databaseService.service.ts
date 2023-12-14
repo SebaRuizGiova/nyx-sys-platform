@@ -9,24 +9,24 @@ import { LoadingService } from './loading.service';
   providedIn: 'root',
 })
 export class DatabaseService {
-  private teamsList: any[] = [];
-  private teamsListSubject = new Subject<any[]>();
-  teamsList$: Observable<any[]> = this.teamsListSubject.asObservable();
+  private groupsList: any[] = [];
+  private groupsListSubject = new Subject<any[]>();
+  groupsList$: Observable<any[]> = this.groupsListSubject.asObservable();
 
-  private selectedTeam: string = '';
-  private selectedTeamSubject = new Subject<string>();
-  selectedTeam$: Observable<string> = this.selectedTeamSubject.asObservable();
+  private selectedGroup: string = '';
+  private selectedGroupSubject = new Subject<string>();
+  selectedGroup$: Observable<string> = this.selectedGroupSubject.asObservable();
 
-  private selectedTeamIndex: number = 0;
-  private selectedTeamIndexSubject = new Subject<number>();
-  selectedTeamIndex$: Observable<number> = this.selectedTeamIndexSubject.asObservable();
+  private selectedGroupIndex: number = 0;
+  private selectedGroupIndexSubject = new Subject<number>();
+  selectedGroupIndex$: Observable<number> = this.selectedGroupIndexSubject.asObservable();
 
   constructor(
     private firestore: AngularFirestore,
     private loadingService: LoadingService,
     private authService: AuthService
   ) {
-    this.getTeamsListToDatabase();
+    this.getGroupsListToDatabase();
   }
 
   getAllUsers(): Observable<any> {
@@ -36,111 +36,111 @@ export class DatabaseService {
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
-  getProfilesByTeam(teamId: string): Observable<any> {
+  getProfilesByGroup(groupId: string): Observable<any> {
     return this.firestore
       .collection(`/users/${environment.client}/content/${this.authService.userId}/players`)
       .get()
       .pipe(
         map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
-        map( players => players.filter( player => player.teamID === teamId))
+        map( profiles => profiles.filter( profile => profile.teamID === groupId))
       );
   }
 
-  getTeamsUser(userId: string) {
+  getGroupsUser(userId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
       .get()
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
-  getTeamsUserAdmin(userId: string): Observable<any[]> {
+  getGroupsUserAdmin(userId: string): Observable<any[]> {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
       .get()
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
-  private getTeamsListToDatabase() {
+  private getGroupsListToDatabase() {
     this.loadingService.setLoading(true);
     if (this.authService.role === 'superAdmin') {
       this.getAllUsers().subscribe((users) => {
         users.forEach((user: any) => {
-          this.getTeamsUserAdmin(user.id).subscribe({
-            next: (teams) => {
-              const formattedTeams = teams.map((team: any) => ({
-                label: team.teamName,
-                value: team.id,
+          this.getGroupsUserAdmin(user.id).subscribe({
+            next: (groups) => {
+              const formattedGroups = groups.map((group: any) => ({
+                label: group.teamName,
+                value: group.id,
               }));
-              this.setTeamsList([...this.teamsList, ...formattedTeams]);
+              this.setGroupsList([...this.groupsList, ...formattedGroups]);
             },
             complete: () => {
-              this.setTeamData();
+              this.setGroupData();
             },
           });
         });
       });
     } else {
-      this.getTeamsUser(this.authService.userId).subscribe({
-        next: (teams) => {
-          const formattedTeams = teams.map((team: any) => ({
-            label: team.teamName,
-            value: team.id,
+      this.getGroupsUser(this.authService.userId).subscribe({
+        next: (groups) => {
+          const formattedGroups = groups.map((group: any) => ({
+            label: group.teamName,
+            value: group.id,
           }));
-          this.setTeamsList([...this.teamsList, ...formattedTeams]);
+          this.setGroupsList([...this.groupsList, ...formattedGroups]);
         },
         complete: () => {
-          this.setTeamData();
+          this.setGroupData();
         },
       });
     }
   }
 
-  setTeamsList(teams: any[]): void {
-    this.teamsList = teams;
-    this.teamsListSubject.next(teams);
+  setGroupsList(groups: any[]): void {
+    this.groupsList = groups;
+    this.groupsListSubject.next(groups);
   }
 
-  setSelectedTeam(teamId: string): void {
-    this.selectedTeam = teamId;
-    this.selectedTeamSubject.next(teamId);
+  setSelectedGroup(groupId: string): void {
+    this.selectedGroup = groupId;
+    this.selectedGroupSubject.next(groupId);
   }
 
-  setSelectedTeamIndex(index: number): void {
-    this.selectedTeamIndex = index;
-    this.selectedTeamIndexSubject.next(index);
+  setSelectedGroupIndex(index: number): void {
+    this.selectedGroupIndex = index;
+    this.selectedGroupIndexSubject.next(index);
   }
 
-  setTeamData() {
-    if (this.teamsList.length) {
-      const currentTeamId = localStorage.getItem('selectedTeam');
-      let currentTeam;
-      let currentTeamIndex;
-      if (currentTeamId) {
-        this.setSelectedTeam(currentTeamId);
-        currentTeam = this.teamsList.find(
-          (team) => team.value === currentTeamId
+  setGroupData() {
+    if (this.groupsList.length) {
+      const currentGroupId = localStorage.getItem('selectedGroup');
+      let currentGroup;
+      let currentGroupIndex;
+      if (currentGroupId) {
+        this.setSelectedGroup(currentGroupId);
+        currentGroup = this.groupsList.find(
+          (group) => group.value === currentGroupId
         );
-        currentTeamIndex = this.teamsList.findIndex(
-          (team) => team.value === currentTeamId
+        currentGroupIndex = this.groupsList.findIndex(
+          (group) => group.value === currentGroupId
         );
-        if (currentTeam) {
+        if (currentGroup) {
           localStorage.setItem(
-            'selectedTeam',
-            currentTeam.value.toString()
+            'selectedGroup',
+            currentGroup.value.toString()
           );
         }
       } else {
-        currentTeam = this.teamsList[0];
-        currentTeamIndex = 0;
-        if (currentTeam) {
+        currentGroup = this.groupsList[0];
+        currentGroupIndex = 0;
+        if (currentGroup) {
           localStorage.setItem(
-            'selectedTeam',
-            currentTeam.value.toString()
+            'selectedGroup',
+            currentGroup.value.toString()
           );
-          this.setSelectedTeam(currentTeam.id);
+          this.setSelectedGroup(currentGroup.id);
         }
       }
-      this.setSelectedTeamIndex(currentTeamIndex);
+      this.setSelectedGroupIndex(currentGroupIndex);
     }
     this.loadingService.setLoading(false);
   }

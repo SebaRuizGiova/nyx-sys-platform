@@ -32,9 +32,9 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
   public orderByItems?: string[];
   public userId!: string;
   public usersList: any;
-  public teamsList: ItemDropdown[] = [];
-  public selectedTeam: string = '';
-  public selectedTeamIndex: number = 0;
+  public groupsList: ItemDropdown[] = [];
+  public selectedGroup: string = '';
+  public selectedGroupIndex: number = 0;
   public players: Player[] = [];
 
   constructor(
@@ -46,14 +46,14 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
     this.langSubscription = this.languageService.langChanged$.subscribe(() => {
       this.loadTranslations();
     });
-    this.databaseService.teamsList$.subscribe((teams) => {
-      this.teamsList = teams;
+    this.databaseService.groupsList$.subscribe((groups) => {
+      this.groupsList = groups;
     });
 
-    this.databaseService.selectedTeam$.subscribe((id) => {
-      this.selectedTeam = id;
+    this.databaseService.selectedGroup$.subscribe((id) => {
+      this.selectedGroup = id;
       loadingService.setLoading(true);
-      this.databaseService.getProfilesByTeam(this.selectedTeam).subscribe({
+      this.databaseService.getProfilesByGroup(this.selectedGroup).subscribe({
         next: players => {
           this.players = players;
         },
@@ -63,10 +63,10 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
       })
     });
 
-    this.databaseService.selectedTeamIndex$.subscribe((index) => {
-      this.selectedTeamIndex = index;
-      this.teamForm.patchValue({
-        selectedTeam: this.teamsList[this.selectedTeamIndex],
+    this.databaseService.selectedGroupIndex$.subscribe((index) => {
+      this.selectedGroupIndex = index;
+      this.groupForm.patchValue({
+        selectedGroup: this.groupsList[this.selectedGroupIndex],
       });
     });
   }
@@ -82,8 +82,8 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
   public periodForm: FormGroup = this.fb.group({
     period: '',
   });
-  public teamForm: FormGroup = this.fb.group({
-    selectedTeam: null,
+  public groupForm: FormGroup = this.fb.group({
+    selectedGroup: null,
   });
   public downloadForm: FormGroup = this.fb.group({
     format: ['', Validators.required],
@@ -114,40 +114,40 @@ export class GroupsPageComponent implements OnDestroy, OnInit {
   }
 
   nextGroup() {
-    if (this.teamsList[this.selectedTeamIndex + 1]) {
-      this.teamForm.patchValue({
-        selectedTeam: this.teamsList[this.selectedTeamIndex + 1],
+    if (this.groupsList[this.selectedGroupIndex + 1]) {
+      this.groupForm.patchValue({
+        selectedGroup: this.groupsList[this.selectedGroupIndex + 1],
       });
       localStorage.setItem(
-        'selectedTeam',
-        this.teamForm.value.selectedTeam.value
+        'selectedGroup',
+        this.groupForm.value.selectedGroup.value
       );
-      this.databaseService.setSelectedTeamIndex(this.selectedTeamIndex + 1);
+      this.databaseService.setSelectedGroupIndex(this.selectedGroupIndex + 1);
     }
   }
 
   backGroup() {
-    if (this.teamsList[this.selectedTeamIndex - 1]) {
-      this.teamForm.patchValue({
-        selectedTeam: this.teamsList[this.selectedTeamIndex - 1],
+    if (this.groupsList[this.selectedGroupIndex - 1]) {
+      this.groupForm.patchValue({
+        selectedGroup: this.groupsList[this.selectedGroupIndex - 1],
       });
       localStorage.setItem(
-        'selectedTeam',
-        this.teamForm.value.selectedTeam.value
+        'selectedGroup',
+        this.groupForm.value.selectedGroup.value
       );
-      this.databaseService.setSelectedTeamIndex(this.selectedTeamIndex - 1);
+      this.databaseService.setSelectedGroupIndex(this.selectedGroupIndex - 1);
     }
   }
 
-  selectTeam() {
-    const indexSelected = this.teamsList.findIndex(
-      (team) => team.value === this.teamForm.value.selectedTeam.value
+  selectGroup() {
+    const indexSelected = this.groupsList.findIndex(
+      (group) => group.value === this.groupForm.value.selectedGroup.value
     );
-    this.databaseService.setSelectedTeamIndex(indexSelected);
-    this.databaseService.setSelectedTeam(this.teamForm.value.selectedTeam.value);
+    this.databaseService.setSelectedGroupIndex(indexSelected);
+    this.databaseService.setSelectedGroup(this.groupForm.value.selectedGroup.value);
     localStorage.setItem(
-      'selectedTeam',
-      this.teamForm.value.selectedTeam.value
+      'selectedGroup',
+      this.groupForm.value.selectedGroup.value
     );
   }
 }
