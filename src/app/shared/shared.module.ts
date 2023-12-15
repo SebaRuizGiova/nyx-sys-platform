@@ -57,8 +57,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     ButtonComponent,
     InputTextComponent,
     InputPasswordComponent,
-    DropdownComponent,
     SelectComponent,
+    DropdownComponent,
     CircleProgressBarComponent,
     LoadingComponent
   ]

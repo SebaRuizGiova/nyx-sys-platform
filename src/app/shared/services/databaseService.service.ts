@@ -1,15 +1,10 @@
 import { Injectable } from '@angular/core';
 import {
   AngularFirestore,
+  CollectionReference,
+  Query,
 } from '@angular/fire/compat/firestore';
-import {
-  Observable,
-  Subject,
-  map,
-  forkJoin,
-  from,
-  mergeMap
-} from 'rxjs';
+import { Observable, map, forkJoin, from, mergeMap, of, Subject } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from './loading.service';
@@ -26,13 +21,13 @@ export class DatabaseService {
   public selectedGroupId: string = '';
   private selectedGroupIdSubject = new Subject<string>();
   selectedGroupId$: Observable<string> = this.selectedGroupIdSubject.asObservable();
-
+  
   public selectedGroupIndex: number = 0;
   private selectedGroupIndexSubject = new Subject<number>();
   selectedGroupIndex$: Observable<number> =
     this.selectedGroupIndexSubject.asObservable();
 
-  private role: string | null = localStorage.getItem('role');
+  public role: string | null = localStorage.getItem('role');
   public profiles: Profile[] = [];
 
   constructor(
@@ -43,14 +38,18 @@ export class DatabaseService {
     this.getGroupsListToDatabase();
   }
 
-  private getAllUsers(): Observable<any> {
+  getAllUsers(): Observable<any> {
     return this.firestore
       .collection(`users/${environment.client}/content`)
       .get()
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
-  getProfilesByGroup(groupId: string, userId?: string, limit: number = 10): Observable<any> {
+  getProfilesByGroup(
+    groupId: string,
+    userId?: string,
+    limit: number = 10
+  ): Observable<any> {
     return this.firestore
       .collection(
         `/users/${environment.client}/content/${
@@ -89,7 +88,78 @@ export class DatabaseService {
       );
   }
 
-  private getGroupsUser(userId: string) {
+  getProfilesByUser(
+    userId: string,
+    startAfter?: any,
+    pageSize: number = 10
+  ): Observable<any> {
+    return this.firestore
+      .collection(
+        `/users/${environment.client}/content/${userId}/players`,
+        (ref) => {
+          let query: CollectionReference | Query = ref;
+          query = query.limit(pageSize);
+          if (startAfter) {
+            query = query.startAfter(startAfter);
+          }
+          return query;
+        }
+      )
+      .get()
+      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
+  }
+
+  getDevicesByUser(
+    userId: string,
+    startAfter?: any,
+    pageSize: number = 10
+  ): Observable<any> {
+    return this.firestore
+      .collection(
+        `/users/${environment.client}/content/${userId}/devices`,
+        (ref) => {
+          let query: CollectionReference | Query = ref;
+          query = query.limit(pageSize);
+          if (startAfter) {
+            query = query.startAfter(startAfter);
+          }
+          return query;
+        }
+      )
+      .get()
+      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
+  }
+
+  getGroupsByUserPaginated(
+    userId: string,
+    startAfter?: any,
+    pageSize: number = 10
+  ): Observable<any> {
+    return this.firestore
+      .collection(
+        `/users/${environment.client}/content/${userId}/teams`,
+        (ref) => {
+          let query: CollectionReference | Query = ref;
+          query = query.limit(pageSize);
+          if (startAfter) {
+            query = query.startAfter(startAfter);
+          }
+          return query;
+        }
+      )
+      .get()
+      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
+  }
+
+  getUserData(userId: string): Observable<any> {
+    return this.firestore
+      .collection(`/users/${environment.client}/content`)
+      .doc(userId)
+      .get()
+      .pipe(map((user) => user.data()));
+  }
+
+  private getGroupsByUser(userId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
       .get()
@@ -99,20 +169,20 @@ export class DatabaseService {
       );
   }
 
-  private getGroupsUserAdmin(userId: string): Observable<any[]> {
+  private getGroupsByUserAdmin(userId: string): Observable<any[]> {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
       .get()
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
-  private getGroupsListToDatabase() {
+  getGroupsListToDatabase() {
     this.loadingService.setLoading(true);
     if (this.role === 'superAdmin') {
       this.getAllUsers().subscribe({
         next: (users) => {
           const observables = users.map((user: any) =>
-            this.getGroupsUserAdmin(user.id).pipe(
+            this.getGroupsByUserAdmin(user.id).pipe(
               map((groups) =>
                 groups.map((group: any) => ({
                   label: group.teamName,
@@ -124,17 +194,17 @@ export class DatabaseService {
           );
 
           forkJoin(observables).subscribe((formattedGroupsArray: any) => {
-            const formattedGroups = formattedGroupsArray.reduce(
-              (acc: any, groups: any) => acc.concat(groups),
-              []
-            );
-            this.setGroupsList([...this.groupsList, ...formattedGroups]);
+              const formattedGroups = formattedGroupsArray.reduce(
+                (acc: any, groups: any) => acc.concat(groups),
+                []
+              );
+              this.setGroupsList([...this.groupsList, ...formattedGroups]);
             this.setGroupData();
-          });
-        },
+            });
+          },
       });
     } else {
-      this.getGroupsUser(this.authService.userId).subscribe({
+      this.getGroupsByUser(this.authService.userId).subscribe({
         next: (groups) => {
           const formattedGroups = groups.map((group: any) => ({
             label: group.teamName,
@@ -168,7 +238,7 @@ export class DatabaseService {
     this.profiles = players;
   }
 
-  private setGroupData() {
+  setGroupData() {
     if (this.groupsList.length) {
       const currentGroupId = localStorage.getItem('selectedGroup');
       const existGroupInArray = this.groupsList.some(

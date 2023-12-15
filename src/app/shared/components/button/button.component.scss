@@ -16,3 +16,12 @@
 :host ::ng-deep .p-button-label {
   color: $grey-light;
 }
+:host ::ng-deep .p-button {
+  color: $grey-light;
+  padding: 0.56rem;
+
+  &.p-button-icon-only {
+    width: 2.5rem;
+    padding: 0.56rem;
+  }
+}

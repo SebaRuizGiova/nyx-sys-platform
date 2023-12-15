@@ -1,6 +1,5 @@
 import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { DropdownItem } from 'primeng/dropdown';
+import { ControlValueAccessor, DefaultValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DropdownComponent } from '../dropdown/dropdown.component';
 
 @Component({
@@ -10,9 +9,10 @@ import { DropdownComponent } from '../dropdown/dropdown.component';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => DropdownComponent),
+      useExisting: forwardRef(() => SelectComponent),
       multi: true,
     },
+    DefaultValueAccessor
   ],
 })
 export class SelectComponent implements ControlValueAccessor {

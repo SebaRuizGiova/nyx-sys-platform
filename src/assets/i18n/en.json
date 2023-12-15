@@ -19,6 +19,13 @@
       "path": "/dashboard/admin"
     }
   ],
+  "sidebarItemsAdmin": [
+    {
+      "label": "Group View",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    }
+  ],
   "sidebarSettings": {
     "label": "Settings",
     "icon": "settings.svg",
@@ -55,10 +62,7 @@
   "ToastTitleCorrect": "Correct",
   "ToastTitleError": "Error",
 
-  "groupFormatDownloadItems": [
-    "PDF",
-    "Excel"
-  ],
+  "groupFormatDownloadItems": ["PDF", "Excel"],
   "groupRangeDownloadItems": [
     "Current period",
     "7 days",
@@ -94,5 +98,51 @@
   "profileCardSNAPTooltip": "Parasympathetic system, regulates rest and metabolism",
 
   "sleepScoreTooltip": "Score based on the amount of hours of sleep and its phases Light, Deep, and REM",
-  "sleepScoreTooltipDiamond": "Optimal sleep score"
+  "sleepScoreTooltipDiamond": "Optimal sleep score",
+
+  "adminProfilesTitle": "Profiles",
+  "adminDevicesTitle": "Devices",
+  "adminGroupsTitle": "Groups",
+  "adminCollaboratorsTitle": "Collaborators",
+  "adminUsersTitle": "Users",
+
+  "adminColumnName": "Name",
+  "adminColumnLastName": "Last Name",
+  "adminColumnSerialNumber": "Serial Number",
+  "adminColumnLinked": "Linked",
+  "adminColumnStatus": "Status",
+  "adminColumnRole": "Role",
+
+  "adminNotLinked": "Not Linked",
+
+  "adminSearchPlaceholder": "Search...",
+  "adminFilterPlaceholder": "Filter by group",
+
+  "adminAddProfileTooltip": "Add profile",
+  "adminShowAllProfilesTooltip": "Show all profiles",
+  "adminHideAllProfilesTooltip": "Hide all profiles",
+  "adminShowProfileTooltip": "Show profile",
+  "adminHideProfileTooltip": "Hide profile",
+  "adminEditProfileTooltip": "Edit profile",
+  "adminDeleteProfileTooltip": "Delete profile",
+
+  "adminAddDeviceTooltip": "Add device",
+  "adminShowAllDevicesTooltip": "Show all devices",
+  "adminHideAllDevicesTooltip": "Hide all devices",
+  "adminDeleteDeviceTooltip": "Delete device",
+
+  "adminAddGroupTooltip": "Add group",
+  "adminShowAllGroupsTooltip": "Show all groups",
+  "adminHideAllGroupsTooltip": "Hide all groups",
+  "adminShowGroupTooltip": "Show group",
+  "adminHideGroupTooltip": "Hide group",
+  "adminEditGroupTooltip": "Edit group",
+  "adminDeleteGroupTooltip": "Delete group",
+
+  "adminAddCollaboratorTooltip": "Add collaborator",
+  "adminDeleteCollaboratorTooltip": "Delete collaborator",
+
+  "adminAddUserTooltip": "Add user",
+  "adminEditUserTooltip": "Edit user",
+  "adminDeleteUserTooltip": "Delete user"
 }

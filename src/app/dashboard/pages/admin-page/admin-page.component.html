@@ -1,107 +1,284 @@
 <div class="admin-content">
   <div class="card">
+    <div class="card-header">
+      <p class="title-table">{{ "adminProfilesTitle" | translate }}</p>
+      <div class="actions-header" [formGroup]="actionsProfilesForm">
+        <shared-button
+          icon="pi-plus"
+          [tooltipButton]="'adminAddProfileTooltip' | translate"
+        />
+        <!-- <div class="icon">
+          <i class="pi pi-eye" style="font-size: 1.6rem" [pTooltip]="'adminShowAllProfilesTooltip' | translate" tooltipPosition="bottom"></i>
+        </div> -->
+        <div class="icon">
+          <i
+            class="pi pi-eye-slash"
+            style="font-size: 1.6rem"
+            [pTooltip]="'adminHideAllProfilesTooltip' | translate"
+            tooltipPosition="bottom"
+          ></i>
+        </div>
+        <span class="p-input-icon-right">
+          <input
+            type="text"
+            pInputText
+            formControlName="search"
+            [placeholder]="'adminSearchPlaceholder' | translate"
+          />
+          <i class="pi pi-search"></i>
+        </span>
+        <shared-select
+          [options]="[]"
+          [placeholder]="'adminFilterPlaceholder' | translate"
+          [formGroup]="actionsProfilesForm"
+          formControlName="filterByGroup"
+        />
+      </div>
+    </div>
     <p-table
-      [value]="products"
+      [value]="profiles"
       styleClass="p-datatable-sm"
       [paginator]="true"
       [rows]="10"
-      [showCurrentPageReport]="true"
-      currentPageReportTemplate="{first} to {last}"
     >
       <ng-template pTemplate="header">
         <tr>
-          <th>Code</th>
-          <th>Name</th>
-          <th>Category</th>
-          <th>Quantity</th>
+          <th>{{ "adminColumnName" | translate }}</th>
+          <th class="column-center">{{ "adminColumnLastName" | translate }}</th>
+          <th></th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-product>
+      <ng-template pTemplate="body" let-profile>
         <tr>
-          <td>{{ product.code }}</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.category }}</td>
-          <td>{{ product.quantity }}</td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-  <div class="card">
-    <p-table [value]="products" styleClass="p-datatable-sm p-datatable-striped">
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Code</th>
-          <th>Name</th>
-          <th>Category</th>
-          <th>Quantity</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-product>
-        <tr>
-          <td>{{ product.code }}</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.category }}</td>
-          <td>{{ product.quantity }}</td>
+          <td>{{ profile.name }}</td>
+          <td class="column-center">{{ profile.lastName }}</td>
+          <td class="column-rigth">
+            <div class="actions">
+              <i *ngIf="!profile.hided; else showProfile" class="pi pi-eye-slash"></i>
+              <ng-template #showProfile>
+                <i class="pi pi-eye"></i>
+              </ng-template>
+              <i class="pi pi-user-edit"></i>
+              <i class="pi pi-trash"></i>
+            </div>
+          </td>
         </tr>
       </ng-template>
     </p-table>
   </div>
   <div class="card">
-    <p-table [value]="products" styleClass="p-datatable-sm p-datatable-striped">
+    <div class="card-header">
+      <p class="title-table">{{ "adminDevicesTitle" | translate }}</p>
+      <div class="actions-header" [formGroup]="actionsProfilesForm">
+        <shared-button
+          icon="pi-plus"
+          [tooltipButton]="'adminAddDeviceTooltip' | translate"
+        />
+        <!-- <div class="icon">
+          <i class="pi pi-eye" style="font-size: 1.6rem" [pTooltip]="'adminShowAllDevicesTooltip' | translate"
+            tooltipPosition="bottom"></i>
+        </div> -->
+        <div class="icon">
+          <i
+            class="pi pi-eye-slash"
+            style="font-size: 1.6rem"
+            [pTooltip]="'adminHideAllDevicesTooltip' | translate"
+            tooltipPosition="bottom"
+          ></i>
+        </div>
+        <span class="p-input-icon-right">
+          <input
+            type="text"
+            pInputText
+            formControlName="search"
+            [placeholder]="'adminSearchPlaceholder' | translate"
+          />
+          <i class="pi pi-search"></i>
+        </span>
+        <shared-select
+          [options]="[]"
+          [placeholder]="'adminFilterPlaceholder' | translate"
+          [formGroup]="actionsProfilesForm"
+          formControlName="filterByGroup"
+        />
+      </div>
+    </div>
+    <p-table
+      [value]="devices"
+      styleClass="p-datatable-sm"
+      [paginator]="true"
+      [rows]="10"
+    >
       <ng-template pTemplate="header">
         <tr>
-          <th>Code</th>
-          <th>Name</th>
-          <th>Category</th>
-          <th>Quantity</th>
+          <th>{{ "adminColumnSerialNumber" | translate }}</th>
+          <th>{{ "adminColumnLinked" | translate }}</th>
+          <th>{{ "adminColumnStatus" | translate }}</th>
+          <th></th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-product>
+      <ng-template pTemplate="body" let-device>
         <tr>
-          <td>{{ product.code }}</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.category }}</td>
-          <td>{{ product.quantity }}</td>
+          <td>{{ device.serialNumber }}</td>
+          <td>
+            {{
+              device.playerName
+                ? device.playerName
+                : ("adminNotLinked" | translate)
+            }}
+          </td>
+          <td>???</td>
+          <td class="column-rigth">
+            <div class="actions">
+              <i class="pi pi-cog"></i>
+              <i class="pi pi-trash"></i>
+            </div>
+          </td>
         </tr>
       </ng-template>
     </p-table>
   </div>
   <div class="card">
-    <p-table [value]="products" styleClass="p-datatable-sm p-datatable-striped">
+    <div class="card-header">
+      <p class="title-table">{{ "adminGroupsTitle" | translate }}</p>
+      <div class="actions-header" [formGroup]="actionsProfilesForm">
+        <shared-button
+          icon="pi-plus"
+          [tooltipButton]="'adminAddGroupTooltip' | translate"
+        />
+        <!-- <div class="icon">
+          <i class="pi pi-eye" style="font-size: 1.6rem" [pTooltip]="'adminShowAllGroupsTooltip' | translate"
+            tooltipPosition="bottom"></i>
+        </div> -->
+        <div class="icon">
+          <i
+            class="pi pi-eye-slash"
+            style="font-size: 1.6rem"
+            [pTooltip]="'adminHideAllGroupsTooltip' | translate"
+            tooltipPosition="bottom"
+          ></i>
+        </div>
+        <span class="p-input-icon-right">
+          <input
+            type="text"
+            pInputText
+            formControlName="search"
+            [placeholder]="'adminSearchPlaceholder' | translate"
+          />
+          <i class="pi pi-search"></i>
+        </span>
+      </div>
+    </div>
+    <p-table
+      [value]="groups"
+      styleClass="p-datatable-sm"
+      [paginator]="true"
+      [rows]="10"
+    >
       <ng-template pTemplate="header">
         <tr>
-          <th>Code</th>
-          <th>Name</th>
-          <th>Category</th>
-          <th>Quantity</th>
+          <th>{{ 'adminColumnName' | translate }}</th>
+          <th></th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-product>
+      <ng-template pTemplate="body" let-group>
         <tr>
-          <td>{{ product.code }}</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.category }}</td>
-          <td>{{ product.quantity }}</td>
+          <td>{{ group.teamName }}</td>
+          <td class="column-rigth">
+            <div class="actions">
+              <i *ngIf="!group.hided; else showGroup" class="pi pi-eye-slash"></i>
+              <ng-template #showGroup>
+                <i class="pi pi-eye"></i>
+              </ng-template>
+              <i class="pi pi-user-edit"></i>
+              <i class="pi pi-trash"></i>
+            </div>
+          </td>
         </tr>
       </ng-template>
     </p-table>
   </div>
   <div class="card">
-    <p-table [value]="products" styleClass="p-datatable-sm p-datatable-striped">
+    <div class="card-header">
+      <p class="title-table">{{ 'adminCollaboratorsTitle' | translate }}</p>
+      <div class="actions-header" [formGroup]="actionsProfilesForm">
+        <shared-button icon="pi-plus" [tooltipButton]="'adminAddCollaboratorTooltip' | translate" />
+        <span class="p-input-icon-right">
+          <input
+            type="text"
+            pInputText
+            formControlName="search"
+            [placeholder]="'adminSearchPlaceholder' | translate"
+          />
+          <i class="pi pi-search"></i>
+        </span>
+      </div>
+    </div>
+    <p-table
+      [value]="collaborators"
+      styleClass="p-datatable-sm"
+      [paginator]="true"
+      [rows]="10"
+    >
       <ng-template pTemplate="header">
         <tr>
-          <th>Code</th>
-          <th>Name</th>
-          <th>Category</th>
-          <th>Quantity</th>
+          <th>{{ 'adminColumnName' | translate }}</th>
+          <th>{{ 'adminColumnLinked' | translate }}</th>
+          <th>{{ 'adminColumnRole' | translate }}</th>
+          <th></th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-product>
+      <ng-template pTemplate="body" let-collaborator>
         <tr>
-          <td>{{ product.code }}</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.category }}</td>
-          <td>{{ product.quantity }}</td>
+          <td>{{ collaborator.nickName }}</td>
+          <td>???</td>
+          <td>{{ collaborator.role | titlecase }}</td>
+          <td class="column-rigth">
+            <div class="actions">
+              <i class="pi pi-trash"></i>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <p class="title-table">{{ 'adminUsersTitle' | translate }}</p>
+      <div class="actions-header" [formGroup]="actionsProfilesForm">
+        <shared-button icon="pi-plus" [tooltipButton]="'adminAddUserTooltip' | translate" />
+        <span class="p-input-icon-right">
+          <input
+            type="text"
+            pInputText
+            formControlName="search"
+            [placeholder]="'adminSearchPlaceholder' | translate"
+          />
+          <i class="pi pi-search"></i>
+        </span>
+      </div>
+    </div>
+    <p-table
+      [value]="users"
+      styleClass="p-datatable-sm"
+      [paginator]="true"
+      [rows]="10"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>{{ 'adminColumnName' | translate}}</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr>
+          <td>{{ user.nickName }}</td>
+          <td class="column-rigth">
+            <div class="actions">
+              <i class="pi pi-user-edit"></i>
+              <i class="pi pi-trash"></i>
+            </div>
+          </td>
         </tr>
       </ng-template>
     </p-table>

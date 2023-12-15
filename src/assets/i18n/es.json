@@ -19,6 +19,13 @@
       "path": "/dashboard/admin"
     }
   ],
+  "sidebarItemsAdmin": [
+    {
+      "label": "Vista de grupo",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    }
+  ],
   "sidebarSettings": {
     "label": "Configuración",
     "icon": "settings.svg",
@@ -97,5 +104,51 @@
   "profileCardSNAPTooltip": "Sistema parasimpático, regula el descanso y el metabolismo",
 
   "sleepScoreTooltip": "Puntaje basado en la cantidad de horas de sueño y sus fases Ligero, Profundo y REM",
-  "sleepScoreTooltipDiamond": "Puntaje de sueño óptimo"
+  "sleepScoreTooltipDiamond": "Puntaje de sueño óptimo",
+
+  "adminProfilesTitle": "Perfiles",
+  "adminDevicesTitle": "Dispositivos",
+  "adminGroupsTitle": "Grupos",
+  "adminCollaboratorsTitle": "Colaboradores",
+  "adminUsersTitle": "Usuarios",
+
+  "adminColumnName": "Nombre",
+  "adminColumnLastName": "Apellido",
+  "adminColumnSerialNumber": "Número de serie",
+  "adminColumnLinked": "Vinculado/a",
+  "adminColumnStatus": "Estado",
+  "adminColumnRole": "Rol",
+
+  "adminNotLinked": "No vinculado",
+
+  "adminSearchPlaceholder": "Buscar...",
+  "adminFilterPlaceholder": "Filtrar por grupo",
+
+  "adminAddProfileTooltip": "Añadir perfil",
+  "adminShowAllProfilesTooltip": "Mostrar todos los perfiles",
+  "adminHideAllProfilesTooltip": "Ocultar todos los perfiles",
+  "adminShowProfileTooltip": "Mostrar perfil",
+  "adminHideProfileTooltip": "Ocultar perfil",
+  "adminEditProfileTooltip": "Editar perfil",
+  "adminDeleteProfileTooltip": "Eliminar perfil",
+
+  "adminAddDeviceTooltip": "Añadir dispositivo",
+  "adminShowAllDevicesTooltip": "Mostrar todos los dispositivos",
+  "adminHideAllDevicesTooltip": "Ocultar todos los dispositivos",
+  "adminDeleteDeviceTooltip": "Eliminar dispositivo",
+
+  "adminAddGroupTooltip": "Añadir grupo",
+  "adminShowAllGroupsTooltip": "Mostrar todos los grupos",
+  "adminHideAllGroupsTooltip": "Ocultar todos los grupos",
+  "adminShowGroupTooltip": "Mostrar grupo",
+  "adminHideGroupTooltip": "Ocultar grupo",
+  "adminEditGroupTooltip": "Editar grupo",
+  "adminDeleteGroupTooltip": "Eliminar grupo",
+
+  "adminAddCollaboratorTooltip": "Añadir colaborador",
+  "adminDeleteCollaboratorTooltip": "Eliminar colaborador",
+
+  "adminAddUserTooltip": "Añadir usuario",
+  "adminEditUserTooltip": "Editar usuario",
+  "adminDeleteUserTooltip": "Eliminar usuario"
 }

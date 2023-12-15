@@ -19,6 +19,13 @@
       "path": "/dashboard/admin"
     }
   ],
+  "sidebarItemsAdmin": [
+    {
+      "label": "Vista di gruppo",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    }
+  ],
   "sidebarSettings": {
     "label": "Impostazioni",
     "icon": "settings.svg",
@@ -55,10 +62,7 @@
   "ToastTitleCorrect": "Corretto",
   "ToastTitleError": "Errore",
 
-  "groupFormatDownloadItems": [
-    "PDF",
-    "Excel"
-  ],
+  "groupFormatDownloadItems": ["PDF", "Excel"],
   "groupRangeDownloadItems": [
     "Periodo attuale",
     "7 giorni",
@@ -97,5 +101,51 @@
   "profileCardSNAPTooltip": "Sistema parasimpatico, regola il riposo e il metabolismo",
 
   "sleepScoreTooltip": "Punteggio basato sul numero di ore di sonno e sulle fasi Leggero, Profondo e REM",
-  "sleepScoreTooltipDiamond": "Punteggio di sonno ottimale"
+  "sleepScoreTooltipDiamond": "Punteggio di sonno ottimale",
+
+  "adminProfilesTitle": "Profili",
+  "adminDevicesTitle": "Dispositivi",
+  "adminGroupsTitle": "Gruppi",
+  "adminCollaboratorsTitle": "Collaboratori",
+  "adminUsersTitle": "Utenti",
+
+  "adminColumnName": "Nome",
+  "adminColumnLastName": "Cognome",
+  "adminColumnSerialNumber": "Numero di serie",
+  "adminColumnLinked": "Collegato/a",
+  "adminColumnStatus": "Stato",
+  "adminColumnRole": "Ruolo",
+
+  "adminNotLinked": "Non collegato/a",
+
+  "adminSearchPlaceholder": "Cerca...",
+  "adminFilterPlaceholder": "Filtra per gruppo",
+
+  "adminAddProfileTooltip": "Aggiungi profilo",
+  "adminShowAllProfilesTooltip": "Mostra tutti i profili",
+  "adminHideAllProfilesTooltip": "Nascondi tutti i profili",
+  "adminShowProfileTooltip": "Mostra profilo",
+  "adminHideProfileTooltip": "Nascondi profilo",
+  "adminEditProfileTooltip": "Modifica profilo",
+  "adminDeleteProfileTooltip": "Elimina profilo",
+
+  "adminAddDeviceTooltip": "Aggiungi dispositivo",
+  "adminShowAllDevicesTooltip": "Mostra tutti i dispositivi",
+  "adminHideAllDevicesTooltip": "Nascondi tutti i dispositivi",
+  "adminDeleteDeviceTooltip": "Elimina dispositivo",
+
+  "adminAddGroupTooltip": "Aggiungi gruppo",
+  "adminShowAllGroupsTooltip": "Mostra tutti i gruppi",
+  "adminHideAllGroupsTooltip": "Nascondi tutti i gruppi",
+  "adminShowGroupTooltip": "Mostra gruppo",
+  "adminHideGroupTooltip": "Nascondi gruppo",
+  "adminEditGroupTooltip": "Modifica gruppo",
+  "adminDeleteGroupTooltip": "Elimina gruppo",
+
+  "adminAddCollaboratorTooltip": "Aggiungi collaboratore",
+  "adminDeleteCollaboratorTooltip": "Elimina collaboratore",
+
+  "adminAddUserTooltip": "Aggiungi utente",
+  "adminEditUserTooltip": "Modifica utente",
+  "adminDeleteUserTooltip": "Elimina utente"
 }

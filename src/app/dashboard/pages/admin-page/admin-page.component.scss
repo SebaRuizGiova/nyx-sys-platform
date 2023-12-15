@@ -7,19 +7,88 @@
   gap: 15px;
 
   .card {
-    width: 49%;
+    width: 49.5%;
+    min-width: 700px;
     background-color: $grey-light;
     border-radius: 5px;
-    padding: 10px 10px 0 10px;
+    padding: 15px 15px 0 15px;
+    display: flex;
+    flex-direction: column;
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .title-table {
+        margin: 0;
+        font-weight: 600;
+      }
+
+      .actions-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+
+        .icon {
+          height: 40px;
+          line-height: 3.3;
+        }
+
+        .pi {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .column-center {
+      text-align: center;
+    }
+    .column-rigth {
+      text-align: right;
+    }
   }
 }
 
 :host ::ng-deep .p-datatable-wrapper {
   border: 1px solid $nyxsys-white;
   border-radius: 5px;
-  height: 398px;
+  height: 366px;
+  font-size: 12px;
+
+  td {
+    color: #7c7c7c;
+  }
+}
+:host ::ng-deep .p-datatable {
+  td {
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      align-items: center;
+
+      .pi {
+        cursor: pointer;
+      }
+    }
+  }
+}
+:host ::ng-deep .p-datatable-thead {
+  font-size: 14px;
 }
 :host ::ng-deep .p-paginator-bottom {
   background: transparent;
   border: none;
+  font-size: 12px;
+}
+:host ::ng-deep .p-paginator-current {
+  position: absolute;
+  right: 0;
+}
+:host ::ng-deep .p-inputtext {
+  width: 100%;
+  height: 40px;
 }

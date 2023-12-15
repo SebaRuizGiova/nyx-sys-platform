@@ -59,6 +59,12 @@ export class SidebarComponent implements OnInit {
         .subscribe((translations: any) => {
           this.dinamicItems = translations;
         });
+    } else if (path.includes('admin')) {
+      this.languageService
+        .getTranslate('sidebarItemsAdmin')
+        .subscribe((translations: any) => {
+          this.dinamicItems = translations;
+        });
     } else {
       this.languageService
         .getTranslate('sidebarItems')
