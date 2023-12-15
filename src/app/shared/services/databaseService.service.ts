@@ -4,7 +4,7 @@ import {
   CollectionReference,
   Query,
 } from '@angular/fire/compat/firestore';
-import { Observable, map, forkJoin, from, mergeMap, of, Subject } from 'rxjs';
+import { Observable, map, forkJoin, from, mergeMap, Subject } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from './loading.service';
@@ -21,7 +21,7 @@ export class DatabaseService {
   public selectedGroupId: string = '';
   private selectedGroupIdSubject = new Subject<string>();
   selectedGroupId$: Observable<string> = this.selectedGroupIdSubject.asObservable();
-  
+
   public selectedGroupIndex: number = 0;
   private selectedGroupIndexSubject = new Subject<number>();
   selectedGroupIndex$: Observable<number> =
