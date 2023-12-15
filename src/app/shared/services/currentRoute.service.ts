@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { NavigationEnd, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurrentRouteService {
+  private rutaActivaSubject = new BehaviorSubject<string>('');
 
-  currentRoute: string = '';
+  rutaActiva$ = this.rutaActivaSubject.asObservable();
 
   constructor(private router: Router) {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      this.currentRoute = this.router.url;
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.rutaActivaSubject.next(event.url);
+      }
     });
   }
-
 }

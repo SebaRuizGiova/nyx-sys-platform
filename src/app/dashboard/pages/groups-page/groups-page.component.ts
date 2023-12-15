@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription, mergeMap, tap } from 'rxjs';
+import { mergeMap, tap } from 'rxjs';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
@@ -12,10 +12,6 @@ import { Profile } from '../../interfaces/profile.interface';
   styleUrls: ['./groups-page.component.scss'],
 })
 export class GroupsPageComponent implements OnInit {
-  // private langSubscription: Subscription;
-  // private groupsListSubscription: Subscription;
-  // private selectedGroupIndexSubscription: Subscription;
-  // private profilesSubscription: Subscription;
   public periodItems: ItemDropdown[] = [
     {
       label: 'Periodo 1',
@@ -93,13 +89,6 @@ export class GroupsPageComponent implements OnInit {
         this.loadingService.setLoading(false);
       });
   }
-
-  // ngOnDestroy(): void {
-  //   this.langSubscription.unsubscribe();
-  //   this.groupsListSubscription.unsubscribe();
-  //   this.selectedGroupIndexSubscription.unsubscribe();
-  //   this.profilesSubscription.unsubscribe();
-  // }
 
   public periodForm: FormGroup = this.fb.group({
     period: '',

@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 import { ItemSidebar } from '../../interfaces/item-sidebar.interface';
 import { Language } from '../../interfaces/language.interface';
-import { TranslateService } from '@ngx-translate/core';
 import { CurrentRouteService } from '../../services/currentRoute.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { LanguageService } from '../../services/language.service';
@@ -21,6 +20,7 @@ export class SidebarComponent implements OnInit {
   public configItem: ItemSidebar = {
     label: 'Configuración',
     icon: 'settings.svg',
+    path: '/settings'
   };
   public languageItem: ItemSidebar = {
     label: 'Idioma',
@@ -37,7 +37,10 @@ export class SidebarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.currentRoute = this.currentRouteService.currentRoute;
+    this.currentRouteService.rutaActiva$.subscribe((ruta) => {
+      this.currentRoute = ruta;
+      this.getItems(ruta);
+    });
     this.loadTranslations();
     this.selectedLanguage = this.languages.find(
       (lang) => lang.code === this.languageService.currentLang

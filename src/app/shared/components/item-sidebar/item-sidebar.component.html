@@ -4,6 +4,7 @@
   [showDelay]="400"
   [ngClass]="{ expand: expand }"
   (click)="actionButton()"
+  [routerLink]="[path]"
 >
   <img [src]="'assets/icons/' + item.icon" alt="" class="icon" />
   <span *ngIf="expand && !containElements">{{ item.label }}</span>

@@ -15,6 +15,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { TableModule } from 'primeng/table';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileCardComponent } from './components/player-card/profile-card.component';
@@ -40,7 +41,8 @@ import { RouterModule } from '@angular/router';
     InputTextModule,
     InputSwitchModule,
     TranslateModule,
-    RouterModule
+    RouterModule,
+    TableModule
   ]
 })
 export class DashboardModule { }

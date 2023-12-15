@@ -10,6 +10,7 @@ export class ItemSidebarComponent implements AfterContentInit {
   @Input() item!: ItemSidebar;
   @Input() expand: boolean = true;
   @Input() action?: Function;
+  @Input() path: string = '';
   @Output() showSidebar = new EventEmitter<boolean>();
 
   @ContentChildren('element') elements?: QueryList<any>;

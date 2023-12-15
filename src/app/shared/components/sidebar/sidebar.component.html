@@ -30,11 +30,12 @@
       *ngFor="let item of dinamicItems"
       [item]="item"
       [expand]="show"
+      [path]="item.path || '/'"
     />
   </div>
   <hr />
   <div class="footer-sidebar" [ngClass]="{ show: show }">
-    <shared-item-sidebar [item]="configItem" [expand]="show" />
+    <shared-item-sidebar [item]="configItem" [expand]="show" [path]="configItem.path || ''" />
     <shared-item-sidebar [item]="languageItem" [expand]="show" (showSidebar)="toggleSidebar($event)">
       <p-dropdown
         #element

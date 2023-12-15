@@ -3,22 +3,26 @@
   "sidebarItems": [
     {
       "label": "Vista di gruppo",
-      "icon": "grid-icon.svg"
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
     },
     {
       "label": "Pannello di amministrazione",
-      "icon": "settings-gear-combination.svg"
+      "icon": "settings-gear-combination.svg",
+      "path": "/dashboard/admin"
     }
   ],
   "sidebarItemsGroupView": [
     {
       "label": "Pannello di amministrazione",
-      "icon": "settings-gear-combination.svg"
+      "icon": "settings-gear-combination.svg",
+      "path": "/dashboard/admin"
     }
   ],
   "sidebarSettings": {
     "label": "Impostazioni",
-    "icon": "settings.svg"
+    "icon": "settings.svg",
+    "path": "/settings"
   },
   "sidebarLanguage": {
     "label": "Lingua",

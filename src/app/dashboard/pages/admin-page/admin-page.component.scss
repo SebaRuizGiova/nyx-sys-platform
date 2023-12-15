@@ -1,0 +1,25 @@
+@import "../../../../variables.scss";
+
+.admin-content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  .card {
+    width: 49%;
+    background-color: $grey-light;
+    border-radius: 5px;
+    padding: 10px 10px 0 10px;
+  }
+}
+
+:host ::ng-deep .p-datatable-wrapper {
+  border: 1px solid $nyxsys-white;
+  border-radius: 5px;
+  height: 398px;
+}
+:host ::ng-deep .p-paginator-bottom {
+  background: transparent;
+  border: none;
+}
