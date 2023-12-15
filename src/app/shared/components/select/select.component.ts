@@ -1,4 +1,4 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { ControlValueAccessor, DefaultValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DropdownComponent } from '../dropdown/dropdown.component';
 
@@ -22,6 +22,7 @@ export class SelectComponent implements ControlValueAccessor {
   @Input() optionValue?: string;
   @Input({ required: true }) formControlName!: string;
   @Input({ required: true }) formGroup!: FormGroup;
+  @Output() selectChange: EventEmitter<any> = new EventEmitter();
 
   private onChange: any = () => {};
   private onTouch: any = () => {};
@@ -38,5 +39,12 @@ export class SelectComponent implements ControlValueAccessor {
 
   registerOnTouched(fn: any): void {
     this.onTouch = fn;
+  }
+
+  onDropdownChange(event: any): void {
+    this.innerValue = event.value;
+    this.onChange(this.innerValue);
+    this.onTouch();
+    this.selectChange.emit(event.value);
   }
 }
