@@ -20,7 +20,8 @@ export class DatabaseService {
 
   public selectedGroupId: string = '';
   private selectedGroupIdSubject = new Subject<string>();
-  selectedGroupId$: Observable<string> = this.selectedGroupIdSubject.asObservable();
+  selectedGroupId$: Observable<string> =
+    this.selectedGroupIdSubject.asObservable();
 
   public selectedGroupIndex: number = 0;
   private selectedGroupIndexSubject = new Subject<number>();
@@ -88,65 +89,23 @@ export class DatabaseService {
       );
   }
 
-  getProfilesByUser(
-    userId: string,
-    startAfter?: any,
-    pageSize: number = 10
-  ): Observable<any> {
+  getProfilesByUser(userId: string): Observable<any> {
     return this.firestore
-      .collection(
-        `/users/${environment.client}/content/${userId}/players`,
-        (ref) => {
-          let query: CollectionReference | Query = ref;
-          query = query.limit(pageSize);
-          if (startAfter) {
-            query = query.startAfter(startAfter);
-          }
-          return query;
-        }
-      )
+      .collection(`/users/${environment.client}/content/${userId}/players`)
       .get()
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
-  getDevicesByUser(
-    userId: string,
-    startAfter?: any,
-    pageSize: number = 10
-  ): Observable<any> {
+  getDevicesByUser(userId: string): Observable<any> {
     return this.firestore
-      .collection(
-        `/users/${environment.client}/content/${userId}/devices`,
-        (ref) => {
-          let query: CollectionReference | Query = ref;
-          query = query.limit(pageSize);
-          if (startAfter) {
-            query = query.startAfter(startAfter);
-          }
-          return query;
-        }
-      )
+      .collection(`/users/${environment.client}/content/${userId}/devices`)
       .get()
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
-  getGroupsByUserPaginated(
-    userId: string,
-    startAfter?: any,
-    pageSize: number = 10
-  ): Observable<any> {
+  getGroupsByUserPaginated(userId: string): Observable<any> {
     return this.firestore
-      .collection(
-        `/users/${environment.client}/content/${userId}/teams`,
-        (ref) => {
-          let query: CollectionReference | Query = ref;
-          query = query.limit(pageSize);
-          if (startAfter) {
-            query = query.startAfter(startAfter);
-          }
-          return query;
-        }
-      )
+      .collection(`/users/${environment.client}/content/${userId}/teams`)
       .get()
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
@@ -194,14 +153,14 @@ export class DatabaseService {
           );
 
           forkJoin(observables).subscribe((formattedGroupsArray: any) => {
-              const formattedGroups = formattedGroupsArray.reduce(
-                (acc: any, groups: any) => acc.concat(groups),
-                []
-              );
-              this.setGroupsList([...this.groupsList, ...formattedGroups]);
+            const formattedGroups = formattedGroupsArray.reduce(
+              (acc: any, groups: any) => acc.concat(groups),
+              []
+            );
+            this.setGroupsList([...this.groupsList, ...formattedGroups]);
             this.setGroupData();
-            });
-          },
+          });
+        },
       });
     } else {
       this.getGroupsByUser(this.authService.userId).subscribe({
@@ -234,8 +193,8 @@ export class DatabaseService {
     this.selectedGroupIndexSubject.next(index);
   }
 
-  setProfiles(players: Profile[]): void {
-    this.profiles = players;
+  setProfiles(profiles: Profile[]): void {
+    this.profiles = profiles;
   }
 
   setGroupData() {

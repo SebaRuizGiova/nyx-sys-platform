@@ -24,11 +24,12 @@
             pInputText
             formControlName="search"
             [placeholder]="'adminSearchPlaceholder' | translate"
+            (input)="filterProfiles()"
           />
           <i class="pi pi-search"></i>
         </span>
         <shared-select
-          [options]="[]"
+          [options]="groupsSelect"
           [placeholder]="'adminFilterPlaceholder' | translate"
           [formGroup]="actionsProfilesForm"
           formControlName="filterByGroup"
@@ -36,7 +37,7 @@
       </div>
     </div>
     <p-table
-      [value]="profiles"
+      [value]="filteredProfiles"
       styleClass="p-datatable-sm"
       [paginator]="true"
       [rows]="10"
@@ -69,7 +70,7 @@
   <div class="card">
     <div class="card-header">
       <p class="title-table">{{ "adminDevicesTitle" | translate }}</p>
-      <div class="actions-header" [formGroup]="actionsProfilesForm">
+      <div class="actions-header" [formGroup]="actionsDevicesForm">
         <shared-button
           icon="pi-plus"
           [tooltipButton]="'adminAddDeviceTooltip' | translate"
@@ -92,11 +93,12 @@
             pInputText
             formControlName="search"
             [placeholder]="'adminSearchPlaceholder' | translate"
+            (input)="filterDevices()"
           />
           <i class="pi pi-search"></i>
         </span>
         <shared-select
-          [options]="[]"
+          [options]="groupsSelect"
           [placeholder]="'adminFilterPlaceholder' | translate"
           [formGroup]="actionsProfilesForm"
           formControlName="filterByGroup"
@@ -104,7 +106,7 @@
       </div>
     </div>
     <p-table
-      [value]="devices"
+      [value]="filteredDevices"
       styleClass="p-datatable-sm"
       [paginator]="true"
       [rows]="10"
@@ -141,7 +143,7 @@
   <div class="card">
     <div class="card-header">
       <p class="title-table">{{ "adminGroupsTitle" | translate }}</p>
-      <div class="actions-header" [formGroup]="actionsProfilesForm">
+      <div class="actions-header" [formGroup]="actionsGroupsForm">
         <shared-button
           icon="pi-plus"
           [tooltipButton]="'adminAddGroupTooltip' | translate"
@@ -164,13 +166,14 @@
             pInputText
             formControlName="search"
             [placeholder]="'adminSearchPlaceholder' | translate"
+            (input)="filterGroups()"
           />
           <i class="pi pi-search"></i>
         </span>
       </div>
     </div>
     <p-table
-      [value]="groups"
+      [value]="filteredGroups"
       styleClass="p-datatable-sm"
       [paginator]="true"
       [rows]="10"
@@ -201,7 +204,7 @@
   <div class="card">
     <div class="card-header">
       <p class="title-table">{{ 'adminCollaboratorsTitle' | translate }}</p>
-      <div class="actions-header" [formGroup]="actionsProfilesForm">
+      <div class="actions-header" [formGroup]="actionsCollaboratorsForm">
         <shared-button icon="pi-plus" [tooltipButton]="'adminAddCollaboratorTooltip' | translate" />
         <span class="p-input-icon-right">
           <input
@@ -209,13 +212,14 @@
             pInputText
             formControlName="search"
             [placeholder]="'adminSearchPlaceholder' | translate"
+            (input)="filterCollaborators()"
           />
           <i class="pi pi-search"></i>
         </span>
       </div>
     </div>
     <p-table
-      [value]="collaborators"
+      [value]="filteredCollaborators"
       styleClass="p-datatable-sm"
       [paginator]="true"
       [rows]="10"
@@ -245,7 +249,7 @@
   <div class="card">
     <div class="card-header">
       <p class="title-table">{{ 'adminUsersTitle' | translate }}</p>
-      <div class="actions-header" [formGroup]="actionsProfilesForm">
+      <div class="actions-header" [formGroup]="actionsUsersForm">
         <shared-button icon="pi-plus" [tooltipButton]="'adminAddUserTooltip' | translate" />
         <span class="p-input-icon-right">
           <input
@@ -253,13 +257,14 @@
             pInputText
             formControlName="search"
             [placeholder]="'adminSearchPlaceholder' | translate"
+            (input)="filterUsers()"
           />
           <i class="pi pi-search"></i>
         </span>
       </div>
     </div>
     <p-table
-      [value]="users"
+      [value]="filteredUsers"
       styleClass="p-datatable-sm"
       [paginator]="true"
       [rows]="10"
