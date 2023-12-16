@@ -1,18 +1,24 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription, forkJoin, map, mergeMap, of, tap } from 'rxjs';
+import {
+  forkJoin,
+  map,
+  mergeMap,
+  of,
+} from 'rxjs';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
 import { Profile } from '../../interfaces/profile.interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { User } from '../../interfaces/user.interface';
 
 @Component({
   templateUrl: './groups-page.component.html',
   styleUrls: ['./groups-page.component.scss'],
 })
-export class GroupsPageComponent implements OnInit, OnDestroy {
+export class GroupsPageComponent implements OnInit {
   public periodForm: FormGroup = this.fb.group({
     period: '',
   });
@@ -49,8 +55,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   public userId!: string;
   public usersList: any;
   public groupsList: ItemDropdown[] = [];
-  public selectedGroupId: string =
-    localStorage.getItem('selectedGroup') || '';
+  public selectedGroupId: string = localStorage.getItem('selectedGroup') || '';
   public selectedGroupIndex: number =
     Number(localStorage.getItem('selectedGroupIndex')) || 0;
   public profiles: Profile[] = [];
@@ -65,16 +70,22 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   ) {
     const selectedGroupId = localStorage.getItem('selectedGroup');
     if (selectedGroupId) {
-      debugger
-      const selectedGroup = this.groupsList.find(group => group.value === selectedGroupId);
-      const selectedGroupIndex = this.groupsList.findIndex(group => group.value === selectedGroupId);
+      const selectedGroup = this.groupsList.find(
+        (group) => group.value === selectedGroupId
+      );
+      const selectedGroupIndex = this.groupsList.findIndex(
+        (group) => group.value === selectedGroupId
+      );
       if (selectedGroup) {
         this.groupForm.patchValue({
-          selectedGroup
+          selectedGroup,
         });
         this.selectedGroupId = selectedGroup.value.toString();
         this.selectedGroupIndex = selectedGroupIndex;
-        localStorage.setItem('selectedGroupIndex', selectedGroupIndex.toString())
+        localStorage.setItem(
+          'selectedGroupIndex',
+          selectedGroupIndex.toString()
+        );
       }
     }
   }
@@ -85,10 +96,6 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
     });
 
     this.loadData();
-  }
-
-  ngOnDestroy(): void {
-    // this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   private loadTranslations() {
@@ -113,35 +120,58 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
     this.loadingService.setLoading(true);
     if (this.role === 'superAdmin') {
       this.databaseService.getAllUsers().subscribe((users) => {
-        const observables = users.map((user: any) =>
-          this.databaseService.getGroupsByUser(this.authService.userId)
-        );
-
-        forkJoin(observables).subscribe((formattedGroupsArray: any) => {
-          const formattedGroups = formattedGroupsArray.reduce(
-            (acc: any, groups: any) => acc.concat(groups),
-            []
+        const observables = users.map((user: User) => {
+          return this.databaseService.getGroupsByUser(user.id).pipe(
+            map((groups) => {
+              return groups.map((group) => ({
+                ...group,
+                userId: user.id,
+              }));
+            })
           );
-          this.groupsList = formattedGroups;
-          this.databaseService.setGroupsList([
-            ...this.groupsList,
-            ...formattedGroups,
-          ]);
-          if (this.groupsList.length) {
-            let selectedGroup;
-            if (this.selectedGroupId) {
-              selectedGroup = this.groupsList.find(
-                (group) => group.value === this.selectedGroupId
-              );
-            } else {
-              selectedGroup = this.groupsList[0];
-            }
-            this.groupForm.patchValue({
-              selectedGroup,
-            });
-          }
-          this.loadingService.setLoading(false);
         });
+
+        forkJoin(observables)
+          .pipe(
+            mergeMap((formattedGroupsArray: any) => {
+              const formattedGroups = formattedGroupsArray.reduce(
+                (acc: any, groups: any) => acc.concat(groups),
+                []
+              );
+              this.groupsList = formattedGroups;
+              this.databaseService.setGroupsList([
+                ...this.groupsList,
+                ...formattedGroups,
+              ]);
+              if (this.groupsList.length) {
+                let selectedGroup;
+                if (this.selectedGroupId) {
+                  selectedGroup = this.groupsList.find(
+                    (group) => group.value === this.selectedGroupId
+                  );
+                } else {
+                  selectedGroup = this.groupsList[0];
+                }
+                this.groupForm.patchValue({
+                  selectedGroup,
+                });
+                if (selectedGroup) {
+                  return this.databaseService.getProfilesByGroup(
+                    selectedGroup?.value.toString(),
+                    selectedGroup?.userId
+                  );
+                }
+              }
+              return of([]);
+            })
+          )
+          .subscribe({
+            next: (profiles: any) => {
+              this.profiles = profiles;
+              this.loadingService.setLoading(false);
+            },
+            error: (err) => console.log(err),
+          });
       });
     } else {
       this.databaseService
@@ -189,7 +219,10 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
         this.groupForm.value.selectedGroup.value
       );
       this.selectedGroupIndex = this.selectedGroupIndex + 1;
-      localStorage.setItem('selectedGroupIndex', this.selectedGroupIndex.toString())
+      localStorage.setItem(
+        'selectedGroupIndex',
+        this.selectedGroupIndex.toString()
+      );
       this.selectGroup(this.groupForm.value.selectedGroup.value);
     }
   }
@@ -204,26 +237,38 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
         this.groupForm.value.selectedGroup.value
       );
       this.selectedGroupIndex = this.selectedGroupIndex - 1;
-      localStorage.setItem('selectedGroupIndex', this.selectedGroupIndex.toString())
+      localStorage.setItem(
+        'selectedGroupIndex',
+        this.selectedGroupIndex.toString()
+      );
       this.selectGroup(this.groupForm.value.selectedGroup.value);
     }
   }
 
   selectGroup(groupId: string) {
-    const selectedGroup = this.groupsList.find(group => group.value === groupId);
+    const selectedGroup = this.groupsList.find(
+      (group) => group.value === groupId
+    );
     this.groupForm.patchValue({
-      selectedGroup
-    })
+      selectedGroup,
+    });
     if (selectedGroup) {
       localStorage.setItem('selectedGroup', selectedGroup.value.toString());
     }
-    const groupIndex = this.groupsList.findIndex(group => group.value === groupId);
+    const groupIndex = this.groupsList.findIndex(
+      (group) => group.value === groupId
+    );
     this.selectedGroupIndex = groupIndex;
-    localStorage.setItem('selectedGroupIndex', groupIndex.toString())
+    localStorage.setItem('selectedGroupIndex', groupIndex.toString());
     this.loadingService.setLoading(true);
-    this.databaseService.getProfilesByGroup(groupId).subscribe((profiles) => {
-      this.profiles = profiles;
-      this.loadingService.setLoading(false);
-    });
+    this.databaseService
+      .getProfilesByGroup(
+        groupId,
+        this.role === 'superAdmin' ? selectedGroup?.userId : undefined
+      )
+      .subscribe((profiles) => {
+        this.profiles = profiles;
+        this.loadingService.setLoading(false);
+      });
   }
 }

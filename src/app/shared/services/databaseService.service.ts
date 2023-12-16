@@ -3,7 +3,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, map, forkJoin, from, mergeMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { environment } from 'src/environments/environment';
-import { LoadingService } from './loading.service';
 import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
 
 @Injectable({
@@ -43,9 +42,9 @@ export class DatabaseService {
       .get()
       .pipe(
         map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
-        map((profiles) =>
-          profiles.filter((profile) => profile.teamID === groupId)
-        ),
+        map((profiles) => {
+          return profiles.filter((profile) => profile.teamID === groupId)
+        }),
         map((profiles) => profiles.filter((profile) => !profile.hided)),
         mergeMap((filteredProfiles) => {
           const observables = filteredProfiles.map((filteredProfile) => {
