@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription, mergeMap, tap } from 'rxjs';
+import { Subscription, forkJoin, map, mergeMap, of, tap } from 'rxjs';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
 import { Profile } from '../../interfaces/profile.interface';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   templateUrl: './groups-page.component.html',
@@ -47,30 +48,35 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   public orderByItems?: string[];
   public userId!: string;
   public usersList: any;
-  public groupsList: ItemDropdown[];
-  public selectedGroupId: string;
-  public selectedGroupIndex: number;
-  public profiles: Profile[];
+  public groupsList: ItemDropdown[] = [];
+  public selectedGroupId: string =
+    localStorage.getItem('selectedGroup') || '';
+  public selectedGroupIndex: number =
+    Number(localStorage.getItem('selectedGroupIndex')) || 0;
+  public profiles: Profile[] = [];
   private role: string | null = localStorage.getItem('role');
-
-  private subscriptions: Subscription[] = [];
-  private groupsListSubscription?: Subscription;
-  private selectedGroupIndexSubscription?: Subscription;
-  private selectedGroupIdSubscription?: Subscription;
 
   constructor(
     private fb: FormBuilder,
     private languageService: LanguageService,
     private databaseService: DatabaseService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private authService: AuthService
   ) {
-    this.groupsList = this.databaseService.groupsList;
-    this.selectedGroupId = this.databaseService.selectedGroupId;
-    this.selectedGroupIndex = this.databaseService.selectedGroupIndex;
-    this.profiles = this.databaseService.profiles;
-    this.groupForm.patchValue({
-      selectedGroup: this.groupsList[this.selectedGroupIndex]
-    });
+    const selectedGroupId = localStorage.getItem('selectedGroup');
+    if (selectedGroupId) {
+      debugger
+      const selectedGroup = this.groupsList.find(group => group.value === selectedGroupId);
+      const selectedGroupIndex = this.groupsList.findIndex(group => group.value === selectedGroupId);
+      if (selectedGroup) {
+        this.groupForm.patchValue({
+          selectedGroup
+        });
+        this.selectedGroupId = selectedGroup.value.toString();
+        this.selectedGroupIndex = selectedGroupIndex;
+        localStorage.setItem('selectedGroupIndex', selectedGroupIndex.toString())
+      }
+    }
   }
 
   ngOnInit(): void {
@@ -82,7 +88,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+    // this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   private loadTranslations() {
@@ -104,46 +110,73 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   }
 
   loadData() {
-    this.groupsListSubscription = this.databaseService.groupsList$.subscribe(
-      (groups) => {
-        this.groupsList = groups;
-      }
-    );
+    this.loadingService.setLoading(true);
+    if (this.role === 'superAdmin') {
+      this.databaseService.getAllUsers().subscribe((users) => {
+        const observables = users.map((user: any) =>
+          this.databaseService.getGroupsByUser(this.authService.userId)
+        );
 
-    this.selectedGroupIndexSubscription =
-      this.databaseService.selectedGroupIndex$.subscribe(
-        (selectedGroupIndex) => {
-          this.selectedGroupIndex = selectedGroupIndex;
-          this.groupForm.patchValue({
-            selectedGroup: this.groupsList[selectedGroupIndex],
-          });
-        }
-      );
-
-    this.selectedGroupIdSubscription = this.databaseService.selectedGroupId$
-      .pipe(
-        tap(() => this.loadingService.setLoading(true)),
-        mergeMap((selectedGroup) => {
-          const profiles$ =
-            this.role === 'superAdmin'
-              ? this.databaseService.getProfilesByGroup(
-                  selectedGroup,
-                  this.groupForm.value.selectedGroup?.userId
-                )
-              : this.databaseService.getProfilesByGroup(selectedGroup);
-
-          return profiles$;
-        })
-      )
-      .subscribe((profiles) => {
-        this.profiles = profiles;
-        this.databaseService.setProfiles(profiles);
-        this.loadingService.setLoading(false);
+        forkJoin(observables).subscribe((formattedGroupsArray: any) => {
+          const formattedGroups = formattedGroupsArray.reduce(
+            (acc: any, groups: any) => acc.concat(groups),
+            []
+          );
+          this.groupsList = formattedGroups;
+          this.databaseService.setGroupsList([
+            ...this.groupsList,
+            ...formattedGroups,
+          ]);
+          if (this.groupsList.length) {
+            let selectedGroup;
+            if (this.selectedGroupId) {
+              selectedGroup = this.groupsList.find(
+                (group) => group.value === this.selectedGroupId
+              );
+            } else {
+              selectedGroup = this.groupsList[0];
+            }
+            this.groupForm.patchValue({
+              selectedGroup,
+            });
+          }
+          this.loadingService.setLoading(false);
+        });
       });
-
-    this.subscriptions.push(this.groupsListSubscription);
-    this.subscriptions.push(this.selectedGroupIndexSubscription);
-    this.subscriptions.push(this.selectedGroupIdSubscription);
+    } else {
+      this.databaseService
+        .getGroupsByUser(this.authService.userId)
+        .pipe(
+          mergeMap((groups) => {
+            this.groupsList = groups;
+            this.databaseService.setGroupsList([...this.groupsList, ...groups]);
+            if (this.groupsList.length) {
+              let selectedGroup;
+              if (this.selectedGroupId) {
+                selectedGroup = this.groupsList.find(
+                  (group) => group.value === this.selectedGroupId
+                );
+              } else {
+                selectedGroup = this.groupsList[0];
+              }
+              this.groupForm.patchValue({
+                selectedGroup,
+              });
+              if (selectedGroup) {
+                this.loadingService.setLoading(true);
+                return this.databaseService.getProfilesByGroup(
+                  selectedGroup.value.toString()
+                );
+              }
+            }
+            return of([]);
+          })
+        )
+        .subscribe((profiles) => {
+          this.profiles = profiles;
+          this.loadingService.setLoading(false);
+        });
+    }
   }
 
   nextGroup() {
@@ -155,7 +188,9 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
         'selectedGroup',
         this.groupForm.value.selectedGroup.value
       );
-      this.selectGroup();
+      this.selectedGroupIndex = this.selectedGroupIndex + 1;
+      localStorage.setItem('selectedGroupIndex', this.selectedGroupIndex.toString())
+      this.selectGroup(this.groupForm.value.selectedGroup.value);
     }
   }
 
@@ -168,21 +203,27 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
         'selectedGroup',
         this.groupForm.value.selectedGroup.value
       );
-      this.selectGroup();
+      this.selectedGroupIndex = this.selectedGroupIndex - 1;
+      localStorage.setItem('selectedGroupIndex', this.selectedGroupIndex.toString())
+      this.selectGroup(this.groupForm.value.selectedGroup.value);
     }
   }
 
-  selectGroup() {
-    const indexSelected = this.groupsList.findIndex(
-      (group) => group.value === this.groupForm.value.selectedGroup.value
-    );
-    this.databaseService.setSelectedGroupIndex(indexSelected);
-    this.databaseService.setSelectedGroupId(
-      this.groupForm.value.selectedGroup.value
-    );
-    localStorage.setItem(
-      'selectedGroup',
-      this.groupForm.value.selectedGroup.value
-    );
+  selectGroup(groupId: string) {
+    const selectedGroup = this.groupsList.find(group => group.value === groupId);
+    this.groupForm.patchValue({
+      selectedGroup
+    })
+    if (selectedGroup) {
+      localStorage.setItem('selectedGroup', selectedGroup.value.toString());
+    }
+    const groupIndex = this.groupsList.findIndex(group => group.value === groupId);
+    this.selectedGroupIndex = groupIndex;
+    localStorage.setItem('selectedGroupIndex', groupIndex.toString())
+    this.loadingService.setLoading(true);
+    this.databaseService.getProfilesByGroup(groupId).subscribe((profiles) => {
+      this.profiles = profiles;
+      this.loadingService.setLoading(false);
+    });
   }
 }

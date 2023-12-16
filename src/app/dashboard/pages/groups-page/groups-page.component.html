@@ -30,7 +30,7 @@
       [formGroup]="groupForm"
       formControlName="selectedGroup"
       [noButton]="true"
-      [secondaryAction]="selectGroup.bind(this)"
+      (dropdownChange)="selectGroup($event)"
     />
     <i
       class="pi pi-angle-right"

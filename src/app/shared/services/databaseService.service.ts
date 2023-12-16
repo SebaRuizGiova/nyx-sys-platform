@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
-import {
-  AngularFirestore,
-  CollectionReference,
-  Query,
-} from '@angular/fire/compat/firestore';
-import { Observable, map, forkJoin, from, mergeMap, Subject } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable, map, forkJoin, from, mergeMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from './loading.service';
@@ -15,29 +11,16 @@ import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
 })
 export class DatabaseService {
   public groupsList: any[] = [];
-  private groupsListSubject = new Subject<any[]>();
-  groupsList$: Observable<any[]> = this.groupsListSubject.asObservable();
-
   public selectedGroupId: string = '';
-  private selectedGroupIdSubject = new Subject<string>();
-  selectedGroupId$: Observable<string> =
-    this.selectedGroupIdSubject.asObservable();
-
   public selectedGroupIndex: number = 0;
-  private selectedGroupIndexSubject = new Subject<number>();
-  selectedGroupIndex$: Observable<number> =
-    this.selectedGroupIndexSubject.asObservable();
+  public profiles: Profile[] = [];
 
   public role: string | null = localStorage.getItem('role');
-  public profiles: Profile[] = [];
 
   constructor(
     private firestore: AngularFirestore,
-    private loadingService: LoadingService,
     private authService: AuthService
-  ) {
-    this.getGroupsListToDatabase();
-  }
+  ) {}
 
   getAllUsers(): Observable<any> {
     return this.firestore
@@ -118,114 +101,36 @@ export class DatabaseService {
       .pipe(map((user) => user.data()));
   }
 
-  private getGroupsByUser(userId: string) {
+  getGroupsByUser(userId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
       .get()
       .pipe(
         map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
-        map((groups) => groups.filter((group) => !group.hided))
-      );
-  }
-
-  private getGroupsByUserAdmin(userId: string): Observable<any[]> {
-    return this.firestore
-      .collection(`/users/${environment.client}/content/${userId}/teams`)
-      .get()
-      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
-  }
-
-  getGroupsListToDatabase() {
-    this.loadingService.setLoading(true);
-    if (this.role === 'superAdmin') {
-      this.getAllUsers().subscribe({
-        next: (users) => {
-          const observables = users.map((user: any) =>
-            this.getGroupsByUserAdmin(user.id).pipe(
-              map((groups) =>
-                groups.map((group: any) => ({
-                  label: group.teamName,
-                  value: group.id,
-                  userId: group.userID,
-                }))
-              )
-            )
-          );
-
-          forkJoin(observables).subscribe((formattedGroupsArray: any) => {
-            const formattedGroups = formattedGroupsArray.reduce(
-              (acc: any, groups: any) => acc.concat(groups),
-              []
-            );
-            this.setGroupsList([...this.groupsList, ...formattedGroups]);
-            this.setGroupData();
-          });
-        },
-      });
-    } else {
-      this.getGroupsByUser(this.authService.userId).subscribe({
-        next: (groups) => {
-          const formattedGroups = groups.map((group: any) => ({
+        map((groups) => groups.filter((group) => !group.hided)),
+        map((groups) =>
+          groups.map((group: any) => ({
             label: group.teamName,
             value: group.id,
-          }));
-          this.setGroupsList([...this.groupsList, ...formattedGroups]);
-        },
-        complete: () => {
-          this.setGroupData();
-        },
-      });
-    }
+            userId: group.userID,
+          }))
+        )
+      );
   }
 
   setGroupsList(groups: any[]): void {
     this.groupsList = groups;
-    this.groupsListSubject.next(groups);
   }
 
   setSelectedGroupId(groupId: string): void {
     this.selectedGroupId = groupId;
-    this.selectedGroupIdSubject.next(groupId);
   }
 
   setSelectedGroupIndex(index: number): void {
     this.selectedGroupIndex = index;
-    this.selectedGroupIndexSubject.next(index);
   }
 
   setProfiles(profiles: Profile[]): void {
     this.profiles = profiles;
-  }
-
-  setGroupData() {
-    if (this.groupsList.length) {
-      const currentGroupId = localStorage.getItem('selectedGroup');
-      const existGroupInArray = this.groupsList.some(
-        (group) => group.value === currentGroupId
-      );
-      let currentGroup;
-      let currentGroupIndex;
-      if (currentGroupId && existGroupInArray) {
-        currentGroup = this.groupsList.find(
-          (group) => group.value === currentGroupId
-        );
-        currentGroupIndex = this.groupsList.findIndex(
-          (group) => group.value === currentGroupId
-        );
-        this.setSelectedGroupIndex(currentGroupIndex);
-        this.setSelectedGroupId(currentGroupId);
-        if (currentGroup) {
-          localStorage.setItem('selectedGroup', currentGroup.value);
-        }
-      } else {
-        currentGroup = this.groupsList[0];
-        currentGroupIndex = 0;
-        this.setSelectedGroupIndex(currentGroupIndex);
-        this.setSelectedGroupId(this.groupsList[0].value);
-        if (currentGroup) {
-          localStorage.setItem('selectedGroup', currentGroup.value);
-        }
-      }
-    }
   }
 }

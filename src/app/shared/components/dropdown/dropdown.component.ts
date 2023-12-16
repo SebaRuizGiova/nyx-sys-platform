@@ -1,4 +1,4 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export interface ItemDropdown {
@@ -31,6 +31,7 @@ export class DropdownComponent implements ControlValueAccessor {
   @Input() formControlName!: string;
   @Input() noButton: boolean = false;
   @Input() secondaryAction?: Function;
+  @Output() dropdownChange: EventEmitter<any> = new EventEmitter();
 
   public showPopup: boolean = false;
   private onChange: any = () => {};
@@ -41,20 +42,17 @@ export class DropdownComponent implements ControlValueAccessor {
     this.showPopup = !this.showPopup;
   }
 
-  selectItem(value: any) {
-    const selectedControl = this.formGroup.get(this.formControlName);
-    if (selectedControl) {
-      selectedControl.setValue(value);
-      this.showPopup = false
-      if (this.secondaryAction) {
-        this.secondaryAction();
-      }
-    }
-  }
+  // selectItem(value: any) {
+  //   const selectedControl = this.formGroup.get(this.formControlName);
+  //   if (selectedControl) {
+  //     selectedControl.setValue(value);
+  //     this.showPopup = false
+  //   }
+  // }
 
   writeValue(value: any): void {
     this.innerValue = value;
-    this.onChange(value);
+    this.onChange(this.innerValue);
   }
 
   registerOnChange(fn: any): void {
@@ -63,5 +61,13 @@ export class DropdownComponent implements ControlValueAccessor {
 
   registerOnTouched(fn: any): void {
     this.onTouch = fn;
+  }
+
+  onDropdownChange(event: any): void {
+    this.innerValue = event.value;
+    this.onChange(this.innerValue);
+    this.onTouch();
+    this.tooglePopup();
+    this.dropdownChange.emit(event.value);
   }
 }

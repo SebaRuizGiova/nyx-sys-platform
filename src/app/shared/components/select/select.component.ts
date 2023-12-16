@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { ControlValueAccessor, DefaultValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { DropdownComponent } from '../dropdown/dropdown.component';
 
 @Component({
   selector: 'shared-select',
@@ -41,7 +40,7 @@ export class SelectComponent implements ControlValueAccessor {
     this.onTouch = fn;
   }
 
-  onDropdownChange(event: any): void {
+  onSelectChange(event: any): void {
     this.innerValue = event.value;
     this.onChange(this.innerValue);
     this.onTouch();

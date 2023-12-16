@@ -51,6 +51,7 @@ export class AuthService {
                 const actualRole = localStorage.getItem('role');
                 if (userData.role !== actualRole) {
                   localStorage.removeItem('selectedGroup')
+                  localStorage.removeItem('selectedGroupIndex')
                 }
                 localStorage.setItem('role', userData.role)
               } else {
@@ -72,9 +73,11 @@ export class AuthService {
 
   async logout(): Promise<void> {
     const selectedGroup = localStorage.getItem('selectedGroup');
+    const selectedGroupIndex = localStorage.getItem('selectedGroupIndex');
     localStorage.clear();
-    if (selectedGroup) {
+    if (selectedGroup && selectedGroupIndex) {
       localStorage.setItem('selectedGroup', selectedGroup);
+      localStorage.setItem('selectedGroupIndex', selectedGroupIndex);
     }
     return await this.fireAuth.signOut();
   }
