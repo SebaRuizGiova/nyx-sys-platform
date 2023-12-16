@@ -130,6 +130,7 @@
   "adminShowAllDevicesTooltip": "Show all devices",
   "adminHideAllDevicesTooltip": "Hide all devices",
   "adminDeleteDeviceTooltip": "Delete device",
+  "adminEditDeviceTooltip": "Edit device",
 
   "adminAddGroupTooltip": "Add group",
   "adminShowAllGroupsTooltip": "Show all groups",

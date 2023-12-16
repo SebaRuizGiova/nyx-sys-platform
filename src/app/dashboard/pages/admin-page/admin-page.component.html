@@ -56,12 +56,12 @@
           <td class="column-center">{{ profile.lastName }}</td>
           <td class="column-rigth">
             <div class="actions">
-              <i *ngIf="!profile.hided; else showProfile" class="pi pi-eye-slash"></i>
+              <i *ngIf="profile.hided; else showProfile" class="pi pi-eye-slash" [pTooltip]="'adminShowProfileTooltip' | translate" tooltipPosition="bottom"></i>
               <ng-template #showProfile>
-                <i class="pi pi-eye"></i>
+                <i class="pi pi-eye" [pTooltip]="'adminHiceProfileTooltip' | translate" tooltipPosition="bottom"></i>
               </ng-template>
-              <i class="pi pi-user-edit"></i>
-              <i class="pi pi-trash"></i>
+              <i class="pi pi-user-edit" [pTooltip]="'adminEditProfileTooltip' | translate" tooltipPosition="bottom"></i>
+              <i class="pi pi-trash" [pTooltip]="'adminDeleteProfileTooltip' | translate" tooltipPosition="bottom"></i>
             </div>
           </td>
         </tr>
@@ -134,8 +134,8 @@
           <td>???</td>
           <td class="column-rigth">
             <div class="actions">
-              <i class="pi pi-cog"></i>
-              <i class="pi pi-trash"></i>
+              <i class="pi pi-cog" [pTooltip]="'adminEditDeviceTooltip' | translate" tooltipPosition="bottom"></i>
+              <i class="pi pi-trash" [pTooltip]="'adminDeleteDeviceTooltip' | translate" tooltipPosition="bottom"></i>
             </div>
           </td>
         </tr>
@@ -191,12 +191,12 @@
           <td>{{ group.teamName }}</td>
           <td class="column-rigth">
             <div class="actions">
-              <i *ngIf="!group.hided; else showGroup" class="pi pi-eye-slash"></i>
+              <i *ngIf="group.hided; else showGroup" class="pi pi-eye-slash" [pTooltip]="'adminShowGroupTooltip' | translate" tooltipPosition="bottom"></i>
               <ng-template #showGroup>
-                <i class="pi pi-eye"></i>
+                <i class="pi pi-eye" [pTooltip]="'adminHideGroupTooltip' | translate" tooltipPosition="bottom"></i>
               </ng-template>
-              <i class="pi pi-user-edit"></i>
-              <i class="pi pi-trash"></i>
+              <i class="pi pi-user-edit" [pTooltip]="'adminEditGroupTooltip' | translate" tooltipPosition="bottom"></i>
+              <i class="pi pi-trash" [pTooltip]="'adminDeleteGroupTooltip' | translate" tooltipPosition="bottom"></i>
             </div>
           </td>
         </tr>
@@ -241,7 +241,7 @@
           <td>{{ collaborator.role | titlecase }}</td>
           <td class="column-rigth">
             <div class="actions">
-              <i class="pi pi-trash"></i>
+              <i class="pi pi-trash" [pTooltip]="'adminDeleteCollaboratorTooltip' | translate" tooltipPosition="bottom"></i>
             </div>
           </td>
         </tr>
@@ -282,8 +282,8 @@
           <td>{{ user.nickName }}</td>
           <td class="column-rigth">
             <div class="actions">
-              <i class="pi pi-user-edit"></i>
-              <i class="pi pi-trash"></i>
+              <i class="pi pi-user-edit" [pTooltip]="'adminEditUserTooltip' | translate" tooltipPosition="bottom"></i>
+              <i class="pi pi-trash" [pTooltip]="'adminDeleteUserTooltip' | translate" tooltipPosition="bottom"></i>
             </div>
           </td>
         </tr>

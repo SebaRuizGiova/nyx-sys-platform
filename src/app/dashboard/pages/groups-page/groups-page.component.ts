@@ -116,6 +116,7 @@ export class GroupsPageComponent implements OnInit {
       this.databaseService.getAllUsers().subscribe((users) => {
         const observables = users.map((user: User) => {
           return this.databaseService.getGroupsByUser(user.id).pipe(
+            map((groups) => groups.filter((group) => !group.hided)),
             map((groups) =>
               groups.map((group: any) => ({
                 label: group.teamName,
@@ -172,6 +173,7 @@ export class GroupsPageComponent implements OnInit {
       this.databaseService
         .getGroupsByUser(this.authService.userId)
         .pipe(
+          map((groups) => groups.filter((group) => !group.hided)),
           map((groups) =>
             groups.map((group: any) => ({
               label: group.teamName,

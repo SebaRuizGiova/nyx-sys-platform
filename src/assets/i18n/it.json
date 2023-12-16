@@ -133,6 +133,7 @@
   "adminShowAllDevicesTooltip": "Mostra tutti i dispositivi",
   "adminHideAllDevicesTooltip": "Nascondi tutti i dispositivi",
   "adminDeleteDeviceTooltip": "Elimina dispositivo",
+  "adminEditDeviceTooltip": "Modifica dispositivo",
 
   "adminAddGroupTooltip": "Aggiungi gruppo",
   "adminShowAllGroupsTooltip": "Mostra tutti i gruppi",

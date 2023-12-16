@@ -41,7 +41,7 @@ export class DatabaseService {
       .pipe(
         map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
         map((profiles) => {
-          return profiles.filter((profile) => profile.teamID === groupId)
+          return profiles.filter((profile) => profile.teamID === groupId);
         }),
         map((profiles) => profiles.filter((profile) => !profile.hided)),
         mergeMap((filteredProfiles) => {
@@ -73,10 +73,7 @@ export class DatabaseService {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/players`)
       .get()
-      .pipe(
-        map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
-        map(profiles => profiles.filter(profile => !profile.hided))
-        );
+      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
   getDevicesByUser(userId: string): Observable<any> {
@@ -105,10 +102,7 @@ export class DatabaseService {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
       .get()
-      .pipe(
-        map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
-        map((groups) => groups.filter((group) => !group.hided)),
-      );
+      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
   setGroupsList(groups: any[]): void {
