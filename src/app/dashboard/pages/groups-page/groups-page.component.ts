@@ -1,11 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  forkJoin,
-  map,
-  mergeMap,
-  of,
-} from 'rxjs';
+import { forkJoin, map, mergeMap, of } from 'rxjs';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
@@ -59,7 +54,6 @@ export class GroupsPageComponent implements OnInit {
   public selectedGroupIndex: number =
     Number(localStorage.getItem('selectedGroupIndex')) || 0;
   public profiles: Profile[] = [];
-  private role: string | null = localStorage.getItem('role');
 
   constructor(
     private fb: FormBuilder,
@@ -118,16 +112,17 @@ export class GroupsPageComponent implements OnInit {
 
   loadData() {
     this.loadingService.setLoading(true);
-    if (this.role === 'superAdmin') {
+    if (this.authService.role === 'superAdmin') {
       this.databaseService.getAllUsers().subscribe((users) => {
         const observables = users.map((user: User) => {
           return this.databaseService.getGroupsByUser(user.id).pipe(
-            map((groups) => {
-              return groups.map((group) => ({
-                ...group,
-                userId: user.id,
-              }));
-            })
+            map((groups) =>
+              groups.map((group: any) => ({
+                label: group.teamName,
+                value: group.id,
+                userId: group.userID,
+              }))
+            ),
           );
         });
 
@@ -177,6 +172,13 @@ export class GroupsPageComponent implements OnInit {
       this.databaseService
         .getGroupsByUser(this.authService.userId)
         .pipe(
+          map((groups) =>
+            groups.map((group: any) => ({
+              label: group.teamName,
+              value: group.id,
+              userId: group.userID,
+            }))
+          ),
           mergeMap((groups) => {
             this.groupsList = groups;
             this.databaseService.setGroupsList([...this.groupsList, ...groups]);
@@ -264,7 +266,9 @@ export class GroupsPageComponent implements OnInit {
     this.databaseService
       .getProfilesByGroup(
         groupId,
-        this.role === 'superAdmin' ? selectedGroup?.userId : undefined
+        this.authService.role === 'superAdmin'
+          ? selectedGroup?.userId
+          : undefined
       )
       .subscribe((profiles) => {
         this.profiles = profiles;

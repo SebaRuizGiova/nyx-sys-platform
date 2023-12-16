@@ -14,8 +14,6 @@ export class DatabaseService {
   public selectedGroupIndex: number = 0;
   public profiles: Profile[] = [];
 
-  public role: string | null = localStorage.getItem('role');
-
   constructor(
     private firestore: AngularFirestore,
     private authService: AuthService
@@ -75,7 +73,10 @@ export class DatabaseService {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/players`)
       .get()
-      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
+      .pipe(
+        map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
+        map(profiles => profiles.filter(profile => !profile.hided))
+        );
   }
 
   getDevicesByUser(userId: string): Observable<any> {
@@ -107,13 +108,6 @@ export class DatabaseService {
       .pipe(
         map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
         map((groups) => groups.filter((group) => !group.hided)),
-        map((groups) =>
-          groups.map((group: any) => ({
-            label: group.teamName,
-            value: group.id,
-            userId: group.userID,
-          }))
-        )
       );
   }
 

@@ -9,6 +9,7 @@ import { LoadingService } from 'src/app/shared/services/loading.service';
 import { User } from '../../interfaces/user.interface';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { Collaborator } from '../../interfaces/collaborator.interface';
+import { finalize, forkJoin, map, mergeMap, Observable } from 'rxjs';
 
 @Component({
   templateUrl: './admin-page.component.html',
@@ -46,6 +47,8 @@ export class AdminPageComponent implements OnInit {
   public filteredCollaborators: any[] = [];
   public filteredUsers: User[] = [];
 
+  public role: string = this.authService.role;
+
   constructor(
     private fb: FormBuilder,
     private databaseService: DatabaseService,
@@ -54,25 +57,46 @@ export class AdminPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
+    if (this.authService.role === 'superAdmin') {
+      this.getDataAdmin();
+    } else {
+      this.getProfiles();
+      this.getDevices();
+      this.getGroups();
+      this.getCollaborators();
+    }
+  }
+
+  getProfiles(userId?: string) {
     this.loadingService.setLoading(true);
     this.databaseService
-      .getProfilesByUser(this.authService.userId)
+      .getProfilesByUser(userId || this.authService.userId)
       .subscribe((profiles) => {
         this.profiles = profiles;
         this.filteredProfiles = profiles;
         this.loadingService.setLoading(false);
       });
+  }
+
+  getDevices(userId?: string) {
     this.loadingService.setLoading(true);
     this.databaseService
-      .getDevicesByUser(this.authService.userId)
+      .getDevicesByUser(userId || this.authService.userId)
       .subscribe((devices) => {
         this.devices = devices;
         this.filteredDevices = devices;
         this.loadingService.setLoading(false);
       });
+  }
+
+  getGroups(userId?: string) {
     this.loadingService.setLoading(true);
     this.databaseService
-      .getGroupsByUserPaginated(this.authService.userId)
+      .getGroupsByUserPaginated(userId || this.authService.userId)
       .subscribe((groups) => {
         this.groups = groups;
         this.groupsSelect = groups.map((group: Group) => ({
@@ -82,36 +106,69 @@ export class AdminPageComponent implements OnInit {
         this.filteredGroups = groups;
         this.loadingService.setLoading(false);
       });
+  }
+
+  getCollaborators(userId?: string) {
     this.loadingService.setLoading(true);
     this.databaseService
-      .getUserData(this.authService.userId)
+      .getUserData(userId || this.authService.userId)
       .subscribe((user) => {
         this.collaborators = user.collaborators || [];
         this.collaborators[this.collaborators.length - 1];
         this.filteredCollaborators = user.collaborators || [];
       });
-    this.loadingService.setLoading(true);
-    this.databaseService.getAllUsers().subscribe((users) => {
-      this.users = users;
-      this.filteredUsers = users;
-    });
   }
 
-  // searchProfiles() {
-  //   if (this.actionsProfilesForm.value.filterByGroup) {
-  //     this.filteredProfiles = this.profiles.filter((profile) => {
-  //       return (
-  //         profile.name
-  //           .toLowerCase()
-  //           .includes(this.actionsProfilesForm.value.search.toLowerCase()) ||
-  //         profile.lastName
-  //           .toLowerCase()
-  //           .includes(this.actionsProfilesForm.value.search.toLowerCase())
-  //       );
-  //     });
-  //   }
+  getDataAdmin() {
+    this.loadingService.setLoading(true);
+    this.databaseService
+      .getAllUsers()
+      .pipe(
+        mergeMap((users) => {
+          this.users = users;
+          this.filteredUsers = users;
+          const profilesObservables = users.map((user: User) => {
+            const profiles$ = this.databaseService.getProfilesByUser(user.id);
+            const devices$ = this.databaseService.getDevicesByUser(user.id);
+            const groups$ = this.databaseService.getGroupsByUser(user.id);
+            const userData$ = this.databaseService.getUserData(user.id);
 
-  // }
+            return forkJoin([profiles$, devices$, groups$, userData$]);
+          });
+
+          return forkJoin(profilesObservables);
+        })
+      )
+      .subscribe((results: any) => {
+        debugger;
+        let profiles: Profile[] = [];
+        let devices: Device[] = [];
+        let groups: Group[] = [];
+        let collaborators: Collaborator[] = [];
+        results.forEach((result: any) => {
+          profiles = [...profiles, ...result[0]];
+        });
+        results.forEach((result: any) => {
+          devices = [...devices, ...result[1]];
+        });
+        results.forEach((result: any) => {
+          groups = [...groups, ...result[2]];
+        });
+        results.forEach((result: any) => {
+          collaborators = [...collaborators, result[3]];
+        });
+
+        this.profiles = profiles;
+        this.filteredProfiles = profiles;
+        this.devices = devices;
+        this.filteredDevices = devices;
+        this.groups = groups;
+        this.filteredGroups = groups;
+        this.collaborators = collaborators;
+        this.filteredCollaborators = collaborators;
+        this.loadingService.setLoading(false);
+      });
+  }
 
   filterProfiles(groupId?: string) {
     if (groupId) {

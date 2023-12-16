@@ -42,13 +42,13 @@ export class LoginPageComponent implements OnInit {
 
   public loginForm: FormGroup = this.fb.group({
     emailLogin: [
-      userAdmin.user,
+      user.user,
       [
         Validators.required,
         Validators.pattern(this.validatorsService.emailPattern),
       ],
     ],
-    passwordLogin: [userAdmin.password, [Validators.required]],
+    passwordLogin: [user.password, [Validators.required]],
   });
   public forgetForm: FormGroup = this.fb.group({
     emailForget: [

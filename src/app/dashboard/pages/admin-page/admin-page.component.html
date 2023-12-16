@@ -248,7 +248,7 @@
       </ng-template>
     </p-table>
   </div>
-  <div class="card">
+  <div class="card" *ngIf="role === 'superAdmin'">
     <div class="card-header">
       <p class="title-table">{{ 'adminUsersTitle' | translate }}</p>
       <div class="actions-header" [formGroup]="actionsUsersForm">
