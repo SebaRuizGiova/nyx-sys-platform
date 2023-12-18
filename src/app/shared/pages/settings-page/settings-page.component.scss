@@ -32,6 +32,7 @@
       flex-direction: column;
       align-items: center;
       width: 75%;
+      gap: 20px;
 
       .videos {
         display: flex;
@@ -55,6 +56,31 @@
             border-radius: 5px;
             overflow: hidden;
             height: 250px;
+          }
+        }
+      }
+
+      .pdf-container {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+
+        .pdf {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            cursor: pointer;
+          }
+
+          p {
+            font-size: .6rem;
+            margin: 0;
           }
         }
       }
