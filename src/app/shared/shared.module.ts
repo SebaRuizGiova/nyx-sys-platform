@@ -14,6 +14,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent } from './components/button/button.component';
@@ -51,7 +52,8 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
     InputTextModule,
     PasswordModule,
     ReactiveFormsModule,
-    RoundProgressModule
+    RoundProgressModule,
+    YouTubePlayerModule
   ],
   exports: [
     SidebarComponent,
