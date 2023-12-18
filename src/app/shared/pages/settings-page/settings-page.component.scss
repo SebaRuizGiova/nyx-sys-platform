@@ -20,6 +20,7 @@
       margin-top: 0;
       display: block;
       width: 100%;
+      font-weight: normal;
     }
 
     &.main {
@@ -43,6 +44,12 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
+
+          h6 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: normal;
+          }
 
           .video-container {
             border-radius: 5px;
