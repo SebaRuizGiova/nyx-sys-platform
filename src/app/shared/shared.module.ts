@@ -23,6 +23,7 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { SelectComponent } from './components/select/select.component';
 import { CircleProgressBarComponent } from './components/circle-progress-bar/circle-progress-bar.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     SelectComponent,
     CircleProgressBarComponent,
     LoadingComponent,
+    SettingsPageComponent,
   ],
   imports: [
     CommonModule,
