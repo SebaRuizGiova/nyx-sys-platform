@@ -1,5 +1,12 @@
 @import "../../../../variables.scss";
 
+a {
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  color: $nyxsys-white;
+}
+
 .main-settings {
   width: 100%;
   display: flex;

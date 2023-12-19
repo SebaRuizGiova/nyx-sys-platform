@@ -52,6 +52,7 @@ export class SettingsPageComponent {
     this.authService
       .updatePassword(this.resetPasswordForm.value.actual, this.resetPasswordForm.value.new)
       .then(() => {
+        // TODO: Agregar feedback
         console.log('Password cambiado');
       })
       .catch((err) => {
