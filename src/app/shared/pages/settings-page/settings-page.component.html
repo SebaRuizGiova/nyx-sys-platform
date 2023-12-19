@@ -1,10 +1,10 @@
 <div class="main-settings">
   <div class="card main">
-    <h4>Tutoriales y FAQs</h4>
+    <h4>{{ "settingsHelpCardTitle" | translate }}</h4>
     <div class="content-main">
       <div class="videos">
         <div class="video">
-          <h6>Uso correcto del dispositivo</h6>
+          <h6>{{ "settingsVideoCorrectUse" | translate }}</h6>
           <div class="video-container">
             <youtube-player
               videoId="5dDG8hOHV24"
@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="video">
-          <h6>Recorrido por la plataforma</h6>
+          <h6>{{ "settingsVideoRoute" | translate }}</h6>
           <div class="video-container">
             <youtube-player
               videoId="5dDG8hOHV24"
@@ -29,129 +29,68 @@
       <div class="pdf-container">
         <div class="pdf">
           <img src="assets/icons/pdf.svg" alt="download pdf" />
-          <p>Instrucciones de instalación y uso</p>
+          <p>{{ "settingsPdfInstructions" | translate }}</p>
         </div>
         <div class="pdf">
           <img src="assets/icons/pdf.svg" alt="download pdf" />
-          <p>Guía rápida</p>
+          <p>{{ "settingsPdfGuide" | translate }}</p>
         </div>
       </div>
       <div class="faqs">
         <p-accordion>
-          <p-accordionTab
-            header="¿Cómo sé si mi dispositivo está conectado a internet?"
-          >
+          <p-accordionTab [header]="'settingsFAQ1Title' | translate">
             <p>
-              Comprueba que el led verde ubicado en el frente del dispositivo
-              esté encendido, si no, comprueba el estado de tu red de internet.
+              {{ "settingsFAQ1Desc" | translate }}
             </p>
           </p-accordionTab>
-          <p-accordionTab header="El perfil no aparece en el panel grupal.">
+          <p-accordionTab [header]="'settingsFAQ2Title' | translate">
             <p>
-              Comprueba en el panel de administración que el perfil no esté
-              “oculto”.
+              {{ "settingsFAQ2Desc" | translate }}
             </p>
           </p-accordionTab>
-          <p-accordionTab
-            header="Cuando estoy conectando el dispositivo a internet, al ingresar la contraseña del mismo, obtengo un error de “contraseña incorrecta”."
-          >
+          <p-accordionTab [header]="'settingsFAQ3Title' | translate">
             <p>
-              Recuerda que al ingresar la contraseña del dispositivo, también
-              debes incluir los guiones medios, es decir, debes introducir la
-              contraseña exactamente como está escrita, aquí un ejemplo:
-              “xxxx-xxxx-xxx”.
+              {{ "settingsFAQ3Desc" | translate }}
             </p>
           </p-accordionTab>
-          <p-accordionTab header="¿Dónde debe colocarse el sensor?">
+          <p-accordionTab [header]="'settingsFAQ4Title' | translate">
             <p>
-              El sensor debe instalarse exclusivamente debajo del colchón o
-              cubrecolchón. Para captar una señal más fuerte, la parte central
-              del sensor (la banda plástica) debe ubicarse directamente debajo o
-              a la altura del corazón del usuario cuando está acostado.<br /><br />Si
-              tiene una cama doble y son dos personas durmiendo, debe colocar el
-              sensor lo más cerca posible del borde de la cama con el cable
-              hacia un lado, de forma paralela a su cuerpo, siempre con la mayor
-              parte de la banda ubicada a la altura del corazón. En caso que se
-              utilice una cama doble pero sólo duerma el usuario, se recomienda
-              ubicar el sensor en forma perpendicular al usuario, siempre a la
-              altura del corazón, pero posicionando el dispositivo de un lado u
-              otro de la cama o más en el centro, de acuerdo a las preferencias
-              de posición del usuario en la cama.<br /><br />Evite que el cable
-              pase por el medio de la cama, ya que puede provocar señales
-              equívocas.
+              {{ "settingsFAQ4Desc" | translate }}
             </p>
           </p-accordionTab>
-          <p-accordionTab
-            header="¿El dispositivo tiene que estar siempre conectado a la corriente?"
-          >
+          <p-accordionTab [header]="'settingsFAQ5Title' | translate">
             <p>
-              El dispositivo utiliza una cantidad insignificante de energía, por
-              lo que no es necesario desconectarlo para ahorrar electricidad.<br /><br />Si
-              desea desconectarlo mientras no lo utiliza, hágalo solo 10 minutos
-              después de salir de la cama, para que el dispositivo tenga tiempo
-              suficiente para enviar el evento de salida de la cama a nuestros
-              servidores. De lo contrario, pueden producirse periodos de
-              presencia excesivamente largos. De igual manera cuando vuelve a
-              conectarse al momento de ir a dormir, debe hacerse 10 minutos
-              antes de su presencia en la cama.
+              {{ "settingsFAQ5Desc" | translate }}
             </p>
           </p-accordionTab>
-          <p-accordionTab
-            header="Si apago el dispositivo y vuelvo a encenderlo ¿se reconecta automáticamente a la red wifi a la que estaba previamente conectado?"
-          >
+          <p-accordionTab [header]="'settingsFAQ6Title' | translate">
             <p>
-              Si la red wifi es la misma que la última a la que se conectó el
-              dispositivo, no hay necesidad de volver a configurar el
-              dispositivo.
+              {{ "settingsFAQ6Desc" | translate }}
             </p>
           </p-accordionTab>
-          <p-accordionTab
-            header="¿Cómo puedo ver resultados de noches anteriores?"
-          >
+          <p-accordionTab [header]="'settingsFAQ7Title' | translate">
             <p>
-              Toda la información de sus noches la encontrará disponible en la
-              plataforma Nyx-Sys, clickeando en el ícono -X- del panel
-              individual.
+              {{ "settingsFAQ7Desc" | translate }}
             </p>
           </p-accordionTab>
-          <p-accordionTab
-            header="¿Qué significa el mensaje de error con el ícono -X- que indica que algunos datos de la noche no han podido ser procesados?"
-          >
+          <p-accordionTab [header]="'settingsFAQ8Title' | translate">
             <p>
-              La pérdida de datos durante un período de sueño, puede deberse a
-              múltiples factores, usualmente los más comunes son:<br /><br />-
-              Una baja señal del dispositivo. Para solucionarlo debe volver a
-              posicionar el dispositivo debajo de su cama de acuerdo a las
-              recomendaciones dadas en el punto X.<br /><br />- En caso de
-              compartir una cama doble con una segunda persona, el dispositivo
-              registró datos de ambas personas y generó datos equívocos o
-              superpuestos.<br /><br />- Hubo un corte en el suministro
-              eléctrico durante el registro.
+              {{ "settingsFAQ8Desc" | translate }}
             </p>
           </p-accordionTab>
-          <p-accordionTab
-            header="¿Qué significa la luz roja parpadeante en el dispositivo?"
-          >
+          <p-accordionTab [header]="'settingsFAQ9Title' | translate">
             <p>
-              Generalmente los destellos rojos son una indicación de problemas
-              de conexión a la red. Si esas interrupciones son de corta
-              duración, no debería preocuparse.
+              {{ "settingsFAQ9Desc" | translate }}
             </p>
           </p-accordionTab>
-          <p-accordionTab header="¿Qué sucede si se corta internet?">
+          <p-accordionTab [header]="'settingsFAQ10Title' | translate">
             <p>
-              Si la conexión a Internet se pierde temporalmente, la memoria
-              interna registrará hasta 12 horas de datos, cuando se restablezca
-              la conexión, los datos se envían a la nube para ser procesados.
+              {{ "settingsFAQ10Desc" | translate }}
             </p>
           </p-accordionTab>
-          <p-accordionTab header="¿Puedo utilizar el sensor en una cama doble?">
+          <p-accordionTab [header]="'settingsFAQ11Title' | translate">
             <p>
-              Sí, puedes utilizar el dispositivo en una cama doble. Sin embargo,
-              el extremo del cable del sensor debe instalarse lo más cerca
-              posible del borde, ya que es posible que los movimientos de su
-              cónyuge provoquen un registro de presencia más prolongado después
-              de que usted se levanta de la cama.
+              {{ "settingsFAQ11Desc" | translate }}
             </p>
           </p-accordionTab>
         </p-accordion>
@@ -160,16 +99,16 @@
   </div>
   <div class="card">
     <div class="contact" [formGroup]="contactForm">
-      <h4>Contacto</h4>
+      <h4>{{ "settingsContactCardTitle" | translate }}</h4>
       <shared-input-text
-        [placeholder]="'loginPlaceholderEmail' | translate"
+        [placeholder]="'settingsPlaceholderEmail' | translate"
         [helper]="validateInputContact('email')"
         [error]="!!validateInputContact('email')"
         [formGroup]="contactForm"
         formControlName="email"
       />
       <shared-input-text
-        [placeholder]="'loginPlaceholderEmail' | translate"
+        [placeholder]="'settingsPlaceholderSubject' | translate"
         [helper]="validateInputContact('subject')"
         [error]="!!validateInputContact('subject')"
         [formGroup]="contactForm"
@@ -179,7 +118,7 @@
         rows="5"
         cols="30"
         pInputTextarea
-        placeholder="Mensaje"
+        [placeholder]="'settingsPlaceholderMessage' | translate"
         [autoResize]="true"
         formControlName="message"
         [class.ng-invalid]="!!validateInputContact('message')"
@@ -187,7 +126,7 @@
       ></textarea>
       <div class="button">
         <shared-button
-          label="Enviar"
+          [label]="'settingsButtonSend' | translate"
           (click)="sendEmail()"
           [disabled]="contactForm.status === 'INVALID'"
         />
@@ -202,7 +141,7 @@
         >
           <img src="assets/logos/NYXSYS_WHITE.svg" alt="logo" class="logo" />
         </a>
-        <small>Visita nuestra web</small>
+        <small>{{ "settingsVisitWeb" | translate }}</small>
         <a
           href="https://nyx-sys.com/"
           target="_blank"
@@ -212,7 +151,7 @@
         </a>
       </div>
       <div class="social">
-        <p>También encuéntranos en redes sociales</p>
+        <p>{{ "settingsSocialAccounts" | translate }}</p>
         <div class="social-logos">
           <a
             href="https://www.youtube.com/@Nyx-Sys"
@@ -248,23 +187,23 @@
   </div>
   <div class="card">
     <div class="password" [formGroup]="resetPasswordForm">
-      <h4>Cambio de contraseña</h4>
+      <h4>{{ "settingsPasswordCardTitle" | translate }}</h4>
       <shared-input-password
-        placeholder="Contraseña actual"
+        [placeholder]="'settingsPlaceholderActualPassword' | translate"
         [helper]="validateInputPassword('actual')"
         [error]="!!validateInputPassword('actual')"
         [formGroup]="resetPasswordForm"
         formControlName="actual"
       />
       <shared-input-password
-        placeholder="Contraseña nueva"
+        [placeholder]="'settingsPlaceholderNewPassword' | translate"
         [helper]="validateInputPassword('new')"
         [error]="!!validateInputPassword('new')"
         [formGroup]="resetPasswordForm"
         formControlName="new"
       />
       <shared-input-password
-        placeholder="Confirmar contraseña"
+        [placeholder]="'settingsPlaceholderConfirmPassword' | translate"
         [helper]="validateInputPassword('confirm')"
         [error]="!!validateInputPassword('confirm')"
         [formGroup]="resetPasswordForm"
@@ -272,23 +211,17 @@
       />
       <div class="button">
         <shared-button
-          label="Guardar"
+          [label]="'settingsButtonSave' | translate"
           (click)="updatePassword()"
           [disabled]="resetPasswordForm.status === 'INVALID'"
         />
       </div>
     </div>
     <div class="delete-account">
-      <p>Dar de baja mi cuenta</p>
-      <small
-        >¿Deseas eliminar tu cuenta de forma permanente? Ten en cuenta que se
-        perderá toda la información relacionada con la misma. No podrás
-        re-activarla ni recuperar su contenido.<br /><br />La acción se hará
-        efectiva a las 48hs, en caso de haber sido un error, por favor
-        comunícate con nuestro equipo de soporte.</small
-      >
+      <p>{{ "settingsDeleteAccountTitle" | translate }}</p>
+      <small>{{ "settingsDeleteAccountDesc" | translate }}</small>
       <div class="button">
-        <a>Eliminar cuenta</a>
+        <a>{{ "settingsDeleteAccountButton" | translate }}</a>
       </div>
     </div>
   </div>

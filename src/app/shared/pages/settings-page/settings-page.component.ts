@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { ValidatorsService } from '../../services/validators.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-settings-page',
@@ -12,7 +13,8 @@ export class SettingsPageComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private validatorsService: ValidatorsService
+    private validatorsService: ValidatorsService,
+    private translate: TranslateService,
   ) {}
 
   public contactForm: FormGroup = this.fb.group({
@@ -65,10 +67,10 @@ export class SettingsPageComponent {
     const touched = this.resetPasswordForm.controls[field].touched;
     if (errors && touched) {
       if (errors['required']) {
-        return 'La contraseña es obligatoria';
+        return this.translate.instant('settingsMandatoryPassword');
       }
       if (errors['pattern']) {
-        return 'La contraseña debe contener al menos una letra mayúscula, una letra minúscula y 8 caracteres.';
+        return this.translate.instant('settingsPatternPassword');
       }
     }
     return '';
@@ -86,10 +88,10 @@ export class SettingsPageComponent {
     const touched = this.contactForm.controls[field].touched;
     if (errors && touched) {
       if (errors['required']) {
-        return 'El campo es obligatorio';
+        return this.translate.instant('settingsMandatoryFieldError');
       }
       if (errors['pattern']) {
-        return 'Ingrese un email válido';
+        return this.translate.instant('settingsValidEmailError');
       }
     }
     return '';

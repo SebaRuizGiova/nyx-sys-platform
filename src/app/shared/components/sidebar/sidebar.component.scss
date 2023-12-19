@@ -16,7 +16,7 @@
   overflow: hidden;
   transition: 0.3s;
   font-size: 14px;
-  z-index: 100;
+  z-index: 500;
 
   &.show {
     width: 280px;
@@ -127,10 +127,11 @@
   width: 100vw;
   height: 100vh;
   background: #000;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   opacity: 0.5;
+  z-index: 400;
 }
 
 :host ::ng-deep .p-dropdown {

@@ -148,5 +148,70 @@
 
   "adminAddUserTooltip": "Aggiungi utente",
   "adminEditUserTooltip": "Modifica utente",
-  "adminDeleteUserTooltip": "Elimina utente"
+  "adminDeleteUserTooltip": "Elimina utente",
+
+  "settingsHelpCardTitle": "Tutorial e FAQ",
+  "settingsContactCardTitle": "Contatto",
+  "settingsPasswordCardTitle": "Cambio password",
+
+  "settingsVideoCorrectUse": "Corretto utilizzo del dispositivo",
+  "settingsVideoRoute": "Tour della piattaforma",
+
+  "settingsPdfInstructions": "Istruzioni di installazione e utilizzo",
+  "settingsPdfGuide": "Guida rapida",
+
+  "settingsFAQ1Title": "Come posso sapere se il mio dispositivo è connesso a Internet?",
+  "settingsFAQ1Desc": "Verifica che il LED verde situato nella parte anteriore del dispositivo sia acceso. In caso contrario, controlla lo stato della tua connessione Internet.",
+
+  "settingsFAQ2Title": "Il profilo non appare nel pannello di gruppo.",
+  "settingsFAQ2Desc": "Verifica nel pannello di amministrazione che il profilo non sia 'nascosto'.",
+
+  "settingsFAQ3Title": "Quando sto connettendo il dispositivo a Internet e inserisco la password, ottengo un errore di 'password errata'.",
+  "settingsFAQ3Desc": "Ricorda che inserendo la password del dispositivo, devi includere anche i trattini medi, cioè devi inserire la password esattamente come è scritta. Ecco un esempio: 'xxxx-xxxx-xxx'.",
+
+  "settingsFAQ4Title": "Dove dovrebbe essere posizionato il sensore?",
+  "settingsFAQ4Desc": "Il sensore dovrebbe essere installato esclusivamente sotto il materasso o il coprimaterasso. Per ottenere un segnale più forte, la parte centrale del sensore (la fascia di plastica) dovrebbe essere posizionata direttamente sotto o all'altezza del cuore dell'utente quando è sdraiato.\n\nSe hai un letto matrimoniale e ci sono due persone che dormono, posiziona il sensore il più vicino possibile al bordo del letto con il cavo da un lato, parallelamente al tuo corpo, sempre con la maggior parte della fascia posizionata all'altezza del cuore. Se utilizzi un letto matrimoniale ma dormi da solo, si consiglia di posizionare il sensore in modo perpendicolare all'utente, sempre all'altezza del cuore, ma posizionando il dispositivo da un lato o dall'altro del letto o più al centro, a seconda delle preferenze di posizione dell'utente nel letto.\n\nEvita che il cavo passi nel mezzo del letto, poiché potrebbe causare segnali equivoci.",
+
+  "settingsFAQ5Title": "Il dispositivo deve essere sempre collegato alla corrente?",
+  "settingsFAQ5Desc": "Il dispositivo utilizza una quantità trascurabile di energia, quindi non è necessario scollegarlo per risparmiare elettricità.\n\nSe desideri scollegarlo quando non lo stai utilizzando, fallo solo 10 minuti dopo essere uscito dal letto, in modo che il dispositivo abbia il tempo sufficiente per inviare l'evento di uscita dal letto ai nostri server. In caso contrario, potrebbero verificarsi periodi di presenza eccessivamente lunghi. Allo stesso modo, quando lo ricolleghi prima di andare a dormire, fallo 10 minuti prima di tornare a letto.",
+
+  "settingsFAQ6Title": "Se spengo il dispositivo e lo riaccendo, si ricollega automaticamente alla rete Wi-Fi a cui era precedentemente connesso?",
+  "settingsFAQ6Desc": "Se la rete Wi-Fi è la stessa a cui il dispositivo si è collegato l'ultima volta, non c'è bisogno di riconfigurare il dispositivo.",
+
+  "settingsFAQ7Title": "Come posso visualizzare i risultati delle notti precedenti?",
+  "settingsFAQ7Desc": "Tutte le informazioni sulle tue notti sono disponibili sulla piattaforma Nyx-Sys, facendo clic sull'icona -X- del pannello individuale.",
+
+  "settingsFAQ8Title": "Cosa significa il messaggio di errore con l'icona -X- che indica che alcuni dati della notte non possono essere elaborati?",
+  "settingsFAQ8Desc": "La perdita di dati durante un periodo di sonno può essere causata da vari fattori, di solito i più comuni sono:\n\n\t- Un segnale debole del dispositivo. Per risolvere questo problema, riposiziona il dispositivo sotto il letto secondo le raccomandazioni fornite nel punto X.\n\n\t- Nel caso di un letto matrimoniale con una seconda persona, il dispositivo ha registrato dati di entrambe le persone, generando dati equivoci o sovrapposti.\n\n\t- C'è stata un'interruzione nell'alimentazione elettrica durante la registrazione.",
+
+  "settingsFAQ9Title": "Cosa significa il lampeggiare rosso del dispositivo?",
+  "settingsFAQ9Desc": "In genere, i lampeggi rossi sono un segnale di problemi di connessione alla rete. Se queste interruzioni sono di breve durata, non dovresti preoccuparti.",
+
+  "settingsFAQ10Title": "Cosa succede se si interrompe Internet?",
+  "settingsFAQ10Desc": "Se la connessione a Internet viene persa temporaneamente, la memoria interna registrerà fino a 12 ore di dati. Quando la connessione viene ripristinata, i dati vengono inviati al cloud per essere elaborati.",
+
+  "settingsFAQ11Title": "Posso utilizzare il sensore su un letto matrimoniale?",
+  "settingsFAQ11Desc": "Sì, puoi utilizzare il dispositivo su un letto matrimoniale. Tuttavia, l'estremità del cavo del sensore deve essere installata il più vicino possibile al bordo, poiché i movimenti del tuo coniuge potrebbero causare una registrazione della presenza più prolungata dopo che ti sei alzato dal letto.",
+
+  "settingsPlaceholderEmail": "Email",
+  "settingsPlaceholderSubject": "Oggetto",
+  "settingsPlaceholderMessage": "Messaggio",
+  "settingsPlaceholderActualPassword": "Password attuale",
+  "settingsPlaceholderNewPassword": "Nuova password",
+  "settingsPlaceholderConfirmPassword": "Conferma password",
+
+  "settingsButtonSend": "Invia",
+  "settingsButtonSave": "Salva",
+
+  "settingsVisitWeb": "Visita il nostro sito web",
+  "settingsSocialAccounts": "Trova anche noi sui social media",
+
+  "settingsDeleteAccountTitle": "Elimina il mio account",
+  "settingsDeleteAccountDesc": "Desideri eliminare il tuo account in modo permanente? Tieni presente che perderai tutte le informazioni ad esso associate. Non sarà possibile riattivarlo o recuperare i suoi contenuti.\n\nL'azione diventerà effettiva entro 48 ore; in caso di errore, ti preghiamo di contattare il nostro team di supporto.",
+  "settingsDeleteAccountButton": "Elimina account",
+
+  "settingsMandatoryFieldError": "Il campo è obbligatorio",
+  "settingsValidEmailError": "Inserisci un'email valida",
+  "settingsMandatoryPassword": "La password è obbligatoria",
+  "settingsPatternPassword": "La password deve contenere almeno una lettera maiuscola, una lettera minuscola e essere lunga 8 caratteri."
 }

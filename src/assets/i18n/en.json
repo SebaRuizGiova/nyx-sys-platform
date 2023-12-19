@@ -145,5 +145,70 @@
 
   "adminAddUserTooltip": "Add user",
   "adminEditUserTooltip": "Edit user",
-  "adminDeleteUserTooltip": "Delete user"
+  "adminDeleteUserTooltip": "Delete user",
+
+  "settingsHelpCardTitle": "Tutorials and FAQs",
+  "settingsContactCardTitle": "Contact",
+  "settingsPasswordCardTitle": "Password Change",
+
+  "settingsVideoCorrectUse": "Proper Use of the Device",
+  "settingsVideoRoute": "Platform Walkthrough",
+
+  "settingsPdfInstructions": "Installation and Usage Instructions",
+  "settingsPdfGuide": "Quick Guide",
+
+  "settingsFAQ1Title": "How do I know if my device is connected to the internet?",
+  "settingsFAQ1Desc": "Check that the green LED on the front of the device is lit. If not, check the status of your internet network.",
+
+  "settingsFAQ2Title": "The profile does not appear in the group panel.",
+  "settingsFAQ2Desc": "Check in the administration panel that the profile is not 'hidden'.",
+
+  "settingsFAQ3Title": "When connecting the device to the internet, I get an error of 'incorrect password' when entering its password.",
+  "settingsFAQ3Desc": "Remember that when entering the device password, you must also include the hyphens, i.e., enter the password exactly as written. Here's an example: 'xxxx-xxxx-xxx'.",
+
+  "settingsFAQ4Title": "Where should the sensor be placed?",
+  "settingsFAQ4Desc": "The sensor should be installed exclusively under the mattress or mattress cover. To capture a stronger signal, the central part of the sensor (the plastic band) should be positioned directly under or at the height of the user's heart when lying down.\n\nIf you have a double bed and two people sleeping, place the sensor as close as possible to the edge of the bed with the cable to one side, parallel to your body, always with the majority of the band at heart level. If using a double bed but only one person sleeps, it is recommended to position the sensor perpendicular to the user, always at heart level, but placing the device on one side or the other of the bed or more in the center, according to the user's sleeping preferences.\n\nAvoid having the cable pass through the middle of the bed, as it can cause misleading signals.",
+
+  "settingsFAQ5Title": "Does the device always have to be connected to the power?",
+  "settingsFAQ5Desc": "The device uses an insignificant amount of energy, so it is not necessary to disconnect it to save electricity.\n\nIf you want to disconnect it when not in use, do so only 10 minutes after getting out of bed, so the device has enough time to send the bed exit event to our servers. Otherwise, excessively long presence periods can occur. Similarly, when reconnecting before going to sleep, it should be done 10 minutes before being in bed.",
+
+  "settingsFAQ6Title": "If I turn off the device and turn it back on, does it automatically reconnect to the wifi it was previously connected to?",
+  "settingsFAQ6Desc": "If the wifi network is the same as the last one the device connected to, there is no need to reconfigure the device.",
+
+  "settingsFAQ7Title": "How can I view results from previous nights?",
+  "settingsFAQ7Desc": "All information about your nights will be available on the Nyx-Sys platform by clicking on the -X- icon on the individual panel.",
+
+  "settingsFAQ8Title": "What does the error message with the -X- icon indicating that some night data could not be processed mean?",
+  "settingsFAQ8Desc": "Data loss during a sleep period can be due to multiple factors. Usually, the most common ones are:\n\n\t- Low signal from the device. To fix it, reposition the device under your bed according to the recommendations given in point X.\n\n\t- In the case of sharing a double bed with a second person, the device recorded data from both people, generating inaccurate or overlapping data.\n\n\t- There was a power outage during the recording.",
+
+  "settingsFAQ9Title": "What does the flashing red light on the device mean?",
+  "settingsFAQ9Desc": "Generally, red flashes indicate network connection issues. If these interruptions are brief, you shouldn't worry.",
+
+  "settingsFAQ10Title": "What happens if the internet is cut off?",
+  "settingsFAQ10Desc": "If the internet connection is temporarily lost, the internal memory will record up to 12 hours of data. When the connection is restored, the data is sent to the cloud for processing.",
+
+  "settingsFAQ11Title": "Can I use the sensor on a double bed?",
+  "settingsFAQ11Desc": "Yes, you can use the device on a double bed. However, the end of the sensor cable should be installed as close as possible to the edge, as your partner's movements may result in a longer presence record after you get out of bed.",
+
+  "settingsPlaceholderEmail": "Email",
+  "settingsPlaceholderSubject": "Subject",
+  "settingsPlaceholderMessage": "Message",
+  "settingsPlaceholderActualPassword": "Current Password",
+  "settingsPlaceholderNewPassword": "New Password",
+  "settingsPlaceholderConfirmPassword": "Confirm Password",
+
+  "settingsButtonSend": "Send",
+  "settingsButtonSave": "Save",
+
+  "settingsVisitWeb": "Visit our website",
+  "settingsSocialAccounts": "Also find us on social media",
+
+  "settingsDeleteAccountTitle": "Delete My Account",
+  "settingsDeleteAccountDesc": "Do you want to permanently delete your account? Keep in mind that all related information will be lost. You won't be able to reactivate it or recover its content.\n\nThe action will take effect after 48 hours. If it was a mistake, please contact our support team.",
+  "settingsDeleteAccountButton": "Delete Account",
+
+  "settingsMandatoryFieldError": "The field is mandatory",
+  "settingsValidEmailError": "Enter a valid email",
+  "settingsMandatoryPassword": "The password is mandatory",
+  "settingsPatternPassword": "The password must contain at least one uppercase letter, one lowercase letter, and be 8 characters long."
 }
