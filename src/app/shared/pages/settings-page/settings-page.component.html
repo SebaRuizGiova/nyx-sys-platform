@@ -221,8 +221,23 @@
       <p>{{ "settingsDeleteAccountTitle" | translate }}</p>
       <small>{{ "settingsDeleteAccountDesc" | translate }}</small>
       <div class="button">
-        <a>{{ "settingsDeleteAccountButton" | translate }}</a>
+        <a (click)="toggleModal()">{{
+          "settingsDeleteAccountButton" | translate
+        }}</a>
       </div>
     </div>
   </div>
 </div>
+<shared-modal [showModal]="showModalConfirmDelete" [title]="'settingsConfirmModalTitle' | translate">
+  <p>{{ 'settingsConfirmModalContent' | translate }}</p>
+  <div class="buttons-modal">
+    <shared-button
+      [label]="'settingsConfirmModalAccept' | translate"
+    />
+    <shared-button
+      [label]="'settingsConfirmModalCancel' | translate"
+      variant="secondary"
+      (click)="toggleModal()"
+    />
+  </div>
+</shared-modal>

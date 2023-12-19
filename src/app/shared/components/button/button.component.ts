@@ -11,5 +11,6 @@ export class ButtonComponent {
   @Input() iconPos: 'right' | 'left' = 'right';
   @Input() tooltipButton?: string;
   @Input() tooltipPosition?: 'right' | 'left' | 'top' | 'bottom';
+  @Input() variant?: 'secondary';
   @Input() disabled: boolean = false;
 }

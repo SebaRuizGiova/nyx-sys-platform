@@ -213,5 +213,10 @@
   "settingsMandatoryFieldError": "Il campo è obbligatorio",
   "settingsValidEmailError": "Inserisci un'email valida",
   "settingsMandatoryPassword": "La password è obbligatoria",
-  "settingsPatternPassword": "La password deve contenere almeno una lettera maiuscola, una lettera minuscola e essere lunga 8 caratteri."
+  "settingsPatternPassword": "La password deve contenere almeno una lettera maiuscola, una lettera minuscola e essere lunga 8 caratteri.",
+
+  "settingsConfirmModalTitle": "Conferma",
+  "settingsConfirmModalContent": "Sei sicuro di voler eliminare definitivamente il tuo account?",
+  "settingsConfirmModalAccept": "Accetta",
+  "settingsConfirmModalCancel": "Annulla"
 }

@@ -213,5 +213,10 @@
   "settingsMandatoryFieldError": "Das Feld ist obligatorisch",
   "settingsValidEmailError": "Geben Sie eine gültige E-Mail-Adresse ein",
   "settingsMandatoryPassword": "Das Passwort ist obligatorisch",
-  "settingsPatternPassword": "Das Passwort muss mindestens einen Großbuchstaben, einen Kleinbuchstaben und 8 Zeichen enthalten."
+  "settingsPatternPassword": "Das Passwort muss mindestens einen Großbuchstaben, einen Kleinbuchstaben und 8 Zeichen enthalten.",
+
+  "settingsConfirmModalTitle": "Bestätigung",
+  "settingsConfirmModalContent": "Möchten Sie Ihr Konto wirklich dauerhaft löschen?",
+  "settingsConfirmModalAccept": "Akzeptieren",
+  "settingsConfirmModalCancel": "Abbrechen"
 }

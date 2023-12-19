@@ -17,6 +17,7 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { AccordionModule } from 'primeng/accordion';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { DialogModule } from 'primeng/dialog';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent } from './components/button/button.component';
@@ -27,6 +28,7 @@ import { SelectComponent } from './components/select/select.component';
 import { CircleProgressBarComponent } from './components/circle-progress-bar/circle-progress-bar.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
     CircleProgressBarComponent,
     LoadingComponent,
     SettingsPageComponent,
+    ModalComponent,
   ],
   imports: [
     CommonModule,
@@ -57,7 +60,8 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
     RoundProgressModule,
     YouTubePlayerModule,
     AccordionModule,
-    InputTextareaModule
+    InputTextareaModule,
+    DialogModule
   ],
   exports: [
     SidebarComponent,

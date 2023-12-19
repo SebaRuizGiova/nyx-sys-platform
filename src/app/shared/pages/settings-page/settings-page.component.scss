@@ -203,6 +203,14 @@ a {
   }
 }
 
+.buttons-modal {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 50px;
+}
+
 :host ::ng-deep .p-inputtext {
   padding: 12px;
   height: 40px;

@@ -210,5 +210,10 @@
   "settingsMandatoryFieldError": "The field is mandatory",
   "settingsValidEmailError": "Enter a valid email",
   "settingsMandatoryPassword": "The password is mandatory",
-  "settingsPatternPassword": "The password must contain at least one uppercase letter, one lowercase letter, and be 8 characters long."
+  "settingsPatternPassword": "The password must contain at least one uppercase letter, one lowercase letter, and be 8 characters long.",
+
+  "settingsConfirmModalTitle": "Confirmation",
+  "settingsConfirmModalContent": "Are you sure you want to permanently delete your account?",
+  "settingsConfirmModalAccept": "Accept",
+  "settingsConfirmModalCancel": "Cancel"
 }

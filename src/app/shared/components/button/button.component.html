@@ -1,8 +1,21 @@
 <p-button
+  *ngIf="variant !== 'secondary'; else btnOutlined"
   [label]="label ? label : ''"
   [icon]="icon ? 'pi ' + icon : ''"
   [iconPos]="iconPos"
   [pTooltip]="tooltipButton || ''"
   [tooltipPosition]="tooltipPosition || 'left'"
-  [disabled]="disabled"
 ></p-button>
+<ng-template #btnOutlined>
+  <button
+    pButton
+    pRipple
+    type="button"
+    [label]="label ? label : ''"
+    class="p-button-outlined"
+    [icon]="icon ? 'pi ' + icon : ''"
+    [iconPos]="iconPos"
+    [pTooltip]="tooltipButton || ''"
+    [tooltipPosition]="tooltipPosition || 'left'"
+  ></button>
+</ng-template>

@@ -9,7 +9,6 @@
   &:focus {
     background-color: $nyxsys-white;
   }
-
 }
 
 :host ::ng-deep .p-button-icon,
@@ -23,5 +22,23 @@
   &.p-button-icon-only {
     width: 2.5rem;
     padding: 0.56rem;
+  }
+}
+:host ::ng-deep .p-button {
+  &.p-button-outlined {
+    background: transparent;
+    color: $nyxsys-white;
+
+    .p-button-label {
+      color: $nyxsys-white;
+    }
+
+    &:hover {
+      background-color: $nyxsys-white;
+
+      .p-button-label {
+        color: $grey-light;
+      }
+    }
   }
 }

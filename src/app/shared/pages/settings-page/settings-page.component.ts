@@ -10,6 +10,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./settings-page.component.scss'],
 })
 export class SettingsPageComponent {
+  public showModalConfirmDelete: boolean = false;
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -95,5 +97,9 @@ export class SettingsPageComponent {
       }
     }
     return '';
+  }
+
+  toggleModal() {
+    this.showModalConfirmDelete = !this.showModalConfirmDelete;
   }
 }
