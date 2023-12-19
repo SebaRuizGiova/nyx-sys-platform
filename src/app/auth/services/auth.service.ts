@@ -98,10 +98,10 @@ export class AuthService {
     actualPassword: string,
     newPassword: string
   ): Promise<any> {
-    this.currentUserObj = await this.fireAuth.currentUser;
+    try {
+      this.currentUserObj = await this.fireAuth.currentUser;
 
-    if (this.currentUserObj) {
-      try {
+      if (this.currentUserObj) {
         let credential = await this.fireAuth.signInWithEmailAndPassword(
           this.currentUserObj.email,
           actualPassword
@@ -109,12 +109,21 @@ export class AuthService {
         if (credential) {
           return this.currentUserObj.updatePassword(newPassword);
         }
-      } catch (error) {
-        throw error;
+      } else {
+        throw new Error('User not authenticated');
       }
-    } else {
-      throw new Error('User not authenticated');
+    } catch (error) {
+      throw error;
     }
+  }
+
+  async deleteUser(): Promise<any> {
+    return this.fireAuth.currentUser.then((user) => {
+      if (user) {
+        return user.delete();
+      }
+      throw new Error('Error deleting user')
+    });
   }
 
   isAuthenticated(): Observable<boolean> {
