@@ -19,3 +19,6 @@
 :host ::ng-deep .p-inputtext.ng-dirty.ng-invalid {
   border: 2px solid #E12F2F;
 }
+:host ::ng-deep .p-error {
+  font-size: 12px;
+}

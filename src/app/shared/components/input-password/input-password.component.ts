@@ -37,11 +37,4 @@ export class InputPasswordComponent implements ControlValueAccessor {
   registerOnTouched(fn: any): void {
     this.onTouch = fn;
   }
-
-  onInputChange(event: Event) {
-    const inputValue = (event.target as HTMLInputElement).value;
-    this.innerValue = inputValue;
-    this.onChange(inputValue);
-    this.onTouch();
-  }
 }

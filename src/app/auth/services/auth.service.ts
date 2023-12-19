@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
   public authStatus: boolean = false;
   public currentUser: string = localStorage.getItem('currentUser') || '';
+  public currentUserObj: any = null;
   public userId: string = localStorage.getItem('userId') || '';
   public role: string = localStorage.getItem('role') || '';
 
@@ -22,7 +23,10 @@ export class AuthService {
 
   async login(email: string, password: string): Promise<any> {
     try {
-      const user = await this.fireAuth.signInWithEmailAndPassword(email, password);
+      const user = await this.fireAuth.signInWithEmailAndPassword(
+        email,
+        password
+      );
 
       if (user.user?.uid) {
         this.currentUser = user.user?.uid;
@@ -51,8 +55,8 @@ export class AuthService {
                 localStorage.setItem('userId', userData.id);
                 const actualRole = localStorage.getItem('role');
                 if (userData.role !== actualRole) {
-                  localStorage.removeItem('selectedGroup')
-                  localStorage.removeItem('selectedGroupIndex')
+                  localStorage.removeItem('selectedGroup');
+                  localStorage.removeItem('selectedGroupIndex');
                 }
                 this.role = userData.role;
                 localStorage.setItem('role', this.role);
@@ -88,6 +92,29 @@ export class AuthService {
 
   async resetPassword(email: string): Promise<any> {
     return await this.fireAuth.sendPasswordResetEmail(email);
+  }
+
+  async updatePassword(
+    actualPassword: string,
+    newPassword: string
+  ): Promise<any> {
+    this.currentUserObj = await this.fireAuth.currentUser;
+
+    if (this.currentUserObj) {
+      try {
+        let credential = await this.fireAuth.signInWithEmailAndPassword(
+          this.currentUserObj.email,
+          actualPassword
+        );
+        if (credential) {
+          return this.currentUserObj.updatePassword(newPassword);
+        }
+      } catch (error) {
+        throw error;
+      }
+    } else {
+      throw new Error('User not authenticated');
+    }
   }
 
   isAuthenticated(): Observable<boolean> {
