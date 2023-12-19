@@ -159,6 +159,7 @@
 
   "settingsPdfInstructions": "Istruzioni di installazione e utilizzo",
   "settingsPdfGuide": "Guida rapida",
+  "settingsPdfTooltip": "Scarica PDF",
 
   "settingsFAQ1Title": "Come posso sapere se il mio dispositivo è connesso a Internet?",
   "settingsFAQ1Desc": "Verifica che il LED verde situato nella parte anteriore del dispositivo sia acceso. In caso contrario, controlla lo stato della tua connessione Internet.",
@@ -215,8 +216,8 @@
   "settingsMandatoryPassword": "La password è obbligatoria",
   "settingsPatternPassword": "La password deve contenere almeno una lettera maiuscola, una lettera minuscola e essere lunga 8 caratteri.",
 
-  "settingsConfirmModalTitle": "Conferma",
-  "settingsConfirmModalContent": "Sei sicuro di voler eliminare definitivamente il tuo account?",
+  "settingsConfirmModalTitle": "Sei sicuro?",
+  "settingsConfirmModalContent": "Desideri eliminare il tuo account in modo permanente? Tieni presente che tutte le informazioni correlate andranno perse. Non sarà possibile riattivarlo o recuperare i suoi contenuti. L'azione avrà effetto entro 48 ore; se si è trattato di un errore, ti preghiamo di contattare il nostro team di supporto.",
   "settingsConfirmModalAccept": "Accetta",
   "settingsConfirmModalCancel": "Annulla"
 }

@@ -159,6 +159,7 @@
 
   "settingsPdfInstructions": "Instrucciones de instalación y uso",
   "settingsPdfGuide": "Guía rápida",
+  "settingsPdfTooltip": "Descargar PDF",
 
   "settingsFAQ1Title": "¿Cómo sé si mi dispositivo está conectado a internet?",
   "settingsFAQ1Desc": "Comprueba que el led verde ubicado en el frente del dispositivo esté encendido, si no, comprueba el estado de tu red de internet. ",
@@ -215,8 +216,8 @@
   "settingsMandatoryPassword": "La contraseña es obligatoria",
   "settingsPatternPassword": "La contraseña debe contener al menos una letra mayúscula, una letra minúscula y 8 caracteres.",
 
-  "settingsConfirmModalTitle": "Confirmación",
-  "settingsConfirmModalContent": "¿Está seguro que desea eliminar su cuenta permanentemente?",
+  "settingsConfirmModalTitle": "¿Está seguro?",
+  "settingsConfirmModalContent": "¿Deseas eliminar tu cuenta de forma permanente? Ten en cuenta que se perderá toda la información relacionada con la misma. No podrás re-activarla ni recuperar su contenido. La acción se hará efectiva a las 48hs, en caso de haber sido un error, por favor comunícate con nuestro equipo de soporte.",
   "settingsConfirmModalAccept": "Aceptar",
   "settingsConfirmModalCancel": "Cancelar"
 }

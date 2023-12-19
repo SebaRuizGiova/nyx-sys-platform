@@ -156,6 +156,7 @@
 
   "settingsPdfInstructions": "Installation and Usage Instructions",
   "settingsPdfGuide": "Quick Guide",
+  "settingsPdfTooltip": "Download PDF",
 
   "settingsFAQ1Title": "How do I know if my device is connected to the internet?",
   "settingsFAQ1Desc": "Check that the green LED on the front of the device is lit. If not, check the status of your internet network.",
@@ -212,8 +213,8 @@
   "settingsMandatoryPassword": "The password is mandatory",
   "settingsPatternPassword": "The password must contain at least one uppercase letter, one lowercase letter, and be 8 characters long.",
 
-  "settingsConfirmModalTitle": "Confirmation",
-  "settingsConfirmModalContent": "Are you sure you want to permanently delete your account?",
+  "settingsConfirmModalTitle": "Are you sure?",
+  "settingsConfirmModalContent": "Do you want to permanently delete your account? Please note that all related information will be lost. You won't be able to reactivate it or retrieve its content. The action will take effect in 48 hours; if this was a mistake, please contact our support team.",
   "settingsConfirmModalAccept": "Accept",
   "settingsConfirmModalCancel": "Cancel"
 }

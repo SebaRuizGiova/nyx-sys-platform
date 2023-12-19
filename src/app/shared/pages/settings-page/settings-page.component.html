@@ -28,11 +28,21 @@
       </div>
       <div class="pdf-container">
         <div class="pdf">
-          <img src="assets/icons/pdf.svg" alt="download pdf" />
+          <img
+            src="assets/icons/pdf.svg"
+            alt="download pdf"
+            [pTooltip]="'settingsPdfTooltip' | translate"
+            tooltipPosition="left"
+          />
           <p>{{ "settingsPdfInstructions" | translate }}</p>
         </div>
         <div class="pdf">
-          <img src="assets/icons/pdf.svg" alt="download pdf" />
+          <img
+            src="assets/icons/pdf.svg"
+            alt="download pdf"
+            [pTooltip]="'settingsPdfTooltip' | translate"
+            tooltipPosition="right"
+          />
           <p>{{ "settingsPdfGuide" | translate }}</p>
         </div>
       </div>
@@ -228,12 +238,13 @@
     </div>
   </div>
 </div>
-<shared-modal [showModal]="showModalConfirmDelete" [title]="'settingsConfirmModalTitle' | translate">
-  <p>{{ 'settingsConfirmModalContent' | translate }}</p>
+<shared-modal
+  [showModal]="showModalConfirmDelete"
+  [title]="'settingsConfirmModalTitle' | translate"
+>
+  <p>{{ "settingsConfirmModalContent" | translate }}</p>
   <div class="buttons-modal">
-    <shared-button
-      [label]="'settingsConfirmModalAccept' | translate"
-    />
+    <shared-button [label]="'settingsConfirmModalAccept' | translate" />
     <shared-button
       [label]="'settingsConfirmModalCancel' | translate"
       variant="secondary"
