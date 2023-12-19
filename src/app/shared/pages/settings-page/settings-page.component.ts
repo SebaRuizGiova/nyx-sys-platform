@@ -74,6 +74,23 @@ export class SettingsPageComponent {
   }
 
   sendEmail() {
-    console.log('Email enviando\n', this.contactForm.value)
+    if (this.contactForm.status === 'INVALID') {
+      return;
+    }
+    console.log('Email enviado\n', this.contactForm.value)
+  }
+
+  validateInputContact(field: string): string {
+    const errors = this.contactForm.controls[field].errors;
+    const touched = this.contactForm.controls[field].touched;
+    if (errors && touched) {
+      if (errors['required']) {
+        return 'El campo es obligatorio';
+      }
+      if (errors['pattern']) {
+        return 'Ingrese un email válido';
+      }
+    }
+    return '';
   }
 }

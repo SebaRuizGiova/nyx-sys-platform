@@ -163,15 +163,15 @@
       <h4>Contacto</h4>
       <shared-input-text
         [placeholder]="'loginPlaceholderEmail' | translate"
-        [helper]="'loginInvalidEmail' | translate"
-        [error]=""
+        [helper]="validateInputContact('email')"
+        [error]="!!validateInputContact('email')"
         [formGroup]="contactForm"
         formControlName="email"
       />
       <shared-input-text
         [placeholder]="'loginPlaceholderEmail' | translate"
-        [helper]="'loginInvalidEmail' | translate"
-        [error]=""
+        [helper]="validateInputContact('subject')"
+        [error]="!!validateInputContact('subject')"
         [formGroup]="contactForm"
         formControlName="subject"
       />
@@ -182,9 +182,15 @@
         placeholder="Mensaje"
         [autoResize]="true"
         formControlName="message"
+        [class.ng-invalid]="!!validateInputContact('message')"
+        [class.ng-dirty]="!!validateInputContact('message')"
       ></textarea>
       <div class="button">
-        <shared-button label="Enviar" (click)="sendEmail()" [disabled]="contactForm.status === 'INVALID'" />
+        <shared-button
+          label="Enviar"
+          (click)="sendEmail()"
+          [disabled]="contactForm.status === 'INVALID'"
+        />
       </div>
     </div>
     <div class="social-container">
@@ -229,7 +235,11 @@
         formControlName="confirm"
       />
       <div class="button">
-        <shared-button label="Guardar" (click)="updatePassword()" [disabled]="resetPasswordForm.status === 'INVALID'" />
+        <shared-button
+          label="Guardar"
+          (click)="updatePassword()"
+          [disabled]="resetPasswordForm.status === 'INVALID'"
+        />
       </div>
     </div>
     <div class="delete-account">
