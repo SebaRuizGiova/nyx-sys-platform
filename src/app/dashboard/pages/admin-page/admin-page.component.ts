@@ -46,6 +46,9 @@ export class AdminPageComponent implements OnInit {
   public filteredGroups: Group[] = [];
   public filteredCollaborators: any[] = [];
   public filteredUsers: User[] = [];
+  public dontShowHiddenProfiles: boolean = false;
+  public dontShowHiddenDevices: boolean = false;
+  public dontShowHiddenGroups: boolean = false;
 
   public role: string = this.authService.role;
 
@@ -140,7 +143,6 @@ export class AdminPageComponent implements OnInit {
         })
       )
       .subscribe((results: any) => {
-        debugger;
         let profiles: Profile[] = [];
         let devices: Device[] = [];
         let groups: Group[] = [];
@@ -189,12 +191,21 @@ export class AdminPageComponent implements OnInit {
           profile.name
             .toLowerCase()
             .includes(this.actionsProfilesForm.value.search.toLowerCase()) ||
-          profile.lastName
+          (profile.lastName
             .toLowerCase()
-            .includes(this.actionsProfilesForm.value.search.toLowerCase())
+            .includes(this.actionsProfilesForm.value.search.toLowerCase()) &&
+            (this.dontShowHiddenProfiles ? !profile.hided : true))
         );
       });
     }
+    if (this.dontShowHiddenProfiles) {
+      this.filteredProfiles = this.filteredProfiles.filter(profile => !profile.hided)
+    }
+  }
+
+  toggleHiddenProfiles() {
+    this.dontShowHiddenProfiles = !this.dontShowHiddenProfiles;
+    this.filterProfiles()
   }
 
   filterDevices(groupId?: string) {
@@ -214,6 +225,14 @@ export class AdminPageComponent implements OnInit {
           .includes(this.actionsDevicesForm.value.search.toLowerCase());
       });
     }
+    if (this.dontShowHiddenDevices) {
+      this.filteredDevices = this.filteredDevices.filter(device => !device.hided)
+    }
+  }
+
+  toggleHiddenDevices() {
+    this.dontShowHiddenDevices = !this.dontShowHiddenDevices;
+    this.filterDevices();
   }
 
   filterGroups() {
@@ -222,6 +241,15 @@ export class AdminPageComponent implements OnInit {
         .toLowerCase()
         .includes(this.actionsGroupsForm.value.search.toLowerCase());
     });
+    if (this.dontShowHiddenGroups) {
+      this.filteredGroups = this.filteredGroups.filter(group => !group.hided)
+    }
+    console.log(this.filteredGroups)
+  }
+
+  toggleHiddenGroups() {
+    this.dontShowHiddenGroups = !this.dontShowHiddenGroups;
+    this.filterGroups();
   }
 
   filterCollaborators() {

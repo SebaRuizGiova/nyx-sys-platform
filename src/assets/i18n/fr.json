@@ -56,10 +56,7 @@
   "ToastTitleCorrect": "Correct",
   "ToastTitleError": "Erreur",
 
-  "groupFormatDownloadItems": [
-    "PDF",
-    "Excel"
-  ],
+  "groupFormatDownloadItems": ["PDF", "Excel"],
   "groupRangeDownloadItems": [
     "Période actuelle",
     "7 jours",
@@ -120,22 +117,22 @@
   "adminFilterPlaceholder": "Filtrer par groupe",
 
   "adminAddProfileTooltip": "Ajouter un profil",
-  "adminShowAllProfilesTooltip": "Afficher tous les profils",
-  "adminHideAllProfilesTooltip": "Masquer tous les profils",
+  "adminShowAllProfilesTooltip": "Afficher tous les profils masqués",
+  "adminHideAllProfilesTooltip": "Ne pas afficher les profils masqués",
   "adminShowProfileTooltip": "Afficher le profil",
   "adminHideProfileTooltip": "Masquer le profil",
   "adminEditProfileTooltip": "Modifier le profil",
   "adminDeleteProfileTooltip": "Supprimer le profil",
 
   "adminAddDeviceTooltip": "Ajouter un appareil",
-  "adminShowAllDevicesTooltip": "Afficher tous les appareils",
-  "adminHideAllDevicesTooltip": "Masquer tous les appareils",
+  "adminShowAllDevicesTooltip": "Afficher tous les appareils masqués",
+  "adminHideAllDevicesTooltip": "Ne pas afficher les appareils masqués",
   "adminDeleteDeviceTooltip": "Supprimer l'appareil",
   "adminEditDeviceTooltip": "Modifier l'appareil",
 
   "adminAddGroupTooltip": "Ajouter un groupe",
-  "adminShowAllGroupsTooltip": "Afficher tous les groupes",
-  "adminHideAllGroupsTooltip": "Masquer tous les groupes",
+  "adminShowAllGroupsTooltip": "Afficher tous les groupes masqués",
+  "adminHideAllGroupsTooltip": "Ne pas afficher les groupes masqués",
   "adminShowGroupTooltip": "Afficher le groupe",
   "adminHideGroupTooltip": "Masquer le groupe",
   "adminEditGroupTooltip": "Modifier le groupe",
@@ -196,26 +193,26 @@
   "settingsPlaceholderSubject": "Sujet",
   "settingsPlaceholderMessage": "Message",
   "settingsPlaceholderActualPassword": "Mot de passe actuel",
-"settingsPlaceholderNewPassword": "Nouveau mot de passe",
-"settingsPlaceholderConfirmPassword": "Confirmer le mot de passe",
+  "settingsPlaceholderNewPassword": "Nouveau mot de passe",
+  "settingsPlaceholderConfirmPassword": "Confirmer le mot de passe",
 
-"settingsButtonSend": "Envoyer",
-"settingsButtonSave": "Enregistrer",
+  "settingsButtonSend": "Envoyer",
+  "settingsButtonSave": "Enregistrer",
 
-"settingsVisitWeb": "Visitez notre site web",
-"settingsSocialAccounts": "Retrouvez-nous également sur les réseaux sociaux",
+  "settingsVisitWeb": "Visitez notre site web",
+  "settingsSocialAccounts": "Retrouvez-nous également sur les réseaux sociaux",
 
-"settingsDeleteAccountTitle": "Supprimer mon compte",
-"settingsDeleteAccountDesc": "Souhaitez-vous supprimer votre compte de manière permanente ? Veuillez noter que toutes les informations associées seront perdues. Vous ne pourrez pas le réactiver ni récupérer son contenu.\n\nL'action prendra effet dans les 48 heures. En cas d'erreur, veuillez contacter notre équipe de support.",
-"settingsDeleteAccountButton": "Supprimer le compte",
+  "settingsDeleteAccountTitle": "Supprimer mon compte",
+  "settingsDeleteAccountDesc": "Souhaitez-vous supprimer votre compte de manière permanente ? Veuillez noter que toutes les informations associées seront perdues. Vous ne pourrez pas le réactiver ni récupérer son contenu.\n\nL'action prendra effet dans les 48 heures. En cas d'erreur, veuillez contacter notre équipe de support.",
+  "settingsDeleteAccountButton": "Supprimer le compte",
 
-"settingsMandatoryFieldError": "Le champ est obligatoire",
-"settingsValidEmailError": "Veuillez saisir une adresse e-mail valide",
-"settingsMandatoryPassword": "Le mot de passe est obligatoire",
-"settingsPatternPassword": "Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et 8 caractères.",
+  "settingsMandatoryFieldError": "Le champ est obligatoire",
+  "settingsValidEmailError": "Veuillez saisir une adresse e-mail valide",
+  "settingsMandatoryPassword": "Le mot de passe est obligatoire",
+  "settingsPatternPassword": "Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et 8 caractères.",
 
-"settingsConfirmModalTitle": "Êtes-vous sûr(e) ?",
-"settingsConfirmModalContent": "Souhaitez-vous supprimer votre compte de manière permanente ? Veuillez noter que toutes les informations associées seront perdues. Vous ne pourrez pas le réactiver ni récupérer son contenu. L'action prendra effet dans les 48 heures. En cas d'erreur, veuillez contacter notre équipe de support.",
-"settingsConfirmModalAccept": "Accepter",
-"settingsConfirmModalCancel": "Annuler"
+  "settingsConfirmModalTitle": "Êtes-vous sûr(e) ?",
+  "settingsConfirmModalContent": "Souhaitez-vous supprimer votre compte de manière permanente ? Veuillez noter que toutes les informations associées seront perdues. Vous ne pourrez pas le réactiver ni récupérer son contenu. L'action prendra effet dans les 48 heures. En cas d'erreur, veuillez contacter notre équipe de support.",
+  "settingsConfirmModalAccept": "Accepter",
+  "settingsConfirmModalCancel": "Annuler"
 }

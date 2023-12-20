@@ -7,17 +7,26 @@
           icon="pi-plus"
           [tooltipButton]="'adminAddProfileTooltip' | translate"
         />
-        <!-- <div class="icon">
-          <i class="pi pi-eye" style="font-size: 1.6rem" [pTooltip]="'adminShowAllProfilesTooltip' | translate" tooltipPosition="bottom"></i>
-        </div> -->
-        <div class="icon">
+        <div class="icon" *ngIf="dontShowHiddenProfiles; else showProfiles">
           <i
-            class="pi pi-eye-slash"
+            class="pi pi-eye"
             style="font-size: 1.6rem"
-            [pTooltip]="'adminHideAllProfilesTooltip' | translate"
+            [pTooltip]="'adminShowAllProfilesTooltip' | translate"
             tooltipPosition="bottom"
+            (click)="toggleHiddenProfiles()"
           ></i>
         </div>
+        <ng-template #showProfiles>
+          <div class="icon">
+            <i
+              class="pi pi-eye-slash"
+              style="font-size: 1.6rem"
+              [pTooltip]="'adminHideAllProfilesTooltip' | translate"
+              tooltipPosition="bottom"
+              (click)="toggleHiddenProfiles()"
+            ></i>
+          </div>
+        </ng-template>
         <span class="p-input-icon-right">
           <input
             type="text"
@@ -56,12 +65,29 @@
           <td class="column-center">{{ profile.lastName }}</td>
           <td class="column-rigth">
             <div class="actions">
-              <i *ngIf="profile.hided; else showProfile" class="pi pi-eye-slash" [pTooltip]="'adminShowProfileTooltip' | translate" tooltipPosition="bottom"></i>
+              <i
+                *ngIf="profile.hided; else showProfile"
+                class="pi pi-eye-slash"
+                [pTooltip]="'adminShowProfileTooltip' | translate"
+                tooltipPosition="bottom"
+              ></i>
               <ng-template #showProfile>
-                <i class="pi pi-eye" [pTooltip]="'adminHiceProfileTooltip' | translate" tooltipPosition="bottom"></i>
+                <i
+                  class="pi pi-eye"
+                  [pTooltip]="'adminHiceProfileTooltip' | translate"
+                  tooltipPosition="bottom"
+                ></i>
               </ng-template>
-              <i class="pi pi-user-edit" [pTooltip]="'adminEditProfileTooltip' | translate" tooltipPosition="bottom"></i>
-              <i class="pi pi-trash" [pTooltip]="'adminDeleteProfileTooltip' | translate" tooltipPosition="bottom"></i>
+              <i
+                class="pi pi-user-edit"
+                [pTooltip]="'adminEditProfileTooltip' | translate"
+                tooltipPosition="bottom"
+              ></i>
+              <i
+                class="pi pi-trash"
+                [pTooltip]="'adminDeleteProfileTooltip' | translate"
+                tooltipPosition="bottom"
+              ></i>
             </div>
           </td>
         </tr>
@@ -76,18 +102,26 @@
           icon="pi-plus"
           [tooltipButton]="'adminAddDeviceTooltip' | translate"
         />
-        <!-- <div class="icon">
-          <i class="pi pi-eye" style="font-size: 1.6rem" [pTooltip]="'adminShowAllDevicesTooltip' | translate"
-            tooltipPosition="bottom"></i>
-        </div> -->
-        <div class="icon">
+        <div class="icon" *ngIf="dontShowHiddenDevices; else showDevices">
           <i
-            class="pi pi-eye-slash"
+            class="pi pi-eye"
             style="font-size: 1.6rem"
-            [pTooltip]="'adminHideAllDevicesTooltip' | translate"
+            [pTooltip]="'adminShowAllDevicesTooltip' | translate"
             tooltipPosition="bottom"
+            (click)="toggleHiddenDevices()"
           ></i>
         </div>
+        <ng-template #showDevices>
+          <div class="icon">
+            <i
+              class="pi pi-eye-slash"
+              style="font-size: 1.6rem"
+              [pTooltip]="'adminHideAllDevicesTooltip' | translate"
+              tooltipPosition="bottom"
+              (click)="toggleHiddenDevices()"
+            ></i>
+          </div>
+        </ng-template>
         <span class="p-input-icon-right">
           <input
             type="text"
@@ -134,8 +168,16 @@
           <td>???</td>
           <td class="column-rigth">
             <div class="actions">
-              <i class="pi pi-cog" [pTooltip]="'adminEditDeviceTooltip' | translate" tooltipPosition="bottom"></i>
-              <i class="pi pi-trash" [pTooltip]="'adminDeleteDeviceTooltip' | translate" tooltipPosition="bottom"></i>
+              <i
+                class="pi pi-cog"
+                [pTooltip]="'adminEditDeviceTooltip' | translate"
+                tooltipPosition="bottom"
+              ></i>
+              <i
+                class="pi pi-trash"
+                [pTooltip]="'adminDeleteDeviceTooltip' | translate"
+                tooltipPosition="bottom"
+              ></i>
             </div>
           </td>
         </tr>
@@ -150,18 +192,26 @@
           icon="pi-plus"
           [tooltipButton]="'adminAddGroupTooltip' | translate"
         />
-        <!-- <div class="icon">
-          <i class="pi pi-eye" style="font-size: 1.6rem" [pTooltip]="'adminShowAllGroupsTooltip' | translate"
-            tooltipPosition="bottom"></i>
-        </div> -->
-        <div class="icon">
+        <div class="icon" *ngIf="dontShowHiddenGroups; else showGroups">
           <i
-            class="pi pi-eye-slash"
+            class="pi pi-eye"
             style="font-size: 1.6rem"
-            [pTooltip]="'adminHideAllGroupsTooltip' | translate"
+            [pTooltip]="'adminShowAllGroupsTooltip' | translate"
             tooltipPosition="bottom"
+            (click)="toggleHiddenGroups()"
           ></i>
         </div>
+        <ng-template #showGroups>
+          <div class="icon">
+            <i
+              class="pi pi-eye-slash"
+              style="font-size: 1.6rem"
+              [pTooltip]="'adminHideAllGroupsTooltip' | translate"
+              tooltipPosition="bottom"
+              (click)="toggleHiddenGroups()"
+            ></i>
+          </div>
+        </ng-template>
         <span class="p-input-icon-right">
           <input
             type="text"
@@ -182,7 +232,7 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th>{{ 'adminColumnName' | translate }}</th>
+          <th>{{ "adminColumnName" | translate }}</th>
           <th></th>
         </tr>
       </ng-template>
@@ -191,12 +241,29 @@
           <td>{{ group.teamName }}</td>
           <td class="column-rigth">
             <div class="actions">
-              <i *ngIf="group.hided; else showGroup" class="pi pi-eye-slash" [pTooltip]="'adminShowGroupTooltip' | translate" tooltipPosition="bottom"></i>
+              <i
+                *ngIf="group.hided; else showGroup"
+                class="pi pi-eye-slash"
+                [pTooltip]="'adminShowGroupTooltip' | translate"
+                tooltipPosition="bottom"
+              ></i>
               <ng-template #showGroup>
-                <i class="pi pi-eye" [pTooltip]="'adminHideGroupTooltip' | translate" tooltipPosition="bottom"></i>
+                <i
+                  class="pi pi-eye"
+                  [pTooltip]="'adminHideGroupTooltip' | translate"
+                  tooltipPosition="bottom"
+                ></i>
               </ng-template>
-              <i class="pi pi-user-edit" [pTooltip]="'adminEditGroupTooltip' | translate" tooltipPosition="bottom"></i>
-              <i class="pi pi-trash" [pTooltip]="'adminDeleteGroupTooltip' | translate" tooltipPosition="bottom"></i>
+              <i
+                class="pi pi-user-edit"
+                [pTooltip]="'adminEditGroupTooltip' | translate"
+                tooltipPosition="bottom"
+              ></i>
+              <i
+                class="pi pi-trash"
+                [pTooltip]="'adminDeleteGroupTooltip' | translate"
+                tooltipPosition="bottom"
+              ></i>
             </div>
           </td>
         </tr>
@@ -205,9 +272,12 @@
   </div>
   <div class="card">
     <div class="card-header">
-      <p class="title-table">{{ 'adminCollaboratorsTitle' | translate }}</p>
+      <p class="title-table">{{ "adminCollaboratorsTitle" | translate }}</p>
       <div class="actions-header" [formGroup]="actionsCollaboratorsForm">
-        <shared-button icon="pi-plus" [tooltipButton]="'adminAddCollaboratorTooltip' | translate" />
+        <shared-button
+          icon="pi-plus"
+          [tooltipButton]="'adminAddCollaboratorTooltip' | translate"
+        />
         <span class="p-input-icon-right">
           <input
             type="text"
@@ -228,9 +298,9 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th>{{ 'adminColumnName' | translate }}</th>
-          <th>{{ 'adminColumnLinked' | translate }}</th>
-          <th>{{ 'adminColumnRole' | translate }}</th>
+          <th>{{ "adminColumnName" | translate }}</th>
+          <th>{{ "adminColumnLinked" | translate }}</th>
+          <th>{{ "adminColumnRole" | translate }}</th>
           <th></th>
         </tr>
       </ng-template>
@@ -241,7 +311,11 @@
           <td>{{ collaborator.role | titlecase }}</td>
           <td class="column-rigth">
             <div class="actions">
-              <i class="pi pi-trash" [pTooltip]="'adminDeleteCollaboratorTooltip' | translate" tooltipPosition="bottom"></i>
+              <i
+                class="pi pi-trash"
+                [pTooltip]="'adminDeleteCollaboratorTooltip' | translate"
+                tooltipPosition="bottom"
+              ></i>
             </div>
           </td>
         </tr>
@@ -250,9 +324,12 @@
   </div>
   <div class="card" *ngIf="role === 'superAdmin'">
     <div class="card-header">
-      <p class="title-table">{{ 'adminUsersTitle' | translate }}</p>
+      <p class="title-table">{{ "adminUsersTitle" | translate }}</p>
       <div class="actions-header" [formGroup]="actionsUsersForm">
-        <shared-button icon="pi-plus" [tooltipButton]="'adminAddUserTooltip' | translate" />
+        <shared-button
+          icon="pi-plus"
+          [tooltipButton]="'adminAddUserTooltip' | translate"
+        />
         <span class="p-input-icon-right">
           <input
             type="text"
@@ -273,7 +350,7 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th>{{ 'adminColumnName' | translate}}</th>
+          <th>{{ "adminColumnName" | translate }}</th>
           <th></th>
         </tr>
       </ng-template>
@@ -282,8 +359,16 @@
           <td>{{ user.nickName }}</td>
           <td class="column-rigth">
             <div class="actions">
-              <i class="pi pi-user-edit" [pTooltip]="'adminEditUserTooltip' | translate" tooltipPosition="bottom"></i>
-              <i class="pi pi-trash" [pTooltip]="'adminDeleteUserTooltip' | translate" tooltipPosition="bottom"></i>
+              <i
+                class="pi pi-user-edit"
+                [pTooltip]="'adminEditUserTooltip' | translate"
+                tooltipPosition="bottom"
+              ></i>
+              <i
+                class="pi pi-trash"
+                [pTooltip]="'adminDeleteUserTooltip' | translate"
+                tooltipPosition="bottom"
+              ></i>
             </div>
           </td>
         </tr>
