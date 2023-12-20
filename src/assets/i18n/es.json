@@ -26,20 +26,14 @@
       "path": "/dashboard/groups"
     }
   ],
-  "sidebarSettings": {
-    "label": "Configuración",
-    "icon": "settings.svg",
-    "path": "/settings"
-  },
-  "sidebarLanguage": {
-    "label": "Idioma",
-    "icon": "earth.svg"
-  },
+  "sidebarSettings": "Configuración",
+  "sidebarLanguage": "Idioma",
   "languagesDropdown": [
     { "name": "Español", "code": "es" },
     { "name": "Inglés", "code": "en" },
     { "name": "Italiano", "code": "it" },
-    { "name": "Alemán", "code": "al" }
+    { "name": "Alemán", "code": "de" },
+    { "name": "Francés", "code": "fr" }
   ],
   "sidebarSignOut": "Cerrar sesión",
 
@@ -62,7 +56,10 @@
   "ToastTitleCorrect": "Correcto",
   "ToastTitleError": "Error",
 
-  "groupFormatDownloadItems": ["PDF", "Excel"],
+  "groupFormatDownloadItems": [
+    "PDF",
+    "Excel"
+  ],
   "groupRangeDownloadItems": [
     "Periodo actual",
     "7 días",
@@ -88,6 +85,7 @@
   "groupShowAll": "Mostrar todos",
   "groupShowCurrentPeriod": "Mostrar solo perfiles con un periodo actual",
   "groupDeleteFilters": "Borrar filtros",
+  "groupApplyFilters": "Aplicar filtros",
 
   "profileCardDeviceName": "Dispositivo NS: ",
   "profileCardAnyDevice": "Ningún dispositivo asociado",

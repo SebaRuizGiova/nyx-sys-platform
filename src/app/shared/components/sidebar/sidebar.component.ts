@@ -6,6 +6,7 @@ import { Language } from '../../interfaces/language.interface';
 import { CurrentRouteService } from '../../services/currentRoute.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { LanguageService } from '../../services/language.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'shared-sidebar',
@@ -16,7 +17,14 @@ export class SidebarComponent implements OnInit {
   @Input()
   show: boolean = false;
 
-  public dinamicItems: ItemSidebar[] = [];
+  constructor(
+    private currentRouteService: CurrentRouteService,
+    private authService: AuthService,
+    public languageService: LanguageService,
+    private translate: TranslateService,
+  ) {}
+
+  public dynamicItems: ItemSidebar[] = [];
   public configItem: ItemSidebar = {
     label: 'Configuración',
     icon: 'settings.svg',
@@ -29,12 +37,6 @@ export class SidebarComponent implements OnInit {
   public languages: any[] = [];
   public selectedLanguage?: Language;
   public currentRoute: string = '';
-
-  constructor(
-    private currentRouteService: CurrentRouteService,
-    private authService: AuthService,
-    public languageService: LanguageService
-  ) {}
 
   ngOnInit(): void {
     this.currentRouteService.rutaActiva$.subscribe((ruta) => {
@@ -57,29 +59,35 @@ export class SidebarComponent implements OnInit {
       this.languageService
         .getTranslate('sidebarItemsGroupView')
         .subscribe((translations: any) => {
-          this.dinamicItems = translations;
+          this.dynamicItems = translations;
         });
     } else if (path.includes('admin')) {
       this.languageService
         .getTranslate('sidebarItemsAdmin')
         .subscribe((translations: any) => {
-          this.dinamicItems = translations;
+          this.dynamicItems = translations;
         });
     } else {
       this.languageService
         .getTranslate('sidebarItems')
         .subscribe((translations: any) => {
-          this.dinamicItems = translations;
+          this.dynamicItems = translations;
         });
     }
   }
 
   private getDefaultItems(): void {
     this.languageService.getTranslate('sidebarSettings').subscribe((translation: any) => {
-      this.configItem = translation;
+      this.configItem = {
+        ...this.configItem,
+        label: translation
+      };
     });
     this.languageService.getTranslate('sidebarLanguage').subscribe((translation: any) => {
-      this.languageItem = translation;
+      this.languageItem = {
+        ...this.languageItem,
+        label: translation
+      };
     });
   }
 

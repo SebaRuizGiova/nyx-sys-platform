@@ -26,20 +26,14 @@
       "path": "/dashboard/groups"
     }
   ],
-  "sidebarSettings": {
-    "label": "Einstellungen",
-    "icon": "settings.svg",
-    "path": "/settings"
-  },
-  "sidebarLanguage": {
-    "label": "Sprache",
-    "icon": "earth.svg"
-  },
+  "sidebarSettings": "Einstellungen",
+  "sidebarLanguage": "Sprache",
   "languagesDropdown": [
     { "name": "Spanisch", "code": "es" },
     { "name": "Englisch", "code": "en" },
     { "name": "Italienisch", "code": "it" },
-    { "name": "Deutsch", "code": "al" }
+    { "name": "Deutsch", "code": "de" },
+    { "name": "Französisch", "code": "fr" }
   ],
   "sidebarSignOut": "Abmelden",
 
@@ -88,6 +82,7 @@
   "groupShowAll": "Alle anzeigen",
   "groupShowCurrentPeriod": "Nur Profile mit aktuellem Zeitraum anzeigen",
   "groupDeleteFilters": "Filter löschen",
+  "groupApplyFilters": "Filter anwenden",
 
   "profileCardDeviceName": "NS-Gerät: ",
   "profileCardAnyDevice": "Kein zugeordnetes Gerät",

@@ -26,20 +26,14 @@
       "path": "/dashboard/groups"
     }
   ],
-  "sidebarSettings": {
-    "label": "Settings",
-    "icon": "settings.svg",
-    "path": "/settings"
-  },
-  "sidebarLanguage": {
-    "label": "Language",
-    "icon": "earth.svg"
-  },
+  "sidebarSettings": "Settings",
+  "sidebarLanguage": "Language",
   "languagesDropdown": [
     { "name": "Spanish", "code": "es" },
     { "name": "English", "code": "en" },
     { "name": "Italian", "code": "it" },
-    { "name": "German", "code": "al" }
+    { "name": "German", "code": "de" },
+    { "name": "French", "code": "fr" }
   ],
   "sidebarSignOut": "Sign Out",
 
@@ -85,6 +79,7 @@
   "groupShowAll": "Show all",
   "groupShowCurrentPeriod": "Show only profiles with current period",
   "groupDeleteFilters": "Clear filters",
+  "groupApplyFilters": "Apply filters",
 
   "profileCardDeviceName": "Device NS: ",
   "profileCardAnyDevice": "No associated device",

@@ -66,7 +66,7 @@
         <shared-button
           [label]="'groupDownloadLabel' | translate"
           icon="pi-download"
-          [disabled]="!downloadForm.valid"
+          [disabled]="downloadForm.status === 'INVALID'"
         />
       </div>
     </shared-dropdown>
@@ -102,7 +102,10 @@
             <p-inputSwitch formControlName="actualProfile" />
           </span>
         </div>
-        <shared-button [label]="'groupDeleteFilters' | translate" />
+        <div class="buttons-filters">
+          <shared-button [label]="'groupDeleteFilters' | translate" variant="secondary" />
+          <shared-button [label]="'groupApplyFilters' | translate" />
+        </div>
       </div>
     </shared-dropdown>
   </div>

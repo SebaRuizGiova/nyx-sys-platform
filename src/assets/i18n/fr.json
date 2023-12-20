@@ -1,0 +1,221 @@
+{
+  "sidebarMenuButton": "Déployer",
+  "sidebarItems": [
+    {
+      "label": "Vue de groupe",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    },
+    {
+      "label": "Tableau de bord administratif",
+      "icon": "settings-gear-combination.svg",
+      "path": "/dashboard/admin"
+    }
+  ],
+  "sidebarItemsGroupView": [
+    {
+      "label": "Tableau de bord administratif",
+      "icon": "settings-gear-combination.svg",
+      "path": "/dashboard/admin"
+    }
+  ],
+  "sidebarItemsAdmin": [
+    {
+      "label": "Vue de groupe",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    }
+  ],
+  "sidebarSettings": "Paramètres",
+  "sidebarLanguage": "Langue",
+  "languagesDropdown": [
+    { "name": "Espagnol", "code": "es" },
+    { "name": "Anglais", "code": "en" },
+    { "name": "Italien", "code": "it" },
+    { "name": "Allemand", "code": "de" },
+    { "name": "Français", "code": "fr" }
+  ],
+  "sidebarSignOut": "Se déconnecter",
+
+  "loginWelcome": "Bienvenue",
+  "loginForget": "Réinitialiser le mot de passe",
+  "loginPlaceholderEmail": "E-mail",
+  "loginPlaceholderPassword": "Mot de passe",
+  "loginButtonSignIn": "Se connecter",
+  "loginButtonSend": "Envoyer",
+  "loginForgetPassword": "Mot de passe oublié?",
+  "loginLangES": "Espagnol",
+  "loginLangEN": "Anglais",
+  "loginLangIT": "Italien",
+  "loginTooltipBack": "Retour",
+  "loginInvalidEmail": "Veuillez entrer une adresse e-mail valide",
+  "loginInvalidPassword": "Veuillez entrer un mot de passe",
+  "loginToastErrorLogin": "Identifiant et/ou mot de passe incorrect(s)",
+  "loginToastSendEmail": "E-mail envoyé avec succès",
+  "loginToastErrorSendEmail": "Une erreur s'est produite lors de l'envoi de l'e-mail",
+  "ToastTitleCorrect": "Correct",
+  "ToastTitleError": "Erreur",
+
+  "groupFormatDownloadItems": [
+    "PDF",
+    "Excel"
+  ],
+  "groupRangeDownloadItems": [
+    "Période actuelle",
+    "7 jours",
+    "15 jours",
+    "30 jours",
+    "Historique"
+  ],
+  "groupOrderByItems": [
+    "Score de sommeil : élevé à bas",
+    "Score de sommeil : bas à élevé"
+  ],
+  "groupPeriodSelect": "Sélectionner la période",
+  "groupForwardTooltip": "Aller au groupe précédent",
+  "groupNextTooltip": "Aller au groupe suivant",
+  "groupAllTooltip": "Voir tous les groupes",
+  "groupDownloadReportLabel": "Télécharger le rapport",
+  "groupDownloadLabel": "Télécharger",
+  "groupSelectFormatPlaceholder": "Sélectionner le format",
+  "groupSelectRangePlaceholder": "Sélectionner la plage",
+  "groupFilterTooltip": "Filtres",
+  "groupSearchByName": "Rechercher par nom...",
+  "groupOrderBy": "Trier par...",
+  "groupShowAll": "Afficher tous",
+  "groupShowCurrentPeriod": "Afficher uniquement les profils avec une période actuelle",
+  "groupDeleteFilters": "Supprimer les filtres",
+  "groupApplyFilters": "Appliquer les filtres",
+
+  "profileCardDeviceName": "Appareil NS : ",
+  "profileCardAnyDevice": "Aucun appareil associé",
+  "profileCardRecoveryDescription": "Récupération",
+  "profileCardRecoveryDescriptionTooltip": "Représente l'adaptation et la récupération physique pendant le repos par rapport à votre routine quotidienne",
+  "profileCardRecoveryAscArrow": "Vous avez eu une récupération plus élevée par rapport à la dernière période",
+  "profileCardRecoveryDescArrow": "Vous avez eu une récupération plus faible par rapport à la dernière période",
+  "profileCardSNADescription": "SNA",
+  "profileCardSNADescriptionTooltip": "Le système nerveux autonome contrôle les fonctions de votre corps ; il se divise en sympathique et parasympathique",
+  "profileCardSNASTooltip": "Système sympathique, contrôle votre réponse physique active",
+  "profileCardSNAPTooltip": "Système parasympathique, régule le repos et le métabolisme",
+
+  "sleepScoreTooltip": "Score basé sur la quantité d'heures de sommeil et ses phases Léger, Profond et REM",
+  "sleepScoreTooltipDiamond": "Score de sommeil optimal",
+
+  "adminProfilesTitle": "Profils",
+  "adminDevicesTitle": "Appareils",
+  "adminGroupsTitle": "Groupes",
+  "adminCollaboratorsTitle": "Collaborateurs",
+  "adminUsersTitle": "Utilisateurs",
+
+  "adminColumnName": "Nom",
+  "adminColumnLastName": "Nom de famille",
+  "adminColumnSerialNumber": "Numéro de série",
+  "adminColumnLinked": "Lié(e)",
+  "adminColumnStatus": "Statut",
+  "adminColumnRole": "Rôle",
+
+  "adminNotLinked": "Non lié",
+
+  "adminSearchPlaceholder": "Rechercher...",
+  "adminFilterPlaceholder": "Filtrer par groupe",
+
+  "adminAddProfileTooltip": "Ajouter un profil",
+  "adminShowAllProfilesTooltip": "Afficher tous les profils",
+  "adminHideAllProfilesTooltip": "Masquer tous les profils",
+  "adminShowProfileTooltip": "Afficher le profil",
+  "adminHideProfileTooltip": "Masquer le profil",
+  "adminEditProfileTooltip": "Modifier le profil",
+  "adminDeleteProfileTooltip": "Supprimer le profil",
+
+  "adminAddDeviceTooltip": "Ajouter un appareil",
+  "adminShowAllDevicesTooltip": "Afficher tous les appareils",
+  "adminHideAllDevicesTooltip": "Masquer tous les appareils",
+  "adminDeleteDeviceTooltip": "Supprimer l'appareil",
+  "adminEditDeviceTooltip": "Modifier l'appareil",
+
+  "adminAddGroupTooltip": "Ajouter un groupe",
+  "adminShowAllGroupsTooltip": "Afficher tous les groupes",
+  "adminHideAllGroupsTooltip": "Masquer tous les groupes",
+  "adminShowGroupTooltip": "Afficher le groupe",
+  "adminHideGroupTooltip": "Masquer le groupe",
+  "adminEditGroupTooltip": "Modifier le groupe",
+  "adminDeleteGroupTooltip": "Supprimer le groupe",
+
+  "adminAddCollaboratorTooltip": "Ajouter un collaborateur",
+  "adminDeleteCollaboratorTooltip": "Supprimer le collaborateur",
+
+  "adminAddUserTooltip": "Ajouter un utilisateur",
+  "adminEditUserTooltip": "Modifier l'utilisateur",
+  "adminDeleteUserTooltip": "Supprimer l'utilisateur",
+
+  "settingsHelpCardTitle": "Tutoriels et FAQ",
+  "settingsContactCardTitle": "Contact",
+  "settingsPasswordCardTitle": "Changement de mot de passe",
+
+  "settingsVideoCorrectUse": "Utilisation correcte du dispositif",
+  "settingsVideoRoute": "Parcours sur la plateforme",
+
+  "settingsPdfInstructions": "Instructions d'installation et d'utilisation",
+  "settingsPdfGuide": "Guide rapide",
+  "settingsPdfTooltip": "Télécharger le PDF",
+
+  "settingsFAQ1Title": "Comment savoir si mon appareil est connecté à Internet ?",
+  "settingsFAQ1Desc": "Vérifiez que la LED verte située à l'avant de l'appareil est allumée. Sinon, vérifiez l'état de votre réseau Internet.",
+
+  "settingsFAQ2Title": "Le profil n'apparaît pas dans le panneau de groupe.",
+  "settingsFAQ2Desc": "Vérifiez dans le panneau d'administration que le profil n'est pas “caché”.",
+
+  "settingsFAQ3Title": "Lorsque je connecte l'appareil à Internet et saisis le mot de passe, j'obtiens une erreur de 'mot de passe incorrect'.",
+  "settingsFAQ3Desc": "N'oubliez pas que lors de la saisie du mot de passe de l'appareil, vous devez également inclure les tirets, c'est-à-dire saisir le mot de passe exactement tel qu'il est écrit, par exemple : 'xxxx-xxxx-xxx'.",
+
+  "settingsFAQ4Title": "Où doit-on placer le capteur ?",
+  "settingsFAQ4Desc": "Le capteur doit être installé exclusivement sous le matelas ou le surmatelas. Pour capter un signal plus fort, la partie centrale du capteur (la bande en plastique) doit être placée directement sous ou à la hauteur du cœur de l'utilisateur lorsqu'il est couché.\n\nSi vous avez un lit double et que deux personnes y dorment, le capteur doit être placé le plus près possible du bord du lit avec le câble sur un côté, parallèlement au corps, toujours avec la majeure partie de la bande située à la hauteur du cœur. Si vous utilisez un lit double mais que vous dormez seul, il est recommandé de placer le capteur perpendiculairement à l'utilisateur, toujours à la hauteur du cœur, mais en positionnant le dispositif d'un côté ou de l'autre du lit ou plus au centre, selon les préférences de position de l'utilisateur dans le lit. Évitez que le câble passe au milieu du lit, car cela peut provoquer des signaux erronés.",
+
+  "settingsFAQ5Title": "L'appareil doit-il être toujours branché ?",
+  "settingsFAQ5Desc": "L'appareil utilise une quantité insignifiante d'énergie, il n'est donc pas nécessaire de le débrancher pour économiser de l'électricité.\n\nSi vous souhaitez le débrancher lorsque vous ne l'utilisez pas, faites-le seulement 10 minutes après être sorti du lit, afin que l'appareil ait suffisamment de temps pour envoyer l'événement de sortie du lit à nos serveurs. Sinon, des périodes de présence excessivement longues peuvent se produire. De même, lorsque vous le rebranchez au moment d'aller vous coucher, faites-le 10 minutes avant votre présence dans le lit.",
+
+  "settingsFAQ6Title": "Si j'éteins l'appareil et le rallume, se reconnecte-t-il automatiquement au réseau Wi-Fi auquel il était précédemment connecté ?",
+  "settingsFAQ6Desc": "Si le réseau Wi-Fi est le même que celui auquel l'appareil s'est connecté en dernier, il n'est pas nécessaire de reconfigurer l'appareil.",
+
+  "settingsFAQ7Title": "Comment puis-je voir les résultats des nuits précédentes ?",
+  "settingsFAQ7Desc": "Toutes les informations sur vos nuits sont disponibles sur la plateforme Nyx-Sys, en cliquant sur l'icône -X- du panneau individuel.",
+
+  "settingsFAQ8Title": "Que signifie le message d'erreur avec l'icône -X- indiquant que certaines données de la nuit n'ont pas pu être traitées ?",
+  "settingsFAQ8Desc": "La perte de données pendant une période de sommeil peut être due à plusieurs facteurs, les plus courants étant généralement :\n\n\t- Un faible signal de l'appareil. Pour résoudre cela, repositionnez l'appareil sous votre lit selon les recommandations données au point X.\n\n\t- En cas de partage d'un lit double avec une deuxième personne, l'appareil a enregistré des données des deux personnes et a généré des données erronées ou superposées.\n\n\t- Il y a eu une coupure de courant pendant l'enregistrement.",
+
+  "settingsFAQ9Title": "Que signifie le clignotement de la lumière rouge sur l'appareil ?",
+  "settingsFAQ9Desc": "Généralement, les clignotements rouges indiquent des problèmes de connexion au réseau. Si ces interruptions sont de courte durée, vous ne devriez pas vous inquiéter.",
+
+  "settingsFAQ10Title": "Que se passe-t-il si Internet est coupé ?",
+  "settingsFAQ10Desc": "Si la connexion à Internet est perdue temporairement, la mémoire interne enregistre jusqu'à 12 heures de données. Lorsque la connexion est rétablie, les données sont envoyées dans le cloud pour être traitées.",
+
+  "settingsFAQ11Title": "Puis-je utiliser le capteur sur un lit double ?",
+  "settingsFAQ11Desc": "Oui, vous pouvez utiliser l'appareil sur un lit double. Cependant, l'extrémité du câble du capteur doit être installée le plus près possible du bord, car les mouvements de votre conjoint peuvent entraîner un enregistrement de présence plus prolongé après que vous vous soyez levé du lit.",
+
+  "settingsPlaceholderEmail": "E-mail",
+  "settingsPlaceholderSubject": "Sujet",
+  "settingsPlaceholderMessage": "Message",
+  "settingsPlaceholderActualPassword": "Mot de passe actuel",
+"settingsPlaceholderNewPassword": "Nouveau mot de passe",
+"settingsPlaceholderConfirmPassword": "Confirmer le mot de passe",
+
+"settingsButtonSend": "Envoyer",
+"settingsButtonSave": "Enregistrer",
+
+"settingsVisitWeb": "Visitez notre site web",
+"settingsSocialAccounts": "Retrouvez-nous également sur les réseaux sociaux",
+
+"settingsDeleteAccountTitle": "Supprimer mon compte",
+"settingsDeleteAccountDesc": "Souhaitez-vous supprimer votre compte de manière permanente ? Veuillez noter que toutes les informations associées seront perdues. Vous ne pourrez pas le réactiver ni récupérer son contenu.\n\nL'action prendra effet dans les 48 heures. En cas d'erreur, veuillez contacter notre équipe de support.",
+"settingsDeleteAccountButton": "Supprimer le compte",
+
+"settingsMandatoryFieldError": "Le champ est obligatoire",
+"settingsValidEmailError": "Veuillez saisir une adresse e-mail valide",
+"settingsMandatoryPassword": "Le mot de passe est obligatoire",
+"settingsPatternPassword": "Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et 8 caractères.",
+
+"settingsConfirmModalTitle": "Êtes-vous sûr(e) ?",
+"settingsConfirmModalContent": "Souhaitez-vous supprimer votre compte de manière permanente ? Veuillez noter que toutes les informations associées seront perdues. Vous ne pourrez pas le réactiver ni récupérer son contenu. L'action prendra effet dans les 48 heures. En cas d'erreur, veuillez contacter notre équipe de support.",
+"settingsConfirmModalAccept": "Accepter",
+"settingsConfirmModalCancel": "Annuler"
+}

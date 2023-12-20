@@ -88,7 +88,7 @@ export class GroupsPageComponent implements OnInit {
     this.languageService.langChanged$.subscribe(() => {
       this.loadTranslations();
     });
-
+    this.loadTranslations();
     this.loadData();
   }
 
@@ -123,7 +123,7 @@ export class GroupsPageComponent implements OnInit {
                 value: group.id,
                 userId: group.userID,
               }))
-            ),
+            )
           );
         });
 

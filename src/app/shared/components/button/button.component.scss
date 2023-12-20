@@ -34,7 +34,7 @@
     }
 
     &:hover {
-      background-color: $nyxsys-white;
+      background-color: darken($nyxsys-white, 10%);
 
       .p-button-label {
         color: $grey-light;

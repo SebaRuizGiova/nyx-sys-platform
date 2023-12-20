@@ -29,7 +29,7 @@ export class DatabaseService {
   getProfilesByGroup(
     groupId: string,
     userId?: string,
-    limit: number = 10
+    limit: number = 7
   ): Observable<any> {
     return this.firestore
       .collection(

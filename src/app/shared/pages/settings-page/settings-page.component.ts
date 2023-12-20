@@ -20,6 +20,7 @@ export class SettingsPageComponent {
   ) {}
 
   public contactForm: FormGroup = this.fb.group({
+    // TODO: Email por defecto usuario
     email: [
       '',
       [
