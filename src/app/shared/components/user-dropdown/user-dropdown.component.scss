@@ -1,0 +1,123 @@
+@import "../../../../variables.scss";
+
+form {
+  width: 100%;
+}
+.background {
+  z-index: 200;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.dropdown {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  .user-button {
+    background: $grey-light;
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 185px;
+    cursor: pointer;
+
+    .status {
+      background: $green-dream;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .user-data {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      font-size: 12px;
+      color: lighten($grey-super-light, 20%);
+    }
+  }
+
+  .popup {
+    min-width: 300px;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    position: absolute;
+    padding: 0;
+    background: $grey-light;
+    border-radius: 5px;
+    z-index: 210;
+
+    &.items {
+      display: unset;
+
+      &.show {
+        height: min-content;
+        max-height: 301px;
+        overflow-y: scroll;
+      }
+    }
+
+    .item {
+      padding: 15px;
+      border-bottom: 1px solid #3f3f3f;
+      min-width: 150px;
+      display: none;
+      background: $grey-light;
+      user-select: none;
+      text-wrap: nowrap;
+
+      &.show {
+        display: block;
+      }
+
+      &:hover {
+        background: lighten($grey-light, 10%);
+      }
+    }
+
+    &.right-bottom {
+      top: 105px;
+      right: 0;
+    }
+    &.right-top {
+      bottom: 105px;
+      right: 0;
+    }
+    &.left-bottom {
+      top: 105px;
+      left: 0;
+    }
+    &.left-top {
+      bottom: 105px;
+      left: 0;
+    }
+    &.center-bottom {
+      top: 105px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.show {
+      height: fit-content;
+      border: solid 1px #3f3f3f;
+      padding: 16px;
+    }
+    &.no-padding {
+      padding: 0;
+    }
+  }
+}

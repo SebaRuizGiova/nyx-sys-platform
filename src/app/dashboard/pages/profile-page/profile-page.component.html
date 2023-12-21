@@ -1,1 +1,87 @@
-<p>profile-page works!</p>
+<header class="header">
+  <i class="pi pi-angle-left" style="font-size: 1.5rem"></i>
+  <div class="header-content">
+    <form [formGroup]="timeForm">
+      <shared-user-dropdown
+        position="left-bottom"
+        [pTooltip]="'groupPeriodSelect' | translate"
+        tooltipPosition="left"
+        [items]="periodItems"
+        [formGroup]="timeForm"
+        formControlName="user"
+        [userData]="{
+        userName: 'Sebastian Ruiz',
+        device: '0043E1',
+        date: '21/12/2023',
+        age: '27',
+        status: 'Online',
+      }"
+      />
+    </form>
+    <div class="header-actions">
+      <div class="buttons-actions">
+        <div class="group-buttons">
+          <shared-button
+            icon="pi-plus"
+            [tooltipButton]="'adminAddProfileTooltip' | translate"
+          />
+          <shared-button
+            icon="pi-pencil"
+            [tooltipButton]="'adminAddProfileTooltip' | translate"
+          />
+          <shared-button
+            icon="pi-trash"
+            [tooltipButton]="'adminAddProfileTooltip' | translate"
+          />
+        </div>
+        <shared-dropdown
+          iconButton="pi-calendar"
+          [pTooltip]="'groupPeriodSelect' | translate"
+          tooltipPosition="left"
+          [showDelay]="400"
+          [items]="periodItems"
+          [formGroup]="timeForm"
+          formControlName="period"
+        />
+      </div>
+      <div class="actions">
+        <shared-dropdown
+          [labelButton]="'groupDownloadReportLabel' | translate"
+          iconButton="pi-angle-down"
+          [formGroup]="downloadForm"
+        >
+          <div class="content-dropdown">
+            <div class="selects">
+              <shared-select
+                [options]="formatDownloadItems || []"
+                [placeholder]="'groupSelectFormatPlaceholder' | translate"
+                [formGroup]="downloadForm"
+                formControlName="format"
+              />
+              <shared-select
+                [options]="rangeDownloadItems || []"
+                [placeholder]="'groupSelectRangePlaceholder' | translate"
+                [formGroup]="downloadForm"
+                formControlName="range"
+              />
+            </div>
+            <shared-button
+              [label]="'groupDownloadLabel' | translate"
+              icon="pi-download"
+              [disabled]="downloadForm.status === 'INVALID'"
+            />
+          </div>
+        </shared-dropdown>
+        <shared-select
+          [options]="gmtOptions"
+          placeholder="Seleccionar GMT"
+          [formGroup]="timeForm"
+          formControlName="gmt"
+        />
+      </div>
+    </div>
+  </div>
+  <i class="pi pi-angle-right" style="font-size: 1.5rem"></i>
+</header>
+<hr />
+<main class="main-content"></main>

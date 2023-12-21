@@ -1,37 +1,27 @@
 import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ItemDropdown } from '../dropdown/dropdown.component';
 import { UserDataDropdown } from '../../interfaces/userDataDropdown.interface';
 
-export interface ItemDropdown {
-  label: string;
-  value: string | number;
-  userId?: string;
-}
-
 @Component({
-  selector: 'shared-dropdown',
-  templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.scss'],
+  selector: 'shared-user-dropdown',
+  templateUrl: './user-dropdown.component.html',
+  styleUrls: ['./user-dropdown.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => DropdownComponent),
+      useExisting: forwardRef(() => UserDropdownComponent),
       multi: true,
     },
   ],
 })
-export class DropdownComponent implements ControlValueAccessor {
-
-  @Input() labelButton?: string;
+export class UserDropdownComponent implements ControlValueAccessor {
   @Input() tooltipButton?: string;
   @Input() tooltipPosition?: 'right' | 'left' | 'top' | 'bottom';
-  @Input() iconButton?: string;
   @Input() position?: 'right-bottom' | 'right-top' | 'left-bottom' | 'left-top' | 'center-bottom' = 'right-bottom';
   @Input() items?: ItemDropdown[] = [];
   @Input() formGroup!: FormGroup;
   @Input() formControlName!: string;
-  @Input() noButton: boolean = false;
-  @Input() user: boolean = false;
   @Input() userData?: UserDataDropdown;
   @Input() secondaryAction?: Function;
   @Output() dropdownChange: EventEmitter<any> = new EventEmitter();

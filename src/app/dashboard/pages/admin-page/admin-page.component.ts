@@ -244,7 +244,6 @@ export class AdminPageComponent implements OnInit {
     if (this.dontShowHiddenGroups) {
       this.filteredGroups = this.filteredGroups.filter(group => !group.hided)
     }
-    console.log(this.filteredGroups)
   }
 
   toggleHiddenGroups() {

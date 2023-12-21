@@ -11,7 +11,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { DropdownModule } from 'primeng/dropdown';
+// import { DropdownModule } from 'primeng/dropdown';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputSwitchModule } from 'primeng/inputswitch';
@@ -35,7 +35,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
-    DropdownModule,
+    // DropdownModule,
     TooltipModule,
     ReactiveFormsModule,
     InputTextModule,

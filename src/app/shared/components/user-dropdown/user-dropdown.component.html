@@ -1,0 +1,32 @@
+<form [formGroup]="formGroup">
+  <div class="background" *ngIf="showPopup" (click)="tooglePopup()"></div>
+  <div class="dropdown">
+    <div class="user-button" (click)="tooglePopup()">
+      <span class="status"></span>
+      <div class="user-data">
+        <span>{{ userData?.userName }}</span>
+        <span>Dispositivo NS: {{ userData?.device }}</span>
+        <span>{{ userData?.date }}</span>
+        <span>{{ userData?.age }} años</span>
+      </div>
+      <i class="pi pi-angle-down" style="font-size: 1rem"></i>
+    </div>
+    <div
+      [class]="'popup ' + position"
+      [ngClass]="{
+        show: showPopup,
+        'no-padding': items?.length,
+        items: items?.length
+      }"
+    >
+      <div
+        *ngFor="let item of items"
+        class="item"
+        [ngClass]="{ show: showPopup }"
+        (click)="onDropdownChange(item)"
+      >
+        {{ item?.label }}
+      </div>
+    </div>
+  </div>
+</form>
