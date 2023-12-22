@@ -1,13 +1,13 @@
 <header class="header">
   <i class="pi pi-angle-left" style="font-size: 1.5rem"></i>
   <div class="header-content">
-    <form [formGroup]="timeForm">
+    <form [formGroup]="userForm">
       <shared-user-dropdown
         position="left-bottom"
-        [pTooltip]="'groupPeriodSelect' | translate"
-        tooltipPosition="left"
-        [items]="periodItems"
-        [formGroup]="timeForm"
+        pTooltip="Seleccionar perfil"
+        tooltipPosition="right"
+        [items]="usersItems"
+        [formGroup]="userForm"
         formControlName="user"
         [userData]="{
         userName: 'Sebastian Ruiz',
@@ -34,50 +34,56 @@
             [tooltipButton]="'adminAddProfileTooltip' | translate"
           />
         </div>
-        <shared-dropdown
-          iconButton="pi-calendar"
-          [pTooltip]="'groupPeriodSelect' | translate"
-          tooltipPosition="left"
-          [showDelay]="400"
-          [items]="periodItems"
-          [formGroup]="timeForm"
-          formControlName="period"
-        />
+        <form [formGroup]="periodForm">
+          <shared-dropdown
+            iconButton="pi-calendar"
+            [pTooltip]="'groupPeriodSelect' | translate"
+            tooltipPosition="left"
+            [showDelay]="400"
+            [items]="periodItems"
+            [formGroup]="periodForm"
+            formControlName="period"
+          />
+        </form>
       </div>
       <div class="actions">
-        <shared-dropdown
-          [labelButton]="'groupDownloadReportLabel' | translate"
-          iconButton="pi-angle-down"
-          [formGroup]="downloadForm"
-        >
-          <div class="content-dropdown">
-            <div class="selects">
-              <shared-select
-                [options]="formatDownloadItems || []"
-                [placeholder]="'groupSelectFormatPlaceholder' | translate"
-                [formGroup]="downloadForm"
-                formControlName="format"
-              />
-              <shared-select
-                [options]="rangeDownloadItems || []"
-                [placeholder]="'groupSelectRangePlaceholder' | translate"
-                [formGroup]="downloadForm"
-                formControlName="range"
+        <form [formGroup]="downloadForm">
+          <shared-dropdown
+            [labelButton]="'groupDownloadReportLabel' | translate"
+            iconButton="pi-angle-down"
+            [formGroup]="downloadForm"
+          >
+            <div class="content-dropdown">
+              <div class="selects">
+                <shared-select
+                  [options]="formatDownloadItems || []"
+                  [placeholder]="'groupSelectFormatPlaceholder' | translate"
+                  [formGroup]="downloadForm"
+                  formControlName="format"
+                />
+                <shared-select
+                  [options]="rangeDownloadItems || []"
+                  [placeholder]="'groupSelectRangePlaceholder' | translate"
+                  [formGroup]="downloadForm"
+                  formControlName="range"
+                />
+              </div>
+              <shared-button
+                [label]="'groupDownloadLabel' | translate"
+                icon="pi-download"
+                [disabled]="downloadForm.status === 'INVALID'"
               />
             </div>
-            <shared-button
-              [label]="'groupDownloadLabel' | translate"
-              icon="pi-download"
-              [disabled]="downloadForm.status === 'INVALID'"
-            />
-          </div>
-        </shared-dropdown>
-        <shared-select
-          [options]="gmtOptions"
-          placeholder="Seleccionar GMT"
-          [formGroup]="timeForm"
-          formControlName="gmt"
-        />
+          </shared-dropdown>
+        </form>
+        <form [formGroup]="gmtForm">
+          <shared-select
+            [options]="gmtOptions"
+            placeholder="Seleccionar GMT"
+            [formGroup]="gmtForm"
+            formControlName="gmt"
+          />
+        </form>
       </div>
     </div>
   </div>

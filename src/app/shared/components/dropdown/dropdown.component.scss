@@ -43,7 +43,7 @@ form {
       &.show {
         height: min-content;
         max-height: 301px;
-        overflow-y: scroll;
+        overflow-y: auto;
       }
     }
 

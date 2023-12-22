@@ -8,9 +8,14 @@ import { LanguageService } from 'src/app/shared/services/language.service';
   styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent {
-  public timeForm: FormGroup = this.fb.group({
-    period: '',
+  public periodForm: FormGroup = this.fb.group({
+    period: ''
+  });
+  public gmtForm: FormGroup = this.fb.group({
     gmt: ''
+  });
+  public userForm: FormGroup = this.fb.group({
+    user: ''
   });
   public downloadForm: FormGroup = this.fb.group({
     format: ['', Validators.required],
@@ -28,6 +33,20 @@ export class ProfilePageComponent {
     },
     {
       label: 'Periodo 3',
+      value: 3,
+    },
+  ];
+  public usersItems: ItemDropdown[] = [
+    {
+      label: 'Sebastian Ruiz',
+      value: 1,
+    },
+    {
+      label: 'Fernando Lerner',
+      value: 2,
+    },
+    {
+      label: 'Lucas Gonzalez',
       value: 3,
     },
   ];

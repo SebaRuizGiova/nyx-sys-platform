@@ -40,7 +40,7 @@ export class AdminPageComponent implements OnInit {
   public collaborators: Collaborator[] = [];
   public users: User[] = [];
 
-  public groupsSelect: ItemDropdown[] = [];
+  public groupsOptions: ItemDropdown[] = [];
   public filteredProfiles: Profile[] = [];
   public filteredDevices: Device[] = [];
   public filteredGroups: Group[] = [];
@@ -99,10 +99,10 @@ export class AdminPageComponent implements OnInit {
   getGroups(userId?: string) {
     this.loadingService.setLoading(true);
     this.databaseService
-      .getGroupsByUserPaginated(userId || this.authService.userId)
+      .getGroupsByUser(userId || this.authService.userId)
       .subscribe((groups) => {
         this.groups = groups;
-        this.groupsSelect = groups.map((group: Group) => ({
+        this.groupsOptions = groups.map((group: Group) => ({
           label: group.teamName,
           value: group.id,
         }));
@@ -160,12 +160,18 @@ export class AdminPageComponent implements OnInit {
           collaborators = [...collaborators, result[3]];
         });
 
+        const groupsOptions = groups.map(group => ({
+          label: group.teamName,
+          value: group.id
+        }))
+
         this.profiles = profiles;
         this.filteredProfiles = profiles;
         this.devices = devices;
         this.filteredDevices = devices;
         this.groups = groups;
         this.filteredGroups = groups;
+        this.groupsOptions = groupsOptions;
         this.collaborators = collaborators;
         this.filteredCollaborators = collaborators;
         this.loadingService.setLoading(false);

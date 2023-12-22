@@ -83,13 +83,6 @@ export class DatabaseService {
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
-  getGroupsByUserPaginated(userId: string): Observable<any> {
-    return this.firestore
-      .collection(`/users/${environment.client}/content/${userId}/teams`)
-      .get()
-      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
-  }
-
   getUserData(userId: string): Observable<any> {
     return this.firestore
       .collection(`/users/${environment.client}/content`)
