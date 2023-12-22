@@ -90,4 +90,147 @@
   <i class="pi pi-angle-right" style="font-size: 1.5rem"></i>
 </header>
 <hr />
-<main class="main-content"></main>
+<main class="main-content">
+  <div class="grid-sup">
+    <div class="card sleep-score">
+      <div class="card-header">
+        <span>Puntuación del sueño</span>
+      </div>
+      <hr />
+      <div class="card-content">
+        <div class="progress">
+          <shared-circle-progress-bar [sleepScore]="90" [xl]="true" />
+          <p class="desc">
+            Es fantástico ver que últimamente has prestado atención a tu sueño
+            ¡Sigue así!
+          </p>
+        </div>
+        <div class="graphic-card"></div>
+      </div>
+    </div>
+    <div class="card sleep-time">
+      <div class="card-header">
+        <span>Tiempo de sueño</span>
+      </div>
+      <hr />
+      <div class="card-content">
+        <div class="data">
+          <div class="data-desc">Recuperación total</div>
+          <div class="data-value">+2.4</div>
+          <div class="data-desc">Recuperación integrada</div>
+          <div class="data-value">278.6 unidades</div>
+        </div>
+        <div class="alert">
+          <i
+            class="pi pi-exclamation-circle"
+            style="font-size: 1rem; color: #1ee280"
+          ></i>
+          <p class="alert-desc">
+            Tu HRV es mas alto de lo usual. Un Hrv alto indica que tu sistema
+            nervioso esta listo para manejar estrés y que te cuerpo esta en
+            balance
+          </p>
+        </div>
+        <div class="graphic-card"></div>
+      </div>
+    </div>
+    <div class="card sleep-arq">
+      <div class="card-header">
+        <span>Arquitectura del sueño</span>
+      </div>
+      <hr />
+      <div class="card-content"></div>
+    </div>
+    <div class="card recovery">
+      <div class="card-header">
+        <span>Recuperación</span>
+      </div>
+      <hr />
+      <div class="card-content">
+        <div class="data">
+          <div class="data-desc">Recuperación total</div>
+          <div class="data-value">+2.4</div>
+          <div class="data-desc">Recuperación integrada</div>
+          <div class="data-value">278.6 unidades</div>
+        </div>
+        <div class="alert">
+          <i
+            class="pi pi-exclamation-circle"
+            style="font-size: 1rem; color: #1ee280"
+          ></i>
+          <p class="alert-desc">
+            Tu HRV es mas alto de lo usual. Un Hrv alto indica que tu sistema
+            nervioso esta listo para manejar estrés y que te cuerpo esta en
+            balance
+          </p>
+        </div>
+        <div class="graphic-card"></div>
+      </div>
+    </div>
+    <div class="card heart-rate">
+      <div class="card-header">
+        <span>Ritmo cardíaco</span>
+      </div>
+      <hr />
+      <div class="card-content">
+        <div class="data">
+          <div class="data-desc">Recuperación total</div>
+          <div class="data-value">+2.4</div>
+          <div class="data-desc">Recuperación integrada</div>
+          <div class="data-value">278.6 unidades</div>
+        </div>
+        <div class="alert">
+          <i
+            class="pi pi-exclamation-circle"
+            style="font-size: 1rem; color: #1ee280"
+          ></i>
+          <p class="alert-desc">
+            Tu HRV es mas alto de lo usual. Un Hrv alto indica que tu sistema
+            nervioso esta listo para manejar estrés y que te cuerpo esta en
+            balance
+          </p>
+        </div>
+        <div class="graphic-card"></div>
+      </div>
+    </div>
+    <div class="card ans">
+      <div class="card-header">
+        <span>Balance del Sistema Nervioso Aut.</span>
+      </div>
+      <hr />
+      <div class="card-content">
+        <div class="graphic-card"></div>
+      </div>
+    </div>
+    <div class="card respiratory-rate">
+      <div class="card-header">
+        <span>Ritmo respiratorio</span>
+      </div>
+      <hr />
+      <div class="card-content">
+        <div class="graphic-card"></div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-inf">
+    <div class="card heart-rate-var">
+      <div class="card-header">
+        <span>Variabilidad del ritmo cardíaco</span>
+      </div>
+      <hr />
+      <div class="card-content">
+        <div class="graphic-card"></div>
+      </div>
+    </div>
+    <div class="card graphic">Graphic</div>
+    <div class="card movement">
+      <div class="card-header">
+        <span>Movimiento</span>
+      </div>
+      <hr />
+      <div class="card-content">
+        <div class="graphic-card"></div>
+      </div>
+    </div>
+  </div>
+</main>

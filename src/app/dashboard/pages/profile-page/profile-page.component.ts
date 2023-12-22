@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { LanguageService } from 'src/app/shared/services/language.service';
@@ -7,7 +7,7 @@ import { LanguageService } from 'src/app/shared/services/language.service';
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
 })
-export class ProfilePageComponent {
+export class ProfilePageComponent implements OnInit {
   public periodForm: FormGroup = this.fb.group({
     period: ''
   });
@@ -58,6 +58,10 @@ export class ProfilePageComponent {
     private fb: FormBuilder,
     private languageService: LanguageService
   ) {}
+
+  ngOnInit(): void {
+    this.loadTranslations();
+  }
 
   private loadTranslations() {
     this.languageService

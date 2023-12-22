@@ -1,4 +1,4 @@
-<div class="progress-bar">
+<div class="progress-bar" [ngClass]="{'xl': xl}">
   <img
     *ngIf="sleepScore >= 90"
     src="assets/icons/diamond.svg"
@@ -19,8 +19,8 @@
     [max]="max"
     [color]="'url(#gradient)'"
     [background]="'#2f2f2f'"
-    [radius]="40"
-    [stroke]="10"
+    [radius]="xl ? 60 : 40"
+    [stroke]="xl ? 15 : 10"
     [rounded]="true"
     [clockwise]="true"
     [responsive]="false"

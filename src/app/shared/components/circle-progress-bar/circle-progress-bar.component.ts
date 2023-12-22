@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class CircleProgressBarComponent {
   @Input() sleepScore: number = 0;
+  @Input() xl: boolean = false;
   public max: number = 100;
 }
