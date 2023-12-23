@@ -167,7 +167,9 @@ export class GroupsPageComponent implements OnInit {
           .subscribe({
             next: (profiles: any) => {
               this.profiles = profiles;
-              this.periodItems = this.helpersService.generatePeriods(this.profiles);
+              this.periodItems = this.helpersService.generatePeriods(
+                this.profiles
+              );
               this.selectSleepData();
               this.loadingService.setLoading(false);
             },
@@ -286,12 +288,23 @@ export class GroupsPageComponent implements OnInit {
   }
 
   selectSleepData(selectedPeriod: string = this.periodForm.value.period) {
-    this.profiles = this.profiles.map(profile => {
-      const selectedSleepData = profile.sleepData.find(sd => this.helpersService.formatTimestamp(sd.to) === selectedPeriod);
+    this.profiles = this.profiles.map((profile) => {
+      const selectedSleepData = profile.sleepData.find(
+        (sd) => this.helpersService.formatTimestamp(sd.to) === selectedPeriod
+      );
+      const previousSleepData = profile.sleepData.find((sd) => {
+        return (
+          this.helpersService.compareDates(
+            this.helpersService.formatTimestamp(sd.to),
+            selectedPeriod
+          ) === 1
+        );
+      });
       return {
         ...profile,
-        selectedSleepData
-      }
-    })
+        selectedSleepData,
+        previousSleepData,
+      };
+    });
   }
 }

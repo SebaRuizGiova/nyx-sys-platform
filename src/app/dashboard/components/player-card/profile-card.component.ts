@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { SleepData } from '../../interfaces/profile.interface';
 
 interface SNA {
   sympathetic: number | null;
@@ -17,4 +18,13 @@ export class ProfileCardComponent {
   @Input() sna: SNA | null = null;
   @Input() recovery: number | null = 0;
   @Input() sleepScore: number | null = 0;
+  @Input() previousSleepData?: SleepData | null;
+
+  public previousRecovery: number = 0;
+
+  constructor() {
+    if (this.previousSleepData) {
+      this.previousRecovery = this.previousSleepData.hrv_data[0].totalRecovery
+    }
+  }
 }

@@ -4,6 +4,7 @@ import { Observable, map, forkJoin, from, mergeMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
+import { HelpersService } from './helpers.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,8 @@ export class DatabaseService {
 
   constructor(
     private firestore: AngularFirestore,
-    private authService: AuthService
+    private authService: AuthService,
+    private helpersService: HelpersService
   ) {}
 
   getAllUsers(): Observable<any> {
@@ -56,9 +58,15 @@ export class DatabaseService {
             return from(collectionRef.limit(limit).get()).pipe(
               map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
               map((sleepData) => {
+                const sortedSleepData = sleepData.sort((a, b) =>
+                  this.helpersService.compareDates(
+                    this.helpersService.formatTimestamp(a.to),
+                    this.helpersService.formatTimestamp(b.to)
+                  )
+                );
                 return {
                   ...filteredProfile,
-                  sleepData,
+                  sleepData: sortedSleepData,
                 };
               })
             );

@@ -10,8 +10,11 @@ interface SleepToMap {
 })
 export class HelpersService {
   compareDates = (date1: string, date2: string): number => {
-    const date1Obj = new Date(date1.split('/').reverse().join('/'));
-    const date2Obj = new Date(date2.split('/').reverse().join('/'));
+    const dateTime1 = date1.split(', '); // Dividir fecha y hora
+    const dateTime2 = date2.split(', ');
+
+    const date1Obj = new Date(dateTime1[0].split('/').reverse().join('/') + ' ' + dateTime1[1]);
+    const date2Obj = new Date(dateTime2[0].split('/').reverse().join('/') + ' ' + dateTime2[1]);
 
     if (date1Obj > date2Obj) {
       return -1; // Si fecha1 es mayor, se coloca antes en el orden
@@ -28,8 +31,10 @@ export class HelpersService {
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
 
-    return `${day}/${month}/${year}`;
+    return `${day}/${month}/${year}, ${hours}:${minutes}`;
   }
 
   generatePeriods(profiles: Profile[]): { label: string; value: string }[] {
