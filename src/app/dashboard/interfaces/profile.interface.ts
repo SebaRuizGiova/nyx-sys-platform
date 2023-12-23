@@ -16,7 +16,8 @@ export interface Profile {
   name:       string;
   hided:      boolean;
   deviceID:   boolean;
-  sleepData: SleepData;
+  sleepData: SleepData[];
+  selectedSleepData: SleepData | undefined;
 }
 
 export interface Birthdate {

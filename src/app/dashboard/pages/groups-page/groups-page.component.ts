@@ -5,9 +5,10 @@ import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.compon
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
-import { Profile } from '../../interfaces/profile.interface';
+import { Profile, SleepData } from '../../interfaces/profile.interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { User } from '../../interfaces/user.interface';
+import { HelpersService } from 'src/app/shared/services/helpers.service';
 
 @Component({
   templateUrl: './groups-page.component.html',
@@ -15,7 +16,7 @@ import { User } from '../../interfaces/user.interface';
 })
 export class GroupsPageComponent implements OnInit {
   public periodForm: FormGroup = this.fb.group({
-    period: '',
+    period: this.helpersService.getActualDate(),
   });
   public groupForm: FormGroup = this.fb.group({
     selectedGroup: null,
@@ -54,13 +55,15 @@ export class GroupsPageComponent implements OnInit {
   public selectedGroupIndex: number =
     Number(localStorage.getItem('selectedGroupIndex')) || 0;
   public profiles: Profile[] = [];
+  public selectedSleepData?: SleepData;
 
   constructor(
     private fb: FormBuilder,
     private languageService: LanguageService,
     private databaseService: DatabaseService,
     private loadingService: LoadingService,
-    private authService: AuthService
+    private authService: AuthService,
+    private helpersService: HelpersService
   ) {
     const selectedGroupId = localStorage.getItem('selectedGroup');
     if (selectedGroupId) {
@@ -164,6 +167,8 @@ export class GroupsPageComponent implements OnInit {
           .subscribe({
             next: (profiles: any) => {
               this.profiles = profiles;
+              this.periodItems = this.helpersService.generatePeriods(this.profiles);
+              this.selectSleepData();
               this.loadingService.setLoading(false);
             },
             error: (err) => console.log(err),
@@ -208,6 +213,8 @@ export class GroupsPageComponent implements OnInit {
         )
         .subscribe((profiles) => {
           this.profiles = profiles;
+          this.periodItems = this.helpersService.generatePeriods(this.profiles);
+          this.selectSleepData();
           this.loadingService.setLoading(false);
         });
     }
@@ -276,5 +283,15 @@ export class GroupsPageComponent implements OnInit {
         this.profiles = profiles;
         this.loadingService.setLoading(false);
       });
+  }
+
+  selectSleepData(selectedPeriod: string = this.periodForm.value.period) {
+    this.profiles = this.profiles.map(profile => {
+      const selectedSleepData = profile.sleepData.find(sd => this.helpersService.formatTimestamp(sd.to) === selectedPeriod);
+      return {
+        ...profile,
+        selectedSleepData
+      }
+    })
   }
 }

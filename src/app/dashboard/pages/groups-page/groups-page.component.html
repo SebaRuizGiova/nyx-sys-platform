@@ -9,6 +9,7 @@
       [items]="periodItems"
       [formGroup]="periodForm"
       formControlName="period"
+      (dropdownChange)="selectSleepData($event)"
     />
   </form>
   <form [formGroup]="groupForm" class="selectGroup">
@@ -103,7 +104,10 @@
           </span>
         </div>
         <div class="buttons-filters">
-          <shared-button [label]="'groupDeleteFilters' | translate" variant="secondary" />
+          <shared-button
+            [label]="'groupDeleteFilters' | translate"
+            variant="secondary"
+          />
           <shared-button [label]="'groupApplyFilters' | translate" />
         </div>
       </div>
@@ -118,18 +122,18 @@
     [deviceName]="profile.deviceSN"
     status="En actividad"
     [sna]="{
-      sympathetic: profile.sleepData.hrv_rmssd_data?.length
-        ? profile.sleepData.hrv_rmssd_data[0].lf
+      sympathetic: profile.selectedSleepData && profile.selectedSleepData.hrv_rmssd_data?.length
+        ? profile.selectedSleepData.hrv_rmssd_data[0].lf
         : null,
-      parasympathetic: profile.sleepData.hrv_rmssd_data?.length
-        ? profile.sleepData.hrv_rmssd_data[0].hf
+      parasympathetic: profile.selectedSleepData && profile.selectedSleepData.hrv_rmssd_data?.length
+        ? profile.selectedSleepData.hrv_rmssd_data[0].hf
         : null
     }"
     [recovery]="
-      profile.sleepData.hrv_data?.length
-        ? profile.sleepData.hrv_data[0].totalRecovery
+      profile.selectedSleepData && profile.selectedSleepData.hrv_data?.length
+        ? profile.selectedSleepData.hrv_data[0].totalRecovery
         : null
     "
-    [sleepScore]="profile.sleepData.sleep_score || 0"
+    [sleepScore]="profile.selectedSleepData && profile.selectedSleepData.sleep_score ? profile.selectedSleepData.sleep_score > 100 ? 100 : profile.selectedSleepData.sleep_score : 0"
   />
 </main>
