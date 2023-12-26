@@ -31,20 +31,7 @@ export class GroupsPageComponent implements OnInit {
     actualProfile: false,
   });
 
-  public periodItems: ItemDropdown[] = [
-    {
-      label: 'Periodo 1',
-      value: 1,
-    },
-    {
-      label: 'Periodo 2',
-      value: 2,
-    },
-    {
-      label: 'Periodo 3',
-      value: 3,
-    },
-  ];
+  public periodItems: ItemDropdown[] = [];
   public formatDownloadItems?: string[];
   public rangeDownloadItems?: string[];
   public orderByItems?: string[];
@@ -283,6 +270,8 @@ export class GroupsPageComponent implements OnInit {
       )
       .subscribe((profiles) => {
         this.profiles = profiles;
+        this.periodItems = this.helpersService.generatePeriods(this.profiles);
+        this.selectSleepData();
         this.loadingService.setLoading(false);
       });
   }
