@@ -28,6 +28,12 @@ export class DatabaseService {
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
+  getAllUsersPromise() {
+    return this.firestore
+      .collection(`users/${environment.client}/content`)
+      .ref.get();
+  }
+
   getProfilesByGroup(
     groupId: string,
     userId?: string,
@@ -77,6 +83,14 @@ export class DatabaseService {
       );
   }
 
+  getProfilesByGroupPromise(userId: string, teamId: string) {
+    return this.firestore
+      .collection(`/users/${environment.client}/content/${userId}/players`)
+      .ref.where('hided', '==', false)
+      .where('teamID', '==', teamId)
+      .get();
+  }
+
   getProfilesByUser(userId: string): Observable<any> {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/players`)
@@ -99,11 +113,34 @@ export class DatabaseService {
       .pipe(map((user) => user.data()));
   }
 
+  getUserDataPromise(userId: string) {
+    return this.firestore
+      .collection(`/users/${environment.client}/content`)
+      .doc(userId)
+      .ref.get();
+  }
+
   getGroupsByUser(userId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
       .get()
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
+  }
+
+  getGroupsByUserPromise(userId: string) {
+    return this.firestore
+      .collection(`/users/${environment.client}/content/${userId}/teams`)
+      .ref.where('hided', '==', false)
+      .get();
+  }
+
+  getSleepDataPromise(userId: string, profileId: string) {
+    return this.firestore
+      .collection(
+        `/users/nyxsys/content/${userId}/players/${profileId}/Formated-SleepData`
+      )
+      .ref.limit(7)
+      .get();
   }
 
   setGroupsList(groups: any[]): void {

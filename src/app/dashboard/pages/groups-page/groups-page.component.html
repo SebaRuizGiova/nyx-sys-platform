@@ -27,7 +27,7 @@
       position="center-bottom"
       [tooltipButton]="'groupAllTooltip' | translate"
       tooltipPosition="bottom"
-      [items]="groupsList"
+      [items]="groupsItems"
       [formGroup]="groupForm"
       formControlName="selectedGroup"
       [noButton]="true"
@@ -40,7 +40,7 @@
       tooltipPosition="right"
       [showDelay]="400"
       (click)="nextGroup()"
-      *ngIf="selectedGroupIndex !== groupsList.length - 1"
+      *ngIf="selectedGroupIndex !== groupsItems.length - 1"
     ></i>
   </form>
   <div class="buttons-right">
