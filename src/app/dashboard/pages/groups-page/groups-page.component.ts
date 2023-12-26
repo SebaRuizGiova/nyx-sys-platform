@@ -58,6 +58,7 @@ export class GroupsPageComponent implements OnInit {
     });
     this.loadTranslations();
     this.loadData();
+    setInterval(this.loadProfiles.bind(this), 30000)
   }
 
   private loadTranslations() {
@@ -375,6 +376,7 @@ export class GroupsPageComponent implements OnInit {
       };
     });
     this.filteredProfiles = this.profiles;
+    this.filterProfiles();
   }
 
   filterProfiles() {
