@@ -124,6 +124,7 @@ export class LoginPageComponent implements OnInit {
 
     const email = this.forgetForm.controls['emailForget'].value;
 
+    this.loading = true;
     this.authService
       .resetPassword(email)
       .then(() => {
@@ -134,6 +135,7 @@ export class LoginPageComponent implements OnInit {
           summary: successTitle,
           detail: successMessage,
         })
+        this.loading = false;
       })
       .catch(() => {
         const errorTitle = this.translate.instant('ToastTitleError');
@@ -143,6 +145,7 @@ export class LoginPageComponent implements OnInit {
           summary: errorTitle,
           detail: errorMessage,
         });
+        this.loading = false;
       });
   }
 }
