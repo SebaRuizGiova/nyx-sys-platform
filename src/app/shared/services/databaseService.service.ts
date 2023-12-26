@@ -89,11 +89,11 @@ export class DatabaseService {
       .get();
   }
 
-  getLiveDataPromise(deviceId: string) {
+  getLiveDataPromise(deviceId: string, limit: number = 3) {
     return this.firestore
       .collection(`/live-data/${deviceId}/data`)
       .ref.orderBy('date_occurred', 'desc')
-      .limit(1)
+      .limit(limit)
       .get();
   }
 

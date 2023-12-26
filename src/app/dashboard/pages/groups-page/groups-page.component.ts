@@ -257,21 +257,30 @@ export class GroupsPageComponent implements OnInit {
         const liveDataSnapshot = await this.databaseService.getLiveDataPromise(
           deviceId
         );
-        const liveData = liveDataSnapshot.docs.map((doc) => doc.data());
-        const mapLiveData: Status = !liveData.length
-          ? {
-              status: 'Offline',
-            }
-          : liveData.map((data: any) => {
-              if (data === 0) {
-                return {
-                  status: 'Online',
-                };
-              }
-              return {
-                status: 'En actividad',
-              };
-            })[0];
+        const liveData: any[] = liveDataSnapshot.docs.map((doc) => doc.data());
+
+        const onlineCondition =
+          liveData.filter((data: any) => data.activity === 0).length >= 2;
+        const activityCondition =
+          liveData.filter((data: any) => data.activity !== 0).length >= 2;
+
+        let mapLiveData: Status;
+
+        if (liveData.length === 0) {
+          mapLiveData = { status: 'Offline' };
+        } else if (
+          onlineCondition &&
+          this.helpersService.compareDates(this.helpersService.formatTimestampToDate(liveData[0].date_occurred), this.periodForm.value.period)
+        ) {
+          mapLiveData = { status: 'Online' };
+        } else if (
+          activityCondition &&
+          this.helpersService.compareDates(this.helpersService.formatTimestampToDate(liveData[0].date_occurred), this.periodForm.value.period)
+        ) {
+          mapLiveData = { status: 'En actividad' };
+        } else {
+          mapLiveData = { status: 'Offline' };
+        }
         resolve(mapLiveData);
       } catch (error) {
         reject(error);
@@ -361,7 +370,7 @@ export class GroupsPageComponent implements OnInit {
             .includes(this.filtersForm.value.searchByName.toLowerCase())) &&
         (this.filtersForm.value.actualPeriod ? profile.selectedSleepData : true)
     );
-    debugger
+    debugger;
     this.filteredProfiles.sort((a, b) => {
       const scoreA = a.selectedSleepData?.sleep_score || 0;
       const scoreB = b.selectedSleepData?.sleep_score || 0;
