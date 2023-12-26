@@ -68,8 +68,14 @@
     "Histórico"
   ],
   "groupOrderByItems": [
-    "Puntaje de sueño: mayor a menor",
-    "Puntaje de sueño: menor a mayor"
+    {
+      "label": "Puntaje de sueño: mayor a menor",
+      "value": true
+    },
+    {
+      "label": "Puntaje de sueño: menor a mayor",
+      "value": false
+    }
   ],
   "groupPeriodSelect": "Seleccionar periodo",
   "groupForwardTooltip": "Ir al grupo anterior",

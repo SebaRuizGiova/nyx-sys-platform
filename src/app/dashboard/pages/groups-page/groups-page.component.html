@@ -85,6 +85,7 @@
               pInputText
               formControlName="searchByName"
               [placeholder]="'groupSearchByName' | translate"
+              (input)="filterProfiles()"
             />
             <i class="pi pi-search"></i>
           </span>
@@ -93,6 +94,9 @@
             [placeholder]="'groupOrderBy' | translate"
             [formGroup]="filtersForm"
             formControlName="orderBy"
+            (selectChange)="
+              filterProfiles()
+            "
           />
           <span class="switch">
             <span>{{
@@ -100,15 +104,16 @@
                 ? ("groupShowAll" | translate)
                 : ("groupShowCurrentPeriod" | translate)
             }}</span>
-            <p-inputSwitch formControlName="actualProfile" />
+            <p-inputSwitch
+              formControlName="actualPeriod"
+              (onChange)="
+                filterProfiles()
+              "
+            />
           </span>
         </div>
         <div class="buttons-filters">
-          <shared-button
-            [label]="'groupDeleteFilters' | translate"
-            variant="secondary"
-          />
-          <shared-button [label]="'groupApplyFilters' | translate" />
+          <shared-button [label]="'groupDeleteFilters' | translate" />
         </div>
       </div>
     </shared-dropdown>
@@ -117,24 +122,34 @@
 <hr />
 <main class="main-content">
   <dashboard-profile-card
-    *ngFor="let profile of profiles"
+    *ngFor="let profile of filteredProfiles"
     [playerName]="profile.name + ' ' + profile.lastName"
     [deviceName]="profile.deviceSN"
     status="En actividad"
     [sna]="{
-      sympathetic: profile.selectedSleepData && profile.selectedSleepData.hrv_rmssd_data?.length
-        ? profile.selectedSleepData.hrv_rmssd_data[0].lf
-        : null,
-      parasympathetic: profile.selectedSleepData && profile.selectedSleepData.hrv_rmssd_data?.length
-        ? profile.selectedSleepData.hrv_rmssd_data[0].hf
-        : null
+      sympathetic:
+        profile.selectedSleepData &&
+        profile.selectedSleepData.hrv_rmssd_data?.length
+          ? profile.selectedSleepData.hrv_rmssd_data[0].lf
+          : null,
+      parasympathetic:
+        profile.selectedSleepData &&
+        profile.selectedSleepData.hrv_rmssd_data?.length
+          ? profile.selectedSleepData.hrv_rmssd_data[0].hf
+          : null
     }"
     [recovery]="
       profile.selectedSleepData && profile.selectedSleepData.hrv_data?.length
         ? profile.selectedSleepData.hrv_data[0].totalRecovery
         : null
     "
-    [sleepScore]="profile.selectedSleepData && profile.selectedSleepData.sleep_score ? profile.selectedSleepData.sleep_score > 100 ? 100 : profile.selectedSleepData.sleep_score : 0"
-    [status]="profile.status.status"
+    [sleepScore]="
+      profile.selectedSleepData && profile.selectedSleepData.sleep_score
+        ? profile.selectedSleepData.sleep_score > 100
+          ? 100
+          : profile.selectedSleepData.sleep_score
+        : 0
+    "
+    [status]="profile.status ? profile.status.status : ''"
   />
 </main>

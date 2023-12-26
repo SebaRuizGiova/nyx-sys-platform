@@ -65,8 +65,14 @@
     "Historisch"
   ],
   "groupOrderByItems": [
-    "Schlafbewertung: Hoch bis Niedrig",
-    "Schlafbewertung: Niedrig bis Hoch"
+    {
+      "label": "Schlafbewertung: Hoch bis Niedrig",
+      "value": true
+    },
+    {
+      "label": "Schlafbewertung: Niedrig bis Hoch",
+      "value": false
+    }
   ],
   "groupPeriodSelect": "Zeitraum auswählen",
   "groupForwardTooltip": "Zur vorherigen Gruppe gehen",

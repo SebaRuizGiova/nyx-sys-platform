@@ -6,34 +6,36 @@
         ? ("profileCardDeviceName" | translate) + deviceName
         : ("profileCardAnyDevice" | translate)
     }}</span>
-    <span
-      *ngIf="status === 'Offline'"
-      class="status-device"
-      [pTooltip]="status"
-      tooltipPosition="left"
-      [showDelay]="400"
-      [style]="{
-        background: '#898989'
-      }"
-    ></span>
-    <span
-      *ngIf="status === 'Online'"
-      class="status-device"
-      [pTooltip]="status"
-      tooltipPosition="left"
-      [showDelay]="400"
-      [style]="{
-        background: '#1EE280'
-      }"
-    ></span>
-    <img
-      *ngIf="status === 'En actividad'"
-      src="assets/icons/heart-rate.svg"
-      class="status-device active"
-      [pTooltip]="status"
-      tooltipPosition="left"
-      [showDelay]="400"
-    />
+    <div *ngIf="deviceName">
+      <span
+        *ngIf="status === 'Offline'"
+        class="status-device"
+        [pTooltip]="status"
+        tooltipPosition="left"
+        [showDelay]="400"
+        [style]="{
+          background: '#898989'
+        }"
+      ></span>
+      <span
+        *ngIf="status === 'Online'"
+        class="status-device"
+        [pTooltip]="status"
+        tooltipPosition="left"
+        [showDelay]="400"
+        [style]="{
+          background: '#1EE280'
+        }"
+      ></span>
+      <img
+        *ngIf="status === 'En actividad'"
+        src="assets/icons/heart-rate.svg"
+        class="status-device active"
+        [pTooltip]="status"
+        tooltipPosition="left"
+        [showDelay]="400"
+      />
+    </div>
   </div>
   <hr />
   <div class="card-content">

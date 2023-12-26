@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { forkJoin, map, mergeMap, of } from 'rxjs';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
@@ -28,8 +27,8 @@ export class GroupsPageComponent implements OnInit {
   });
   public filtersForm: FormGroup = this.fb.group({
     searchByName: '',
-    orderBy: '',
-    actualProfile: false,
+    orderBy: true,
+    actualPeriod: false,
   });
 
   public periodItems: ItemDropdown[] = [];
@@ -40,6 +39,7 @@ export class GroupsPageComponent implements OnInit {
   public usersList: User[] = [];
   public selectedGroupId: string = localStorage.getItem('selectedGroup') || '';
   public selectedGroupIndex: number = 0;
+  public filteredProfiles: Profile[] = [];
   public profiles: Profile[] = [];
   public selectedSleepData?: SleepData;
 
@@ -128,40 +128,7 @@ export class GroupsPageComponent implements OnInit {
         });
       });
 
-      const profiles = await this.getProfilesByGroup(
-        this.groupForm.value.selectedGroup.userId || '',
-        this.groupForm.value.selectedGroup.value.toString()
-      );
-      const profilePromises = profiles.map((profile) => {
-        return new Promise(async (resolve, reject) => {
-          try {
-            const sleepDataSnapshot =
-              await this.databaseService.getSleepDataPromise(
-                this.groupForm.value.selectedGroup.userId,
-                profile.id
-              );
-            const sleepData = sleepDataSnapshot.docs.map((doc) => doc.data());
-            // ? Fuera de la cama: Online
-            // ? Desconectado: Offline
-            // ? En la cama: En actividad
-            const profileData = profile.data();
-            const status = await this.getStatusDevice(profileData.deviceSN);
-            this.profiles.push({
-              ...profileData,
-              sleepData,
-              status
-            });
-            this.periodItems = this.helpersService.generatePeriods(
-              this.profiles
-            );
-            this.selectSleepData();
-            resolve(null);
-          } catch (error) {
-            reject(error);
-          }
-        });
-      });
-      await Promise.all(profilePromises);
+      await this.loadProfiles();
       this.loadingService.setLoading(false);
     } catch (error) {
       console.log(error);
@@ -203,42 +170,50 @@ export class GroupsPageComponent implements OnInit {
         }
       });
 
-      const profiles = await this.getProfilesByGroup(
-        this.groupForm.value.selectedGroup.userId || '',
-        this.groupForm.value.selectedGroup.value.toString()
-      );
-      const profilePromises = profiles.map((profile) => {
-        return new Promise(async (resolve, reject) => {
-          try {
-            const sleepDataSnapshot =
-              await this.databaseService.getSleepDataPromise(
-                this.groupForm.value.selectedGroup.userId,
-                profile.id
-              );
-            const sleepData = sleepDataSnapshot.docs.map((doc) => doc.data());
-            const profileData = profile.data();
-            const status = await this.getStatusDevice(profileData.deviceSN);
-            resolve({
-              ...profileData,
-              sleepData,
-              status
-            });
-          } catch (error) {
-            reject(error);
-          }
-        });
-      });
-      const resultProfiles = await Promise.all(profilePromises);
-      resultProfiles.forEach((profile: any) => {
-        this.profiles.push(profile);
-      });
-      this.periodItems = this.helpersService.generatePeriods(this.profiles);
-      this.selectSleepData();
+      await this.loadProfiles();
       this.loadingService.setLoading(false);
     } catch (error) {
       console.log(error);
       this.loadingService.setLoading(false);
     }
+  }
+
+  async loadProfiles() {
+    const profiles = await this.getProfilesByGroup(
+      this.groupForm.value.selectedGroup.userId || '',
+      this.groupForm.value.selectedGroup.value.toString()
+    );
+    const profilePromises = profiles.map((profile) => {
+      return new Promise(async (resolve, reject) => {
+        try {
+          const sleepDataSnapshot =
+            await this.databaseService.getSleepDataPromise(
+              this.groupForm.value.selectedGroup.userId,
+              profile.id
+            );
+          const sleepData = sleepDataSnapshot.docs.map((doc) => doc.data());
+          const profileData = profile.data();
+          const status = await this.getStatusDevice(profileData.deviceSN);
+          resolve({
+            ...profileData,
+            sleepData,
+            status,
+          });
+        } catch (error) {
+          reject(error);
+        }
+      });
+    });
+    const resultProfiles = await Promise.all(profilePromises);
+    await Promise.all(profilePromises);
+    this.profiles = [];
+    resultProfiles.forEach((profile: any) => {
+      this.profiles.push(profile);
+    });
+    this.filteredProfiles = this.profiles;
+    this.periodItems = this.helpersService.generatePeriods(this.profiles);
+    this.selectSleepData();
+    this.filterProfiles();
   }
 
   getAllUsers(): Promise<any[]> {
@@ -283,18 +258,20 @@ export class GroupsPageComponent implements OnInit {
           deviceId
         );
         const liveData = liveDataSnapshot.docs.map((doc) => doc.data());
-        const mapLiveData: Status = !liveData.length ? {
-          status: 'Offline'
-        } : liveData.map(( data: any )=> {
-          if (data === 0) {
-            return {
-              status: 'Online'
+        const mapLiveData: Status = !liveData.length
+          ? {
+              status: 'Offline',
             }
-          }
-          return {
-            status: 'En actividad'
-          }
-        })[0];
+          : liveData.map((data: any) => {
+              if (data === 0) {
+                return {
+                  status: 'Online',
+                };
+              }
+              return {
+                status: 'En actividad',
+              };
+            })[0];
         resolve(mapLiveData);
       } catch (error) {
         reject(error);
@@ -331,7 +308,6 @@ export class GroupsPageComponent implements OnInit {
   }
 
   async selectGroup(groupId: string) {
-    debugger;
     const selectedGroup = this.groupsItems.find(
       (group) => group.value === groupId
     );
@@ -346,55 +322,21 @@ export class GroupsPageComponent implements OnInit {
     );
     this.selectedGroupIndex = groupIndex;
     this.loadingService.setLoading(true);
-    const profilesDocsSnapshot =
-      await this.databaseService.getProfilesByGroupPromise(
-        selectedGroup?.userId || '',
-        groupId
-      );
 
-    const profiles: Profile[] = [];
-    profilesDocsSnapshot.forEach((profileDoc) => {
-      const profileData: Profile = <Profile>profileDoc.data();
-      profiles.push(profileData);
-    });
-    const profilePromises = profiles.map((profile) => {
-      return new Promise(async (resolve, reject) => {
-        try {
-          const sleepDataSnapshot =
-            await this.databaseService.getSleepDataPromise(
-              this.groupForm.value.selectedGroup.userId,
-              profile.id
-            );
-          const sleepData = sleepDataSnapshot.docs.map((doc) => doc.data());
-          resolve({
-            ...profile,
-            sleepData,
-          });
-        } catch (error) {
-          reject(error);
-        }
-      });
-    });
-
-    const resultProfiles = await Promise.all(profilePromises);
-    this.profiles = [];
-    resultProfiles.forEach((profile: any) => {
-      this.profiles.push(profile);
-    });
-    this.periodItems = this.helpersService.generatePeriods(this.profiles);
-    this.selectSleepData();
+    await this.loadProfiles();
     this.loadingService.setLoading(false);
   }
 
   selectSleepData(selectedPeriod: string = this.periodForm.value.period) {
     this.profiles = this.profiles.map((profile) => {
-      const selectedSleepData = profile.sleepData.find(
-        (sd) => this.helpersService.formatTimestamp(sd.to) === selectedPeriod
-      );
+      const selectedSleepData = profile.sleepData.find((sd) => {
+        const periodData = this.helpersService.formatTimestampToDate(sd.to);
+        return periodData === selectedPeriod;
+      });
       const previousSleepData = profile.sleepData.find((sd) => {
         return (
           this.helpersService.compareDates(
-            this.helpersService.formatTimestamp(sd.to),
+            this.helpersService.formatTimestampToDate(sd.to),
             selectedPeriod
           ) === 1
         );
@@ -404,6 +346,28 @@ export class GroupsPageComponent implements OnInit {
         selectedSleepData,
         previousSleepData,
       };
+    });
+    this.filteredProfiles = this.profiles;
+  }
+
+  filterProfiles() {
+    this.filteredProfiles = this.profiles.filter(
+      (profile) =>
+        (profile.name
+          .toLowerCase()
+          .includes(this.filtersForm.value.searchByName.toLowerCase()) ||
+          profile.lastName
+            .toLowerCase()
+            .includes(this.filtersForm.value.searchByName.toLowerCase())) &&
+        (this.filtersForm.value.actualPeriod ? profile.selectedSleepData : true)
+    );
+    debugger
+    this.filteredProfiles.sort((a, b) => {
+      const scoreA = a.selectedSleepData?.sleep_score || 0;
+      const scoreB = b.selectedSleepData?.sleep_score || 0;
+
+      // Ordenar de forma descendente
+      return this.filtersForm.value.orderBy ? scoreB - scoreA : scoreA - scoreB;
     });
   }
 }

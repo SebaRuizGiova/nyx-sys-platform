@@ -64,7 +64,16 @@
     "30 days",
     "Historical"
   ],
-  "groupOrderByItems": ["Sleep score: high to low", "Sleep score: low to high"],
+  "groupOrderByItems": [
+    {
+      "label": "Sleep score: high to low",
+      "value": true
+    },
+    {
+      "label": "Sleep score: low to high",
+      "value": false
+    }
+  ],
   "groupPeriodSelect": "Select period",
   "groupForwardTooltip": "Go to the previous group",
   "groupNextTooltip": "Go to the next group",

@@ -65,8 +65,14 @@
     "Storico"
   ],
   "groupOrderByItems": [
-    "Punteggio sonno: alto a basso",
-    "Punteggio sonno: basso a alto"
+    {
+      "label": "Punteggio sonno: alto a basso",
+      "value": true
+    },
+    {
+      "label": "Punteggio sonno: basso a alto",
+      "value": false
+    }
   ],
   "groupPeriodSelect": "Seleziona periodo",
   "groupForwardTooltip": "Vai al gruppo precedente",

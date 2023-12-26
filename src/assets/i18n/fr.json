@@ -65,8 +65,14 @@
     "Historique"
   ],
   "groupOrderByItems": [
-    "Score de sommeil : élevé à bas",
-    "Score de sommeil : bas à élevé"
+    {
+      "label": "Score de sommeil : élevé à bas",
+      "value": true
+    },
+    {
+      "label": "Score de sommeil : bas à élevé",
+      "value": false
+    }
   ],
   "groupPeriodSelect": "Sélectionner la période",
   "groupForwardTooltip": "Aller au groupe précédent",

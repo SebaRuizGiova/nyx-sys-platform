@@ -84,7 +84,8 @@ export class DatabaseService {
       .collection(
         `/users/nyxsys/content/${userId}/players/${profileId}/Formated-SleepData`
       )
-      .ref.limit(7)
+      .ref.orderBy('to', 'desc')
+      .limit(7)
       .get();
   }
 
