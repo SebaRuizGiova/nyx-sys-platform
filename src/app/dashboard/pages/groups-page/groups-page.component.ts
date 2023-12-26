@@ -5,7 +5,7 @@ import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.compon
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
-import { Profile, SleepData } from '../../interfaces/profile.interface';
+import { Status, Profile, SleepData } from '../../interfaces/profile.interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { User } from '../../interfaces/user.interface';
 import { HelpersService } from 'src/app/shared/services/helpers.service';
@@ -141,10 +141,15 @@ export class GroupsPageComponent implements OnInit {
                 profile.id
               );
             const sleepData = sleepDataSnapshot.docs.map((doc) => doc.data());
+            // ? Fuera de la cama: Online
+            // ? Desconectado: Offline
+            // ? En la cama: En actividad
             const profileData = profile.data();
+            const status = await this.getStatusDevice(profileData.deviceSN);
             this.profiles.push({
               ...profileData,
               sleepData,
+              status
             });
             this.periodItems = this.helpersService.generatePeriods(
               this.profiles
@@ -212,9 +217,11 @@ export class GroupsPageComponent implements OnInit {
               );
             const sleepData = sleepDataSnapshot.docs.map((doc) => doc.data());
             const profileData = profile.data();
+            const status = await this.getStatusDevice(profileData.deviceSN);
             resolve({
               ...profileData,
               sleepData,
+              status
             });
           } catch (error) {
             reject(error);
@@ -263,6 +270,32 @@ export class GroupsPageComponent implements OnInit {
         const profilesSnapshot =
           await this.databaseService.getProfilesByGroupPromise(userId, teamId);
         resolve(profilesSnapshot.docs);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
+  getStatusDevice(deviceId: string): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const liveDataSnapshot = await this.databaseService.getLiveDataPromise(
+          deviceId
+        );
+        const liveData = liveDataSnapshot.docs.map((doc) => doc.data());
+        const mapLiveData: Status = !liveData.length ? {
+          status: 'Offline'
+        } : liveData.map(( data: any )=> {
+          if (data === 0) {
+            return {
+              status: 'Online'
+            }
+          }
+          return {
+            status: 'En actividad'
+          }
+        })[0];
+        resolve(mapLiveData);
       } catch (error) {
         reject(error);
       }
@@ -319,7 +352,7 @@ export class GroupsPageComponent implements OnInit {
         groupId
       );
 
-    const profiles: Profile[] = []
+    const profiles: Profile[] = [];
     profilesDocsSnapshot.forEach((profileDoc) => {
       const profileData: Profile = <Profile>profileDoc.data();
       profiles.push(profileData);

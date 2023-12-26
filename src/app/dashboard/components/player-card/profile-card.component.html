@@ -7,24 +7,33 @@
         : ("profileCardAnyDevice" | translate)
     }}</span>
     <span
-      *ngIf="status === 'Online' || status === 'Offline'; else active"
+      *ngIf="status === 'Offline'"
       class="status-device"
       [pTooltip]="status"
       tooltipPosition="left"
       [showDelay]="400"
       [style]="{
-        background: status === 'Online' ? '#1EE280' : '#898989'
+        background: '#898989'
       }"
     ></span>
-    <ng-template #active>
-      <img
-        src="assets/icons/heart-rate.svg"
-        class="status-device active"
-        [pTooltip]="status"
-        tooltipPosition="left"
-        [showDelay]="400"
-      />
-    </ng-template>
+    <span
+      *ngIf="status === 'Online'"
+      class="status-device"
+      [pTooltip]="status"
+      tooltipPosition="left"
+      [showDelay]="400"
+      [style]="{
+        background: '#1EE280'
+      }"
+    ></span>
+    <img
+      *ngIf="status === 'En actividad'"
+      src="assets/icons/heart-rate.svg"
+      class="status-device active"
+      [pTooltip]="status"
+      tooltipPosition="left"
+      [showDelay]="400"
+    />
   </div>
   <hr />
   <div class="card-content">
@@ -62,7 +71,10 @@
 
     <div class="value-content">
       <div class="value">
-        <div *ngIf="sna?.sympathetic && sna?.parasympathetic; else empty" class="sna">
+        <div
+          *ngIf="sna?.sympathetic && sna?.parasympathetic; else empty"
+          class="sna"
+        >
           <span
             [pTooltip]="'profileCardSNASTooltip' | translate"
             [showDelay]="400"

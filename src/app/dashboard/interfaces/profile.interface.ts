@@ -19,6 +19,7 @@ export interface Profile {
   sleepData: SleepData[];
   selectedSleepData: SleepData | undefined;
   previousSleepData: SleepData | undefined;
+  status: Status
 }
 
 export interface Birthdate {
@@ -112,4 +113,8 @@ export interface HrvRmssdDatum {
 export interface SleepDatum {
   timestamp: number;
   sleepType: number;
+}
+
+export interface Status {
+  status: string;
 }

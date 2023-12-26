@@ -13,9 +13,7 @@ export class DatabaseService {
   public selectedGroupIndex: number = 0;
   public profiles: Profile[] = [];
 
-  constructor(
-    private firestore: AngularFirestore
-  ) {}
+  constructor(private firestore: AngularFirestore) {}
 
   getAllUsers(): Observable<any> {
     return this.firestore
@@ -87,6 +85,14 @@ export class DatabaseService {
         `/users/nyxsys/content/${userId}/players/${profileId}/Formated-SleepData`
       )
       .ref.limit(7)
+      .get();
+  }
+
+  getLiveDataPromise(deviceId: string) {
+    return this.firestore
+      .collection(`/live-data/${deviceId}/data`)
+      .ref.orderBy('date_occurred', 'desc')
+      .limit(1)
       .get();
   }
 
