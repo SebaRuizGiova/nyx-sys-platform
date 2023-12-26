@@ -266,16 +266,34 @@ export class GroupsPageComponent implements OnInit {
 
         let mapLiveData: Status;
 
-        if (liveData.length === 0) {
+        if (
+          liveData.length === 0 &&
+          this.helpersService.compareDates(
+            this.helpersService.formatTimestampToDate(
+              liveData[0]?.date_occurred
+            ),
+            this.periodForm.value.period
+          ) === 0
+        ) {
           mapLiveData = { status: 'Offline' };
         } else if (
           onlineCondition &&
-          this.helpersService.compareDates(this.helpersService.formatTimestampToDate(liveData[0].date_occurred), this.periodForm.value.period)
+          this.helpersService.compareDates(
+            this.helpersService.formatTimestampToDate(
+              liveData[0]?.date_occurred
+            ),
+            this.periodForm.value.period
+          ) === 0
         ) {
           mapLiveData = { status: 'Online' };
         } else if (
           activityCondition &&
-          this.helpersService.compareDates(this.helpersService.formatTimestampToDate(liveData[0].date_occurred), this.periodForm.value.period)
+          this.helpersService.compareDates(
+            this.helpersService.formatTimestampToDate(
+              liveData[0].date_occurred
+            ),
+            this.periodForm.value.period
+          ) === 0
         ) {
           mapLiveData = { status: 'En actividad' };
         } else {
@@ -370,7 +388,6 @@ export class GroupsPageComponent implements OnInit {
             .includes(this.filtersForm.value.searchByName.toLowerCase())) &&
         (this.filtersForm.value.actualPeriod ? profile.selectedSleepData : true)
     );
-    debugger;
     this.filteredProfiles.sort((a, b) => {
       const scoreA = a.selectedSleepData?.sleep_score || 0;
       const scoreB = b.selectedSleepData?.sleep_score || 0;
