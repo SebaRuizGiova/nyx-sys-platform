@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable, map, forkJoin, from, mergeMap } from 'rxjs';
-import { AuthService } from 'src/app/auth/services/auth.service';
+import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
-import { HelpersService } from './helpers.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +14,7 @@ export class DatabaseService {
   public profiles: Profile[] = [];
 
   constructor(
-    private firestore: AngularFirestore,
-    private authService: AuthService,
-    private helpersService: HelpersService
+    private firestore: AngularFirestore
   ) {}
 
   getAllUsers(): Observable<any> {
@@ -32,55 +28,6 @@ export class DatabaseService {
     return this.firestore
       .collection(`users/${environment.client}/content`)
       .ref.get();
-  }
-
-  getProfilesByGroup(
-    groupId: string,
-    userId?: string,
-    limit: number = 7
-  ): Observable<any> {
-    return this.firestore
-      .collection(
-        `/users/${environment.client}/content/${
-          userId || this.authService.userId
-        }/players`
-      )
-      .get()
-      .pipe(
-        map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
-        map((profiles) => {
-          return profiles.filter((profile) => profile.teamID === groupId);
-        }),
-        map((profiles) => profiles.filter((profile) => !profile.hided)),
-        mergeMap((filteredProfiles) => {
-          const observables = filteredProfiles.map((filteredProfile) => {
-            const collectionRef = this.firestore.collection(
-              `/users/${environment.client}/content/${
-                userId || this.authService.userId
-              }/players/${filteredProfile.id}/Formated-SleepData`
-            ).ref;
-
-            // Aplica el límite de 10 documentos
-            return from(collectionRef.limit(limit).get()).pipe(
-              map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
-              map((sleepData) => {
-                const sortedSleepData = sleepData.sort((a, b) =>
-                  this.helpersService.compareDates(
-                    this.helpersService.formatTimestamp(a.to),
-                    this.helpersService.formatTimestamp(b.to)
-                  )
-                );
-                return {
-                  ...filteredProfile,
-                  sleepData: sortedSleepData,
-                };
-              })
-            );
-          });
-
-          return forkJoin(observables);
-        })
-      );
   }
 
   getProfilesByGroupPromise(userId: string, teamId: string) {

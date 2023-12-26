@@ -9,7 +9,7 @@ import { LoadingService } from 'src/app/shared/services/loading.service';
 import { User } from '../../interfaces/user.interface';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { Collaborator } from '../../interfaces/collaborator.interface';
-import { finalize, forkJoin, map, mergeMap, Observable } from 'rxjs';
+import { forkJoin, mergeMap } from 'rxjs';
 
 @Component({
   templateUrl: './admin-page.component.html',

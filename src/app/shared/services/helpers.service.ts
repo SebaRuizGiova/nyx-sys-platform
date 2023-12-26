@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
-
-interface SleepToMap {
-  [key: string]: string;
-}
-
 @Injectable({
   providedIn: 'root',
 })

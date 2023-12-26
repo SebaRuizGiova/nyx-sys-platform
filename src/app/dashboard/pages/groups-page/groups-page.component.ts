@@ -78,118 +78,6 @@ export class GroupsPageComponent implements OnInit {
       });
   }
 
-  // loadData() {
-  //   this.loadingService.setLoading(true);
-  //   if (this.authService.role === 'superAdmin') {
-  //     this.databaseService.getAllUsers().subscribe((users) => {
-  //       const observables = users.map((user: User) => {
-  //         return this.databaseService.getGroupsByUser(user.id).pipe(
-  //           map((groups) => groups.filter((group) => !group.hided)),
-  //           map((groups) =>
-  //             groups.map((group: any) => ({
-  //               label: group.teamName,
-  //               value: group.id,
-  //               userId: group.userID,
-  //             }))
-  //           )
-  //         );
-  //       });
-
-  //       forkJoin(observables)
-  //         .pipe(
-  //           mergeMap((formattedGroupsArray: any) => {
-  //             const formattedGroups = formattedGroupsArray.reduce(
-  //               (acc: any, groups: any) => acc.concat(groups),
-  //               []
-  //             );
-  //             this.groupsItems = formattedGroups;
-  //             this.databaseService.setGroupsList([
-  //               ...this.groupsItems,
-  //               ...formattedGroups,
-  //             ]);
-  //             if (this.groupsItems.length) {
-  //               let selectedGroup;
-  //               if (this.selectedGroupId) {
-  //                 selectedGroup = this.groupsItems.find(
-  //                   (group) => group.value === this.selectedGroupId
-  //                 );
-  //               } else {
-  //                 selectedGroup = this.groupsItems[0];
-  //               }
-  //               this.groupForm.patchValue({
-  //                 selectedGroup,
-  //               });
-  //               if (selectedGroup) {
-  //                 return this.databaseService.getProfilesByGroup(
-  //                   selectedGroup?.value.toString(),
-  //                   selectedGroup?.userId
-  //                 );
-  //               }
-  //             }
-  //             return of([]);
-  //           })
-  //         )
-  //         .subscribe({
-  //           next: (profiles: any) => {
-  //             this.profiles = profiles;
-  //             this.periodItems = this.helpersService.generatePeriods(
-  //               this.profiles
-  //             );
-  //             this.selectSleepData();
-  //             this.loadingService.setLoading(false);
-  //           },
-  //           error: (err) => console.log(err),
-  //         });
-  //     });
-  //   } else {
-  //     this.databaseService
-  //       .getGroupsByUser(this.authService.userId)
-  //       .pipe(
-  //         map((groups) => groups.filter((group) => !group.hided)),
-  //         map((groups) =>
-  //           groups.map((group: any) => ({
-  //             label: group.teamName,
-  //             value: group.id,
-  //             userId: group.userID,
-  //           }))
-  //         ),
-  //         mergeMap((groups) => {
-  //           this.groupsItems = groups;
-  //           this.databaseService.setGroupsList([
-  //             ...this.groupsItems,
-  //             ...groups,
-  //           ]);
-  //           if (this.groupsItems.length) {
-  //             let selectedGroup;
-  //             if (this.selectedGroupId) {
-  //               selectedGroup = this.groupsItems.find(
-  //                 (group) => group.value === this.selectedGroupId
-  //               );
-  //             } else {
-  //               selectedGroup = this.groupsItems[0];
-  //             }
-  //             this.groupForm.patchValue({
-  //               selectedGroup,
-  //             });
-  //             if (selectedGroup) {
-  //               this.loadingService.setLoading(true);
-  //               return this.databaseService.getProfilesByGroup(
-  //                 selectedGroup.value.toString()
-  //               );
-  //             }
-  //           }
-  //           return of([]);
-  //         })
-  //       )
-  //       .subscribe((profiles) => {
-  //         this.profiles = profiles;
-  //         this.periodItems = this.helpersService.generatePeriods(this.profiles);
-  //         this.selectSleepData();
-  //         this.loadingService.setLoading(false);
-  //       });
-  //   }
-  // }
-
   loadData() {
     if (this.authService.role === 'superAdmin') {
       this.loadDataAdmin();
@@ -317,25 +205,27 @@ export class GroupsPageComponent implements OnInit {
       const profilePromises = profiles.map((profile) => {
         return new Promise(async (resolve, reject) => {
           try {
-            const sleepDataSnapshot = await this.databaseService.getSleepDataPromise(this.groupForm.value.selectedGroup.userId, profile.id)
-            const sleepData = sleepDataSnapshot.docs.map(doc => doc.data());
+            const sleepDataSnapshot =
+              await this.databaseService.getSleepDataPromise(
+                this.groupForm.value.selectedGroup.userId,
+                profile.id
+              );
+            const sleepData = sleepDataSnapshot.docs.map((doc) => doc.data());
             const profileData = profile.data();
             resolve({
               ...profileData,
-              sleepData
+              sleepData,
             });
           } catch (error) {
             reject(error);
           }
-        })
+        });
       });
-      const resultProfiles = await Promise.all(profilePromises)
+      const resultProfiles = await Promise.all(profilePromises);
       resultProfiles.forEach((profile: any) => {
         this.profiles.push(profile);
-      })
-      this.periodItems = this.helpersService.generatePeriods(
-        this.profiles
-      );
+      });
+      this.periodItems = this.helpersService.generatePeriods(this.profiles);
       this.selectSleepData();
       this.loadingService.setLoading(false);
     } catch (error) {
@@ -389,10 +279,6 @@ export class GroupsPageComponent implements OnInit {
         this.groupForm.value.selectedGroup.value
       );
       this.selectedGroupIndex = this.selectedGroupIndex + 1;
-      localStorage.setItem(
-        'selectedGroupIndex',
-        this.selectedGroupIndex.toString()
-      );
       this.selectGroup(this.groupForm.value.selectedGroup.value);
     }
   }
@@ -407,15 +293,12 @@ export class GroupsPageComponent implements OnInit {
         this.groupForm.value.selectedGroup.value
       );
       this.selectedGroupIndex = this.selectedGroupIndex - 1;
-      localStorage.setItem(
-        'selectedGroupIndex',
-        this.selectedGroupIndex.toString()
-      );
       this.selectGroup(this.groupForm.value.selectedGroup.value);
     }
   }
 
-  selectGroup(groupId: string) {
+  async selectGroup(groupId: string) {
+    debugger;
     const selectedGroup = this.groupsItems.find(
       (group) => group.value === groupId
     );
@@ -429,21 +312,45 @@ export class GroupsPageComponent implements OnInit {
       (group) => group.value === groupId
     );
     this.selectedGroupIndex = groupIndex;
-    localStorage.setItem('selectedGroupIndex', groupIndex.toString());
     this.loadingService.setLoading(true);
-    this.databaseService
-      .getProfilesByGroup(
-        groupId,
-        this.authService.role === 'superAdmin'
-          ? selectedGroup?.userId
-          : undefined
-      )
-      .subscribe((profiles) => {
-        this.profiles = profiles;
-        this.periodItems = this.helpersService.generatePeriods(this.profiles);
-        this.selectSleepData();
-        this.loadingService.setLoading(false);
+    const profilesDocsSnapshot =
+      await this.databaseService.getProfilesByGroupPromise(
+        selectedGroup?.userId || '',
+        groupId
+      );
+
+    const profiles: Profile[] = []
+    profilesDocsSnapshot.forEach((profileDoc) => {
+      const profileData: Profile = <Profile>profileDoc.data();
+      profiles.push(profileData);
+    });
+    const profilePromises = profiles.map((profile) => {
+      return new Promise(async (resolve, reject) => {
+        try {
+          const sleepDataSnapshot =
+            await this.databaseService.getSleepDataPromise(
+              this.groupForm.value.selectedGroup.userId,
+              profile.id
+            );
+          const sleepData = sleepDataSnapshot.docs.map((doc) => doc.data());
+          resolve({
+            ...profile,
+            sleepData,
+          });
+        } catch (error) {
+          reject(error);
+        }
       });
+    });
+
+    const resultProfiles = await Promise.all(profilePromises);
+    this.profiles = [];
+    resultProfiles.forEach((profile: any) => {
+      this.profiles.push(profile);
+    });
+    this.periodItems = this.helpersService.generatePeriods(this.profiles);
+    this.selectSleepData();
+    this.loadingService.setLoading(false);
   }
 
   selectSleepData(selectedPeriod: string = this.periodForm.value.period) {
