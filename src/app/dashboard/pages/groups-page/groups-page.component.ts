@@ -188,7 +188,7 @@ export class GroupsPageComponent implements OnInit {
       return new Promise(async (resolve, reject) => {
         try {
           const sleepDataSnapshot =
-            await this.databaseService.getSleepDataPromise(
+            await this.databaseService.getSleepDataWithLimitPromise(
               this.groupForm.value.selectedGroup.userId,
               profile.id
             );
@@ -198,7 +198,7 @@ export class GroupsPageComponent implements OnInit {
           resolve({
             ...profileData,
             sleepData,
-            status,
+            liveData: status,
           });
         } catch (error) {
           reject(error);

@@ -30,6 +30,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { UserDropdownComponent } from './components/user-dropdown/user-dropdown.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { UserDropdownComponent } from './components/user-dropdown/user-dropdown.
     SettingsPageComponent,
     ModalComponent,
     UserDropdownComponent,
+    ProgressBarComponent,
   ],
   imports: [
     CommonModule,
@@ -75,7 +77,8 @@ import { UserDropdownComponent } from './components/user-dropdown/user-dropdown.
     DropdownComponent,
     CircleProgressBarComponent,
     LoadingComponent,
-    UserDropdownComponent
+    UserDropdownComponent,
+    ProgressBarComponent
   ]
 })
 export class SharedModule { }

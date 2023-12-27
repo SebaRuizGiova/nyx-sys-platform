@@ -19,7 +19,7 @@ export interface Profile {
   sleepData: SleepData[];
   selectedSleepData: SleepData | undefined;
   previousSleepData: SleepData | undefined;
-  status: Status
+  liveData: Status
 }
 
 export interface Birthdate {

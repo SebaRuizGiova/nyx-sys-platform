@@ -82,22 +82,22 @@ export class HelpersService {
   }
 
   getActualDate(): string {
-    const fechaActual = new Date();
+    const actualDate = new Date();
 
     // Obteniendo día, mes y año
-    const dia =
-      fechaActual.getDate() < 10
-        ? `0${fechaActual.getDate()}`
-        : `${fechaActual.getDate()}`;
-    const mes =
-      fechaActual.getMonth() + 1 < 10
-        ? `0${fechaActual.getMonth() + 1}`
-        : `${fechaActual.getMonth() + 1}`; // ¡Recuerda que los meses son base 0!
-    const año = fechaActual.getFullYear();
+    const day =
+      actualDate.getDate() < 10
+        ? `0${actualDate.getDate()}`
+        : `${actualDate.getDate()}`;
+    const month =
+      actualDate.getMonth() + 1 < 10
+        ? `0${actualDate.getMonth() + 1}`
+        : `${actualDate.getMonth() + 1}`; // ¡Recuerda que los meses son base 0!
+    const year = actualDate.getFullYear();
 
     // Construyendo la cadena de fecha en formato dd/MM/yyyy
-    const fechaFormateada = `${dia}/${mes}/${año}`;
+    const formattedDate = `${day}/${month}/${year}`;
 
-    return fechaFormateada;
+    return formattedDate;
   }
 }

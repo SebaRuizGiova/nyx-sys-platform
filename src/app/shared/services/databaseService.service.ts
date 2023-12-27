@@ -36,6 +36,13 @@ export class DatabaseService {
       .get();
   }
 
+  getProfileByGroupPromise(userId: string, profileId: string) {
+    return this.firestore
+      .collection(`/users/${environment.client}/content/${userId}/players`)
+      .doc(profileId)
+      .ref.get();
+  }
+
   getProfilesByUser(userId: string): Observable<any> {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/players`)
@@ -79,13 +86,22 @@ export class DatabaseService {
       .get();
   }
 
-  getSleepDataPromise(userId: string, profileId: string) {
+  getSleepDataWithLimitPromise(userId: string, profileId: string) {
     return this.firestore
       .collection(
         `/users/nyxsys/content/${userId}/players/${profileId}/Formated-SleepData`
       )
       .ref.orderBy('to', 'desc')
       .limit(7)
+      .get();
+  }
+
+  getSleepDataWithotLimitPromise(userId: string, profileId: string) {
+    return this.firestore
+      .collection(
+        `/users/nyxsys/content/${userId}/players/${profileId}/Formated-SleepData`
+      )
+      .ref.orderBy('to', 'desc')
       .get();
   }
 

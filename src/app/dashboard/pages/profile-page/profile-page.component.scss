@@ -99,16 +99,19 @@
   gap: 25px;
   width: 100%;
 
-  .grid-sup,
-  .grid-inf {
+  .grid-sup {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     gap: 25px;
   }
 
-  .grid-inf {
-    grid-template-rows: repeat(3, 1fr);
-  }
+  // .grid-inf {
+  //   display: grid;
+  //   grid-template-columns: repeat(4, 1fr);
+  //   grid-template-rows: repeat(3, 1fr);
+  //   gap: 25px;
+  // }
 
   .card {
     background: $grey-light;
@@ -122,6 +125,13 @@
     .card-header {
       text-align: start;
       font-size: 14px;
+
+      img {
+        width: 22px;
+        position: absolute;
+        top: 7px;
+        right: 10px;
+      }
     }
 
     .card-content {
@@ -148,12 +158,47 @@
         flex-wrap: wrap;
         justify-content: space-between;
 
+        &-grid {
+          font-size: 12px;
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+
+          .data-desc {
+            width: 100%;
+            margin-bottom: 8px;
+          }
+
+          .data-value {
+            grid-column: span 2;
+            display: flex;
+            justify-content: flex-end;
+          }
+
+          .data-progress {
+            grid-column: span 2;
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+
         .data-desc {
-          width: 60%;
+          width: 65%;
           margin-bottom: 8px;
+
+          &-progress {
+            width: 60%;
+            margin-bottom: 8px;
+          }
         }
 
         .data-value {
+          width: 35%;
+        }
+
+        .data-progress {
+          display: flex;
+          justify-content: space-between;
           width: 40%;
         }
       }
@@ -193,26 +238,34 @@
         }
       }
     }
-    // &.sleep-time {
-    // }
-    // &.sleep-arq {
-    // }
-    // &.recovery {
-    // }
-    // &.heart-rate {
-    // }
-    // &.ans {
-    // }
-    // &.respiratory-rate {
-    // }
+
     &.heart-rate-var {
-      grid-row: span 2;
+      // grid-row: span 1;
     }
-    // &.movement {
-    // }
+
     &.graphic {
       grid-column: span 3;
-      grid-row: span 3;
+      grid-row: span 2;
+    }
+  }
+}
+
+@media (max-width: 1380px) {
+  .main-content {
+    .grid-sup {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+
+    // .grid-inf {
+    //   grid-template-columns: repeat(3, 1fr);
+    // }
+
+    .card {
+      &.graphic {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
     }
   }
 }

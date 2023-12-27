@@ -12,7 +12,9 @@ interface SNA {
   styleUrls: ['./profile-card.component.scss']
 })
 export class ProfileCardComponent {
-  @Input() playerName: string = '';
+  @Input() profileId: string = '';
+  @Input() userId: string = '';
+  @Input() profileName: string = '';
   @Input() deviceName: string | boolean = '';
   @Input() status: string = '';
   @Input() sna: SNA | null = null;

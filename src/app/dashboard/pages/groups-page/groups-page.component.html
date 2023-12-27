@@ -123,7 +123,9 @@
 <main class="main-content">
   <dashboard-profile-card
     *ngFor="let profile of filteredProfiles"
-    [playerName]="profile.name + ' ' + profile.lastName"
+    [profileId]="profile.id"
+    [userId]="profile.userID"
+    [profileName]="profile.name + ' ' + profile.lastName"
     [deviceName]="profile.deviceSN"
     status="En actividad"
     [sna]="{
@@ -150,6 +152,6 @@
           : profile.selectedSleepData.sleep_score
         : 0
     "
-    [status]="profile.status ? profile.status.status : ''"
+    [status]="profile.liveData ? profile.liveData.status : ''"
   />
 </main>
