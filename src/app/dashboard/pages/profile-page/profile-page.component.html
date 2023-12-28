@@ -6,16 +6,15 @@
         position="left-bottom"
         pTooltip="Seleccionar perfil"
         tooltipPosition="right"
-        [items]="usersItems"
+        [items]="profilesItems"
         [formGroup]="userForm"
         formControlName="user"
-        [userData]="{
-        userName: 'Sebastian Ruiz',
-        device: '0043E1',
-        date: '21/12/2023',
-        age: '27',
-        status: 'Online',
-      }"
+        [userName]="profileData?.name + ' ' + profileData?.lastName"
+        [device]="profileData?.deviceSN === false ? undefined : profileData?.deviceSN?.toString()"
+        [date]="periodForm.value.period"
+        [age]="calculateAge(profileData?.birthdate)"
+        [status]="profileData?.liveData?.status"
+        (dropdownChange)="selectProfile($event)"
       />
     </form>
     <div class="header-actions">
@@ -43,6 +42,7 @@
             [items]="periodItems"
             [formGroup]="periodForm"
             formControlName="period"
+            (dropdownChange)="selectSleepData()"
           />
         </form>
       </div>
@@ -78,7 +78,7 @@
         </form>
         <form [formGroup]="gmtForm">
           <shared-select
-            [options]="gmtOptions"
+            [options]="gmtItems"
             placeholder="Seleccionar GMT"
             [formGroup]="gmtForm"
             formControlName="gmt"
@@ -99,7 +99,7 @@
       <hr />
       <div class="card-content">
         <div class="progress">
-          <shared-circle-progress-bar [sleepScore]="90" [xl]="true" />
+          <shared-circle-progress-bar [sleepScore]="profileData?.selectedSleepData?.sleep_score || 0" [xl]="true" />
           <p class="desc">
             Es fantástico ver que últimamente has prestado atención a tu sueño
             ¡Sigue así!
@@ -111,7 +111,7 @@
     <div class="card recovery">
       <div class="card-header">
         <span>Recuperación</span>
-        <img src="assets/icons/recovery.svg">
+        <img src="assets/icons/recovery.svg" />
       </div>
       <hr />
       <div class="card-content">
@@ -138,7 +138,7 @@
     <div class="card ans">
       <div class="card-header">
         <span>Balance del Sistema Nervioso Aut.</span>
-        <img src="assets/icons/ans.svg">
+        <img src="assets/icons/ans.svg" />
       </div>
       <hr />
       <div class="card-content">
@@ -170,7 +170,7 @@
     <div class="card heart-rate-var">
       <div class="card-header">
         <span>Variabilidad del ritmo cardíaco</span>
-        <img src="assets/icons/heart-rate-icon.svg">
+        <img src="assets/icons/heart-rate-icon.svg" />
       </div>
       <hr />
       <div class="card-content">
@@ -188,7 +188,7 @@
     <div class="card heart-rate">
       <div class="card-header">
         <span>Ritmo cardíaco</span>
-        <img src="assets/icons/heart-rate-icon.svg">
+        <img src="assets/icons/heart-rate-icon.svg" />
       </div>
       <hr />
       <div class="card-content">
@@ -206,7 +206,7 @@
     <div class="card respiratory-rate">
       <div class="card-header">
         <span>Ritmo respiratorio</span>
-        <img src="assets/icons/lungs.svg">
+        <img src="assets/icons/lungs.svg" />
       </div>
       <hr />
       <div class="card-content">
@@ -224,7 +224,7 @@
     <div class="card movement">
       <div class="card-header">
         <span>Movimiento</span>
-        <img src="assets/icons/movement.svg">
+        <img src="assets/icons/movement.svg" />
       </div>
       <hr />
       <div class="card-content">

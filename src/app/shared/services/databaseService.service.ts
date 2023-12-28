@@ -86,13 +86,13 @@ export class DatabaseService {
       .get();
   }
 
-  getSleepDataWithLimitPromise(userId: string, profileId: string) {
+  getSleepDataWithLimitPromise(userId: string, profileId: string, limit: number = 7) {
     return this.firestore
       .collection(
         `/users/nyxsys/content/${userId}/players/${profileId}/Formated-SleepData`
       )
       .ref.orderBy('to', 'desc')
-      .limit(7)
+      .limit(limit)
       .get();
   }
 
@@ -127,5 +127,6 @@ export class DatabaseService {
 
   setProfiles(profiles: Profile[]): void {
     this.profiles = profiles;
+    localStorage.setItem('profiles', JSON.stringify(profiles));
   }
 }

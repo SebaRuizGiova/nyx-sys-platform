@@ -215,6 +215,7 @@ export class GroupsPageComponent implements OnInit {
     this.periodItems = this.helpersService.generatePeriods(this.profiles);
     this.selectSleepData();
     this.filterProfiles();
+    this.databaseService.setProfiles(this.profiles);
   }
 
   getAllUsers(): Promise<any[]> {

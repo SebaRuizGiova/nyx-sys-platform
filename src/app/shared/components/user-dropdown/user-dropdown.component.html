@@ -2,12 +2,39 @@
   <div class="background" *ngIf="showPopup" (click)="tooglePopup()"></div>
   <div class="dropdown">
     <div class="user-button" (click)="tooglePopup()">
-      <span class="status"></span>
+      <span
+        *ngIf="status === 'Offline'"
+        class="status"
+        [pTooltip]="status"
+        tooltipPosition="right"
+        [showDelay]="400"
+        [style]="{
+          background: '#898989'
+        }"
+      ></span>
+      <span
+        *ngIf="status === 'Online'"
+        class="status"
+        [pTooltip]="status"
+        tooltipPosition="left"
+        [showDelay]="400"
+        [style]="{
+          background: '#1EE280'
+        }"
+      ></span>
+      <img
+        *ngIf="status === 'En actividad'"
+        src="assets/icons/heart-rate.svg"
+        class="status active"
+        [pTooltip]="status"
+        tooltipPosition="left"
+        [showDelay]="400"
+      />
       <div class="user-data">
-        <span>{{ userData?.userName }}</span>
-        <span>Dispositivo NS: {{ userData?.device }}</span>
-        <span>{{ userData?.date }}</span>
-        <span>{{ userData?.age }} años</span>
+        <span>{{ userName }}</span>
+        <span>Dispositivo NS: {{ device }}</span>
+        <span>{{ date }}</span>
+        <span>{{ age }} años</span>
       </div>
       <i class="pi pi-angle-down" style="font-size: 1rem"></i>
     </div>

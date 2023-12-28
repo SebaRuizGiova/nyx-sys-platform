@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { LanguageService } from 'src/app/shared/services/language.service';
-import { Profile, SleepData, Status } from '../../interfaces/profile.interface';
+import {
+  Birthdate,
+  Profile,
+  SleepData,
+  Status,
+} from '../../interfaces/profile.interface';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { LoadingService } from 'src/app/shared/services/loading.service';
 import { HelpersService } from 'src/app/shared/services/helpers.service';
@@ -29,23 +34,10 @@ export class ProfilePageComponent implements OnInit {
   });
 
   public periodItems: ItemDropdown[] = [];
-  public usersItems: ItemDropdown[] = [
-    {
-      label: 'Sebastian Ruiz',
-      value: 1,
-    },
-    {
-      label: 'Fernando Lerner',
-      value: 2,
-    },
-    {
-      label: 'Lucas Gonzalez',
-      value: 3,
-    },
-  ];
+  public profilesItems: ItemDropdown[] = [];
   public formatDownloadItems?: string[];
   public rangeDownloadItems?: string[];
-  public gmtOptions: string[] = [
+  public gmtItems: string[] = [
     'GMT -12:00',
     'GMT -11:00',
     'GMT -10:00',
@@ -73,24 +65,48 @@ export class ProfilePageComponent implements OnInit {
     'GMT +12:00',
   ];
 
+  public profileData?: Profile;
+
   constructor(
     private fb: FormBuilder,
     private languageService: LanguageService,
     private route: ActivatedRoute,
+    private router: Router,
     private databaseService: DatabaseService,
     private loadingService: LoadingService,
     private helpersService: HelpersService
-  ) {}
+  ) {
+    let profileItems: ItemDropdown[] = [];
 
-  public profileData?: Profile;
+    if (databaseService.profiles.length) {
+      profileItems = databaseService.profiles.map((profile) => ({
+        label: `${profile.name} ${profile.lastName}`,
+        value: profile.id,
+        userId: profile.userID
+      }));
+    } else {
+      let profilesItemsStorage = JSON.parse(localStorage.getItem('profiles') || '[]')
+
+      profileItems = profilesItemsStorage.map((profile: Profile) => ({
+        label: `${profile.name} ${profile.lastName}`,
+        value: profile.id,
+        userId: profile.userID
+      }));
+    }
+    this.profilesItems = profileItems;
+  }
 
   ngOnInit(): void {
-    this.loadTranslations();
-    const userId = this.route.snapshot.paramMap.get('userId') || '';
-    const profileId = this.route.snapshot.paramMap.get('profileId') || '';
+    this.route.paramMap.subscribe(params => {
+      const userId = params.get('userId') || '';
+      const profileId = params.get('profileId') || '';
 
-    this.loadData(userId, profileId);
-    setInterval(this.loadProfile.bind(this, userId, profileId), 30000)
+      // Llamada a las funciones que necesitas ejecutar con los nuevos parámetros
+      this.loadData(userId, profileId);
+      setInterval(() => this.loadProfile(userId, profileId), 30000);
+    });
+
+    this.loadTranslations();
   }
 
   private loadTranslations() {
@@ -124,9 +140,10 @@ export class ProfilePageComponent implements OnInit {
     this.profileData = <Profile>profileSnapshot.data();
 
     const sleepDataSnapshot =
-      await this.databaseService.getSleepDataWithotLimitPromise(
+      await this.databaseService.getSleepDataWithLimitPromise(
         userId,
-        profileId
+        profileId,
+        30
       );
     const sleepData = <SleepData[]>(
       sleepDataSnapshot.docs.map((doc) => doc.data())
@@ -134,57 +151,108 @@ export class ProfilePageComponent implements OnInit {
 
     this.profileData = {
       ...this.profileData,
-      sleepData
+      sleepData,
     };
 
     this.periodItems = this.helpersService.generatePeriods([this.profileData]);
+    this.selectSleepData();
 
-    const liveDataSnapshot = await this.databaseService.getLiveDataPromise(
-      typeof this.profileData.deviceSN === 'boolean'
-        ? ''
-        : this.profileData.deviceSN
-    );
+    if (this.profileData.deviceSN) {
+      const liveDataSnapshot = await this.databaseService.getLiveDataPromise(
+        typeof this.profileData.deviceSN === 'boolean'
+          ? ''
+          : this.profileData.deviceSN
+      );
 
-    const liveData = <LiveData[]>liveDataSnapshot.docs.map((doc) => doc.data());
+      const liveData = <LiveData[]>(
+        liveDataSnapshot.docs.map((doc) => doc.data())
+      );
 
-    const onlineCondition =
-      liveData.filter((data: any) => data.activity === 0).length >= 2;
-    const activityCondition =
-      liveData.filter((data: any) => data.activity !== 0).length >= 2;
+      const onlineCondition =
+        liveData.filter((data: any) => data.activity === 0).length >= 2;
+      const activityCondition =
+        liveData.filter((data: any) => data.activity !== 0).length >= 2;
 
-    let mapLiveData: Status;
+      let mapLiveData: Status;
 
-    if (
-      liveData.length === 0 &&
-      this.helpersService.compareDates(
-        this.helpersService.formatTimestampToDate(liveData[0]?.date_occurred),
-        this.periodForm.value.period
-      ) === 0
-    ) {
-      mapLiveData = { status: 'Offline' };
-    } else if (
-      onlineCondition &&
-      this.helpersService.compareDates(
-        this.helpersService.formatTimestampToDate(liveData[0]?.date_occurred),
-        this.periodForm.value.period
-      ) === 0
-    ) {
-      mapLiveData = { status: 'Online' };
-    } else if (
-      activityCondition &&
-      this.helpersService.compareDates(
-        this.helpersService.formatTimestampToDate(liveData[0].date_occurred),
-        this.periodForm.value.period
-      ) === 0
-    ) {
-      mapLiveData = { status: 'En actividad' };
-    } else {
-      mapLiveData = { status: 'Offline' };
+      if (
+        liveData.length === 0 &&
+        this.helpersService.compareDates(
+          this.helpersService.formatTimestampToDate(liveData[0]?.date_occurred),
+          this.periodForm.value.period
+        ) === 0
+      ) {
+        mapLiveData = { status: 'Offline' };
+      } else if (
+        onlineCondition &&
+        this.helpersService.compareDates(
+          this.helpersService.formatTimestampToDate(liveData[0]?.date_occurred),
+          this.periodForm.value.period
+        ) === 0
+      ) {
+        mapLiveData = { status: 'Online' };
+      } else if (
+        activityCondition &&
+        this.helpersService.compareDates(
+          this.helpersService.formatTimestampToDate(liveData[0].date_occurred),
+          this.periodForm.value.period
+        ) === 0
+      ) {
+        mapLiveData = { status: 'En actividad' };
+      } else {
+        mapLiveData = { status: 'Offline' };
+      }
+
+      this.profileData = {
+        ...this.profileData,
+        liveData: mapLiveData,
+      };
     }
+  }
 
-    this.profileData = {
-      ...this.profileData,
-      liveData: mapLiveData
-    };
+  selectSleepData() {
+    const selectedPeriod = this.periodForm.value.period;
+
+    if (this.profileData) {
+      const selectedSleepData = this.profileData.sleepData.find((sd) => {
+        const periodData = this.helpersService.formatTimestampToDate(sd.to);
+        return periodData === selectedPeriod;
+      });
+      const previousSleepData = this.profileData.sleepData.find((sd) => {
+        return (
+          this.helpersService.compareDates(
+            this.helpersService.formatTimestampToDate(sd.to),
+            selectedPeriod
+          ) === 1
+        );
+      });
+      this.profileData = {
+        ...this.profileData,
+        selectedSleepData,
+        previousSleepData,
+      };
+    }
+  }
+
+  calculateAge(birthdate: Birthdate | undefined): string {
+    if (birthdate) {
+      const birthdateInSeconds = birthdate.seconds;
+      const millisecondsInSecond = 1000;
+      const millisecondsInYear = 31536000000; // 1000 ms * 60 s * 60 min * 24 h * 365 days
+
+      const currentTimestamp = new Date().getTime() / millisecondsInSecond;
+
+      const ageMilliseconds =
+        currentTimestamp * millisecondsInSecond -
+        birthdateInSeconds * millisecondsInSecond;
+      const ageYears = Math.floor(ageMilliseconds / millisecondsInYear);
+
+      return ageYears.toString();
+    }
+    return '';
+  }
+
+  selectProfile(event: ItemDropdown) {
+    this.router.navigate(['/dashboard/profile/' + event.userId + '/' + event.value]);
   }
 }

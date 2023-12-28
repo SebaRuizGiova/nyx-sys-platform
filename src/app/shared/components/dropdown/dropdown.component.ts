@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { UserDataDropdown } from '../../interfaces/userDataDropdown.interface';
 
 export interface ItemDropdown {
   label: string;
@@ -31,8 +30,6 @@ export class DropdownComponent implements ControlValueAccessor {
   @Input() formGroup!: FormGroup;
   @Input() formControlName!: string;
   @Input() noButton: boolean = false;
-  @Input() user: boolean = false;
-  @Input() userData?: UserDataDropdown;
   @Input() secondaryAction?: Function;
   @Output() dropdownChange: EventEmitter<any> = new EventEmitter();
 

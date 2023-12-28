@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ItemDropdown } from '../dropdown/dropdown.component';
-import { UserDataDropdown } from '../../interfaces/userDataDropdown.interface';
 
 @Component({
   selector: 'shared-user-dropdown',
@@ -22,7 +21,11 @@ export class UserDropdownComponent implements ControlValueAccessor {
   @Input() items?: ItemDropdown[] = [];
   @Input() formGroup!: FormGroup;
   @Input() formControlName!: string;
-  @Input() userData?: UserDataDropdown;
+  @Input() userName?: string;
+  @Input() device?: string;
+  @Input() date?: string;
+  @Input() age?: string;
+  @Input() status?: string;
   @Input() secondaryAction?: Function;
   @Output() dropdownChange: EventEmitter<any> = new EventEmitter();
 
@@ -49,10 +52,10 @@ export class UserDropdownComponent implements ControlValueAccessor {
   }
 
   onDropdownChange(event: any): void {
-    this.innerValue = event.value;
+    this.innerValue = event;
     this.onChange(this.innerValue);
     this.onTouch();
     this.tooglePopup();
-    this.dropdownChange.emit(event.value);
+    this.dropdownChange.emit(event);
   }
 }
