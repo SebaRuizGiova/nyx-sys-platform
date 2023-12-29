@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
@@ -18,7 +18,7 @@ import { LiveData } from '../../interfaces/live-data.interface';
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss'],
 })
-export class ProfilePageComponent implements OnInit {
+export class ProfilePageComponent implements OnInit, OnDestroy {
   public periodForm: FormGroup = this.fb.group({
     period: this.helpersService.getActualDate(),
   });
@@ -67,6 +67,8 @@ export class ProfilePageComponent implements OnInit {
 
   public profileData?: Profile;
 
+  private intervalId: any;
+
   constructor(
     private fb: FormBuilder,
     private languageService: LanguageService,
@@ -103,10 +105,15 @@ export class ProfilePageComponent implements OnInit {
 
       // Llamada a las funciones que necesitas ejecutar con los nuevos parámetros
       this.loadData(userId, profileId);
-      setInterval(() => this.loadProfile(userId, profileId), 30000);
+      clearInterval(this.intervalId);
+      this.intervalId = setInterval(() => this.loadProfile(userId, profileId), 30000);
     });
 
     this.loadTranslations();
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
   }
 
   private loadTranslations() {
@@ -133,14 +140,14 @@ export class ProfilePageComponent implements OnInit {
   }
 
   async loadProfile(userId: string, profileId: string) {
-    const profileSnapshot = await this.databaseService.getProfileByGroupPromise(
+    const profileSnapshot = await this.databaseService.getProfileByGroupDoc(
       userId,
       profileId
     );
     this.profileData = <Profile>profileSnapshot.data();
 
     const sleepDataSnapshot =
-      await this.databaseService.getSleepDataWithLimitPromise(
+      await this.databaseService.getSleepDataWithLimitCollection(
         userId,
         profileId,
         30
@@ -158,7 +165,7 @@ export class ProfilePageComponent implements OnInit {
     this.selectSleepData();
 
     if (this.profileData.deviceSN) {
-      const liveDataSnapshot = await this.databaseService.getLiveDataPromise(
+      const liveDataSnapshot = await this.databaseService.getLiveDataCollection(
         typeof this.profileData.deviceSN === 'boolean'
           ? ''
           : this.profileData.deviceSN

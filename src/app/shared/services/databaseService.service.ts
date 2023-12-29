@@ -22,13 +22,13 @@ export class DatabaseService {
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
-  getAllUsersPromise() {
+  getAllUsersCollection() {
     return this.firestore
       .collection(`users/${environment.client}/content`)
       .ref.get();
   }
 
-  getProfilesByGroupPromise(userId: string, teamId: string) {
+  getProfilesByGroupCollection(userId: string, teamId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/players`)
       .ref.where('hided', '==', false)
@@ -36,7 +36,7 @@ export class DatabaseService {
       .get();
   }
 
-  getProfileByGroupPromise(userId: string, profileId: string) {
+  getProfileByGroupDoc(userId: string, profileId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/players`)
       .doc(profileId)
@@ -65,7 +65,7 @@ export class DatabaseService {
       .pipe(map((user) => user.data()));
   }
 
-  getUserDataPromise(userId: string) {
+  getUserDataDoc(userId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content`)
       .doc(userId)
@@ -79,14 +79,31 @@ export class DatabaseService {
       .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
   }
 
-  getGroupsByUserPromise(userId: string) {
+  getGroupByIdDoc(userId: string, groupId: string) {
+    return this.firestore
+      .collection(`/users/${environment.client}/content/${userId}/teams`)
+      .doc(groupId)
+      .ref
+      .get()
+  }
+
+  getFirstGroupCollection(userId: string) {
+    return this.firestore
+      .collection(`/users/${environment.client}/content/${userId}/teams`)
+      .ref
+      .where('hided', '==', false)
+      .limit(1)
+      .get()
+  }
+
+  getGroupsByUserCollection(userId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
       .ref.where('hided', '==', false)
       .get();
   }
 
-  getSleepDataWithLimitPromise(userId: string, profileId: string, limit: number = 7) {
+  getSleepDataWithLimitCollection(userId: string, profileId: string, limit: number = 7) {
     return this.firestore
       .collection(
         `/users/nyxsys/content/${userId}/players/${profileId}/Formated-SleepData`
@@ -96,7 +113,7 @@ export class DatabaseService {
       .get();
   }
 
-  getSleepDataWithotLimitPromise(userId: string, profileId: string) {
+  getSleepDataWithotLimitCollection(userId: string, profileId: string) {
     return this.firestore
       .collection(
         `/users/nyxsys/content/${userId}/players/${profileId}/Formated-SleepData`
@@ -105,7 +122,7 @@ export class DatabaseService {
       .get();
   }
 
-  getLiveDataPromise(deviceId: string, limit: number = 3) {
+  getLiveDataCollection(deviceId: string, limit: number = 3) {
     return this.firestore
       .collection(`/live-data/${deviceId}/data`)
       .ref.orderBy('date_occurred', 'desc')

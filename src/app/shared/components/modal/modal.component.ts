@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ModalComponent {
   @Input() title: string = '';
+  @Input() width: string = '50vw';
   @Input({ required: true }) showModal: boolean = false;
 }

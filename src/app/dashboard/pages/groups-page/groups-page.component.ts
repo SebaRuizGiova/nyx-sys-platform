@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
@@ -14,7 +14,7 @@ import { Group } from '../../interfaces/group.interface';
   templateUrl: './groups-page.component.html',
   styleUrls: ['./groups-page.component.scss'],
 })
-export class GroupsPageComponent implements OnInit {
+export class GroupsPageComponent implements OnInit, OnDestroy {
   public periodForm: FormGroup = this.fb.group({
     period: this.helpersService.getActualDate(),
   });
@@ -43,6 +43,9 @@ export class GroupsPageComponent implements OnInit {
   public profiles: Profile[] = [];
   public selectedSleepData?: SleepData;
 
+  private intervalId: any;
+  private firstCall: boolean = true;
+
   constructor(
     private fb: FormBuilder,
     private languageService: LanguageService,
@@ -58,7 +61,10 @@ export class GroupsPageComponent implements OnInit {
     });
     this.loadTranslations();
     this.loadData();
-    setInterval(this.loadProfiles.bind(this), 30000)
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
   }
 
   private loadTranslations() {
@@ -84,6 +90,9 @@ export class GroupsPageComponent implements OnInit {
       this.loadDataAdmin();
     } else {
       this.loadDataUser();
+    }
+    if (!this.firstCall) {
+      this.intervalId = setInterval(this.loadProfiles.bind(this), 30000);
     }
   }
 
@@ -187,14 +196,20 @@ export class GroupsPageComponent implements OnInit {
     const profilePromises = profiles.map((profile) => {
       return new Promise(async (resolve, reject) => {
         try {
-          const sleepDataSnapshot =
-            await this.databaseService.getSleepDataWithLimitPromise(
+          const sleepDataPromise =
+            this.databaseService.getSleepDataWithLimitCollection(
               this.groupForm.value.selectedGroup.userId,
               profile.id
             );
-          const sleepData = sleepDataSnapshot.docs.map((doc) => doc.data());
           const profileData = profile.data();
-          const status = await this.getStatusDevice(profileData.deviceSN);
+          const liveDataPromise = this.getStatusDevice(profileData.deviceSN);
+          const results = await Promise.all([
+            sleepDataPromise,
+            liveDataPromise,
+          ]);
+          const sleepDataSnapshot = results[0];
+          const sleepData = sleepDataSnapshot.docs.map((doc) => doc.data());
+          const status = results[1];
           resolve({
             ...profileData,
             sleepData,
@@ -206,7 +221,6 @@ export class GroupsPageComponent implements OnInit {
       });
     });
     const resultProfiles = await Promise.all(profilePromises);
-    await Promise.all(profilePromises);
     this.profiles = [];
     resultProfiles.forEach((profile: any) => {
       this.profiles.push(profile);
@@ -221,7 +235,7 @@ export class GroupsPageComponent implements OnInit {
   getAllUsers(): Promise<any[]> {
     return new Promise(async (resolve, reject) => {
       try {
-        const usersSnapshot = await this.databaseService.getAllUsersPromise();
+        const usersSnapshot = await this.databaseService.getAllUsersCollection();
         resolve(usersSnapshot.docs);
       } catch (error) {
         reject(error);
@@ -233,7 +247,7 @@ export class GroupsPageComponent implements OnInit {
     return new Promise(async (resolve, reject) => {
       try {
         const groupsSnapshot =
-          await this.databaseService.getGroupsByUserPromise(userId);
+          await this.databaseService.getGroupsByUserCollection(userId);
         resolve(groupsSnapshot.docs);
       } catch (error) {
         reject(error);
@@ -245,7 +259,7 @@ export class GroupsPageComponent implements OnInit {
     return new Promise(async (resolve, reject) => {
       try {
         const profilesSnapshot =
-          await this.databaseService.getProfilesByGroupPromise(userId, teamId);
+          await this.databaseService.getProfilesByGroupCollection(userId, teamId);
         resolve(profilesSnapshot.docs);
       } catch (error) {
         reject(error);
@@ -256,7 +270,7 @@ export class GroupsPageComponent implements OnInit {
   getStatusDevice(deviceId: string): Promise<any> {
     return new Promise(async (resolve, reject) => {
       try {
-        const liveDataSnapshot = await this.databaseService.getLiveDataPromise(
+        const liveDataSnapshot = await this.databaseService.getLiveDataCollection(
           deviceId
         );
         const liveData: any[] = liveDataSnapshot.docs.map((doc) => doc.data());

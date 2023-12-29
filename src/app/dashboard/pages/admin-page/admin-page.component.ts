@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { Profile } from '../../interfaces/profile.interface';
@@ -33,6 +33,14 @@ export class AdminPageComponent implements OnInit {
   public actionsUsersForm: FormGroup = this.fb.group({
     search: '',
   });
+  public addProfileForm: FormGroup = this.fb.group({
+    name: ['', Validators.required],
+    lastName: ['', Validators.required],
+    birthdate: ['', Validators.required],
+    gender: ['', Validators.required],
+    birthplace: ['', Validators.required],
+    user: ['', Validators.required]
+  })
 
   public profiles: Profile[] = [];
   public devices: Device[] = [];
@@ -51,6 +59,12 @@ export class AdminPageComponent implements OnInit {
   public dontShowHiddenGroups: boolean = false;
 
   public role: string = this.authService.role;
+
+  public showAddProfile: boolean = false;
+  public showAddDevice: boolean = false;
+  public showAddGroup: boolean = false;
+  public showAddCollaborator: boolean = false;
+  public showAddUser: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -274,5 +288,21 @@ export class AdminPageComponent implements OnInit {
         .toLowerCase()
         .includes(this.actionsUsersForm.value.search.toLowerCase());
     });
+  }
+
+  toggleAddProfile() {
+    this.showAddProfile = !this.showAddProfile;
+  }
+  toggleAddDevice() {
+    this.showAddDevice = !this.showAddDevice;
+  }
+  toggleAddGroup() {
+    this.showAddGroup = !this.showAddGroup;
+  }
+  toggleAddCollaborator() {
+    this.showAddCollaborator = !this.showAddCollaborator;
+  }
+  toggleAddUser() {
+    this.showAddUser = !this.showAddUser;
   }
 }

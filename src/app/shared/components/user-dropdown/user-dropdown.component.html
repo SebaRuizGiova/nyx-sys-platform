@@ -32,7 +32,7 @@
       />
       <div class="user-data">
         <span>{{ userName }}</span>
-        <span>Dispositivo NS: {{ device }}</span>
+        <span>{{ device ? 'Dispositivo NS: ' + device : 'Ningún dispositivo asociado' }}</span>
         <span>{{ date }}</span>
         <span>{{ age }} años</span>
       </div>

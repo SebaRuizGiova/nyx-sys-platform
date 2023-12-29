@@ -32,8 +32,8 @@
         .group-buttons {
           display: flex;
           gap: 10px;
-          border-right: 1px solid $grey-super-light;
-          padding-right: 10px;
+          border-left: 1px solid $grey-super-light;
+          padding-left: 10px;
         }
       }
 
@@ -126,11 +126,11 @@
       text-align: start;
       font-size: 14px;
 
-      img {
+      i {
         width: 22px;
         position: absolute;
-        top: 7px;
-        right: 10px;
+        top: 10px;
+        right: 5px;
       }
     }
 
@@ -153,6 +153,7 @@
       }
 
       .data {
+        width: 100%;
         font-size: 12px;
         display: flex;
         flex-wrap: wrap;

@@ -6,6 +6,7 @@
         <shared-button
           icon="pi-plus"
           [tooltipButton]="'adminAddProfileTooltip' | translate"
+          (click)="toggleAddProfile()"
         />
         <div class="icon" *ngIf="dontShowHiddenProfiles; else showProfiles">
           <i
@@ -376,3 +377,27 @@
     </p-table>
   </div>
 </div>
+<shared-modal [showModal]="showAddProfile" title="Añadir perfil" width="25vw">
+  <div class="modal-content" [formGroup]="addProfileForm">
+    <shared-input-text
+      [formGroup]="addProfileForm"
+      formControlName="name"
+      placeholder="Nombre"
+      [error]="false"
+      helper=""
+    />
+    <shared-input-text
+      [formGroup]="addProfileForm"
+      formControlName="lastName"
+      placeholder="Apellido"
+      [error]="false"
+      helper=""
+    />
+    <p-calendar
+      formControlName="birthdate"
+      dateFormat="dd/mm/yy"
+      placeholder="Fecha de nacimiento"
+      [showIcon]="true"
+    />
+  </div>
+</shared-modal>

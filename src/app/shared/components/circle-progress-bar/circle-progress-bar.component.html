@@ -12,7 +12,7 @@
     [showDelay]="400"
     class="value"
   >
-    {{ sleepScore }}
+    {{ sleepScore > 100 ? 100 : sleepScore }}
   </span>
   <round-progress
     [current]="sleepScore"
