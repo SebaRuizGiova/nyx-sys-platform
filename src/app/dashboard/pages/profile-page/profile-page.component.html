@@ -15,7 +15,6 @@
             ? undefined
             : profileData?.deviceSN?.toString()
         "
-        [date]="periodForm.value.period"
         [age]="calculateAge(profileData?.birthdate)"
         [status]="profileData?.liveData?.status"
         (dropdownChange)="selectProfile($event)"
@@ -132,9 +131,24 @@
       <div class="card-content">
         <div class="data">
           <div class="data-desc">Recuperación total</div>
-          <div class="data-value">+2.4</div>
+          <div class="data-value-between">
+            {{
+              profileData?.selectedSleepData?.hrv_data &&
+              profileData?.selectedSleepData?.hrv_data?.length
+                ? (profileData?.selectedSleepData)!.hrv_data[0].totalRecovery
+                : "No data"
+            }}
+          </div>
           <div class="data-desc">Recuperación integrada</div>
-          <div class="data-value">278.6 unidades</div>
+          <div class="data-value-between">
+            {{
+              profileData?.selectedSleepData?.hrv_data &&
+              (profileData?.selectedSleepData)!.hrv_data!.length > 1
+                ? (profileData?.selectedSleepData)!.hrv_data[1]
+                    .integratedRecovery + " unidades"
+                : "No data"
+            }}
+          </div>
         </div>
         <div class="alert">
           <i
@@ -143,7 +157,7 @@
           ></i>
           <p class="alert-desc">
             Tu HRV es mas alto de lo usual. Un Hrv alto indica que tu sistema
-            nervioso esta listo para manejar estrés y que te cuerpo esta en
+            nervioso esta listo para manejar estrés y que tu cuerpo esta en
             balance
           </p>
         </div>
@@ -163,13 +177,28 @@
         <div class="data">
           <div class="data-desc-progress">Parasimpático (Relajación)</div>
           <div class="data-progress">
-            <shared-progress-bar [progress]="100" width="75px" />
-            100%
+            <shared-progress-bar
+              [progress]="profileData?.selectedSleepData?.hrv_hf || 0"
+              width="75px"
+            />
+            {{
+              profileData?.selectedSleepData?.hrv_hf
+                ? profileData?.selectedSleepData?.hrv_hf + "%"
+                : "No data"
+            }}
           </div>
           <div class="data-desc-progress">Simpático (Estrés)</div>
           <div class="data-progress">
-            <shared-progress-bar [progress]="35" variant="dark" width="75px" />
-            35%
+            <shared-progress-bar
+              [progress]="profileData?.selectedSleepData?.hrv_lf || 0"
+              variant="dark"
+              width="75px"
+            />
+            {{
+              profileData?.selectedSleepData?.hrv_lf
+                ? profileData?.selectedSleepData?.hrv_lf + "%"
+                : "No data"
+            }}
           </div>
         </div>
         <div class="alert">
@@ -197,11 +226,29 @@
       <div class="card-content">
         <div class="data">
           <div class="data-desc">Noche</div>
-          <div class="data-value-between">35.1 RMSSD</div>
+          <div class="data-value-between">
+            {{
+              profileData?.selectedSleepData?.hrv_rmssd_evening
+                ? profileData?.selectedSleepData?.hrv_rmssd_evening + " RMSSD"
+                : "No data"
+            }}
+          </div>
           <div class="data-desc">Mañana</div>
-          <div class="data-value-between">33.8 RMSSD</div>
-          <div class="data-desc">Recuperación</div>
-          <div class="data-value-between">-1.3</div>
+          <div class="data-value-between">
+            {{
+              profileData?.selectedSleepData?.hrv_rmssd_morning
+                ? profileData?.selectedSleepData?.hrv_rmssd_morning + " RMSSD"
+                : "No data"
+            }}
+          </div>
+          <div class="data-desc">Promedio</div>
+          <div class="data-value-between">
+            {{
+              profileData?.selectedSleepData?.average_rmssd
+                ? profileData?.selectedSleepData?.average_rmssd + " RMSSD"
+                : "No data"
+            }}
+          </div>
         </div>
         <div class="graphic-card"></div>
       </div>
@@ -218,11 +265,17 @@
       <div class="card-content">
         <div class="data">
           <div class="data-desc">Bmp máx.</div>
-          <div class="data-value-between">122</div>
+          <div class="data-value-between">
+            {{ profileData?.selectedSleepData?.max_hr || "No data" }}
+          </div>
           <div class="data-desc">Bmp en reposo</div>
-          <div class="data-value-between">47</div>
+          <div class="data-value-between">
+            {{ profileData?.selectedSleepData?.min_hr || "No data" }}
+          </div>
           <div class="data-desc">Bmp promedio</div>
-          <div class="data-value-between">56.3</div>
+          <div class="data-value-between">
+            {{ profileData?.selectedSleepData?.avg_hr || "No data" }}
+          </div>
         </div>
         <div class="graphic-card"></div>
       </div>
@@ -239,11 +292,17 @@
       <div class="card-content">
         <div class="data">
           <div class="data-desc">Bmp máx.</div>
-          <div class="data-value-between">22</div>
+          <div class="data-value-between">
+            {{ profileData?.selectedSleepData?.max_rr || "No data" }}
+          </div>
           <div class="data-desc">Bmp en reposo</div>
-          <div class="data-value-between">7</div>
+          <div class="data-value-between">
+            {{ profileData?.selectedSleepData?.min_rr || "No data" }}
+          </div>
           <div class="data-desc">Bmp promedio</div>
-          <div class="data-value-between">16.8</div>
+          <div class="data-value-between">
+            {{ profileData?.selectedSleepData?.avg_rr || "No data" }}
+          </div>
         </div>
         <div class="graphic-card"></div>
       </div>
@@ -260,9 +319,13 @@
       <div class="card-content">
         <div class="data">
           <div class="data-desc">Movimientos y giros</div>
-          <div class="data-value-between">37</div>
+          <div class="data-value-between">
+            {{ profileData?.selectedSleepData?.tossnturn_count || "No data" }}
+          </div>
           <div class="data-desc">Promedio de actividad</div>
-          <div class="data-value-between">71.7</div>
+          <div class="data-value-between">
+            {{ profileData?.selectedSleepData?.avg_act || "No data" }}
+          </div>
         </div>
         <div class="graphic-card"></div>
       </div>
@@ -279,16 +342,32 @@
       <div class="card-content">
         <div class="data-grid">
           <div class="data-desc">En la cama</div>
-          <div class="data-value">08:18:09hs</div>
+          <div class="data-value">
+            {{ profileData?.selectedSleepData?.duration_in_bed || "No data" }}
+          </div>
           <div class="data-desc">Durmiendo</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="91" width="75px" />
-            07:52:30hs (91%)
+            {{
+              profileData?.selectedSleepData?.duration_in_sleep
+                ? profileData?.selectedSleepData?.duration_in_sleep +
+                  " (" +
+                  profileData?.selectedSleepData?.duration_in_sleep_percent +
+                  ")"
+                : "No data"
+            }}
           </div>
           <div class="data-desc">Despierto</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="9" variant="dark" width="75px" />
-            00:25:39hs (9%)
+            {{
+              profileData?.selectedSleepData?.duration_awake
+                ? profileData?.selectedSleepData?.duration_awake +
+                  " (" +
+                  profileData?.selectedSleepData?.duration_awake_percent +
+                  ")"
+                : "No data"
+            }}
           </div>
         </div>
         <div class="graphic-card"></div>
@@ -309,17 +388,38 @@
           <div class="data-desc">Ligero</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="56" width="75px" />
-            04:24:00hs (56%)
+            {{
+              profileData?.selectedSleepData?.duration_in_light
+                ? profileData?.selectedSleepData?.duration_in_light +
+                  " (" +
+                  profileData?.selectedSleepData?.duration_in_light_percent +
+                  ")"
+                : "No data"
+            }}
           </div>
           <div class="data-desc">Profundo</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="24" width="75px" />
-            01:52:00hs (24%)
+            {{
+              profileData?.selectedSleepData?.duration_in_deep
+                ? profileData?.selectedSleepData?.duration_in_deep +
+                  " (" +
+                  profileData?.selectedSleepData?.duration_in_deep_percent +
+                  ")"
+                : "No data"
+            }}
           </div>
           <div class="data-desc">REM</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="20" variant="dark" width="75px" />
-            01:36:30hs (20%)
+            {{
+              profileData?.selectedSleepData?.duration_in_rem
+                ? profileData?.selectedSleepData?.duration_in_rem +
+                  " (" +
+                  profileData?.selectedSleepData?.duration_in_rem_percent +
+                  ")"
+                : "No data"
+            }}
           </div>
         </div>
       </div>
@@ -346,4 +446,5 @@
       </div>
     </div>
   </div> -->
+  <!-- <app-bar-chart /> -->
 </main>

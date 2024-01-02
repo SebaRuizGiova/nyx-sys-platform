@@ -84,28 +84,33 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       profileItems = databaseService.profiles.map((profile) => ({
         label: `${profile.name} ${profile.lastName}`,
         value: profile.id,
-        userId: profile.userID
+        userId: profile.userID,
       }));
     } else {
-      let profilesItemsStorage = JSON.parse(localStorage.getItem('profiles') || '[]')
+      let profilesItemsStorage = JSON.parse(
+        localStorage.getItem('profiles') || '[]'
+      );
 
       profileItems = profilesItemsStorage.map((profile: Profile) => ({
         label: `${profile.name} ${profile.lastName}`,
         value: profile.id,
-        userId: profile.userID
+        userId: profile.userID,
       }));
     }
     this.profilesItems = profileItems;
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       const userId = params.get('userId') || '';
       const profileId = params.get('profileId') || '';
 
       this.loadData(userId, profileId);
       clearInterval(this.intervalId);
-      this.intervalId = setInterval(() => this.loadProfile(userId, profileId), 30000);
+      this.intervalId = setInterval(
+        () => this.loadProfile(userId, profileId),
+        30000
+      );
     });
 
     this.loadTranslations();
@@ -155,9 +160,70 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       sleepDataSnapshot.docs.map((doc) => doc.data())
     );
 
+    const formattedSleepData = sleepData.map((data) => {
+      const duration_in_sleep = this.helpersService.calcHoursSleepData(
+        data.duration_in_sleep
+      );
+      const duration_in_bed = this.helpersService.calcHoursSleepData(
+        data.duration_in_bed
+      );
+      const duration_awake = this.helpersService.calcHoursSleepData(
+        data.duration_awake
+      );
+      const duration_in_sleep_percent = this.helpersService.calcPercentHours(
+        data.duration_in_bed,
+        data.duration_in_sleep
+      );
+      const duration_awake_percent = this.helpersService.calcPercentHours(
+        data.duration_in_bed,
+        data.duration_awake
+      );
+      const average_rmssd = this.helpersService.calcAverage(
+        data.hrv_rmssd_data
+      );
+      const duration_in_light = this.helpersService.calcHoursSleepData(
+        data.duration_in_light
+      );
+      const duration_in_deep = this.helpersService.calcHoursSleepData(
+        data.duration_in_deep
+      );
+      const duration_in_rem = this.helpersService.calcHoursSleepData(
+        data.duration_in_rem
+      );
+
+      const duration_in_light_percent = this.helpersService.calcPercentHours(
+        data.duration_in_sleep,
+        data.duration_in_light,
+      );
+      const duration_in_deep_percent = this.helpersService.calcPercentHours(
+        data.duration_in_sleep,
+        data.duration_in_deep,
+      );
+      const duration_in_rem_percent = this.helpersService.calcPercentHours(
+        data.duration_in_sleep,
+        data.duration_in_rem,
+      );
+
+      return {
+        ...data,
+        duration_in_sleep,
+        duration_in_bed,
+        duration_awake,
+        duration_in_sleep_percent,
+        duration_awake_percent,
+        average_rmssd,
+        duration_in_light,
+        duration_in_deep,
+        duration_in_rem,
+        duration_in_light_percent,
+        duration_in_deep_percent,
+        duration_in_rem_percent,
+      };
+    });
+
     this.profileData = {
       ...this.profileData,
-      sleepData,
+      sleepData: formattedSleepData,
     };
 
     this.periodItems = this.helpersService.generatePeriods([this.profileData]);
@@ -185,7 +251,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         liveData.length === 0 &&
         this.helpersService.compareDates(
           this.helpersService.formatTimestampToDate(liveData[0]?.date_occurred),
-          this.periodForm.value.period
+          this.helpersService.getActualDate()
         ) === 0
       ) {
         mapLiveData = { status: 'Offline' };
@@ -193,7 +259,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         onlineCondition &&
         this.helpersService.compareDates(
           this.helpersService.formatTimestampToDate(liveData[0]?.date_occurred),
-          this.periodForm.value.period
+          this.helpersService.getActualDate()
         ) === 0
       ) {
         mapLiveData = { status: 'Online' };
@@ -201,7 +267,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         activityCondition &&
         this.helpersService.compareDates(
           this.helpersService.formatTimestampToDate(liveData[0].date_occurred),
-          this.periodForm.value.period
+          this.helpersService.getActualDate()
         ) === 0
       ) {
         mapLiveData = { status: 'En actividad' };
@@ -217,6 +283,12 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   }
 
   selectSleepData() {
+    if (this.profileData!.sleepData!.length) {
+      this.periodForm.patchValue({
+        period: this.helpersService.formatTimestampToDate(this.profileData!.sleepData[0]!.to || 0)
+      })
+    }
+
     const selectedPeriod = this.periodForm.value.period;
 
     if (this.profileData) {
@@ -259,6 +331,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   }
 
   selectProfile(event: ItemDropdown) {
-    this.router.navigate(['/dashboard/profile/' + event.userId + '/' + event.value]);
+    this.router.navigate([
+      '/dashboard/profile/' + event.userId + '/' + event.value,
+    ]);
   }
 }

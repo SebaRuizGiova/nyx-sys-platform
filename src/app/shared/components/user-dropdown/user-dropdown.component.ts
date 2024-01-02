@@ -23,7 +23,6 @@ export class UserDropdownComponent implements ControlValueAccessor {
   @Input() formControlName!: string;
   @Input() userName?: string;
   @Input() device?: string;
-  @Input() date?: string;
   @Input() age?: string;
   @Input() status?: string;
   @Input() secondaryAction?: Function;

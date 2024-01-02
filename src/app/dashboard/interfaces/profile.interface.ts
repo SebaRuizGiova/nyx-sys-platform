@@ -36,8 +36,10 @@ export interface Birthplace {
 }
 export interface SleepData {
   sleep_data?:           SleepDatum[];
-  duration_in_light?:    number;
-  duration_in_sleep?:    number;
+  duration_in_light?:    number | string;
+  duration_in_light_percent?:    number | string;
+  duration_in_sleep?:    number | string;
+  duration_in_sleep_percent?:    number | string;
   max_hr:                number;
   duration_sleep_onset?: number;
   to:                    number;
@@ -46,21 +48,25 @@ export interface SleepData {
   min_hr:                number;
   id:                    string;
   hrv_rmssd_data:        HrvRmssdDatum[];
-  duration_awake?:       number;
+  duration_awake?:       number | string;
+  duration_awake_percent?: number | string;
+  average_rmssd?: number | string;
   sleep_score?:          number;
-  duration_in_deep?:     number;
+  duration_in_deep?:     number | string;
+  duration_in_deep_percent?:     number | string;
   awakenings?:           number;
   from_gmt_offset:       number;
   hrv_rmssd_morning:     number;
   avg_rr:                number;
   from:                  number;
   fm_count:              number;
-  duration_in_rem?:      number;
+  duration_in_rem?:      number | string;
+  duration_in_rem_percent?:      number | string;
   hrv_lf:                number;
   max_rr:                number;
   hrv_score:             number;
   calc_data:             CalcDatum[];
-  duration_in_bed:       number;
+  duration_in_bed:       number | string;
   avg_act:               number;
   hrv_rmssd_evening:     number;
   fm_data:               string;

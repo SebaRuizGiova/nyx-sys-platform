@@ -91,9 +91,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
     } else {
       this.loadDataUser();
     }
-    if (!this.firstCall) {
-      this.intervalId = setInterval(this.loadProfiles.bind(this), 30000);
-    }
+    this.intervalId = setInterval(() => this.loadProfiles(), 30000);
   }
 
   async loadDataAdmin() {
@@ -235,7 +233,8 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   getAllUsers(): Promise<any[]> {
     return new Promise(async (resolve, reject) => {
       try {
-        const usersSnapshot = await this.databaseService.getAllUsersCollection();
+        const usersSnapshot =
+          await this.databaseService.getAllUsersCollection();
         resolve(usersSnapshot.docs);
       } catch (error) {
         reject(error);
@@ -259,7 +258,10 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
     return new Promise(async (resolve, reject) => {
       try {
         const profilesSnapshot =
-          await this.databaseService.getProfilesByGroupCollection(userId, teamId);
+          await this.databaseService.getProfilesByGroupCollection(
+            userId,
+            teamId
+          );
         resolve(profilesSnapshot.docs);
       } catch (error) {
         reject(error);
@@ -270,9 +272,8 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   getStatusDevice(deviceId: string): Promise<any> {
     return new Promise(async (resolve, reject) => {
       try {
-        const liveDataSnapshot = await this.databaseService.getLiveDataCollection(
-          deviceId
-        );
+        const liveDataSnapshot =
+          await this.databaseService.getLiveDataCollection(deviceId);
         const liveData: any[] = liveDataSnapshot.docs.map((doc) => doc.data());
 
         const onlineCondition =
@@ -288,7 +289,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
             this.helpersService.formatTimestampToDate(
               liveData[0]?.date_occurred
             ),
-            this.periodForm.value.period
+            this.helpersService.getActualDate()
           ) === 0
         ) {
           mapLiveData = { status: 'Offline' };
@@ -298,7 +299,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
             this.helpersService.formatTimestampToDate(
               liveData[0]?.date_occurred
             ),
-            this.periodForm.value.period
+            this.helpersService.getActualDate()
           ) === 0
         ) {
           mapLiveData = { status: 'Online' };
@@ -308,7 +309,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
             this.helpersService.formatTimestampToDate(
               liveData[0].date_occurred
             ),
-            this.periodForm.value.period
+            this.helpersService.getActualDate()
           ) === 0
         ) {
           mapLiveData = { status: 'En actividad' };

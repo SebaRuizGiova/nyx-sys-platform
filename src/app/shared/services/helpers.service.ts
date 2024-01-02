@@ -100,4 +100,30 @@ export class HelpersService {
 
     return formattedDate;
   }
+
+  calcHoursSleepData(time: any) {
+    if (time) {
+      return new Date(time * 1000).toISOString().substr(11, 8) + 'hs';
+    } else {
+      return '';
+    }
+  }
+
+  calcPercentHours(timeInBed: any, time: any) {
+    return Math.floor((time / timeInBed) * 100) + '%';
+  }
+
+  calcAverage(hrvArray: any[]) {
+    let rmssd = [];
+    if (hrvArray.length) {
+      rmssd = hrvArray.map((hrv) => Number(hrv.rmssd));
+
+      let sum = 0;
+      rmssd?.forEach((data) => {
+        sum = Number(sum) + Number(data);
+      });
+      return (Number(sum) / rmssd?.length).toFixed(1);
+    }
+    return 0;
+  }
 }

@@ -132,13 +132,13 @@
     [sna]="{
       sympathetic:
         profile.selectedSleepData &&
-        profile.selectedSleepData.hrv_rmssd_data?.length
-          ? profile.selectedSleepData.hrv_rmssd_data[0].lf
+        profile.selectedSleepData.hrv_lf
+          ? profile.selectedSleepData.hrv_lf
           : null,
       parasympathetic:
         profile.selectedSleepData &&
-        profile.selectedSleepData.hrv_rmssd_data?.length
-          ? profile.selectedSleepData.hrv_rmssd_data[0].hf
+        profile.selectedSleepData.hrv_hf
+          ? profile.selectedSleepData.hrv_hf
           : null
     }"
     [recovery]="
