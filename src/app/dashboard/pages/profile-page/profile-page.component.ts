@@ -103,7 +103,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       const userId = params.get('userId') || '';
       const profileId = params.get('profileId') || '';
 
-      // Llamada a las funciones que necesitas ejecutar con los nuevos parámetros
       this.loadData(userId, profileId);
       clearInterval(this.intervalId);
       this.intervalId = setInterval(() => this.loadProfile(userId, profileId), 30000);

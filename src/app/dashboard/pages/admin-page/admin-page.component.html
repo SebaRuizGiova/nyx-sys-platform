@@ -122,6 +122,7 @@
         <shared-button
           icon="pi-plus"
           [tooltipButton]="'adminAddDeviceTooltip' | translate"
+          (click)="toggleAddDevice()"
         />
         <span class="p-input-icon-right">
           <input
@@ -377,6 +378,8 @@
     </p-table>
   </div>
 </div>
+
+<!-- MODAL AÑADIR PERFIL -->
 <shared-modal [showModal]="showAddProfile" title="Añadir perfil" width="25vw">
   <div class="modal-content" [formGroup]="addProfileForm">
     <shared-input-text
@@ -439,6 +442,40 @@
         label="Cancelar"
         variant="secondary"
         (click)="toggleAddProfile()"
+      />
+    </div>
+  </div>
+</shared-modal>
+
+<!-- MODAL AÑADIR DISPOSITIVO -->
+<shared-modal [showModal]="showAddDevice" title="Añadir dispositivo" width="25vw">
+  <div class="modal-content" [formGroup]="addDeviceForm">
+    <shared-input-text
+      [formGroup]="addDeviceForm"
+      formControlName="serialNumber"
+      placeholder="Numero de serie"
+      [error]="false"
+      helper=""
+    />
+    <shared-input-text
+      [formGroup]="addDeviceForm"
+      formControlName="verificationCode"
+      placeholder="Codigo de verificacion"
+      [error]="false"
+      helper=""
+    />
+    <shared-select
+      [options]="usersItems"
+      placeholder="Seleccionar usuario"
+      [formGroup]="addDeviceForm"
+      formControlName="user"
+    />
+    <div class="buttons-modal">
+      <shared-button label="Guardar" />
+      <shared-button
+        label="Cancelar"
+        variant="secondary"
+        (click)="toggleAddDevice()"
       />
     </div>
   </div>

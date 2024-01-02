@@ -43,6 +43,11 @@ export class AdminPageComponent implements OnInit {
     birthplace: ['', Validators.required],
     user: ['', Validators.required]
   })
+  public addDeviceForm: FormGroup = this.fb.group({
+    serialNumber: ['', [Validators.required, Validators.minLength(6)]],
+    verificationCode: ['', [Validators.required, Validators.minLength(5)]],
+    user: ['', Validators.required]
+  })
 
   public profiles: Profile[] = [];
   public devices: Device[] = [];
