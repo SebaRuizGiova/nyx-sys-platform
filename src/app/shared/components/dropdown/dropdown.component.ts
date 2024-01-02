@@ -5,6 +5,7 @@ export interface ItemDropdown {
   label: string;
   value: string | number;
   userId?: string;
+  img?: string;
 }
 
 @Component({

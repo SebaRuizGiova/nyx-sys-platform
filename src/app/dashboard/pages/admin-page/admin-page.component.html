@@ -3,11 +3,6 @@
     <div class="card-header">
       <p class="title-table">{{ "adminProfilesTitle" | translate }}</p>
       <div class="actions-header" [formGroup]="actionsProfilesForm">
-        <shared-button
-          icon="pi-plus"
-          [tooltipButton]="'adminAddProfileTooltip' | translate"
-          (click)="toggleAddProfile()"
-        />
         <div class="icon" *ngIf="dontShowHiddenProfiles; else showProfiles">
           <i
             class="pi pi-eye"
@@ -28,6 +23,11 @@
             ></i>
           </div>
         </ng-template>
+        <shared-button
+          icon="pi-plus"
+          [tooltipButton]="'adminAddProfileTooltip' | translate"
+          (click)="toggleAddProfile()"
+        />
         <span class="p-input-icon-right">
           <input
             type="text"
@@ -99,10 +99,6 @@
     <div class="card-header">
       <p class="title-table">{{ "adminDevicesTitle" | translate }}</p>
       <div class="actions-header" [formGroup]="actionsDevicesForm">
-        <shared-button
-          icon="pi-plus"
-          [tooltipButton]="'adminAddDeviceTooltip' | translate"
-        />
         <div class="icon" *ngIf="dontShowHiddenDevices; else showDevices">
           <i
             class="pi pi-eye"
@@ -123,6 +119,10 @@
             ></i>
           </div>
         </ng-template>
+        <shared-button
+          icon="pi-plus"
+          [tooltipButton]="'adminAddDeviceTooltip' | translate"
+        />
         <span class="p-input-icon-right">
           <input
             type="text"
@@ -189,10 +189,6 @@
     <div class="card-header">
       <p class="title-table">{{ "adminGroupsTitle" | translate }}</p>
       <div class="actions-header" [formGroup]="actionsGroupsForm">
-        <shared-button
-          icon="pi-plus"
-          [tooltipButton]="'adminAddGroupTooltip' | translate"
-        />
         <div class="icon" *ngIf="dontShowHiddenGroups; else showGroups">
           <i
             class="pi pi-eye"
@@ -213,6 +209,10 @@
             ></i>
           </div>
         </ng-template>
+        <shared-button
+          icon="pi-plus"
+          [tooltipButton]="'adminAddGroupTooltip' | translate"
+        />
         <span class="p-input-icon-right">
           <input
             type="text"
@@ -399,5 +399,47 @@
       placeholder="Fecha de nacimiento"
       [showIcon]="true"
     />
+    <shared-select
+      [options]="genderItems"
+      placeholder="Género"
+      [formGroup]="addProfileForm"
+      formControlName="gender"
+    />
+    <p-dropdown
+      [options]="countriesItems"
+      optionLabel="label"
+      placeholder="Lugar de nacimiento"
+      formControlName="birthplace"
+    >
+      <ng-template pTemplate="selectedItem">
+        <div class="dropdown-item" *ngIf="addProfileForm.value.birthplace">
+          <img
+            [src]="addProfileForm.value.birthplace.img"
+            style="width: 18px"
+          />
+          <div>{{ addProfileForm.value.birthplace.label }}</div>
+        </div>
+      </ng-template>
+      <ng-template let-country pTemplate="item">
+        <div class="dropdown-item">
+          <img [src]="country.img" style="width: 18px" />
+          <div>{{ country.label }}</div>
+        </div>
+      </ng-template>
+    </p-dropdown>
+    <shared-select
+      [options]="usersItems"
+      placeholder="Seleccionar usuario"
+      [formGroup]="addProfileForm"
+      formControlName="user"
+    />
+    <div class="buttons-modal">
+      <shared-button label="Guardar" />
+      <shared-button
+        label="Cancelar"
+        variant="secondary"
+        (click)="toggleAddProfile()"
+      />
+    </div>
   </div>
 </shared-modal>

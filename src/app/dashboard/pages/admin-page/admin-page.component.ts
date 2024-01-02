@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { forkJoin, mergeMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { Profile } from '../../interfaces/profile.interface';
@@ -9,7 +11,7 @@ import { LoadingService } from 'src/app/shared/services/loading.service';
 import { User } from '../../interfaces/user.interface';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { Collaborator } from '../../interfaces/collaborator.interface';
-import { forkJoin, mergeMap } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: './admin-page.component.html',
@@ -65,16 +67,35 @@ export class AdminPageComponent implements OnInit {
   public showAddGroup: boolean = false;
   public showAddCollaborator: boolean = false;
   public showAddUser: boolean = false;
+  public genderItems: ItemDropdown[] = [
+    {
+      label: 'Masculino',
+      value: 'M'
+    },
+    {
+      label: 'Femenino',
+      value: 'F'
+    },
+    {
+      label: 'Otro',
+      value: 'O'
+    },
+  ];
+  public usersItems: ItemDropdown[] = [];
+  public countriesItems: ItemDropdown[] = [];
 
   constructor(
     private fb: FormBuilder,
     private databaseService: DatabaseService,
     private authService: AuthService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private http: HttpClient,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
     this.loadData();
+    this.getCountries();
   }
 
   loadData() {
@@ -144,6 +165,10 @@ export class AdminPageComponent implements OnInit {
         mergeMap((users) => {
           this.users = users;
           this.filteredUsers = users;
+          this.usersItems = this.users.map(user => ({
+            label: user.nickName,
+            value: user.id
+          }))
           const profilesObservables = users.map((user: User) => {
             const profiles$ = this.databaseService.getProfilesByUser(user.id);
             const devices$ = this.databaseService.getDevicesByUser(user.id);
@@ -304,5 +329,58 @@ export class AdminPageComponent implements OnInit {
   }
   toggleAddUser() {
     this.showAddUser = !this.showAddUser;
+  }
+
+  getCountries(): void {
+    const url = 'https://restcountries.com/v3.1/all';
+
+    this.http.get<any[]>(url).subscribe(
+      (countries) => {
+        this.countriesItems = countries.map(country => {
+          let formattedCountry = {
+            label: '',
+            value: '',
+            img: ''
+          };
+
+          if (this.translateService.currentLang === 'es') {
+            formattedCountry = {
+              label: country.translations.spa.common,
+              value: country.cca3,
+              img: country.flags.svg || country.flags.png
+            };
+          } else if (this.translateService.currentLang === 'en') {
+            formattedCountry = {
+              label: country.name.common,
+              value: country.cca3,
+              img: country.flags.svg || country.flags.png
+            };
+          } else if (this.translateService.currentLang === 'it') {
+            formattedCountry = {
+              label: country.translations.ita.common,
+              value: country.cca3,
+              img: country.flags.svg || country.flags.png
+            };
+          } else if (this.translateService.currentLang === 'de') {
+            formattedCountry = {
+              label: country.translations.deu.common,
+              value: country.cca3,
+              img: country.flags.svg || country.flags.png
+            };
+          } else if (this.translateService.currentLang === 'fr') {
+            formattedCountry = {
+              label: country.translations.fra.common,
+              value: country.cca3,
+              img: country.flags.svg || country.flags.png
+            };
+          }
+          return formattedCountry;
+        })
+        this.countriesItems = this.countriesItems.sort((a, b) => a.label.localeCompare(b.label));
+      },
+      (error) => {
+        console.error('Error al obtener la lista de países:', error);
+      }
+    );
   }
 }

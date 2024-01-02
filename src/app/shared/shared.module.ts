@@ -79,7 +79,8 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     LoadingComponent,
     UserDropdownComponent,
     ProgressBarComponent,
-    ModalComponent
+    ModalComponent,
+    DropdownModule
   ]
 })
 export class SharedModule { }
