@@ -213,6 +213,7 @@
         <shared-button
           icon="pi-plus"
           [tooltipButton]="'adminAddGroupTooltip' | translate"
+          (click)="toggleAddGroup()"
         />
         <span class="p-input-icon-right">
           <input
@@ -279,6 +280,7 @@
         <shared-button
           icon="pi-plus"
           [tooltipButton]="'adminAddCollaboratorTooltip' | translate"
+          (click)="toggleAddCollaborator()"
         />
         <span class="p-input-icon-right">
           <input
@@ -331,6 +333,7 @@
         <shared-button
           icon="pi-plus"
           [tooltipButton]="'adminAddUserTooltip' | translate"
+          (click)="toggleAddUser()"
         />
         <span class="p-input-icon-right">
           <input
@@ -448,7 +451,11 @@
 </shared-modal>
 
 <!-- MODAL AÑADIR DISPOSITIVO -->
-<shared-modal [showModal]="showAddDevice" title="Añadir dispositivo" width="25vw">
+<shared-modal
+  [showModal]="showAddDevice"
+  title="Añadir dispositivo"
+  width="25vw"
+>
   <div class="modal-content" [formGroup]="addDeviceForm">
     <shared-input-text
       [formGroup]="addDeviceForm"
@@ -476,6 +483,131 @@
         label="Cancelar"
         variant="secondary"
         (click)="toggleAddDevice()"
+      />
+    </div>
+  </div>
+</shared-modal>
+
+<!-- MODAL AÑADIR GRUPO -->
+<shared-modal [showModal]="showAddGroup" title="Añadir grupo" width="25vw">
+  <div class="modal-content" [formGroup]="addGroupForm">
+    <shared-input-text
+      [formGroup]="addGroupForm"
+      formControlName="name"
+      placeholder="Nombre"
+      [error]="false"
+      helper=""
+    />
+    <shared-select
+      [options]="genderItems"
+      placeholder="GMT"
+      [formGroup]="addGroupForm"
+      formControlName="gmt"
+    />
+    <shared-select
+      [options]="usersItems"
+      placeholder="Seleccionar usuario"
+      [formGroup]="addGroupForm"
+      formControlName="user"
+    />
+    <div class="buttons-modal">
+      <shared-button label="Guardar" />
+      <shared-button
+        label="Cancelar"
+        variant="secondary"
+        (click)="toggleAddGroup()"
+      />
+    </div>
+  </div>
+</shared-modal>
+
+<!-- MODAL AÑADIR COLABORADOR -->
+<shared-modal
+  [showModal]="showAddCollaborator"
+  title="Añadir colaborador"
+  width="25vw"
+>
+  <div class="modal-content" [formGroup]="addCollaboratorForm">
+    <shared-input-text
+      [formGroup]="addCollaboratorForm"
+      formControlName="email"
+      placeholder="Email"
+      [error]="false"
+      helper=""
+    />
+    <shared-input-password
+      placeholder="Contraseña"
+      helper=""
+      [error]="false"
+      [formGroup]="addCollaboratorForm"
+      formControlName="password"
+    />
+    <shared-input-password
+      placeholder="Confirmar contraseña"
+      helper=""
+      [error]="false"
+      [formGroup]="addCollaboratorForm"
+      formControlName="confirmPassword"
+    />
+    <shared-input-text
+      [formGroup]="addCollaboratorForm"
+      formControlName="alias"
+      placeholder="Alias"
+      [error]="false"
+      helper=""
+    />
+    <shared-select
+      [options]="genderItems"
+      placeholder="Seleccionar rol"
+      [formGroup]="addCollaboratorForm"
+      formControlName="role"
+    />
+    <shared-select
+      [options]="usersItems"
+      placeholder="Seleccionar usuario"
+      [formGroup]="addCollaboratorForm"
+      formControlName="user"
+    />
+    <div class="buttons-modal">
+      <shared-button label="Guardar" />
+      <shared-button
+        label="Cancelar"
+        variant="secondary"
+        (click)="toggleAddCollaborator()"
+      />
+    </div>
+  </div>
+</shared-modal>
+
+<!-- MODAL AÑADIR USUARIO -->
+<shared-modal [showModal]="showAddUser" title="Añadir usuario" width="25vw">
+  <div class="modal-content" [formGroup]="addUserForm">
+    <shared-input-text
+      [formGroup]="addUserForm"
+      formControlName="email"
+      placeholder="Email"
+      [error]="false"
+      helper=""
+    />
+    <shared-input-text
+      [formGroup]="addUserForm"
+      formControlName="alias"
+      placeholder="Alias"
+      [error]="false"
+      helper=""
+    />
+    <shared-select
+      [options]="genderItems"
+      placeholder="Seleccionar rol"
+      [formGroup]="addUserForm"
+      formControlName="role"
+    />
+    <div class="buttons-modal">
+      <shared-button label="Guardar" />
+      <shared-button
+        label="Cancelar"
+        variant="secondary"
+        (click)="toggleAddUser()"
       />
     </div>
   </div>

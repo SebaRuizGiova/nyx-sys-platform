@@ -12,6 +12,7 @@ import { User } from '../../interfaces/user.interface';
 import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.component';
 import { Collaborator } from '../../interfaces/collaborator.interface';
 import { TranslateService } from '@ngx-translate/core';
+import { ValidatorsService } from 'src/app/shared/services/validators.service';
 
 @Component({
   templateUrl: './admin-page.component.html',
@@ -41,13 +42,39 @@ export class AdminPageComponent implements OnInit {
     birthdate: ['', Validators.required],
     gender: ['', Validators.required],
     birthplace: ['', Validators.required],
-    user: ['', Validators.required]
-  })
+    user: ['', Validators.required],
+  });
   public addDeviceForm: FormGroup = this.fb.group({
     serialNumber: ['', [Validators.required, Validators.minLength(6)]],
     verificationCode: ['', [Validators.required, Validators.minLength(5)]],
-    user: ['', Validators.required]
-  })
+    user: ['', Validators.required],
+  });
+  public addGroupForm: FormGroup = this.fb.group({
+    name: ['', Validators.required],
+    gmt: ['', Validators.required],
+    user: ['', Validators.required],
+  });
+  public addCollaboratorForm: FormGroup = this.fb.group({
+    email: [
+      '',
+      Validators.required,
+      Validators.pattern(this.validatorsService.emailPattern),
+    ],
+    password: ['', Validators.required],
+    confirmPassword: ['', Validators.required],
+    alias: ['', Validators.required],
+    role: ['', Validators.required],
+    user: ['', Validators.required],
+  });
+  public addUserForm: FormGroup = this.fb.group({
+    email: [
+      '',
+      Validators.required,
+      Validators.pattern(this.validatorsService.emailPattern),
+    ],
+    alias: ['', Validators.required],
+    role: ['', Validators.required],
+  });
 
   public profiles: Profile[] = [];
   public devices: Device[] = [];
@@ -75,15 +102,15 @@ export class AdminPageComponent implements OnInit {
   public genderItems: ItemDropdown[] = [
     {
       label: 'Masculino',
-      value: 'M'
+      value: 'M',
     },
     {
       label: 'Femenino',
-      value: 'F'
+      value: 'F',
     },
     {
       label: 'Otro',
-      value: 'O'
+      value: 'O',
     },
   ];
   public usersItems: ItemDropdown[] = [];
@@ -95,7 +122,8 @@ export class AdminPageComponent implements OnInit {
     private authService: AuthService,
     private loadingService: LoadingService,
     private http: HttpClient,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private validatorsService: ValidatorsService
   ) {}
 
   ngOnInit(): void {
@@ -170,10 +198,10 @@ export class AdminPageComponent implements OnInit {
         mergeMap((users) => {
           this.users = users;
           this.filteredUsers = users;
-          this.usersItems = this.users.map(user => ({
+          this.usersItems = this.users.map((user) => ({
             label: user.nickName,
-            value: user.id
-          }))
+            value: user.id,
+          }));
           const profilesObservables = users.map((user: User) => {
             const profiles$ = this.databaseService.getProfilesByUser(user.id);
             const devices$ = this.databaseService.getDevicesByUser(user.id);
@@ -204,10 +232,10 @@ export class AdminPageComponent implements OnInit {
           collaborators = [...collaborators, result[3]];
         });
 
-        const groupsOptions = groups.map(group => ({
+        const groupsOptions = groups.map((group) => ({
           label: group.teamName,
-          value: group.id
-        }))
+          value: group.id,
+        }));
 
         this.profiles = profiles;
         this.filteredProfiles = profiles;
@@ -249,13 +277,15 @@ export class AdminPageComponent implements OnInit {
       });
     }
     if (this.dontShowHiddenProfiles) {
-      this.filteredProfiles = this.filteredProfiles.filter(profile => !profile.hided)
+      this.filteredProfiles = this.filteredProfiles.filter(
+        (profile) => !profile.hided
+      );
     }
   }
 
   toggleHiddenProfiles() {
     this.dontShowHiddenProfiles = !this.dontShowHiddenProfiles;
-    this.filterProfiles()
+    this.filterProfiles();
   }
 
   filterDevices(groupId?: string) {
@@ -276,7 +306,9 @@ export class AdminPageComponent implements OnInit {
       });
     }
     if (this.dontShowHiddenDevices) {
-      this.filteredDevices = this.filteredDevices.filter(device => !device.hided)
+      this.filteredDevices = this.filteredDevices.filter(
+        (device) => !device.hided
+      );
     }
   }
 
@@ -292,7 +324,7 @@ export class AdminPageComponent implements OnInit {
         .includes(this.actionsGroupsForm.value.search.toLowerCase());
     });
     if (this.dontShowHiddenGroups) {
-      this.filteredGroups = this.filteredGroups.filter(group => !group.hided)
+      this.filteredGroups = this.filteredGroups.filter((group) => !group.hided);
     }
   }
 
@@ -341,47 +373,49 @@ export class AdminPageComponent implements OnInit {
 
     this.http.get<any[]>(url).subscribe(
       (countries) => {
-        this.countriesItems = countries.map(country => {
+        this.countriesItems = countries.map((country) => {
           let formattedCountry = {
             label: '',
             value: '',
-            img: ''
+            img: '',
           };
 
           if (this.translateService.currentLang === 'es') {
             formattedCountry = {
               label: country.translations.spa.common,
               value: country.cca3,
-              img: country.flags.svg || country.flags.png
+              img: country.flags.svg || country.flags.png,
             };
           } else if (this.translateService.currentLang === 'en') {
             formattedCountry = {
               label: country.name.common,
               value: country.cca3,
-              img: country.flags.svg || country.flags.png
+              img: country.flags.svg || country.flags.png,
             };
           } else if (this.translateService.currentLang === 'it') {
             formattedCountry = {
               label: country.translations.ita.common,
               value: country.cca3,
-              img: country.flags.svg || country.flags.png
+              img: country.flags.svg || country.flags.png,
             };
           } else if (this.translateService.currentLang === 'de') {
             formattedCountry = {
               label: country.translations.deu.common,
               value: country.cca3,
-              img: country.flags.svg || country.flags.png
+              img: country.flags.svg || country.flags.png,
             };
           } else if (this.translateService.currentLang === 'fr') {
             formattedCountry = {
               label: country.translations.fra.common,
               value: country.cca3,
-              img: country.flags.svg || country.flags.png
+              img: country.flags.svg || country.flags.png,
             };
           }
           return formattedCountry;
-        })
-        this.countriesItems = this.countriesItems.sort((a, b) => a.label.localeCompare(b.label));
+        });
+        this.countriesItems = this.countriesItems.sort((a, b) =>
+          a.label.localeCompare(b.label)
+        );
       },
       (error) => {
         console.error('Error al obtener la lista de países:', error);
