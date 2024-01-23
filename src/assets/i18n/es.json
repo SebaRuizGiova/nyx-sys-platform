@@ -29,14 +29,28 @@
   "sidebarSettings": "Configuración",
   "sidebarLanguage": "Idioma",
   "languagesDropdown": [
-    { "name": "Español", "code": "es" },
-    { "name": "Inglés", "code": "en" },
-    { "name": "Italiano", "code": "it" },
-    { "name": "Alemán", "code": "de" },
-    { "name": "Francés", "code": "fr" }
+    {
+      "name": "Español",
+      "code": "es"
+    },
+    {
+      "name": "Inglés",
+      "code": "en"
+    },
+    {
+      "name": "Italiano",
+      "code": "it"
+    },
+    {
+      "name": "Alemán",
+      "code": "de"
+    },
+    {
+      "name": "Francés",
+      "code": "fr"
+    }
   ],
   "sidebarSignOut": "Cerrar sesión",
-
   "loginWelcome": "Bienvenido/a",
   "loginForget": "Restablecer contraseña",
   "loginPlaceholderEmail": "Email",
@@ -55,7 +69,6 @@
   "loginToastErrorSendEmail": "Hubo un error al enviar el email",
   "ToastTitleCorrect": "Correcto",
   "ToastTitleError": "Error",
-
   "groupFormatDownloadItems": [
     "PDF",
     "Excel"
@@ -92,7 +105,6 @@
   "groupShowCurrentPeriod": "Mostrar solo perfiles con un periodo actual",
   "groupDeleteFilters": "Borrar filtros",
   "groupApplyFilters": "Aplicar filtros",
-
   "profileCardDeviceName": "Dispositivo NS: ",
   "profileCardAnyDevice": "Ningún dispositivo asociado",
   "profileCardRecoveryDescription": "Recuperación",
@@ -103,28 +115,22 @@
   "profileCardSNADescriptionTooltip": "El sistema nervioso autónomo controla las funciones de tu cuerpo; se divide en simpático y el parasimpático",
   "profileCardSNASTooltip": "Sistema Simpático, controla tu respuesta física activa",
   "profileCardSNAPTooltip": "Sistema parasimpático, regula el descanso y el metabolismo",
-
   "sleepScoreTooltip": "Puntaje basado en la cantidad de horas de sueño y sus fases Ligero, Profundo y REM",
   "sleepScoreTooltipDiamond": "Puntaje de sueño óptimo",
-
   "adminProfilesTitle": "Perfiles",
   "adminDevicesTitle": "Dispositivos",
   "adminGroupsTitle": "Grupos",
   "adminCollaboratorsTitle": "Colaboradores",
   "adminUsersTitle": "Usuarios",
-
   "adminColumnName": "Nombre",
   "adminColumnLastName": "Apellido",
   "adminColumnSerialNumber": "Número de serie",
   "adminColumnLinked": "Vinculado/a",
   "adminColumnStatus": "Estado",
   "adminColumnRole": "Rol",
-
   "adminNotLinked": "No vinculado",
-
   "adminSearchPlaceholder": "Buscar...",
   "adminFilterPlaceholder": "Filtrar por grupo",
-
   "adminAddProfileTooltip": "Añadir perfil",
   "adminShowAllProfilesTooltip": "Mostrar perfiles ocultos",
   "adminHideAllProfilesTooltip": "No mostrar perfiles ocultos",
@@ -132,13 +138,11 @@
   "adminHideProfileTooltip": "Ocultar perfil",
   "adminEditProfileTooltip": "Editar perfil",
   "adminDeleteProfileTooltip": "Eliminar perfil",
-
   "adminAddDeviceTooltip": "Añadir dispositivo",
   "adminShowAllDevicesTooltip": "Mostrar dispositivos ocultos",
   "adminHideAllDevicesTooltip": "No mostrar dispositivos ocultos",
   "adminDeleteDeviceTooltip": "Eliminar dispositivo",
   "adminEditDeviceTooltip": "Editar dispositivo",
-
   "adminAddGroupTooltip": "Añadir grupo",
   "adminShowAllGroupsTooltip": "Mostrar grupos ocultos",
   "adminHideAllGroupsTooltip": "No mostrar grupos ocultos",
@@ -146,85 +150,100 @@
   "adminHideGroupTooltip": "Ocultar grupo",
   "adminEditGroupTooltip": "Editar grupo",
   "adminDeleteGroupTooltip": "Eliminar grupo",
-
   "adminAddCollaboratorTooltip": "Añadir colaborador",
   "adminDeleteCollaboratorTooltip": "Eliminar colaborador",
-
   "adminAddUserTooltip": "Añadir usuario",
   "adminEditUserTooltip": "Editar usuario",
   "adminDeleteUserTooltip": "Eliminar usuario",
-
+  "adminModalAddProfileName": "Nombre",
+  "adminModalAddProfileLastname": "Apellido",
+  "adminModalAddProfileBirthDate": "Fecha de nacimiento",
+  "adminModalAddProfileGender": "Género",
+  "adminModalAddProfileBirthplace": "Lugar de nacimiento",
+  "adminModalAddProfileUser": "Seleccionar usuario",
+  "adminModalAddProfileGroup": "Seleccionar grupo",
+  "adminModalAddDeviceSerialNumber": "Número de serie",
+  "adminModalAddDeviceCode": "Código de verificación",
+  "adminModalAddDeviceUser": "Seleccionar usuario",
+  "adminModalAddGroupName": "Nombre",
+  "adminModalAddGroupGMT": "GMT",
+  "adminModalAddGroupUser": "Seleccionar usuario",
+  "adminModalAddCollaboratorEmail": "Email",
+  "adminModalAddCollaboratorPassword": "Contraseña",
+  "adminModalAddCollaboratorConfirmPassword": "Confirmar contraseña",
+  "adminModalAddCollaboratorAlias": "Alias",
+  "adminModalAddCollaboratorRole": "Seleccionar rol",
+  "adminModalAddCollaboratorUser": "Seleccionar usuario",
+  "adminModalAddUserEmail": "Email",
+  "adminModalAddUserAlias": "Alias",
+  "adminModalAddUserRole": "Seleccionar rol",
+  "adminModalSave": "Guardar",
+  "adminModalCancel": "Cancelar",
+  "adminModalGenderItems": [
+    {
+      "label": "Masculino",
+      "value": "M"
+    },
+    {
+      "label": "Femenino",
+      "value": "F"
+    },
+    {
+      "label": "Otro",
+      "value": "O"
+    }
+  ],
   "settingsHelpCardTitle": "Tutoriales y FAQs",
   "settingsContactCardTitle": "Contacto",
   "settingsPasswordCardTitle": "Cambio de contraseña",
-
   "settingsVideoCorrectUse": "Uso correcto del dispositivo",
   "settingsVideoRoute": "Recorrido por la plataforma",
-
   "settingsPdfInstructions": "Instrucciones de instalación y uso",
   "settingsPdfGuide": "Guía rápida",
   "settingsPdfTooltip": "Descargar PDF",
-
   "settingsFAQ1Title": "¿Cómo sé si mi dispositivo está conectado a internet?",
   "settingsFAQ1Desc": "Comprueba que el led verde ubicado en el frente del dispositivo esté encendido, si no, comprueba el estado de tu red de internet. ",
-
   "settingsFAQ2Title": "El perfil no aparece en el panel grupal.",
   "settingsFAQ2Desc": "Comprueba en el panel de administración que el perfil no esté “oculto”.",
-
   "settingsFAQ3Title": "Cuando estoy conectando el dispositivo a internet, al ingresar la contraseña del mismo, obtengo un error de “contraseña incorrecta”.",
   "settingsFAQ3Desc": "Recuerda que al ingresar la contraseña del dispositivo, también debes incluir los guiones medios, es decir, debes introducir la contraseña exactamente como está escrita, aquí un ejemplo: “xxxx-xxxx-xxx”.",
-
   "settingsFAQ4Title": "¿Dónde debe colocarse el sensor?",
   "settingsFAQ4Desc": "El sensor debe instalarse exclusivamente debajo del colchón o cubrecolchón. Para captar una señal más fuerte, la parte central del sensor (la banda plástica) debe ubicarse directamente debajo o a la altura del corazón del usuario cuando está acostado.\n\nSi tiene una cama doble y son dos personas durmiendo, debe colocar el sensor lo más cerca posible del borde de la cama con el cable hacia un lado, de forma paralela a su cuerpo, siempre con la mayor parte de la banda ubicada a la altura del corazón. En caso que se utilice una cama doble pero sólo duerma el usuario, se recomienda ubicar el sensor en forma perpendicular al usuario, siempre a la altura del corazón, pero posicionando el dispositivo de un lado u otro de la cama o más en el centro, de acuerdo a las preferencias de posición del usuario en la cama.\n\nEvite que el cable pase por el medio de la cama, ya que puede provocar señales equívocas.",
-
   "settingsFAQ5Title": "¿El dispositivo tiene que estar siempre conectado a la corriente?",
   "settingsFAQ5Desc": "El dispositivo utiliza una cantidad insignificante de energía, por lo que no es necesario desconectarlo para ahorrar electricidad.\n\nSi desea desconectarlo mientras no lo utiliza, hágalo solo 10 minutos después de salir de la cama, para que el dispositivo tenga tiempo suficiente para enviar el evento de salida de la cama a nuestros servidores. De lo contrario, pueden producirse periodos de presencia excesivamente largos. De igual manera cuando vuelve a conectarse al momento de ir a dormir, debe hacerse 10 minutos antes de su presencia en la cama.",
-
   "settingsFAQ6Title": "Si apago el dispositivo y vuelvo a encenderlo ¿se reconecta automáticamente a la red wifi a la que estaba previamente conectado?",
   "settingsFAQ6Desc": "Si la red wifi es la misma que la última a la que se conectó el dispositivo, no hay necesidad de volver a configurar el dispositivo.",
-
   "settingsFAQ7Title": "¿Cómo puedo ver resultados de noches anteriores?",
   "settingsFAQ7Desc": "Toda la información de sus noches la encontrará disponible en la plataforma Nyx-Sys, clickeando en el ícono -X- del panel individual.",
-
   "settingsFAQ8Title": "¿Qué significa el mensaje de error con el ícono -X- que indica que algunos datos de la noche no han podido ser procesados?",
   "settingsFAQ8Desc": "La pérdida de datos durante un período de sueño, puede deberse a múltiples factores, usualmente los más comunes son:\n\n\t- Una baja señal del dispositivo. Para solucionarlo debe volver a posicionar el dispositivo debajo de su cama de acuerdo a las recomendaciones dadas en el punto X.\n\n\t- En caso de compartir una cama doble con una segunda persona, el dispositivo registró datos de ambas personas y generó datos equívocos o superpuestos.\n\n\t- Hubo un corte en el suministro eléctrico durante el registro.",
-
   "settingsFAQ9Title": "¿Qué significa la luz roja parpadeante en el dispositivo?",
   "settingsFAQ9Desc": "Generalmente los destellos rojos son una indicación de problemas de conexión a la red. Si esas interrupciones son de corta duración, no debería preocuparse.",
-
   "settingsFAQ10Title": "¿Qué sucede si se corta internet?",
   "settingsFAQ10Desc": "Si la conexión a Internet se pierde temporalmente, la memoria interna registrará hasta 12 horas de datos, cuando se restablezca la conexión, los datos se envían a la nube para ser procesados.",
-
   "settingsFAQ11Title": "¿Puedo utilizar el sensor en una cama doble?",
   "settingsFAQ11Desc": "Sí, puedes utilizar el dispositivo en una cama doble. Sin embargo, el extremo del cable del sensor debe instalarse lo más cerca posible del borde, ya que es posible que los movimientos de su cónyuge provoquen un registro de presencia más prolongado después de que usted se levanta de la cama.",
-
   "settingsPlaceholderEmail": "Email",
   "settingsPlaceholderSubject": "Asunto",
   "settingsPlaceholderMessage": "Mensaje",
   "settingsPlaceholderActualPassword": "Contraseña actual",
   "settingsPlaceholderNewPassword": "Contraseña nueva",
   "settingsPlaceholderConfirmPassword": "Confirmar contraseña",
-
   "settingsButtonSend": "Enviar",
   "settingsButtonSave": "Guardar",
-
   "settingsVisitWeb": "Visita nuestra web",
   "settingsSocialAccounts": "También encuéntranos en redes sociales",
-
   "settingsDeleteAccountTitle": "Dar de baja mi cuenta",
   "settingsDeleteAccountDesc": "¿Deseas eliminar tu cuenta de forma permanente? Ten en cuenta que se perderá toda la información relacionada con la misma. No podrás re-activarla ni recuperar su contenido.\n\nLa acción se hará efectiva a las 48hs, en caso de haber sido un error, por favor comunícate con nuestro equipo de soporte.",
   "settingsDeleteAccountButton": "Eliminar cuenta",
-
   "settingsMandatoryFieldError": "El campo es obligatorio",
   "settingsValidEmailError": "Ingrese un email válido",
   "settingsMandatoryPassword": "La contraseña es obligatoria",
   "settingsPatternPassword": "La contraseña debe contener al menos una letra mayúscula, una letra minúscula y 8 caracteres.",
-
   "settingsConfirmModalTitle": "¿Está seguro?",
   "settingsConfirmModalContent": "¿Deseas eliminar tu cuenta de forma permanente? Ten en cuenta que se perderá toda la información relacionada con la misma. No podrás re-activarla ni recuperar su contenido. La acción se hará efectiva a las 48hs, en caso de haber sido un error, por favor comunícate con nuestro equipo de soporte.",
   "settingsConfirmModalAccept": "Aceptar",
   "settingsConfirmModalCancel": "Cancelar",
-
   "profileViewSelectProfileTooltip": "Seleccionar perfil",
   "profileViewAddPeriodTooltip": "Añadir período manualmente",
   "profileViewEditProfileTooltip": "Editar perfil",

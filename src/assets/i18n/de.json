@@ -155,6 +155,44 @@
   "adminAddUserTooltip": "Benutzer hinzufügen",
   "adminEditUserTooltip": "Benutzer bearbeiten",
   "adminDeleteUserTooltip": "Benutzer löschen",
+  "adminModalAddProfileName": "Name",
+  "adminModalAddProfileLastname": "Nachname",
+  "adminModalAddProfileBirthDate": "Geburtsdatum",
+  "adminModalAddProfileGender": "Geschlecht",
+  "adminModalAddProfileBirthplace": "Geburtsort",
+  "adminModalAddProfileUser": "Benutzer auswählen",
+  "adminModalAddProfileGroup": "Gruppe auswählen",
+  "adminModalAddDeviceSerialNumber": "Seriennummer",
+  "adminModalAddDeviceCode": "Verifizierungscode",
+  "adminModalAddDeviceUser": "Benutzer auswählen",
+  "adminModalAddGroupName": "Name",
+  "adminModalAddGroupGMT": "GMT",
+  "adminModalAddGroupUser": "Benutzer auswählen",
+  "adminModalAddCollaboratorEmail": "E-Mail",
+  "adminModalAddCollaboratorPassword": "Passwort",
+  "adminModalAddCollaboratorConfirmPassword": "Passwort bestätigen",
+  "adminModalAddCollaboratorAlias": "Alias",
+  "adminModalAddCollaboratorRole": "Rolle auswählen",
+  "adminModalAddCollaboratorUser": "Benutzer auswählen",
+  "adminModalAddUserEmail": "E-Mail",
+  "adminModalAddUserAlias": "Alias",
+  "adminModalAddUserRole": "Rolle auswählen",
+  "adminModalSave": "Speichern",
+  "adminModalCancel": "Abbrechen",
+  "adminModalGenderItems": [
+    {
+      "label": "Männlich",
+      "value": "M"
+    },
+    {
+      "label": "Weiblich",
+      "value": "F"
+    },
+    {
+      "label": "Andere",
+      "value": "O"
+    }
+  ],
   "settingsHelpCardTitle": "Tutorials und FAQs",
   "settingsContactCardTitle": "Kontakt",
   "settingsPasswordCardTitle": "Passwort ändern",

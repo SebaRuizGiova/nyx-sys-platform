@@ -1,4 +1,5 @@
 <div class="admin-content">
+  <!-- PERFILES -->
   <div class="card">
     <div class="card-header">
       <p class="title-table">{{ "adminProfilesTitle" | translate }}</p>
@@ -39,7 +40,7 @@
           <i class="pi pi-search"></i>
         </span>
         <shared-select
-          [options]="groupsOptions"
+          [options]="groupsItems"
           [placeholder]="'adminFilterPlaceholder' | translate"
           [formGroup]="actionsProfilesForm"
           formControlName="filterByGroup"
@@ -95,6 +96,7 @@
       </ng-template>
     </p-table>
   </div>
+  <!-- DISPOSITIVOS -->
   <div class="card">
     <div class="card-header">
       <p class="title-table">{{ "adminDevicesTitle" | translate }}</p>
@@ -135,7 +137,7 @@
           <i class="pi pi-search"></i>
         </span>
         <shared-select
-          [options]="groupsOptions"
+          [options]="groupsItems"
           [placeholder]="'adminFilterPlaceholder' | translate"
           [formGroup]="actionsProfilesForm"
           formControlName="filterByGroup"
@@ -186,6 +188,7 @@
       </ng-template>
     </p-table>
   </div>
+  <!-- GRUPOS -->
   <div class="card">
     <div class="card-header">
       <p class="title-table">{{ "adminGroupsTitle" | translate }}</p>
@@ -273,6 +276,7 @@
       </ng-template>
     </p-table>
   </div>
+  <!-- COLABORADORES -->
   <div class="card">
     <div class="card-header">
       <p class="title-table">{{ "adminCollaboratorsTitle" | translate }}</p>
@@ -311,7 +315,7 @@
       <ng-template pTemplate="body" let-collaborator>
         <tr>
           <td>{{ collaborator.nickName }}</td>
-          <td>???</td>
+          <td>{{ collaborator.linked }}</td>
           <td>{{ collaborator.role | titlecase }}</td>
           <td class="column-rigth">
             <div class="actions">
@@ -326,6 +330,7 @@
       </ng-template>
     </p-table>
   </div>
+  <!-- USUARIOS -->
   <div class="card" *ngIf="role === 'superAdmin'">
     <div class="card-header">
       <p class="title-table">{{ "adminUsersTitle" | translate }}</p>
@@ -388,33 +393,33 @@
     <shared-input-text
       [formGroup]="addProfileForm"
       formControlName="name"
-      placeholder="Nombre"
+      [placeholder]="'adminModalAddProfileName' | translate"
       [error]="false"
       helper=""
     />
     <shared-input-text
       [formGroup]="addProfileForm"
       formControlName="lastName"
-      placeholder="Apellido"
+      [placeholder]="'adminModalAddProfileLastname' | translate"
       [error]="false"
       helper=""
     />
     <p-calendar
       formControlName="birthdate"
       dateFormat="dd/mm/yy"
-      placeholder="Fecha de nacimiento"
+      [placeholder]="'adminModalAddProfileBirthDate' | translate"
       [showIcon]="true"
     />
     <shared-select
       [options]="genderItems"
-      placeholder="Género"
+      [placeholder]="'adminModalAddProfileGender' | translate"
       [formGroup]="addProfileForm"
       formControlName="gender"
     />
     <p-dropdown
       [options]="countriesItems"
       optionLabel="label"
-      placeholder="Lugar de nacimiento"
+      [placeholder]="'adminModalAddProfileBirthplace' | translate"
       formControlName="birthplace"
     >
       <ng-template pTemplate="selectedItem">
@@ -434,15 +439,22 @@
       </ng-template>
     </p-dropdown>
     <shared-select
+      *ngIf="role === 'superAdmin'"
       [options]="usersItems"
-      placeholder="Seleccionar usuario"
+      [placeholder]="'adminModalAddProfileUser' | translate"
       [formGroup]="addProfileForm"
       formControlName="user"
     />
+    <shared-select
+      [options]="groupsItems"
+      [placeholder]="'adminModalAddProfileGroup' | translate"
+      [formGroup]="addProfileForm"
+      formControlName="group"
+    />
     <div class="buttons-modal">
-      <shared-button label="Guardar" />
+      <shared-button [label]="'adminModalSave' | translate" />
       <shared-button
-        label="Cancelar"
+        [label]="'adminModalCancel' | translate"
         variant="secondary"
         (click)="toggleAddProfile()"
       />
@@ -460,27 +472,28 @@
     <shared-input-text
       [formGroup]="addDeviceForm"
       formControlName="serialNumber"
-      placeholder="Numero de serie"
+      [placeholder]="'adminModalAddDeviceSerialNumber' | translate"
       [error]="false"
       helper=""
     />
     <shared-input-text
       [formGroup]="addDeviceForm"
       formControlName="verificationCode"
-      placeholder="Código de verificación"
+      [placeholder]="'adminModalAddDeviceCode' | translate"
       [error]="false"
       helper=""
     />
     <shared-select
+      *ngIf="role === 'superAdmin'"
       [options]="usersItems"
-      placeholder="Seleccionar usuario"
+      [placeholder]="'adminModalAddDeviceUser' | translate"
       [formGroup]="addDeviceForm"
       formControlName="user"
     />
     <div class="buttons-modal">
-      <shared-button label="Guardar" />
+      <shared-button [label]="'adminModalSave' | translate" />
       <shared-button
-        label="Cancelar"
+        [label]="'adminModalCancel' | translate"
         variant="secondary"
         (click)="toggleAddDevice()"
       />
@@ -494,26 +507,27 @@
     <shared-input-text
       [formGroup]="addGroupForm"
       formControlName="name"
-      placeholder="Nombre"
+      [placeholder]="'adminModalAddGroupName' | translate"
       [error]="false"
       helper=""
     />
     <shared-select
       [options]="genderItems"
-      placeholder="GMT"
+      [placeholder]="'adminModalAddGroupGMT' | translate"
       [formGroup]="addGroupForm"
       formControlName="gmt"
     />
     <shared-select
+      *ngIf="role === 'superAdmin'"
       [options]="usersItems"
-      placeholder="Seleccionar usuario"
+      [placeholder]="'adminModalAddGroupUser' | translate"
       [formGroup]="addGroupForm"
       formControlName="user"
     />
     <div class="buttons-modal">
-      <shared-button label="Guardar" />
+      <shared-button [label]="'adminModalSave' | translate" />
       <shared-button
-        label="Cancelar"
+        [label]="'adminModalCancel' | translate"
         variant="secondary"
         (click)="toggleAddGroup()"
       />
@@ -531,19 +545,19 @@
     <shared-input-text
       [formGroup]="addCollaboratorForm"
       formControlName="email"
-      placeholder="Email"
+      [placeholder]="'adminModalAddCollaboratorEmail' | translate"
       [error]="false"
       helper=""
     />
     <shared-input-password
-      placeholder="Contraseña"
+      [placeholder]="'adminModalAddCollaboratorPassword' | translate"
       helper=""
       [error]="false"
       [formGroup]="addCollaboratorForm"
       formControlName="password"
     />
     <shared-input-password
-      placeholder="Confirmar contraseña"
+      [placeholder]="'adminModalAddCollaboratorConfirmPassword' | translate"
       helper=""
       [error]="false"
       [formGroup]="addCollaboratorForm"
@@ -552,26 +566,27 @@
     <shared-input-text
       [formGroup]="addCollaboratorForm"
       formControlName="alias"
-      placeholder="Alias"
+      [placeholder]="'adminModalAddCollaboratorAlias' | translate"
       [error]="false"
       helper=""
     />
     <shared-select
       [options]="genderItems"
-      placeholder="Seleccionar rol"
+      [placeholder]="'adminModalAddCollaboratorRole' | translate"
       [formGroup]="addCollaboratorForm"
       formControlName="role"
     />
     <shared-select
+      *ngIf="role === 'superAdmin'"
       [options]="usersItems"
-      placeholder="Seleccionar usuario"
+      [placeholder]="'adminModalAddCollaboratorUser' | translate"
       [formGroup]="addCollaboratorForm"
       formControlName="user"
     />
     <div class="buttons-modal">
-      <shared-button label="Guardar" />
+      <shared-button [label]="'adminModalSave' | translate" />
       <shared-button
-        label="Cancelar"
+        [label]="'adminModalCancel' | translate"
         variant="secondary"
         (click)="toggleAddCollaborator()"
       />
@@ -585,27 +600,27 @@
     <shared-input-text
       [formGroup]="addUserForm"
       formControlName="email"
-      placeholder="Email"
+      [placeholder]="'adminModalAddUserEmail' | translate"
       [error]="false"
       helper=""
     />
     <shared-input-text
       [formGroup]="addUserForm"
       formControlName="alias"
-      placeholder="Alias"
+      [placeholder]="'adminModalAddUserAlias' | translate"
       [error]="false"
       helper=""
     />
     <shared-select
       [options]="genderItems"
-      placeholder="Seleccionar rol"
+      [placeholder]="'adminModalAddUserRole' | translate"
       [formGroup]="addUserForm"
       formControlName="role"
     />
     <div class="buttons-modal">
-      <shared-button label="Guardar" />
+      <shared-button [label]="'adminModalSave' | translate" />
       <shared-button
-        label="Cancelar"
+        [label]="'adminModalCancel' | translate"
         variant="secondary"
         (click)="toggleAddUser()"
       />

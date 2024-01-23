@@ -155,6 +155,44 @@
   "adminAddUserTooltip": "Aggiungi utente",
   "adminEditUserTooltip": "Modifica utente",
   "adminDeleteUserTooltip": "Elimina utente",
+  "adminModalAddProfileName": "Nome",
+  "adminModalAddProfileLastname": "Cognome",
+  "adminModalAddProfileBirthDate": "Data di nascita",
+  "adminModalAddProfileGender": "Genere",
+  "adminModalAddProfileBirthplace": "Luogo di nascita",
+  "adminModalAddProfileUser": "Seleziona Utente",
+  "adminModalAddProfileGroup": "Seleziona Gruppo",
+  "adminModalAddDeviceSerialNumber": "Numero di Serie",
+  "adminModalAddDeviceCode": "Codice di Verifica",
+  "adminModalAddDeviceUser": "Seleziona Utente",
+  "adminModalAddGroupName": "Nome",
+  "adminModalAddGroupGMT": "GMT",
+  "adminModalAddGroupUser": "Seleziona Utente",
+  "adminModalAddCollaboratorEmail": "Email",
+  "adminModalAddCollaboratorPassword": "Password",
+  "adminModalAddCollaboratorConfirmPassword": "Conferma Password",
+  "adminModalAddCollaboratorAlias": "Alias",
+  "adminModalAddCollaboratorRole": "Seleziona Ruolo",
+  "adminModalAddCollaboratorUser": "Seleziona Utente",
+  "adminModalAddUserEmail": "Email",
+  "adminModalAddUserAlias": "Alias",
+  "adminModalAddUserRole": "Seleziona Ruolo",
+  "adminModalSave": "Salva",
+  "adminModalCancel": "Annulla",
+  "adminModalGenderItems": [
+    {
+      "label": "Maschio",
+      "value": "M"
+    },
+    {
+      "label": "Femmina",
+      "value": "F"
+    },
+    {
+      "label": "Altro",
+      "value": "O"
+    }
+  ],
   "settingsHelpCardTitle": "Tutorial e FAQ",
   "settingsContactCardTitle": "Contatto",
   "settingsPasswordCardTitle": "Cambio password",
@@ -206,7 +244,6 @@
   "settingsConfirmModalContent": "Desideri eliminare il tuo account in modo permanente? Tieni presente che tutte le informazioni correlate andranno perse. Non sarà possibile riattivarlo o recuperare i suoi contenuti. L'azione avrà effetto entro 48 ore; se si è trattato di un errore, ti preghiamo di contattare il nostro team di supporto.",
   "settingsConfirmModalAccept": "Accetta",
   "settingsConfirmModalCancel": "Annulla",
-
   "profileViewSelectProfileTooltip": "Seleziona profilo",
   "profileViewAddPeriodTooltip": "Aggiungi periodo manualmente",
   "profileViewEditProfileTooltip": "Modifica profilo",

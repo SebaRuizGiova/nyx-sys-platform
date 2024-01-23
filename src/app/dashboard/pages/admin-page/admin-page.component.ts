@@ -14,6 +14,7 @@ import { Collaborator } from '../../interfaces/collaborator.interface';
 import { TranslateService } from '@ngx-translate/core';
 import { ValidatorsService } from 'src/app/shared/services/validators.service';
 import { HelpersService } from 'src/app/shared/services/helpers.service';
+import { LanguageService } from 'src/app/shared/services/language.service';
 
 @Component({
   templateUrl: './admin-page.component.html',
@@ -44,6 +45,7 @@ export class AdminPageComponent implements OnInit {
     gender: ['', Validators.required],
     birthplace: ['', Validators.required],
     user: ['', Validators.required],
+    group: ['', Validators.required],
   });
   public addDeviceForm: FormGroup = this.fb.group({
     serialNumber: ['', [Validators.required, Validators.minLength(6)]],
@@ -83,7 +85,6 @@ export class AdminPageComponent implements OnInit {
   public collaborators: Collaborator[] = [];
   public users: User[] = [];
 
-  public groupsOptions: ItemDropdown[] = [];
   public filteredProfiles: Profile[] = [];
   public filteredDevices: Device[] = [];
   public filteredGroups: Group[] = [];
@@ -115,6 +116,7 @@ export class AdminPageComponent implements OnInit {
     },
   ];
   public usersItems: ItemDropdown[] = [];
+  public groupsItems: ItemDropdown[] = [];
   public countriesItems: ItemDropdown[] = [];
 
   constructor(
@@ -125,12 +127,17 @@ export class AdminPageComponent implements OnInit {
     private http: HttpClient,
     private translateService: TranslateService,
     private validatorsService: ValidatorsService,
-    private helpersService: HelpersService
+    private helpersService: HelpersService,
+    private languageService: LanguageService,
   ) {}
 
   ngOnInit(): void {
     this.loadData();
     this.getCountries();
+    this.languageService.langChanged$.subscribe(() => {
+      this.loadTranslations();
+    });
+    this.loadTranslations();
   }
 
   loadData() {
@@ -160,13 +167,15 @@ export class AdminPageComponent implements OnInit {
     this.databaseService
       .getDevicesByUser(userId || this.authService.userId)
       .subscribe(async (devices) => {
-        const devicesWithStatus = await Promise.all(devices.map(async (device: Device) => {
-          const status = await this.getStatusDevice(device.id);
-          return {
-            ...device,
-            status
-          }
-        }));
+        const devicesWithStatus = await Promise.all(
+          devices.map(async (device: Device) => {
+            const status = await this.getStatusDevice(device.id);
+            return {
+              ...device,
+              status,
+            };
+          })
+        );
         this.devices = devicesWithStatus;
         this.filteredDevices = devicesWithStatus;
         this.loadingService.setLoading(false);
@@ -179,7 +188,7 @@ export class AdminPageComponent implements OnInit {
       .getGroupsByUser(userId || this.authService.userId)
       .subscribe((groups) => {
         this.groups = groups;
-        this.groupsOptions = groups.map((group: Group) => ({
+        this.groupsItems = groups.map((group: Group) => ({
           label: group.teamName,
           value: group.id,
         }));
@@ -194,7 +203,6 @@ export class AdminPageComponent implements OnInit {
       .getUserData(userId || this.authService.userId)
       .subscribe((user) => {
         this.collaborators = user.collaborators || [];
-        this.collaborators[this.collaborators.length - 1];
         this.filteredCollaborators = user.collaborators || [];
       });
   }
@@ -238,21 +246,32 @@ export class AdminPageComponent implements OnInit {
           groups = [...groups, ...result[2]];
         });
         results.forEach((result: any) => {
-          collaborators = [...collaborators, result[3]];
+          const userData: User = result[3];
+          if (userData.collaborators) {
+            userData.collaborators.forEach((collaborator: Collaborator) => {
+              const collaboratorWithLinked = {
+                ...collaborator,
+                linked: userData.nickName
+              }
+              collaborators = [...collaborators, collaboratorWithLinked];
+            });
+          }
         });
 
-        const groupsOptions = groups.map((group) => ({
+        const groupsItems = groups.map((group) => ({
           label: group.teamName,
           value: group.id,
         }));
 
-        const devicesWithStatus = await Promise.all(devices.map(async (device: Device) => {
-          const status = await this.getStatusDevice(device.id);
-          return {
-            ...device,
-            status
-          }
-        }));
+        const devicesWithStatus = await Promise.all(
+          devices.map(async (device: Device) => {
+            const status = await this.getStatusDevice(device.id);
+            return {
+              ...device,
+              status,
+            };
+          })
+        );
 
         this.profiles = profiles;
         this.filteredProfiles = profiles;
@@ -260,7 +279,7 @@ export class AdminPageComponent implements OnInit {
         this.filteredDevices = devicesWithStatus;
         this.groups = groups;
         this.filteredGroups = groups;
-        this.groupsOptions = groupsOptions;
+        this.groupsItems = groupsItems;
         this.collaborators = collaborators;
         this.filteredCollaborators = collaborators;
         this.loadingService.setLoading(false);
@@ -496,5 +515,13 @@ export class AdminPageComponent implements OnInit {
         reject(error);
       }
     });
+  }
+
+  private loadTranslations() {
+    this.languageService
+      .getTranslate('adminModalGenderItems')
+      .subscribe((translations: any) => {
+        this.genderItems = translations;
+      });
   }
 }

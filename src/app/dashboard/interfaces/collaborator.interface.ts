@@ -3,4 +3,5 @@ export interface Collaborator {
   id:               string;
   nickName:         string;
   role:             string;
+  linked?:          string;
 }

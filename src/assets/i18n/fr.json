@@ -155,6 +155,44 @@
   "adminAddUserTooltip": "Ajouter un utilisateur",
   "adminEditUserTooltip": "Modifier l'utilisateur",
   "adminDeleteUserTooltip": "Supprimer l'utilisateur",
+  "adminModalAddProfileName": "Nom",
+  "adminModalAddProfileLastname": "Nom de famille",
+  "adminModalAddProfileBirthDate": "Date de naissance",
+  "adminModalAddProfileGender": "Genre",
+  "adminModalAddProfileBirthplace": "Lieu de naissance",
+  "adminModalAddProfileUser": "Sélectionner un utilisateur",
+  "adminModalAddProfileGroup": "Sélectionner un groupe",
+  "adminModalAddDeviceSerialNumber": "Numéro de série",
+  "adminModalAddDeviceCode": "Code de vérification",
+  "adminModalAddDeviceUser": "Sélectionner un utilisateur",
+  "adminModalAddGroupName": "Nom",
+  "adminModalAddGroupGMT": "GMT",
+  "adminModalAddGroupUser": "Sélectionner un utilisateur",
+  "adminModalAddCollaboratorEmail": "Email",
+  "adminModalAddCollaboratorPassword": "Mot de passe",
+  "adminModalAddCollaboratorConfirmPassword": "Confirmer le mot de passe",
+  "adminModalAddCollaboratorAlias": "Alias",
+  "adminModalAddCollaboratorRole": "Sélectionner un rôle",
+  "adminModalAddCollaboratorUser": "Sélectionner un utilisateur",
+  "adminModalAddUserEmail": "Email",
+  "adminModalAddUserAlias": "Alias",
+  "adminModalAddUserRole": "Sélectionner un rôle",
+  "adminModalSave": "Enregistrer",
+  "adminModalCancel": "Annuler",
+  "adminModalGenderItems": [
+    {
+      "label": "Homme",
+      "value": "M"
+    },
+    {
+      "label": "Femme",
+      "value": "F"
+    },
+    {
+      "label": "Autre",
+      "value": "O"
+    }
+  ],
   "settingsHelpCardTitle": "Tutoriels et FAQ",
   "settingsContactCardTitle": "Contact",
   "settingsPasswordCardTitle": "Changement de mot de passe",

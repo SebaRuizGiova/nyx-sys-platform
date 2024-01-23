@@ -155,6 +155,44 @@
   "adminAddUserTooltip": "Add user",
   "adminEditUserTooltip": "Edit user",
   "adminDeleteUserTooltip": "Delete user",
+  "adminModalAddProfileName": "Name",
+  "adminModalAddProfileLastname": "Last Name",
+  "adminModalAddProfileBirthDate": "Birth Date",
+  "adminModalAddProfileGender": "Gender",
+  "adminModalAddProfileBirthplace": "Place of Birth",
+  "adminModalAddProfileUser": "Select User",
+  "adminModalAddProfileGroup": "Select Group",
+  "adminModalAddDeviceSerialNumber": "Serial Number",
+  "adminModalAddDeviceCode": "Verification Code",
+  "adminModalAddDeviceUser": "Select User",
+  "adminModalAddGroupName": "Name",
+  "adminModalAddGroupGMT": "GMT",
+  "adminModalAddGroupUser": "Select User",
+  "adminModalAddCollaboratorEmail": "Email",
+  "adminModalAddCollaboratorPassword": "Password",
+  "adminModalAddCollaboratorConfirmPassword": "Confirm Password",
+  "adminModalAddCollaboratorAlias": "Alias",
+  "adminModalAddCollaboratorRole": "Select Role",
+  "adminModalAddCollaboratorUser": "Select User",
+  "adminModalAddUserEmail": "Email",
+  "adminModalAddUserAlias": "Alias",
+  "adminModalAddUserRole": "Select Role",
+  "adminModalSave": "Save",
+  "adminModalCancel": "Cancel",
+  "adminModalGenderItems": [
+    {
+      "label": "Male",
+      "value": "M"
+    },
+    {
+      "label": "Female",
+      "value": "F"
+    },
+    {
+      "label": "Other",
+      "value": "O"
+    }
+  ],
   "settingsHelpCardTitle": "Tutorials and FAQs",
   "settingsContactCardTitle": "Contact",
   "settingsPasswordCardTitle": "Password Change",
@@ -206,7 +244,6 @@
   "settingsConfirmModalContent": "Do you want to permanently delete your account? Please note that all related information will be lost. You won't be able to reactivate it or retrieve its content. The action will take effect in 48 hours; if this was a mistake, please contact our support team.",
   "settingsConfirmModalAccept": "Accept",
   "settingsConfirmModalCancel": "Cancel",
-
   "profileViewSelectProfileTooltip": "Select profile",
   "profileViewAddPeriodTooltip": "Add period manually",
   "profileViewEditProfileTooltip": "Edit profile",
