@@ -4,6 +4,34 @@ import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
   providedIn: 'root',
 })
 export class HelpersService {
+  public GMTItems: string[] = [
+    'GMT -12:00',
+    'GMT -11:00',
+    'GMT -10:00',
+    'GMT -9:00',
+    'GMT -8:00',
+    'GMT -7:00',
+    'GMT -6:00',
+    'GMT -5:00',
+    'GMT -4:00',
+    'GMT -3:00',
+    'GMT -2:00',
+    'GMT -1:00',
+    'GMT +1:00',
+    'GMT +2:00',
+    'GMT +3:00',
+    'GMT +4:00',
+    'GMT +5:00',
+    'GMT +6:00',
+    'GMT +7:00',
+    'GMT +8:00',
+    'GMT +9:00',
+    'GMT +9:30',
+    'GMT +10:00',
+    'GMT +11:00',
+    'GMT +12:00',
+  ];
+
   compareDates = (date1: string, date2: string): number => {
     const date1Obj = new Date(date1.split('/').reverse().join('/'));
     const date2Obj = new Date(date2.split('/').reverse().join('/'));

@@ -118,6 +118,9 @@ export class AdminPageComponent implements OnInit {
   public usersItems: ItemDropdown[] = [];
   public groupsItems: ItemDropdown[] = [];
   public countriesItems: ItemDropdown[] = [];
+  public gmtItems: string[] = this.helpersService.GMTItems;
+  public roleCollaboratorItems: ItemDropdown[] = [];
+  public roleUserItems: ItemDropdown[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -522,6 +525,16 @@ export class AdminPageComponent implements OnInit {
       .getTranslate('adminModalGenderItems')
       .subscribe((translations: any) => {
         this.genderItems = translations;
+      });
+    this.languageService
+      .getTranslate('adminModalRoleCollaboratorItems')
+      .subscribe((translations: any) => {
+        this.roleCollaboratorItems = translations;
+      });
+    this.languageService
+      .getTranslate('adminModalRoleUserItems')
+      .subscribe((translations: any) => {
+        this.roleUserItems = translations;
       });
   }
 }

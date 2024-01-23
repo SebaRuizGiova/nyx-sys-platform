@@ -193,6 +193,26 @@
       "value": "O"
     }
   ],
+  "adminModalRoleCollaboratorItems": [
+    {
+      "label": "Colaborador",
+      "value": "Collaborator"
+    },
+    {
+      "label": "Visualizador",
+      "value": "Viewer"
+    }
+  ],
+  "adminModalRoleUserItems": [
+    {
+      "label": "User",
+      "value": "user"
+    },
+    {
+      "label": "Super admin",
+      "value": "superAdmin"
+    }
+  ],
   "settingsHelpCardTitle": "Tutoriales y FAQs",
   "settingsContactCardTitle": "Contacto",
   "settingsPasswordCardTitle": "Cambio de contraseña",

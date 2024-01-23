@@ -37,33 +37,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   public profilesItems: ItemDropdown[] = [];
   public formatDownloadItems?: string[];
   public rangeDownloadItems?: string[];
-  public gmtItems: string[] = [
-    'GMT -12:00',
-    'GMT -11:00',
-    'GMT -10:00',
-    'GMT -9:00',
-    'GMT -8:00',
-    'GMT -7:00',
-    'GMT -6:00',
-    'GMT -5:00',
-    'GMT -4:00',
-    'GMT -3:00',
-    'GMT -2:00',
-    'GMT -1:00',
-    'GMT +1:00',
-    'GMT +2:00',
-    'GMT +3:00',
-    'GMT +4:00',
-    'GMT +5:00',
-    'GMT +6:00',
-    'GMT +7:00',
-    'GMT +8:00',
-    'GMT +9:00',
-    'GMT +9:30',
-    'GMT +10:00',
-    'GMT +11:00',
-    'GMT +12:00',
-  ];
+  public gmtItems: string[] = this.helpersService.GMTItems;
 
   public profileData?: Profile;
 
