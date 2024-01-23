@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin, mergeMap } from 'rxjs';
+import { forkJoin, mergeMap, tap } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
-import { Profile } from '../../interfaces/profile.interface';
+import { Profile, Status } from '../../interfaces/profile.interface';
 import { Device } from '../../interfaces/device.interface';
 import { Group } from '../../interfaces/group.interface';
 import { LoadingService } from 'src/app/shared/services/loading.service';
@@ -13,6 +13,7 @@ import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.compon
 import { Collaborator } from '../../interfaces/collaborator.interface';
 import { TranslateService } from '@ngx-translate/core';
 import { ValidatorsService } from 'src/app/shared/services/validators.service';
+import { HelpersService } from 'src/app/shared/services/helpers.service';
 
 @Component({
   templateUrl: './admin-page.component.html',
@@ -123,7 +124,8 @@ export class AdminPageComponent implements OnInit {
     private loadingService: LoadingService,
     private http: HttpClient,
     private translateService: TranslateService,
-    private validatorsService: ValidatorsService
+    private validatorsService: ValidatorsService,
+    private helpersService: HelpersService
   ) {}
 
   ngOnInit(): void {
@@ -157,9 +159,16 @@ export class AdminPageComponent implements OnInit {
     this.loadingService.setLoading(true);
     this.databaseService
       .getDevicesByUser(userId || this.authService.userId)
-      .subscribe((devices) => {
-        this.devices = devices;
-        this.filteredDevices = devices;
+      .subscribe(async (devices) => {
+        const devicesWithStatus = await Promise.all(devices.map(async (device: Device) => {
+          const status = await this.getStatusDevice(device.id);
+          return {
+            ...device,
+            status
+          }
+        }));
+        this.devices = devicesWithStatus;
+        this.filteredDevices = devicesWithStatus;
         this.loadingService.setLoading(false);
       });
   }
@@ -214,7 +223,7 @@ export class AdminPageComponent implements OnInit {
           return forkJoin(profilesObservables);
         })
       )
-      .subscribe((results: any) => {
+      .subscribe(async (results: any) => {
         let profiles: Profile[] = [];
         let devices: Device[] = [];
         let groups: Group[] = [];
@@ -237,10 +246,18 @@ export class AdminPageComponent implements OnInit {
           value: group.id,
         }));
 
+        const devicesWithStatus = await Promise.all(devices.map(async (device: Device) => {
+          const status = await this.getStatusDevice(device.id);
+          return {
+            ...device,
+            status
+          }
+        }));
+
         this.profiles = profiles;
         this.filteredProfiles = profiles;
-        this.devices = devices;
-        this.filteredDevices = devices;
+        this.devices = devicesWithStatus;
+        this.filteredDevices = devicesWithStatus;
         this.groups = groups;
         this.filteredGroups = groups;
         this.groupsOptions = groupsOptions;
@@ -355,15 +372,19 @@ export class AdminPageComponent implements OnInit {
   toggleAddProfile() {
     this.showAddProfile = !this.showAddProfile;
   }
+
   toggleAddDevice() {
     this.showAddDevice = !this.showAddDevice;
   }
+
   toggleAddGroup() {
     this.showAddGroup = !this.showAddGroup;
   }
+
   toggleAddCollaborator() {
     this.showAddCollaborator = !this.showAddCollaborator;
   }
+
   toggleAddUser() {
     this.showAddUser = !this.showAddUser;
   }
@@ -421,5 +442,59 @@ export class AdminPageComponent implements OnInit {
         console.error('Error al obtener la lista de países:', error);
       }
     );
+  }
+
+  getStatusDevice(deviceId: string): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const liveDataSnapshot =
+          await this.databaseService.getLiveDataCollection(deviceId);
+        const liveData: any[] = liveDataSnapshot.docs.map((doc) => doc.data());
+
+        const onlineCondition =
+          liveData.filter((data: any) => data.activity === 0).length >= 2;
+        const activityCondition =
+          liveData.filter((data: any) => data.activity !== 0).length >= 2;
+
+        let status: 'Offline' | 'Online' | 'En actividad' = 'Offline';
+
+        if (
+          liveData.length === 0 &&
+          this.helpersService.compareDates(
+            this.helpersService.formatTimestampToDate(
+              liveData[0]?.date_occurred
+            ),
+            this.helpersService.getActualDate()
+          ) === 0
+        ) {
+          status = 'Offline';
+        } else if (
+          onlineCondition &&
+          this.helpersService.compareDates(
+            this.helpersService.formatTimestampToDate(
+              liveData[0]?.date_occurred
+            ),
+            this.helpersService.getActualDate()
+          ) === 0
+        ) {
+          status = 'Online';
+        } else if (
+          activityCondition &&
+          this.helpersService.compareDates(
+            this.helpersService.formatTimestampToDate(
+              liveData[0].date_occurred
+            ),
+            this.helpersService.getActualDate()
+          ) === 0
+        ) {
+          status = 'En actividad';
+        } else {
+          status = 'Offline';
+        }
+        resolve(status);
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 }

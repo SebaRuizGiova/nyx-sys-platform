@@ -4,7 +4,7 @@
     <form [formGroup]="userForm">
       <shared-user-dropdown
         position="left-bottom"
-        pTooltip="Seleccionar perfil"
+        [pTooltip]="'profileViewSelectProfileTooltip' | translate"
         tooltipPosition="right"
         [items]="profilesItems"
         [formGroup]="userForm"
@@ -38,15 +38,15 @@
         <div class="group-buttons">
           <shared-button
             icon="pi-plus"
-            [tooltipButton]="'adminAddProfileTooltip' | translate"
+            [tooltipButton]="'profileViewAddPeriodTooltip' | translate"
           />
           <shared-button
             icon="pi-pencil"
-            [tooltipButton]="'adminAddProfileTooltip' | translate"
+            [tooltipButton]="'profileViewEditProfileTooltip' | translate"
           />
           <shared-button
             icon="pi-trash"
-            [tooltipButton]="'adminAddProfileTooltip' | translate"
+            [tooltipButton]="'profileViewDeletePeriod' | translate"
           />
         </div>
       </div>
@@ -83,7 +83,7 @@
         <form [formGroup]="gmtForm">
           <shared-select
             [options]="gmtItems"
-            placeholder="Seleccionar GMT"
+            [placeholder]="'profileViewSelectGMT' | translate"
             [formGroup]="gmtForm"
             formControlName="gmt"
           />
@@ -98,7 +98,7 @@
   <div class="grid-sup">
     <div class="card sleep-score">
       <div class="card-header">
-        <span>Puntuación del sueño</span>
+        <span>{{ 'profileViewSleepScoreTitle' | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -112,8 +112,7 @@
             [xl]="true"
           />
           <p class="desc">
-            Es fantástico ver que últimamente has prestado atención a tu sueño
-            ¡Sigue así!
+            {{ 'profileViewSleepScoreDescription' | translate }}
           </p>
         </div>
         <div class="graphic-card"></div>
@@ -121,7 +120,7 @@
     </div>
     <div class="card recovery">
       <div class="card-header">
-        <span>Recuperación</span>
+        <span>{{ 'profileViewRecoveryTitle' | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -130,7 +129,7 @@
       <hr />
       <div class="card-content">
         <div class="data">
-          <div class="data-desc">Recuperación total</div>
+          <div class="data-desc">{{ 'profileViewTotalRecovery' | translate }}</div>
           <div class="data-value-between">
             {{
               profileData?.selectedSleepData?.hrv_data &&
@@ -139,13 +138,13 @@
                 : "No data"
             }}
           </div>
-          <div class="data-desc">Recuperación integrada</div>
+          <div class="data-desc">{{ 'profileViewIntegratedRecovery' | translate }}</div>
           <div class="data-value-between">
             {{
               profileData?.selectedSleepData?.hrv_data &&
               (profileData?.selectedSleepData)!.hrv_data!.length > 1
                 ? (profileData?.selectedSleepData)!.hrv_data[1]
-                    .integratedRecovery + " unidades"
+                    .integratedRecovery + ('profileViewUnities' | translate)
                 : "No data"
             }}
           </div>
@@ -156,9 +155,7 @@
             style="font-size: 1rem; color: #1ee280"
           ></i>
           <p class="alert-desc">
-            Tu HRV es mas alto de lo usual. Un Hrv alto indica que tu sistema
-            nervioso esta listo para manejar estrés y que tu cuerpo esta en
-            balance
+            {{ 'profileViewHrvAlert' | translate }}
           </p>
         </div>
         <div class="graphic-card"></div>
@@ -166,7 +163,7 @@
     </div>
     <div class="card ans">
       <div class="card-header">
-        <span>Balance del Sistema Nervioso Aut.</span>
+        <span>{{ 'profileViewAnsTitle' | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -175,7 +172,7 @@
       <hr />
       <div class="card-content">
         <div class="data">
-          <div class="data-desc-progress">Parasimpático (Relajación)</div>
+          <div class="data-desc-progress">{{ 'profileViewParasympathetic' | translate }}</div>
           <div class="data-progress">
             <shared-progress-bar
               [progress]="profileData?.selectedSleepData?.hrv_hf || 0"
@@ -207,8 +204,7 @@
             style="font-size: 1rem; color: #1ee280"
           ></i>
           <p class="alert-desc">
-            Tu Ans tiene una inclinación hacia el lado Simpático es decir que tu
-            organismo esta preparado para situación de actividad
+            {{ 'profileViewAnsAlert' | translate }}
           </p>
         </div>
         <div class="graphic-card"></div>
@@ -216,7 +212,7 @@
     </div>
     <div class="card heart-rate-var">
       <div class="card-header">
-        <span>Variabilidad del ritmo cardíaco</span>
+        <span>{{ 'profileViewAnsHrVariabilityTitle' | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -225,7 +221,7 @@
       <hr />
       <div class="card-content">
         <div class="data">
-          <div class="data-desc">Noche</div>
+          <div class="data-desc">{{ 'profileViewNight' | translate }}</div>
           <div class="data-value-between">
             {{
               profileData?.selectedSleepData?.hrv_rmssd_evening
@@ -233,7 +229,7 @@
                 : "No data"
             }}
           </div>
-          <div class="data-desc">Mañana</div>
+          <div class="data-desc">{{ 'profileViewMorning' | translate }}</div>
           <div class="data-value-between">
             {{
               profileData?.selectedSleepData?.hrv_rmssd_morning
@@ -241,7 +237,7 @@
                 : "No data"
             }}
           </div>
-          <div class="data-desc">Promedio</div>
+          <div class="data-desc">{{ 'profileViewAverage' | translate }}</div>
           <div class="data-value-between">
             {{
               profileData?.selectedSleepData?.average_rmssd
@@ -255,7 +251,7 @@
     </div>
     <div class="card heart-rate">
       <div class="card-header">
-        <span>Ritmo cardíaco</span>
+        <span>{{ 'profileViewHeartRateTitle' | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -264,15 +260,15 @@
       <hr />
       <div class="card-content">
         <div class="data">
-          <div class="data-desc">Bmp máx.</div>
+          <div class="data-desc">{{ 'profileViewBPMMax' | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.max_hr || "No data" }}
           </div>
-          <div class="data-desc">Bmp en reposo</div>
+          <div class="data-desc">{{ 'profileViewBPMRepose' | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.min_hr || "No data" }}
           </div>
-          <div class="data-desc">Bmp promedio</div>
+          <div class="data-desc">{{ 'profileViewBPMAverage' | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.avg_hr || "No data" }}
           </div>
@@ -282,7 +278,7 @@
     </div>
     <div class="card respiratory-rate">
       <div class="card-header">
-        <span>Ritmo respiratorio</span>
+        <span>{{ 'profileViewRespiratoryRateTitle' | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -291,15 +287,15 @@
       <hr />
       <div class="card-content">
         <div class="data">
-          <div class="data-desc">Bmp máx.</div>
+          <div class="data-desc">{{ 'profileViewBPMMax' | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.max_rr || "No data" }}
           </div>
-          <div class="data-desc">Bmp en reposo</div>
+          <div class="data-desc">{{ 'profileViewBPMRepose' | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.min_rr || "No data" }}
           </div>
-          <div class="data-desc">Bmp promedio</div>
+          <div class="data-desc">{{ 'profileViewBPMAverage' | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.avg_rr || "No data" }}
           </div>
@@ -309,7 +305,7 @@
     </div>
     <div class="card movement">
       <div class="card-header">
-        <span>Movimiento</span>
+        <span>{{ 'profileViewMovementTitle' | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -318,11 +314,11 @@
       <hr />
       <div class="card-content">
         <div class="data">
-          <div class="data-desc">Movimientos y giros</div>
+          <div class="data-desc">{{ 'profileViewMovementsAndTurns' | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.tossnturn_count || "No data" }}
           </div>
-          <div class="data-desc">Promedio de actividad</div>
+          <div class="data-desc">{{ 'profileViewAverageInActivity' | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.avg_act || "No data" }}
           </div>
@@ -332,7 +328,7 @@
     </div>
     <div class="card sleep-time">
       <div class="card-header">
-        <span>Tiempo de sueño</span>
+        <span>{{ 'profileViewSleepTimeTitle' | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -341,11 +337,11 @@
       <hr />
       <div class="card-content">
         <div class="data-grid">
-          <div class="data-desc">En la cama</div>
+          <div class="data-desc">{{ 'profileViewInBed' | translate }}</div>
           <div class="data-value">
             {{ profileData?.selectedSleepData?.duration_in_bed || "No data" }}
           </div>
-          <div class="data-desc">Durmiendo</div>
+          <div class="data-desc">{{ 'profileViewSleeping' | translate }}</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="91" width="75px" />
             {{
@@ -357,7 +353,7 @@
                 : "No data"
             }}
           </div>
-          <div class="data-desc">Despierto</div>
+          <div class="data-desc">{{ 'profileViewAwake' | translate }}</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="9" variant="dark" width="75px" />
             {{
@@ -376,7 +372,7 @@
     <div class="card graphic">Graphic</div>
     <div class="card sleep-arq">
       <div class="card-header">
-        <span>Arquitectura del sueño</span>
+        <span>{{ 'profileViewSleepArqTitle' | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -385,7 +381,7 @@
       <hr />
       <div class="card-content">
         <div class="data-grid">
-          <div class="data-desc">Ligero</div>
+          <div class="data-desc">{{ 'profileViewSoft' | translate }}</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="56" width="75px" />
             {{
@@ -397,7 +393,7 @@
                 : "No data"
             }}
           </div>
-          <div class="data-desc">Profundo</div>
+          <div class="data-desc">{{ 'profileViewDeep' | translate }}</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="24" width="75px" />
             {{
@@ -409,7 +405,7 @@
                 : "No data"
             }}
           </div>
-          <div class="data-desc">REM</div>
+          <div class="data-desc">{{ 'profileViewREM' | translate }}</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="20" variant="dark" width="75px" />
             {{

@@ -29,14 +29,28 @@
   "sidebarSettings": "Einstellungen",
   "sidebarLanguage": "Sprache",
   "languagesDropdown": [
-    { "name": "Spanisch", "code": "es" },
-    { "name": "Englisch", "code": "en" },
-    { "name": "Italienisch", "code": "it" },
-    { "name": "Deutsch", "code": "de" },
-    { "name": "Französisch", "code": "fr" }
+    {
+      "name": "Spanisch",
+      "code": "es"
+    },
+    {
+      "name": "Englisch",
+      "code": "en"
+    },
+    {
+      "name": "Italienisch",
+      "code": "it"
+    },
+    {
+      "name": "Deutsch",
+      "code": "de"
+    },
+    {
+      "name": "Französisch",
+      "code": "fr"
+    }
   ],
   "sidebarSignOut": "Abmelden",
-
   "loginWelcome": "Willkommen",
   "loginForget": "Passwort zurücksetzen",
   "loginPlaceholderEmail": "E-Mail",
@@ -55,8 +69,10 @@
   "loginToastErrorSendEmail": "Es gab einen Fehler beim Senden der E-Mail",
   "ToastTitleCorrect": "Korrekt",
   "ToastTitleError": "Fehler",
-
-  "groupFormatDownloadItems": ["PDF", "Excel"],
+  "groupFormatDownloadItems": [
+    "PDF",
+    "Excel"
+  ],
   "groupRangeDownloadItems": [
     "Aktueller Zeitraum",
     "7 Tage",
@@ -89,7 +105,6 @@
   "groupShowCurrentPeriod": "Nur Profile mit aktuellem Zeitraum anzeigen",
   "groupDeleteFilters": "Filter löschen",
   "groupApplyFilters": "Filter anwenden",
-
   "profileCardDeviceName": "NS-Gerät: ",
   "profileCardAnyDevice": "Kein zugeordnetes Gerät",
   "profileCardRecoveryDescription": "Erholung",
@@ -100,28 +115,22 @@
   "profileCardSNADescriptionTooltip": "Das autonome Nervensystem steuert die Funktionen Ihres Körpers; es teilt sich in das sympathische und das parasympathische System auf",
   "profileCardSNASTooltip": "Sympathisches Nervensystem, steuert Ihre aktive körperliche Reaktion",
   "profileCardSNAPTooltip": "Parasympathisches Nervensystem, reguliert Ruhe und Stoffwechsel",
-
   "sleepScoreTooltip": "Bewertung basierend auf der Menge an Schlafstunden und den Phasen Leicht, Tief und REM",
   "sleepScoreTooltipDiamond": "Optimale Schlafbewertung",
-
   "adminProfilesTitle": "Profile",
   "adminDevicesTitle": "Geräte",
   "adminGroupsTitle": "Gruppen",
   "adminCollaboratorsTitle": "Mitarbeiter",
   "adminUsersTitle": "Benutzer",
-
   "adminColumnName": "Name",
   "adminColumnLastName": "Nachname",
   "adminColumnSerialNumber": "Seriennummer",
   "adminColumnLinked": "Verknüpft",
   "adminColumnStatus": "Status",
   "adminColumnRole": "Rolle",
-
   "adminNotLinked": "Nicht verknüpft",
-
   "adminSearchPlaceholder": "Suchen...",
   "adminFilterPlaceholder": "Nach Gruppe filtern",
-
   "adminAddProfileTooltip": "Profil hinzufügen",
   "adminShowAllProfilesTooltip": "Alle versteckten Profile anzeigen",
   "adminHideAllProfilesTooltip": "Versteckte Profile nicht anzeigen",
@@ -129,13 +138,11 @@
   "adminHideProfileTooltip": "Profil ausblenden",
   "adminEditProfileTooltip": "Profil bearbeiten",
   "adminDeleteProfileTooltip": "Profil löschen",
-
   "adminAddDeviceTooltip": "Gerät hinzufügen",
   "adminShowAllDevicesTooltip": "Alle versteckten Geräte anzeigen",
   "adminHideAllDevicesTooltip": "Versteckte Geräte nicht anzeigen",
   "adminDeleteDeviceTooltip": "Gerät löschen",
   "adminEditDeviceTooltip": "Gerät bearbeiten",
-
   "adminAddGroupTooltip": "Gruppe hinzufügen",
   "adminShowAllGroupsTooltip": "Alle versteckten Gruppen anzeigen",
   "adminHideAllGroupsTooltip": "Versteckte Gruppen nicht anzeigen",
@@ -143,82 +150,97 @@
   "adminHideGroupTooltip": "Gruppe ausblenden",
   "adminEditGroupTooltip": "Gruppe bearbeiten",
   "adminDeleteGroupTooltip": "Gruppe löschen",
-
   "adminAddCollaboratorTooltip": "Mitarbeiter hinzufügen",
   "adminDeleteCollaboratorTooltip": "Mitarbeiter löschen",
-
   "adminAddUserTooltip": "Benutzer hinzufügen",
   "adminEditUserTooltip": "Benutzer bearbeiten",
   "adminDeleteUserTooltip": "Benutzer löschen",
-
   "settingsHelpCardTitle": "Tutorials und FAQs",
   "settingsContactCardTitle": "Kontakt",
   "settingsPasswordCardTitle": "Passwort ändern",
-
   "settingsVideoCorrectUse": "Richtige Verwendung des Geräts",
   "settingsVideoRoute": "Rundgang durch die Plattform",
-
   "settingsPdfInstructions": "Installations- und Verwendungsanweisungen",
   "settingsPdfGuide": "Schnellstartanleitung",
   "settingsPdfTooltip": "PDF herunterladen",
-
   "settingsFAQ1Title": "Wie weiß ich, ob mein Gerät mit dem Internet verbunden ist?",
   "settingsFAQ1Desc": "Überprüfen Sie, ob die grüne LED an der Vorderseite des Geräts leuchtet. Andernfalls überprüfen Sie den Status Ihres Internetnetzwerks.",
-
   "settingsFAQ2Title": "Das Profil wird nicht im Gruppenpanel angezeigt.",
   "settingsFAQ2Desc": "Überprüfen Sie im Administrationspanel, ob das Profil nicht 'versteckt' ist.",
-
   "settingsFAQ3Title": "Wenn ich das Gerät mit dem Internet verbinde und das Passwort eingebe, erhalte ich einen 'falsches Passwort'-Fehler.",
   "settingsFAQ3Desc": "Denken Sie daran, dass Sie bei der Eingabe des Gerätepassworts auch die Bindestriche eingeben müssen, dh Sie müssen das Passwort genau so eingeben, wie es geschrieben steht. Hier ist ein Beispiel: 'xxxx-xxxx-xxx'.",
-
   "settingsFAQ4Title": "Wo sollte der Sensor platziert werden?",
   "settingsFAQ4Desc": "Der Sensor sollte ausschließlich unter der Matratze oder dem Matratzenbezug installiert werden. Um ein stärkeres Signal zu erfassen, sollte der mittlere Teil des Sensors (der Kunststoffstreifen) direkt unterhalb oder auf Höhe des Herzens des Benutzers liegen, wenn er liegt.\n\nWenn Sie ein Doppelbett haben und zwei Personen schlafen, sollten Sie den Sensor so nah wie möglich am Bettrand platzieren, mit dem Kabel zur Seite, parallel zum Körper und immer mit dem Großteil des Bandes auf Herzhöhe. Wenn Sie ein Doppelbett haben, aber nur eine Person schläft, wird empfohlen, den Sensor senkrecht zum Benutzer zu platzieren, immer auf Herzhöhe, aber den Sensor auf einer Seite oder in der Mitte zu positionieren, je nach den Schlafpositionsvorlieben des Benutzers.\n\nVermeiden Sie, dass das Kabel durch die Mitte des Bettes verläuft, da dies zu fehlerhaften Signalen führen kann.",
-
   "settingsFAQ5Title": "Muss das Gerät immer an die Stromversorgung angeschlossen sein?",
   "settingsFAQ5Desc": "Das Gerät verbraucht eine vernachlässigbare Menge Energie, daher ist es nicht notwendig, es zu trennen, um Strom zu sparen.\n\nWenn Sie es jedoch trennen möchten, tun Sie dies erst 10 Minuten nach dem Verlassen des Bettes, damit das Gerät genügend Zeit hat, das Ausstiegsereignis aus dem Bett an unsere Server zu senden. Andernfalls können unnötig lange Anwesenheitszeiten auftreten. Gleiches gilt, wenn Sie es beim Zubettgehen wieder anschließen. Es sollte 10 Minuten vor Ihrer Anwesenheit im Bett erfolgen.",
-
   "settingsFAQ6Title": "Wenn ich das Gerät ausschalte und wieder einschalte, verbindet es sich automatisch mit dem zuvor verwendeten WLAN?",
   "settingsFAQ6Desc": "Wenn das WLAN dasselbe ist wie das letzte, mit dem das Gerät verbunden war, ist keine erneute Konfiguration erforderlich.",
-
   "settingsFAQ7Title": "Wie kann ich Ergebnisse aus früheren Nächten sehen?",
   "settingsFAQ7Desc": "Alle Informationen zu Ihren Nächten finden Sie auf der Nyx-Sys-Plattform, indem Sie auf das Symbol -X- im Einzelpersonenpanel klicken.",
-
   "settingsFAQ8Title": "Was bedeutet die Fehlermeldung mit dem -X- Symbol, das darauf hinweist, dass einige Daten der Nacht nicht verarbeitet werden konnten?",
   "settingsFAQ8Desc": "Der Datenverlust während eines Schlafzyklus kann auf verschiedene Faktoren zurückzuführen sein. Die häufigsten sind normalerweise:\n\n\t- Ein schwaches Signal vom Gerät. Um dies zu beheben, müssen Sie das Gerät entsprechend den Empfehlungen im Punkt X neu positionieren.\n\n\t- Wenn Sie ein Doppelbett mit einer zweiten Person teilen, hat das Gerät Daten beider Personen erfasst und falsche oder überlappende Daten generiert.\n\n\t- Es gab einen Stromausfall während der Aufzeichnung.",
-
   "settingsFAQ9Title": "Was bedeutet das blinkende rote Licht am Gerät?",
   "settingsFAQ9Desc": "Rote Blinklichter deuten in der Regel auf Verbindungsprobleme hin. Wenn diese Unterbrechungen kurz sind, sollten Sie sich keine Sorgen machen.",
-
   "settingsFAQ10Title": "Was passiert, wenn das Internet ausfällt?",
   "settingsFAQ10Desc": "Wenn die Internetverbindung vorübergehend unterbrochen wird, zeichnet der interne Speicher bis zu 12 Stunden Daten auf. Bei Wiederherstellung der Verbindung werden die Daten zur Verarbeitung in die Cloud gesendet.",
-
   "settingsFAQ11Title": "Kann ich den Sensor in einem Doppelbett verwenden?",
   "settingsFAQ11Desc": "Ja, Sie können das Gerät in einem Doppelbett verwenden. Das Kabelende des Sensors sollte jedoch so nah wie möglich am Rand installiert werden, da die Bewegungen Ihres Partners dazu führen können, dass die Anwesenheit länger registriert wird, nachdem Sie das Bett verlassen haben.",
-
   "settingsPlaceholderEmail": "E-Mail",
   "settingsPlaceholderSubject": "Betreff",
   "settingsPlaceholderMessage": "Nachricht",
   "settingsPlaceholderActualPassword": "Aktuelles Passwort",
   "settingsPlaceholderNewPassword": "Neues Passwort",
   "settingsPlaceholderConfirmPassword": "Passwort bestätigen",
-
   "settingsButtonSend": "Senden",
   "settingsButtonSave": "Speichern",
-
   "settingsVisitWeb": "Besuche unsere Website",
   "settingsSocialAccounts": "Finde uns auch in sozialen Netzwerken",
-
   "settingsDeleteAccountTitle": "Mein Konto löschen",
   "settingsDeleteAccountDesc": "Möchten Sie Ihr Konto dauerhaft löschen? Beachten Sie, dass alle damit verbundenen Informationen verloren gehen. Sie können es nicht reaktivieren oder den Inhalt wiederherstellen.\n\nDie Aktion wird in 48 Stunden wirksam sein. Wenn es sich um einen Fehler handelt, kontaktieren Sie bitte unser Support-Team.",
   "settingsDeleteAccountButton": "Konto löschen",
-
   "settingsMandatoryFieldError": "Das Feld ist obligatorisch",
   "settingsValidEmailError": "Geben Sie eine gültige E-Mail-Adresse ein",
   "settingsMandatoryPassword": "Das Passwort ist obligatorisch",
   "settingsPatternPassword": "Das Passwort muss mindestens einen Großbuchstaben, einen Kleinbuchstaben und 8 Zeichen enthalten.",
-
   "settingsConfirmModalTitle": "Sind Sie sicher?",
   "settingsConfirmModalContent": "Möchten Sie Ihr Konto dauerhaft löschen? Beachten Sie, dass alle damit verbundenen Informationen verloren gehen. Sie können es nicht reaktivieren oder seinen Inhalt wiederherstellen. Die Aktion wird in 48 Stunden wirksam; wenn dies ein Fehler war, kontaktieren Sie bitte unser Support-Team.",
   "settingsConfirmModalAccept": "Akzeptieren",
-  "settingsConfirmModalCancel": "Abbrechen"
+  "settingsConfirmModalCancel": "Abbrechen",
+  "profileViewSelectProfileTooltip": "Profil auswählen",
+  "profileViewAddPeriodTooltip": "Zeitraum manuell hinzufügen",
+  "profileViewEditProfileTooltip": "Profil bearbeiten",
+  "profileViewDeletePeriod": "Zeitraum löschen",
+  "profileViewSelectGMT": "GMT auswählen",
+  "profileViewSleepScoreTitle": "Schlafscore",
+  "profileViewSleepScoreDescription": "Es ist fantastisch zu sehen, dass du in letzter Zeit auf deinen Schlaf geachtet hast. Mach weiter so!",
+  "profileViewRecoveryTitle": "Erholung",
+  "profileViewTotalRecovery": "Gesamterholung",
+  "profileViewIntegratedRecovery": "Integrierte Erholung",
+  "profileViewUnities": " Einheiten",
+  "profileViewHrvAlert": "Dein HRV ist höher als üblich. Ein hoher HRV zeigt an, dass dein Nervensystem bereit ist, mit Stress umzugehen und dein Körper im Gleichgewicht ist.",
+  "profileViewAnsTitle": "Balance des autonomen Nervensystems",
+  "profileViewParasympathetic": "Parasympathisch (Entspannung)",
+  "profileViewSympathetic": "Sympathisch (Stress)",
+  "profileViewAnsAlert": "Dein Ans neigt zur sympathischen Seite, was bedeutet, dass dein Körper auf aktive Situationen vorbereitet ist.",
+  "profileViewAnsHrVariabilityTitle": "Variabilität der Herzfrequenz",
+  "profileViewNight": "Nacht",
+  "profileViewMorning": "Morgen",
+  "profileViewAverage": "Durchschnitt",
+  "profileViewHeartRateTitle": "Herzfrequenz",
+  "profileViewBPMMax": "BPM Max",
+  "profileViewBPMRepose": "BPM im Ruhezustand",
+  "profileViewBPMAverage": "Durchschnittliche BPM",
+  "profileViewRespiratoryRateTitle": "Atemfrequenz",
+  "profileViewMovementTitle": "Bewegung",
+  "profileViewMovementsAndTurns": "Bewegungen und Drehungen",
+  "profileViewAverageInActivity": "Durchschnittliche Aktivität",
+  "profileViewSleepTimeTitle": "Schlafzeit",
+  "profileViewInBed": "Im Bett",
+  "profileViewSleeping": "Schlafend",
+  "profileViewAwake": "Wach",
+  "profileViewSleepArqTitle": "Schlafarchitektur",
+  "profileViewSoft": "Leicht",
+  "profileViewDeep": "Tief",
+  "profileViewREM": "REM",
+  "profileViewYearsDropdown": " Jahre"
 }

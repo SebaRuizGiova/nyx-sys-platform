@@ -32,8 +32,8 @@
       />
       <div class="user-data">
         <span>{{ userName }}</span>
-        <span>{{ device ? 'Dispositivo NS: ' + device : 'Ningún dispositivo asociado' }}</span>
-        <span>{{ age }} años</span>
+        <span>{{ device ? ('profileCardDeviceName' | translate) + device : ('profileCardAnyDevice' | translate) }}</span>
+        <span>{{ age + ('profileViewYearsDropdown' | translate) }}</span>
       </div>
       <i class="pi pi-angle-down" style="font-size: 1rem"></i>
     </div>

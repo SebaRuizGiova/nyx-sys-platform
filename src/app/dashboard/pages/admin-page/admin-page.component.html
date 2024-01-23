@@ -167,7 +167,7 @@
                 : ("adminNotLinked" | translate)
             }}
           </td>
-          <td>???</td>
+          <td>{{ device.status }}</td>
           <td class="column-rigth">
             <div class="actions">
               <i
@@ -467,7 +467,7 @@
     <shared-input-text
       [formGroup]="addDeviceForm"
       formControlName="verificationCode"
-      placeholder="Codigo de verificacion"
+      placeholder="Código de verificación"
       [error]="false"
       helper=""
     />

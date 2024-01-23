@@ -44,7 +44,6 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   public selectedSleepData?: SleepData;
 
   private intervalId: any;
-  private firstCall: boolean = true;
 
   constructor(
     private fb: FormBuilder,
