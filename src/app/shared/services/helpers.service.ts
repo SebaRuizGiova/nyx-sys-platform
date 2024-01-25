@@ -154,4 +154,10 @@ export class HelpersService {
     }
     return 0;
   }
+
+  formatTimestamp(timestamp: number) {
+    const date = new Date(timestamp);
+    const formattedTime = `${date.getHours()}:${('0' + date.getMinutes()).slice(-2)}:${('0' + date.getSeconds()).slice(-2)}hs`;
+    return formattedTime;
+  }
 }

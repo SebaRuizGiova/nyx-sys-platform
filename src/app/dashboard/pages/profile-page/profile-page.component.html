@@ -98,7 +98,7 @@
   <div class="grid-sup">
     <div class="card sleep-score">
       <div class="card-header">
-        <span>{{ 'profileViewSleepScoreTitle' | translate }}</span>
+        <span>{{ "profileViewSleepScoreTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -112,7 +112,7 @@
             [xl]="true"
           />
           <p class="desc">
-            {{ 'profileViewSleepScoreDescription' | translate }}
+            {{ "profileViewSleepScoreDescription" | translate }}
           </p>
         </div>
         <div class="graphic-card"></div>
@@ -120,7 +120,7 @@
     </div>
     <div class="card recovery">
       <div class="card-header">
-        <span>{{ 'profileViewRecoveryTitle' | translate }}</span>
+        <span>{{ "profileViewRecoveryTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -129,7 +129,9 @@
       <hr />
       <div class="card-content">
         <div class="data">
-          <div class="data-desc">{{ 'profileViewTotalRecovery' | translate }}</div>
+          <div class="data-desc">
+            {{ "profileViewTotalRecovery" | translate }}
+          </div>
           <div class="data-value-between">
             {{
               profileData?.selectedSleepData?.hrv_data &&
@@ -138,13 +140,15 @@
                 : "No data"
             }}
           </div>
-          <div class="data-desc">{{ 'profileViewIntegratedRecovery' | translate }}</div>
+          <div class="data-desc">
+            {{ "profileViewIntegratedRecovery" | translate }}
+          </div>
           <div class="data-value-between">
             {{
               profileData?.selectedSleepData?.hrv_data &&
               (profileData?.selectedSleepData)!.hrv_data!.length > 1
                 ? (profileData?.selectedSleepData)!.hrv_data[1]
-                    .integratedRecovery + ('profileViewUnities' | translate)
+                    .integratedRecovery + ("profileViewUnities" | translate)
                 : "No data"
             }}
           </div>
@@ -155,7 +159,7 @@
             style="font-size: 1rem; color: #1ee280"
           ></i>
           <p class="alert-desc">
-            {{ 'profileViewHrvAlert' | translate }}
+            {{ "profileViewHrvAlert" | translate }}
           </p>
         </div>
         <div class="graphic-card"></div>
@@ -163,7 +167,7 @@
     </div>
     <div class="card ans">
       <div class="card-header">
-        <span>{{ 'profileViewAnsTitle' | translate }}</span>
+        <span>{{ "profileViewAnsTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -172,7 +176,9 @@
       <hr />
       <div class="card-content">
         <div class="data">
-          <div class="data-desc-progress">{{ 'profileViewParasympathetic' | translate }}</div>
+          <div class="data-desc-progress">
+            {{ "profileViewParasympathetic" | translate }}
+          </div>
           <div class="data-progress">
             <shared-progress-bar
               [progress]="profileData?.selectedSleepData?.hrv_hf || 0"
@@ -204,7 +210,7 @@
             style="font-size: 1rem; color: #1ee280"
           ></i>
           <p class="alert-desc">
-            {{ 'profileViewAnsAlert' | translate }}
+            {{ "profileViewAnsAlert" | translate }}
           </p>
         </div>
         <div class="graphic-card"></div>
@@ -212,7 +218,7 @@
     </div>
     <div class="card heart-rate-var">
       <div class="card-header">
-        <span>{{ 'profileViewAnsHrVariabilityTitle' | translate }}</span>
+        <span>{{ "profileViewAnsHrVariabilityTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -221,7 +227,7 @@
       <hr />
       <div class="card-content">
         <div class="data">
-          <div class="data-desc">{{ 'profileViewNight' | translate }}</div>
+          <div class="data-desc">{{ "profileViewNight" | translate }}</div>
           <div class="data-value-between">
             {{
               profileData?.selectedSleepData?.hrv_rmssd_evening
@@ -229,7 +235,7 @@
                 : "No data"
             }}
           </div>
-          <div class="data-desc">{{ 'profileViewMorning' | translate }}</div>
+          <div class="data-desc">{{ "profileViewMorning" | translate }}</div>
           <div class="data-value-between">
             {{
               profileData?.selectedSleepData?.hrv_rmssd_morning
@@ -237,7 +243,7 @@
                 : "No data"
             }}
           </div>
-          <div class="data-desc">{{ 'profileViewAverage' | translate }}</div>
+          <div class="data-desc">{{ "profileViewAverage" | translate }}</div>
           <div class="data-value-between">
             {{
               profileData?.selectedSleepData?.average_rmssd
@@ -251,7 +257,7 @@
     </div>
     <div class="card heart-rate">
       <div class="card-header">
-        <span>{{ 'profileViewHeartRateTitle' | translate }}</span>
+        <span>{{ "profileViewHeartRateTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -260,15 +266,15 @@
       <hr />
       <div class="card-content">
         <div class="data">
-          <div class="data-desc">{{ 'profileViewBPMMax' | translate }}</div>
+          <div class="data-desc">{{ "profileViewBPMMax" | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.max_hr || "No data" }}
           </div>
-          <div class="data-desc">{{ 'profileViewBPMRepose' | translate }}</div>
+          <div class="data-desc">{{ "profileViewBPMRepose" | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.min_hr || "No data" }}
           </div>
-          <div class="data-desc">{{ 'profileViewBPMAverage' | translate }}</div>
+          <div class="data-desc">{{ "profileViewBPMAverage" | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.avg_hr || "No data" }}
           </div>
@@ -278,7 +284,7 @@
     </div>
     <div class="card respiratory-rate">
       <div class="card-header">
-        <span>{{ 'profileViewRespiratoryRateTitle' | translate }}</span>
+        <span>{{ "profileViewRespiratoryRateTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -287,15 +293,15 @@
       <hr />
       <div class="card-content">
         <div class="data">
-          <div class="data-desc">{{ 'profileViewBPMMax' | translate }}</div>
+          <div class="data-desc">{{ "profileViewBPMMax" | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.max_rr || "No data" }}
           </div>
-          <div class="data-desc">{{ 'profileViewBPMRepose' | translate }}</div>
+          <div class="data-desc">{{ "profileViewBPMRepose" | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.min_rr || "No data" }}
           </div>
-          <div class="data-desc">{{ 'profileViewBPMAverage' | translate }}</div>
+          <div class="data-desc">{{ "profileViewBPMAverage" | translate }}</div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.avg_rr || "No data" }}
           </div>
@@ -305,7 +311,7 @@
     </div>
     <div class="card movement">
       <div class="card-header">
-        <span>{{ 'profileViewMovementTitle' | translate }}</span>
+        <span>{{ "profileViewMovementTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -314,11 +320,15 @@
       <hr />
       <div class="card-content">
         <div class="data">
-          <div class="data-desc">{{ 'profileViewMovementsAndTurns' | translate }}</div>
+          <div class="data-desc">
+            {{ "profileViewMovementsAndTurns" | translate }}
+          </div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.tossnturn_count || "No data" }}
           </div>
-          <div class="data-desc">{{ 'profileViewAverageInActivity' | translate }}</div>
+          <div class="data-desc">
+            {{ "profileViewAverageInActivity" | translate }}
+          </div>
           <div class="data-value-between">
             {{ profileData?.selectedSleepData?.avg_act || "No data" }}
           </div>
@@ -328,7 +338,7 @@
     </div>
     <div class="card sleep-time">
       <div class="card-header">
-        <span>{{ 'profileViewSleepTimeTitle' | translate }}</span>
+        <span>{{ "profileViewSleepTimeTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -337,11 +347,11 @@
       <hr />
       <div class="card-content">
         <div class="data-grid">
-          <div class="data-desc">{{ 'profileViewInBed' | translate }}</div>
+          <div class="data-desc">{{ "profileViewInBed" | translate }}</div>
           <div class="data-value">
             {{ profileData?.selectedSleepData?.duration_in_bed || "No data" }}
           </div>
-          <div class="data-desc">{{ 'profileViewSleeping' | translate }}</div>
+          <div class="data-desc">{{ "profileViewSleeping" | translate }}</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="91" width="75px" />
             {{
@@ -353,7 +363,7 @@
                 : "No data"
             }}
           </div>
-          <div class="data-desc">{{ 'profileViewAwake' | translate }}</div>
+          <div class="data-desc">{{ "profileViewAwake" | translate }}</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="9" variant="dark" width="75px" />
             {{
@@ -369,10 +379,15 @@
         <div class="graphic-card"></div>
       </div>
     </div>
-    <div class="card graphic">Graphic</div>
+    <div class="card graphic">
+      <app-chart
+        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
+        [sleepData]="profileData!.selectedSleepData!.sleep_data || []"
+      ></app-chart>
+    </div>
     <div class="card sleep-arq">
       <div class="card-header">
-        <span>{{ 'profileViewSleepArqTitle' | translate }}</span>
+        <span>{{ "profileViewSleepArqTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -381,7 +396,7 @@
       <hr />
       <div class="card-content">
         <div class="data-grid">
-          <div class="data-desc">{{ 'profileViewSoft' | translate }}</div>
+          <div class="data-desc">{{ "profileViewSoft" | translate }}</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="56" width="75px" />
             {{
@@ -393,7 +408,7 @@
                 : "No data"
             }}
           </div>
-          <div class="data-desc">{{ 'profileViewDeep' | translate }}</div>
+          <div class="data-desc">{{ "profileViewDeep" | translate }}</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="24" width="75px" />
             {{
@@ -405,7 +420,7 @@
                 : "No data"
             }}
           </div>
-          <div class="data-desc">{{ 'profileViewREM' | translate }}</div>
+          <div class="data-desc">{{ "profileViewREM" | translate }}</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="20" variant="dark" width="75px" />
             {{
@@ -421,26 +436,4 @@
       </div>
     </div>
   </div>
-  <!-- <div class="grid-inf">
-    <div class="card heart-rate-var">
-      <div class="card-header">
-        <span>Variabilidad del ritmo cardíaco</span>
-      </div>
-      <hr />
-      <div class="card-content">
-        <div class="graphic-card"></div>
-      </div>
-    </div>
-    <div class="card graphic">Graphic</div>
-    <div class="card movement">
-      <div class="card-header">
-        <span>Movimiento</span>
-      </div>
-      <hr />
-      <div class="card-content">
-        <div class="graphic-card"></div>
-      </div>
-    </div>
-  </div> -->
-  <!-- <app-bar-chart /> -->
 </main>

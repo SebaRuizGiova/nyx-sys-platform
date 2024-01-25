@@ -81,10 +81,10 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
       this.loadData(userId, profileId);
       clearInterval(this.intervalId);
-      this.intervalId = setInterval(
-        () => this.loadProfile(userId, profileId),
-        30000
-      );
+      // this.intervalId = setInterval(
+      //   () => this.loadProfile(userId, profileId),
+      //   30000
+      // );
     });
 
     this.loadTranslations();
@@ -254,6 +254,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         liveData: mapLiveData,
       };
     }
+
+    console.log(this.profileData);
   }
 
   selectSleepData() {

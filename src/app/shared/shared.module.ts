@@ -31,6 +31,8 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
 import { ModalComponent } from './components/modal/modal.component';
 import { UserDropdownComponent } from './components/user-dropdown/user-dropdown.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { ChartComponent } from './components/chart/chart.component';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     ModalComponent,
     UserDropdownComponent,
     ProgressBarComponent,
+    ChartComponent,
   ],
   imports: [
     CommonModule,
@@ -65,7 +68,8 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     YouTubePlayerModule,
     AccordionModule,
     InputTextareaModule,
-    DialogModule
+    DialogModule,
+    ChartModule
   ],
   exports: [
     SidebarComponent,
@@ -80,7 +84,8 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     UserDropdownComponent,
     ProgressBarComponent,
     ModalComponent,
-    DropdownModule
+    DropdownModule,
+    ChartComponent
   ]
 })
 export class SharedModule { }

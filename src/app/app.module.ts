@@ -42,7 +42,7 @@ export function createTranslateLoader(http: HttpClient) {
     AngularFireAuthModule,
   ],
   providers: [
-    CurrentRouteService
+    CurrentRouteService,
   ],
   bootstrap: [AppComponent]
 })
