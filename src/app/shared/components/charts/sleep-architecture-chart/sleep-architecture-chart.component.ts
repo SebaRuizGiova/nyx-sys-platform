@@ -97,7 +97,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
             stacking: 'normal',
             borderRadius: '15%',
             borderWidth: 0,
-						groupPadding: 0
+            groupPadding: 0,
           },
         },
         legend: {
@@ -166,35 +166,37 @@ export class SleepArchitectureChartComponent implements OnChanges {
         activityLabel.push(data.sleepType);
       });
 
-      /* INSERTHING BEDEXIT DATA TO SLEEPDATA */
-      for (let index = 0; index < sleepData.length; index++) {
-        if (periodToBuild.bedexit_data !== undefined) {
-          if (periodToBuild.bedexit_data[bedExitCounter] !== undefined) {
-            if (
-              periodToBuild.bedexit_data[bedExitCounter].startTimestamp <
-              Number(sleepData[index])
-            ) {
-              sleepData.splice(
-                index,
-                0,
-                periodToBuild.bedexit_data[bedExitCounter].startTimestamp
-              );
-              activityLabel.splice(index, 0, 5);
-              // THIS IS SO THE GRAPH DOESNT CONFUSE THAT THE PERSON WAS ABSENT FOR A LONGER TIME THAN THEY REALLY WERE
-              sleepData.splice(
-                index + 1,
-                0,
-                periodToBuild.bedexit_data[bedExitCounter].endTimestamp
-              );
-              activityLabel.splice(index + 1, 0, 4);
-              if (bedExitCounter == periodToBuild.bedexit_data.length - 1) {
-                break;
+      if (!(periodToBuild.sleep_data.some(sd => sd.sleepType === 5))) {
+        /* INSERTHING BEDEXIT DATA TO SLEEPDATA */
+        for (let index = 0; index < sleepData.length; index++) {
+          if (periodToBuild.bedexit_data !== undefined) {
+            if (periodToBuild.bedexit_data[bedExitCounter] !== undefined) {
+              if (
+                periodToBuild.bedexit_data[bedExitCounter].startTimestamp <
+                Number(sleepData[index])
+              ) {
+                sleepData.splice(
+                  index,
+                  0,
+                  periodToBuild.bedexit_data[bedExitCounter].startTimestamp
+                );
+                activityLabel.splice(index, 0, 5);
+                // THIS IS SO THE GRAPH DOESNT CONFUSE THAT THE PERSON WAS ABSENT FOR A LONGER TIME THAN THEY REALLY WERE
+                sleepData.splice(
+                  index + 1,
+                  0,
+                  periodToBuild.bedexit_data[bedExitCounter].endTimestamp
+                );
+                activityLabel.splice(index + 1, 0, 4);
+                if (bedExitCounter == periodToBuild.bedexit_data.length - 1) {
+                  break;
+                }
+                bedExitCounter++;
               }
-              bedExitCounter++;
             }
+          } else {
+            bedExitCounter++;
           }
-        } else {
-          bedExitCounter++;
         }
       }
 

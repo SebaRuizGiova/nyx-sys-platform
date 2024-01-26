@@ -1,5 +1,9 @@
 <header class="header">
-  <i class="pi pi-angle-left" style="font-size: 1.5rem" (click)="selectBackProfile()"></i>
+  <i
+    class="pi pi-angle-left"
+    style="font-size: 1.5rem"
+    (click)="selectBackProfile()"
+  ></i>
   <div class="header-content">
     <form [formGroup]="userForm">
       <shared-user-dropdown
@@ -91,7 +95,11 @@
       </div>
     </div>
   </div>
-  <i class="pi pi-angle-right" style="font-size: 1.5rem" (click)="selectNextProfile()"></i>
+  <i
+    class="pi pi-angle-right"
+    style="font-size: 1.5rem"
+    (click)="selectNextProfile()"
+  ></i>
 </header>
 <hr />
 <main class="main-content">
@@ -184,26 +192,30 @@
           <div class="data-progress">
             <shared-progress-bar
               [progress]="profileData?.selectedSleepData?.hrv_hf || 0"
-              width="75px"
+              style="width: 100%"
             />
-            {{
-              profileData?.selectedSleepData?.hrv_hf
-                ? profileData?.selectedSleepData?.hrv_hf + "%"
-                : "No data"
-            }}
+            <span>
+              {{
+                profileData?.selectedSleepData?.hrv_hf
+                  ? profileData?.selectedSleepData?.hrv_hf + "%"
+                  : "No data"
+              }}
+            </span>
           </div>
           <div class="data-desc-progress">Simpático (Estrés)</div>
           <div class="data-progress">
             <shared-progress-bar
               [progress]="profileData?.selectedSleepData?.hrv_lf || 0"
               variant="dark"
-              width="75px"
+              style="width: 100%"
             />
-            {{
-              profileData?.selectedSleepData?.hrv_lf
-                ? profileData?.selectedSleepData?.hrv_lf + "%"
-                : "No data"
-            }}
+            <span>
+              {{
+                profileData?.selectedSleepData?.hrv_lf
+                  ? profileData?.selectedSleepData?.hrv_lf + "%"
+                  : "No data"
+              }}
+            </span>
           </div>
         </div>
         <div class="alert">
@@ -356,31 +368,42 @@
         <div class="data-grid">
           <div class="data-desc">{{ "profileViewInBed" | translate }}</div>
           <div class="data-value">
-            {{ profileData?.selectedSleepData?.duration_in_bed?.toString() || "No data" }}
+            {{
+              profileData?.selectedSleepData?.duration_in_bed?.toString() ||
+                "No data"
+            }}
           </div>
           <div class="data-desc">{{ "profileViewSleeping" | translate }}</div>
           <div class="data-progress">
-            <shared-progress-bar [progress]="91" width="75px" />
-            {{
-              profileData?.selectedSleepData?.duration_in_sleep?.toString()
-                ? profileData?.selectedSleepData?.duration_in_sleep +
-                  " (" +
-                  profileData?.selectedSleepData?.duration_in_sleep_percent +
-                  ")"
-                : "No data"
-            }}
+            <shared-progress-bar [progress]="91" style="width: 100%" />
+            <span>
+              {{
+                profileData?.selectedSleepData?.duration_in_sleep?.toString()
+                  ? profileData?.selectedSleepData?.duration_in_sleep +
+                    " (" +
+                    profileData?.selectedSleepData?.duration_in_sleep_percent +
+                    ")"
+                  : "No data"
+              }}
+            </span>
           </div>
           <div class="data-desc">{{ "profileViewAwake" | translate }}</div>
           <div class="data-progress">
-            <shared-progress-bar [progress]="9" variant="dark" width="75px" />
-            {{
-              profileData?.selectedSleepData?.duration_awake?.toString()
-                ? profileData?.selectedSleepData?.duration_awake +
-                  " (" +
-                  profileData?.selectedSleepData?.duration_awake_percent +
-                  ")"
-                : "No data"
-            }}
+            <shared-progress-bar
+              [progress]="9"
+              variant="dark"
+              style="width: 100%"
+            />
+            <span>
+              {{
+                profileData?.selectedSleepData?.duration_awake?.toString()
+                  ? profileData?.selectedSleepData?.duration_awake +
+                    " (" +
+                    profileData?.selectedSleepData?.duration_awake_percent +
+                    ")"
+                  : "No data"
+              }}
+            </span>
           </div>
         </div>
         <div class="graphic-card"></div>
@@ -407,39 +430,53 @@
         <div class="data-grid">
           <div class="data-desc">{{ "profileViewSoft" | translate }}</div>
           <div class="data-progress">
-            <shared-progress-bar [progress]="56" width="75px" />
-            {{
-              profileData?.selectedSleepData?.duration_in_light
-                ? profileData?.selectedSleepData?.duration_in_light +
-                  " (" +
-                  profileData?.selectedSleepData?.duration_in_light_percent +
-                  ")"
-                : "No data"
-            }}
+            <shared-progress-bar [progress]="56" style="width: 100%" />
+            <span>
+              {{
+                profileData?.selectedSleepData?.duration_in_light
+                  ? profileData?.selectedSleepData?.duration_in_light +
+                    " (" +
+                    profileData?.selectedSleepData?.duration_in_light_percent +
+                    ")"
+                  : "No data"
+              }}
+            </span>
           </div>
           <div class="data-desc">{{ "profileViewDeep" | translate }}</div>
           <div class="data-progress">
-            <shared-progress-bar [progress]="24" variant="super-dark" width="75px" />
-            {{
-              profileData?.selectedSleepData?.duration_in_deep
-                ? profileData?.selectedSleepData?.duration_in_deep +
-                  " (" +
-                  profileData?.selectedSleepData?.duration_in_deep_percent +
-                  ")"
-                : "No data"
-            }}
+            <shared-progress-bar
+              [progress]="24"
+              variant="super-dark"
+              style="width: 100%"
+            />
+            <span>
+              {{
+                profileData?.selectedSleepData?.duration_in_deep
+                  ? profileData?.selectedSleepData?.duration_in_deep +
+                    " (" +
+                    profileData?.selectedSleepData?.duration_in_deep_percent +
+                    ")"
+                  : "No data"
+              }}
+            </span>
           </div>
           <div class="data-desc">{{ "profileViewREM" | translate }}</div>
           <div class="data-progress">
-            <shared-progress-bar [progress]="20" variant="dark" width="75px" />
-            {{
-              profileData?.selectedSleepData?.duration_in_rem
-                ? profileData?.selectedSleepData?.duration_in_rem +
-                  " (" +
-                  profileData?.selectedSleepData?.duration_in_rem_percent +
-                  ")"
-                : "No data"
-            }}
+            <shared-progress-bar
+              [progress]="20"
+              variant="dark"
+              style="width: 100%"
+            />
+            <span>
+              {{
+                profileData?.selectedSleepData?.duration_in_rem
+                  ? profileData?.selectedSleepData?.duration_in_rem +
+                    " (" +
+                    profileData?.selectedSleepData?.duration_in_rem_percent +
+                    ")"
+                  : "No data"
+              }}
+            </span>
           </div>
         </div>
       </div>
