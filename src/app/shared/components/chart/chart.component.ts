@@ -24,7 +24,6 @@ export class ChartComponent implements OnChanges {
     if (this.period) {
       this.period = this.buildCompleteNight(this.period);
       this.sleepData = this.period.sleep_data || [];
-      console.log(this.period);
     }
     if (this.period && this.period?.sleep_data?.length) {
       const categories: string[] = this.period?.sleep_data.map((datum) =>
@@ -141,8 +140,6 @@ export class ChartComponent implements OnChanges {
   }
 
   buildCompleteNight(periodToBuild: SleepData) {
-    console.log('Night:', periodToBuild);
-
     if (periodToBuild.to) {
       let wakeUpTime = new Date(periodToBuild.to * 1000)
         .toString()

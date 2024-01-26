@@ -156,8 +156,10 @@ export class HelpersService {
   }
 
   formatTimestamp(timestamp: number) {
-    const date = new Date(timestamp);
-    const formattedTime = `${date.getHours()}:${('0' + date.getMinutes()).slice(-2)}:${('0' + date.getSeconds()).slice(-2)}hs`;
+    const date = new Date(timestamp * 1000); // Multiplicar por 1000 para convertir a milisegundos
+    const formattedTime = `${date.getHours()}:${('0' + date.getMinutes()).slice(
+      -2
+    )}:${('0' + date.getSeconds()).slice(-2)}hs`;
     return formattedTime;
   }
 }
