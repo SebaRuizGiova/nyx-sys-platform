@@ -468,6 +468,14 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         });
     }
   }
+  
+  setRecoveryMessage() {
+    // TODO: Desarrollar funcion
+  }
+  
+  setANSMessage() {
+    // TODO: Desarrollar funcion
+  }
 
   getRandomMessage(messages: string[]): string {
     const randomIndex = Math.floor(Math.random() * messages.length);

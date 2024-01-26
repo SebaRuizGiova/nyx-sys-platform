@@ -356,13 +356,13 @@
         <div class="data-grid">
           <div class="data-desc">{{ "profileViewInBed" | translate }}</div>
           <div class="data-value">
-            {{ profileData?.selectedSleepData?.duration_in_bed || "No data" }}
+            {{ profileData?.selectedSleepData?.duration_in_bed?.toString() || "No data" }}
           </div>
           <div class="data-desc">{{ "profileViewSleeping" | translate }}</div>
           <div class="data-progress">
             <shared-progress-bar [progress]="91" width="75px" />
             {{
-              profileData?.selectedSleepData?.duration_in_sleep
+              profileData?.selectedSleepData?.duration_in_sleep?.toString()
                 ? profileData?.selectedSleepData?.duration_in_sleep +
                   " (" +
                   profileData?.selectedSleepData?.duration_in_sleep_percent +
@@ -374,7 +374,7 @@
           <div class="data-progress">
             <shared-progress-bar [progress]="9" variant="dark" width="75px" />
             {{
-              profileData?.selectedSleepData?.duration_awake
+              profileData?.selectedSleepData?.duration_awake?.toString()
                 ? profileData?.selectedSleepData?.duration_awake +
                   " (" +
                   profileData?.selectedSleepData?.duration_awake_percent +
@@ -394,7 +394,7 @@
       ></sleep-architecture-chart>
     </div>
 
-    <div class="card sleep-arq">
+    <div class="card sleep-arc">
       <div class="card-header">
         <span>{{ "profileViewSleepArqTitle" | translate }}</span>
         <i
@@ -419,7 +419,7 @@
           </div>
           <div class="data-desc">{{ "profileViewDeep" | translate }}</div>
           <div class="data-progress">
-            <shared-progress-bar [progress]="24" width="75px" />
+            <shared-progress-bar [progress]="24" variant="super-dark" width="75px" />
             {{
               profileData?.selectedSleepData?.duration_in_deep
                 ? profileData?.selectedSleepData?.duration_in_deep +

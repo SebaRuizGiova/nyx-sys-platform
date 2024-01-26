@@ -130,7 +130,7 @@ export class HelpersService {
   }
 
   calcHoursSleepData(time: any) {
-    if (time) {
+    if (time?.toString()) {
       return new Date(time * 1000).toISOString().substr(11, 8) + 'hs';
     } else {
       return '';
