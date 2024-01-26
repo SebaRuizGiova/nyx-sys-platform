@@ -29,7 +29,7 @@ import { RouterModule } from '@angular/router';
     LayoutPageComponent,
     ProfilePageComponent,
     AdminPageComponent,
-    ProfileCardComponent
+    ProfileCardComponent,
   ],
   imports: [
     CommonModule,

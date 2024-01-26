@@ -31,8 +31,8 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
 import { ModalComponent } from './components/modal/modal.component';
 import { UserDropdownComponent } from './components/user-dropdown/user-dropdown.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
-import { ChartComponent } from './components/chart/chart.component';
 import { ChartModule } from 'angular-highcharts';
+import { SleepArchitectureChartComponent } from './components/charts/sleep-architecture-chart/sleep-architecture-chart.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,7 @@ import { ChartModule } from 'angular-highcharts';
     ModalComponent,
     UserDropdownComponent,
     ProgressBarComponent,
-    ChartComponent,
+    SleepArchitectureChartComponent,
   ],
   imports: [
     CommonModule,
@@ -85,7 +85,7 @@ import { ChartModule } from 'angular-highcharts';
     ProgressBarComponent,
     ModalComponent,
     DropdownModule,
-    ChartComponent
+    SleepArchitectureChartComponent
   ]
 })
 export class SharedModule { }

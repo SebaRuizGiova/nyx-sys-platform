@@ -1,17 +1,17 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Chart } from 'angular-highcharts';
 import {
   SleepData,
   SleepDatum,
 } from 'src/app/dashboard/interfaces/profile.interface';
-import { HelpersService } from '../../services/helpers.service';
+import { HelpersService } from '../../../services/helpers.service';
 
 @Component({
-  selector: 'app-chart',
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss'],
+  selector: 'sleep-architecture-chart',
+  templateUrl: './sleep-architecture-chart.component.html',
+  styleUrls: ['./sleep-architecture-chart.component.scss'],
 })
-export class ChartComponent implements OnChanges {
+export class SleepArchitectureChartComponent implements OnChanges {
   @Input() period?: SleepData;
   public sleepData: SleepDatum[] = [];
   public timestamps: string[] = [];
