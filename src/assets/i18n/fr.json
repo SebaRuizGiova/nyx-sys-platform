@@ -300,5 +300,45 @@
   "profileViewSoft": "Léger",
   "profileViewDeep": "Profond",
   "profileViewREM": "REM",
-  "profileViewYearsDropdown": " ans"
+  "profileViewYearsDropdown": " ans",
+  "profileSleepScoreMessage1+": [
+    "Félicitations pour votre score de sommeil ! Votre dévouement au repos se reflète dans votre bien-être. Continuez comme ça !",
+    "Incroyable ! Vous avez obtenu un score de sommeil optimal aujourd'hui. Votre corps et votre esprit vous en remercient. Dormez bien et réveillez-vous revitalisé !",
+    "Aujourd'hui, vous avez démontré que prioriser le sommeil est essentiel pour votre performance. Bravo d'avoir atteint un score de *sleep_score* ! Continuez à prendre soin de votre repos."
+  ],
+  "profileSleepScoreMessage1-": [
+    "Ne soyez pas découragé par un score bas aujourd'hui. Chaque jour est une nouvelle opportunité pour s'améliorer. Réfléchissez à ce qui pourrait avoir affecté votre sommeil et faites un pas vers une nuit plus réparatrice demain. Vous pouvez le faire !",
+    "Nous savons que aujourd'hui n'a pas été le meilleur jour en termes de sommeil, mais chaque jour est une nouvelle opportunité pour s'améliorer. Envisagez de petits changements dans votre routine nocturne et préparez-vous à une meilleure nuit. Courage !",
+    "Le score d'aujourd'hui n'était pas idéal, mais ne vous inquiétez pas. Apprenez de aujourd'hui et travaillez vers un sommeil plus réparateur demain. De petits changements peuvent faire la différence !"
+  ],
+  "profileSleepScoreMessage3+": [
+    "Triple série ! Vous avez maintenu un score de sommeil de 80 ou plus pendant 3 jours. Vous êtes en train de construire des habitudes saines ! Continuez comme ça, votre corps vous en remerciera !",
+    "Incroyable constance ! Trois jours d'affilée avec un sommeil optimal. Vous êtes sur la bonne voie pour un bien-être durable. Continuez à bien dormir !",
+    "Félicitations, trois jours consécutifs avec un score de sommeil excellent ! Vous êtes un champion du repos. Continuez ainsi et vous remarquerez la différence !"
+  ],
+  "profileSleepScoreMessage3-": [
+    "Trois jours avec des scores bas peuvent être difficiles, mais chaque jour est une opportunité de changer. Réfléchissez à votre routine nocturne et apportez de petits ajustements pour un meilleur repos. Vous êtes sur la voie de l'amélioration !",
+    "Il est normal d'avoir des périodes difficiles. Trois jours d'affilée avec des scores bas peuvent être un signal d'alarme. Envisagez des ajustements dans votre routine et prenez des mesures pour améliorer votre qualité de sommeil. Vous pouvez le faire !",
+    "Maintenir des scores bas pendant trois jours d'affilée est un signe pour faire des changements. Analysez ce qui pourrait affecter votre sommeil et prenez des mesures pour améliorer. Vous avez le contrôle sur vos habitudes !"
+  ],
+  "profileSleepScoreMessage5+": [
+    "Bravo ! Vous avez atteint un score de sommeil excellent pendant cinq jours d'affilée. Votre engagement envers le repos porte des fruits tangibles. Continuez comme ça et vous verrez la différence dans votre bien-être général !",
+    "Cinq jours consécutifs avec des scores de sommeil enviables. Vous construisez une base solide pour votre santé et votre énergie. Continuez à prioriser votre sommeil et vous récolterez des avantages à long terme !",
+    "Incroyable série ! Pendant cinq jours, votre sommeil a été constant et réparateur. Votre corps et votre esprit vous en remercient. Continuez à prendre soin de vous et profitez de nuits revigorantes !"
+  ],
+  "profileSleepScoreMessage5-": [
+    "Maintenir des scores bas pendant cinq jours d'affilée est un signal d'alerte. Réfléchissez aux facteurs qui pourraient affecter votre sommeil et envisagez des ajustements dans votre routine nocturne.",
+    "Cinq jours avec des scores de sommeil bas sont un rappel de l'importance de prioriser le repos. Évaluez les changements possibles dans votre environnement et vos habitudes pour améliorer la qualité de votre sommeil.",
+    "Maintenir une série de scores bas pendant cinq jours peut affecter votre bien-être. Envisagez d'explorer de nouvelles stratégies pour garantir un sommeil plus réparateur."
+  ],
+  "profileSleepScoreMessage7+": [
+    "Semaine complète de sommeil de qualité ! Atteindre un score de 80 ou plus pendant 7 jours d'affilée est une réalisation impressionnante. Votre corps et votre esprit sont en mode optimal. Continuez à prendre soin de vous !",
+    "Incroyable jalon ! Vous avez maintenu un score de sommeil de 80 ou plus pendant toute une semaine. C'est un témoignage de votre engagement envers votre bien-être. Continuez ainsi et conquérez chaque jour !",
+    "Vous avez atteint une semaine complète de sommeil optimal ! Votre dévouement au repos porte ses fruits. Continuez à prendre soin de votre sommeil et profitez des avantages continus. Vous êtes un champion du sommeil !"
+  ],
+  "profileSleepScoreMessage7-": [
+    "Une semaine de scores bas peut être un défi, mais c'est aussi une opportunité de faire des changements significatifs. Évaluez votre routine nocturne et recherchez des moyens de prioriser votre repos. Commencez dès aujourd'hui !",
+    "Sept jours avec des scores bas sont un signe que votre corps a besoin de plus d'attention. Envisagez des ajustements significatifs dans votre routine nocturne pour améliorer votre sommeil. Votre bien-être vous en remerciera !",
+    "Maintenir des scores bas pendant une semaine est un appel à l'action. Faites des changements dans votre style de vie et priorisez votre sommeil pour retrouver la voie de la qualité de repos. Nous sommes là pour vous soutenir dans ce changement positif !"
+  ]
 }

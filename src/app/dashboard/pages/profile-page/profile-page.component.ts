@@ -38,6 +38,9 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   public formatDownloadItems?: string[];
   public rangeDownloadItems?: string[];
   public gmtItems: string[] = this.helpersService.GMTItems;
+  public messageSleepScore: string = '';
+  public selectedProfileId: string = '';
+  public selectedProfileIndex: number = 0;
 
   public profileData?: Profile;
 
@@ -75,16 +78,28 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.languageService.langChanged$.subscribe(() => {
+      this.loadTranslations();
+      if (this.profileData?.sleepData && this.profileData?.selectedSleepData) {
+        const processedSleepData = this.processSleepData(
+          this.profileData.sleepData,
+          this.profileData.selectedSleepData
+        );
+  
+        this.setSleepScoreMessage(processedSleepData);
+      }
+    });
     this.route.paramMap.subscribe((params) => {
       const userId = params.get('userId') || '';
       const profileId = params.get('profileId') || '';
+      this.selectedProfileId = profileId;
 
       this.loadData(userId, profileId);
       clearInterval(this.intervalId);
-      // this.intervalId = setInterval(
-      //   () => this.loadProfile(userId, profileId),
-      //   30000
-      // );
+      this.intervalId = setInterval(
+        async () => await this.getLiveData(),
+        30000
+      );
     });
 
     this.loadTranslations();
@@ -111,8 +126,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.loadingService.setLoading(true);
 
     await this.loadProfile(userId, profileId);
-
-    console.log(this.profileData);
 
     this.loadingService.setLoading(false);
   }
@@ -167,15 +180,15 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
       const duration_in_light_percent = this.helpersService.calcPercentHours(
         data.duration_in_sleep,
-        data.duration_in_light,
+        data.duration_in_light
       );
       const duration_in_deep_percent = this.helpersService.calcPercentHours(
         data.duration_in_sleep,
-        data.duration_in_deep,
+        data.duration_in_deep
       );
       const duration_in_rem_percent = this.helpersService.calcPercentHours(
         data.duration_in_sleep,
-        data.duration_in_rem,
+        data.duration_in_rem
       );
 
       return {
@@ -203,7 +216,20 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.periodItems = this.helpersService.generatePeriods([this.profileData]);
     this.selectSleepData();
 
-    if (this.profileData.deviceSN) {
+    await this.getLiveData();
+
+    const processedSleepData = this.processSleepData(
+      this.profileData.sleepData,
+      this.profileData.selectedSleepData
+    );
+
+    this.setSleepScoreMessage(processedSleepData);
+
+    this.selectedProfileIndex = this.profilesItems.findIndex(profile => profile.value === this.selectedProfileId)
+  }
+
+  async getLiveData() {
+    if (this.profileData?.deviceSN) {
       const liveDataSnapshot = await this.databaseService.getLiveDataCollection(
         typeof this.profileData.deviceSN === 'boolean'
           ? ''
@@ -254,15 +280,15 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         liveData: mapLiveData,
       };
     }
-
-    console.log(this.profileData);
   }
 
   selectSleepData() {
     if (this.profileData!.sleepData!.length) {
       this.periodForm.patchValue({
-        period: this.helpersService.formatTimestampToDate(this.profileData!.sleepData[0]!.to || 0)
-      })
+        period: this.helpersService.formatTimestampToDate(
+          this.profileData!.sleepData[0]!.to || 0
+        ),
+      });
     }
 
     const selectedPeriod = this.periodForm.value.period;
@@ -288,6 +314,43 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     }
   }
 
+  changePeriod(event: any) {
+    if (this.profileData!.sleepData!.length) {
+      this.periodForm.patchValue({
+        period: event,
+      });
+    }
+
+    const selectedPeriod = this.periodForm.value.period;
+
+    if (this.profileData) {
+      const selectedSleepData = this.profileData.sleepData.find((sd) => {
+        const periodData = this.helpersService.formatTimestampToDate(sd.to);
+        return periodData === selectedPeriod;
+      });
+      const previousSleepData = this.profileData.sleepData.find((sd) => {
+        return (
+          this.helpersService.compareDates(
+            this.helpersService.formatTimestampToDate(sd.to),
+            selectedPeriod
+          ) === 1
+        );
+      });
+      this.profileData = {
+        ...this.profileData,
+        selectedSleepData,
+        previousSleepData,
+      };
+
+      const processedSleepData = this.processSleepData(
+        this.profileData.sleepData,
+        this.profileData.selectedSleepData
+      );
+
+      this.setSleepScoreMessage(processedSleepData);
+    }
+  }
+
   calculateAge(birthdate: Birthdate | undefined): string {
     if (birthdate) {
       const birthdateInSeconds = birthdate.seconds;
@@ -310,5 +373,145 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.router.navigate([
       '/dashboard/profile/' + event.userId + '/' + event.value,
     ]);
+  }
+
+  selectBackProfile() {
+    if (this.selectedProfileIndex > 0) {
+      const selectedProfile = this.profilesItems[this.selectedProfileIndex - 1];
+      this.router.navigate([
+        '/dashboard/profile/' + selectedProfile.userId + '/' + selectedProfile.value,
+      ]);
+    }
+  }
+
+  selectNextProfile() {
+    if (this.selectedProfileIndex < (this.profilesItems.length - 1)) {
+      const selectedProfile = this.profilesItems[this.selectedProfileIndex + 1];
+      this.router.navigate([
+        '/dashboard/profile/' + selectedProfile.userId + '/' + selectedProfile.value,
+      ]);
+    }
+  }
+
+  setSleepScoreMessage(processedSleepData: {
+    sleepScore: number;
+    consecutiveDays: number;
+  }) {
+    const { consecutiveDays, sleepScore } = processedSleepData;
+
+    if (consecutiveDays === 1 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage1+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          let message = this.getRandomMessage(messages);
+          if (message.includes('*sleep_score*')) {
+            message = message.replace('*sleep_score*', sleepScore.toString());
+          }
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 1 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage1-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 3 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage3+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 3 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage3-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 5 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage5+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 5 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage5-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 7 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage7+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 7 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage7-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    }
+  }
+
+  getRandomMessage(messages: string[]): string {
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    return messages[randomIndex];
+  }
+
+  processSleepData(sleepDataArray: SleepData[], selectedSleepData?: SleepData) {
+    if (selectedSleepData) {
+      const selectedSleepScore: number = selectedSleepData.sleep_score || 0;
+      let selectedSleepScoreStatus: 'negative' | 'positive' =
+        selectedSleepScore > 80 ? 'positive' : 'negative';
+      let actualSleepScoreStatus: 'negative' | 'positive' | '' = '';
+      let consecutiveDays: number = 0;
+      const selectedSleepDataIndex: number = sleepDataArray.findIndex(
+        (sd) => sd.id === selectedSleepData.id
+      );
+
+      for (const [index, sleepData] of sleepDataArray.entries()) {
+        if (
+          index > selectedSleepDataIndex &&
+          index <= selectedSleepDataIndex + 7
+        ) {
+          if (sleepData.sleep_score && sleepData.sleep_score >= 80) {
+            actualSleepScoreStatus = 'positive';
+          } else if (sleepData.sleep_score && sleepData.sleep_score < 80) {
+            actualSleepScoreStatus = 'negative';
+          }
+          if (selectedSleepScoreStatus === actualSleepScoreStatus) {
+            consecutiveDays++;
+          } else {
+            break;
+          }
+        }
+      }
+
+      return {
+        sleepScore: selectedSleepScore,
+        consecutiveDays,
+      };
+    }
+
+    return {
+      sleepScore: 0,
+      consecutiveDays: 0,
+    };
   }
 }

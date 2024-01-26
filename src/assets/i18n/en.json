@@ -300,5 +300,45 @@
   "profileViewSoft": "Light",
   "profileViewDeep": "Deep",
   "profileViewREM": "REM",
-  "profileViewYearsDropdown": " years"
+  "profileViewYearsDropdown": " years",
+  "profileSleepScoreMessage1+": [
+    "Congratulations on your sleep score! Your dedication to rest reflects in your well-being. Keep it up!",
+    "Incredible! You achieved an optimal sleep score today. Your body and mind thank you. Sleep well and wake up refreshed!",
+    "Today, you demonstrated that prioritizing sleep is key to your performance. Bravo for reaching a score of *sleep_score*! Keep taking care of your rest."
+  ],
+  "profileSleepScoreMessage1-": [
+    "Don't be discouraged by a low score today. Every day is a new opportunity to improve. Reflect on what might have affected your sleep and take a step towards a more restful night tomorrow. You can do it!",
+    "We know today wasn't the best day in terms of sleep, but every day is a new opportunity to improve. Consider small changes in your nighttime routine and get ready for a better night. Cheer up!",
+    "Today's score wasn't ideal, but don't worry. Learn from today and work towards a more restful sleep tomorrow. Small changes can make a difference!"
+  ],
+  "profileSleepScoreMessage3+": [
+    "Triple streak! You've maintained a sleep score of 80 or more for 3 days. You're building healthy habits! Keep it up, your body will thank you!",
+    "Incredible consistency! Three consecutive days with optimal sleep. You're on the right path to lasting well-being. Keep sleeping well!",
+    "Congratulations, three consecutive days with an excellent sleep score! You're a sleep champion. Keep it up, and you'll notice the difference!"
+  ],
+  "profileSleepScoreMessage3-": [
+    "Three days with low scores can be challenging, but each day is an opportunity to change. Reflect on your nighttime routine and make small adjustments for better rest. You're on the path to improvement!",
+    "It's normal to have tough streaks. Three consecutive days with low scores can be a call to action. Consider adjustments to your routine and take steps to improve your sleep quality. You can do it!",
+    "Maintaining low scores for three consecutive days is a signal to make changes. Analyze what might be affecting your sleep and take steps to improve. You're in control of your habits!"
+  ],
+  "profileSleepScoreMessage5+": [
+    "Bravo! You've achieved an excellent sleep score for five consecutive days. Your commitment to rest is yielding tangible results. Keep it up, and you'll notice the difference in your overall well-being!",
+    "Five consecutive days with enviable sleep scores. You're building a solid foundation for your health and energy. Keep prioritizing your sleep, and you'll reap long-term benefits!",
+    "Incredible streak! For five days, your sleep has been consistent and restorative. Your body and mind thank you. Keep taking care of yourself and enjoy revitalizing nights!"
+  ],
+  "profileSleepScoreMessage5-": [
+    "Maintaining low scores for five consecutive days is a warning sign. Reflect on factors that might be affecting your sleep and consider making adjustments to your nighttime routine.",
+    "Five days with low sleep scores are a reminder of the importance of prioritizing rest. Evaluate possible changes in your environment and habits to improve sleep quality.",
+    "Maintaining a streak of low scores for five days can impact your well-being. Consider exploring new strategies to ensure more restful sleep."
+  ],
+  "profileSleepScoreMessage7+": [
+    "Complete week of quality sleep! Achieving a score of 80 or more for 7 consecutive days is an impressive accomplishment. Your body and mind are in optimal mode. Keep taking care of yourself!",
+    "Incredible milestone! You've maintained a sleep score of 80 or more for an entire week. This is a testament to your commitment to your well-being. Keep it up and conquer each day!",
+    "You've reached a complete week of optimal sleep! Your dedication to rest is paying off. Keep taking care of your sleep and enjoy the ongoing benefits. You're a sleep champion!"
+  ],
+  "profileSleepScoreMessage7-": [
+    "A week of low scores can be a challenge, but it's also an opportunity for significant changes. Evaluate your nighttime routine and find ways to prioritize your rest. Start today!",
+    "Seven days with low scores are a sign that your body needs more attention. Consider making significant adjustments to your nighttime routine to improve your sleep. Your well-being will thank you!",
+    "Maintaining low scores for a week is a call to action. Make changes in your lifestyle and prioritize your sleep to get back on the path to quality rest. We're here to support you in this positive change!"
+  ]
 }

@@ -300,5 +300,45 @@
   "profileViewSoft": "Leggero",
   "profileViewDeep": "Profondo",
   "profileViewREM": "REM",
-  "profileViewYearsDropdown": " anni"
+  "profileViewYearsDropdown": " anni",
+  "profileSleepScoreMessage1+": [
+    "Congratulazioni per il tuo punteggio di sonno! La tua dedizione al riposo si riflette nel tuo benessere. Continua così!",
+    "Incredibile! Hai raggiunto un punteggio di sonno ottimale oggi. Il tuo corpo e la tua mente ti ringraziano. Dormi bene e svegliati riposato!",
+    "Oggi hai dimostrato che dare priorità al sonno è fondamentale per le tue performance. Bravo per aver raggiunto un punteggio di *sleep_score*! Continua a prenderti cura del tuo riposo."
+  ],
+  "profileSleepScoreMessage1-": [
+    "Non scoraggiarti per un punteggio basso oggi. Ogni giorno è una nuova opportunità per migliorare. Rifletti su cosa potrebbe aver influito sul tuo sonno e fai un passo verso una notte più riposante domani. Ce la puoi fare!",
+    "Sappiamo che oggi non è stato il miglior giorno in termini di sonno, ma ogni giorno è una nuova opportunità per migliorare. Considera piccoli cambiamenti nella tua routine serale e preparati per una notte migliore. Forza!",
+    "Il punteggio di oggi non è stato ideale, ma non preoccuparti. Impara da oggi e lavora per un sonno più riposante domani. Piccoli cambiamenti possono fare la differenza!"
+  ],
+  "profileSleepScoreMessage3+": [
+    "Tripla striscia! Hai mantenuto un punteggio di sonno di 80 o più per 3 giorni. Stai costruendo abitudini salutari! Continua così, il tuo corpo te ne sarà grato!",
+    "Incredibile consistenza! Tre giorni consecutivi con un sonno ottimale. Sei sulla strada giusta per un benessere duraturo. Continua a dormire bene!",
+    "Congratulazioni, tre giorni consecutivi con un punteggio di sonno eccellente! Sei un campione del riposo. Continua così e noterai la differenza!"
+  ],
+  "profileSleepScoreMessage3-": [
+    "Tre giorni con punteggi bassi possono essere sfidanti, ma ogni giorno è un'opportunità per cambiare. Rifletti sulla tua routine notturna e fai piccoli aggiustamenti per un riposo migliore. Sei sulla strada per il miglioramento!",
+    "È normale avere periodi difficili. Tre giorni consecutivi con punteggi bassi possono essere un segnale d'allarme. Considera aggiustamenti alla tua routine e intraprendi azioni per migliorare la qualità del sonno. Ce la puoi fare!",
+    "Mantenere punteggi bassi per tre giorni consecutivi è un segnale per apportare cambiamenti. Analizza cosa potrebbe influenzare il tuo sonno e intraprendi azioni per migliorare. Hai il controllo delle tue abitudini!"
+  ],
+  "profileSleepScoreMessage5+": [
+    "Bravo! Hai raggiunto un punteggio di sonno eccellente per cinque giorni consecutivi. Il tuo impegno per il riposo sta producendo risultati tangibili. Continua così e noterai la differenza nel tuo benessere generale!",
+    "Cinque giorni consecutivi con punteggi di sonno invidiabili. Stai costruendo una base solida per la tua salute ed energia. Continua a dare priorità al tuo sonno e raccoglierai benefici a lungo termine!",
+    "Incredibile striscia! Per cinque giorni, il tuo sonno è stato consistente e rigenerante. Il tuo corpo e la tua mente ti ringraziano. Continua a prenderti cura di te stesso e goditi notti rivitalizzanti!"
+  ],
+  "profileSleepScoreMessage5-": [
+    "Mantenere punteggi bassi per cinque giorni consecutivi è un segnale di allarme. Rifletti su fattori che potrebbero influenzare il tuo sonno e considera apportare modifiche alla tua routine notturna.",
+    "Cinque giorni con punteggi di sonno bassi sono un promemoria dell'importanza di dare priorità al riposo. Valuta possibili cambiamenti nel tuo ambiente e nelle abitudini per migliorare la qualità del sonno.",
+    "Mantenere una striscia di punteggi bassi per cinque giorni può influire sul tuo benessere. Considera l'esplorazione di nuove strategie per garantire un sonno più riposante."
+  ],
+  "profileSleepScoreMessage7+": [
+    "Settimana completa di sonno di qualità! Raggiungere un punteggio di 80 o più per 7 giorni consecutivi è un risultato impressionante. Il tuo corpo e la tua mente sono in modalità ottimale. Continua a prenderti cura di te stesso!",
+    "Incredibile traguardo! Hai mantenuto un punteggio di sonno di 80 o più per un'intera settimana. Questo è un attestato del tuo impegno per il tuo benessere. Continua così e conquista ogni giorno!",
+    "Hai raggiunto una settimana completa di sonno ottimale! La tua dedizione al riposo sta dando frutti. Continua a prenderti cura del tuo sonno e goditi i benefici continui. Sei un campione del sonno!"
+  ],
+  "profileSleepScoreMessage7-": [
+    "Una settimana di punteggi bassi può essere una sfida, ma è anche un'opportunità per apportare cambiamenti significativi. Valuta la tua routine notturna e trova modi per dare priorità al tuo riposo. Inizia oggi stesso!",
+    "Sette giorni con punteggi bassi sono un segnale che il tuo corpo ha bisogno di più attenzione. Considera apportare modifiche significative alla tua routine notturna per migliorare il sonno. Il tuo benessere te ne sarà grato!",
+    "Mantenere punteggi bassi per una settimana è un segnale d'allarme. Apporta cambiamenti nel tuo stile di vita e dai priorità al sonno per tornare sulla strada della qualità del riposo. Siamo qui per sostenerti in questo cambio positivo!"
+  ]
 }

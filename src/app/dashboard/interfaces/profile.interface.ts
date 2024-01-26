@@ -80,6 +80,7 @@ export interface SleepData {
   device:                Device;
   bedexit_count:         number;
   duration:              number;
+  period_type:           string;
 }
 
 export interface BedexitDatum {

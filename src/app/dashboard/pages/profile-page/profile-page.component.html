@@ -1,5 +1,5 @@
 <header class="header">
-  <i class="pi pi-angle-left" style="font-size: 1.5rem"></i>
+  <i class="pi pi-angle-left" style="font-size: 1.5rem" (click)="selectBackProfile()"></i>
   <div class="header-content">
     <form [formGroup]="userForm">
       <shared-user-dropdown
@@ -32,7 +32,7 @@
             [items]="periodItems"
             [formGroup]="periodForm"
             formControlName="period"
-            (dropdownChange)="selectSleepData()"
+            (dropdownChange)="changePeriod($event)"
           />
         </form>
         <div class="group-buttons">
@@ -91,7 +91,7 @@
       </div>
     </div>
   </div>
-  <i class="pi pi-angle-right" style="font-size: 1.5rem"></i>
+  <i class="pi pi-angle-right" style="font-size: 1.5rem" (click)="selectNextProfile()"></i>
 </header>
 <hr />
 <main class="main-content">
@@ -112,12 +112,13 @@
             [xl]="true"
           />
           <p class="desc">
-            {{ "profileViewSleepScoreDescription" | translate }}
+            {{ messageSleepScore }}
           </p>
         </div>
         <div class="graphic-card"></div>
       </div>
     </div>
+
     <div class="card recovery">
       <div class="card-header">
         <span>{{ "profileViewRecoveryTitle" | translate }}</span>
@@ -165,6 +166,7 @@
         <div class="graphic-card"></div>
       </div>
     </div>
+
     <div class="card ans">
       <div class="card-header">
         <span>{{ "profileViewAnsTitle" | translate }}</span>
@@ -216,6 +218,7 @@
         <div class="graphic-card"></div>
       </div>
     </div>
+
     <div class="card heart-rate-var">
       <div class="card-header">
         <span>{{ "profileViewAnsHrVariabilityTitle" | translate }}</span>
@@ -255,6 +258,7 @@
         <div class="graphic-card"></div>
       </div>
     </div>
+
     <div class="card heart-rate">
       <div class="card-header">
         <span>{{ "profileViewHeartRateTitle" | translate }}</span>
@@ -282,6 +286,7 @@
         <div class="graphic-card"></div>
       </div>
     </div>
+
     <div class="card respiratory-rate">
       <div class="card-header">
         <span>{{ "profileViewRespiratoryRateTitle" | translate }}</span>
@@ -309,6 +314,7 @@
         <div class="graphic-card"></div>
       </div>
     </div>
+
     <div class="card movement">
       <div class="card-header">
         <span>{{ "profileViewMovementTitle" | translate }}</span>
@@ -336,6 +342,7 @@
         <div class="graphic-card"></div>
       </div>
     </div>
+
     <div class="card sleep-time">
       <div class="card-header">
         <span>{{ "profileViewSleepTimeTitle" | translate }}</span>
@@ -379,12 +386,14 @@
         <div class="graphic-card"></div>
       </div>
     </div>
+
     <div class="card graphic">
       <app-chart
         *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
-        [sleepData]="profileData!.selectedSleepData!.sleep_data || []"
+        [period]="profileData!.selectedSleepData"
       ></app-chart>
     </div>
+
     <div class="card sleep-arq">
       <div class="card-header">
         <span>{{ "profileViewSleepArqTitle" | translate }}</span>

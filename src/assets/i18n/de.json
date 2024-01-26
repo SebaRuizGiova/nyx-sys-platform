@@ -300,5 +300,45 @@
   "profileViewSoft": "Leicht",
   "profileViewDeep": "Tief",
   "profileViewREM": "REM",
-  "profileViewYearsDropdown": " Jahre"
+  "profileViewYearsDropdown": " Jahre",
+  "profileSleepScoreMessage1+": [
+    "Herzlichen Glückwunsch zu deiner Schlafpunktzahl! Dein Einsatz für erholsamen Schlaf spiegelt sich in deinem Wohlbefinden wider. Mach weiter so!",
+    "Unglaublich! Du hast heute eine optimale Schlafpunktzahl erreicht. Dein Körper und Geist danken es dir. Schlaf gut und wache erfrischt auf!",
+    "Heute hast du gezeigt, dass das Priorisieren von Schlaf entscheidend für deine Leistung ist. Bravo, dass du eine Punktzahl von *sleep_score* erzielt hast! Setze deine Erholung fort."
+  ],
+  "profileSleepScoreMessage1-": [
+    "Lass dich nicht von einer niedrigen Punktzahl heute entmutigen. Jeder Tag ist eine neue Gelegenheit zur Verbesserung. Überlege, was deinen Schlaf beeinflusst haben könnte, und mach einen Schritt zu einer erholsameren Nacht. Du schaffst das!",
+    "Wir wissen, dass heute kein optimaler Schlaf-Tag war, aber jeder Tag bietet eine neue Chance zur Verbesserung. Denke über kleine Änderungen in deiner nächtlichen Routine nach und bereite dich auf eine bessere Nacht vor. Du schaffst das!",
+    "Die heutige Punktzahl war vielleicht nicht ideal, aber mach dir keine Sorgen. Lerne von heute und arbeite auf einen erholsameren Schlaf hin. Kleine Veränderungen können einen Unterschied machen!"
+  ],
+  "profileSleepScoreMessage3+": [
+    "Dreifache Serie! Du hast drei Tage lang eine Schlafpunktzahl von 80 oder mehr beibehalten. Du baust gesunde Gewohnheiten auf! Mach weiter so, dein Körper wird es dir danken!",
+    "Incredible Beständigkeit! Drei aufeinander folgende Tage mit optimalem Schlaf. Du bist auf dem richtigen Weg zu langfristigem Wohlbefinden. Schlaf weiterhin gut!",
+    "Herzlichen Glückwunsch, drei aufeinander folgende Tage mit einer ausgezeichneten Schlafpunktzahl! Du bist ein Champion der Erholung. Mach weiter so, und du wirst den Unterschied bemerken!"
+  ],
+  "profileSleepScoreMessage3-": [
+    "Drei Tage mit niedrigen Punktzahlen können herausfordernd sein, aber jeder Tag ist eine Gelegenheit zur Veränderung. Denke über deine nächtliche Routine nach und mache kleine Anpassungen für eine bessere Erholung. Du bist auf dem Weg zur Verbesserung!",
+    "Es ist normal, schwierige Phasen zu haben. Drei aufeinander folgende Tage mit niedrigen Punktzahlen sollten als Weckruf dienen. Überlege Anpassungen an deiner Routine und ergreife Maßnahmen, um deine Schlafqualität zu verbessern. Du schaffst das!",
+    "Niedrige Punktzahlen für drei aufeinander folgende Tage sind ein Zeichen für Veränderungen. Analysiere, was deinen Schlaf beeinflussen könnte, und ergreife Maßnahmen zur Verbesserung. Du kontrollierst deine Gewohnheiten!"
+  ],
+  "profileSleepScoreMessage5+": [
+    "Bravo! Du hast fünf Tage hintereinander eine hervorragende Schlafpunktzahl erreicht. Dein Engagement für die Erholung zeigt konkrete Ergebnisse. Mach weiter so, und du wirst den Unterschied in deinem allgemeinen Wohlbefinden spüren!",
+    "Fünf aufeinander folgende Tage mit beneidenswerten Schlafpunktzahlen. Du baust ein solides Fundament für deine Gesundheit und Energie auf. Setze weiterhin auf deinen Schlaf, und du wirst langfristige Vorteile ernten!",
+    "Incredible Serie! In den letzten fünf Tagen war dein Schlaf konstant und erholsam. Dein Körper und Geist danken es dir. Kümmere dich weiterhin um dich und genieße revitalisierende Nächte!"
+  ],
+  "profileSleepScoreMessage5-": [
+    "Fünf Tage hintereinander niedrige Punktzahlen zu halten, ist ein Warnzeichen. Denke über die Faktoren nach, die deinen Schlaf beeinträchtigen könnten, und erwäge Anpassungen in deiner nächtlichen Routine.",
+    "Fünf Tage mit niedrigen Schlafpunktzahlen sind eine Erinnerung an die Bedeutung der Priorisierung der Erholung. Überlege mögliche Veränderungen in deiner Umgebung und deinen Gewohnheiten, um die Qualität deines Schlafs zu verbessern.",
+    "Eine Serie von fünf niedrigen Punktzahlen kann sich auf dein Wohlbefinden auswirken. Erwäge neue Strategien, um einen erholsameren Schlaf zu gewährleisten."
+  ],
+  "profileSleepScoreMessage7+": [
+    "Eine ganze Woche mit qualitativ hochwertigem Schlaf! Eine Schlafpunktzahl von 80 oder mehr an sieben aufeinander folgenden Tagen zu erreichen, ist eine beeindruckende Leistung. Dein Körper und Geist befinden sich im optimalen Modus. Kümmere dich weiterhin um dich!",
+    "Incredible Meilenstein! Du hast eine Schlafpunktzahl von 80 oder mehr die gesamte Woche über aufrechterhalten. Das ist ein Zeugnis deines Engagements für dein Wohlbefinden. Mach weiter so und erobere jeden Tag!",
+    "Du hast eine ganze Woche mit optimalem Schlaf erreicht! Deine Hingabe zur Erholung zahlt sich aus. Kümmere dich weiterhin um deinen Schlaf und genieße die kontinuierlichen Vorteile. Du bist ein Schlafchampion!"
+  ],
+  "profileSleepScoreMessage7-": [
+    "Eine Woche mit niedrigen Punktzahlen kann eine Herausforderung sein, bietet aber auch die Möglichkeit zu signifikanten Veränderungen. Evaluier deine nächtliche Routine und suche nach Wegen, deinen Schlaf zu priorisieren. Fang heute damit an!",
+    "Sieben Tage mit niedrigen Punktzahlen sind ein Signal, dass dein Körper mehr Aufmerksamkeit benötigt. Erwäge bedeutende Anpassungen in deiner nächtlichen Routine, um deinen Schlaf zu verbessern. Dein Wohlbefinden wird es dir danken!",
+    "Niedrige Punktzahlen über eine Woche hinweg sind ein Aufruf zur Aktion. Ändere deinen Lebensstil und priorisiere deinen Schlaf, um wieder auf den Weg zu erholsamer Qualität zu kommen. Wir stehen hinter dir in dieser positiven Veränderung!"
+  ]
 }

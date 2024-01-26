@@ -300,5 +300,45 @@
   "profileViewSoft": "Ligero",
   "profileViewDeep": "Profundo",
   "profileViewREM": "REM",
-  "profileViewYearsDropdown": " años"
+  "profileViewYearsDropdown": " años",
+  "profileSleepScoreMessage1+": [
+    "¡Felicidades por tu puntuación de sueño! Tu dedicación al descanso se refleja en tu bienestar. ¡Sigue así!",
+    "¡Increíble! Lograste una puntuación de sueño óptima hoy. Tu cuerpo y mente te agradecen. ¡Duerme bien y despierta recargado!",
+    "Hoy demostraste que priorizar el sueño es clave para tu rendimiento. ¡Bravo por alcanzar una puntuación de *sleep_score*! Continúa cuidando tu descanso."
+  ],
+  "profileSleepScoreMessage1-": [
+    "No te desanimes por un puntaje bajo hoy. Cada día es una nueva oportunidad para mejorar. Reflexiona sobre lo que podría haber afectado tu sueño y da un paso hacia un descanso más reparador mañana. ¡Tú puedes hacerlo!",
+    "Sabemos que hoy no fue el mejor día en cuanto a sueño, pero cada día es una nueva oportunidad para mejorar. Considera pequeños cambios en tu rutina nocturna y prepárate para una mejor noche. ¡Ánimo!",
+    "El puntaje de hoy no fue el ideal, pero no te preocupes. Aprende de hoy y trabaja hacia un sueño más reparador mañana. ¡Pequeños cambios pueden marcar la diferencia!"
+  ],
+  "profileSleepScoreMessage3+": [
+    "¡Triple racha! Has mantenido una puntuación de sueño de 80 o más durante 3 días. ¡Estás construyendo hábitos saludables! Sigue así, ¡tu cuerpo te lo agradecerá!",
+    "¡Increíble consistencia! Tres días seguidos con un sueño óptimo. Estás en el camino correcto para un bienestar duradero. ¡Sigue durmiendo bien!",
+    "¡Felicidades, tres días consecutivos con una puntuación de sueño excelente! Eres un campeón del descanso. ¡Sigue así y notarás la diferencia!"
+  ],
+  "profileSleepScoreMessage3-": [
+    "Tres días con puntajes bajos pueden ser desafiantes, pero cada día es una oportunidad para cambiar. Reflexiona sobre tu rutina nocturna y haz pequeños ajustes para un mejor descanso. ¡Estás en el camino hacia la mejora!",
+    "Es normal tener rachas difíciles. Tres días seguidos con puntajes bajos pueden ser un llamado a la acción. Considera ajustes en tu rutina y toma medidas para mejorar tu calidad de sueño. ¡Tú puedes hacerlo!",
+    "Mantener bajos los puntajes durante tres días seguidos es una señal para hacer cambios. Analiza qué podría estar afectando tu sueño y toma medidas para mejorar. ¡Estás en control de tus hábitos!"
+  ],
+  "profileSleepScoreMessage5+": [
+    "¡Bravo! Has alcanzado un puntaje de sueño excelente durante cinco días seguidos. Tu compromiso con el descanso está dando resultados tangibles. ¡Sigue así y notarás la diferencia en tu bienestar general!",
+    "Cinco días consecutivos con puntajes de sueño envidiables. Estás construyendo un sólido fundamento para tu salud y energía. ¡Continúa priorizando tu sueño y cosecharás los beneficios a largo plazo!",
+    "¡Increíble racha! Durante cinco días, tu sueño ha sido consistente y reparador. Tu cuerpo y mente te agradecen. ¡Sigue cuidándote y disfrutando de noches revitalizantes!"
+  ],
+  "profileSleepScoreMessage5-": [
+    "Mantener bajos los puntajes durante cinco días seguidos es una señal de alerta. Reflexiona sobre los factores que podrían estar afectando tu sueño y considera hacer ajustes en tu rutina nocturna.",
+    "Cinco días con puntajes de sueño bajos son un recordatorio de la importancia de priorizar el descanso. Evalúa posibles cambios en tu entorno y hábitos para mejorar la calidad del sueño.",
+    "Mantener una racha de puntajes bajos durante cinco días puede afectar tu bienestar. Considera explorar nuevas estrategias para garantizar un sueño más reparador."
+  ],
+  "profileSleepScoreMessage7+": [
+    "¡Semana completa de sueño de calidad! Alcanzar una puntuación de 80 o más durante 7 días seguidos es un logro impresionante. Tu cuerpo y mente están en modo óptimo. ¡Continúa cuidándote!",
+    "¡Increíble hito! Has mantenido una puntuación de sueño de 80 o más durante toda una semana. Esto es un testimonio de tu compromiso con tu bienestar. ¡Sigue así y conquista cada día!",
+    "¡Has alcanzado una semana completa de sueño óptimo! Tu dedicación al descanso está dando frutos. Sigue cuidando tu sueño y disfruta de los beneficios continuos. ¡Eres un campeón del sueño!"
+  ],
+  "profileSleepScoreMessage7-": [
+    "Una semana de bajos puntajes puede ser un desafío, pero también es una oportunidad para hacer cambios significativos. Evalúa tu rutina nocturna y busca maneras de priorizar tu descanso. ¡Empieza hoy mismo!",
+    "Siete días con puntajes bajos son una señal de que tu cuerpo necesita más atención. Considera hacer ajustes significativos en tu rutina nocturna para mejorar tu sueño. ¡Tu bienestar lo agradecerá!",
+    "Mantener bajos los puntajes durante una semana es una llamada a la acción. Haz cambios en tu estilo de vida y prioriza tu sueño para volver al camino de la calidad de descanso. ¡Estamos aquí para apoyarte en este cambio positivo!"
+  ]
 }
