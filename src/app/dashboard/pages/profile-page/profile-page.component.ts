@@ -41,6 +41,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   public messageSleepScore: string = '';
   public selectedProfileId: string = '';
   public selectedProfileIndex: number = 0;
+  public totalRecoveryToChart: any[] = [];
 
   public profileData?: Profile;
 
@@ -85,7 +86,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           this.profileData.sleepData,
           this.profileData.selectedSleepData
         );
-  
+
         this.setSleepScoreMessage(processedSleepData);
       }
     });
@@ -146,7 +147,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     const sleepData = <SleepData[]>(
       sleepDataSnapshot.docs.map((doc) => doc.data())
     );
-
     const formattedSleepData = sleepData.map((data) => {
       const duration_in_sleep = this.helpersService.calcHoursSleepData(
         data.duration_in_sleep
@@ -213,6 +213,10 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       sleepData: formattedSleepData,
     };
 
+    if (this.profileData?.sleepData) {
+      this.totalRecoveryToChart = this.getTotalRecoveryToChart(this.profileData.sleepData);
+    }
+
     this.periodItems = this.helpersService.generatePeriods([this.profileData]);
     this.selectSleepData();
 
@@ -225,7 +229,9 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
     this.setSleepScoreMessage(processedSleepData);
 
-    this.selectedProfileIndex = this.profilesItems.findIndex(profile => profile.value === this.selectedProfileId)
+    this.selectedProfileIndex = this.profilesItems.findIndex(
+      (profile) => profile.value === this.selectedProfileId
+    );
   }
 
   async getLiveData() {
@@ -379,16 +385,22 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     if (this.selectedProfileIndex > 0) {
       const selectedProfile = this.profilesItems[this.selectedProfileIndex - 1];
       this.router.navigate([
-        '/dashboard/profile/' + selectedProfile.userId + '/' + selectedProfile.value,
+        '/dashboard/profile/' +
+          selectedProfile.userId +
+          '/' +
+          selectedProfile.value,
       ]);
     }
   }
 
   selectNextProfile() {
-    if (this.selectedProfileIndex < (this.profilesItems.length - 1)) {
+    if (this.selectedProfileIndex < this.profilesItems.length - 1) {
       const selectedProfile = this.profilesItems[this.selectedProfileIndex + 1];
       this.router.navigate([
-        '/dashboard/profile/' + selectedProfile.userId + '/' + selectedProfile.value,
+        '/dashboard/profile/' +
+          selectedProfile.userId +
+          '/' +
+          selectedProfile.value,
       ]);
     }
   }
@@ -468,11 +480,11 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         });
     }
   }
-  
+
   setRecoveryMessage() {
     // TODO: Desarrollar funcion
   }
-  
+
   setANSMessage() {
     // TODO: Desarrollar funcion
   }
@@ -521,5 +533,40 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       sleepScore: 0,
       consecutiveDays: 0,
     };
+  }
+
+  getTotalRecoveryToChart(sleepDataArray: SleepData[]) {
+    // Creamos un array para almacenar los resultados
+    const totalRecoveryArray: any[] = [];
+
+    // Contador para llevar la cuenta de los elementos encontrados
+    let count = 0;
+    console.log(sleepDataArray);
+    // Iteramos sobre cada elemento del array
+    for (const sleepData of sleepDataArray) {
+      // Validamos si existe hrv_data y hrv_data[0].totalRecovery
+      if (
+        sleepData.hrv_data &&
+        sleepData.hrv_data.length > 0 &&
+        sleepData.hrv_data[0].totalRecovery !== undefined
+      ) {
+        // Agregamos el totalRecovery al nuevo array
+        totalRecoveryArray.push({
+          totalRecovery: sleepData.hrv_data[0].totalRecovery,
+          date: this.helpersService.formatTimestampToDate(sleepData.from)
+        });
+
+        // Incrementamos el contador
+        count++;
+
+        // Verificamos si hemos alcanzado los 7 elementos buscados
+        if (count === 7) {
+          break;
+        }
+      }
+    }
+
+    console.log(totalRecoveryArray);
+    return totalRecoveryArray;
   }
 }

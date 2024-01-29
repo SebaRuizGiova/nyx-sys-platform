@@ -171,7 +171,9 @@
             {{ "profileViewHrvAlert" | translate }}
           </p>
         </div>
-        <div class="graphic-card"></div>
+        <div class="graphic-card">
+          <recovery-chart [recovery]="totalRecoveryToChart"></recovery-chart>
+        </div>
       </div>
     </div>
 
@@ -267,7 +269,9 @@
             }}
           </div>
         </div>
-        <div class="graphic-card"></div>
+        <div class="graphic-card">
+          <recovery-chart [recovery]="totalRecoveryToChart"></recovery-chart>
+        </div>
       </div>
     </div>
 

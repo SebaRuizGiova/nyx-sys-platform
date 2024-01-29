@@ -33,6 +33,7 @@ import { UserDropdownComponent } from './components/user-dropdown/user-dropdown.
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 import { ChartModule } from 'angular-highcharts';
 import { SleepArchitectureChartComponent } from './components/charts/sleep-architecture-chart/sleep-architecture-chart.component';
+import { RecoveryChartComponent } from './components/charts/recovery-chart/recovery-chart.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { SleepArchitectureChartComponent } from './components/charts/sleep-archi
     UserDropdownComponent,
     ProgressBarComponent,
     SleepArchitectureChartComponent,
+    RecoveryChartComponent,
   ],
   imports: [
     CommonModule,
@@ -85,7 +87,8 @@ import { SleepArchitectureChartComponent } from './components/charts/sleep-archi
     ProgressBarComponent,
     ModalComponent,
     DropdownModule,
-    SleepArchitectureChartComponent
+    SleepArchitectureChartComponent,
+    RecoveryChartComponent
   ]
 })
 export class SharedModule { }

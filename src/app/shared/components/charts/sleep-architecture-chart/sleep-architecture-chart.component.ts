@@ -5,6 +5,7 @@ import {
   SleepDatum,
 } from 'src/app/dashboard/interfaces/profile.interface';
 import { HelpersService } from '../../../services/helpers.service';
+import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'sleep-architecture-chart',
@@ -49,12 +50,12 @@ export class SleepArchitectureChartComponent implements OnChanges {
         {
           name: 'Deep',
           color: '#000A3D',
-          data: this.getSeriesData(3),
+          data: this.getSeriesData(1),
         },
         {
           name: 'REM',
           color: '#3043CE',
-          data: this.getSeriesData(1),
+          data: this.getSeriesData(3),
         },
       ];
 
@@ -95,7 +96,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
         plotOptions: {
           column: {
             stacking: 'normal',
-            borderRadius: '15%',
+            borderRadius: '10%',
             borderWidth: 0,
             groupPadding: 0,
           },
@@ -125,15 +126,15 @@ export class SleepArchitectureChartComponent implements OnChanges {
   private getSleepTypeHeight(sleepType: number): number {
     switch (sleepType) {
       case 5:
-        return 5;
+        return 6.5;
       case 1:
-        return 3;
+        return -1.5;
       case 2:
         return 2.5;
       case 3:
-        return -1.5;
+        return 4.5;
       case 4:
-        return 1;
+        return 1.6;
       default:
         return 0;
     }
@@ -166,7 +167,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
         activityLabel.push(data.sleepType);
       });
 
-      if (!(periodToBuild.sleep_data.some(sd => sd.sleepType === 5))) {
+      if (!periodToBuild.sleep_data.some((sd) => sd.sleepType === 5)) {
         /* INSERTHING BEDEXIT DATA TO SLEEPDATA */
         for (let index = 0; index < sleepData.length; index++) {
           if (periodToBuild.bedexit_data !== undefined) {
@@ -333,6 +334,43 @@ export class SleepArchitectureChartComponent implements OnChanges {
             periodToBuild.sleep_data[index] = updatedModifiedSleepData[index];
           }
         }
+      }
+
+      if (periodToBuild.sleep_data) {
+        const sleepDataFilled = periodToBuild.sleep_data;
+
+        for (let i = 0; i < sleepDataFilled.length - 1; i++) {
+          const currentDatum = sleepDataFilled[i];
+          const nextDatum = sleepDataFilled[i + 1];
+
+          // Calcular la diferencia de tiempo en minutos
+          const timeDifferenceMinutes =
+            (nextDatum.timestamp - currentDatum.timestamp) / 60;
+
+          // !! Verificar si la diferencia es mayor a 3 minutos
+          if (timeDifferenceMinutes > 10) {
+            const sleepType = currentDatum.sleepType;
+            const currentTimestamp = currentDatum.timestamp;
+
+            // Calcular la cantidad de nuevos objetos a agregar con intervalos de 3 minutos
+            const numNewObjects = Math.floor(timeDifferenceMinutes / 10) - 1;
+
+            // Agregar objetos con intervalos de 3 minutos hasta alcanzar el timestamp del siguiente objeto
+            for (let j = 1; j <= numNewObjects; j++) {
+              const newTimestamp = currentTimestamp + j * 180;
+
+              // Asegurar que los nuevos timestamps sean crecientes
+              if (newTimestamp < nextDatum.timestamp) {
+                sleepDataFilled.splice(i + j, 0, {
+                  timestamp: newTimestamp,
+                  sleepType: sleepType,
+                });
+              }
+            }
+          }
+        }
+
+        periodToBuild.sleep_data = sleepDataFilled;
       }
 
       /* THIS IS TO RECALCULATE THE SLEEPTYPE TIMES */
