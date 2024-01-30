@@ -103,13 +103,12 @@ export class DatabaseService {
       .get();
   }
 
-  getSleepDataWithLimitCollection(userId: string, profileId: string, limit: number = 7) {
+  getSleepDataWithLimitCollection(userId: string, profileId: string) {
     return this.firestore
       .collection(
         `/users/nyxsys/content/${userId}/players/${profileId}/Formated-SleepData`
       )
       .ref.orderBy('to', 'desc')
-      .limit(limit)
       .get();
   }
 

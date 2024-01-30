@@ -5,7 +5,6 @@ import {
   SleepDatum,
 } from 'src/app/dashboard/interfaces/profile.interface';
 import { HelpersService } from '../../../services/helpers.service';
-import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'sleep-architecture-chart',
@@ -347,7 +346,6 @@ export class SleepArchitectureChartComponent implements OnChanges {
           const timeDifferenceMinutes =
             (nextDatum.timestamp - currentDatum.timestamp) / 60;
 
-          // !! Verificar si la diferencia es mayor a 3 minutos
           if (timeDifferenceMinutes > 10) {
             const sleepType = currentDatum.sleepType;
             const currentTimestamp = currentDatum.timestamp;
@@ -385,7 +383,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
       let durationInRem = 0;
       let durationInSleep = 0;
 
-      if (sleepDataNew && currentSleepStartTimestamp) {
+      if (sleepDataNew) {
         for (let i = 0; i < sleepDataNew.length; i++) {
           const { sleepType, timestamp } = sleepDataNew[i];
 
@@ -395,7 +393,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
             continue;
           }
 
-          if (currentSleepType !== sleepType) {
+          if (currentSleepType !== sleepType && currentSleepStartTimestamp) {
             const timeDifference =
               (timestamp - currentSleepStartTimestamp) / 60;
             switch (currentSleepType) {
@@ -424,7 +422,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
         }
 
         // Add the remaining duration for the last sleep type
-        if (currentSleepType !== null) {
+        if (currentSleepType !== null && currentSleepStartTimestamp) {
           const timeDifference =
             (sleepDataNew[sleepDataNew.length - 1].timestamp -
               currentSleepStartTimestamp) /
@@ -453,8 +451,24 @@ export class SleepArchitectureChartComponent implements OnChanges {
       }
 
       durationInSleep = durationInRem + durationInLight + durationInDeep;
-
-      periodToBuild.duration_in_sleep = durationInSleep * 60;
+      periodToBuild.duration_in_deep = this.helpersService.calcHoursSleepData(
+        durationInDeep * 60
+      );
+      periodToBuild.duration_in_light = this.helpersService.calcHoursSleepData(
+        durationInLight * 60
+      );
+      periodToBuild.duration_in_rem = this.helpersService.calcHoursSleepData(
+        durationInRem * 60
+      );
+      periodToBuild.duration_awake = this.helpersService.calcHoursSleepData(
+        durationAwake * 60
+      );
+      periodToBuild.duration_in_sleep = this.helpersService.calcHoursSleepData(
+        durationInSleep * 60
+      );
+      periodToBuild.duration_in_bed = this.helpersService.calcHoursSleepData(
+        durationInBed * 60
+      );
     }
 
     if (periodToBuild.sleep_score) {

@@ -34,6 +34,8 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 import { ChartModule } from 'angular-highcharts';
 import { SleepArchitectureChartComponent } from './components/charts/sleep-architecture-chart/sleep-architecture-chart.component';
 import { RecoveryChartComponent } from './components/charts/recovery-chart/recovery-chart.component';
+import { SleepScoreChartComponent } from './components/charts/sleep-score-chart/sleep-score-chart.component';
+import { ANSChartComponent } from './components/charts/ans-chart/ans-chart.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { RecoveryChartComponent } from './components/charts/recovery-chart/recov
     ProgressBarComponent,
     SleepArchitectureChartComponent,
     RecoveryChartComponent,
+    SleepScoreChartComponent,
+    ANSChartComponent
   ],
   imports: [
     CommonModule,
@@ -88,7 +92,9 @@ import { RecoveryChartComponent } from './components/charts/recovery-chart/recov
     ModalComponent,
     DropdownModule,
     SleepArchitectureChartComponent,
-    RecoveryChartComponent
+    RecoveryChartComponent,
+    SleepScoreChartComponent,
+    ANSChartComponent
   ]
 })
 export class SharedModule { }

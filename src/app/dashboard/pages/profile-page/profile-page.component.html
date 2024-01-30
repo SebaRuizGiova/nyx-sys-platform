@@ -123,7 +123,11 @@
             {{ messageSleepScore }}
           </p>
         </div>
-        <div class="graphic-card"></div>
+        <div class="graphic-card">
+          <sleep-score-chart
+            [sleepScore]="sleepScoreToChart"
+          ></sleep-score-chart>
+        </div>
       </div>
     </div>
 
@@ -229,7 +233,11 @@
             {{ "profileViewAnsAlert" | translate }}
           </p>
         </div>
-        <div class="graphic-card"></div>
+        <div class="graphic-card">
+          <ans-chart
+            [ans]="ansToChart"
+          ></ans-chart>
+        </div>
       </div>
     </div>
 
@@ -270,7 +278,7 @@
           </div>
         </div>
         <div class="graphic-card">
-          <recovery-chart [recovery]="totalRecoveryToChart"></recovery-chart>
+          
         </div>
       </div>
     </div>

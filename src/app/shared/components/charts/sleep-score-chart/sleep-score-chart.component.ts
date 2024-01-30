@@ -1,28 +1,28 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Chart } from 'angular-highcharts';
 
 @Component({
-  selector: 'recovery-chart',
-  templateUrl: './recovery-chart.component.html',
-  styleUrls: ['./recovery-chart.component.scss'],
+  selector: 'sleep-score-chart',
+  templateUrl: './sleep-score-chart.component.html',
+  styleUrls: ['./sleep-score-chart.component.scss'],
 })
-export class RecoveryChartComponent implements OnChanges {
-  @Input() recovery: {
-    totalRecovery: number;
+export class SleepScoreChartComponent implements OnChanges {
+  @Input() sleepScore: {
+    sleepScore: number;
     date: string;
   }[] = [];
   public chart?: Chart;
 
   ngOnChanges(): void {
-    const dates = this.recovery.map((item) => item.date);
-    const totalRecoveryValues = this.recovery.map((item) => item.totalRecovery);
+    const dates = this.sleepScore.map((item) => item.date);
+    const totalRecoveryValues = this.sleepScore.map((item) => item.sleepScore);
 
     this.chart = new Chart({
       chart: {
         type: 'spline',
         backgroundColor: '#242526',
         animation: true,
-        height: '80px',
+        height: '150px',
         margin: 0,
       },
       xAxis: {
@@ -33,9 +33,9 @@ export class RecoveryChartComponent implements OnChanges {
       },
       yAxis: {
         gridLineColor: '#3b3b3b',
-        labels: {
-          enabled: false,
-        },
+        // labels: {
+        //   enabled: true,
+        // },
         title: {
           text: '',
         },

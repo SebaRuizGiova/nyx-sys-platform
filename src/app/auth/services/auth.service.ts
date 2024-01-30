@@ -46,7 +46,6 @@ export class AuthService {
             }),
             first(),
             catchError((error) => {
-              console.error(error);
               return from([]);
             }),
             tap((userData) => {

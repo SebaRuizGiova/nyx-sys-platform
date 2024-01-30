@@ -42,6 +42,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   public selectedProfileId: string = '';
   public selectedProfileIndex: number = 0;
   public totalRecoveryToChart: any[] = [];
+  public sleepScoreToChart: any[] = [];
+  public ansToChart: any[] = [];
 
   public profileData?: Profile;
 
@@ -141,8 +143,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     const sleepDataSnapshot =
       await this.databaseService.getSleepDataWithLimitCollection(
         userId,
-        profileId,
-        30
+        profileId
       );
     const sleepData = <SleepData[]>(
       sleepDataSnapshot.docs.map((doc) => doc.data())
@@ -210,17 +211,22 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
     this.profileData = {
       ...this.profileData,
-      sleepData: formattedSleepData,
+      sleepData: [...formattedSleepData],
     };
 
     if (this.profileData?.sleepData) {
-      this.totalRecoveryToChart = this.getTotalRecoveryToChart(this.profileData.sleepData);
+      this.totalRecoveryToChart = this.getTotalRecoveryToChart(
+        this.profileData.sleepData
+      );
+      this.sleepScoreToChart = this.getSleepScoreToChart(
+        this.profileData.sleepData
+      );
     }
 
     this.periodItems = this.helpersService.generatePeriods([this.profileData]);
     this.selectSleepData();
 
-    await this.getLiveData();
+    this.getLiveData();
 
     const processedSleepData = this.processSleepData(
       this.profileData.sleepData,
@@ -235,56 +241,67 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   }
 
   async getLiveData() {
-    if (this.profileData?.deviceSN) {
-      const liveDataSnapshot = await this.databaseService.getLiveDataCollection(
-        typeof this.profileData.deviceSN === 'boolean'
-          ? ''
-          : this.profileData.deviceSN
-      );
+    try {
+      if (this.profileData?.deviceSN) {
+        const liveDataSnapshot =
+          await this.databaseService.getLiveDataCollection(
+            typeof this.profileData.deviceSN === 'boolean'
+              ? ''
+              : this.profileData.deviceSN
+          );
 
-      const liveData = <LiveData[]>(
-        liveDataSnapshot.docs.map((doc) => doc.data())
-      );
+        const liveData = <LiveData[]>(
+          liveDataSnapshot.docs.map((doc) => doc.data())
+        );
 
-      const onlineCondition =
-        liveData.filter((data: any) => data.activity === 0).length >= 2;
-      const activityCondition =
-        liveData.filter((data: any) => data.activity !== 0).length >= 2;
+        const onlineCondition =
+          liveData.filter((data: any) => data.activity === 0).length >= 2;
+        const activityCondition =
+          liveData.filter((data: any) => data.activity !== 0).length >= 2;
 
-      let mapLiveData: Status;
+        let mapLiveData: Status;
 
-      if (
-        liveData.length === 0 &&
-        this.helpersService.compareDates(
-          this.helpersService.formatTimestampToDate(liveData[0]?.date_occurred),
-          this.helpersService.getActualDate()
-        ) === 0
-      ) {
-        mapLiveData = { status: 'Offline' };
-      } else if (
-        onlineCondition &&
-        this.helpersService.compareDates(
-          this.helpersService.formatTimestampToDate(liveData[0]?.date_occurred),
-          this.helpersService.getActualDate()
-        ) === 0
-      ) {
-        mapLiveData = { status: 'Online' };
-      } else if (
-        activityCondition &&
-        this.helpersService.compareDates(
-          this.helpersService.formatTimestampToDate(liveData[0].date_occurred),
-          this.helpersService.getActualDate()
-        ) === 0
-      ) {
-        mapLiveData = { status: 'En actividad' };
-      } else {
-        mapLiveData = { status: 'Offline' };
+        if (
+          liveData.length === 0 &&
+          this.helpersService.compareDates(
+            this.helpersService.formatTimestampToDate(
+              liveData[0]?.date_occurred
+            ),
+            this.helpersService.getActualDate()
+          ) === 0
+        ) {
+          mapLiveData = { status: 'Offline' };
+        } else if (
+          onlineCondition &&
+          this.helpersService.compareDates(
+            this.helpersService.formatTimestampToDate(
+              liveData[0]?.date_occurred
+            ),
+            this.helpersService.getActualDate()
+          ) === 0
+        ) {
+          mapLiveData = { status: 'Online' };
+        } else if (
+          activityCondition &&
+          this.helpersService.compareDates(
+            this.helpersService.formatTimestampToDate(
+              liveData[0].date_occurred
+            ),
+            this.helpersService.getActualDate()
+          ) === 0
+        ) {
+          mapLiveData = { status: 'En actividad' };
+        } else {
+          mapLiveData = { status: 'Offline' };
+        }
+
+        this.profileData = {
+          ...this.profileData,
+          liveData: mapLiveData,
+        };
       }
-
-      this.profileData = {
-        ...this.profileData,
-        liveData: mapLiveData,
-      };
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -318,6 +335,14 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         previousSleepData,
       };
     }
+
+    this.totalRecoveryToChart = this.getTotalRecoveryToChart(
+      this.profileData?.sleepData || []
+    );
+    this.sleepScoreToChart = this.getSleepScoreToChart(
+      this.profileData?.sleepData || []
+    );
+    this.ansToChart = this.getAnsToChart(this.profileData?.selectedSleepData);
   }
 
   changePeriod(event: any) {
@@ -355,6 +380,14 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
       this.setSleepScoreMessage(processedSleepData);
     }
+
+    this.totalRecoveryToChart = this.getTotalRecoveryToChart(
+      this.profileData?.sleepData || []
+    );
+    this.sleepScoreToChart = this.getSleepScoreToChart(
+      this.profileData?.sleepData || []
+    );
+    this.ansToChart = this.getAnsToChart(this.profileData?.selectedSleepData);
   }
 
   calculateAge(birthdate: Birthdate | undefined): string {
@@ -536,37 +569,112 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   }
 
   getTotalRecoveryToChart(sleepDataArray: SleepData[]) {
-    // Creamos un array para almacenar los resultados
     const totalRecoveryArray: any[] = [];
+    const periodIndex = sleepDataArray.findIndex((sd) => {
+      const formattedTimeStamp = this.helpersService.formatTimestampToDate(
+        sd.to
+      );
+      return formattedTimeStamp === this.periodForm.value.period;
+    });
 
-    // Contador para llevar la cuenta de los elementos encontrados
+    const newTotalRecoveryArray = sleepDataArray.slice(periodIndex);
+
     let count = 0;
-    console.log(sleepDataArray);
-    // Iteramos sobre cada elemento del array
-    for (const sleepData of sleepDataArray) {
-      // Validamos si existe hrv_data y hrv_data[0].totalRecovery
+    for (const sleepData of newTotalRecoveryArray) {
       if (
         sleepData.hrv_data &&
         sleepData.hrv_data.length > 0 &&
         sleepData.hrv_data[0].totalRecovery !== undefined
       ) {
-        // Agregamos el totalRecovery al nuevo array
         totalRecoveryArray.push({
           totalRecovery: sleepData.hrv_data[0].totalRecovery,
-          date: this.helpersService.formatTimestampToDate(sleepData.from)
+          date: this.helpersService.formatTimestampToDate(sleepData.to),
         });
 
-        // Incrementamos el contador
         count++;
 
-        // Verificamos si hemos alcanzado los 7 elementos buscados
         if (count === 7) {
           break;
         }
       }
     }
 
-    console.log(totalRecoveryArray);
-    return totalRecoveryArray;
+    return totalRecoveryArray.reverse();
+  }
+
+  getSleepScoreToChart(sleepDataArray: SleepData[]) {
+    const sleepScoreArray: any[] = [];
+    const periodIndex = sleepDataArray.findIndex((sd) => {
+      const formattedTimeStamp = this.helpersService.formatTimestampToDate(
+        sd.to
+      );
+      return formattedTimeStamp === this.periodForm.value.period;
+    });
+
+    const newSleepScoreArray = sleepDataArray.slice(periodIndex);
+
+    let count = 0;
+    for (const sleepData of newSleepScoreArray) {
+      if (sleepData.sleep_score) {
+        sleepScoreArray.push({
+          sleepScore: sleepData.sleep_score > 100 ? 100 : sleepData.sleep_score,
+          date: this.helpersService.formatTimestampToDate(sleepData.to),
+        });
+
+        count++;
+
+        if (count === 7) {
+          break;
+        }
+      }
+    }
+
+    return sleepScoreArray.reverse();
+  }
+
+  getAnsToChart(selectedSleepDataArray?: SleepData) {
+    if (selectedSleepDataArray) {
+      const ansArray: any[] = [];
+      let duration_out_of_bed: any[] = [];
+      const newAnsArray = selectedSleepDataArray.hrv_rmssd_data;
+
+      /*  const bedExitData = 1; */
+
+      let exit = 0;
+
+      newAnsArray.forEach((data: any) => {
+        /* TO ADD THE BEDEXIT LINES */
+        if (selectedSleepDataArray.bedexit_data !== undefined) {
+          if (selectedSleepDataArray.bedexit_data[exit] !== undefined) {
+            if (
+              data.timestamp >
+              selectedSleepDataArray.bedexit_data[exit].startTimestamp
+            ) {
+              duration_out_of_bed.push(100);
+            } else {
+              duration_out_of_bed.push(0);
+            }
+            if (
+              data.timestamp >
+              selectedSleepDataArray.bedexit_data[exit].endTimestamp
+            ) {
+              exit++; //WHEN A LINE GETS ADDED IT MOVES TO THE NEXT TIMESTAMP
+            }
+          }
+        }
+      });
+
+      for (const ans of newAnsArray) {
+        ansArray.push({
+          hf: ans.hf,
+          lf: ans.lf,
+          bedExit: duration_out_of_bed,
+          date: this.helpersService.calcHoursSleepData(ans.timestamp),
+        });
+      }
+
+      return ansArray;
+    }
+    return [];
   }
 }
