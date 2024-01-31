@@ -25,6 +25,7 @@
     "angular-highcharts": "^17.0.0",
     "angular-svg-round-progressbar": "^12.0.0",
     "highcharts": "^11.3.0",
+    "moment-timezone": "^0.5.44",
     "primeicons": "^6.0.1",
     "primeng": "^15.4.1",
     "rxjs": "~7.8.0",

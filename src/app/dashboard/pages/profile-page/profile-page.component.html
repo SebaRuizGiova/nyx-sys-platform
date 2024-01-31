@@ -36,7 +36,7 @@
             [items]="periodItems"
             [formGroup]="periodForm"
             formControlName="period"
-            (dropdownChange)="changePeriod($event)"
+            (dropdownChange)="selectSleepData($event)"
           />
         </form>
         <div class="group-buttons">
@@ -90,6 +90,7 @@
             [placeholder]="'profileViewSelectGMT' | translate"
             [formGroup]="gmtForm"
             formControlName="gmt"
+            (selectChange)="changeGMT($event)"
           />
         </form>
       </div>

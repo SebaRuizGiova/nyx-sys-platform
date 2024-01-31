@@ -1,86 +1,94 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import * as moment from 'moment-timezone';
 import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
+import { ItemDropdown } from '../components/dropdown/dropdown.component';
+import { TimezoneService } from './timezoneService.service';
 @Injectable({
   providedIn: 'root',
 })
 export class HelpersService {
-  public GMTItems: string[] = [
-    'GMT -12:00',
-    'GMT -11:00',
-    'GMT -10:00',
-    'GMT -9:00',
-    'GMT -8:00',
-    'GMT -7:00',
-    'GMT -6:00',
-    'GMT -5:00',
-    'GMT -4:00',
-    'GMT -3:00',
-    'GMT -2:00',
-    'GMT -1:00',
-    'GMT +1:00',
-    'GMT +2:00',
-    'GMT +3:00',
-    'GMT +4:00',
-    'GMT +5:00',
-    'GMT +6:00',
-    'GMT +7:00',
-    'GMT +8:00',
-    'GMT +9:00',
-    'GMT +9:30',
-    'GMT +10:00',
-    'GMT +11:00',
-    'GMT +12:00',
+  constructor(private timezoneService: TimezoneService) {}
+
+  public GMTItems: ItemDropdown[] = [
+    { label: '-12:00 Baker Island', value: -12 },
+    { label: '-11:00 Pago Pago', value: -11 },
+    { label: '-10:00 Honolulu', value: -10 },
+    { label: '-09:00 Anchorage', value: -9 },
+    { label: '-08:00 Los Ángeles, Tijuana', value: -8 },
+    { label: '-07:00 Denver, Ciudad de México', value: -7 },
+    { label: '-06:00 Chicago, Ciudad de Guatemala', value: -6 },
+    { label: '-05:00 Nueva York, Bogotá, Lima', value: -5 },
+    { label: '-04:00 Caracas, La Paz, San Juan', value: -4 },
+    { label: '-03:00 Buenos Aires, Montevideo, Georgetown', value: -3 },
+    { label: '-02:00 Islas Georgias del Sur', value: -2 },
+    { label: '-01:00 Azores', value: -1 },
+    { label: '±00:00 Londres, Lisboa', value: 0 },
+    { label: '+01:00 París, Madrid, Roma', value: 1 },
+    { label: '+02:00 Atenas, Estambul', value: 2 },
+    { label: '+03:00 Moscú, Riad', value: 3 },
+    { label: '+04:00 Dubái, Bakú', value: 4 },
+    { label: '+05:00 Islamabad, Taskent', value: 5 },
+    { label: '+06:00 Almaty, Dhaka', value: 6 },
+    { label: '+07:00 Bangkok, Ho Chi Minh', value: 7 },
+    { label: '+08:00 Pekín, Singapur, Hong Kong', value: 8 },
+    { label: '+09:00 Tokio, Seúl', value: 9 },
+    { label: '+10:00 Sídney, Guam', value: 10 },
+    { label: '+11:00 Honiara', value: 11 },
+    { label: '+12:00 Suva, Wellington', value: 12 },
   ];
 
-  compareDates = (date1: string, date2: string): number => {
-    const date1Obj = new Date(date1.split('/').reverse().join('/'));
-    const date2Obj = new Date(date2.split('/').reverse().join('/'));
+  compareDates = (date1: string, date2: string, timezone: number): number => {
+    const date1Obj = moment
+      .tz(date1, 'DD/MM/YYYY', true, 'UTC')
+      .utcOffset(timezone);
+    const date2Obj = moment
+      .tz(date2, 'DD/MM/YYYY', true, 'UTC')
+      .utcOffset(timezone);
 
-    if (date1Obj > date2Obj) {
-      return -1; // Si fecha1 es mayor, se coloca antes en el orden
-    } else if (date1Obj < date2Obj) {
-      return 1; // Si fecha2 es mayor, se coloca después en el orden
+    if (date1Obj.isAfter(date2Obj)) {
+      return -1;
+    } else if (date1Obj.isBefore(date2Obj)) {
+      return 1;
     } else {
-      return 0; // Si son iguales, no se cambian de posición
+      return 0;
     }
   };
 
-  formatTimestampToDate(timestamp: number): string {
-    const date = new Date(timestamp * 1000);
-
-    const day = date.getDate().toString().padStart(2, '0');
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const year = date.getFullYear();
-
-    return `${day}/${month}/${year}`;
+  formatTimestampToDate(timestamp: number, timezone: number): string {
+    const date = moment.tz(timestamp * 1000, 'UTC').utcOffset(timezone);
+    return date.format('DD/MM/YYYY');
   }
 
-  formatTimestampWithHours(timestamp: number): string {
-    const date = new Date(timestamp * 1000);
-
-    const day = date.getDate().toString().padStart(2, '0');
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const year = date.getFullYear();
-    const hours = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-
-    return `${day}/${month}/${year}, ${hours}:${minutes}`;
+  formatTimestampWithHours(timestamp: number, timezone: number): string {
+    const date = moment.tz(timestamp * 1000, 'UTC').utcOffset(timezone);
+    return date.format('DD/MM/YYYY, HH:mm');
   }
 
-  generatePeriods(profiles: Profile[]): { label: string; value: string }[] {
+  generatePeriods(
+    profiles: Profile[],
+    timezone: number
+  ): { label: string; value: string }[] {
     const formattedDates: Set<string> = new Set();
 
     profiles.forEach((profile) => {
-      const filteredSleepData = this.filterOnlyPeriodNight(profile.sleepData);
+      const filteredSleepData = this.filterOnlyPeriodNight(
+        profile.sleepData,
+        timezone
+      );
       filteredSleepData.forEach((sleepData) => {
         if (sleepData.to) {
-          const formattedDate = this.formatTimestampToDate(sleepData.to);
+          const formattedDate = this.formatTimestampToDate(
+            sleepData.to,
+            timezone
+          );
           formattedDates.add(formattedDate);
         }
       });
     });
 
-    const sortedDates = Array.from(formattedDates).sort(this.compareDates);
+    const sortedDates = Array.from(formattedDates).sort((a, b) =>
+      this.compareDates(a, b, timezone)
+    );
 
     return sortedDates.map((date) => ({
       label: date,
@@ -88,20 +96,22 @@ export class HelpersService {
     }));
   }
 
-  filterOnlyPeriodNight(array: any[]): any[] {
+  filterOnlyPeriodNight(array: any[], timezone: number): any[] {
     const sixHoursInMilliseconds = 6 * 60 * 60 * 1000; // 6 hours in milliseconds
     const filteredArray = array.filter((obj) => {
       const fromTimestamp = obj.from;
       const toTimestamp = obj.to;
 
-      // Convert timestamps to Date objects
-      const fromDate = new Date(fromTimestamp * 1000);
-      const toDate = new Date(toTimestamp * 1000);
+      // Convert timestamps to moment objects with the specified timezone
+      const fromDate = moment
+        .tz(fromTimestamp * 1000, 'UTC')
+        .utcOffset(timezone);
+      const toDate = moment.tz(toTimestamp * 1000, 'UTC').utcOffset(timezone);
 
       // Check conditions: difference > 6 hours and to < 13:00
-      const timeDifference = toDate.getTime() - fromDate.getTime();
+      const timeDifference = toDate.diff(fromDate);
       const isSixHoursApart = timeDifference > sixHoursInMilliseconds;
-      const isBefore13hs = toDate.getHours() < 13;
+      const isBefore13hs = toDate.hour() < 13;
 
       return isSixHoursApart && isBefore13hs;
     });
@@ -109,24 +119,9 @@ export class HelpersService {
     return filteredArray;
   }
 
-  getActualDate(): string {
-    const actualDate = new Date();
-
-    // Obteniendo día, mes y año
-    const day =
-      actualDate.getDate() < 10
-        ? `0${actualDate.getDate()}`
-        : `${actualDate.getDate()}`;
-    const month =
-      actualDate.getMonth() + 1 < 10
-        ? `0${actualDate.getMonth() + 1}`
-        : `${actualDate.getMonth() + 1}`; // ¡Recuerda que los meses son base 0!
-    const year = actualDate.getFullYear();
-
-    // Construyendo la cadena de fecha en formato dd/MM/yyyy
-    const formattedDate = `${day}/${month}/${year}`;
-
-    return formattedDate;
+  getActualDate(timezone: number): string {
+    const actualDate = moment().utcOffset(timezone);
+    return actualDate.format('DD/MM/YYYY');
   }
 
   calcHoursSleepData(time: any) {
@@ -155,11 +150,8 @@ export class HelpersService {
     return 0;
   }
 
-  formatTimestamp(timestamp: number) {
-    const date = new Date(timestamp * 1000); // Multiplicar por 1000 para convertir a milisegundos
-    const formattedTime = `${date.getHours()}:${('0' + date.getMinutes()).slice(
-      -2
-    )}:${('0' + date.getSeconds()).slice(-2)}hs`;
-    return formattedTime;
+  formatTimestamp(timestamp: number, timezone: number) {
+    const date = moment.tz(timestamp * 1000, 'UTC').utcOffset(timezone);
+    return date.format('HH:mm:ss') + 'hs';
   }
 }

@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { User } from '../../interfaces/user.interface';
 import { HelpersService } from 'src/app/shared/services/helpers.service';
 import { Group } from '../../interfaces/group.interface';
+import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
 
 @Component({
   templateUrl: './groups-page.component.html',
@@ -16,7 +17,7 @@ import { Group } from '../../interfaces/group.interface';
 })
 export class GroupsPageComponent implements OnInit, OnDestroy {
   public periodForm: FormGroup = this.fb.group({
-    period: this.helpersService.getActualDate(),
+    period: this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
   });
   public groupForm: FormGroup = this.fb.group({
     selectedGroup: null,
@@ -52,7 +53,8 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
     private databaseService: DatabaseService,
     private loadingService: LoadingService,
     private authService: AuthService,
-    private helpersService: HelpersService
+    private helpersService: HelpersService,
+    private timezoneService: TimezoneService
   ) {}
 
   ngOnInit(): void {
@@ -228,7 +230,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
       this.profiles.push(profile);
     });
     this.filteredProfiles = this.profiles;
-    this.periodItems = this.helpersService.generatePeriods(this.profiles);
+    this.periodItems = this.helpersService.generatePeriods(this.profiles, this.timezoneService.timezoneOffset);
     this.selectSleepData();
     this.filterProfiles();
     this.databaseService.setProfiles(this.profiles);
@@ -291,9 +293,11 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
           liveData.length === 0 &&
           this.helpersService.compareDates(
             this.helpersService.formatTimestampToDate(
-              liveData[0]?.date_occurred
+              liveData[0]?.date_occurred,
+              this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate()
+            this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+            this.timezoneService.timezoneOffset
           ) === 0
         ) {
           mapLiveData = { status: 'Offline' };
@@ -301,9 +305,11 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
           onlineCondition &&
           this.helpersService.compareDates(
             this.helpersService.formatTimestampToDate(
-              liveData[0]?.date_occurred
+              liveData[0]?.date_occurred,
+              this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate()
+            this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+            this.timezoneService.timezoneOffset
           ) === 0
         ) {
           mapLiveData = { status: 'Online' };
@@ -311,9 +317,11 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
           activityCondition &&
           this.helpersService.compareDates(
             this.helpersService.formatTimestampToDate(
-              liveData[0].date_occurred
+              liveData[0].date_occurred,
+              this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate()
+            this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+            this.timezoneService.timezoneOffset
           ) === 0
         ) {
           mapLiveData = { status: 'En actividad' };
@@ -378,14 +386,15 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   selectSleepData(selectedPeriod: string = this.periodForm.value.period) {
     this.profiles = this.profiles.map((profile) => {
       const selectedSleepData = profile.sleepData.find((sd) => {
-        const periodData = this.helpersService.formatTimestampToDate(sd.to);
+        const periodData = this.helpersService.formatTimestampToDate(sd.to, this.timezoneService.timezoneOffset);
         return periodData === selectedPeriod;
       });
       const previousSleepData = profile.sleepData.find((sd) => {
         return (
           this.helpersService.compareDates(
-            this.helpersService.formatTimestampToDate(sd.to),
-            selectedPeriod
+            this.helpersService.formatTimestampToDate(sd.to, this.timezoneService.timezoneOffset),
+            selectedPeriod,
+            this.timezoneService.timezoneOffset
           ) === 1
         );
       });

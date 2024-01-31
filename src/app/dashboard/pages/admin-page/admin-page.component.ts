@@ -17,6 +17,7 @@ import { HelpersService } from 'src/app/shared/services/helpers.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { DatePipe } from '@angular/common';
+import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
 
 @Component({
   templateUrl: './admin-page.component.html',
@@ -111,7 +112,7 @@ export class AdminPageComponent implements OnInit {
   public usersItems: ItemDropdown[] = [];
   public groupsItems: ItemDropdown[] = [];
   public countriesItems: ItemDropdown[] = [];
-  public gmtItems: string[] = this.helpersService.GMTItems;
+  public gmtItems: ItemDropdown[] = this.helpersService.GMTItems;
   public roleCollaboratorItems: ItemDropdown[] = [];
   public roleUserItems: ItemDropdown[] = [];
 
@@ -128,7 +129,8 @@ export class AdminPageComponent implements OnInit {
     private helpersService: HelpersService,
     private languageService: LanguageService,
     private firestore: AngularFirestore,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private timezoneService: TimezoneService
   ) {}
 
   ngOnInit(): void {
@@ -521,9 +523,11 @@ export class AdminPageComponent implements OnInit {
           liveData.length === 0 &&
           this.helpersService.compareDates(
             this.helpersService.formatTimestampToDate(
-              liveData[0]?.date_occurred
+              liveData[0]?.date_occurred,
+              this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate()
+            this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+            this.timezoneService.timezoneOffset
           ) === 0
         ) {
           status = 'Offline';
@@ -531,9 +535,11 @@ export class AdminPageComponent implements OnInit {
           onlineCondition &&
           this.helpersService.compareDates(
             this.helpersService.formatTimestampToDate(
-              liveData[0]?.date_occurred
+              liveData[0]?.date_occurred,
+              this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate()
+            this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+            this.timezoneService.timezoneOffset
           ) === 0
         ) {
           status = 'Online';
@@ -541,9 +547,11 @@ export class AdminPageComponent implements OnInit {
           activityCondition &&
           this.helpersService.compareDates(
             this.helpersService.formatTimestampToDate(
-              liveData[0].date_occurred
+              liveData[0].date_occurred,
+              this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate()
+            this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+            this.timezoneService.timezoneOffset
           ) === 0
         ) {
           status = 'En actividad';
@@ -613,7 +621,6 @@ export class AdminPageComponent implements OnInit {
   }
 
   deleteProfile(userId: string, profileId: string) {
-    console.log(userId, profileId);
     const playersRef = this.firestore.doc(
       `/users/nyxsys/content/${userId}/players/${profileId}`
     );

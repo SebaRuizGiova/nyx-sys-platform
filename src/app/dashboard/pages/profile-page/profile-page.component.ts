@@ -13,6 +13,7 @@ import { DatabaseService } from 'src/app/shared/services/databaseService.service
 import { LoadingService } from 'src/app/shared/services/loading.service';
 import { HelpersService } from 'src/app/shared/services/helpers.service';
 import { LiveData } from '../../interfaces/live-data.interface';
+import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
 
 @Component({
   templateUrl: './profile-page.component.html',
@@ -20,7 +21,9 @@ import { LiveData } from '../../interfaces/live-data.interface';
 })
 export class ProfilePageComponent implements OnInit, OnDestroy {
   public periodForm: FormGroup = this.fb.group({
-    period: this.helpersService.getActualDate(),
+    period: this.helpersService.getActualDate(
+      this.timezoneService.timezoneOffset
+    ),
   });
   public gmtForm: FormGroup = this.fb.group({
     gmt: '',
@@ -37,7 +40,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   public profilesItems: ItemDropdown[] = [];
   public formatDownloadItems?: string[];
   public rangeDownloadItems?: string[];
-  public gmtItems: string[] = this.helpersService.GMTItems;
+  public gmtItems: ItemDropdown[] = this.helpersService.GMTItems;
   public messageSleepScore: string = '';
   public selectedProfileId: string = '';
   public selectedProfileIndex: number = 0;
@@ -56,29 +59,9 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     private router: Router,
     private databaseService: DatabaseService,
     private loadingService: LoadingService,
-    private helpersService: HelpersService
-  ) {
-    let profileItems: ItemDropdown[] = [];
-
-    if (databaseService.profiles.length) {
-      profileItems = databaseService.profiles.map((profile) => ({
-        label: `${profile.name} ${profile.lastName}`,
-        value: profile.id,
-        userId: profile.userID,
-      }));
-    } else {
-      let profilesItemsStorage = JSON.parse(
-        localStorage.getItem('profiles') || '[]'
-      );
-
-      profileItems = profilesItemsStorage.map((profile: Profile) => ({
-        label: `${profile.name} ${profile.lastName}`,
-        value: profile.id,
-        userId: profile.userID,
-      }));
-    }
-    this.profilesItems = profileItems;
-  }
+    private helpersService: HelpersService,
+    private timezoneService: TimezoneService
+  ) {}
 
   ngOnInit(): void {
     this.languageService.langChanged$.subscribe(() => {
@@ -105,6 +88,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       );
     });
 
+    this.setProfilesItems();
     this.loadTranslations();
   }
 
@@ -223,7 +207,10 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       );
     }
 
-    this.periodItems = this.helpersService.generatePeriods([this.profileData]);
+    this.periodItems = this.helpersService.generatePeriods(
+      [this.profileData],
+      this.timezoneService.timezoneOffset
+    );
     this.selectSleepData();
 
     this.getLiveData();
@@ -238,6 +225,29 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.selectedProfileIndex = this.profilesItems.findIndex(
       (profile) => profile.value === this.selectedProfileId
     );
+  }
+
+  setProfilesItems() {
+    let profileItems: ItemDropdown[] = [];
+
+    if (this.databaseService.profiles.length) {
+      profileItems = this.databaseService.profiles.map((profile) => ({
+        label: `${profile.name} ${profile.lastName}`,
+        value: profile.id,
+        userId: profile.userID,
+      }));
+    } else {
+      let profilesItemsStorage = JSON.parse(
+        localStorage.getItem('profiles') || '[]'
+      );
+
+      profileItems = profilesItemsStorage.map((profile: Profile) => ({
+        label: `${profile.name} ${profile.lastName}`,
+        value: profile.id,
+        userId: profile.userID,
+      }));
+    }
+    this.profilesItems = profileItems;
   }
 
   async getLiveData() {
@@ -265,9 +275,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           liveData.length === 0 &&
           this.helpersService.compareDates(
             this.helpersService.formatTimestampToDate(
-              liveData[0]?.date_occurred
+              liveData[0]?.date_occurred,
+              this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate()
+            this.helpersService.getActualDate(
+              this.timezoneService.timezoneOffset
+            ),
+            this.timezoneService.timezoneOffset
           ) === 0
         ) {
           mapLiveData = { status: 'Offline' };
@@ -275,9 +289,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           onlineCondition &&
           this.helpersService.compareDates(
             this.helpersService.formatTimestampToDate(
-              liveData[0]?.date_occurred
+              liveData[0]?.date_occurred,
+              this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate()
+            this.helpersService.getActualDate(
+              this.timezoneService.timezoneOffset
+            ),
+            this.timezoneService.timezoneOffset
           ) === 0
         ) {
           mapLiveData = { status: 'Online' };
@@ -285,9 +303,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           activityCondition &&
           this.helpersService.compareDates(
             this.helpersService.formatTimestampToDate(
-              liveData[0].date_occurred
+              liveData[0].date_occurred,
+              this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate()
+            this.helpersService.getActualDate(
+              this.timezoneService.timezoneOffset
+            ),
+            this.timezoneService.timezoneOffset
           ) === 0
         ) {
           mapLiveData = { status: 'En actividad' };
@@ -305,12 +327,15 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     }
   }
 
-  selectSleepData() {
+  selectSleepData(event?: any) {
     if (this.profileData!.sleepData!.length) {
       this.periodForm.patchValue({
-        period: this.helpersService.formatTimestampToDate(
-          this.profileData!.sleepData[0]!.to || 0
-        ),
+        period: event
+          ? event
+          : this.helpersService.formatTimestampToDate(
+              this.profileData!.sleepData[0]!.to || 0,
+              this.timezoneService.timezoneOffset
+            ),
       });
     }
 
@@ -318,52 +343,21 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
     if (this.profileData) {
       const selectedSleepData = this.profileData.sleepData.find((sd) => {
-        const periodData = this.helpersService.formatTimestampToDate(sd.to);
-        return periodData === selectedPeriod;
-      });
-      const previousSleepData = this.profileData.sleepData.find((sd) => {
-        return (
-          this.helpersService.compareDates(
-            this.helpersService.formatTimestampToDate(sd.to),
-            selectedPeriod
-          ) === 1
+        const periodData = this.helpersService.formatTimestampToDate(
+          sd.to,
+          this.timezoneService.timezoneOffset
         );
-      });
-      this.profileData = {
-        ...this.profileData,
-        selectedSleepData,
-        previousSleepData,
-      };
-    }
-
-    this.totalRecoveryToChart = this.getTotalRecoveryToChart(
-      this.profileData?.sleepData || []
-    );
-    this.sleepScoreToChart = this.getSleepScoreToChart(
-      this.profileData?.sleepData || []
-    );
-    this.ansToChart = this.getAnsToChart(this.profileData?.selectedSleepData);
-  }
-
-  changePeriod(event: any) {
-    if (this.profileData!.sleepData!.length) {
-      this.periodForm.patchValue({
-        period: event,
-      });
-    }
-
-    const selectedPeriod = this.periodForm.value.period;
-
-    if (this.profileData) {
-      const selectedSleepData = this.profileData.sleepData.find((sd) => {
-        const periodData = this.helpersService.formatTimestampToDate(sd.to);
         return periodData === selectedPeriod;
       });
       const previousSleepData = this.profileData.sleepData.find((sd) => {
         return (
           this.helpersService.compareDates(
-            this.helpersService.formatTimestampToDate(sd.to),
-            selectedPeriod
+            this.helpersService.formatTimestampToDate(
+              sd.to,
+              this.timezoneService.timezoneOffset
+            ),
+            selectedPeriod,
+            this.timezoneService.timezoneOffset
           ) === 1
         );
       });
@@ -568,11 +562,22 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     };
   }
 
+  changeGMT(event: any) {
+    this.timezoneService.timezoneOffset = event;
+    const snapshotRoute = this.route.snapshot;
+    const userId = snapshotRoute.params['userId'] || '';
+    const profileId = snapshotRoute.params['profileId'] || '';
+    this.selectedProfileId = profileId;
+
+    this.loadData(userId, profileId);
+  }
+
   getTotalRecoveryToChart(sleepDataArray: SleepData[]) {
     const totalRecoveryArray: any[] = [];
     const periodIndex = sleepDataArray.findIndex((sd) => {
       const formattedTimeStamp = this.helpersService.formatTimestampToDate(
-        sd.to
+        sd.to,
+        this.timezoneService.timezoneOffset
       );
       return formattedTimeStamp === this.periodForm.value.period;
     });
@@ -588,7 +593,10 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       ) {
         totalRecoveryArray.push({
           totalRecovery: sleepData.hrv_data[0].totalRecovery,
-          date: this.helpersService.formatTimestampToDate(sleepData.to),
+          date: this.helpersService.formatTimestampToDate(
+            sleepData.to,
+            this.timezoneService.timezoneOffset
+          ),
         });
 
         count++;
@@ -606,7 +614,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     const sleepScoreArray: any[] = [];
     const periodIndex = sleepDataArray.findIndex((sd) => {
       const formattedTimeStamp = this.helpersService.formatTimestampToDate(
-        sd.to
+        sd.to,
+        this.timezoneService.timezoneOffset
       );
       return formattedTimeStamp === this.periodForm.value.period;
     });
@@ -618,7 +627,10 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       if (sleepData.sleep_score) {
         sleepScoreArray.push({
           sleepScore: sleepData.sleep_score > 100 ? 100 : sleepData.sleep_score,
-          date: this.helpersService.formatTimestampToDate(sleepData.to),
+          date: this.helpersService.formatTimestampToDate(
+            sleepData.to,
+            this.timezoneService.timezoneOffset
+          ),
         });
 
         count++;

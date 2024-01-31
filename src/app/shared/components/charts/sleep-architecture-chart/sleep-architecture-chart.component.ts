@@ -5,6 +5,7 @@ import {
   SleepDatum,
 } from 'src/app/dashboard/interfaces/profile.interface';
 import { HelpersService } from '../../../services/helpers.service';
+import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
 
 @Component({
   selector: 'sleep-architecture-chart',
@@ -18,7 +19,10 @@ export class SleepArchitectureChartComponent implements OnChanges {
   public sleepTypes: number[] = [];
   public chart?: Chart;
 
-  constructor(private helpersService: HelpersService) {}
+  constructor(
+    private helpersService: HelpersService,
+    private timezoneService: TimezoneService
+  ) {}
 
   ngOnChanges(): void {
     if (this.period) {
@@ -27,7 +31,10 @@ export class SleepArchitectureChartComponent implements OnChanges {
     }
     if (this.period && this.period?.sleep_data?.length) {
       const categories: string[] = this.period?.sleep_data.map((datum) =>
-        this.helpersService.formatTimestamp(datum.timestamp)
+        this.helpersService.formatTimestamp(
+          datum.timestamp,
+          this.timezoneService.timezoneOffset
+        )
       );
 
       const seriesData: any[] = [
