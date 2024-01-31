@@ -26,7 +26,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     ),
   });
   public gmtForm: FormGroup = this.fb.group({
-    gmt: '',
+    gmt: this.timezoneService.timezoneOffset,
   });
   public userForm: FormGroup = this.fb.group({
     user: '',

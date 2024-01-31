@@ -84,9 +84,11 @@
             </div>
           </shared-dropdown>
         </form>
-        <form [formGroup]="gmtForm">
+        <form [formGroup]="gmtForm" id="gmt">
           <shared-select
             [options]="gmtItems"
+            optionLabel="label"
+            optionValue="value"
             [placeholder]="'profileViewSelectGMT' | translate"
             [formGroup]="gmtForm"
             formControlName="gmt"

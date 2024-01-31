@@ -2,13 +2,10 @@ import { Injectable, OnInit } from '@angular/core';
 import * as moment from 'moment-timezone';
 import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
 import { ItemDropdown } from '../components/dropdown/dropdown.component';
-import { TimezoneService } from './timezoneService.service';
 @Injectable({
   providedIn: 'root',
 })
 export class HelpersService {
-  constructor(private timezoneService: TimezoneService) {}
-
   public GMTItems: ItemDropdown[] = [
     { label: '-12:00 Baker Island', value: -12 },
     { label: '-11:00 Pago Pago', value: -11 },

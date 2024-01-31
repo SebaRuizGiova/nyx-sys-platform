@@ -1,16 +1,17 @@
-import { EventEmitter, Injectable, OnInit } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import * as moment from 'moment-timezone';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TimezoneService implements OnInit {
+export class TimezoneService {
+  constructor() {
+    this.getLocalTimeZone();
+  }
+
   private _timezoneOffset: number = 0;
   private _timezoneChangedSubject: Subject<number> = new Subject<number>();
-  
-  ngOnInit(): void {
-    this.timezoneOffset = Number(this.getLocalTimeZone());
-  }
 
   get timezoneOffset(): number {
     return this._timezoneOffset;
@@ -25,7 +26,10 @@ export class TimezoneService implements OnInit {
     return this._timezoneChangedSubject.asObservable();
   }
 
-  private getLocalTimeZone(): string {
-    return Intl.DateTimeFormat().resolvedOptions().timeZone;
+  private getLocalTimeZone(): void {
+    const actualDate = new Date();
+    const offsetMinutes = actualDate.getTimezoneOffset();
+
+    this.timezoneOffset = -offsetMinutes / 60;
   }
 }
