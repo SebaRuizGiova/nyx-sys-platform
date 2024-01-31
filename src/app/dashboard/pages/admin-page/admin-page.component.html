@@ -89,7 +89,7 @@
                 class="pi pi-trash"
                 [pTooltip]="'adminDeleteProfileTooltip' | translate"
                 tooltipPosition="bottom"
-                (click)="deleteProfile(profile.userID, profile.id)"
+                (click)="toggleConfirmDeleteProfile(profile.userID, profile.id)"
               ></i>
             </div>
           </td>
@@ -388,7 +388,9 @@
   </div>
 </div>
 
-<p-toast></p-toast>
+<p-toast [style]="{
+  zIndex: 10000
+}"></p-toast>
 
 <!-- MODAL AÑADIR PERFIL -->
 <shared-modal [showModal]="showAddProfile" title="Añadir perfil" width="25vw">
@@ -459,6 +461,22 @@
         (click)="toggleAddProfile()"
       />
     </div>
+  </div>
+</shared-modal>
+
+<!-- MODAL CONFIRMAR ELIMINAR PERFIL -->
+<shared-modal
+  [showModal]="showConfirmDeleteProfile"
+  [title]="'settingsConfirmModalTitle' | translate"
+>
+  <p>Esta acción es permanente</p>
+  <div class="buttons-modal">
+    <shared-button [label]="'settingsConfirmModalAccept' | translate" (click)="deleteProfile()" />
+    <shared-button
+      [label]="'settingsConfirmModalCancel' | translate"
+      variant="secondary"
+      (click)="toggleConfirmDeleteProfile()"
+    />
   </div>
 </shared-modal>
 

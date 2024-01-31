@@ -108,6 +108,7 @@ export class AdminPageComponent implements OnInit {
   public role: string = this.authService.role;
 
   public showAddProfile: boolean = false;
+  public showConfirmDeleteProfile: boolean = false;
   public showAddDevice: boolean = false;
   public showAddGroup: boolean = false;
   public showAddCollaborator: boolean = false;
@@ -119,6 +120,9 @@ export class AdminPageComponent implements OnInit {
   public gmtItems: ItemDropdown[] = this.helpersService.GMTItems;
   public roleCollaboratorItems: ItemDropdown[] = [];
   public roleUserItems: ItemDropdown[] = [];
+
+  public userIdProfileToDelete: string = '';
+  public profileIdToDelete: string = '';
 
   public userRole: string = '';
 
@@ -402,6 +406,15 @@ export class AdminPageComponent implements OnInit {
     this.showAddProfile = !this.showAddProfile;
   }
 
+  toggleConfirmDeleteProfile(userId?: string, profileId?: string) {
+    if (userId && profileId) {
+      this.userIdProfileToDelete = userId;
+      this.profileIdToDelete = profileId;
+    }
+
+    this.showConfirmDeleteProfile = !this.showConfirmDeleteProfile;
+  }
+
   toggleAddDevice() {
     this.showAddDevice = !this.showAddDevice;
   }
@@ -603,19 +616,32 @@ export class AdminPageComponent implements OnInit {
         }/players`
       );
 
+      this.loadingService.setLoading(true);
       playersRef
         .add({
           ...this.addProfileForm.value,
-          birthdate: this.formatDateToFirebase(this.addProfileForm.value.birthdate)
+          birthdate: this.formatDateToFirebase(
+            this.addProfileForm.value.birthdate
+          ),
         })
         .then(() => {
+          this.loadingService.setLoading(false);
           this.toggleAddProfile();
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Perfil agregado correctamente' });
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Perfil agregado correctamente',
+          });
           this.addProfileForm.reset();
-          this.loadData()
+          this.loadData();
         })
         .catch(() => {
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error al agregar el perfil' });
+          this.loadingService.setLoading(false);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Error al agregar el perfil',
+          });
         });
     }
   }
@@ -631,19 +657,34 @@ export class AdminPageComponent implements OnInit {
     return formattedDate;
   }
 
-  deleteProfile(userId: string, profileId: string) {
+  deleteProfile() {
     const playersRef = this.firestore.doc(
-      `/users/nyxsys/content/${userId}/players/${profileId}`
+      `/users/nyxsys/content/${this.userIdProfileToDelete}/players/${this.profileIdToDelete}`
     );
 
+    this.userIdProfileToDelete = '';
+    this.profileIdToDelete = '';
+
+    this.loadingService.setLoading(true);
     playersRef
       .delete()
       .then(() => {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Perfil eliminado correctamente' });
-        this.loadData()
+        this.loadingService.setLoading(false);
+        this.toggleConfirmDeleteProfile();
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Perfil eliminado correctamente',
+        });
+        this.loadData();
       })
       .catch(() => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error al eliminar el perfil' });
+        this.loadingService.setLoading(false);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Error al eliminar el perfil',
+        });
       });
   }
 }
