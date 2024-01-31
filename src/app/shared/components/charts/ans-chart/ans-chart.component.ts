@@ -105,12 +105,13 @@ export class ANSChartComponent implements OnChanges {
           type: 'spline',
           data: lfValues,
         },
-        // {
-        //   name: 'Ausencia de Datos',
-        //   type: 'bar',
-        //   color: 'red',
-        //   data: bedExitValues, // Agrega un punto si hay ausencia de datos
-        // },
+        {
+          name: 'Absent',
+          type: 'column',
+          color: '#d9d9d9',
+          borderColor: '#d9d9d9',
+          data: bedExitValues, // Agrega un punto si hay ausencia de datos
+        },
       ],
     });
   }

@@ -4,7 +4,7 @@ form {
   width: 100%;
 }
 .background {
-  z-index: 200;
+  z-index: 10;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -65,7 +65,7 @@ form {
     padding: 0;
     background: $grey-light;
     border-radius: 5px;
-    z-index: 210;
+    z-index: 20;
 
     &.items {
       display: unset;

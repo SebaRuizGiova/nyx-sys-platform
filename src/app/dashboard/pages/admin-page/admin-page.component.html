@@ -72,12 +72,14 @@
                 class="pi pi-eye-slash"
                 [pTooltip]="'adminShowProfileTooltip' | translate"
                 tooltipPosition="bottom"
+                (click)="hideProfile(profile.userID, profile.id, profile.hided)"
               ></i>
               <ng-template #showProfile>
                 <i
                   class="pi pi-eye"
                   [pTooltip]="'adminHideProfileTooltip' | translate"
                   tooltipPosition="bottom"
+                  (click)="hideProfile(profile.userID, profile.id, profile.hided)"
                 ></i>
               </ng-template>
               <i
@@ -468,6 +470,7 @@
 <shared-modal
   [showModal]="showConfirmDeleteProfile"
   [title]="'settingsConfirmModalTitle' | translate"
+  width="20vw"
 >
   <p>Esta acción es permanente</p>
   <div class="buttons-modal">

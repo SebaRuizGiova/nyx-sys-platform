@@ -47,6 +47,17 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   public totalRecoveryToChart: any[] = [];
   public sleepScoreToChart: any[] = [];
   public ansToChart: any[] = [];
+  public hrvToChart: {
+    hrArray: any[];
+    hrvArray: any[];
+    laArray: any[];
+    dates: any[];
+  } = {
+    hrArray: [],
+    hrvArray: [],
+    laArray: [],
+    dates: [],
+  };
 
   public profileData?: Profile;
 
@@ -236,16 +247,9 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         value: profile.id,
         userId: profile.userID,
       }));
+      localStorage.setItem('profiles', JSON.stringify(profileItems));
     } else {
-      let profilesItemsStorage = JSON.parse(
-        localStorage.getItem('profiles') || '[]'
-      );
-
-      profileItems = profilesItemsStorage.map((profile: Profile) => ({
-        label: `${profile.name} ${profile.lastName}`,
-        value: profile.id,
-        userId: profile.userID,
-      }));
+      profileItems = JSON.parse(localStorage.getItem('profiles') || '[]');
     }
     this.profilesItems = profileItems;
   }
@@ -382,6 +386,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       this.profileData?.sleepData || []
     );
     this.ansToChart = this.getAnsToChart(this.profileData?.selectedSleepData);
+    this.hrvToChart = this.getHrvToChart(this.profileData?.selectedSleepData);
   }
 
   calculateAge(birthdate: Birthdate | undefined): string {
@@ -688,5 +693,93 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       return ansArray;
     }
     return [];
+  }
+
+  getHrvToChart(selectedSleepData?: SleepData) {
+    let compareArray: any[] = [];
+    let heartRateArray: any[] = [];
+    let RMSSDArray: any[] = [];
+    let adjustmentLine: any[] = [];
+    let datesLabel: any[] = [];
+
+    if (selectedSleepData) {
+      let counter = 0;
+      //ARMANDO EL ARRAY PARA EL HEARTRATE
+      var countToHour = 24;
+      counter = 0;
+      selectedSleepData.calc_data.forEach((data: any) => {
+        counter = counter + 1;
+        if (counter == 2) {
+          if (countToHour == 24) {
+            compareArray.push(data.timestamp);
+            datesLabel.push([
+              this.helpersService.formatTimestamp(data.timestamp, this.timezoneService.timezoneOffset)
+
+            ])
+            heartRateArray.push(data.heartRate);
+            counter = 0;
+            countToHour = 1;
+          } else {
+            compareArray.push(data.timestamp);
+            datesLabel.push('')
+            heartRateArray.push(data.heartRate);
+            counter = 0;
+            countToHour++;
+          }
+        }
+      });
+  
+      // ARMANDO EL ARRAY DEL RMSSD
+      counter = 0;
+      selectedSleepData.hrv_rmssd_data.forEach((data: any) => {
+        var access = true;
+        while (access) {
+          if (compareArray[counter] < data.timestamp) {
+            RMSSDArray.push(null);
+            counter++;
+          } else {
+            RMSSDArray.push(data.rmssd);
+            access = false;
+            counter++;
+          }
+        }
+      });
+  
+      // Making the array of the lineal adjustment
+      counter = 0;
+      var position = 0;
+      selectedSleepData.hrv_rmssd_data.forEach((data: any) => {
+        var access = true;
+        while (access) {
+          if (compareArray[counter] < data.timestamp) {
+            adjustmentLine.push(null);
+            counter++;
+          } else {
+            access = false;
+            if (position == 0) {
+              adjustmentLine.push(selectedSleepData.hrv_rmssd_evening);
+            }
+            if (position == selectedSleepData.hrv_rmssd_data.length - 1) {
+              adjustmentLine.push(selectedSleepData.hrv_rmssd_morning);
+            }
+            if (
+              position > 0 &&
+              position != selectedSleepData.hrv_rmssd_data.length - 1
+            ) {
+              adjustmentLine.push(null);
+            }
+            position++;
+            counter++;
+          }
+        }
+      });
+    }
+
+    return {
+      hrArray: heartRateArray,
+      hrvArray: RMSSDArray,
+      laArray: adjustmentLine,
+      dates: datesLabel
+    }
   }
 }

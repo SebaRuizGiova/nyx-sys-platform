@@ -606,9 +606,20 @@ export class AdminPageComponent implements OnInit {
       });
   }
 
+  formatDateToFirebase(date: Date) {
+    moment.locale('es');
+    const selectedDate = moment(date);
+
+    const formattedDate = selectedDate.format(
+      'DD [de] MMMM [de] YYYY, h:mm:ss A [UTC]Z'
+    );
+
+    return formattedDate;
+  }
+
   addProfile() {
     if (this.addProfileForm.status !== 'INVALID') {
-      const playersRef = this.firestore.collection(
+      const profileRef = this.firestore.collection(
         `/users/nyxsys/content/${
           this.userRole === 'superAdmin'
             ? this.addProfileForm.value.userID
@@ -616,8 +627,9 @@ export class AdminPageComponent implements OnInit {
         }/players`
       );
 
+      this.toggleAddProfile();
       this.loadingService.setLoading(true);
-      playersRef
+      profileRef
         .add({
           ...this.addProfileForm.value,
           birthdate: this.formatDateToFirebase(
@@ -625,8 +637,6 @@ export class AdminPageComponent implements OnInit {
           ),
         })
         .then(() => {
-          this.loadingService.setLoading(false);
-          this.toggleAddProfile();
           this.messageService.add({
             severity: 'success',
             summary: 'Success',
@@ -646,31 +656,19 @@ export class AdminPageComponent implements OnInit {
     }
   }
 
-  formatDateToFirebase(event: Date) {
-    moment.locale('es');
-    const selectedDate = moment(event);
-
-    const formattedDate = selectedDate.format(
-      'DD [de] MMMM [de] YYYY, h:mm:ss A [UTC]Z'
-    );
-
-    return formattedDate;
-  }
-
   deleteProfile() {
-    const playersRef = this.firestore.doc(
+    const profileRef = this.firestore.doc(
       `/users/nyxsys/content/${this.userIdProfileToDelete}/players/${this.profileIdToDelete}`
     );
 
     this.userIdProfileToDelete = '';
     this.profileIdToDelete = '';
 
+    this.toggleConfirmDeleteProfile();
     this.loadingService.setLoading(true);
-    playersRef
+    profileRef
       .delete()
       .then(() => {
-        this.loadingService.setLoading(false);
-        this.toggleConfirmDeleteProfile();
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
@@ -684,6 +682,32 @@ export class AdminPageComponent implements OnInit {
           severity: 'error',
           summary: 'Error',
           detail: 'Error al eliminar el perfil',
+        });
+      });
+  }
+
+  hideProfile(userIdProfile: string, profileId: string, hideValue: boolean) {
+    const profileRef = this.firestore.doc(
+      `/users/nyxsys/content/${userIdProfile}/players/${profileId}`
+    );
+
+    this.loadingService.setLoading(true);
+    profileRef
+      .update({ hided: !hideValue })
+      .then(() => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: `Perfil ${hideValue ? 'oculto' : 'mostrado'} correctamente`,
+        });
+        this.loadData();
+      })
+      .catch(() => {
+        this.loadingService.setLoading(false);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: `Error al ${hideValue ? 'ocultar' : 'mostrar'} el perfil`,
         });
       });
   }

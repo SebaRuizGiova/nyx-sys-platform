@@ -2,24 +2,29 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { Chart } from 'angular-highcharts';
 
 @Component({
-  selector: 'ans-chart',
+  selector: 'hrv-chart',
   templateUrl: './hrv-chart.component.html',
   styleUrls: ['./hrv-chart.component.scss'],
 })
 export class HrvChartComponent implements OnChanges {
-  @Input() ans: {
-    hf: number;
-    lf: number;
-    bedExit: number[];
-    date: string;
-  }[] = [];
+  @Input() hrv: {
+    hrArray: any[];
+    hrvArray: any[];
+    laArray: any[];
+    dates: any[];
+  } = {
+    hrArray: [],
+    hrvArray: [],
+    laArray: [],
+    dates: []
+  };
   public chart?: Chart;
 
   ngOnChanges(): void {
-    const dates = this.ans.map((item) => item.date);
-    const hfValues = this.ans.map((item) => item.hf);
-    const lfValues = this.ans.map((item) => item.lf);
-    const bedExitValues = this.ans[0].bedExit;
+    const hrValues = this.hrv.hrArray;
+    const hrvValues = this.hrv.hrvArray;
+    const laValues = this.hrv.laArray;
+    const dates = this.hrv.dates;
 
     this.chart = new Chart({
       chart: {
@@ -36,25 +41,26 @@ export class HrvChartComponent implements OnChanges {
         },
       },
       yAxis: [
-        // Eje Y para LF
         {
           title: {
-            text: 'LF',
+            text: 'Heart rate',
           },
-          min: 30,
-          max: 70,
           tickInterval: 10,
           tickPixelInterval: 10,
           gridLineColor: '#3b3b3b',
         },
-        // Eje Y para HF
         {
           title: {
-            text: 'HF',
+            text: 'RMSSD',
           },
-          // opposite: true, // Para colocar este eje a la derecha
-          min: 30,
-          max: 70,
+          tickInterval: 10,
+          tickPixelInterval: 10,
+          gridLineColor: '#3b3b3b',
+        },
+        {
+          title: {
+            text: 'Adjusment line of RMSSD',
+          },
           tickInterval: 10,
           tickPixelInterval: 10,
           gridLineColor: '#3b3b3b',
@@ -83,34 +89,35 @@ export class HrvChartComponent implements OnChanges {
       tooltip: {
         shared: true,
       },
-      legend: {
-        enabled: false,
-      },
       series: [
         {
-          name: 'HF',
+          name: 'Heart rate',
           yAxis: 0,
           marker: {
             symbol: 'circle',
           },
           type: 'spline',
-          data: hfValues,
+          data: hrValues,
         },
         {
-          name: 'LF',
+          name: 'RMSSD',
           yAxis: 1,
           marker: {
             symbol: 'circle',
           },
           type: 'spline',
-          data: lfValues,
+          data: hrvValues,
         },
-        // {
-        //   name: 'Ausencia de Datos',
-        //   type: 'bar',
-        //   color: 'red',
-        //   data: bedExitValues, // Agrega un punto si hay ausencia de datos
-        // },
+        {
+          name: 'Adjusment line of RMSSD',
+          yAxis: 2,
+          marker: {
+            symbol: 'circle',
+          },
+          type: 'line',
+          data: laValues,
+          pointRange: 100,
+        },
       ],
     });
   }

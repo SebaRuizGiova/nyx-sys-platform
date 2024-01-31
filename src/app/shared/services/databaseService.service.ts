@@ -150,6 +150,5 @@ export class DatabaseService {
 
   setProfiles(profiles: Profile[]): void {
     this.profiles = profiles;
-    localStorage.setItem('profiles', JSON.stringify(profiles));
   }
 }
