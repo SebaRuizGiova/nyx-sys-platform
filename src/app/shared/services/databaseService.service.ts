@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
+import { User } from 'src/app/dashboard/interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -47,7 +48,13 @@ export class DatabaseService {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/players`)
       .get()
-      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
+      .pipe(map((snapshot) => snapshot.docs.map((doc) => {
+        const userData: User = <User>doc.data();
+        return {
+          ...userData,
+          id: doc.ref.id
+        }
+      })));
   }
 
   getDevicesByUser(userId: string): Observable<any> {

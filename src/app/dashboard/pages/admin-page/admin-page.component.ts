@@ -129,20 +129,19 @@ export class AdminPageComponent implements OnInit {
     private languageService: LanguageService,
     private firestore: AngularFirestore,
     private datePipe: DatePipe
-  ) {
-    this.languageService.langChanged$.subscribe(() => {
-      this.loadTranslations();
-    });
-    this.loadTranslations();
-  }
+  ) {}
 
   ngOnInit(): void {
+    this.getCountries();
     this.loadingService.setLoading(true);
     this.authService.checkRole().subscribe((role) => {
       this.userRole = role;
       this.loadData();
     });
-    this.getCountries();
+    this.languageService.langChanged$.subscribe(() => {
+      this.loadTranslations();
+    });
+    this.loadTranslations();
   }
 
   loadData() {
@@ -578,20 +577,23 @@ export class AdminPageComponent implements OnInit {
 
   addProfile() {
     if (this.addProfileForm.status !== 'INVALID') {
-      // TODO: Agregar codigo para usuario no admin
       const playersRef = this.firestore.collection(
-        `/users/nyxsys/content/${this.addProfileForm.value.userID}/players`
+        `/users/nyxsys/content/${
+          this.userRole === 'superAdmin'
+            ? this.addProfileForm.value.userID
+            : this.authService.userId
+        }/players`
       );
 
       playersRef
         .add(this.addProfileForm.value)
         .then(() => {
-          console.log('Jugador agregado correctamente');
+          console.log('Perfil agregado correctamente');
           // TODO: Mostrar toast exito y cerrar modal
           this.addProfileForm.reset();
         })
         .catch((error) => {
-          console.error('Error al agregar el jugador', error);
+          console.error('Error al agregar el perfil', error);
         });
     }
   }
@@ -608,5 +610,23 @@ export class AdminPageComponent implements OnInit {
     this.addProfileForm.patchValue({
       birthdate: formattedDate,
     });
+  }
+
+  deleteProfile(userId: string, profileId: string) {
+    console.log(userId, profileId);
+    const playersRef = this.firestore.doc(
+      `/users/nyxsys/content/${userId}/players/${profileId}`
+    );
+
+    playersRef
+      .delete()
+      .then(() => {
+        console.log('Perfil eliminado correctamente');
+        // TODO: Mostrar toast exito y recargar data
+        this.addProfileForm.reset();
+      })
+      .catch((error) => {
+        console.error('Error al eliminar el perfil', error);
+      });
   }
 }

@@ -89,6 +89,7 @@
                 class="pi pi-trash"
                 [pTooltip]="'adminDeleteProfileTooltip' | translate"
                 tooltipPosition="bottom"
+                (click)="deleteProfile(profile.userID, profile.id)"
               ></i>
             </div>
           </td>
