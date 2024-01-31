@@ -331,7 +331,7 @@
     </p-table>
   </div>
   <!-- USUARIOS -->
-  <div class="card" *ngIf="role === 'superAdmin'">
+  <div class="card" *ngIf="userRole === 'superAdmin'">
     <div class="card-header">
       <p class="title-table">{{ "adminUsersTitle" | translate }}</p>
       <div class="actions-header" [formGroup]="actionsUsersForm">
@@ -409,26 +409,25 @@
       dateFormat="dd/mm/yy"
       [placeholder]="'adminModalAddProfileBirthDate' | translate"
       [showIcon]="true"
+      (onSelect)="selectDate($event)"
+      [readonlyInput]="true"
     />
     <shared-select
       [options]="genderItems"
       [placeholder]="'adminModalAddProfileGender' | translate"
       [formGroup]="addProfileForm"
-      formControlName="gender"
+      formControlName="sex"
     />
     <p-dropdown
       [options]="countriesItems"
       optionLabel="label"
+      optionValue="value"
       [placeholder]="'adminModalAddProfileBirthplace' | translate"
       formControlName="birthplace"
     >
       <ng-template pTemplate="selectedItem">
         <div class="dropdown-item" *ngIf="addProfileForm.value.birthplace">
-          <img
-            [src]="addProfileForm.value.birthplace.img"
-            style="width: 18px"
-          />
-          <div>{{ addProfileForm.value.birthplace.label }}</div>
+          <div>{{ addProfileForm.value.birthplace.name }}</div>
         </div>
       </ng-template>
       <ng-template let-country pTemplate="item">
@@ -439,20 +438,20 @@
       </ng-template>
     </p-dropdown>
     <shared-select
-      *ngIf="role === 'superAdmin'"
+      *ngIf="userRole === 'superAdmin'"
       [options]="usersItems"
       [placeholder]="'adminModalAddProfileUser' | translate"
       [formGroup]="addProfileForm"
-      formControlName="user"
+      formControlName="userID"
     />
     <shared-select
       [options]="groupsItems"
       [placeholder]="'adminModalAddProfileGroup' | translate"
       [formGroup]="addProfileForm"
-      formControlName="group"
+      formControlName="teamID"
     />
     <div class="buttons-modal">
-      <shared-button [label]="'adminModalSave' | translate" />
+      <shared-button [label]="'adminModalSave' | translate" (click)="addProfile()" [disabled]="addProfileForm.status === 'INVALID'" />
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
@@ -484,7 +483,7 @@
       helper=""
     />
     <shared-select
-      *ngIf="role === 'superAdmin'"
+      *ngIf="userRole === 'superAdmin'"
       [options]="usersItems"
       [placeholder]="'adminModalAddDeviceUser' | translate"
       [formGroup]="addDeviceForm"
@@ -518,7 +517,7 @@
       formControlName="gmt"
     />
     <shared-select
-      *ngIf="role === 'superAdmin'"
+      *ngIf="userRole === 'superAdmin'"
       [options]="usersItems"
       [placeholder]="'adminModalAddGroupUser' | translate"
       [formGroup]="addGroupForm"
@@ -577,7 +576,7 @@
       formControlName="role"
     />
     <shared-select
-      *ngIf="role === 'superAdmin'"
+      *ngIf="userRole === 'superAdmin'"
       [options]="usersItems"
       [placeholder]="'adminModalAddCollaboratorUser' | translate"
       [formGroup]="addCollaboratorForm"

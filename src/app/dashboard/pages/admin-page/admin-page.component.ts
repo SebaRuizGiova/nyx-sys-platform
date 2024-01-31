@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin, mergeMap, tap } from 'rxjs';
+import { forkJoin, mergeMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
-import { Profile, Status } from '../../interfaces/profile.interface';
+import { Profile } from '../../interfaces/profile.interface';
 import { Device } from '../../interfaces/device.interface';
 import { Group } from '../../interfaces/group.interface';
 import { LoadingService } from 'src/app/shared/services/loading.service';
@@ -15,6 +15,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { ValidatorsService } from 'src/app/shared/services/validators.service';
 import { HelpersService } from 'src/app/shared/services/helpers.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { DatePipe } from '@angular/common';
 
 @Component({
   templateUrl: './admin-page.component.html',
@@ -42,10 +44,14 @@ export class AdminPageComponent implements OnInit {
     name: ['', Validators.required],
     lastName: ['', Validators.required],
     birthdate: ['', Validators.required],
-    gender: ['', Validators.required],
+    sex: [null, Validators.required],
     birthplace: ['', Validators.required],
-    user: ['', Validators.required],
-    group: ['', Validators.required],
+    userID: ['', Validators.required],
+    teamID: ['', Validators.required],
+    device: [false],
+    deviceSN: [false],
+    hided: [false],
+    deviceID: [false],
   });
   public addDeviceForm: FormGroup = this.fb.group({
     serialNumber: ['', [Validators.required, Validators.minLength(6)]],
@@ -101,26 +107,15 @@ export class AdminPageComponent implements OnInit {
   public showAddGroup: boolean = false;
   public showAddCollaborator: boolean = false;
   public showAddUser: boolean = false;
-  public genderItems: ItemDropdown[] = [
-    {
-      label: 'Masculino',
-      value: 'M',
-    },
-    {
-      label: 'Femenino',
-      value: 'F',
-    },
-    {
-      label: 'Otro',
-      value: 'O',
-    },
-  ];
+  public genderItems: ItemDropdown[] = [];
   public usersItems: ItemDropdown[] = [];
   public groupsItems: ItemDropdown[] = [];
   public countriesItems: ItemDropdown[] = [];
   public gmtItems: string[] = this.helpersService.GMTItems;
   public roleCollaboratorItems: ItemDropdown[] = [];
   public roleUserItems: ItemDropdown[] = [];
+
+  public userRole: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -132,19 +127,26 @@ export class AdminPageComponent implements OnInit {
     private validatorsService: ValidatorsService,
     private helpersService: HelpersService,
     private languageService: LanguageService,
-  ) {}
-
-  ngOnInit(): void {
-    this.loadData();
-    this.getCountries();
+    private firestore: AngularFirestore,
+    private datePipe: DatePipe
+  ) {
     this.languageService.langChanged$.subscribe(() => {
       this.loadTranslations();
     });
     this.loadTranslations();
   }
 
+  ngOnInit(): void {
+    this.loadingService.setLoading(true);
+    this.authService.checkRole().subscribe((role) => {
+      this.userRole = role;
+      this.loadData();
+    });
+    this.getCountries();
+  }
+
   loadData() {
-    if (this.authService.role === 'superAdmin') {
+    if (this.userRole === 'superAdmin') {
       this.getDataAdmin();
     } else {
       this.getProfiles();
@@ -254,8 +256,8 @@ export class AdminPageComponent implements OnInit {
             userData.collaborators.forEach((collaborator: Collaborator) => {
               const collaboratorWithLinked = {
                 ...collaborator,
-                linked: userData.nickName
-              }
+                linked: userData.nickName,
+              };
               collaborators = [...collaborators, collaboratorWithLinked];
             });
           }
@@ -419,38 +421,74 @@ export class AdminPageComponent implements OnInit {
         this.countriesItems = countries.map((country) => {
           let formattedCountry = {
             label: '',
-            value: '',
+            value: {
+              alpha2Code: '',
+              alpha3Code: '',
+              callingCode: '',
+              name: '',
+              numericCode: '',
+            },
             img: '',
           };
 
           if (this.translateService.currentLang === 'es') {
             formattedCountry = {
               label: country.translations.spa.common,
-              value: country.cca3,
+              value: {
+                alpha2Code: country.cca2,
+                alpha3Code: country.cca3,
+                callingCode: `${country.idd.root}${country.idd.suffixes}`,
+                name: country.name.common,
+                numericCode: country.ccn3,
+              },
               img: country.flags.svg || country.flags.png,
             };
           } else if (this.translateService.currentLang === 'en') {
             formattedCountry = {
               label: country.name.common,
-              value: country.cca3,
+              value: {
+                alpha2Code: country.cca2,
+                alpha3Code: country.cca3,
+                callingCode: `${country.idd.root}${country.idd.suffixes}`,
+                name: country.name.common,
+                numericCode: country.ccn3,
+              },
               img: country.flags.svg || country.flags.png,
             };
           } else if (this.translateService.currentLang === 'it') {
             formattedCountry = {
               label: country.translations.ita.common,
-              value: country.cca3,
+              value: {
+                alpha2Code: country.cca2,
+                alpha3Code: country.cca3,
+                callingCode: `${country.idd.root}${country.idd.suffixes}`,
+                name: country.name.common,
+                numericCode: country.ccn3,
+              },
               img: country.flags.svg || country.flags.png,
             };
           } else if (this.translateService.currentLang === 'de') {
             formattedCountry = {
               label: country.translations.deu.common,
-              value: country.cca3,
+              value: {
+                alpha2Code: country.cca2,
+                alpha3Code: country.cca3,
+                callingCode: `${country.idd.root}${country.idd.suffixes}`,
+                name: country.name.common,
+                numericCode: country.ccn3,
+              },
               img: country.flags.svg || country.flags.png,
             };
           } else if (this.translateService.currentLang === 'fr') {
             formattedCountry = {
               label: country.translations.fra.common,
-              value: country.cca3,
+              value: {
+                alpha2Code: country.cca2,
+                alpha3Code: country.cca3,
+                callingCode: `${country.idd.root}${country.idd.suffixes}`,
+                name: country.name.common,
+                numericCode: country.ccn3,
+              },
               img: country.flags.svg || country.flags.png,
             };
           }
@@ -536,5 +574,39 @@ export class AdminPageComponent implements OnInit {
       .subscribe((translations: any) => {
         this.roleUserItems = translations;
       });
+  }
+
+  addProfile() {
+    if (this.addProfileForm.status !== 'INVALID') {
+      // TODO: Agregar codigo para usuario no admin
+      const playersRef = this.firestore.collection(
+        `/users/nyxsys/content/${this.addProfileForm.value.userID}/players`
+      );
+
+      playersRef
+        .add(this.addProfileForm.value)
+        .then(() => {
+          console.log('Jugador agregado correctamente');
+          // TODO: Mostrar toast exito y cerrar modal
+          this.addProfileForm.reset();
+        })
+        .catch((error) => {
+          console.error('Error al agregar el jugador', error);
+        });
+    }
+  }
+
+  selectDate(event: Date) {
+    const selectedDate = event;
+
+    const formattedDate = this.datePipe.transform(
+      selectedDate,
+      "dd 'de' MMMM 'de' y, h:mm:ss a 'UTC'Z",
+      'es-ES'
+    );
+
+    this.addProfileForm.patchValue({
+      birthdate: formattedDate,
+    });
   }
 }

@@ -2,7 +2,6 @@
 
 export interface Profile {
   birthplace: Birthplace;
-  pictureUrl: string;
   deviceSN:   boolean;
   sex:        string;
   device:     boolean;
@@ -10,8 +9,6 @@ export interface Profile {
   birthdate:  Birthdate;
   teamID:     string;
   lastName:   string;
-  teamLogo:   string;
-  sport:      string;
   id:         string;
   name:       string;
   hided:      boolean;

@@ -3,7 +3,7 @@ import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/for
 
 export interface ItemDropdown {
   label: string;
-  value: string | number;
+  value: string | number | any;
   userId?: string;
   img?: string;
 }

@@ -182,15 +182,15 @@
   "adminModalGenderItems": [
     {
       "label": "Homme",
-      "value": "M"
+      "value": "Male"
     },
     {
       "label": "Femme",
-      "value": "F"
+      "value": "Female"
     },
     {
       "label": "Autre",
-      "value": "O"
+      "value": "Other"
     }
   ],
   "adminModalRoleCollaboratorItems": [

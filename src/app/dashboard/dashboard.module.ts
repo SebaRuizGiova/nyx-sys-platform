@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { GroupsPageComponent } from './pages/groups-page/groups-page.component';
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
@@ -43,6 +43,9 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     TableModule,
     CalendarModule
+  ],
+  providers: [
+    DatePipe
   ]
 })
 export class DashboardModule { }

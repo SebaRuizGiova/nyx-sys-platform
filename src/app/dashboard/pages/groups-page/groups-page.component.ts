@@ -42,6 +42,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   public filteredProfiles: Profile[] = [];
   public profiles: Profile[] = [];
   public selectedSleepData?: SleepData;
+  public userRole: string = '';
 
   private intervalId: any;
 
@@ -59,7 +60,11 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
       this.loadTranslations();
     });
     this.loadTranslations();
-    this.loadData();
+    this.loadingService.setLoading(true);
+    this.authService.checkRole().subscribe((role) => {
+      this.userRole = role;
+      this.loadData();
+    });
   }
 
   ngOnDestroy(): void {
@@ -85,7 +90,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   }
 
   loadData() {
-    if (this.authService.role === 'superAdmin') {
+    if (this.userRole === 'superAdmin') {
       this.loadDataAdmin();
     } else {
       this.loadDataUser();

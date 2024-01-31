@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, catchError, first, from, map, tap } from 'rxjs';
+import { User } from 'src/app/dashboard/interfaces/user.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -129,5 +130,16 @@ export class AuthService {
     return this.fireAuth.authState.pipe(
       map((user) => user?.uid === this.currentUser)
     );
+  }
+
+  checkRole(): Observable<string> {
+    return this.firestore
+      .collection(`/users/${environment.client}/content`)
+      .doc(this.userId)
+      .get()
+      .pipe(map((user) => {
+        const userData: User = <User>user.data();
+        return userData.role
+      }));
   }
 }
