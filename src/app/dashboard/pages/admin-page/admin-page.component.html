@@ -388,6 +388,8 @@
   </div>
 </div>
 
+<p-toast></p-toast>
+
 <!-- MODAL AÑADIR PERFIL -->
 <shared-modal [showModal]="showAddProfile" title="Añadir perfil" width="25vw">
   <div class="modal-content" [formGroup]="addProfileForm">
@@ -410,8 +412,6 @@
       dateFormat="dd/mm/yy"
       [placeholder]="'adminModalAddProfileBirthDate' | translate"
       [showIcon]="true"
-      (onSelect)="selectDate($event)"
-      [readonlyInput]="true"
     />
     <shared-select
       [options]="genderItems"

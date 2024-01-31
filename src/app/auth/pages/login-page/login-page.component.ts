@@ -6,7 +6,6 @@ import { ThemeSelectionService } from 'src/app/shared/services/themeSelection.se
 import { ValidatorsService } from 'src/app/shared/services/validators.service';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from 'primeng/api';
-import { Router } from '@angular/router';
 
 const user = {
   user: 'imendoza@fmf.mx',

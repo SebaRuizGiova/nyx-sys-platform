@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment-timezone';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin, mergeMap } from 'rxjs';
@@ -16,12 +17,15 @@ import { ValidatorsService } from 'src/app/shared/services/validators.service';
 import { HelpersService } from 'src/app/shared/services/helpers.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { DatePipe } from '@angular/common';
 import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
+
+import 'moment/locale/es';
+import { MessageService } from 'primeng/api';
 
 @Component({
   templateUrl: './admin-page.component.html',
   styleUrls: ['./admin-page.component.scss'],
+  providers: [MessageService],
 })
 export class AdminPageComponent implements OnInit {
   public actionsProfilesForm: FormGroup = this.fb.group({
@@ -129,8 +133,8 @@ export class AdminPageComponent implements OnInit {
     private helpersService: HelpersService,
     private languageService: LanguageService,
     private firestore: AngularFirestore,
-    private datePipe: DatePipe,
-    private timezoneService: TimezoneService
+    private timezoneService: TimezoneService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
@@ -526,7 +530,9 @@ export class AdminPageComponent implements OnInit {
               liveData[0]?.date_occurred,
               this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+            this.helpersService.getActualDate(
+              this.timezoneService.timezoneOffset
+            ),
             this.timezoneService.timezoneOffset
           ) === 0
         ) {
@@ -538,7 +544,9 @@ export class AdminPageComponent implements OnInit {
               liveData[0]?.date_occurred,
               this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+            this.helpersService.getActualDate(
+              this.timezoneService.timezoneOffset
+            ),
             this.timezoneService.timezoneOffset
           ) === 0
         ) {
@@ -550,7 +558,9 @@ export class AdminPageComponent implements OnInit {
               liveData[0].date_occurred,
               this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+            this.helpersService.getActualDate(
+              this.timezoneService.timezoneOffset
+            ),
             this.timezoneService.timezoneOffset
           ) === 0
         ) {
@@ -594,30 +604,31 @@ export class AdminPageComponent implements OnInit {
       );
 
       playersRef
-        .add(this.addProfileForm.value)
-        .then(() => {
-          console.log('Perfil agregado correctamente');
-          // TODO: Mostrar toast exito y cerrar modal
-          this.addProfileForm.reset();
+        .add({
+          ...this.addProfileForm.value,
+          birthdate: this.formatDateToFirebase(this.addProfileForm.value.birthdate)
         })
-        .catch((error) => {
-          console.error('Error al agregar el perfil', error);
+        .then(() => {
+          this.toggleAddProfile();
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Perfil agregado correctamente' });
+          this.addProfileForm.reset();
+          this.loadData()
+        })
+        .catch(() => {
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error al agregar el perfil' });
         });
     }
   }
 
-  selectDate(event: Date) {
-    const selectedDate = event;
+  formatDateToFirebase(event: Date) {
+    moment.locale('es');
+    const selectedDate = moment(event);
 
-    const formattedDate = this.datePipe.transform(
-      selectedDate,
-      "dd 'de' MMMM 'de' y, h:mm:ss a 'UTC'Z",
-      'es-ES'
+    const formattedDate = selectedDate.format(
+      'DD [de] MMMM [de] YYYY, h:mm:ss A [UTC]Z'
     );
 
-    this.addProfileForm.patchValue({
-      birthdate: formattedDate,
-    });
+    return formattedDate;
   }
 
   deleteProfile(userId: string, profileId: string) {
@@ -628,12 +639,11 @@ export class AdminPageComponent implements OnInit {
     playersRef
       .delete()
       .then(() => {
-        console.log('Perfil eliminado correctamente');
-        // TODO: Mostrar toast exito y recargar data
-        this.addProfileForm.reset();
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Perfil eliminado correctamente' });
+        this.loadData()
       })
-      .catch((error) => {
-        console.error('Error al eliminar el perfil', error);
+      .catch(() => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error al eliminar el perfil' });
       });
   }
 }
