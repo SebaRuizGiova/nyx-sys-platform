@@ -52,7 +52,7 @@ export class AdminPageComponent implements OnInit {
     sex: [null, Validators.required],
     birthplace: ['', Validators.required],
     userID: ['', Validators.required],
-    teamID: ['', Validators.required],
+    teamID: [{ value: '', disabled: true }, Validators.required],
     device: [false],
     deviceSN: [false],
     hided: [false],
@@ -123,6 +123,7 @@ export class AdminPageComponent implements OnInit {
 
   public userIdProfileToDelete: string = '';
   public profileIdToDelete: string = '';
+  public profileIdToEdit?: Profile | null;
 
   public userRole: string = '';
 
@@ -202,10 +203,6 @@ export class AdminPageComponent implements OnInit {
       .getGroupsByUser(userId || this.authService.userId)
       .subscribe((groups) => {
         this.groups = groups;
-        this.groupsItems = groups.map((group: Group) => ({
-          label: group.teamName,
-          value: group.id,
-        }));
         this.filteredGroups = groups;
         this.loadingService.setLoading(false);
       });
@@ -293,7 +290,6 @@ export class AdminPageComponent implements OnInit {
         this.filteredDevices = devicesWithStatus;
         this.groups = groups;
         this.filteredGroups = groups;
-        this.groupsItems = groupsItems;
         this.collaborators = collaborators;
         this.filteredCollaborators = collaborators;
         this.loadingService.setLoading(false);
@@ -405,6 +401,25 @@ export class AdminPageComponent implements OnInit {
   toggleAddProfile() {
     this.showAddProfile = !this.showAddProfile;
   }
+
+  toggleEditProfile(profile: Profile) {
+    this.showAddProfile = !this.showAddProfile;
+    this.profileIdToEdit = profile;
+
+    const birthdate = new Date(profile.birthdate.seconds * 1000);
+
+    this.addProfileForm.patchValue({
+      ...profile,
+      birthdate
+    });
+    this.selectUser(
+      this.userRole !== 'superAdmin'
+        ? this.authService.userId
+        : this.addProfileForm.value.userID
+    );
+  }
+
+  // TODO: funcion onClose edit profile para hacer reset form
 
   toggleConfirmDeleteProfile(userId?: string, profileId?: string) {
     if (userId && profileId) {
@@ -627,6 +642,10 @@ export class AdminPageComponent implements OnInit {
         }/players`
       );
 
+      if (this.userRole !== 'superAdmin') {
+        this.selectUser(this.authService.userId);
+      }
+
       this.toggleAddProfile();
       this.loadingService.setLoading(true);
       profileRef
@@ -643,6 +662,47 @@ export class AdminPageComponent implements OnInit {
             detail: 'Perfil agregado correctamente',
           });
           this.addProfileForm.reset();
+          this.loadData();
+        })
+        .catch(() => {
+          this.loadingService.setLoading(false);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Error al agregar el perfil',
+          });
+        });
+    }
+  }
+
+  editProfile() {
+    if (this.addProfileForm.status !== 'INVALID') {
+      const profileRef = this.firestore.doc(
+        `/users/nyxsys/content/${
+          this.userRole === 'superAdmin'
+            ? this.addProfileForm.value.userID
+            : this.authService.userId
+        }/players/${this.profileIdToEdit}`
+      );
+
+      this.toggleAddProfile();
+      this.loadingService.setLoading(true);
+      profileRef
+        .update({
+          ...this.profileIdToEdit,
+          ...this.addProfileForm.value,
+          birthdate: this.formatDateToFirebase(
+            this.addProfileForm.value.birthdate
+          ),
+        })
+        .then(() => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Perfil agregado correctamente',
+          });
+          this.addProfileForm.reset();
+          this.profileIdToEdit = null;
           this.loadData();
         })
         .catch(() => {
@@ -710,5 +770,18 @@ export class AdminPageComponent implements OnInit {
           detail: `Error al ${hideValue ? 'ocultar' : 'mostrar'} el perfil`,
         });
       });
+  }
+
+  selectUser(userId: string) {
+    this.addProfileForm.controls['teamID'].reset({
+      value: '',
+      disabled: false,
+    });
+    this.groupsItems = this.groups
+      .filter((group) => group.userID === userId)
+      .map((group: Group) => ({
+        label: group.teamName,
+        value: group.id,
+      }));
   }
 }

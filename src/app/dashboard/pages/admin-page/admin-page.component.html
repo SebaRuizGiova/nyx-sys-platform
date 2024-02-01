@@ -86,6 +86,7 @@
                 class="pi pi-user-edit"
                 [pTooltip]="'adminEditProfileTooltip' | translate"
                 tooltipPosition="bottom"
+                (click)="toggleEditProfile(profile)"
               ></i>
               <i
                 class="pi pi-trash"
@@ -448,6 +449,7 @@
       [placeholder]="'adminModalAddProfileUser' | translate"
       [formGroup]="addProfileForm"
       formControlName="userID"
+      (selectChange)="selectUser($event)"
     />
     <shared-select
       [options]="groupsItems"

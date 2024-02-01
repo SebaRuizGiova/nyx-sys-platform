@@ -19,6 +19,7 @@ export class SelectComponent implements ControlValueAccessor {
   @Input() placeholder?: string;
   @Input() optionLabel?: string;
   @Input() optionValue?: string;
+  @Input() disabled?: boolean = false;
   @Input({ required: true }) formControlName!: string;
   @Input({ required: true }) formGroup!: FormGroup;
   @Output() selectChange: EventEmitter<any> = new EventEmitter();
