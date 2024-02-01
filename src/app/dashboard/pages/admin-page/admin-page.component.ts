@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment-timezone';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin, mergeMap } from 'rxjs';
@@ -52,7 +51,7 @@ export class AdminPageComponent implements OnInit {
     sex: [null, Validators.required],
     birthplace: ['', Validators.required],
     userID: ['', Validators.required],
-    teamID: [{ value: '', disabled: true }, Validators.required],
+    teamID: [{ value: '', disabled: true }],
     device: [false],
     deviceSN: [false],
     hided: [false],
@@ -123,7 +122,8 @@ export class AdminPageComponent implements OnInit {
 
   public userIdProfileToDelete: string = '';
   public profileIdToDelete: string = '';
-  public profileIdToEdit?: Profile | null;
+  public profileIdToEdit?: string;
+  public enableEditProfile: boolean = false;
 
   public userRole: string = '';
 
@@ -155,6 +155,7 @@ export class AdminPageComponent implements OnInit {
     this.loadTranslations();
   }
 
+  // Cargar data
   loadData() {
     if (this.userRole === 'superAdmin') {
       this.getDataAdmin();
@@ -296,6 +297,7 @@ export class AdminPageComponent implements OnInit {
       });
   }
 
+  // Filtrado y acciones
   filterProfiles(groupId?: string) {
     if (groupId) {
       this.filteredProfiles = this.profiles.filter((profile) => {
@@ -398,28 +400,35 @@ export class AdminPageComponent implements OnInit {
     });
   }
 
+  // Modales perfiles
   toggleAddProfile() {
     this.showAddProfile = !this.showAddProfile;
+
+    if (this.userRole !== 'superAdmin') {
+      this.selectUser(this.authService.userId);
+    }
   }
 
   toggleEditProfile(profile: Profile) {
+    this.enableEditProfile = !this.enableEditProfile;
     this.showAddProfile = !this.showAddProfile;
-    this.profileIdToEdit = profile;
+    this.profileIdToEdit = profile.id;
 
     const birthdate = new Date(profile.birthdate.seconds * 1000);
 
-    this.addProfileForm.patchValue({
+    const newValue = {
       ...profile,
-      birthdate
-    });
+      birthdate,
+    }
+
+    this.addProfileForm.patchValue(newValue);
     this.selectUser(
       this.userRole !== 'superAdmin'
         ? this.authService.userId
-        : this.addProfileForm.value.userID
+        : this.addProfileForm.value.userID,
+      profile.teamID
     );
   }
-
-  // TODO: funcion onClose edit profile para hacer reset form
 
   toggleConfirmDeleteProfile(userId?: string, profileId?: string) {
     if (userId && profileId) {
@@ -430,23 +439,179 @@ export class AdminPageComponent implements OnInit {
     this.showConfirmDeleteProfile = !this.showConfirmDeleteProfile;
   }
 
+  // Modales dispositivos
   toggleAddDevice() {
     this.showAddDevice = !this.showAddDevice;
   }
 
+  // Modales grupos
   toggleAddGroup() {
     this.showAddGroup = !this.showAddGroup;
   }
 
+  // Modales colaboradores
   toggleAddCollaborator() {
     this.showAddCollaborator = !this.showAddCollaborator;
   }
 
+  // Modales usuarios
   toggleAddUser() {
     this.showAddUser = !this.showAddUser;
   }
 
-  getCountries(): void {
+  // Acciones perfiles
+  addProfile() {
+    if (this.addProfileForm.status !== 'INVALID') {
+      const profileRef = this.firestore.collection(
+        `/users/nyxsys/content/${
+          this.userRole === 'superAdmin'
+            ? this.addProfileForm.value.userID
+            : this.authService.userId
+        }/players`
+      );
+
+      console.log(this.addProfileForm.value);
+
+      this.loadingService.setLoading(true);
+      profileRef
+      .add({
+        ...this.addProfileForm.value
+      })
+      .then(() => {
+          this.toggleAddProfile();
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Perfil agregado correctamente',
+          });
+          this.loadData();
+        })
+        .catch(() => {
+          this.loadingService.setLoading(false);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Error al agregar el perfil',
+          });
+        });
+    }
+  }
+
+  editProfile() {
+    if (this.addProfileForm.status !== 'INVALID') {
+      const profileRef = this.firestore.doc(
+        `/users/nyxsys/content/${
+          this.userRole === 'superAdmin'
+            ? this.addProfileForm.value.userID
+            : this.authService.userId
+        }/players/${this.profileIdToEdit}`
+      );
+
+      console.log(this.addProfileForm.value);
+      console.log(this.profileIdToEdit);
+
+      this.loadingService.setLoading(true);
+      profileRef
+      .set({
+        ...this.addProfileForm.value
+      }, { merge: true })
+      .then(() => {
+          this.toggleAddProfile();
+          this.actionsProfilesForm.reset();
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Perfil agregado correctamente',
+          });
+          this.profileIdToEdit = '';
+          this.loadData();
+        })
+        .catch(() => {
+          this.loadingService.setLoading(false);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Error al agregar el perfil',
+          });
+        });
+    }
+  }
+
+  addOrEditProfile() {
+    if (this.enableEditProfile) {
+      this.editProfile();
+    } else {
+      this.addProfile();
+    }
+  }
+
+  onCloseModalProfile() {
+    this.addProfileForm.reset();
+    this.addProfileForm?.get('sex')?.setErrors(null);
+    this.addProfileForm?.get('userID')?.setErrors(null);
+    this.addProfileForm?.get('teamID')?.setErrors(null);
+  }
+
+  deleteProfile() {
+    const profileRef = this.firestore.doc(
+      `/users/nyxsys/content/${this.userIdProfileToDelete}/players/${this.profileIdToDelete}`
+    );
+
+    this.userIdProfileToDelete = '';
+    this.profileIdToDelete = '';
+
+    this.toggleConfirmDeleteProfile();
+    this.loadingService.setLoading(true);
+    profileRef
+      .delete()
+      .then(() => {
+        this.actionsProfilesForm.reset();
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Perfil eliminado correctamente',
+        });
+        this.loadData();
+      })
+      .catch(() => {
+        this.loadingService.setLoading(false);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Error al eliminar el perfil',
+        });
+      });
+  }
+
+  hideProfile(userIdProfile: string, profileId: string, hideValue: boolean) {
+    const profileRef = this.firestore.doc(
+      `/users/nyxsys/content/${userIdProfile}/players/${profileId}`
+    );
+
+    this.loadingService.setLoading(true);
+    profileRef
+      .update({ hided: !hideValue })
+      .then(() => {
+        this.actionsProfilesForm.reset();
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: `Perfil ${hideValue ? 'mostrado' : 'oculto'} correctamente`,
+        });
+        this.loadData();
+      })
+      .catch(() => {
+        this.loadingService.setLoading(false);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: `Error al ${hideValue ? 'mostrar' : 'ocultar'} el perfil`,
+        });
+      });
+  }
+
+  // Helpers
+  private getCountries(): void {
     const url = 'https://restcountries.com/v3.1/all';
 
     this.http.get<any[]>(url).subscribe(
@@ -537,7 +702,7 @@ export class AdminPageComponent implements OnInit {
     );
   }
 
-  getStatusDevice(deviceId: string): Promise<any> {
+  private getStatusDevice(deviceId: string): Promise<any> {
     return new Promise(async (resolve, reject) => {
       try {
         const liveDataSnapshot =
@@ -621,161 +786,13 @@ export class AdminPageComponent implements OnInit {
       });
   }
 
-  formatDateToFirebase(date: Date) {
-    moment.locale('es');
-    const selectedDate = moment(date);
-
-    const formattedDate = selectedDate.format(
-      'DD [de] MMMM [de] YYYY, h:mm:ss A [UTC]Z'
-    );
-
-    return formattedDate;
-  }
-
-  addProfile() {
-    if (this.addProfileForm.status !== 'INVALID') {
-      const profileRef = this.firestore.collection(
-        `/users/nyxsys/content/${
-          this.userRole === 'superAdmin'
-            ? this.addProfileForm.value.userID
-            : this.authService.userId
-        }/players`
-      );
-
-      if (this.userRole !== 'superAdmin') {
-        this.selectUser(this.authService.userId);
-      }
-
-      this.toggleAddProfile();
-      this.loadingService.setLoading(true);
-      profileRef
-        .add({
-          ...this.addProfileForm.value,
-          birthdate: this.formatDateToFirebase(
-            this.addProfileForm.value.birthdate
-          ),
-        })
-        .then(() => {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Success',
-            detail: 'Perfil agregado correctamente',
-          });
-          this.addProfileForm.reset();
-          this.loadData();
-        })
-        .catch(() => {
-          this.loadingService.setLoading(false);
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Error al agregar el perfil',
-          });
-        });
-    }
-  }
-
-  editProfile() {
-    if (this.addProfileForm.status !== 'INVALID') {
-      const profileRef = this.firestore.doc(
-        `/users/nyxsys/content/${
-          this.userRole === 'superAdmin'
-            ? this.addProfileForm.value.userID
-            : this.authService.userId
-        }/players/${this.profileIdToEdit}`
-      );
-
-      this.toggleAddProfile();
-      this.loadingService.setLoading(true);
-      profileRef
-        .update({
-          ...this.profileIdToEdit,
-          ...this.addProfileForm.value,
-          birthdate: this.formatDateToFirebase(
-            this.addProfileForm.value.birthdate
-          ),
-        })
-        .then(() => {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Success',
-            detail: 'Perfil agregado correctamente',
-          });
-          this.addProfileForm.reset();
-          this.profileIdToEdit = null;
-          this.loadData();
-        })
-        .catch(() => {
-          this.loadingService.setLoading(false);
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Error al agregar el perfil',
-          });
-        });
-    }
-  }
-
-  deleteProfile() {
-    const profileRef = this.firestore.doc(
-      `/users/nyxsys/content/${this.userIdProfileToDelete}/players/${this.profileIdToDelete}`
-    );
-
-    this.userIdProfileToDelete = '';
-    this.profileIdToDelete = '';
-
-    this.toggleConfirmDeleteProfile();
-    this.loadingService.setLoading(true);
-    profileRef
-      .delete()
-      .then(() => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Success',
-          detail: 'Perfil eliminado correctamente',
-        });
-        this.loadData();
-      })
-      .catch(() => {
-        this.loadingService.setLoading(false);
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'Error al eliminar el perfil',
-        });
-      });
-  }
-
-  hideProfile(userIdProfile: string, profileId: string, hideValue: boolean) {
-    const profileRef = this.firestore.doc(
-      `/users/nyxsys/content/${userIdProfile}/players/${profileId}`
-    );
-
-    this.loadingService.setLoading(true);
-    profileRef
-      .update({ hided: !hideValue })
-      .then(() => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Success',
-          detail: `Perfil ${hideValue ? 'oculto' : 'mostrado'} correctamente`,
-        });
-        this.loadData();
-      })
-      .catch(() => {
-        this.loadingService.setLoading(false);
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: `Error al ${hideValue ? 'ocultar' : 'mostrar'} el perfil`,
-        });
-      });
-  }
-
-  selectUser(userId: string) {
+  selectUser(userId: string, teamId?: string) {
     this.addProfileForm.controls['teamID'].reset({
-      value: '',
+      value: teamId || '',
       disabled: false,
+    });
+    this.addProfileForm.patchValue({
+      userID: userId
     });
     this.groupsItems = this.groups
       .filter((group) => group.userID === userId)

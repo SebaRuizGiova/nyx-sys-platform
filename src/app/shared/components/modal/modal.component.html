@@ -1,3 +1,12 @@
-<p-dialog [header]="title" [(visible)]="showModal" [modal]="true" [style]="{ width, zIndex: 550 }" [draggable]="false" [resizable]="false">
+<p-dialog
+  [header]="title"
+  [(visible)]="showModal"
+  [modal]="true"
+  [style]="{ width, zIndex: 550 }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onClose($event)"
+  [closable]="false"
+>
   <ng-content></ng-content>
 </p-dialog>

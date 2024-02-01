@@ -63,9 +63,9 @@
       </ng-template>
       <ng-template pTemplate="body" let-profile>
         <tr>
-          <td>{{ profile.name }}</td>
-          <td class="column-center">{{ profile.lastName }}</td>
-          <td class="column-rigth">
+          <td [style]="profile.hided ? 'color: #7c7c7c' : ''">{{ profile.name }}</td>
+          <td class="column-center" [style]="profile.hided ? 'color: #7c7c7c' : ''">{{ profile.lastName }}</td>
+          <td class="column-rigth" [style]="profile.hided ? 'color: #7c7c7c' : ''">
             <div class="actions">
               <i
                 *ngIf="profile.hided; else showProfile"
@@ -79,7 +79,9 @@
                   class="pi pi-eye"
                   [pTooltip]="'adminHideProfileTooltip' | translate"
                   tooltipPosition="bottom"
-                  (click)="hideProfile(profile.userID, profile.id, profile.hided)"
+                  (click)="
+                    hideProfile(profile.userID, profile.id, profile.hided)
+                  "
                 ></i>
               </ng-template>
               <i
@@ -100,6 +102,7 @@
       </ng-template>
     </p-table>
   </div>
+
   <!-- DISPOSITIVOS -->
   <div class="card">
     <div class="card-header">
@@ -192,6 +195,7 @@
       </ng-template>
     </p-table>
   </div>
+
   <!-- GRUPOS -->
   <div class="card">
     <div class="card-header">
@@ -248,8 +252,8 @@
       </ng-template>
       <ng-template pTemplate="body" let-group>
         <tr>
-          <td>{{ group.teamName }}</td>
-          <td class="column-rigth">
+          <td [style]="group.hided ? 'color: #7c7c7c' : ''">{{ group.teamName }}</td>
+          <td class="column-rigth" [style]="group.hided ? 'color: #7c7c7c' : ''">
             <div class="actions">
               <i
                 *ngIf="group.hided; else showGroup"
@@ -280,6 +284,7 @@
       </ng-template>
     </p-table>
   </div>
+
   <!-- COLABORADORES -->
   <div class="card">
     <div class="card-header">
@@ -334,6 +339,7 @@
       </ng-template>
     </p-table>
   </div>
+
   <!-- USUARIOS -->
   <div class="card" *ngIf="userRole === 'superAdmin'">
     <div class="card-header">
@@ -391,12 +397,15 @@
   </div>
 </div>
 
-<p-toast [style]="{
-  zIndex: 10000
-}"></p-toast>
+<p-toast [style]="{ zIndex: 10000 }"></p-toast>
 
 <!-- MODAL AÑADIR PERFIL -->
-<shared-modal [showModal]="showAddProfile" title="Añadir perfil" width="25vw">
+<shared-modal
+  [showModal]="showAddProfile"
+  title="Añadir perfil"
+  width="25vw"
+  (onCloseEvent)="onCloseModalProfile()"
+>
   <div class="modal-content" [formGroup]="addProfileForm">
     <shared-input-text
       [formGroup]="addProfileForm"
@@ -458,7 +467,11 @@
       formControlName="teamID"
     />
     <div class="buttons-modal">
-      <shared-button [label]="'adminModalSave' | translate" (click)="addProfile()" [disabled]="addProfileForm.status === 'INVALID'" />
+      <shared-button
+        [label]="'adminModalSave' | translate"
+        (click)="addOrEditProfile()"
+        [disabled]="addProfileForm.status === 'INVALID'"
+      />
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
@@ -476,7 +489,10 @@
 >
   <p>Esta acción es permanente</p>
   <div class="buttons-modal">
-    <shared-button [label]="'settingsConfirmModalAccept' | translate" (click)="deleteProfile()" />
+    <shared-button
+      [label]="'settingsConfirmModalAccept' | translate"
+      (click)="deleteProfile()"
+    />
     <shared-button
       [label]="'settingsConfirmModalCancel' | translate"
       variant="secondary"
@@ -525,7 +541,11 @@
 </shared-modal>
 
 <!-- MODAL AÑADIR GRUPO -->
-<shared-modal [showModal]="showAddGroup" title="Añadir grupo" width="25vw">
+<shared-modal
+  [showModal]="showAddGroup"
+  title="Añadir grupo"
+  width="25vw"
+>
   <div class="modal-content" [formGroup]="addGroupForm">
     <shared-input-text
       [formGroup]="addGroupForm"
@@ -618,7 +638,11 @@
 </shared-modal>
 
 <!-- MODAL AÑADIR USUARIO -->
-<shared-modal [showModal]="showAddUser" title="Añadir usuario" width="25vw">
+<shared-modal
+  [showModal]="showAddUser"
+  title="Añadir usuario"
+  width="25vw"
+>
   <div class="modal-content" [formGroup]="addUserForm">
     <shared-input-text
       [formGroup]="addUserForm"
