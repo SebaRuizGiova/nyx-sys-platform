@@ -11,12 +11,14 @@ export class HrvChartComponent implements OnChanges {
     hrArray: any[];
     hrvArray: any[];
     laArray: any[];
-    dates: any[];
+    timestamps: any[];
+    labelsX: any[];
   } = {
     hrArray: [],
     hrvArray: [],
     laArray: [],
-    dates: []
+    timestamps: [],
+    labelsX: []
   };
   public chart?: Chart;
 
@@ -24,18 +26,20 @@ export class HrvChartComponent implements OnChanges {
     const hrValues = this.hrv.hrArray;
     const hrvValues = this.hrv.hrvArray;
     const laValues = this.hrv.laArray;
-    const dates = this.hrv.dates;
+    const timestamps = this.hrv.timestamps;
 
     this.chart = new Chart({
       chart: {
-        type: 'spline',
         backgroundColor: '#242526',
         animation: true,
-        height: '80px',
+        height: '100px',
         margin: 0,
+        style: {
+          overflow: 'visible'
+        }
       },
       xAxis: {
-        categories: dates,
+        categories: timestamps,
         labels: {
           enabled: false,
         },
@@ -72,6 +76,17 @@ export class HrvChartComponent implements OnChanges {
       credits: {
         enabled: false,
       },
+      legend: {
+        align: 'center',
+        verticalAlign: 'top',
+        layout: 'horizontal',
+        itemStyle: {
+          color: '#d9d9d9',
+          fontWeight: 'bold',
+          fontSize: '11px'
+        },
+        y: -18
+      },
       plotOptions: {
         spline: {
           marker: {
@@ -80,11 +95,9 @@ export class HrvChartComponent implements OnChanges {
             lineWidth: 1,
           },
         },
-        bar: {
-          label: {
-            enabled: false
-          }
-        }
+        series: {
+          stickyTracking: true,
+        },
       },
       tooltip: {
         shared: true,
@@ -105,7 +118,7 @@ export class HrvChartComponent implements OnChanges {
           marker: {
             symbol: 'circle',
           },
-          type: 'spline',
+          type: 'line',
           data: hrvValues,
         },
         {

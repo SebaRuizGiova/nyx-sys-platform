@@ -44,6 +44,7 @@ export class AdminPageComponent implements OnInit {
   public actionsUsersForm: FormGroup = this.fb.group({
     search: '',
   });
+
   public addProfileForm: FormGroup = this.fb.group({
     name: ['', Validators.required],
     lastName: ['', Validators.required],
@@ -60,7 +61,13 @@ export class AdminPageComponent implements OnInit {
   public addDeviceForm: FormGroup = this.fb.group({
     serialNumber: ['', [Validators.required, Validators.minLength(6)]],
     verificationCode: ['', [Validators.required, Validators.minLength(5)]],
-    user: ['', Validators.required],
+    userID: ['', Validators.required],
+    teamID: [''],
+    hided: [false],
+    offSet: [''],
+    player: [''],
+    playerID: [''],
+    playerName: ['']
   });
   public addGroupForm: FormGroup = this.fb.group({
     name: ['', Validators.required],

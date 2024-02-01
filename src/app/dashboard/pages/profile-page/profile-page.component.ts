@@ -51,12 +51,14 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     hrArray: any[];
     hrvArray: any[];
     laArray: any[];
-    dates: any[];
+    timestamps: any[];
+    labelsX: any[];
   } = {
     hrArray: [],
     hrvArray: [],
     laArray: [],
-    dates: [],
+    timestamps: [],
+    labelsX: [],
   };
 
   public profileData?: Profile;
@@ -386,7 +388,9 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       this.profileData?.sleepData || []
     );
     this.ansToChart = this.getAnsToChart(this.profileData?.selectedSleepData);
-    this.hrvToChart = this.getHrvToChart(this.profileData?.selectedSleepData);
+    this.hrvToChart = this.getHrvToChartTest(
+      this.profileData?.selectedSleepData
+    );
   }
 
   calculateAge(birthdate: Birthdate | undefined): string {
@@ -713,22 +717,24 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           if (countToHour == 24) {
             compareArray.push(data.timestamp);
             datesLabel.push([
-              this.helpersService.formatTimestamp(data.timestamp, this.timezoneService.timezoneOffset)
-
-            ])
+              this.helpersService.formatTimestamp(
+                data.timestamp,
+                this.timezoneService.timezoneOffset
+              ),
+            ]);
             heartRateArray.push(data.heartRate);
             counter = 0;
             countToHour = 1;
           } else {
             compareArray.push(data.timestamp);
-            datesLabel.push('')
+            datesLabel.push('');
             heartRateArray.push(data.heartRate);
             counter = 0;
             countToHour++;
           }
         }
       });
-  
+
       // ARMANDO EL ARRAY DEL RMSSD
       counter = 0;
       selectedSleepData.hrv_rmssd_data.forEach((data: any) => {
@@ -744,7 +750,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           }
         }
       });
-  
+
       // Making the array of the lineal adjustment
       counter = 0;
       var position = 0;
@@ -779,7 +785,93 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       hrArray: heartRateArray,
       hrvArray: RMSSDArray,
       laArray: adjustmentLine,
-      dates: datesLabel
+      timestamps: datesLabel,
+    };
+  }
+
+  getHrvToChartTest(selectedSleepData?: SleepData) {
+    let heartRateArray: any[] = [];
+    let RMSSDArray: any[] = [];
+    let adjustmentLine: any[] = [];
+    let timestamps: any[] = [];
+    let datesLabel: any[] = [];
+
+    if (selectedSleepData) {
+      const {
+        calc_data,
+        hrv_rmssd_data,
+        hrv_rmssd_evening,
+        hrv_rmssd_morning,
+      } = selectedSleepData;
+
+      console.log(selectedSleepData);
+
+      calc_data.forEach((data: any) => {
+        timestamps.push(data.timestamp);
+        heartRateArray.push([data.timestamp, data.heartRate]);
+      });
+
+      for (let i = 0; i < calc_data.length; i++) {
+        if ((i + 1) % 24 === 0) {
+          datesLabel.push(
+            this.helpersService.formatTimestamp(
+              calc_data[i].timestamp,
+              this.timezoneService.timezoneOffset
+            )
+          );
+        } else {
+          datesLabel.push('');
+        }
+      }
+
+      for (let i = 0; i < hrv_rmssd_data.length; i++) {
+        const timestamp = hrv_rmssd_data[i].timestamp;
+
+        for (let j = 0; j < timestamps.length - 1; j++) {
+          const inicioIntervalo = timestamps[j];
+          const finIntervalo = timestamps[j + 1];
+
+          if (timestamp > inicioIntervalo && timestamp < finIntervalo) {
+            RMSSDArray.push([timestamps[j], hrv_rmssd_data[i].rmssd]);
+            break;
+          }
+        }
+      }
+
+      for (let i = 0; i < hrv_rmssd_data.length; i++) {
+        const timestamp = hrv_rmssd_data[i].timestamp;
+
+        for (let j = 0; j < timestamps.length - 1; j++) {
+          const inicioIntervalo = timestamps[j];
+          const finIntervalo = timestamps[j + 1];
+
+          if (timestamp > inicioIntervalo && timestamp < finIntervalo && i === 0) {
+            adjustmentLine.push([timestamp, hrv_rmssd_evening]);
+            break;
+          }
+        }
+      }
+
+      const ultimoTimestamp = hrv_rmssd_data
+        .slice()
+        .reverse()
+        .find(
+          (element) => element.timestamp < timestamps[timestamps.length - 1]
+        );
+      if (ultimoTimestamp) {
+        adjustmentLine.push([ultimoTimestamp.timestamp, hrv_rmssd_morning]);
+      }
     }
+
+    console.log('adjustmentLine', adjustmentLine);
+    console.log('timestamps', timestamps);
+
+    return {
+      hrArray: heartRateArray,
+      hrvArray: RMSSDArray,
+      laArray: adjustmentLine,
+      timestamps: timestamps,
+      labelsX: datesLabel,
+    };
   }
 }

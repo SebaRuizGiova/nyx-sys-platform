@@ -33,9 +33,6 @@ export class SleepScoreChartComponent implements OnChanges {
       },
       yAxis: {
         gridLineColor: '#3b3b3b',
-        // labels: {
-        //   enabled: true,
-        // },
         title: {
           text: '',
         },
