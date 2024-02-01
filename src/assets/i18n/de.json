@@ -117,6 +117,7 @@
   "profileCardSNAPTooltip": "Parasympathisches Nervensystem, reguliert Ruhe und Stoffwechsel",
   "sleepScoreTooltip": "Bewertung basierend auf der Menge an Schlafstunden und den Phasen Leicht, Tief und REM",
   "sleepScoreTooltipDiamond": "Optimale Schlafbewertung",
+  "adminUsersFilterPlaceholder": "Filtern nach Benutzer",
   "adminProfilesTitle": "Profile",
   "adminDevicesTitle": "Geräte",
   "adminGroupsTitle": "Gruppen",

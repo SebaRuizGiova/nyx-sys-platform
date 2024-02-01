@@ -117,6 +117,7 @@
   "profileCardSNAPTooltip": "Sistema parasimpático, regula el descanso y el metabolismo",
   "sleepScoreTooltip": "Puntaje basado en la cantidad de horas de sueño y sus fases Ligero, Profundo y REM",
   "sleepScoreTooltipDiamond": "Puntaje de sueño óptimo",
+  "adminUsersFilterPlaceholder": "Filtrar por usuario",
   "adminProfilesTitle": "Perfiles",
   "adminDevicesTitle": "Dispositivos",
   "adminGroupsTitle": "Grupos",

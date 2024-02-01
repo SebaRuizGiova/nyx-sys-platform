@@ -20,9 +20,11 @@ export class SelectComponent implements ControlValueAccessor {
   @Input() optionLabel?: string;
   @Input() optionValue?: string;
   @Input() disabled?: boolean = false;
+  @Input() showClear?: boolean = false;
   @Input({ required: true }) formControlName!: string;
   @Input({ required: true }) formGroup!: FormGroup;
   @Output() selectChange: EventEmitter<any> = new EventEmitter();
+  @Output() selectClear: EventEmitter<void> = new EventEmitter<void>();
 
   private onChange: any = () => {};
   private onTouch: any = () => {};
@@ -45,6 +47,11 @@ export class SelectComponent implements ControlValueAccessor {
     this.innerValue = event.value;
     this.onChange(this.innerValue);
     this.onTouch();
+
+    if (event.originalEvent && event.originalEvent.type === 'clear') {
+      this.selectClear.emit();
+    }
+
     this.selectChange.emit(event.value);
   }
 }

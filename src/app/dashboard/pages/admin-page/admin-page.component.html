@@ -1,399 +1,434 @@
 <div class="admin-content">
-  <!-- PERFILES -->
-  <div class="card">
-    <div class="card-header">
-      <p class="title-table">{{ "adminProfilesTitle" | translate }}</p>
-      <div class="actions-header" [formGroup]="actionsProfilesForm">
-        <div class="icon" *ngIf="dontShowHiddenProfiles; else showProfiles">
-          <i
-            class="pi pi-eye"
-            style="font-size: 1.6rem"
-            [pTooltip]="'adminShowAllProfilesTooltip' | translate"
-            tooltipPosition="bottom"
-            (click)="toggleHiddenProfiles()"
-          ></i>
-        </div>
-        <ng-template #showProfiles>
-          <div class="icon">
+  <div class="users-filter">
+    <shared-select
+      *ngIf="userRole === 'superAdmin'"
+      [showClear]="true"
+      [options]="usersItems"
+      [placeholder]="'adminUsersFilterPlaceholder' | translate"
+      [formGroup]="filterByUserForm"
+      formControlName="userId"
+      (selectChange)="filterDataByUser($event)"
+      (selectClear)="filterDataByUser()"
+    />
+  </div>
+  <div class="cards-container">
+    <!-- PERFILES -->
+    <div class="card">
+      <div class="card-header">
+        <p class="title-table">{{ "adminProfilesTitle" | translate }}</p>
+        <div class="actions-header" [formGroup]="actionsProfilesForm">
+          <div class="icon" *ngIf="dontShowHiddenProfiles; else showProfiles">
             <i
-              class="pi pi-eye-slash"
+              class="pi pi-eye"
               style="font-size: 1.6rem"
-              [pTooltip]="'adminHideAllProfilesTooltip' | translate"
+              [pTooltip]="'adminShowAllProfilesTooltip' | translate"
               tooltipPosition="bottom"
               (click)="toggleHiddenProfiles()"
             ></i>
           </div>
-        </ng-template>
-        <shared-button
-          icon="pi-plus"
-          [tooltipButton]="'adminAddProfileTooltip' | translate"
-          (click)="toggleAddProfile()"
-        />
-        <span class="p-input-icon-right">
-          <input
-            type="text"
-            pInputText
-            formControlName="search"
-            [placeholder]="'adminSearchPlaceholder' | translate"
-            (input)="filterProfiles()"
-          />
-          <i class="pi pi-search"></i>
-        </span>
-        <shared-select
-          [options]="groupsItems"
-          [placeholder]="'adminFilterPlaceholder' | translate"
-          [formGroup]="actionsProfilesForm"
-          formControlName="filterByGroup"
-          (selectChange)="filterProfiles($event)"
-        />
-      </div>
-    </div>
-    <p-table
-      [value]="filteredProfiles"
-      styleClass="p-datatable-sm"
-      [paginator]="true"
-      [rows]="10"
-    >
-      <ng-template pTemplate="header">
-        <tr>
-          <th>{{ "adminColumnName" | translate }}</th>
-          <th class="column-center">{{ "adminColumnLastName" | translate }}</th>
-          <th></th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-profile>
-        <tr>
-          <td [style]="profile.hided ? 'color: #7c7c7c' : ''">{{ profile.name }}</td>
-          <td class="column-center" [style]="profile.hided ? 'color: #7c7c7c' : ''">{{ profile.lastName }}</td>
-          <td class="column-rigth" [style]="profile.hided ? 'color: #7c7c7c' : ''">
-            <div class="actions">
+          <ng-template #showProfiles>
+            <div class="icon">
               <i
-                *ngIf="profile.hided; else showProfile"
                 class="pi pi-eye-slash"
-                [pTooltip]="'adminShowProfileTooltip' | translate"
+                style="font-size: 1.6rem"
+                [pTooltip]="'adminHideAllProfilesTooltip' | translate"
                 tooltipPosition="bottom"
-                (click)="hideProfile(profile.userID, profile.id, profile.hided)"
+                (click)="toggleHiddenProfiles()"
               ></i>
-              <ng-template #showProfile>
+            </div>
+          </ng-template>
+          <shared-button
+            icon="pi-plus"
+            [tooltipButton]="'adminAddProfileTooltip' | translate"
+            (click)="toggleAddProfile()"
+          />
+          <span class="p-input-icon-right">
+            <input
+              type="text"
+              pInputText
+              formControlName="search"
+              [placeholder]="'adminSearchPlaceholder' | translate"
+              (input)="filterProfiles()"
+            />
+            <i class="pi pi-search"></i>
+          </span>
+          <shared-select
+            [options]="groupsItems"
+            [placeholder]="'adminFilterPlaceholder' | translate"
+            [formGroup]="actionsProfilesForm"
+            formControlName="filterByGroup"
+            (selectChange)="filterProfiles($event)"
+          />
+        </div>
+      </div>
+      <p-table
+        [value]="filteredProfiles"
+        styleClass="p-datatable-sm"
+        [paginator]="true"
+        [rows]="10"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>{{ "adminColumnName" | translate }}</th>
+            <th class="column-center">
+              {{ "adminColumnLastName" | translate }}
+            </th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-profile>
+          <tr>
+            <td [style]="profile.hided ? 'color: #7c7c7c' : ''">
+              {{ profile.name }}
+            </td>
+            <td
+              class="column-center"
+              [style]="profile.hided ? 'color: #7c7c7c' : ''"
+            >
+              {{ profile.lastName }}
+            </td>
+            <td
+              class="column-rigth"
+              [style]="profile.hided ? 'color: #7c7c7c' : ''"
+            >
+              <div class="actions">
                 <i
-                  class="pi pi-eye"
-                  [pTooltip]="'adminHideProfileTooltip' | translate"
+                  *ngIf="profile.hided; else showProfile"
+                  class="pi pi-eye-slash"
+                  [pTooltip]="'adminShowProfileTooltip' | translate"
                   tooltipPosition="bottom"
                   (click)="
                     hideProfile(profile.userID, profile.id, profile.hided)
                   "
                 ></i>
-              </ng-template>
-              <i
-                class="pi pi-user-edit"
-                [pTooltip]="'adminEditProfileTooltip' | translate"
-                tooltipPosition="bottom"
-                (click)="toggleEditProfile(profile)"
-              ></i>
-              <i
-                class="pi pi-trash"
-                [pTooltip]="'adminDeleteProfileTooltip' | translate"
-                tooltipPosition="bottom"
-                (click)="toggleConfirmDeleteProfile(profile.userID, profile.id)"
-              ></i>
-            </div>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
+                <ng-template #showProfile>
+                  <i
+                    class="pi pi-eye"
+                    [pTooltip]="'adminHideProfileTooltip' | translate"
+                    tooltipPosition="bottom"
+                    (click)="
+                      hideProfile(profile.userID, profile.id, profile.hided)
+                    "
+                  ></i>
+                </ng-template>
+                <i
+                  class="pi pi-user-edit"
+                  [pTooltip]="'adminEditProfileTooltip' | translate"
+                  tooltipPosition="bottom"
+                  (click)="toggleEditProfile(profile)"
+                ></i>
+                <i
+                  class="pi pi-trash"
+                  [pTooltip]="'adminDeleteProfileTooltip' | translate"
+                  tooltipPosition="bottom"
+                  (click)="
+                    toggleConfirmDeleteProfile(profile.userID, profile.id)
+                  "
+                ></i>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
 
-  <!-- DISPOSITIVOS -->
-  <div class="card">
-    <div class="card-header">
-      <p class="title-table">{{ "adminDevicesTitle" | translate }}</p>
-      <div class="actions-header" [formGroup]="actionsDevicesForm">
-        <div class="icon" *ngIf="dontShowHiddenDevices; else showDevices">
-          <i
-            class="pi pi-eye"
-            style="font-size: 1.6rem"
-            [pTooltip]="'adminShowAllDevicesTooltip' | translate"
-            tooltipPosition="bottom"
-            (click)="toggleHiddenDevices()"
-          ></i>
-        </div>
-        <ng-template #showDevices>
-          <div class="icon">
+    <!-- DISPOSITIVOS -->
+    <div class="card">
+      <div class="card-header">
+        <p class="title-table">{{ "adminDevicesTitle" | translate }}</p>
+        <div class="actions-header" [formGroup]="actionsDevicesForm">
+          <div class="icon" *ngIf="dontShowHiddenDevices; else showDevices">
             <i
-              class="pi pi-eye-slash"
+              class="pi pi-eye"
               style="font-size: 1.6rem"
-              [pTooltip]="'adminHideAllDevicesTooltip' | translate"
+              [pTooltip]="'adminShowAllDevicesTooltip' | translate"
               tooltipPosition="bottom"
               (click)="toggleHiddenDevices()"
             ></i>
           </div>
-        </ng-template>
-        <shared-button
-          icon="pi-plus"
-          [tooltipButton]="'adminAddDeviceTooltip' | translate"
-          (click)="toggleAddDevice()"
-        />
-        <span class="p-input-icon-right">
-          <input
-            type="text"
-            pInputText
-            formControlName="search"
-            [placeholder]="'adminSearchPlaceholder' | translate"
-            (input)="filterDevices()"
-          />
-          <i class="pi pi-search"></i>
-        </span>
-        <shared-select
-          [options]="groupsItems"
-          [placeholder]="'adminFilterPlaceholder' | translate"
-          [formGroup]="actionsProfilesForm"
-          formControlName="filterByGroup"
-          (selectChange)="filterDevices($event)"
-        />
-      </div>
-    </div>
-    <p-table
-      [value]="filteredDevices"
-      styleClass="p-datatable-sm"
-      [paginator]="true"
-      [rows]="10"
-    >
-      <ng-template pTemplate="header">
-        <tr>
-          <th>{{ "adminColumnSerialNumber" | translate }}</th>
-          <th>{{ "adminColumnLinked" | translate }}</th>
-          <th>{{ "adminColumnStatus" | translate }}</th>
-          <th></th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-device>
-        <tr>
-          <td>{{ device.serialNumber }}</td>
-          <td>
-            {{
-              device.playerName
-                ? device.playerName
-                : ("adminNotLinked" | translate)
-            }}
-          </td>
-          <td>{{ device.status }}</td>
-          <td class="column-rigth">
-            <div class="actions">
+          <ng-template #showDevices>
+            <div class="icon">
               <i
-                class="pi pi-cog"
-                [pTooltip]="'adminEditDeviceTooltip' | translate"
+                class="pi pi-eye-slash"
+                style="font-size: 1.6rem"
+                [pTooltip]="'adminHideAllDevicesTooltip' | translate"
                 tooltipPosition="bottom"
-              ></i>
-              <i
-                class="pi pi-trash"
-                [pTooltip]="'adminDeleteDeviceTooltip' | translate"
-                tooltipPosition="bottom"
+                (click)="toggleHiddenDevices()"
               ></i>
             </div>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-
-  <!-- GRUPOS -->
-  <div class="card">
-    <div class="card-header">
-      <p class="title-table">{{ "adminGroupsTitle" | translate }}</p>
-      <div class="actions-header" [formGroup]="actionsGroupsForm">
-        <div class="icon" *ngIf="dontShowHiddenGroups; else showGroups">
-          <i
-            class="pi pi-eye"
-            style="font-size: 1.6rem"
-            [pTooltip]="'adminShowAllGroupsTooltip' | translate"
-            tooltipPosition="bottom"
-            (click)="toggleHiddenGroups()"
-          ></i>
+          </ng-template>
+          <shared-button
+            icon="pi-plus"
+            [tooltipButton]="'adminAddDeviceTooltip' | translate"
+            (click)="toggleAddDevice()"
+          />
+          <span class="p-input-icon-right">
+            <input
+              type="text"
+              pInputText
+              formControlName="search"
+              [placeholder]="'adminSearchPlaceholder' | translate"
+              (input)="filterDevices()"
+            />
+            <i class="pi pi-search"></i>
+          </span>
+          <shared-select
+            [options]="groupsItems"
+            [placeholder]="'adminFilterPlaceholder' | translate"
+            [formGroup]="actionsProfilesForm"
+            formControlName="filterByGroup"
+            (selectChange)="filterDevices($event)"
+          />
         </div>
-        <ng-template #showGroups>
-          <div class="icon">
+      </div>
+      <p-table
+        [value]="filteredDevices"
+        styleClass="p-datatable-sm"
+        [paginator]="true"
+        [rows]="10"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>{{ "adminColumnSerialNumber" | translate }}</th>
+            <th>{{ "adminColumnLinked" | translate }}</th>
+            <th>{{ "adminColumnStatus" | translate }}</th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-device>
+          <tr>
+            <td>{{ device.serialNumber }}</td>
+            <td>
+              {{
+                device.playerName
+                  ? device.playerName
+                  : ("adminNotLinked" | translate)
+              }}
+            </td>
+            <td>{{ device.status }}</td>
+            <td class="column-rigth">
+              <div class="actions">
+                <i
+                  class="pi pi-cog"
+                  [pTooltip]="'adminEditDeviceTooltip' | translate"
+                  tooltipPosition="bottom"
+                ></i>
+                <i
+                  class="pi pi-trash"
+                  [pTooltip]="'adminDeleteDeviceTooltip' | translate"
+                  tooltipPosition="bottom"
+                ></i>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+    <!-- GRUPOS -->
+    <div class="card">
+      <div class="card-header">
+        <p class="title-table">{{ "adminGroupsTitle" | translate }}</p>
+        <div class="actions-header" [formGroup]="actionsGroupsForm">
+          <div class="icon" *ngIf="dontShowHiddenGroups; else showGroups">
             <i
-              class="pi pi-eye-slash"
+              class="pi pi-eye"
               style="font-size: 1.6rem"
-              [pTooltip]="'adminHideAllGroupsTooltip' | translate"
+              [pTooltip]="'adminShowAllGroupsTooltip' | translate"
               tooltipPosition="bottom"
               (click)="toggleHiddenGroups()"
             ></i>
           </div>
-        </ng-template>
-        <shared-button
-          icon="pi-plus"
-          [tooltipButton]="'adminAddGroupTooltip' | translate"
-          (click)="toggleAddGroup()"
-        />
-        <span class="p-input-icon-right">
-          <input
-            type="text"
-            pInputText
-            formControlName="search"
-            [placeholder]="'adminSearchPlaceholder' | translate"
-            (input)="filterGroups()"
-          />
-          <i class="pi pi-search"></i>
-        </span>
-      </div>
-    </div>
-    <p-table
-      [value]="filteredGroups"
-      styleClass="p-datatable-sm"
-      [paginator]="true"
-      [rows]="10"
-    >
-      <ng-template pTemplate="header">
-        <tr>
-          <th>{{ "adminColumnName" | translate }}</th>
-          <th></th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-group>
-        <tr>
-          <td [style]="group.hided ? 'color: #7c7c7c' : ''">{{ group.teamName }}</td>
-          <td class="column-rigth" [style]="group.hided ? 'color: #7c7c7c' : ''">
-            <div class="actions">
+          <ng-template #showGroups>
+            <div class="icon">
               <i
-                *ngIf="group.hided; else showGroup"
                 class="pi pi-eye-slash"
-                [pTooltip]="'adminShowGroupTooltip' | translate"
+                style="font-size: 1.6rem"
+                [pTooltip]="'adminHideAllGroupsTooltip' | translate"
                 tooltipPosition="bottom"
+                (click)="toggleHiddenGroups()"
               ></i>
-              <ng-template #showGroup>
+            </div>
+          </ng-template>
+          <shared-button
+            icon="pi-plus"
+            [tooltipButton]="'adminAddGroupTooltip' | translate"
+            (click)="toggleAddGroup()"
+          />
+          <span class="p-input-icon-right">
+            <input
+              type="text"
+              pInputText
+              formControlName="search"
+              [placeholder]="'adminSearchPlaceholder' | translate"
+              (input)="filterGroups()"
+            />
+            <i class="pi pi-search"></i>
+          </span>
+        </div>
+      </div>
+      <p-table
+        [value]="filteredGroups"
+        styleClass="p-datatable-sm"
+        [paginator]="true"
+        [rows]="10"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>{{ "adminColumnName" | translate }}</th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-group>
+          <tr>
+            <td [style]="group.hided ? 'color: #7c7c7c' : ''">
+              {{ group.teamName }}
+            </td>
+            <td
+              class="column-rigth"
+              [style]="group.hided ? 'color: #7c7c7c' : ''"
+            >
+              <div class="actions">
                 <i
-                  class="pi pi-eye"
-                  [pTooltip]="'adminHideGroupTooltip' | translate"
+                  *ngIf="group.hided; else showGroup"
+                  class="pi pi-eye-slash"
+                  [pTooltip]="'adminShowGroupTooltip' | translate"
                   tooltipPosition="bottom"
                 ></i>
-              </ng-template>
-              <i
-                class="pi pi-user-edit"
-                [pTooltip]="'adminEditGroupTooltip' | translate"
-                tooltipPosition="bottom"
-              ></i>
-              <i
-                class="pi pi-trash"
-                [pTooltip]="'adminDeleteGroupTooltip' | translate"
-                tooltipPosition="bottom"
-              ></i>
-            </div>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-
-  <!-- COLABORADORES -->
-  <div class="card">
-    <div class="card-header">
-      <p class="title-table">{{ "adminCollaboratorsTitle" | translate }}</p>
-      <div class="actions-header" [formGroup]="actionsCollaboratorsForm">
-        <shared-button
-          icon="pi-plus"
-          [tooltipButton]="'adminAddCollaboratorTooltip' | translate"
-          (click)="toggleAddCollaborator()"
-        />
-        <span class="p-input-icon-right">
-          <input
-            type="text"
-            pInputText
-            formControlName="search"
-            [placeholder]="'adminSearchPlaceholder' | translate"
-            (input)="filterCollaborators()"
-          />
-          <i class="pi pi-search"></i>
-        </span>
-      </div>
+                <ng-template #showGroup>
+                  <i
+                    class="pi pi-eye"
+                    [pTooltip]="'adminHideGroupTooltip' | translate"
+                    tooltipPosition="bottom"
+                  ></i>
+                </ng-template>
+                <i
+                  class="pi pi-user-edit"
+                  [pTooltip]="'adminEditGroupTooltip' | translate"
+                  tooltipPosition="bottom"
+                ></i>
+                <i
+                  class="pi pi-trash"
+                  [pTooltip]="'adminDeleteGroupTooltip' | translate"
+                  tooltipPosition="bottom"
+                ></i>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
     </div>
-    <p-table
-      [value]="filteredCollaborators"
-      styleClass="p-datatable-sm"
-      [paginator]="true"
-      [rows]="10"
-    >
-      <ng-template pTemplate="header">
-        <tr>
-          <th>{{ "adminColumnName" | translate }}</th>
-          <th>{{ "adminColumnLinked" | translate }}</th>
-          <th>{{ "adminColumnRole" | translate }}</th>
-          <th></th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-collaborator>
-        <tr>
-          <td>{{ collaborator.nickName }}</td>
-          <td>{{ collaborator.linked }}</td>
-          <td>{{ collaborator.role | titlecase }}</td>
-          <td class="column-rigth">
-            <div class="actions">
-              <i
-                class="pi pi-trash"
-                [pTooltip]="'adminDeleteCollaboratorTooltip' | translate"
-                tooltipPosition="bottom"
-              ></i>
-            </div>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
 
-  <!-- USUARIOS -->
-  <div class="card" *ngIf="userRole === 'superAdmin'">
-    <div class="card-header">
-      <p class="title-table">{{ "adminUsersTitle" | translate }}</p>
-      <div class="actions-header" [formGroup]="actionsUsersForm">
-        <shared-button
-          icon="pi-plus"
-          [tooltipButton]="'adminAddUserTooltip' | translate"
-          (click)="toggleAddUser()"
-        />
-        <span class="p-input-icon-right">
-          <input
-            type="text"
-            pInputText
-            formControlName="search"
-            [placeholder]="'adminSearchPlaceholder' | translate"
-            (input)="filterUsers()"
+    <!-- COLABORADORES -->
+    <div class="card">
+      <div class="card-header">
+        <p class="title-table">{{ "adminCollaboratorsTitle" | translate }}</p>
+        <div class="actions-header" [formGroup]="actionsCollaboratorsForm">
+          <shared-button
+            icon="pi-plus"
+            [tooltipButton]="'adminAddCollaboratorTooltip' | translate"
+            (click)="toggleAddCollaborator()"
           />
-          <i class="pi pi-search"></i>
-        </span>
+          <span class="p-input-icon-right">
+            <input
+              type="text"
+              pInputText
+              formControlName="search"
+              [placeholder]="'adminSearchPlaceholder' | translate"
+              (input)="filterCollaborators()"
+            />
+            <i class="pi pi-search"></i>
+          </span>
+        </div>
       </div>
+      <p-table
+        [value]="filteredCollaborators"
+        styleClass="p-datatable-sm"
+        [paginator]="true"
+        [rows]="10"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>{{ "adminColumnName" | translate }}</th>
+            <th>{{ "adminColumnLinked" | translate }}</th>
+            <th>{{ "adminColumnRole" | translate }}</th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-collaborator>
+          <tr>
+            <td>{{ collaborator.nickName }}</td>
+            <td>{{ collaborator.linked }}</td>
+            <td>{{ collaborator.role | titlecase }}</td>
+            <td class="column-rigth">
+              <div class="actions">
+                <i
+                  class="pi pi-trash"
+                  [pTooltip]="'adminDeleteCollaboratorTooltip' | translate"
+                  tooltipPosition="bottom"
+                ></i>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
     </div>
-    <p-table
-      [value]="filteredUsers"
-      styleClass="p-datatable-sm"
-      [paginator]="true"
-      [rows]="10"
-    >
-      <ng-template pTemplate="header">
-        <tr>
-          <th>{{ "adminColumnName" | translate }}</th>
-          <th></th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-user>
-        <tr>
-          <td>{{ user.nickName }}</td>
-          <td class="column-rigth">
-            <div class="actions">
-              <i
-                class="pi pi-user-edit"
-                [pTooltip]="'adminEditUserTooltip' | translate"
-                tooltipPosition="bottom"
-              ></i>
-              <i
-                class="pi pi-trash"
-                [pTooltip]="'adminDeleteUserTooltip' | translate"
-                tooltipPosition="bottom"
-              ></i>
-            </div>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
+
+    <!-- USUARIOS -->
+    <div class="card" *ngIf="userRole === 'superAdmin'">
+      <div class="card-header">
+        <p class="title-table">{{ "adminUsersTitle" | translate }}</p>
+        <div class="actions-header" [formGroup]="actionsUsersForm">
+          <shared-button
+            icon="pi-plus"
+            [tooltipButton]="'adminAddUserTooltip' | translate"
+            (click)="toggleAddUser()"
+          />
+          <span class="p-input-icon-right">
+            <input
+              type="text"
+              pInputText
+              formControlName="search"
+              [placeholder]="'adminSearchPlaceholder' | translate"
+              (input)="filterUsers()"
+            />
+            <i class="pi pi-search"></i>
+          </span>
+        </div>
+      </div>
+      <p-table
+        [value]="filteredUsers"
+        styleClass="p-datatable-sm"
+        [paginator]="true"
+        [rows]="10"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>{{ "adminColumnName" | translate }}</th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+          <tr>
+            <td>{{ user.nickName }}</td>
+            <td class="column-rigth">
+              <div class="actions">
+                <i
+                  class="pi pi-user-edit"
+                  [pTooltip]="'adminEditUserTooltip' | translate"
+                  tooltipPosition="bottom"
+                ></i>
+                <i
+                  class="pi pi-trash"
+                  [pTooltip]="'adminDeleteUserTooltip' | translate"
+                  tooltipPosition="bottom"
+                ></i>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
   </div>
 </div>
 
@@ -541,11 +576,7 @@
 </shared-modal>
 
 <!-- MODAL AÑADIR GRUPO -->
-<shared-modal
-  [showModal]="showAddGroup"
-  title="Añadir grupo"
-  width="25vw"
->
+<shared-modal [showModal]="showAddGroup" title="Añadir grupo" width="25vw">
   <div class="modal-content" [formGroup]="addGroupForm">
     <shared-input-text
       [formGroup]="addGroupForm"
@@ -638,11 +669,7 @@
 </shared-modal>
 
 <!-- MODAL AÑADIR USUARIO -->
-<shared-modal
-  [showModal]="showAddUser"
-  title="Añadir usuario"
-  width="25vw"
->
+<shared-modal [showModal]="showAddUser" title="Añadir usuario" width="25vw">
   <div class="modal-content" [formGroup]="addUserForm">
     <shared-input-text
       [formGroup]="addUserForm"

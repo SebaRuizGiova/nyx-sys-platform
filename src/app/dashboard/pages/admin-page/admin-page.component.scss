@@ -3,51 +3,62 @@
 .admin-content {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 15px;
 
-  .card {
-    width: 49.5%;
-    min-width: 700px;
-    background-color: $grey-light;
-    border-radius: 5px;
-    padding: 15px 15px 0 15px;
+  .users-filter {
+    width: 250px;
+  }
+
+  .cards-container {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
 
-    .card-header {
+    .card {
+      width: 49.5%;
+      min-width: 700px;
+      background-color: $grey-light;
+      border-radius: 5px;
+      padding: 15px 15px 0 15px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
+      flex-direction: column;
 
-      .title-table {
-        margin: 0;
-        font-weight: 600;
-      }
-
-      .actions-header {
+      .card-header {
         display: flex;
         justify-content: space-between;
-        gap: 10px;
         align-items: center;
+        margin-bottom: 10px;
 
-        .icon {
-          height: 40px;
-          line-height: 3.3;
+        .title-table {
+          margin: 0;
+          font-weight: 600;
         }
 
-        .pi {
-          cursor: pointer;
+        .actions-header {
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+          align-items: center;
+
+          .icon {
+            height: 40px;
+            line-height: 3.3;
+          }
+
+          .pi {
+            cursor: pointer;
+          }
         }
       }
-    }
 
-    .column-center {
-      text-align: center;
-    }
-    .column-rigth {
-      text-align: right;
+      .column-center {
+        text-align: center;
+      }
+      .column-rigth {
+        text-align: right;
+      }
     }
   }
 }

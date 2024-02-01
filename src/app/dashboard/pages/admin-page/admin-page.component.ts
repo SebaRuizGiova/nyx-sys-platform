@@ -88,12 +88,20 @@ export class AdminPageComponent implements OnInit {
     alias: ['', Validators.required],
     role: ['', Validators.required],
   });
+  public filterByUserForm: FormGroup = this.fb.group({
+    userId: [''],
+  });
 
   public profiles: Profile[] = [];
   public devices: Device[] = [];
   public groups: Group[] = [];
   public collaborators: Collaborator[] = [];
   public users: User[] = [];
+
+  public profilesByUser: Profile[] = [];
+  public devicesByUser: Device[] = [];
+  public groupsByUser: Group[] = [];
+  public collaboratorsByUser: Collaborator[] = [];
 
   public filteredProfiles: Profile[] = [];
   public filteredDevices: Device[] = [];
@@ -264,16 +272,12 @@ export class AdminPageComponent implements OnInit {
               const collaboratorWithLinked = {
                 ...collaborator,
                 linked: userData.nickName,
+                userId: userData.id
               };
               collaborators = [...collaborators, collaboratorWithLinked];
             });
           }
         });
-
-        const groupsItems = groups.map((group) => ({
-          label: group.teamName,
-          value: group.id,
-        }));
 
         const devicesWithStatus = await Promise.all(
           devices.map(async (device: Device) => {
@@ -286,12 +290,16 @@ export class AdminPageComponent implements OnInit {
         );
 
         this.profiles = profiles;
+        this.profilesByUser = profiles;
         this.filteredProfiles = profiles;
         this.devices = devicesWithStatus;
+        this.devicesByUser = devicesWithStatus;
         this.filteredDevices = devicesWithStatus;
         this.groups = groups;
+        this.groupsByUser = groups;
         this.filteredGroups = groups;
         this.collaborators = collaborators;
+        this.collaboratorsByUser = collaborators;
         this.filteredCollaborators = collaborators;
         this.loadingService.setLoading(false);
       });
@@ -300,7 +308,7 @@ export class AdminPageComponent implements OnInit {
   // Filtrado y acciones
   filterProfiles(groupId?: string) {
     if (groupId) {
-      this.filteredProfiles = this.profiles.filter((profile) => {
+      this.filteredProfiles = this.profilesByUser.filter((profile) => {
         return (
           (profile.name
             .toLowerCase()
@@ -312,7 +320,7 @@ export class AdminPageComponent implements OnInit {
         );
       });
     } else {
-      this.filteredProfiles = this.profiles.filter((profile) => {
+      this.filteredProfiles = this.profilesByUser.filter((profile) => {
         return (
           profile.name
             .toLowerCase()
@@ -338,7 +346,7 @@ export class AdminPageComponent implements OnInit {
 
   filterDevices(groupId?: string) {
     if (groupId) {
-      this.filteredDevices = this.devices.filter((device) => {
+      this.filteredDevices = this.devicesByUser.filter((device) => {
         return (
           device.serialNumber
             .toLowerCase()
@@ -347,7 +355,7 @@ export class AdminPageComponent implements OnInit {
         );
       });
     } else {
-      this.filteredDevices = this.devices.filter((device) => {
+      this.filteredDevices = this.devicesByUser.filter((device) => {
         return device.serialNumber
           .toLowerCase()
           .includes(this.actionsDevicesForm.value.search.toLowerCase());
@@ -366,7 +374,7 @@ export class AdminPageComponent implements OnInit {
   }
 
   filterGroups() {
-    this.filteredGroups = this.groups.filter((group) => {
+    this.filteredGroups = this.groupsByUser.filter((group) => {
       return group.teamName
         .toLowerCase()
         .includes(this.actionsGroupsForm.value.search.toLowerCase());
@@ -382,7 +390,7 @@ export class AdminPageComponent implements OnInit {
   }
 
   filterCollaborators() {
-    this.filteredCollaborators = this.collaborators.filter((collaborator) => {
+    this.filteredCollaborators = this.collaboratorsByUser.filter((collaborator) => {
       return (
         // TODO: Retomar cuando tenga datos
         collaborator.nickName
@@ -398,6 +406,30 @@ export class AdminPageComponent implements OnInit {
         .toLowerCase()
         .includes(this.actionsUsersForm.value.search.toLowerCase());
     });
+  }
+
+  filterDataByUser(userId?: string) {
+    if (!userId) {
+      this.profilesByUser = this.profiles;
+      this.devicesByUser = this.devices;
+      this.groupsByUser = this.groups;
+      this.collaboratorsByUser = this.collaborators;
+      
+      this.filteredProfiles = this.profilesByUser;
+      this.filteredDevices = this.devicesByUser;
+      this.filteredGroups = this.groupsByUser;
+      this.filteredCollaborators = this.collaboratorsByUser;
+    } else {
+      this.profilesByUser = this.profiles.filter(profile => profile.userID === userId);
+      this.devicesByUser = this.devices.filter(device => device.userID === userId);
+      this.groupsByUser = this.groups.filter(group => group.userID === userId);
+      this.collaboratorsByUser = this.collaborators.filter(collaborator => collaborator.userId === userId);
+
+      this.filteredProfiles = this.profilesByUser;
+      this.filteredDevices = this.devicesByUser;
+      this.filteredGroups = this.groupsByUser;
+      this.filteredCollaborators = this.collaboratorsByUser;
+    }
   }
 
   // Modales perfiles

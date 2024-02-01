@@ -4,9 +4,10 @@
     [optionLabel]="optionLabel || ''"
     [optionValue]="optionValue || ''"
     [autoDisplayFirst]="false"
-    [showClear]="false"
+    [showClear]="showClear || false"
     [placeholder]="placeholder || ''"
     [formControlName]="formControlName"
     (onChange)="onSelectChange($event)"
+    (onClear)="onSelectChange($event)"
   ></p-dropdown>
 </form>

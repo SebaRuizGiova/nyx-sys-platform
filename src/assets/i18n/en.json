@@ -117,6 +117,7 @@
   "profileCardSNAPTooltip": "Parasympathetic system, regulates rest and metabolism",
   "sleepScoreTooltip": "Score based on the amount of hours of sleep and its phases Light, Deep, and REM",
   "sleepScoreTooltipDiamond": "Optimal sleep score",
+  "adminUsersFilterPlaceholder": "Filter by user",
   "adminProfilesTitle": "Profiles",
   "adminDevicesTitle": "Devices",
   "adminGroupsTitle": "Groups",

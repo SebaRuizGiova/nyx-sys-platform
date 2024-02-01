@@ -117,6 +117,7 @@
   "profileCardSNAPTooltip": "Système parasympathique, régule le repos et le métabolisme",
   "sleepScoreTooltip": "Score basé sur la quantité d'heures de sommeil et ses phases Léger, Profond et REM",
   "sleepScoreTooltipDiamond": "Score de sommeil optimal",
+  "adminUsersFilterPlaceholder": "Filtrer par utilisateur",
   "adminProfilesTitle": "Profils",
   "adminDevicesTitle": "Appareils",
   "adminGroupsTitle": "Groupes",
