@@ -212,11 +212,13 @@
                   class="pi pi-cog"
                   [pTooltip]="'adminEditDeviceTooltip' | translate"
                   tooltipPosition="bottom"
+                  (click)="toggleEditDevice(device)"
                 ></i>
                 <i
                   class="pi pi-trash"
                   [pTooltip]="'adminDeleteDeviceTooltip' | translate"
                   tooltipPosition="bottom"
+                  (click)="toggleConfirmDeleteDevice(device.userID, device.id)"
                 ></i>
               </div>
             </td>
@@ -493,7 +495,7 @@
       [placeholder]="'adminModalAddProfileUser' | translate"
       [formGroup]="addProfileForm"
       formControlName="userID"
-      (selectChange)="selectUser($event)"
+      (selectChange)="selectUserProfile($event)"
     />
     <shared-select
       [options]="groupsItems"
@@ -563,15 +565,42 @@
       [placeholder]="'adminModalAddDeviceUser' | translate"
       [formGroup]="addDeviceForm"
       formControlName="userID"
+      (selectChange)="selectUserDevice($event)"
+    />
+    <shared-select
+      [options]="profilesItems"
+      [placeholder]="'adminModalAddDeviceProfile' | translate"
+      [formGroup]="addDeviceForm"
+      formControlName="playerID"
     />
     <div class="buttons-modal">
-      <shared-button [label]="'adminModalSave' | translate" />
+      <shared-button [label]="'adminModalSave' | translate" (click)="addOrEditDevice()" />
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
         (click)="toggleAddDevice()"
       />
     </div>
+  </div>
+</shared-modal>
+
+<!-- MODAL CONFIRMAR ELIMINAR DISPOSITIVO -->
+<shared-modal
+  [showModal]="showConfirmDeleteDevice"
+  [title]="'settingsConfirmModalTitle' | translate"
+  width="20vw"
+>
+  <p>Esta acción es permanente</p>
+  <div class="buttons-modal">
+    <shared-button
+      [label]="'settingsConfirmModalAccept' | translate"
+      (click)="deleteDevice()"
+    />
+    <shared-button
+      [label]="'settingsConfirmModalCancel' | translate"
+      variant="secondary"
+      (click)="toggleConfirmDeleteDevice()"
+    />
   </div>
 </shared-modal>
 

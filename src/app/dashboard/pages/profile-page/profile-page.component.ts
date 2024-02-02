@@ -388,9 +388,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       this.profileData?.sleepData || []
     );
     this.ansToChart = this.getAnsToChart(this.profileData?.selectedSleepData);
-    this.hrvToChart = this.getHrvToChartTest(
-      this.profileData?.selectedSleepData
-    );
+    this.hrvToChart = this.getHrvToChart(this.profileData?.selectedSleepData);
   }
 
   calculateAge(birthdate: Birthdate | undefined): string {
@@ -700,96 +698,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   }
 
   getHrvToChart(selectedSleepData?: SleepData) {
-    let compareArray: any[] = [];
-    let heartRateArray: any[] = [];
-    let RMSSDArray: any[] = [];
-    let adjustmentLine: any[] = [];
-    let datesLabel: any[] = [];
-
-    if (selectedSleepData) {
-      let counter = 0;
-      //ARMANDO EL ARRAY PARA EL HEARTRATE
-      var countToHour = 24;
-      counter = 0;
-      selectedSleepData.calc_data.forEach((data: any) => {
-        counter = counter + 1;
-        if (counter == 2) {
-          if (countToHour == 24) {
-            compareArray.push(data.timestamp);
-            datesLabel.push([
-              this.helpersService.formatTimestamp(
-                data.timestamp,
-                this.timezoneService.timezoneOffset
-              ),
-            ]);
-            heartRateArray.push(data.heartRate);
-            counter = 0;
-            countToHour = 1;
-          } else {
-            compareArray.push(data.timestamp);
-            datesLabel.push('');
-            heartRateArray.push(data.heartRate);
-            counter = 0;
-            countToHour++;
-          }
-        }
-      });
-
-      // ARMANDO EL ARRAY DEL RMSSD
-      counter = 0;
-      selectedSleepData.hrv_rmssd_data.forEach((data: any) => {
-        var access = true;
-        while (access) {
-          if (compareArray[counter] < data.timestamp) {
-            RMSSDArray.push(null);
-            counter++;
-          } else {
-            RMSSDArray.push(data.rmssd);
-            access = false;
-            counter++;
-          }
-        }
-      });
-
-      // Making the array of the lineal adjustment
-      counter = 0;
-      var position = 0;
-      selectedSleepData.hrv_rmssd_data.forEach((data: any) => {
-        var access = true;
-        while (access) {
-          if (compareArray[counter] < data.timestamp) {
-            adjustmentLine.push(null);
-            counter++;
-          } else {
-            access = false;
-            if (position == 0) {
-              adjustmentLine.push(selectedSleepData.hrv_rmssd_evening);
-            }
-            if (position == selectedSleepData.hrv_rmssd_data.length - 1) {
-              adjustmentLine.push(selectedSleepData.hrv_rmssd_morning);
-            }
-            if (
-              position > 0 &&
-              position != selectedSleepData.hrv_rmssd_data.length - 1
-            ) {
-              adjustmentLine.push(null);
-            }
-            position++;
-            counter++;
-          }
-        }
-      });
-    }
-
-    return {
-      hrArray: heartRateArray,
-      hrvArray: RMSSDArray,
-      laArray: adjustmentLine,
-      timestamps: datesLabel,
-    };
-  }
-
-  getHrvToChartTest(selectedSleepData?: SleepData) {
     let heartRateArray: any[] = [];
     let RMSSDArray: any[] = [];
     let adjustmentLine: any[] = [];
@@ -845,7 +753,11 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const inicioIntervalo = timestamps[j];
           const finIntervalo = timestamps[j + 1];
 
-          if (timestamp > inicioIntervalo && timestamp < finIntervalo && i === 0) {
+          if (
+            timestamp > inicioIntervalo &&
+            timestamp < finIntervalo &&
+            i === 0
+          ) {
             adjustmentLine.push([timestamp, hrv_rmssd_evening]);
             break;
           }
@@ -862,9 +774,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         adjustmentLine.push([ultimoTimestamp.timestamp, hrv_rmssd_morning]);
       }
     }
-
-    console.log('adjustmentLine', adjustmentLine);
-    console.log('timestamps', timestamps);
 
     return {
       hrArray: heartRateArray,

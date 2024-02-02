@@ -62,12 +62,12 @@ export class AdminPageComponent implements OnInit {
     serialNumber: ['', [Validators.required, Validators.minLength(6)]],
     verificationCode: ['', [Validators.required, Validators.minLength(5)]],
     userID: ['', Validators.required],
+    playerID: [{ value: '', disabled: true }],
     teamID: [''],
     hided: [false],
     offSet: [''],
     player: [''],
-    playerID: [''],
-    playerName: ['']
+    playerName: [''],
   });
   public addGroupForm: FormGroup = this.fb.group({
     name: ['', Validators.required],
@@ -123,6 +123,7 @@ export class AdminPageComponent implements OnInit {
 
   public showAddProfile: boolean = false;
   public showConfirmDeleteProfile: boolean = false;
+  public showConfirmDeleteDevice: boolean = false;
   public showAddDevice: boolean = false;
   public showAddGroup: boolean = false;
   public showAddCollaborator: boolean = false;
@@ -130,6 +131,7 @@ export class AdminPageComponent implements OnInit {
   public genderItems: ItemDropdown[] = [];
   public usersItems: ItemDropdown[] = [];
   public groupsItems: ItemDropdown[] = [];
+  public profilesItems: ItemDropdown[] = [];
   public countriesItems: ItemDropdown[] = [];
   public gmtItems: ItemDropdown[] = this.helpersService.GMTItems;
   public roleCollaboratorItems: ItemDropdown[] = [];
@@ -139,6 +141,10 @@ export class AdminPageComponent implements OnInit {
   public profileIdToDelete: string = '';
   public profileIdToEdit?: string;
   public enableEditProfile: boolean = false;
+  public userIdDeviceToDelete: string = '';
+  public deviceIdToDelete: string = '';
+  public deviceIdToEdit?: string;
+  public enableEditDevice: boolean = false;
 
   public userRole: string = '';
 
@@ -279,7 +285,7 @@ export class AdminPageComponent implements OnInit {
               const collaboratorWithLinked = {
                 ...collaborator,
                 linked: userData.nickName,
-                userId: userData.id
+                userId: userData.id,
               };
               collaborators = [...collaborators, collaboratorWithLinked];
             });
@@ -312,7 +318,7 @@ export class AdminPageComponent implements OnInit {
       });
   }
 
-  // Filtrado y acciones
+  //? FILTRADO Y ACCIONES
   filterProfiles(groupId?: string) {
     if (groupId) {
       this.filteredProfiles = this.profilesByUser.filter((profile) => {
@@ -356,6 +362,7 @@ export class AdminPageComponent implements OnInit {
       this.filteredDevices = this.devicesByUser.filter((device) => {
         return (
           device.serialNumber
+            .toString()
             .toLowerCase()
             .includes(this.actionsDevicesForm.value.search.toLowerCase()) &&
           device.teamID === groupId
@@ -363,9 +370,15 @@ export class AdminPageComponent implements OnInit {
       });
     } else {
       this.filteredDevices = this.devicesByUser.filter((device) => {
-        return device.serialNumber
-          .toLowerCase()
-          .includes(this.actionsDevicesForm.value.search.toLowerCase());
+        return (
+          device.serialNumber
+            .toLowerCase()
+            .includes(this.actionsDevicesForm.value.search.toLowerCase()) ||
+          device.playerName
+            .toString()
+            .toLowerCase()
+            .includes(this.actionsDevicesForm.value.search.toLowerCase())
+        );
       });
     }
     if (this.dontShowHiddenDevices) {
@@ -397,14 +410,16 @@ export class AdminPageComponent implements OnInit {
   }
 
   filterCollaborators() {
-    this.filteredCollaborators = this.collaboratorsByUser.filter((collaborator) => {
-      return (
-        // TODO: Retomar cuando tenga datos
-        collaborator.nickName
-          .toLowerCase()
-          .includes(this.actionsCollaboratorsForm.value.search.toLowerCase())
-      );
-    });
+    this.filteredCollaborators = this.collaboratorsByUser.filter(
+      (collaborator) => {
+        return (
+          // TODO: Retomar cuando tenga datos
+          collaborator.nickName
+            .toLowerCase()
+            .includes(this.actionsCollaboratorsForm.value.search.toLowerCase())
+        );
+      }
+    );
   }
 
   filterUsers() {
@@ -421,16 +436,24 @@ export class AdminPageComponent implements OnInit {
       this.devicesByUser = this.devices;
       this.groupsByUser = this.groups;
       this.collaboratorsByUser = this.collaborators;
-      
+
       this.filteredProfiles = this.profilesByUser;
       this.filteredDevices = this.devicesByUser;
       this.filteredGroups = this.groupsByUser;
       this.filteredCollaborators = this.collaboratorsByUser;
     } else {
-      this.profilesByUser = this.profiles.filter(profile => profile.userID === userId);
-      this.devicesByUser = this.devices.filter(device => device.userID === userId);
-      this.groupsByUser = this.groups.filter(group => group.userID === userId);
-      this.collaboratorsByUser = this.collaborators.filter(collaborator => collaborator.userId === userId);
+      this.profilesByUser = this.profiles.filter(
+        (profile) => profile.userID === userId
+      );
+      this.devicesByUser = this.devices.filter(
+        (device) => device.userID === userId
+      );
+      this.groupsByUser = this.groups.filter(
+        (group) => group.userID === userId
+      );
+      this.collaboratorsByUser = this.collaborators.filter(
+        (collaborator) => collaborator.userId === userId
+      );
 
       this.filteredProfiles = this.profilesByUser;
       this.filteredDevices = this.devicesByUser;
@@ -439,34 +462,36 @@ export class AdminPageComponent implements OnInit {
     }
   }
 
-  // Modales perfiles
+  //? MODALES PERFILES
   toggleAddProfile() {
     this.showAddProfile = !this.showAddProfile;
 
     if (this.userRole !== 'superAdmin') {
-      this.selectUser(this.authService.userId);
+      this.selectUserProfile(this.authService.userId);
     }
   }
 
-  toggleEditProfile(profile: Profile) {
+  toggleEditProfile(profile?: Profile) {
     this.enableEditProfile = !this.enableEditProfile;
     this.showAddProfile = !this.showAddProfile;
-    this.profileIdToEdit = profile.id;
+    this.profileIdToEdit = profile?.id || '';
 
-    const birthdate = new Date(profile.birthdate.seconds * 1000);
+    if (profile) {
+      const birthdate = new Date(profile.birthdate.seconds * 1000);
 
-    const newValue = {
-      ...profile,
-      birthdate,
+      const newValue = {
+        ...profile,
+        birthdate,
+      };
+
+      this.addProfileForm.patchValue(newValue);
+      this.selectUserProfile(
+        this.userRole !== 'superAdmin'
+          ? this.authService.userId
+          : this.addProfileForm.value.userID,
+        profile.teamID
+      );
     }
-
-    this.addProfileForm.patchValue(newValue);
-    this.selectUser(
-      this.userRole !== 'superAdmin'
-        ? this.authService.userId
-        : this.addProfileForm.value.userID,
-      profile.teamID
-    );
   }
 
   toggleConfirmDeleteProfile(userId?: string, profileId?: string) {
@@ -478,27 +503,56 @@ export class AdminPageComponent implements OnInit {
     this.showConfirmDeleteProfile = !this.showConfirmDeleteProfile;
   }
 
-  // Modales dispositivos
+  //? MODALES DISPOSITIVOS
   toggleAddDevice() {
     this.showAddDevice = !this.showAddDevice;
+
+    if (this.userRole !== 'superAdmin') {
+      this.selectUserDevice(this.authService.userId);
+    }
   }
 
-  // Modales grupos
+  toggleEditDevice(device?: Device) {
+    this.enableEditDevice = !this.enableEditDevice;
+    this.showAddDevice = !this.showAddDevice;
+    this.deviceIdToEdit = device?.id || '';
+
+    if (device) {
+      this.addDeviceForm.patchValue(device);
+      this.selectUserDevice(
+        this.userRole !== 'superAdmin'
+          ? this.authService.userId
+          : this.addDeviceForm.value.userID,
+        device.playerID.toString()
+      );
+    }
+  }
+
+  toggleConfirmDeleteDevice(userId?: string, deviceId?: string) {
+    if (userId && deviceId) {
+      this.userIdDeviceToDelete = userId;
+      this.deviceIdToDelete = deviceId;
+    }
+
+    this.showConfirmDeleteDevice = !this.showConfirmDeleteDevice;
+  }
+
+  //? MODALES GRUPOS
   toggleAddGroup() {
     this.showAddGroup = !this.showAddGroup;
   }
 
-  // Modales colaboradores
+  //? MODALES COLABORADORES
   toggleAddCollaborator() {
     this.showAddCollaborator = !this.showAddCollaborator;
   }
 
-  // Modales usuarios
+  //? MODALES USUARIOS
   toggleAddUser() {
     this.showAddUser = !this.showAddUser;
   }
 
-  // Acciones perfiles
+  //? ACCIONES PERFILES
   addProfile() {
     if (this.addProfileForm.status !== 'INVALID') {
       const profileRef = this.firestore.collection(
@@ -509,14 +563,12 @@ export class AdminPageComponent implements OnInit {
         }/players`
       );
 
-      console.log(this.addProfileForm.value);
-
       this.loadingService.setLoading(true);
       profileRef
-      .add({
-        ...this.addProfileForm.value
-      })
-      .then(() => {
+        .add({
+          ...this.addProfileForm.value,
+        })
+        .then(() => {
           this.toggleAddProfile();
           this.messageService.add({
             severity: 'success',
@@ -546,16 +598,16 @@ export class AdminPageComponent implements OnInit {
         }/players/${this.profileIdToEdit}`
       );
 
-      console.log(this.addProfileForm.value);
-      console.log(this.profileIdToEdit);
-
       this.loadingService.setLoading(true);
       profileRef
-      .set({
-        ...this.addProfileForm.value
-      }, { merge: true })
-      .then(() => {
-          this.toggleAddProfile();
+        .set(
+          {
+            ...this.addProfileForm.value,
+          },
+          { merge: true }
+        )
+        .then(() => {
+          this.toggleEditProfile();
           this.actionsProfilesForm.reset();
           this.messageService.add({
             severity: 'success',
@@ -649,7 +701,130 @@ export class AdminPageComponent implements OnInit {
       });
   }
 
-  // Helpers
+  //? ACCIONES DISPOSITIVOS
+  addDevice() {
+    if (this.addDeviceForm.status !== 'INVALID') {
+      const deviceRef = this.firestore.collection(
+        `/users/nyxsys/content/${
+          this.userRole === 'superAdmin'
+            ? this.addDeviceForm.value.userID
+            : this.authService.userId
+        }/devices`
+      );
+
+      this.loadingService.setLoading(true);
+      deviceRef
+        .add({
+          ...this.addDeviceForm.value,
+        })
+        .then(() => {
+          this.toggleAddDevice();
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Dispositivo agregado correctamente',
+          });
+          this.loadData();
+        })
+        .catch(() => {
+          this.loadingService.setLoading(false);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Error al agregar el dispositivo',
+          });
+        });
+    }
+  }
+
+  editDevice() {
+    if (this.addDeviceForm.status !== 'INVALID') {
+      const deviceRef = this.firestore.doc(
+        `/users/nyxsys/content/${
+          this.userRole === 'superAdmin'
+            ? this.addDeviceForm.value.userID
+            : this.authService.userId
+        }/devices/${this.deviceIdToEdit}`
+      );
+
+      this.loadingService.setLoading(true);
+      deviceRef
+        .set(
+          {
+            ...this.addDeviceForm.value,
+          },
+          { merge: true }
+        )
+        .then(() => {
+          this.toggleEditDevice();
+          this.actionsDevicesForm.reset();
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Dispositivo editado correctamente',
+          });
+          this.deviceIdToEdit = '';
+          this.loadData();
+        })
+        .catch(() => {
+          this.loadingService.setLoading(false);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Error al agregar el dispositivo',
+          });
+        });
+    }
+  }
+
+  addOrEditDevice() {
+    if (this.enableEditDevice) {
+      this.editDevice();
+    } else {
+      this.addDevice();
+    }
+  }
+
+  onCloseModalDevice() {
+    this.addProfileForm.reset();
+    this.addProfileForm?.get('sex')?.setErrors(null);
+    this.addProfileForm?.get('userID')?.setErrors(null);
+    this.addProfileForm?.get('teamID')?.setErrors(null);
+  }
+
+  deleteDevice() {
+    const deviceRef = this.firestore.doc(
+      `/users/nyxsys/content/${this.userIdDeviceToDelete}/devices/${this.deviceIdToDelete}`
+    );
+
+    this.toggleConfirmDeleteDevice();
+
+    this.userIdDeviceToDelete = '';
+    this.deviceIdToDelete = '';
+
+    this.loadingService.setLoading(true);
+    deviceRef
+      .delete()
+      .then(() => {
+        this.actionsDevicesForm.reset();
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Dispositivo eliminado correctamente',
+        });
+        this.loadData();
+      })
+      .catch(() => {
+        this.loadingService.setLoading(false);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Error al eliminar el dispositivo',
+        });
+      });
+  }
+
+  //? HELPERS
   private getCountries(): void {
     const url = 'https://restcountries.com/v3.1/all';
 
@@ -825,19 +1000,35 @@ export class AdminPageComponent implements OnInit {
       });
   }
 
-  selectUser(userId: string, teamId?: string) {
+  selectUserProfile(userId: string, teamId?: string) {
     this.addProfileForm.controls['teamID'].reset({
       value: teamId || '',
       disabled: false,
     });
     this.addProfileForm.patchValue({
-      userID: userId
+      userID: userId,
     });
     this.groupsItems = this.groups
       .filter((group) => group.userID === userId)
       .map((group: Group) => ({
         label: group.teamName,
         value: group.id,
+      }));
+  }
+
+  selectUserDevice(userId: string, profileId?: string) {
+    this.addDeviceForm.controls['playerID'].reset({
+      value: profileId || '',
+      disabled: false,
+    });
+    this.addDeviceForm.patchValue({
+      userID: userId,
+    });
+    this.profilesItems = this.profiles
+      .filter((profile) => profile.userID === userId)
+      .map((profile: Profile) => ({
+        label: `${profile.name} ${profile.lastName}`,
+        value: profile.id,
       }));
   }
 }

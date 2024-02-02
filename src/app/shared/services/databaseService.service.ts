@@ -4,6 +4,7 @@ import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
 import { User } from 'src/app/dashboard/interfaces/user.interface';
+import { Device } from 'src/app/dashboard/interfaces/device.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -48,20 +49,34 @@ export class DatabaseService {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/players`)
       .get()
-      .pipe(map((snapshot) => snapshot.docs.map((doc) => {
-        const userData: User = <User>doc.data();
-        return {
-          ...userData,
-          id: doc.ref.id
-        }
-      })));
+      .pipe(
+        map((snapshot) =>
+          snapshot.docs.map((doc) => {
+            const profileData: User = <User>doc.data();
+            return {
+              ...profileData,
+              id: doc.ref.id,
+            };
+          })
+        )
+      );
   }
 
   getDevicesByUser(userId: string): Observable<any> {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/devices`)
       .get()
-      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
+      .pipe(
+        map((snapshot) =>
+          snapshot.docs.map((doc) => {
+            const deviceData: Device = <Device>doc.data();
+            return {
+              ...deviceData,
+              id: doc.ref.id,
+            };
+          })
+        )
+      );
   }
 
   getUserData(userId: string): Observable<any> {
@@ -90,17 +105,15 @@ export class DatabaseService {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
       .doc(groupId)
-      .ref
-      .get()
+      .ref.get();
   }
 
   getFirstGroupCollection(userId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
-      .ref
-      .where('hided', '==', false)
+      .ref.where('hided', '==', false)
       .limit(1)
-      .get()
+      .get();
   }
 
   getGroupsByUserCollection(userId: string) {

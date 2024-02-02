@@ -166,6 +166,7 @@
   "adminModalAddDeviceSerialNumber": "Seriennummer",
   "adminModalAddDeviceCode": "Verifizierungscode",
   "adminModalAddDeviceUser": "Benutzer auswählen",
+  "adminModalAddDeviceProfile": "Profil auswählen",
   "adminModalAddGroupName": "Name",
   "adminModalAddGroupGMT": "GMT",
   "adminModalAddGroupUser": "Benutzer auswählen",
