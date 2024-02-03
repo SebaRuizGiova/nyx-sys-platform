@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
 import { User } from 'src/app/dashboard/interfaces/user.interface';
 import { Device } from 'src/app/dashboard/interfaces/device.interface';
+import { Group } from 'src/app/dashboard/interfaces/group.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -98,7 +99,17 @@ export class DatabaseService {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
       .get()
-      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
+      .pipe(
+        map((snapshot) =>
+          snapshot.docs.map((doc) => {
+            const groupData: Group = <Group>doc.data();
+            return {
+              ...groupData,
+              id: doc.ref.id,
+            };
+          })
+        )
+      );
   }
 
   getGroupByIdDoc(userId: string, groupId: string) {

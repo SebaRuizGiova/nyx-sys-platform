@@ -296,23 +296,27 @@
                   class="pi pi-eye-slash"
                   [pTooltip]="'adminShowGroupTooltip' | translate"
                   tooltipPosition="bottom"
+                  (click)="hideGroup(group.userID, group.id, group.hided)"
                 ></i>
                 <ng-template #showGroup>
                   <i
                     class="pi pi-eye"
                     [pTooltip]="'adminHideGroupTooltip' | translate"
                     tooltipPosition="bottom"
+                    (click)="hideGroup(group.userID, group.id, group.hided)"
                   ></i>
                 </ng-template>
                 <i
                   class="pi pi-user-edit"
                   [pTooltip]="'adminEditGroupTooltip' | translate"
                   tooltipPosition="bottom"
+                  (click)="toggleEditGroup(group)"
                 ></i>
                 <i
                   class="pi pi-trash"
                   [pTooltip]="'adminDeleteGroupTooltip' | translate"
                   tooltipPosition="bottom"
+                  (click)="toggleConfirmDeleteGroup(group.userID, group.id)"
                 ></i>
               </div>
             </td>
@@ -434,7 +438,7 @@
   </div>
 </div>
 
-<p-toast [style]="{ zIndex: 10000 }"></p-toast>
+<p-toast [style]="{ zIndex: '10000 !important' }"></p-toast>
 
 <!-- MODAL AÑADIR PERFIL -->
 <shared-modal
@@ -574,7 +578,10 @@
       formControlName="playerID"
     />
     <div class="buttons-modal">
-      <shared-button [label]="'adminModalSave' | translate" (click)="addOrEditDevice()" />
+      <shared-button
+        [label]="'adminModalSave' | translate"
+        (click)="addOrEditDevice()"
+      />
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
@@ -609,7 +616,7 @@
   <div class="modal-content" [formGroup]="addGroupForm">
     <shared-input-text
       [formGroup]="addGroupForm"
-      formControlName="name"
+      formControlName="teamName"
       [placeholder]="'adminModalAddGroupName' | translate"
       [error]="false"
       helper=""
@@ -625,16 +632,40 @@
       [options]="usersItems"
       [placeholder]="'adminModalAddGroupUser' | translate"
       [formGroup]="addGroupForm"
-      formControlName="user"
+      formControlName="userID"
     />
     <div class="buttons-modal">
-      <shared-button [label]="'adminModalSave' | translate" />
+      <shared-button
+        [label]="'adminModalSave' | translate"
+        (click)="addOrEditGroup()"
+        [disabled]="addGroupForm.status === 'INVALID'"
+      />
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
         (click)="toggleAddGroup()"
       />
     </div>
+  </div>
+</shared-modal>
+
+<!-- MODAL CONFIRMAR ELIMINAR GRUPO -->
+<shared-modal
+  [showModal]="showConfirmDeleteGroup"
+  [title]="'settingsConfirmModalTitle' | translate"
+  width="20vw"
+>
+  <p>Esta acción es permanente</p>
+  <div class="buttons-modal">
+    <shared-button
+      [label]="'settingsConfirmModalAccept' | translate"
+      (click)="deleteGroup()"
+    />
+    <shared-button
+      [label]="'settingsConfirmModalCancel' | translate"
+      variant="secondary"
+      (click)="toggleConfirmDeleteGroup()"
+    />
   </div>
 </shared-modal>
 

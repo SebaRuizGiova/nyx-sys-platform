@@ -70,9 +70,10 @@ export class AdminPageComponent implements OnInit {
     playerName: [''],
   });
   public addGroupForm: FormGroup = this.fb.group({
-    name: ['', Validators.required],
+    teamName: ['', Validators.required],
     gmt: ['', Validators.required],
-    user: ['', Validators.required],
+    userID: ['', Validators.required],
+    hided: [false],
   });
   public addCollaboratorForm: FormGroup = this.fb.group({
     email: [
@@ -124,6 +125,9 @@ export class AdminPageComponent implements OnInit {
   public showAddProfile: boolean = false;
   public showConfirmDeleteProfile: boolean = false;
   public showConfirmDeleteDevice: boolean = false;
+  public showConfirmDeleteGroup: boolean = false;
+  public showConfirmDeleteCollaborator: boolean = false;
+  public showConfirmDeleteUser: boolean = false;
   public showAddDevice: boolean = false;
   public showAddGroup: boolean = false;
   public showAddCollaborator: boolean = false;
@@ -133,7 +137,10 @@ export class AdminPageComponent implements OnInit {
   public groupsItems: ItemDropdown[] = [];
   public profilesItems: ItemDropdown[] = [];
   public countriesItems: ItemDropdown[] = [];
-  public gmtItems: ItemDropdown[] = this.helpersService.GMTItems;
+  public gmtItems: ItemDropdown[] = this.helpersService.GMTItems.map(item => ({
+    ...item,
+    value: `GMT ${item.value > 0 ? `+${item.value}` : item.value}:00`
+  }));
   public roleCollaboratorItems: ItemDropdown[] = [];
   public roleUserItems: ItemDropdown[] = [];
 
@@ -141,10 +148,23 @@ export class AdminPageComponent implements OnInit {
   public profileIdToDelete: string = '';
   public profileIdToEdit?: string;
   public enableEditProfile: boolean = false;
+
   public userIdDeviceToDelete: string = '';
   public deviceIdToDelete: string = '';
   public deviceIdToEdit?: string;
   public enableEditDevice: boolean = false;
+
+  public userIdGroupToDelete: string = '';
+  public groupIdToDelete: string = '';
+  public groupIdToEdit?: string;
+  public enableEditGroup: boolean = false;
+
+  public userIdCollaboratorToDelete: string = '';
+  public collaboratorIdToDelete: string = '';
+
+  public userIdToDelete: string = '';
+  public userIdToEdit?: string;
+  public enableEditUser: boolean = false;
 
   public userRole: string = '';
 
@@ -542,6 +562,28 @@ export class AdminPageComponent implements OnInit {
     this.showAddGroup = !this.showAddGroup;
   }
 
+  toggleEditGroup(group?: Group) {
+    this.enableEditGroup = !this.enableEditGroup;
+    this.showAddGroup = !this.showAddGroup;
+    this.groupIdToEdit = group?.id || '';
+
+    if (group) {
+      this.addGroupForm.patchValue(group);
+      this.addGroupForm.patchValue({
+        userID: group.userID,
+      });
+    }
+  }
+
+  toggleConfirmDeleteGroup(userId?: string, groupId?: string) {
+    if (userId && groupId) {
+      this.userIdGroupToDelete = userId;
+      this.groupIdToDelete = groupId;
+    }
+
+    this.showConfirmDeleteGroup = !this.showConfirmDeleteGroup;
+  }
+
   //? MODALES COLABORADORES
   toggleAddCollaborator() {
     this.showAddCollaborator = !this.showAddCollaborator;
@@ -612,7 +654,7 @@ export class AdminPageComponent implements OnInit {
           this.messageService.add({
             severity: 'success',
             summary: 'Success',
-            detail: 'Perfil agregado correctamente',
+            detail: 'Perfil editado correctamente',
           });
           this.profileIdToEdit = '';
           this.loadData();
@@ -622,7 +664,7 @@ export class AdminPageComponent implements OnInit {
           this.messageService.add({
             severity: 'error',
             summary: 'Error',
-            detail: 'Error al agregar el perfil',
+            detail: 'Error al editar el perfil',
           });
         });
     }
@@ -786,10 +828,7 @@ export class AdminPageComponent implements OnInit {
   }
 
   onCloseModalDevice() {
-    this.addProfileForm.reset();
-    this.addProfileForm?.get('sex')?.setErrors(null);
-    this.addProfileForm?.get('userID')?.setErrors(null);
-    this.addProfileForm?.get('teamID')?.setErrors(null);
+    this.addDeviceForm.reset();
   }
 
   deleteDevice() {
@@ -820,6 +859,152 @@ export class AdminPageComponent implements OnInit {
           severity: 'error',
           summary: 'Error',
           detail: 'Error al eliminar el dispositivo',
+        });
+      });
+  }
+
+  //? ACCIONES GRUPOS
+  addGroup() {
+    if (this.addGroupForm.status !== 'INVALID') {
+      const groupRef = this.firestore.collection(
+        `/users/nyxsys/content/${
+          this.userRole === 'superAdmin'
+            ? this.addGroupForm.value.userID
+            : this.authService.userId
+        }/teams`
+      );
+
+      this.toggleAddGroup();
+      this.loadingService.setLoading(true);
+      groupRef
+        .add({
+          ...this.addGroupForm.value,
+        })
+        .then(() => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Grupo agregado correctamente',
+          });
+          this.loadData();
+        })
+        .catch(() => {
+          this.loadingService.setLoading(false);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Error al agregar el grupo',
+          });
+        });
+    }
+  }
+
+  editGroup() {
+    if (this.addGroupForm.status !== 'INVALID') {
+      const groupRef = this.firestore.doc(
+        `/users/nyxsys/content/${
+          this.userRole === 'superAdmin'
+            ? this.addGroupForm.value.userID
+            : this.authService.userId
+        }/teams/${this.groupIdToEdit}`
+      );
+
+      this.loadingService.setLoading(true);
+      groupRef
+        .set(
+          {
+            ...this.addGroupForm.value,
+          },
+          { merge: true }
+        )
+        .then(() => {
+          this.toggleEditGroup();
+          this.actionsGroupsForm.reset();
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Grupo editado correctamente',
+          });
+          this.groupIdToEdit = '';
+          this.loadData();
+        })
+        .catch(() => {
+          this.loadingService.setLoading(false);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Error al editar el grupo',
+          });
+        });
+    }
+  }
+
+  addOrEditGroup() {
+    if (this.enableEditGroup) {
+      this.editGroup();
+    } else {
+      this.addGroup();
+    }
+  }
+
+  onCloseModalGroup() {
+    this.addGroupForm.reset();
+  }
+
+  deleteGroup() {
+    const groupRef = this.firestore.doc(
+      `/users/nyxsys/content/${this.userIdGroupToDelete}/teams/${this.groupIdToDelete}`
+    );
+
+    this.userIdGroupToDelete = '';
+    this.groupIdToDelete = '';
+
+    this.toggleConfirmDeleteGroup();
+    this.loadingService.setLoading(true);
+    groupRef
+      .delete()
+      .then(() => {
+        this.actionsGroupsForm.reset();
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Grupo eliminado correctamente',
+        });
+        this.loadData();
+      })
+      .catch(() => {
+        this.loadingService.setLoading(false);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Error al eliminar el grupo',
+        });
+      });
+  }
+
+  hideGroup(userIdGroup: string, groupId: string, hideValue: boolean) {
+    const groupRef = this.firestore.doc(
+      `/users/nyxsys/content/${userIdGroup}/teams/${groupId}`
+    );
+
+    this.loadingService.setLoading(true);
+    groupRef
+      .update({ hided: !hideValue })
+      .then(() => {
+        this.actionsGroupsForm.reset();
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: `Grupo ${hideValue ? 'mostrado' : 'oculto'} correctamente`,
+        });
+        this.loadData();
+      })
+      .catch(() => {
+        this.loadingService.setLoading(false);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: `Error al ${hideValue ? 'mostrar' : 'ocultar'} el grupo`,
         });
       });
   }
