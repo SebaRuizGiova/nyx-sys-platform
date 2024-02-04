@@ -372,6 +372,7 @@
                   class="pi pi-trash"
                   [pTooltip]="'adminDeleteCollaboratorTooltip' | translate"
                   tooltipPosition="bottom"
+                  (click)="toggleConfirmDeleteCollaborator(collaborator, collaborator?.accessTo[0]?.id, collaborator.id)"
                 ></i>
               </div>
             </td>
@@ -438,7 +439,7 @@
   </div>
 </div>
 
-<p-toast [style]="{ zIndex: '10000 !important' }"></p-toast>
+<p-toast></p-toast>
 
 <!-- MODAL AÑADIR PERFIL -->
 <shared-modal
@@ -699,7 +700,7 @@
     />
     <shared-input-text
       [formGroup]="addCollaboratorForm"
-      formControlName="alias"
+      formControlName="nickName"
       [placeholder]="'adminModalAddCollaboratorAlias' | translate"
       [error]="false"
       helper=""
@@ -715,16 +716,36 @@
       [options]="usersItems"
       [placeholder]="'adminModalAddCollaboratorUser' | translate"
       [formGroup]="addCollaboratorForm"
-      formControlName="user"
+      formControlName="UID"
     />
     <div class="buttons-modal">
-      <shared-button [label]="'adminModalSave' | translate" />
+      <shared-button [label]="'adminModalSave' | translate" (click)="addCollaborator()"/>
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
         (click)="toggleAddCollaborator()"
       />
     </div>
+  </div>
+</shared-modal>
+
+<!-- MODAL CONFIRMAR ELIMINAR COLABORADOR -->
+<shared-modal
+  [showModal]="showConfirmDeleteCollaborator"
+  [title]="'settingsConfirmModalTitle' | translate"
+  width="20vw"
+>
+  <p>Esta acción es permanente</p>
+  <div class="buttons-modal">
+    <shared-button
+      [label]="'settingsConfirmModalAccept' | translate"
+      (click)="deleteCollaborator()"
+    />
+    <shared-button
+      [label]="'settingsConfirmModalCancel' | translate"
+      variant="secondary"
+      (click)="toggleConfirmDeleteCollaborator()"
+    />
   </div>
 </shared-modal>
 

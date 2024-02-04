@@ -5,4 +5,12 @@ export interface Collaborator {
   role:             string;
   linked?:          string;
   userId?:          string;
+  UID:              string;
+  accessTo:     AccessTo[];
+}
+
+interface AccessTo {
+  email: string;
+  id: string;
+  nickName: string;
 }

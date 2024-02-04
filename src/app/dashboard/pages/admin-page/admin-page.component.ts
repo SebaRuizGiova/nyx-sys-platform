@@ -77,15 +77,30 @@ export class AdminPageComponent implements OnInit {
   });
   public addCollaboratorForm: FormGroup = this.fb.group({
     email: [
-      '',
-      Validators.required,
-      Validators.pattern(this.validatorsService.emailPattern),
+      'lucas-collaborator@nyx-sys.com',
+      [
+        Validators.required,
+        Validators.pattern(this.validatorsService.emailPattern),
+      ],
     ],
-    password: ['', Validators.required],
-    confirmPassword: ['', Validators.required],
-    alias: ['', Validators.required],
-    role: ['', Validators.required],
-    user: ['', Validators.required],
+    accessTo: [[]],
+    password: [
+      '180594Lucas',
+      [
+        Validators.required,
+        Validators.pattern(this.validatorsService.passwordPattern),
+      ],
+    ],
+    confirmPassword: [
+      '180594Lucas',
+      [
+        Validators.required,
+        Validators.pattern(this.validatorsService.passwordPattern),
+      ],
+    ],
+    nickName: ['Lucas colaborador test', Validators.required],
+    role: ['collaborator', Validators.required],
+    UID: ['9lPzGs6JOix6R7jZ1qzL', Validators.required],
   });
   public addUserForm: FormGroup = this.fb.group({
     email: [
@@ -137,10 +152,12 @@ export class AdminPageComponent implements OnInit {
   public groupsItems: ItemDropdown[] = [];
   public profilesItems: ItemDropdown[] = [];
   public countriesItems: ItemDropdown[] = [];
-  public gmtItems: ItemDropdown[] = this.helpersService.GMTItems.map(item => ({
-    ...item,
-    value: `GMT ${item.value > 0 ? `+${item.value}` : item.value}:00`
-  }));
+  public gmtItems: ItemDropdown[] = this.helpersService.GMTItems.map(
+    (item) => ({
+      ...item,
+      value: `GMT ${item.value > 0 ? `+${item.value}` : item.value}:00`,
+    })
+  );
   public roleCollaboratorItems: ItemDropdown[] = [];
   public roleUserItems: ItemDropdown[] = [];
 
@@ -159,8 +176,9 @@ export class AdminPageComponent implements OnInit {
   public groupIdToEdit?: string;
   public enableEditGroup: boolean = false;
 
-  public userIdCollaboratorToDelete: string = '';
+  public userIdToAccessCollaboratorToDelete: string = '';
   public collaboratorIdToDelete: string = '';
+  public collaboratorToDelete?: Collaborator | null;
 
   public userIdToDelete: string = '';
   public userIdToEdit?: string;
@@ -255,8 +273,8 @@ export class AdminPageComponent implements OnInit {
     this.databaseService
       .getUserData(userId || this.authService.userId)
       .subscribe((user) => {
-        this.collaborators = user.collaborators || [];
-        this.filteredCollaborators = user.collaborators || [];
+        this.collaborators = user?.collaborators || [];
+        this.filteredCollaborators = user?.collaborators || [];
       });
   }
 
@@ -276,9 +294,8 @@ export class AdminPageComponent implements OnInit {
             const profiles$ = this.databaseService.getProfilesByUser(user.id);
             const devices$ = this.databaseService.getDevicesByUser(user.id);
             const groups$ = this.databaseService.getGroupsByUser(user.id);
-            const userData$ = this.databaseService.getUserData(user.id);
 
-            return forkJoin([profiles$, devices$, groups$, userData$]);
+            return forkJoin([profiles$, devices$, groups$]);
           });
 
           return forkJoin(profilesObservables);
@@ -298,18 +315,17 @@ export class AdminPageComponent implements OnInit {
         results.forEach((result: any) => {
           groups = [...groups, ...result[2]];
         });
-        results.forEach((result: any) => {
-          const userData: User = result[3];
-          if (userData.collaborators) {
-            userData.collaborators.forEach((collaborator: Collaborator) => {
-              const collaboratorWithLinked = {
-                ...collaborator,
-                linked: userData.nickName,
-                userId: userData.id,
-              };
-              collaborators = [...collaborators, collaboratorWithLinked];
-            });
-          }
+        const collaboratorsRef =
+          await this.databaseService.getCollaboratorsCollection();
+        collaborators = collaboratorsRef.docs.map((collaborator: any) => {
+          const collaboratorData: Collaborator = collaborator.data();
+          return {
+            ...collaboratorData,
+            linked: collaboratorData.accessTo
+              .map((access) => access.nickName)
+              .join(', '),
+            userId: collaboratorData.UID,
+          };
         });
 
         const devicesWithStatus = await Promise.all(
@@ -587,6 +603,20 @@ export class AdminPageComponent implements OnInit {
   //? MODALES COLABORADORES
   toggleAddCollaborator() {
     this.showAddCollaborator = !this.showAddCollaborator;
+  }
+
+  toggleConfirmDeleteCollaborator(
+    collaborator?: Collaborator,
+    userIdAccessTo?: string,
+    collaboratorId?: string
+  ) {
+    if (collaborator && userIdAccessTo && collaboratorId) {
+      this.collaboratorToDelete = collaborator;
+      this.userIdToAccessCollaboratorToDelete = userIdAccessTo;
+      this.collaboratorIdToDelete = collaboratorId;
+    }
+
+    this.showConfirmDeleteCollaborator = !this.showConfirmDeleteCollaborator;
   }
 
   //? MODALES USUARIOS
@@ -893,7 +923,7 @@ export class AdminPageComponent implements OnInit {
           this.messageService.add({
             severity: 'error',
             summary: 'Error',
-            detail: 'Error al agregar el grupo',
+            detail: 'Error al agregar grupo',
           });
         });
     }
@@ -1007,6 +1037,109 @@ export class AdminPageComponent implements OnInit {
           detail: `Error al ${hideValue ? 'mostrar' : 'ocultar'} el grupo`,
         });
       });
+  }
+
+  //? ACCIONES COLABORADORES
+  async addCollaborator() {
+    try {
+      if (this.addCollaboratorForm.status !== 'INVALID') {
+        let userId = '';
+
+        if (this.userRole === 'superAdmin') {
+          userId = this.addCollaboratorForm.value.UID;
+        } else {
+          userId = this.authService.currentUser;
+        }
+
+        const userAccess: User | undefined = this.users.find((user) => {
+          return user.id === userId;
+        });
+
+        const accessTo = [
+          {
+            email: userAccess?.email,
+            id: userAccess?.id,
+            nickName: userAccess?.nickName,
+          },
+        ];
+
+        this.loadingService.setLoading(true);
+        await this.authService.registerCollaborator(
+          this.addCollaboratorForm.value.email,
+          this.addCollaboratorForm.value.password,
+          this.addCollaboratorForm.value.nickName,
+          this.addCollaboratorForm.value.role,
+          accessTo
+        );
+        this.toggleAddCollaborator();
+        this.loadingService.setLoading(false);
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Colaborador agregado correctamente',
+        });
+        this.loadData();
+      }
+    } catch (error) {
+      this.loadingService.setLoading(false);
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Error al agregar colaborador',
+      });
+    }
+  }
+
+  onCloseModalCollaborator() {
+    this.addCollaboratorForm.reset();
+  }
+
+  async deleteCollaborator() {
+    debugger;
+    try {
+      const collaboratorRef = this.firestore.doc(
+        `/users/nyxsys/content/${this.collaboratorIdToDelete}`
+      );
+
+      const userAccessRef = this.firestore.doc(
+        `/users/nyxsys/content/${this.userIdToAccessCollaboratorToDelete}`
+      );
+
+      this.toggleConfirmDeleteCollaborator();
+      this.loadingService.setLoading(true);
+      await collaboratorRef.delete();
+
+      const userToAccess = this.users.find(
+        (user: User) => user.id === this.userIdToAccessCollaboratorToDelete
+      );
+      const newCollaboratorsUserToAccess = userToAccess?.collaborators.filter(
+        (collaborator: Collaborator) =>
+          collaborator.id !== this.collaboratorIdToDelete
+      );
+
+      await userAccessRef.update({
+        collaborators: newCollaboratorsUserToAccess,
+      });
+
+      this.authService.deleteUser(this.collaboratorToDelete);
+      this.collaboratorToDelete = null;
+      this.collaboratorIdToDelete = '';
+      this.userIdToAccessCollaboratorToDelete = '';
+      this.actionsCollaboratorsForm.reset();
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Success',
+        detail: 'Colaborador eliminado correctamente',
+      });
+      this.loadData();
+    } catch (error) {
+      this.loadingService.setLoading(false);
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Error al eliminar colaborador',
+      });
+    }
   }
 
   //? HELPERS

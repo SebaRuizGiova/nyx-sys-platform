@@ -147,3 +147,6 @@
 :host ::ng-deep .p-inputtext {
   padding: 0.6rem 1rem;
 }
+:host ::ng-deep .p-toast {
+  z-index: 1300 !important;
+}

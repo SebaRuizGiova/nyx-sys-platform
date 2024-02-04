@@ -198,11 +198,11 @@
   "adminModalRoleCollaboratorItems": [
     {
       "label": "Colaborador",
-      "value": "Collaborator"
+      "value": "collaborator"
     },
     {
       "label": "Visualizador",
-      "value": "Viewer"
+      "value": "viewer"
     }
   ],
   "adminModalRoleUserItems": [
