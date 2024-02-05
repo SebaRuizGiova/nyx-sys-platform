@@ -69,6 +69,11 @@
   flex-direction: column;
   align-items: stretch;
   gap: 25px;
+
+  p {
+    margin: 0;
+    font-size: 12px;
+  }
 }
 
 .buttons-modal {

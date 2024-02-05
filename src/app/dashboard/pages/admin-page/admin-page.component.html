@@ -369,6 +369,12 @@
             <td class="column-rigth">
               <div class="actions">
                 <i
+                  class="pi pi-user-edit"
+                  [pTooltip]="'adminEditCollaboratorTooltip' | translate"
+                  tooltipPosition="bottom"
+                  (click)="toggleEditCollaborator(collaborator)"
+                ></i>
+                <i
                   class="pi pi-trash"
                   [pTooltip]="'adminDeleteCollaboratorTooltip' | translate"
                   tooltipPosition="bottom"
@@ -450,7 +456,10 @@
 <!-- MODAL AÑADIR PERFIL -->
 <shared-modal
   [showModal]="showAddProfile"
-  title="Añadir perfil"
+  [title]="
+    (enableEditProfile ? 'adminEditProfileTitle' : 'adminAddProfileTitle')
+      | translate
+  "
   width="25vw"
   (onCloseEvent)="onCloseModalProfile()"
 >
@@ -563,10 +572,14 @@
 <!-- MODAL AÑADIR DISPOSITIVO -->
 <shared-modal
   [showModal]="showAddDevice"
-  title="Añadir dispositivo"
+  [title]="
+    (enableEditProfile ? 'adminEditDeviceTitle' : 'adminAddDeviceTitle')
+      | translate
+  "
   width="25vw"
 >
   <div class="modal-content" [formGroup]="addDeviceForm">
+    <p>{{ "adminExplanationDevice" | translate }}</p>
     <shared-input-text
       [formGroup]="addDeviceForm"
       formControlName="serialNumber"
@@ -597,6 +610,7 @@
       [formGroup]="addDeviceForm"
       formControlName="playerID"
       [error]="!!validateInputs(addDeviceForm, 'playerID')"
+      [showClear]="true"
     />
     <div class="buttons-modal">
       <shared-button
@@ -634,7 +648,14 @@
 </shared-modal>
 
 <!-- MODAL AÑADIR GRUPO -->
-<shared-modal [showModal]="showAddGroup" title="Añadir grupo" width="25vw">
+<shared-modal
+  [showModal]="showAddGroup"
+  [title]="
+    (enableEditProfile ? 'adminEditGroupTitle' : 'adminAddGroupTitle')
+      | translate
+  "
+  width="25vw"
+>
   <div class="modal-content" [formGroup]="addGroupForm">
     <shared-input-text
       [formGroup]="addGroupForm"
@@ -652,7 +673,7 @@
       [error]="!!validateInputs(addGroupForm, 'gmt')"
     />
     <shared-select
-      *ngIf="userRole === 'superAdmin'"
+      *ngIf="userRole === 'superAdmin' && !enableEditProfile"
       [options]="usersItems"
       [placeholder]="'adminModalAddGroupUser' | translate"
       [formGroup]="addGroupForm"
@@ -697,10 +718,11 @@
 <!-- MODAL AÑADIR COLABORADOR -->
 <shared-modal
   [showModal]="showAddCollaborator"
-  title="Añadir colaborador"
+  [title]="'adminAddCollaboratorTitle' | translate"
   width="25vw"
 >
   <div class="modal-content" [formGroup]="addCollaboratorForm">
+    <p>{{ "adminExplanationCollaborator" | translate }}</p>
     <shared-input-text
       [formGroup]="addCollaboratorForm"
       formControlName="email"
@@ -760,6 +782,43 @@
   </div>
 </shared-modal>
 
+<!-- MODAL EDITAR COLABORADOR -->
+<shared-modal
+  [showModal]="showEditCollaborator"
+  [title]="'adminEditCollaboratorTitle' | translate"
+  width="25vw"
+>
+  <div class="modal-content" [formGroup]="editCollaboratorForm">
+    <p>{{ "adminExplanationCollaborator" | translate }}</p>
+    <shared-input-text
+      [formGroup]="editCollaboratorForm"
+      formControlName="nickName"
+      [placeholder]="'adminModalAddCollaboratorAlias' | translate"
+      [error]="!!validateInputs(editCollaboratorForm, 'nickName')"
+      [helper]="validateInputs(editCollaboratorForm, 'nickName')"
+    />
+    <shared-select
+      [options]="roleCollaboratorItems"
+      [placeholder]="'adminModalAddCollaboratorRole' | translate"
+      [formGroup]="editCollaboratorForm"
+      formControlName="role"
+      [error]="!!validateInputs(editCollaboratorForm, 'role')"
+    />
+    <div class="buttons-modal">
+      <shared-button
+        [label]="'adminModalSave' | translate"
+        (click)="editCollaborator()"
+        [disabled]="editCollaboratorForm.status === 'INVALID'"
+      />
+      <shared-button
+        [label]="'adminModalCancel' | translate"
+        variant="secondary"
+        (click)="toggleEditCollaborator()"
+      />
+    </div>
+  </div>
+</shared-modal>
+
 <!-- MODAL CONFIRMAR ELIMINAR COLABORADOR -->
 <shared-modal
   [showModal]="showConfirmDeleteCollaborator"
@@ -781,9 +840,16 @@
 </shared-modal>
 
 <!-- MODAL AÑADIR USUARIO -->
-<shared-modal [showModal]="showAddUser" title="Añadir usuario" width="25vw">
+<shared-modal
+  [showModal]="showAddUser"
+  [title]="
+    (enableEditProfile ? 'adminEditUserTitle' : 'adminAddUserTitle') | translate
+  "
+  width="25vw"
+>
   <div class="modal-content" [formGroup]="addUserForm">
     <shared-input-text
+      *ngIf="!enableEditUser"
       [formGroup]="addUserForm"
       formControlName="email"
       [placeholder]="'adminModalAddUserEmail' | translate"

@@ -102,6 +102,16 @@ export class AdminPageComponent implements OnInit {
     role: ['', Validators.required],
     UID: ['', Validators.required],
   });
+  public editCollaboratorForm: FormGroup = this.fb.group({
+    email: [''],
+    accessTo: [[]],
+    password: [''],
+    confirmPassword: [''],
+    nickName: ['', Validators.required],
+    role: ['', Validators.required],
+    UID: [''],
+    id: ['']
+  });
   public addUserForm: FormGroup = this.fb.group({
     id: ['', Validators.required],
     UID: ['', Validators.required],
@@ -113,6 +123,10 @@ export class AdminPageComponent implements OnInit {
     nickName: ['', Validators.required],
     role: ['', Validators.required],
     collaborators: [[]],
+  });
+  public editUserForm: FormGroup = this.fb.group({
+    nickName: ['', Validators.required],
+    role: ['', Validators.required],
   });
   public filterByUserForm: FormGroup = this.fb.group({
     userId: [''],
@@ -149,7 +163,9 @@ export class AdminPageComponent implements OnInit {
   public showAddDevice: boolean = false;
   public showAddGroup: boolean = false;
   public showAddCollaborator: boolean = false;
+  public showEditCollaborator: boolean = false;
   public showAddUser: boolean = false;
+  public showEditUser: boolean = false;
   public genderItems: ItemDropdown[] = [];
   public usersItems: ItemDropdown[] = [];
   public groupsItems: ItemDropdown[] = [];
@@ -182,6 +198,7 @@ export class AdminPageComponent implements OnInit {
   public userIdToAccessCollaboratorToDelete: string = '';
   public collaboratorIdToDelete: string = '';
   public collaboratorToDelete: Collaborator | null = null;
+  public enableEditCollaborator: boolean = false;
 
   public userToDelete: User | null = null;
   public userIdToDelete: string = '';
@@ -274,18 +291,13 @@ export class AdminPageComponent implements OnInit {
 
   async getCollaborators(userId?: string) {
     this.loadingService.setLoading(true);
-    // this.databaseService
-    //   .getUserData(userId || this.authService.userId)
-    //   .subscribe((user) => {
-    //     this.collaborators = user?.collaborators || [];
-    //     this.filteredCollaborators = user?.collaborators || [];
-    //   });
     const collaboratorsRef =
       await this.databaseService.getCollaboratorsCollection();
     const collaborators = collaboratorsRef.docs.map((collaborator: any) => {
       const collaboratorData: Collaborator = collaborator.data();
       return {
         ...collaboratorData,
+        id: collaborator.id,
         linked: collaboratorData.accessTo
           .map((access) => access.nickName)
           .join(', '),
@@ -348,6 +360,7 @@ export class AdminPageComponent implements OnInit {
           const collaboratorData: Collaborator = collaborator.data();
           return {
             ...collaboratorData,
+            id: collaborator.id,
             linked: collaboratorData.accessTo
               .map((access) => access.nickName)
               .join(', '),
@@ -631,6 +644,14 @@ export class AdminPageComponent implements OnInit {
     this.showAddCollaborator = !this.showAddCollaborator;
   }
 
+  toggleEditCollaborator(collaborator?: Collaborator) {
+    this.showEditCollaborator = !this.showEditCollaborator;
+
+    if (collaborator) {
+      this.editCollaboratorForm.patchValue(collaborator);
+    }
+  }
+
   toggleConfirmDeleteCollaborator(
     collaborator?: Collaborator,
     userIdAccessTo?: string,
@@ -801,6 +822,9 @@ export class AdminPageComponent implements OnInit {
     this.addProfileForm?.get('sex')?.setErrors(null);
     this.addProfileForm?.get('userID')?.setErrors(null);
     this.addProfileForm?.get('teamID')?.setErrors(null);
+
+    this.enableEditProfile = false;
+    this.showAddProfile = false;
   }
 
   deleteProfile() {
@@ -1041,6 +1065,10 @@ export class AdminPageComponent implements OnInit {
 
   onCloseModalDevice() {
     this.addDeviceForm.reset();
+
+    this.enableEditDevice = false;
+    this.showAddDevice = false;
+    this.deviceIdToEdit = '';
   }
 
   deleteDevice() {
@@ -1227,6 +1255,9 @@ export class AdminPageComponent implements OnInit {
 
   onCloseModalGroup() {
     this.addGroupForm.reset();
+
+    this.enableEditGroup = false;
+    this.showAddGroup = false;
   }
 
   deleteGroup() {
@@ -1414,8 +1445,47 @@ export class AdminPageComponent implements OnInit {
       });
   }
 
+  editCollaborator() {
+    if (this.editCollaboratorForm.status !== 'INVALID') {
+      this.loadingService.setLoading(true);
+      this.databaseService
+        .editCollaborator(this.editCollaboratorForm.value, this.users)
+        .then(() => {
+          this.toggleEditCollaborator();
+          this.actionsCollaboratorsForm.reset();
+          this.messageService.add({
+            severity: 'success',
+            summary: this.translateService.instant('ToastTitleCorrect'),
+            detail: this.translateService.instant(
+              'adminEditCollaboratorSuccess'
+            ),
+          });
+          this.loadData();
+        })
+        .catch(() => {
+          this.loadingService.setLoading(false);
+          this.messageService.add({
+            severity: 'error',
+            summary: this.translateService.instant('ToastTitleError'),
+            detail: this.translateService.instant('adminEditCollaboratorError'),
+          });
+        });
+    }
+  }
+
+  addOrEditCollaborator() {
+    if (this.enableEditCollaborator) {
+      this.editCollaborator();
+    } else {
+      this.addCollaborator();
+    }
+  }
+
   onCloseModalCollaborator() {
     this.addCollaboratorForm.reset();
+
+    this.enableEditCollaborator = false;
+    this.showAddCollaborator = false;
   }
 
   deleteCollaborator() {
@@ -1551,6 +1621,10 @@ export class AdminPageComponent implements OnInit {
 
   onCloseModalUser() {
     this.addUserForm.reset();
+
+    this.enableEditUser = false;
+    this.showAddUser = false;
+    this.userIdToEdit = '';
   }
 
   async deleteUser() {
@@ -1826,6 +1900,12 @@ export class AdminPageComponent implements OnInit {
       }
       if (errors['existName']) {
         return this.translateService.instant('adminExistNameError');
+      }
+      if (errors['minlength'].requiredLength === 5) {
+        return this.translateService.instant('adminLength5Characters');
+      }
+      if (errors['minlength'].requiredLength === 6) {
+        return this.translateService.instant('adminLength6Characters');
       }
     }
     return '';

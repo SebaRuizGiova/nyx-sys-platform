@@ -549,6 +549,61 @@ export class DatabaseService {
     });
   }
 
+  editCollaborator(collaborator: Collaborator, users: User[]) {
+    return new Promise((resolve, reject) => {
+      if (this.authService) {
+        this.authService.checkRole().subscribe((role) => {
+          debugger;
+          this.userRole = role;
+
+          const userAccessRef = this.firestore
+            .collection(`/users`)
+            .doc(environment.client)
+            .collection('content')
+            .doc(collaborator.accessTo[0].id);
+
+          const userAccess = users.find(
+            (user) => user.id === collaborator.accessTo[0].id
+          );
+
+          const filterCollaborators = userAccess?.collaborators.filter(
+            (collab) => collab.id !== collaborator.id
+          ) || [];
+
+          const collaborators = [
+            ...filterCollaborators,
+            {
+              id: collaborator.id,
+              email: collaborator.email,
+              role: collaborator.role,
+              nickName: collaborator.nickName,
+            },
+          ];
+
+          const accessToPromise = userAccessRef.update({
+            collaborators,
+          });
+
+          const collaboratorRef = this.firestore
+            .collection(`/users`)
+            .doc(environment.client)
+            .collection('content')
+            .doc(collaborator.id);
+
+          const collaboratorPromise = collaboratorRef.update(collaborator);
+
+          Promise.all([accessToPromise, collaboratorPromise])
+            .then((res) => {
+              resolve(res);
+            })
+            .catch((error) => {
+              reject(error);
+            });
+        });
+      }
+    });
+  }
+
   deleteCollaborator(
     collaboratorId: string,
     userIdToAccess: string,
