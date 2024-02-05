@@ -103,6 +103,50 @@ export class AuthService {
     return await this.fireAuth.signOut();
   }
 
+  async registerUser(
+    email: string,
+    nickName: string,
+    role: string,
+    collaborators: any[]
+  ) {
+    const emailParts = email.split('@');
+    const username = emailParts[0];
+    const currentYear = new Date().getFullYear();
+    const password = `${username}nyxsys${currentYear}`;
+
+    let uid = '';
+    try {
+      var config = {
+        apiKey: 'AIzaSyBi-yZ0zwj_DcTyt39pVFAAjjf7jqcm3Yw',
+        authDomain: 'honyro-55d73.firebaseapp.com',
+        databaseURL: 'https://honyro-55d73.firebaseio.com',
+      };
+      var secondaryApp = firebase.initializeApp(config, 'Secondary');
+
+      await secondaryApp
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(function (firebaseUser) {
+          uid = firebaseUser!.user!.uid;
+        });
+
+      const id = this.firestore.createId();
+      await secondaryApp;
+      this.databaseService.saveUser(
+        email,
+        uid,
+        nickName,
+        role,
+        id,
+        collaborators
+      );
+
+      this.databaseService.sendWelcomeEmail(email, password);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async registerCollaborator(
     email: string,
     password: string,

@@ -36,6 +36,30 @@ export class DatabaseService {
       .get();
   }
 
+  saveUser(email: string, UID: string, nickName: string, role: string, id: string, collaborators: any[]) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const data = {
+          id,
+          email,
+          UID,
+          nickName,
+          role,
+          collaborators
+        };
+        const result = await this.firestore
+          .collection(`/users`)
+          .doc(environment.client)
+          .collection('content')
+          .doc(id)
+          .set(data);
+        resolve(result);
+      } catch (error: any) {
+        reject(error.message);
+      }
+    });
+  }
+
   getProfilesByGroupCollection(userId: string, teamId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/players`)

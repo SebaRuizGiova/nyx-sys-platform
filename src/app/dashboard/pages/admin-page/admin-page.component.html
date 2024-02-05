@@ -529,7 +529,7 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>Esta acción es permanente</p>
+  <p>{{ 'IrreversibleAction' | translate }}</p>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -598,7 +598,7 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>Esta acción es permanente</p>
+  <p>{{ 'IrreversibleAction' | translate }}</p>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -656,7 +656,7 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>Esta acción es permanente</p>
+  <p>{{ 'IrreversibleAction' | translate }}</p>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -735,7 +735,7 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>Esta acción es permanente</p>
+  <p>{{ 'IrreversibleAction' | translate }}</p>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -761,7 +761,7 @@
     />
     <shared-input-text
       [formGroup]="addUserForm"
-      formControlName="alias"
+      formControlName="nickName"
       [placeholder]="'adminModalAddUserAlias' | translate"
       [error]="false"
       helper=""
@@ -780,5 +780,25 @@
         (click)="toggleAddUser()"
       />
     </div>
+  </div>
+</shared-modal>
+
+<!-- MODAL CONFIRMAR ELIMINAR USUARIO -->
+<shared-modal
+  [showModal]="showConfirmDeleteUser"
+  [title]="'settingsConfirmModalTitle' | translate"
+  width="20vw"
+>
+  <p>{{ 'IrreversibleAction' | translate }}</p>
+  <div class="buttons-modal">
+    <shared-button
+      [label]="'settingsConfirmModalAccept' | translate"
+      (click)="deleteUser()"
+    />
+    <shared-button
+      [label]="'settingsConfirmModalCancel' | translate"
+      variant="secondary"
+      (click)="toggleConfirmDeleteUser()"
+    />
   </div>
 </shared-modal>
