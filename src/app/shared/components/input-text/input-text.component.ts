@@ -1,5 +1,5 @@
-import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormGroup, DefaultValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'shared-input-text',
@@ -11,6 +11,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormGroup } from '@angular/for
       useExisting: forwardRef(() => InputTextComponent),
       multi: true,
     },
+    DefaultValueAccessor
   ],
 })
 export class InputTextComponent implements ControlValueAccessor {
@@ -19,11 +20,11 @@ export class InputTextComponent implements ControlValueAccessor {
   @Input({ required: true }) formGroup!: FormGroup;
   @Input() formControlName: string = '';
   @Input() error?: boolean = false;
-
-  private innerValue: string = '';
+  @Output() inputChange: EventEmitter<any> = new EventEmitter();
 
   onChange: any = () => {};
   onTouch: any = () => {};
+  private innerValue: string = '';
 
   writeValue(value: string): void {
     this.innerValue = value;
@@ -41,7 +42,8 @@ export class InputTextComponent implements ControlValueAccessor {
   onInputChange(event: Event) {
     const inputValue = (event.target as HTMLInputElement).value;
     this.innerValue = inputValue;
-    this.onChange(inputValue);
+    this.onChange(this.innerValue);
     this.onTouch();
+    this.inputChange.emit((event.target as HTMLInputElement).value);
   }
 }

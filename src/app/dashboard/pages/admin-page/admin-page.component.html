@@ -372,7 +372,13 @@
                   class="pi pi-trash"
                   [pTooltip]="'adminDeleteCollaboratorTooltip' | translate"
                   tooltipPosition="bottom"
-                  (click)="toggleConfirmDeleteCollaborator(collaborator, collaborator?.accessTo[0]?.id, collaborator.id)"
+                  (click)="
+                    toggleConfirmDeleteCollaborator(
+                      collaborator,
+                      collaborator?.accessTo[0]?.id,
+                      collaborator.id
+                    )
+                  "
                 ></i>
               </div>
             </td>
@@ -540,7 +546,7 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>{{ 'IrreversibleAction' | translate }}</p>
+  <p>{{ "IrreversibleAction" | translate }}</p>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -567,6 +573,7 @@
       [placeholder]="'adminModalAddDeviceSerialNumber' | translate"
       [error]="!!validateInputs(addDeviceForm, 'serialNumber')"
       [helper]="validateInputs(addDeviceForm, 'serialNumber')"
+      (inputChange)="validateDeviceSerialNumber($event)"
     />
     <shared-input-text
       [formGroup]="addDeviceForm"
@@ -595,6 +602,7 @@
       <shared-button
         [label]="'adminModalSave' | translate"
         (click)="addOrEditDevice()"
+        [disabled]="addDeviceForm.status === 'INVALID'"
       />
       <shared-button
         [label]="'adminModalCancel' | translate"
@@ -611,7 +619,7 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>{{ 'IrreversibleAction' | translate }}</p>
+  <p>{{ "IrreversibleAction" | translate }}</p>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -634,6 +642,7 @@
       [placeholder]="'adminModalAddGroupName' | translate"
       [error]="!!validateInputs(addGroupForm, 'teamName')"
       [helper]="validateInputs(addGroupForm, 'teamName')"
+      (inputChange)="validateGroupName($event)"
     />
     <shared-select
       [options]="gmtItems"
@@ -671,7 +680,7 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>{{ 'IrreversibleAction' | translate }}</p>
+  <p>{{ "IrreversibleAction" | translate }}</p>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -698,6 +707,7 @@
       [placeholder]="'adminModalAddCollaboratorEmail' | translate"
       [error]="!!validateInputs(addCollaboratorForm, 'email')"
       [helper]="validateInputs(addCollaboratorForm, 'email')"
+      (inputChange)="validateEmailCollaborator($event)"
     />
     <shared-input-password
       [placeholder]="'adminModalAddCollaboratorPassword' | translate"
@@ -736,7 +746,11 @@
       [error]="!!validateInputs(addCollaboratorForm, 'UID')"
     />
     <div class="buttons-modal">
-      <shared-button [label]="'adminModalSave' | translate" (click)="addCollaborator()"/>
+      <shared-button
+        [label]="'adminModalSave' | translate"
+        (click)="addCollaborator()"
+        [disabled]="addCollaboratorForm.status === 'INVALID'"
+      />
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
@@ -752,7 +766,7 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>{{ 'IrreversibleAction' | translate }}</p>
+  <p>{{ "IrreversibleAction" | translate }}</p>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -775,6 +789,7 @@
       [placeholder]="'adminModalAddUserEmail' | translate"
       [error]="!!validateInputs(addUserForm, 'email')"
       [helper]="validateInputs(addUserForm, 'email')"
+      (inputChange)="validateEmailUser($event)"
     />
     <shared-input-text
       [formGroup]="addUserForm"
@@ -791,7 +806,11 @@
       [error]="!!validateInputs(addUserForm, 'role')"
     />
     <div class="buttons-modal">
-      <shared-button [label]="'adminModalSave' | translate" (click)="addUser()" />
+      <shared-button
+        [label]="'adminModalSave' | translate"
+        (click)="addUser()"
+        [disabled]="addUserForm.status === 'INVALID'"
+      />
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
@@ -807,7 +826,7 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>{{ 'IrreversibleAction' | translate }}</p>
+  <p>{{ "IrreversibleAction" | translate }}</p>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"

@@ -256,6 +256,10 @@
   "adminDeleteUserSuccess": "Usuario eliminado correctamente",
   "adminDeleteUserError": "Error al eliminar usuario",
 
+  "adminExistDeviceError": "El dispositivo ya existe",
+  "adminExistNameError": "El nombre ya existe",
+  "adminExistEmailError": "El email ya existe",
+
   "settingsHelpCardTitle": "Tutoriales y FAQs",
   "settingsContactCardTitle": "Contacto",
   "settingsPasswordCardTitle": "Cambio de contraseña",

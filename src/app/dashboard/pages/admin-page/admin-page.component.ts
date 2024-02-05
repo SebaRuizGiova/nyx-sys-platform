@@ -1818,7 +1818,62 @@ export class AdminPageComponent implements OnInit {
       if (errors['pattern']) {
         return this.translateService.instant('settingsValidEmailError');
       }
+      if (errors['existDevice']) {
+        return this.translateService.instant('adminExistDeviceError');
+      }
+      if (errors['existEmail']) {
+        return this.translateService.instant('adminExistEmailError');
+      }
+      if (errors['existName']) {
+        return this.translateService.instant('adminExistNameError');
+      }
     }
     return '';
+  }
+
+  validateDeviceSerialNumber(value: string) {
+    if (value.length >= 6) {
+      const existDevice = this.devices.some(
+        (device) => device.serialNumber.toLowerCase() === value.toLowerCase()
+      );
+      if (existDevice) {
+        this.addDeviceForm.controls['serialNumber'].setErrors({
+          existDevice: true,
+        });
+      }
+    }
+  }
+
+  validateGroupName(value: string) {
+    const existGroupName = this.groups.some(
+      (group) => group.teamName.toLowerCase() === value.toLowerCase()
+    );
+    if (existGroupName) {
+      this.addGroupForm.controls['teamName'].setErrors({
+        existName: true,
+      });
+    }
+  }
+
+  validateEmailCollaborator(value: string) {
+    const existEmail = this.collaborators.some(
+      (collaborator) => collaborator.email.toLowerCase() === value.toLowerCase()
+    );
+    if (existEmail) {
+      this.addCollaboratorForm.controls['email'].setErrors({
+        existEmail: true,
+      });
+    }
+  }
+
+  validateEmailUser(value: string) {
+    const existEmail = this.users.some(
+      (user) => user.email.toLowerCase() === value.toLowerCase()
+    );
+    if (existEmail) {
+      this.addUserForm.controls['email'].setErrors({
+        existEmail: true,
+      });
+    }
   }
 }
