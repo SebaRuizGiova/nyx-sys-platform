@@ -77,7 +77,7 @@ export class AdminPageComponent implements OnInit {
   });
   public addCollaboratorForm: FormGroup = this.fb.group({
     email: [
-      'lucas-collaborator@nyx-sys.com',
+      '',
       [
         Validators.required,
         Validators.pattern(this.validatorsService.emailPattern),
@@ -85,22 +85,22 @@ export class AdminPageComponent implements OnInit {
     ],
     accessTo: [[]],
     password: [
-      '180594Lucas',
+      '',
       [
         Validators.required,
         Validators.pattern(this.validatorsService.passwordPattern),
       ],
     ],
     confirmPassword: [
-      '180594Lucas',
+      '',
       [
         Validators.required,
         Validators.pattern(this.validatorsService.passwordPattern),
       ],
     ],
-    nickName: ['Lucas colaborador test', Validators.required],
-    role: ['collaborator', Validators.required],
-    UID: ['9lPzGs6JOix6R7jZ1qzL', Validators.required],
+    nickName: ['', Validators.required],
+    role: ['', Validators.required],
+    UID: ['', Validators.required],
   });
   public addUserForm: FormGroup = this.fb.group({
     id: ['', Validators.required],
@@ -1806,5 +1806,19 @@ export class AdminPageComponent implements OnInit {
         label: `${profile.name} ${profile.lastName}`,
         value: profile.id,
       }));
+  }
+
+  validateInputs(form: FormGroup, field: string): string {
+    const errors = form.controls[field].errors;
+    const touched = form.controls[field].touched;
+    if (errors && touched) {
+      if (errors['required']) {
+        return this.translateService.instant('settingsMandatoryFieldError');
+      }
+      if (errors['pattern']) {
+        return this.translateService.instant('settingsValidEmailError');
+      }
+    }
+    return '';
   }
 }

@@ -453,27 +453,32 @@
       [formGroup]="addProfileForm"
       formControlName="name"
       [placeholder]="'adminModalAddProfileName' | translate"
-      [error]="false"
-      helper=""
+      [error]="!!validateInputs(addProfileForm, 'name')"
+      [helper]="validateInputs(addProfileForm, 'name')"
     />
     <shared-input-text
       [formGroup]="addProfileForm"
       formControlName="lastName"
       [placeholder]="'adminModalAddProfileLastname' | translate"
-      [error]="false"
-      helper=""
+      [error]="!!validateInputs(addProfileForm, 'lastName')"
+      [helper]="validateInputs(addProfileForm, 'lastName')"
     />
     <p-calendar
       formControlName="birthdate"
       dateFormat="dd/mm/yy"
       [placeholder]="'adminModalAddProfileBirthDate' | translate"
       [showIcon]="true"
+      [ngClass]="{
+        'ng-invalid': !!validateInputs(addProfileForm, 'birthdate'),
+        'ng-dirty': !!validateInputs(addProfileForm, 'birthdate')
+      }"
     />
     <shared-select
       [options]="genderItems"
       [placeholder]="'adminModalAddProfileGender' | translate"
       [formGroup]="addProfileForm"
       formControlName="sex"
+      [error]="!!validateInputs(addProfileForm, 'sex')"
     />
     <p-dropdown
       [options]="countriesItems"
@@ -481,6 +486,10 @@
       optionValue="value"
       [placeholder]="'adminModalAddProfileBirthplace' | translate"
       formControlName="birthplace"
+      [ngClass]="{
+        'ng-invalid': !!validateInputs(addProfileForm, 'birthplace'),
+        'ng-dirty': !!validateInputs(addProfileForm, 'birthplace')
+      }"
     >
       <ng-template pTemplate="selectedItem">
         <div class="dropdown-item" *ngIf="addProfileForm.value.birthplace">
@@ -501,12 +510,14 @@
       [formGroup]="addProfileForm"
       formControlName="userID"
       (selectChange)="selectUserProfile($event)"
+      [error]="!!validateInputs(addProfileForm, 'userID')"
     />
     <shared-select
       [options]="groupsItems"
       [placeholder]="'adminModalAddProfileGroup' | translate"
       [formGroup]="addProfileForm"
       formControlName="teamID"
+      [error]="!!validateInputs(addProfileForm, 'teamID')"
     />
     <div class="buttons-modal">
       <shared-button
@@ -554,15 +565,15 @@
       [formGroup]="addDeviceForm"
       formControlName="serialNumber"
       [placeholder]="'adminModalAddDeviceSerialNumber' | translate"
-      [error]="false"
-      helper=""
+      [error]="!!validateInputs(addDeviceForm, 'serialNumber')"
+      [helper]="validateInputs(addDeviceForm, 'serialNumber')"
     />
     <shared-input-text
       [formGroup]="addDeviceForm"
       formControlName="verificationCode"
       [placeholder]="'adminModalAddDeviceCode' | translate"
-      [error]="false"
-      helper=""
+      [error]="!!validateInputs(addDeviceForm, 'verificationCode')"
+      [helper]="validateInputs(addDeviceForm, 'verificationCode')"
     />
     <shared-select
       *ngIf="userRole === 'superAdmin'"
@@ -571,12 +582,14 @@
       [formGroup]="addDeviceForm"
       formControlName="userID"
       (selectChange)="selectUserDevice($event)"
+      [error]="!!validateInputs(addDeviceForm, 'userID')"
     />
     <shared-select
       [options]="profilesItems"
       [placeholder]="'adminModalAddDeviceProfile' | translate"
       [formGroup]="addDeviceForm"
       formControlName="playerID"
+      [error]="!!validateInputs(addDeviceForm, 'playerID')"
     />
     <div class="buttons-modal">
       <shared-button
@@ -619,14 +632,15 @@
       [formGroup]="addGroupForm"
       formControlName="teamName"
       [placeholder]="'adminModalAddGroupName' | translate"
-      [error]="false"
-      helper=""
+      [error]="!!validateInputs(addGroupForm, 'teamName')"
+      [helper]="validateInputs(addGroupForm, 'teamName')"
     />
     <shared-select
       [options]="gmtItems"
       [placeholder]="'adminModalAddGroupGMT' | translate"
       [formGroup]="addGroupForm"
       formControlName="gmt"
+      [error]="!!validateInputs(addGroupForm, 'gmt')"
     />
     <shared-select
       *ngIf="userRole === 'superAdmin'"
@@ -634,6 +648,7 @@
       [placeholder]="'adminModalAddGroupUser' | translate"
       [formGroup]="addGroupForm"
       formControlName="userID"
+      [error]="!!validateInputs(addGroupForm, 'userID')"
     />
     <div class="buttons-modal">
       <shared-button
@@ -681,35 +696,36 @@
       [formGroup]="addCollaboratorForm"
       formControlName="email"
       [placeholder]="'adminModalAddCollaboratorEmail' | translate"
-      [error]="false"
-      helper=""
+      [error]="!!validateInputs(addCollaboratorForm, 'email')"
+      [helper]="validateInputs(addCollaboratorForm, 'email')"
     />
     <shared-input-password
       [placeholder]="'adminModalAddCollaboratorPassword' | translate"
-      helper=""
-      [error]="false"
       [formGroup]="addCollaboratorForm"
       formControlName="password"
+      [error]="!!validateInputs(addCollaboratorForm, 'password')"
+      [helper]="validateInputs(addCollaboratorForm, 'password')"
     />
     <shared-input-password
       [placeholder]="'adminModalAddCollaboratorConfirmPassword' | translate"
-      helper=""
-      [error]="false"
       [formGroup]="addCollaboratorForm"
       formControlName="confirmPassword"
+      [error]="!!validateInputs(addCollaboratorForm, 'confirmPassword')"
+      [helper]="validateInputs(addCollaboratorForm, 'confirmPassword')"
     />
     <shared-input-text
       [formGroup]="addCollaboratorForm"
       formControlName="nickName"
       [placeholder]="'adminModalAddCollaboratorAlias' | translate"
-      [error]="false"
-      helper=""
+      [error]="!!validateInputs(addCollaboratorForm, 'nickName')"
+      [helper]="validateInputs(addCollaboratorForm, 'nickName')"
     />
     <shared-select
       [options]="roleCollaboratorItems"
       [placeholder]="'adminModalAddCollaboratorRole' | translate"
       [formGroup]="addCollaboratorForm"
       formControlName="role"
+      [error]="!!validateInputs(addCollaboratorForm, 'role')"
     />
     <shared-select
       *ngIf="userRole === 'superAdmin'"
@@ -717,6 +733,7 @@
       [placeholder]="'adminModalAddCollaboratorUser' | translate"
       [formGroup]="addCollaboratorForm"
       formControlName="UID"
+      [error]="!!validateInputs(addCollaboratorForm, 'UID')"
     />
     <div class="buttons-modal">
       <shared-button [label]="'adminModalSave' | translate" (click)="addCollaborator()"/>
@@ -756,21 +773,22 @@
       [formGroup]="addUserForm"
       formControlName="email"
       [placeholder]="'adminModalAddUserEmail' | translate"
-      [error]="false"
-      helper=""
+      [error]="!!validateInputs(addUserForm, 'email')"
+      [helper]="validateInputs(addUserForm, 'email')"
     />
     <shared-input-text
       [formGroup]="addUserForm"
       formControlName="nickName"
       [placeholder]="'adminModalAddUserAlias' | translate"
-      [error]="false"
-      helper=""
+      [error]="!!validateInputs(addUserForm, 'nickName')"
+      [helper]="validateInputs(addUserForm, 'nickName')"
     />
     <shared-select
       [options]="roleUserItems"
       [placeholder]="'adminModalAddUserRole' | translate"
       [formGroup]="addUserForm"
       formControlName="role"
+      [error]="!!validateInputs(addUserForm, 'role')"
     />
     <div class="buttons-modal">
       <shared-button [label]="'adminModalSave' | translate" (click)="addUser()" />

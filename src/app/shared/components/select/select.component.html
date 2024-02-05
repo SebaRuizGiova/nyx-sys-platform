@@ -9,5 +9,9 @@
     [formControlName]="formControlName"
     (onChange)="onSelectChange($event)"
     (onClear)="onSelectChange($event)"
+    [ngClass]="{
+      'ng-invalid': error,
+      'ng-dirty': error
+    }"
   ></p-dropdown>
 </form>
