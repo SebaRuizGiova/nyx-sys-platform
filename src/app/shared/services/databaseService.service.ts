@@ -31,7 +31,9 @@ export class DatabaseService {
   getAllUsersCollection() {
     return this.firestore
       .collection(`users/${environment.client}/content`)
-      .ref.get();
+      .ref
+      .where('role', 'in', ['user', 'superAdmin'])
+      .get();
   }
 
   getProfilesByGroupCollection(userId: string, teamId: string) {

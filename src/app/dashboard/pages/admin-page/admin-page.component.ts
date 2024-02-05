@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin, mergeMap } from 'rxjs';
+import { forkJoin, map, mergeMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { Profile } from '../../interfaces/profile.interface';
@@ -268,14 +268,31 @@ export class AdminPageComponent implements OnInit {
       });
   }
 
-  getCollaborators(userId?: string) {
+  async getCollaborators(userId?: string) {
     this.loadingService.setLoading(true);
-    this.databaseService
-      .getUserData(userId || this.authService.userId)
-      .subscribe((user) => {
-        this.collaborators = user?.collaborators || [];
-        this.filteredCollaborators = user?.collaborators || [];
-      });
+    // this.databaseService
+    //   .getUserData(userId || this.authService.userId)
+    //   .subscribe((user) => {
+    //     this.collaborators = user?.collaborators || [];
+    //     this.filteredCollaborators = user?.collaborators || [];
+    //   });
+    const collaboratorsRef =
+      await this.databaseService.getCollaboratorsCollection();
+    const collaborators = collaboratorsRef.docs.map((collaborator: any) => {
+      const collaboratorData: Collaborator = collaborator.data();
+      return {
+        ...collaboratorData,
+        linked: collaboratorData.accessTo
+          .map((access) => access.nickName)
+          .join(', '),
+        userId: collaboratorData.UID,
+      };
+    });
+    this.collaborators = collaborators;
+    this.filteredCollaborators = collaborators;
+    this.collaboratorsByUser = collaborators;
+
+    this.loadingService.setLoading(false);
   }
 
   getDataAdmin() {
@@ -283,6 +300,10 @@ export class AdminPageComponent implements OnInit {
     this.databaseService
       .getAllUsers()
       .pipe(
+        map((users: User[]) => {
+          const filteredUsers = users.filter((user: User) => user.role === 'user' || user.role === 'superAdmin');
+          return filteredUsers
+        }),
         mergeMap((users) => {
           this.users = users;
           this.filteredUsers = users;
@@ -487,9 +508,9 @@ export class AdminPageComponent implements OnInit {
       this.groupsByUser = this.groups.filter(
         (group) => group.userID === userId
       );
-      this.collaboratorsByUser = this.collaborators.filter(
-        (collaborator) => collaborator.userId === userId
-      );
+      this.collaboratorsByUser = this.collaborators.filter(collaborator => {
+        return collaborator.accessTo.some(access => access.id === userId);
+      });
 
       this.filteredProfiles = this.profilesByUser;
       this.filteredDevices = this.devicesByUser;
