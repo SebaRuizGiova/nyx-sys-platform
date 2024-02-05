@@ -665,8 +665,8 @@ export class AdminPageComponent implements OnInit {
           this.toggleAddProfile();
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'Perfil agregado correctamente',
+            summary: this.translateService.instant('ToastTitleCorrect'),
+            detail: this.translateService.instant('adminAddProfileSuccess'),
           });
           this.loadData();
         })
@@ -674,8 +674,8 @@ export class AdminPageComponent implements OnInit {
           this.loadingService.setLoading(false);
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
-            detail: 'Error al agregar el perfil',
+            summary: this.translateService.instant('ToastTitleError'),
+            detail: this.translateService.instant('adminAddProfileError'),
           });
         });
     }
@@ -704,8 +704,8 @@ export class AdminPageComponent implements OnInit {
           this.actionsProfilesForm.reset();
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'Perfil editado correctamente',
+            summary: this.translateService.instant('ToastTitleCorrect'),
+            detail: this.translateService.instant('adminEditProfileSuccess'),
           });
           this.profileIdToEdit = '';
           this.loadData();
@@ -714,8 +714,8 @@ export class AdminPageComponent implements OnInit {
           this.loadingService.setLoading(false);
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
-            detail: 'Error al editar el perfil',
+            summary: this.translateService.instant('ToastTitleError'),
+            detail: this.translateService.instant('adminEditProfileError'),
           });
         });
     }
@@ -752,8 +752,8 @@ export class AdminPageComponent implements OnInit {
         this.actionsProfilesForm.reset();
         this.messageService.add({
           severity: 'success',
-          summary: 'Success',
-          detail: 'Perfil eliminado correctamente',
+          summary: this.translateService.instant('ToastTitleCorrect'),
+          detail: this.translateService.instant('adminDeleteProfileSuccess'),
         });
         this.loadData();
       })
@@ -761,8 +761,8 @@ export class AdminPageComponent implements OnInit {
         this.loadingService.setLoading(false);
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: 'Error al eliminar el perfil',
+          summary: this.translateService.instant('ToastTitleError'),
+          detail: this.translateService.instant('adminDeleteProfileError'),
         });
       });
   }
@@ -779,8 +779,8 @@ export class AdminPageComponent implements OnInit {
         this.actionsProfilesForm.reset();
         this.messageService.add({
           severity: 'success',
-          summary: 'Success',
-          detail: `Perfil ${hideValue ? 'mostrado' : 'oculto'} correctamente`,
+          summary: this.translateService.instant('ToastTitleCorrect'),
+          detail: this.translateService.instant(hideValue ? 'adminShowProfileSuccess' : 'adminHideProfileSuccess'),
         });
         this.loadData();
       })
@@ -788,8 +788,8 @@ export class AdminPageComponent implements OnInit {
         this.loadingService.setLoading(false);
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: `Error al ${hideValue ? 'mostrar' : 'ocultar'} el perfil`,
+          summary: this.translateService.instant('ToastTitleError'),
+          detail: this.translateService.instant(hideValue ? 'adminShowProfileError' : 'adminHideProfileError'),
         });
       });
   }
@@ -814,8 +814,8 @@ export class AdminPageComponent implements OnInit {
           this.toggleAddDevice();
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'Dispositivo agregado correctamente',
+            summary: this.translateService.instant('ToastTitleCorrect'),
+            detail: this.translateService.instant('adminAddDeviceSuccess'),
           });
           this.loadData();
         })
@@ -823,8 +823,8 @@ export class AdminPageComponent implements OnInit {
           this.loadingService.setLoading(false);
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
-            detail: 'Error al agregar el dispositivo',
+            summary: this.translateService.instant('ToastTitleError'),
+            detail: this.translateService.instant('adminAddDeviceError'),
           });
         });
     }
@@ -853,8 +853,8 @@ export class AdminPageComponent implements OnInit {
           this.actionsDevicesForm.reset();
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'Dispositivo editado correctamente',
+            summary: this.translateService.instant('ToastTitleCorrect'),
+            detail: this.translateService.instant('adminEditDeviceSuccess'),
           });
           this.deviceIdToEdit = '';
           this.loadData();
@@ -863,8 +863,8 @@ export class AdminPageComponent implements OnInit {
           this.loadingService.setLoading(false);
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
-            detail: 'Error al agregar el dispositivo',
+            summary: this.translateService.instant('ToastTitleError'),
+            detail: this.translateService.instant('adminEditDeviceError'),
           });
         });
     }
@@ -899,8 +899,8 @@ export class AdminPageComponent implements OnInit {
         this.actionsDevicesForm.reset();
         this.messageService.add({
           severity: 'success',
-          summary: 'Success',
-          detail: 'Dispositivo eliminado correctamente',
+          summary: this.translateService.instant('ToastTitleCorrect'),
+          detail: this.translateService.instant('adminDeleteDeviceSuccess'),
         });
         this.loadData();
       })
@@ -908,8 +908,8 @@ export class AdminPageComponent implements OnInit {
         this.loadingService.setLoading(false);
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: 'Error al eliminar el dispositivo',
+          summary: this.translateService.instant('ToastTitleError'),
+          detail: this.translateService.instant('adminDeleteDeviceError'),
         });
       });
   }
@@ -934,8 +934,8 @@ export class AdminPageComponent implements OnInit {
         .then(() => {
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'Grupo agregado correctamente',
+            summary: this.translateService.instant('ToastTitleCorrect'),
+            detail: this.translateService.instant('adminAddGroupSuccess'),
           });
           this.loadData();
         })
@@ -943,8 +943,8 @@ export class AdminPageComponent implements OnInit {
           this.loadingService.setLoading(false);
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
-            detail: 'Error al agregar grupo',
+            summary: this.translateService.instant('ToastTitleError'),
+            detail: this.translateService.instant('adminAddGroupError'),
           });
         });
     }
@@ -973,8 +973,8 @@ export class AdminPageComponent implements OnInit {
           this.actionsGroupsForm.reset();
           this.messageService.add({
             severity: 'success',
-            summary: 'Success',
-            detail: 'Grupo editado correctamente',
+            summary: this.translateService.instant('ToastTitleCorrect'),
+            detail: this.translateService.instant('adminEditGroupSuccess'),
           });
           this.groupIdToEdit = '';
           this.loadData();
@@ -983,8 +983,8 @@ export class AdminPageComponent implements OnInit {
           this.loadingService.setLoading(false);
           this.messageService.add({
             severity: 'error',
-            summary: 'Error',
-            detail: 'Error al editar el grupo',
+            summary: this.translateService.instant('ToastTitleError'),
+            detail: this.translateService.instant('adminEditGroupError'),
           });
         });
     }
@@ -1018,8 +1018,8 @@ export class AdminPageComponent implements OnInit {
         this.actionsGroupsForm.reset();
         this.messageService.add({
           severity: 'success',
-          summary: 'Success',
-          detail: 'Grupo eliminado correctamente',
+          summary: this.translateService.instant('ToastTitleCorrect'),
+          detail: this.translateService.instant('adminDeleteGroupSuccess'),
         });
         this.loadData();
       })
@@ -1027,8 +1027,8 @@ export class AdminPageComponent implements OnInit {
         this.loadingService.setLoading(false);
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: 'Error al eliminar el grupo',
+          summary: this.translateService.instant('ToastTitleError'),
+          detail: this.translateService.instant('adminDeleteGroupError'),
         });
       });
   }
@@ -1045,8 +1045,8 @@ export class AdminPageComponent implements OnInit {
         this.actionsGroupsForm.reset();
         this.messageService.add({
           severity: 'success',
-          summary: 'Success',
-          detail: `Grupo ${hideValue ? 'mostrado' : 'oculto'} correctamente`,
+          summary: this.translateService.instant('ToastTitleCorrect'),
+          detail: this.translateService.instant(hideValue ? 'adminShowGroupSuccess' : 'adminHideGroupSuccess'),
         });
         this.loadData();
       })
@@ -1054,8 +1054,8 @@ export class AdminPageComponent implements OnInit {
         this.loadingService.setLoading(false);
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: `Error al ${hideValue ? 'mostrar' : 'ocultar'} el grupo`,
+          summary: this.translateService.instant('ToastTitleError'),
+          detail: this.translateService.instant(hideValue ? 'adminShowGroupError' : 'adminHideGroupError'),
         });
       });
   }
@@ -1096,8 +1096,8 @@ export class AdminPageComponent implements OnInit {
         this.loadingService.setLoading(false);
         this.messageService.add({
           severity: 'success',
-          summary: 'Success',
-          detail: 'Colaborador agregado correctamente',
+          summary: this.translateService.instant('ToastTitleCorrect'),
+          detail: this.translateService.instant('adminAddCollaboratorSuccess'),
         });
         this.loadData();
       }
@@ -1105,8 +1105,8 @@ export class AdminPageComponent implements OnInit {
       this.loadingService.setLoading(false);
       this.messageService.add({
         severity: 'error',
-        summary: 'Error',
-        detail: 'Error al agregar colaborador',
+        summary: this.translateService.instant('ToastTitleError'),
+        detail: this.translateService.instant('adminAddCollaboratorError'),
       });
     }
   }
@@ -1116,7 +1116,6 @@ export class AdminPageComponent implements OnInit {
   }
 
   async deleteCollaborator() {
-    debugger;
     try {
       const collaboratorRef = this.firestore.doc(
         `/users/nyxsys/content/${this.collaboratorIdToDelete}`
@@ -1149,16 +1148,16 @@ export class AdminPageComponent implements OnInit {
       this.actionsCollaboratorsForm.reset();
       this.messageService.add({
         severity: 'success',
-        summary: 'Success',
-        detail: 'Colaborador eliminado correctamente',
+        summary: this.translateService.instant('ToastTitleCorrect'),
+        detail: this.translateService.instant('adminDeleteCollaboratorSuccess'),
       });
       this.loadData();
     } catch (error) {
       this.loadingService.setLoading(false);
       this.messageService.add({
         severity: 'error',
-        summary: 'Error',
-        detail: 'Error al eliminar colaborador',
+        summary: this.translateService.instant('ToastTitleError'),
+        detail: this.translateService.instant('adminDeleteCollaboratorError'),
       });
     }
   }
