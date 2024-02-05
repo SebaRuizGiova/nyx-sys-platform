@@ -58,12 +58,19 @@ export class AuthService {
             }),
             tap((userData) => {
               if (userData) {
-                this.userId = userData.id;
-                localStorage.setItem('userId', userData.id);
-                const actualRole = localStorage.getItem('role');
-                if (userData.role !== actualRole) {
+                if (userData.id !== this.userId) {
                   localStorage.removeItem('selectedGroup');
                   localStorage.removeItem('selectedGroupIndex');
+                }
+                if (
+                  userData.role === 'collaborator' ||
+                  userData.role === 'viewer'
+                ) {
+                  this.userId = userData.accessTo[0].id;
+                  localStorage.setItem('userId', this.userId);
+                } else {
+                  this.userId = userData.id;
+                  localStorage.setItem('userId', this.userId);
                 }
                 this.role = userData.role;
               } else {
