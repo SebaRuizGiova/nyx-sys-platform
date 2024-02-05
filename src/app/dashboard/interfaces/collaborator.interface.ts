@@ -7,10 +7,11 @@ export interface Collaborator {
   userId?:          string;
   UID:              string;
   accessTo:     AccessTo[];
+  password?:        string;
 }
 
 interface AccessTo {
-  email: string;
-  id: string;
-  nickName: string;
+  email:            string;
+  id:               string;
+  nickName:         string;
 }

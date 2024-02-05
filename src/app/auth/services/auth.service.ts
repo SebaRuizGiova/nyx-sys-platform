@@ -7,6 +7,7 @@ import { User } from 'src/app/dashboard/interfaces/user.interface';
 import { environment } from 'src/environments/environment';
 import { DatabaseService } from 'src/app/shared/services/databaseService.service';
 import { HttpClient } from '@angular/common/http';
+import { HelpersService } from 'src/app/shared/services/helpers.service';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,8 @@ export class AuthService {
     private fireAuth: AngularFireAuth,
     private firestore: AngularFirestore,
     private databaseService: DatabaseService,
-    private http: HttpClient
+    private http: HttpClient,
+    private helpersService: HelpersService
   ) {
     this.currentUser = localStorage.getItem('currentUser') || '';
   }
@@ -141,7 +143,7 @@ export class AuthService {
         collaborators
       );
 
-      this.databaseService.sendWelcomeEmail(email, password);
+      this.helpersService.sendWelcomeEmail(email, password);
     } catch (error) {
       console.log(error);
     }
@@ -200,7 +202,7 @@ export class AuthService {
         id,
         accessTo
       );
-      this.databaseService.sendWelcomeEmail(email, password);
+      this.helpersService.sendWelcomeEmail(email, password);
     } catch (error) {
       throw error;
     }

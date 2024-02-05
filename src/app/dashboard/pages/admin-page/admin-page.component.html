@@ -773,7 +773,7 @@
       formControlName="role"
     />
     <div class="buttons-modal">
-      <shared-button [label]="'adminModalSave' | translate" />
+      <shared-button [label]="'adminModalSave' | translate" (click)="addUser()" />
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"

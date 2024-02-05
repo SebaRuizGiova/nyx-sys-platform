@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import * as moment from 'moment-timezone';
 import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
 import { ItemDropdown } from '../components/dropdown/dropdown.component';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
@@ -33,6 +34,10 @@ export class HelpersService {
     { label: '+11:00 Honiara', value: 11 },
     { label: '+12:00 Suva, Wellington', value: 12 },
   ];
+  private cloudFunctionUrl =
+    'https://us-central1-honyro-55d73.cloudfunctions.net/app';
+
+  constructor(private http: HttpClient) {}
 
   compareDates = (date1: string, date2: string, timezone: number): number => {
     const date1Obj = moment
@@ -150,5 +155,22 @@ export class HelpersService {
   formatTimestamp(timestamp: number, timezone: number) {
     const date = moment.tz(timestamp * 1000, 'UTC').utcOffset(timezone);
     return date.format('HH:mm:ss') + 'hs';
+  }
+
+  sendWelcomeEmail(email: string, password: string) {
+    const subject = '¡Bienvenido a Nyx-Sys!';
+    const text = `Te damos la bienvenida a nuestra plataforma, a continuación te proveeremos de tus credenciales de acceso.\nRecuerda que puedes cambiar la contraseña en cualquier momento desde ajustes.\n\nUsuario: ${email}\nContraseña: ${password}\nUrl de acceso: https://nyxsys-global.web.app/login\nAtte: Nyx-Sys team.`;
+
+    const data = {
+      to: [email, 'sebastian.ruiz@nyx-sys.com', 'fernando.lerner@nyx-sys.com'],
+      subject,
+      text,
+    };
+
+    const url = `${this.cloudFunctionUrl}/post/welcome-email`;
+    this.http.post(url, data).subscribe(
+      (response) => {},
+      (error) => {}
+    );
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -7,6 +7,8 @@ import { User } from 'src/app/dashboard/interfaces/user.interface';
 import { Device } from 'src/app/dashboard/interfaces/device.interface';
 import { Group } from 'src/app/dashboard/interfaces/group.interface';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { Collaborator } from 'src/app/dashboard/interfaces/collaborator.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -16,10 +18,12 @@ export class DatabaseService {
   public selectedGroupId: string = '';
   public selectedGroupIndex: number = 0;
   public profiles: Profile[] = [];
-  private cloudFunctionUrl =
-    'https://us-central1-honyro-55d73.cloudfunctions.net/app';
+  private authService?: AuthService;
+  private userRole: string = '';
 
-  constructor(private firestore: AngularFirestore, private http: HttpClient) {}
+  constructor(private firestore: AngularFirestore, private injector: Injector) {
+    setTimeout(() => (this.authService = this.injector.get(AuthService)));
+  }
 
   getAllUsers(): Observable<any> {
     return this.firestore
@@ -31,12 +35,18 @@ export class DatabaseService {
   getAllUsersCollection() {
     return this.firestore
       .collection(`users/${environment.client}/content`)
-      .ref
-      .where('role', 'in', ['user', 'superAdmin'])
+      .ref.where('role', 'in', ['user', 'superAdmin'])
       .get();
   }
 
-  saveUser(email: string, UID: string, nickName: string, role: string, id: string, collaborators: any[]) {
+  saveUser(
+    email: string,
+    UID: string,
+    nickName: string,
+    role: string,
+    id: string,
+    collaborators: any[]
+  ) {
     return new Promise(async (resolve, reject) => {
       try {
         const data = {
@@ -45,7 +55,7 @@ export class DatabaseService {
           UID,
           nickName,
           role,
-          collaborators
+          collaborators,
         };
         const result = await this.firestore
           .collection(`/users`)
@@ -166,8 +176,7 @@ export class DatabaseService {
   getCollaboratorsCollection() {
     return this.firestore
       .collection(`users/${environment.client}/content`)
-      .ref
-      .where('role', 'in', ['collaborator', 'viewer'])
+      .ref.where('role', 'in', ['collaborator', 'viewer'])
       .get();
   }
 
@@ -228,23 +237,6 @@ export class DatabaseService {
     });
   }
 
-  sendWelcomeEmail(email: string, password: string) {
-    const subject = '¡Bienvenido a Nyx-Sys!';
-    const text = `Te damos la bienvenida a nuestra plataforma, a continuación te proveeremos de tus credenciales de acceso.\nRecuerda que puedes cambiar la contraseña en cualquier momento desde ajustes.\n\nUsuario: ${email}\nContraseña: ${password}\nUrl de acceso: https://nyxsys-global.web.app/login\nAtte: Nyx-Sys team.`;
-
-    const data = {
-      to: [email, 'sebastian.ruiz@nyx-sys.com', 'fernando.lerner@nyx-sys.com'],
-      subject,
-      text,
-    };
-
-    const url = `${this.cloudFunctionUrl}/post/welcome-email`;
-    this.http.post(url, data).subscribe(
-      (response) => {},
-      (error) => {}
-    );
-  }
-
   setGroupsList(groups: any[]): void {
     this.groupsList = groups;
   }
@@ -259,5 +251,360 @@ export class DatabaseService {
 
   setProfiles(profiles: Profile[]): void {
     this.profiles = profiles;
+  }
+
+  addProfile(profile: Profile) {
+    return new Promise((resolve, reject) => {
+      if (this.authService) {
+        this.authService.checkRole().subscribe((role) => {
+          this.userRole = role;
+
+          const profileRef = this.firestore.collection(
+            `/users/nyxsys/content/${
+              this.userRole === 'superAdmin'
+                ? profile.userID
+                : this.authService!.userId
+            }/players`
+          );
+
+          profileRef
+            .add(profile)
+            .then((res) => {
+              resolve(res);
+            })
+            .catch((error) => {
+              reject(error);
+            });
+        });
+      }
+    });
+  }
+
+  editProfile(profile: Profile) {
+    return new Promise((resolve, reject) => {
+      if (this.authService) {
+        this.authService.checkRole().subscribe((role) => {
+          this.userRole = role;
+
+          const profileRef = this.firestore.doc(
+            `/users/nyxsys/content/${
+              this.userRole === 'superAdmin'
+                ? profile.userID
+                : this.authService!.userId
+            }/players/${profile.id}`
+          );
+
+          profileRef
+            .set(
+              {
+                ...profile,
+              },
+              { merge: true }
+            )
+            .then((res) => {
+              resolve(res);
+            })
+            .catch((error) => {
+              reject(error);
+            });
+        });
+      }
+    });
+  }
+
+  deleteProfile(profileId: string, userId: string) {
+    return new Promise((resolve, reject) => {
+      const profileRef = this.firestore.doc(
+        `/users/nyxsys/content/${userId}/players/${profileId}`
+      );
+
+      profileRef
+        .delete()
+        .then((res) => {
+          resolve(res);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  }
+
+  hideProfile(userIdProfile: string, profileId: string, hideValue: boolean) {
+    return new Promise((resolve, reject) => {
+      const profileRef = this.firestore.doc(
+        `/users/nyxsys/content/${userIdProfile}/players/${profileId}`
+      );
+
+      profileRef
+        .update({ hided: !hideValue })
+        .then((res) => {
+          resolve(res);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  }
+
+  addDevice(device: Device) {
+    return new Promise((resolve, reject) => {
+      if (this.authService) {
+        this.authService.checkRole().subscribe((role) => {
+          this.userRole = role;
+
+          const deviceRef = this.firestore.collection(
+            `/users/nyxsys/content/${
+              this.userRole === 'superAdmin'
+                ? device.userID
+                : this.authService!.userId
+            }/devices`
+          );
+
+          deviceRef
+            .add(device)
+            .then((res) => {
+              resolve(res);
+            })
+            .catch((error) => {
+              reject(error);
+            });
+        });
+      }
+    });
+  }
+
+  editDevice(device: Device) {
+    return new Promise((resolve, reject) => {
+      if (this.authService) {
+        this.authService.checkRole().subscribe((role) => {
+          this.userRole = role;
+
+          const deviceRef = this.firestore.doc(
+            `/users/nyxsys/content/${
+              this.userRole === 'superAdmin'
+                ? device.userID
+                : this.authService!.userId
+            }/devices/${device.id}`
+          );
+
+          deviceRef
+            .set(device, { merge: true })
+            .then((res) => {
+              resolve(res);
+            })
+            .catch((error) => {
+              reject(error);
+            });
+        });
+      }
+    });
+  }
+
+  deleteDevice(deviceId: string, userId: string) {
+    return new Promise((resolve, reject) => {
+      const deviceRef = this.firestore.doc(
+        `/users/nyxsys/content/${userId}/devices/${deviceId}`
+      );
+
+      deviceRef
+        .delete()
+        .then((res) => {
+          resolve(res);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  }
+
+  addGroup(group: Group) {
+    return new Promise((resolve, reject) => {
+      if (this.authService) {
+        this.authService.checkRole().subscribe((role) => {
+          this.userRole = role;
+
+          const groupRef = this.firestore.collection(
+            `/users/nyxsys/content/${
+              this.userRole === 'superAdmin'
+                ? group.userID
+                : this.authService!.userId
+            }/teams`
+          );
+
+          groupRef
+            .add(group)
+            .then((res) => {
+              resolve(res);
+            })
+            .catch((error) => {
+              reject(error);
+            });
+        });
+      }
+    });
+  }
+
+  editGroup(group: Group) {
+    return new Promise((resolve, reject) => {
+      if (this.authService) {
+        this.authService.checkRole().subscribe((role) => {
+          this.userRole = role;
+
+          const groupRef = this.firestore.doc(
+            `/users/nyxsys/content/${
+              this.userRole === 'superAdmin'
+                ? group.userID
+                : this.authService!.userId
+            }/teams/${group.id}`
+          );
+
+          groupRef
+            .set(group, { merge: true })
+            .then((res) => {
+              resolve(res);
+            })
+            .catch((error) => {
+              reject(error);
+            });
+        });
+      }
+    });
+  }
+
+  deleteGroup(groupId: string, userId: string) {
+    return new Promise((resolve, reject) => {
+      const groupRef = this.firestore.doc(
+        `/users/nyxsys/content/${userId}/teams/${groupId}`
+      );
+
+      groupRef
+        .delete()
+        .then((res) => {
+          resolve(res);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  }
+
+  hideGroup(userIdGroup: string, groupId: string, hideValue: boolean) {
+    return new Promise((resolve, reject) => {
+      const groupRef = this.firestore.doc(
+        `/users/nyxsys/content/${userIdGroup}/teams/${groupId}`
+      );
+
+      groupRef
+        .update({ hided: !hideValue })
+        .then((res) => {
+          resolve(res);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  }
+
+  addCollaborator(collaborator: Collaborator, users: User[]) {
+    return new Promise((resolve, reject) => {
+      if (this.authService) {
+        let userId = '';
+
+        this.authService.checkRole().subscribe((role) => {
+          this.userRole = role;
+
+          if (this.userRole === 'superAdmin') {
+            userId = collaborator.UID;
+          } else {
+            userId = this.authService!.currentUser;
+          }
+
+          const userAccess: User | undefined = users.find((user) => {
+            return user.id === userId;
+          });
+
+          const accessTo = [
+            {
+              email: userAccess?.email,
+              id: userAccess?.id,
+              nickName: userAccess?.nickName,
+            },
+          ];
+
+          if (collaborator.email && collaborator.password) {
+            this.authService!.registerCollaborator(
+              collaborator.email,
+              collaborator.password,
+              collaborator.nickName,
+              collaborator.role,
+              accessTo
+            )
+              .then((res: any) => resolve(res))
+              .catch((error: any) => reject(error));
+          } else {
+            reject(new Error('Email o password obligatorios'));
+          }
+        });
+      }
+    });
+  }
+
+  deleteCollaborator(
+    collaboratorId: string,
+    userIdToAccess: string,
+    collaborator: Collaborator | null,
+    users: User[]
+  ) {
+    return new Promise(async (resolve, reject) => {
+      if (this.authService) {
+        try {
+          const collaboratorRef = this.firestore.doc(
+            `/users/nyxsys/content/${collaboratorId}`
+          );
+
+          const userAccessRef = this.firestore.doc(
+            `/users/nyxsys/content/${userIdToAccess}`
+          );
+
+          await collaboratorRef.delete();
+
+          const userToAccess = users.find(
+            (user: User) => user.id === userIdToAccess
+          );
+          const newCollaboratorsUserToAccess =
+            userToAccess?.collaborators.filter(
+              (collaborator: Collaborator) => collaborator.id !== collaboratorId
+            );
+
+          await userAccessRef.update({
+            collaborators: newCollaboratorsUserToAccess,
+          });
+
+          this.authService.deleteUser(collaborator);
+        } catch (error) {
+          throw error;
+        }
+      }
+    });
+  }
+
+  addUser(user: User) {
+    return new Promise((resolve, reject) => {
+      if (this.authService) {
+        this.authService
+          .registerUser(
+            user.email,
+            user.nickName,
+            user.role,
+            user.collaborators
+          )
+          .then((res) => {
+            resolve(res);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      }
+    });
   }
 }
