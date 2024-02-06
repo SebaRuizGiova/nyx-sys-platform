@@ -318,7 +318,9 @@ export class DatabaseService {
       );
 
       profileRef
-        .delete()
+        .update({
+          deleted: true
+        })
         .then((res) => {
           resolve(res);
         })

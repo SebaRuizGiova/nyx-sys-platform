@@ -60,6 +60,7 @@ export class AdminPageComponent implements OnInit {
     deviceID: [false],
   });
   public addDeviceForm: FormGroup = this.fb.group({
+    id: [''],
     serialNumber: ['', [Validators.required, Validators.minLength(6)]],
     verificationCode: ['', [Validators.required, Validators.minLength(5)]],
     userID: ['', Validators.required],
@@ -71,6 +72,7 @@ export class AdminPageComponent implements OnInit {
     playerName: [''],
   });
   public addGroupForm: FormGroup = this.fb.group({
+    id: [''],
     teamName: ['', Validators.required],
     gmt: ['', Validators.required],
     userID: ['', Validators.required],
@@ -80,6 +82,7 @@ export class AdminPageComponent implements OnInit {
     deleteProfiles: [false],
   });
   public addCollaboratorForm: FormGroup = this.fb.group({
+    id: [''],
     email: [
       '',
       [
@@ -129,6 +132,7 @@ export class AdminPageComponent implements OnInit {
     collaborators: [[]],
   });
   public editUserForm: FormGroup = this.fb.group({
+    id: [''],
     nickName: ['', Validators.required],
     role: ['', Validators.required],
   });
