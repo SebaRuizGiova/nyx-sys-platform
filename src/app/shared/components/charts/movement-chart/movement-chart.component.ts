@@ -4,19 +4,19 @@ import { Chart } from 'angular-highcharts';
 import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
 
 @Component({
-  selector: 'br-chart',
-  templateUrl: './br-chart.component.html',
-  styleUrls: ['./br-chart.component.scss'],
+  selector: 'movement-chart',
+  templateUrl: './movement-chart.component.html',
+  styleUrls: ['./movement-chart.component.scss'],
 })
-export class BrChartComponent implements OnChanges {
-  @Input() br: {
-    brArray: any[];
+export class MovementChartComponent implements OnChanges {
+  @Input() movement: {
+    movement: any[];
+    totalActivity: any[];
     timestamps: any[];
-    absent: any[];
   } = {
-    brArray: [],
+    movement: [],
+    totalActivity: [],
     timestamps: [],
-    absent: [],
   };
   public chart?: Chart;
 
@@ -26,17 +26,9 @@ export class BrChartComponent implements OnChanges {
   ) {}
 
   ngOnChanges(): void {
-    let brValues;
-    let timestamps;
-    let absentValues;
-    brValues = this.br.brArray;
-    timestamps = this.br.timestamps.map((timestamp) =>
-      this.helpersService.formatTimestamp(
-        timestamp,
-        this.timezoneService.timezoneOffset
-      )
-    );
-    absentValues = this.br.absent;
+    const movementsValues = this.movement.movement;
+    const totalActivityValues = this.movement.totalActivity;
+    const timestampsValues = this.movement.timestamps;
 
     const self = this;
 
@@ -51,7 +43,7 @@ export class BrChartComponent implements OnChanges {
         },
       },
       xAxis: {
-        categories: timestamps,
+        categories: timestampsValues,
         labels: {
           enabled: false,
         },
@@ -59,10 +51,18 @@ export class BrChartComponent implements OnChanges {
       yAxis: [
         {
           title: {
-            text: 'Breathing rate',
+            text: 'Amount of big movements',
           },
-          tickInterval: 5,
-          tickPixelInterval: 5,
+          // tickInterval: 10,
+          // tickPixelInterval: 95,
+          gridLineColor: 'transparent',
+        },
+        {
+          title: {
+            text: 'Turns/Night',
+          },
+          tickInterval: 20,
+          // tickPixelInterval: 95,
           gridLineColor: '#3b3b3b',
         },
         // {
@@ -104,36 +104,32 @@ export class BrChartComponent implements OnChanges {
         },
       },
       tooltip: {
-        shared: true,
-        formatter: function () {
-          const timestamp = self.helpersService.formatTimestamp(
-            this.point.x,
-            self.timezoneService.timezoneOffset
-          );
-          const value = this.point.y;
-          return `<b>${timestamp}</b><br/>Breathing rate: ${value}`;
-        },
+        shared: true
       },
       series: [
         {
-          name: 'Breathing rate',
-          // yAxis: 1,
+          name: 'Amount of big movements',
+          yAxis: 0,
+          type: 'column',
+          data: movementsValues,
+          color: '#544FC5',
+          borderColor: '#544FC5',
+          borderRadius: 0
+        },
+        {
+          name: 'Turns/Night',
+          yAxis: 1,
           marker: {
             symbol: 'circle',
           },
-          type: 'line',
-          data: brValues,
-          color: '#544FC5',
-          lineWidth: 1.5,
+          type: 'spline',
+          data: totalActivityValues,
+          pointRange: 100,
+          lineWidth: 1.5
         },
-        // {
-        //   name: 'Absent',
-        //   yAxis: 3,
-        //   type: 'column',
-        //   data: absentValues,
-        //   pointRange: 100,
-        // },
       ],
     });
+
+    console.log(this.movement);
   }
 }

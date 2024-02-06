@@ -52,7 +52,7 @@ export class RecoveryChartComponent implements OnChanges {
         spline: {
           marker: {
             radius: 4,
-            lineColor: '#56a7ff',
+            lineColor: '#544FC5',
             lineWidth: 1,
           },
         },
@@ -71,6 +71,7 @@ export class RecoveryChartComponent implements OnChanges {
           },
           type: 'spline',
           data: totalRecoveryValues,
+          color: '#544FC5'
         },
       ],
     });

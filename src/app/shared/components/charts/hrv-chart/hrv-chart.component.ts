@@ -47,7 +47,7 @@ export class HrvChartComponent implements OnChanges {
       chart: {
         backgroundColor: '#242526',
         animation: true,
-        height: '100px',
+        height: '115px',
         margin: 0,
         style: {
           overflow: 'visible',
@@ -139,6 +139,7 @@ export class HrvChartComponent implements OnChanges {
           },
           type: 'spline',
           data: hrValues,
+          lineWidth: 1.5
         },
         {
           name: 'RMSSD',
@@ -148,6 +149,7 @@ export class HrvChartComponent implements OnChanges {
           },
           type: 'line',
           data: hrvValues,
+          lineWidth: 1.5
         },
         {
           name: 'Adjusment line of RMSSD',
@@ -158,6 +160,7 @@ export class HrvChartComponent implements OnChanges {
           type: 'line',
           data: laValues,
           pointRange: 100,
+          lineWidth: 1.5
         },
         // {
         //   name: 'Absent',

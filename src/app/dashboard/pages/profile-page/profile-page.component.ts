@@ -5,6 +5,7 @@ import { ItemDropdown } from 'src/app/shared/components/dropdown/dropdown.compon
 import { LanguageService } from 'src/app/shared/services/language.service';
 import {
   Birthdate,
+  CalcDatum,
   Profile,
   SleepData,
   Status,
@@ -78,6 +79,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     timestamps: [],
     absent: [],
   };
+
+  public movementToChart: any;
 
   public profileData?: Profile;
 
@@ -407,8 +410,9 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     );
     this.ansToChart = this.getAnsToChart(this.profileData?.selectedSleepData);
     this.hrvToChart = this.getHrvToChart(this.profileData?.selectedSleepData);
-    this.hrToChart = this.getHrToChart(this.profileData?.selectedSleepData)
-    this.brToChart = this.getBrToChart(this.profileData?.selectedSleepData)
+    this.hrToChart = this.getHrToChart(this.profileData?.selectedSleepData);
+    this.brToChart = this.getBrToChart(this.profileData?.selectedSleepData);
+    this.movementToChart = this.getMovementToChart(this.profileData?.selectedSleepData);
   }
 
   calculateAge(birthdate: Birthdate | undefined): string {
@@ -835,9 +839,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     let timestamps: any[] = [];
 
     if (selectedSleepData) {
-      const {
-        calc_data
-      } = selectedSleepData;
+      const { calc_data } = selectedSleepData;
 
       calc_data.forEach((data: any) => {
         timestamps.push(data.timestamp);
@@ -848,7 +850,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     return {
       hrArray: heartRateArray,
       timestamps: timestamps,
-      absent: []
+      absent: [],
     };
   }
 
@@ -857,9 +859,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     let timestamps: any[] = [];
 
     if (selectedSleepData) {
-      const {
-        calc_data
-      } = selectedSleepData;
+      const { calc_data } = selectedSleepData;
 
       calc_data.forEach((data: any) => {
         timestamps.push(data.timestamp);
@@ -870,7 +870,85 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     return {
       brArray: breathingRateArray,
       timestamps: timestamps,
-      absent: []
+      absent: [],
     };
   }
+
+  getMovementToChart(selectedSleepData?: SleepData) {
+    let counter = 0;
+    let sumActivity = 0;
+    let datesOfficial: any[] = [];
+    let timestamps: any[] = [];
+    let totalActivity: any[] = [];
+    let movement: any[] = [];
+
+    if (selectedSleepData) {
+      selectedSleepData.calc_data.forEach((data: CalcDatum) => {
+        counter = counter + 1;
+        if (counter == 5) {
+          datesOfficial.push(data);
+          timestamps.push(this.helpersService.formatTimestamp(data.timestamp, this.timezoneService.timezoneOffset));
+          counter = 0;
+        }
+      });
+
+      counter = 0;
+
+      if (selectedSleepData.movement_data) {
+        selectedSleepData.movement_data.forEach((data) => {
+          sumActivity = sumActivity + data;
+          counter = counter + 1;
+          if (
+            counter == 5 ||
+            data ==
+              selectedSleepData.movement_data[
+                selectedSleepData.movement_data.length - 1
+              ]
+          ) {
+            sumActivity = Math.floor(sumActivity / 75);
+            totalActivity.push(sumActivity);
+            counter = 0;
+            sumActivity = 0;
+          }
+        });
+      }
+
+      let finalCalcData: CalcDatum =
+        selectedSleepData.calc_data[selectedSleepData.calc_data.length - 1];
+
+      // I have to add the awakening time to the array
+      var timeline: number[] = selectedSleepData.tossnturn_data;
+      timeline.push(finalCalcData.timestamp);
+      datesOfficial.push(finalCalcData);
+      var date = new Date(finalCalcData.timestamp * 1000)
+        .toString()
+        .substr(16, 8);
+      timestamps.push(date);
+
+      counter = 0;
+      var sumMovement = 0;
+      datesOfficial.forEach((data) => {
+        while (data.timestamp > timeline[counter]) {
+          sumMovement += 1;
+          counter++;
+        }
+        movement.push(sumMovement);
+        sumMovement = 0;
+      });
+
+      // movement = movement.map((mov, index) => {
+      //   return [timestamps[index], mov]
+      // })
+      // totalActivity = totalActivity.map((activitie, index) => {
+      //   return [timestamps[index], activitie]
+      // })
+    }
+
+    return {
+      movement,
+      totalActivity,
+      timestamps
+    }
+  }
+
 }

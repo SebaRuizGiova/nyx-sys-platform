@@ -368,7 +368,9 @@
             {{ profileData?.selectedSleepData?.avg_act || "No data" }}
           </div>
         </div>
-        <div class="graphic-card"></div>
+        <div class="graphic-card">
+          <movement-chart [movement]="movementToChart"></movement-chart>
+        </div>
       </div>
     </div>
 

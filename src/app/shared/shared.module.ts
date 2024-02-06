@@ -13,7 +13,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
-import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { AccordionModule } from 'primeng/accordion';
 import { InputTextareaModule } from 'primeng/inputtextarea';
@@ -39,6 +39,7 @@ import { ANSChartComponent } from './components/charts/ans-chart/ans-chart.compo
 import { HrvChartComponent } from './components/charts/hrv-chart/hrv-chart.component';
 import { BrChartComponent } from './components/charts/br-chart/br-chart.component';
 import { HrChartComponent } from './components/charts/hr-chart/hr-chart.component';
+import { MovementChartComponent } from './components/charts/movement-chart/movement-chart.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { HrChartComponent } from './components/charts/hr-chart/hr-chart.componen
     ANSChartComponent,
     HrvChartComponent,
     BrChartComponent,
-    HrChartComponent
+    HrChartComponent,
+    MovementChartComponent,
   ],
   imports: [
     CommonModule,
@@ -81,7 +83,7 @@ import { HrChartComponent } from './components/charts/hr-chart/hr-chart.componen
     AccordionModule,
     InputTextareaModule,
     DialogModule,
-    ChartModule
+    ChartModule,
   ],
   exports: [
     SidebarComponent,
@@ -103,7 +105,8 @@ import { HrChartComponent } from './components/charts/hr-chart/hr-chart.componen
     ANSChartComponent,
     HrvChartComponent,
     BrChartComponent,
-    HrChartComponent
-  ]
+    HrChartComponent,
+    MovementChartComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

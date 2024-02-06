@@ -44,7 +44,7 @@ export class HrChartComponent implements OnChanges {
       chart: {
         backgroundColor: '#242526',
         animation: true,
-        height: '100px',
+        height: '120px',
         margin: 0,
         style: {
           overflow: 'visible',
@@ -89,23 +89,22 @@ export class HrChartComponent implements OnChanges {
         enabled: false,
       },
       legend: {
-        // align: 'center',
-        // verticalAlign: 'top',
-        // layout: 'horizontal',
-        // itemStyle: {
-        //   color: '#d9d9d9',
-        //   fontWeight: 'bold',
-        //   fontSize: '11px',
-        // },
-        // y: -18,
-        enabled: false,
+        align: 'center',
+        verticalAlign: 'top',
+        layout: 'horizontal',
+        itemStyle: {
+          color: '#d9d9d9',
+          fontWeight: 'bold',
+          fontSize: '11px',
+        },
+        y: -18,
       },
       plotOptions: {
         spline: {
           marker: {
             radius: 0,
             lineColor: '#56a7ff',
-            lineWidth: 1,
+            lineWidth: 0.5,
           },
         },
         series: {
@@ -120,7 +119,7 @@ export class HrChartComponent implements OnChanges {
             self.timezoneService.timezoneOffset
           );
           const value = this.point.y;
-          return `<b>${timestamp}</b><br/>Data: ${value}`;
+          return `<b>${timestamp}</b><br/>Heart rate: ${value}`;
         },
       },
       series: [
@@ -132,6 +131,7 @@ export class HrChartComponent implements OnChanges {
           },
           type: 'spline',
           data: hrValues,
+          lineWidth: 1.5
         },
         // {
         //   name: 'Absent',
