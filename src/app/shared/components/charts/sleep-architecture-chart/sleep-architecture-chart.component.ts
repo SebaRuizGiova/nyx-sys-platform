@@ -6,6 +6,7 @@ import {
 } from 'src/app/dashboard/interfaces/profile.interface';
 import { HelpersService } from '../../../services/helpers.service';
 import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
+import { timestamp } from 'rxjs';
 
 @Component({
   selector: 'sleep-architecture-chart',
@@ -65,7 +66,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
         },
       ];
 
-      console.log(seriesData);
+      const self = this;
 
       this.chart = new Chart({
         chart: {
@@ -107,6 +108,12 @@ export class SleepArchitectureChartComponent implements OnChanges {
             borderRadius: '10%',
             borderWidth: 0,
             groupPadding: 0,
+          },
+        },
+        tooltip: {
+          shared: true,
+          formatter: function () {
+            return `<b>${categories[Number(this.point.x)]}</b>`;
           },
         },
         legend: {

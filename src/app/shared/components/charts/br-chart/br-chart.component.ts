@@ -120,6 +120,7 @@ export class BrChartComponent implements OnChanges {
           // yAxis: 1,
           marker: {
             symbol: 'circle',
+            radius: 0
           },
           type: 'line',
           data: brValues,

@@ -47,8 +47,6 @@ export class SleepTimeChartComponent implements OnChanges {
       durationInAwakeValues
     );
 
-    console.log(seriesData);
-
     this.chart = new Chart({
       chart: {
         type: 'column',
