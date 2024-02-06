@@ -426,7 +426,10 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.movementToChart = this.getMovementToChart(
       this.profileData?.selectedSleepData
     );
-    this.sleepTimeToChart = this.getSleepTimeToChart(this.profileData?.sleepData);
+    this.sleepTimeToChart = this.getSleepTimeToChart(
+      this.profileData?.sleepData,
+      this.profileData?.selectedSleepData
+    );
   }
 
   calculateAge(birthdate: Birthdate | undefined): string {
@@ -968,24 +971,46 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     };
   }
 
-  getSleepTimeToChart(sleepDataArray?: SleepData[]) {
+  getSleepTimeToChart(
+    sleepDataArray?: SleepData[],
+    selectedSleepData?: SleepData
+  ) {
     let durationInBed: any[] = [];
     let durationInSleep: any[] = [];
     let durationInAwake: any[] = [];
     let dates: any[] = [];
 
-    if (sleepDataArray) {
-      sleepDataArray.slice(0, 6).forEach((night: any) => {
-        durationInSleep.push(Number((night.duration_in_sleep / 60 / 60).toFixed(2)));
-        durationInBed.push(Number((night.duration_in_bed / 60 / 60).toFixed(2)));
-        durationInAwake.push(Number((night.duration_awake / 60 / 60).toFixed(2)));
-        dates.push(
-          this.helpersService.formatTimestampToDate(
-            night.to,
-            this.timezoneService.timezoneOffset
-          )
-        );
-      });
+    if (sleepDataArray && selectedSleepData) {
+      const startIndex = sleepDataArray.findIndex(
+        (night) => night.to === selectedSleepData.to
+      );
+      if (startIndex !== -1) {
+        sleepDataArray
+          .slice(startIndex, startIndex + 6)
+          .forEach((night: any) => {
+            durationInSleep.push(
+              night.duration_in_sleep
+                ? Number((night.duration_in_sleep / 60 / 60).toFixed(2))
+                : 0
+            );
+            durationInBed.push(
+              night.duration_in_bed
+                ? Number((night.duration_in_bed / 60 / 60).toFixed(2))
+                : 0
+            );
+            durationInAwake.push(
+              night.duration_awake
+                ? Number((night.duration_awake / 60 / 60).toFixed(2))
+                : 0
+            );
+            dates.push(
+              this.helpersService.formatTimestampToDate(
+                night.to,
+                this.timezoneService.timezoneOffset
+              )
+            );
+          });
+      }
     }
     return {
       durationInBed,
