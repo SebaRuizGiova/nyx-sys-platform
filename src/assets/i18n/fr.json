@@ -271,6 +271,7 @@
   "adminExistEmailError": "L'e-mail existe déjà",
   "adminLength5Characters": "Le champ doit contenir 5 chiffres",
   "adminLength6Characters": "Le champ doit contenir 6 caractères",
+  "adminDeleteProfilesByGroup": "Supprimer tous les profils liés",
   "settingsHelpCardTitle": "Tutoriels et FAQ",
   "settingsContactCardTitle": "Contact",
   "settingsPasswordCardTitle": "Changement de mot de passe",

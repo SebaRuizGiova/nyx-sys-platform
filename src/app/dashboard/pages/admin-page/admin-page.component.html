@@ -579,7 +579,7 @@
   width="25vw"
 >
   <div class="modal-content" [formGroup]="addDeviceForm">
-    <p>{{ "adminExplanationDevice" | translate }}</p>
+    <p class="legend">{{ "adminExplanationDevice" | translate }}</p>
     <shared-input-text
       [formGroup]="addDeviceForm"
       formControlName="serialNumber"
@@ -695,13 +695,44 @@
   </div>
 </shared-modal>
 
+<!-- MODAL CONFIRMAR ELIMINAR PERFILES DEL GRUPO -->
+<shared-modal
+  [showModal]="showConfirmDeleteProfilesByGroup"
+  [title]="'settingsConfirmModalTitle' | translate"
+  width="20vw"
+>
+  <p>{{ "IrreversibleAction" | translate }}</p>
+  <div class="buttons-modal">
+    <shared-button
+      [label]="'settingsConfirmModalAccept' | translate"
+      (click)="toggleConfirmDeleteProfilesGroup()"
+    />
+    <shared-button
+      [label]="'settingsConfirmModalCancel' | translate"
+      variant="secondary"
+      (click)="toggleConfirmDeleteProfilesGroup(true)"
+    />
+  </div>
+</shared-modal>
+
 <!-- MODAL CONFIRMAR ELIMINAR GRUPO -->
 <shared-modal
   [showModal]="showConfirmDeleteGroup"
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>{{ "IrreversibleAction" | translate }}</p>
+  <div class="modal-content">
+    <p>{{ "IrreversibleAction" | translate }}</p>
+    <form [formGroup]="deleteGroupForm" class="checkbox">
+      <p-checkbox
+        formControlName="deleteProfiles"
+        [binary]="true"
+        inputId="deleteProfiles"
+        (onChange)="toggleConfirmDeleteProfilesGroup()"
+      ></p-checkbox>
+      <label for="deleteProfiles">{{ 'adminDeleteProfilesByGroup' | translate }}</label>
+    </form>
+  </div>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -722,7 +753,7 @@
   width="25vw"
 >
   <div class="modal-content" [formGroup]="addCollaboratorForm">
-    <p>{{ "adminExplanationCollaborator" | translate }}</p>
+    <p class="legend">{{ "adminExplanationCollaborator" | translate }}</p>
     <shared-input-text
       [formGroup]="addCollaboratorForm"
       formControlName="email"

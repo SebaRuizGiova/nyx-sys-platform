@@ -17,6 +17,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { TableModule } from 'primeng/table';
 import { CalendarModule } from 'primeng/calendar';
 import { ToastModule } from 'primeng/toast';
+import { CheckboxModule } from 'primeng/checkbox';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileCardComponent } from './components/player-card/profile-card.component';
@@ -44,7 +45,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     TableModule,
     CalendarModule,
-    ToastModule
+    ToastModule,
+    CheckboxModule
   ],
   providers: [
     DatePipe

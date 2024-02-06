@@ -471,16 +471,44 @@ export class DatabaseService {
     });
   }
 
-  deleteGroup(groupId: string, userId: string) {
+  deleteGroup(groupId: string, userId: string, deleteProfiles: boolean) {
     return new Promise((resolve, reject) => {
       const groupRef = this.firestore.doc(
         `/users/nyxsys/content/${userId}/teams/${groupId}`
       );
 
       groupRef
-        .delete()
+        .update({
+          deleted: true
+        })
         .then((res) => {
-          resolve(res);
+          // Eliminar los perfiles vinculados al grupo
+          if (deleteProfiles) {
+            const profilesRef = this.firestore.collection(
+              `/users/nyxsys/content/${userId}/players`,
+              (ref) => ref.where('teamID', '==', groupId)
+            );
+
+            profilesRef.ref
+              .get()
+              .then((querySnapshot) => {
+                const batch = this.firestore.firestore.batch();
+
+                querySnapshot.forEach((doc) => {
+                  batch.update(doc.ref, { deleted: true });
+                });
+
+                return batch.commit();
+              })
+              .then(() => {
+                resolve('Grupo y perfiles eliminados correctamente.');
+              })
+              .catch((error) => {
+                reject(error);
+              });
+          } else {
+            resolve(res);
+          }
         })
         .catch((error) => {
           reject(error);
@@ -566,9 +594,10 @@ export class DatabaseService {
             (user) => user.id === collaborator.accessTo[0].id
           );
 
-          const filterCollaborators = userAccess?.collaborators.filter(
-            (collab) => collab.id !== collaborator.id
-          ) || [];
+          const filterCollaborators =
+            userAccess?.collaborators.filter(
+              (collab) => collab.id !== collaborator.id
+            ) || [];
 
           const collaborators = [
             ...filterCollaborators,

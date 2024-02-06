@@ -75,6 +75,9 @@ export class AdminPageComponent implements OnInit {
     userID: ['', Validators.required],
     hided: [false],
   });
+  public deleteGroupForm: FormGroup = this.fb.group({
+    deleteProfiles: [false],
+  });
   public addCollaboratorForm: FormGroup = this.fb.group({
     email: [
       '',
@@ -158,6 +161,7 @@ export class AdminPageComponent implements OnInit {
   public showConfirmDeleteProfile: boolean = false;
   public showConfirmDeleteDevice: boolean = false;
   public showConfirmDeleteGroup: boolean = false;
+  public showConfirmDeleteProfilesByGroup: boolean = false;
   public showConfirmDeleteCollaborator: boolean = false;
   public showConfirmDeleteUser: boolean = false;
   public showAddDevice: boolean = false;
@@ -637,6 +641,16 @@ export class AdminPageComponent implements OnInit {
     }
 
     this.showConfirmDeleteGroup = !this.showConfirmDeleteGroup;
+  }
+
+  toggleConfirmDeleteProfilesGroup(cancel?: boolean) {
+    if (cancel) {
+      this.deleteGroupForm.patchValue({
+        deleteProfiles: false
+      });
+    }
+
+    this.showConfirmDeleteProfilesByGroup = !this.showConfirmDeleteProfilesByGroup;
   }
 
   //? MODALES COLABORADORES
@@ -1293,7 +1307,7 @@ export class AdminPageComponent implements OnInit {
 
     this.loadingService.setLoading(true);
     this.databaseService
-      .deleteGroup(this.groupIdToDelete, this.userIdGroupToDelete)
+      .deleteGroup(this.groupIdToDelete, this.userIdGroupToDelete, this.deleteGroupForm.value.deleteProfiles)
       .then(() => {
         this.actionsGroupsForm.reset();
         this.messageService.add({

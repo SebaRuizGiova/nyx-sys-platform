@@ -64,7 +64,7 @@
 }
 
 .modal-content {
-  padding: 0 20px 0 20px;
+  padding: 0 20px 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -72,7 +72,16 @@
 
   p {
     margin: 0;
+  }
+
+  .legend {
     font-size: 12px;
+  }
+
+  .checkbox {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
   }
 }
 
