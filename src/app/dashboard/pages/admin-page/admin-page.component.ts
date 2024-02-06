@@ -46,6 +46,7 @@ export class AdminPageComponent implements OnInit {
   });
 
   public addProfileForm: FormGroup = this.fb.group({
+    id: [''],
     name: ['', Validators.required],
     lastName: ['', Validators.required],
     birthdate: ['', Validators.required],
@@ -837,10 +838,25 @@ export class AdminPageComponent implements OnInit {
   }
 
   onCloseModalProfile() {
-    this.addProfileForm.reset();
+    this.addProfileForm.patchValue({
+      name: '',
+      lastName: '',
+      birthdate: '',
+      sex: '',
+      birthplace: '',
+      userID: '',
+      teamID: '',
+      device: false,
+      deviceSN: false,
+      hided: false,
+      deviceID: false,
+    });
     this.addProfileForm?.get('sex')?.setErrors(null);
     this.addProfileForm?.get('userID')?.setErrors(null);
-    this.addProfileForm?.get('teamID')?.setErrors(null);
+    this.addProfileForm?.get('teamID')?.reset({
+      value: '',
+      disabled: true,
+    });
 
     this.enableEditProfile = false;
     this.showAddProfile = false;
@@ -1083,7 +1099,17 @@ export class AdminPageComponent implements OnInit {
   }
 
   onCloseModalDevice() {
-    this.addDeviceForm.reset();
+    this.addDeviceForm.patchValue({
+      serialNumber: '',
+      verificationCode: '',
+      userID: '',
+      playerID: { value: '', disabled: true },
+      teamID: '',
+      hided: false,
+      offSet: '',
+      player: '',
+      playerName: '',
+    });
 
     this.enableEditDevice = false;
     this.showAddDevice = false;
@@ -1272,7 +1298,12 @@ export class AdminPageComponent implements OnInit {
   }
 
   onCloseModalGroup() {
-    this.addGroupForm.reset();
+    this.addGroupForm.patchValue({
+      teamName: '',
+      gmt: '',
+      userID: '',
+      hided: false,
+    });
 
     this.enableEditGroup = false;
     this.showAddGroup = false;
@@ -1504,13 +1535,30 @@ export class AdminPageComponent implements OnInit {
   }
 
   onCloseModalAddCollaborator() {
-    this.addCollaboratorForm.reset();
+    this.addCollaboratorForm.patchValue({
+      email: '',
+      accessTo: [],
+      password: '',
+      confirmPassword: '',
+      nickName: '',
+      role: '',
+      UID: '',
+    });
 
     this.showAddCollaborator = false;
   }
 
   onCloseModalEditCollaborator() {
-    this.editCollaboratorForm.reset();
+    this.editCollaboratorForm.patchValue({
+      email: '',
+      accessTo: [],
+      password: '',
+      confirmPassword: '',
+      nickName: '',
+      role: '',
+      UID: '',
+      id: '',
+    });
 
     this.showEditCollaborator = false;
   }
@@ -1648,13 +1696,23 @@ export class AdminPageComponent implements OnInit {
   }
 
   onCloseModalAddUser() {
-    this.addUserForm.reset();
+    this.addUserForm.patchValue({
+      id: '',
+      UID: '',
+      email: '',
+      nickName: '',
+      role: '',
+      collaborators: [],
+    });
 
     this.showAddUser = false;
   }
 
   onCloseModalEditUser() {
-    this.editUserForm.reset();
+    this.editUserForm.patchValue({
+      nickName: '',
+      role: '',
+    });
 
     this.showEditUser = false;
   }

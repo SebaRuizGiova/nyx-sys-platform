@@ -219,3 +219,9 @@ a {
 :host ::ng-deep .p-inputtextarea {
   padding: 12px;
 }
+:host ::ng-deep .p-accordion {
+  p {
+    font-size: 14px;
+    color: #919191;
+  }
+}
