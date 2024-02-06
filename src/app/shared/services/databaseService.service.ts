@@ -6,7 +6,6 @@ import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
 import { User } from 'src/app/dashboard/interfaces/user.interface';
 import { Device } from 'src/app/dashboard/interfaces/device.interface';
 import { Group } from 'src/app/dashboard/interfaces/group.interface';
-import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Collaborator } from 'src/app/dashboard/interfaces/collaborator.interface';
 

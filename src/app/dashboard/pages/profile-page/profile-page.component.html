@@ -308,13 +308,15 @@
             {{ profileData?.selectedSleepData?.avg_hr || "No data" }}
           </div>
         </div>
-        <div class="graphic-card"></div>
+        <div class="graphic-card">
+          <hr-chart [hr]="hrToChart"></hr-chart>
+        </div>
       </div>
     </div>
 
-    <div class="card respiratory-rate">
+    <div class="card breathing-rate">
       <div class="card-header">
-        <span>{{ "profileViewRespiratoryRateTitle" | translate }}</span>
+        <span>{{ "profileViewBreathingRateTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
@@ -336,7 +338,9 @@
             {{ profileData?.selectedSleepData?.avg_rr || "No data" }}
           </div>
         </div>
-        <div class="graphic-card"></div>
+        <div class="graphic-card">
+          <br-chart [br]="brToChart"></br-chart>
+        </div>
       </div>
     </div>
 

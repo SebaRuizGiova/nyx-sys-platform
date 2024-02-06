@@ -74,12 +74,20 @@
     margin: 0;
   }
 
+  .alert {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   .legend {
     font-size: 12px;
   }
 
   .checkbox {
+    width: 100%;
     display: flex;
+    justify-content: center;
     gap: 10px;
     font-size: 14px;
   }

@@ -1,24 +1,20 @@
-import { HelpersService } from './../../../services/helpers.service';
+import { HelpersService } from '../../../services/helpers.service';
 import { Component, Input, OnChanges } from '@angular/core';
 import { Chart } from 'angular-highcharts';
 import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
 
 @Component({
-  selector: 'hrv-chart',
-  templateUrl: './hrv-chart.component.html',
-  styleUrls: ['./hrv-chart.component.scss'],
+  selector: 'br-chart',
+  templateUrl: './br-chart.component.html',
+  styleUrls: ['./br-chart.component.scss'],
 })
-export class HrvChartComponent implements OnChanges {
-  @Input() hrv: {
-    hrArray: any[];
-    hrvArray: any[];
-    laArray: any[];
+export class BrChartComponent implements OnChanges {
+  @Input() br: {
+    brArray: any[];
     timestamps: any[];
     absent: any[];
   } = {
-    hrArray: [],
-    hrvArray: [],
-    laArray: [],
+    brArray: [],
     timestamps: [],
     absent: [],
   };
@@ -30,16 +26,17 @@ export class HrvChartComponent implements OnChanges {
   ) {}
 
   ngOnChanges(): void {
-    const hrValues = this.hrv.hrArray;
-    const hrvValues = this.hrv.hrvArray;
-    const laValues = this.hrv.laArray;
-    const timestamps = this.hrv.timestamps.map((timestamp) =>
+    let brValues;
+    let timestamps;
+    let absentValues;
+    brValues = this.br.brArray;
+    timestamps = this.br.timestamps.map((timestamp) =>
       this.helpersService.formatTimestamp(
         timestamp,
         this.timezoneService.timezoneOffset
       )
     );
-    const absentValues = this.hrv.absent;
+    absentValues = this.br.absent;
 
     const self = this;
 
@@ -62,26 +59,10 @@ export class HrvChartComponent implements OnChanges {
       yAxis: [
         {
           title: {
-            text: 'Heart rate',
+            text: 'Breathing rate',
           },
-          tickInterval: 10,
-          tickPixelInterval: 10,
-          gridLineColor: '#3b3b3b',
-        },
-        {
-          title: {
-            text: 'RMSSD',
-          },
-          tickInterval: 10,
-          tickPixelInterval: 10,
-          gridLineColor: '#3b3b3b',
-        },
-        {
-          title: {
-            text: 'Adjusment line of RMSSD',
-          },
-          tickInterval: 10,
-          tickPixelInterval: 10,
+          tickInterval: 5,
+          tickPixelInterval: 5,
           gridLineColor: '#3b3b3b',
         },
         // {
@@ -100,15 +81,7 @@ export class HrvChartComponent implements OnChanges {
         enabled: false,
       },
       legend: {
-        align: 'center',
-        verticalAlign: 'top',
-        layout: 'horizontal',
-        itemStyle: {
-          color: '#d9d9d9',
-          fontWeight: 'bold',
-          fontSize: '11px',
-        },
-        y: -18,
+        enabled: false,
       },
       plotOptions: {
         spline: {
@@ -125,39 +98,24 @@ export class HrvChartComponent implements OnChanges {
       tooltip: {
         shared: true,
         formatter: function () {
-          const timestamp = self.helpersService.formatTimestamp(this.point.x, self.timezoneService.timezoneOffset);
+          const timestamp = self.helpersService.formatTimestamp(
+            this.point.x,
+            self.timezoneService.timezoneOffset
+          );
           const value = this.point.y;
           return `<b>${timestamp}</b><br/>Data: ${value}`;
         },
       },
       series: [
         {
-          name: 'Heart rate',
-          yAxis: 0,
-          marker: {
-            symbol: 'circle',
-          },
-          type: 'spline',
-          data: hrValues,
-        },
-        {
-          name: 'RMSSD',
-          yAxis: 1,
+          name: 'Breathing rate',
+          // yAxis: 1,
           marker: {
             symbol: 'circle',
           },
           type: 'line',
-          data: hrvValues,
-        },
-        {
-          name: 'Adjusment line of RMSSD',
-          yAxis: 2,
-          marker: {
-            symbol: 'circle',
-          },
-          type: 'line',
-          data: laValues,
-          pointRange: 100,
+          data: brValues,
+          color: '#544FC5'
         },
         // {
         //   name: 'Absent',

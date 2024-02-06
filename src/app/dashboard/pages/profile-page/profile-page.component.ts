@@ -52,13 +52,31 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     hrvArray: any[];
     laArray: any[];
     timestamps: any[];
-    labelsX: any[];
+    absent: any[];
   } = {
     hrArray: [],
     hrvArray: [],
     laArray: [],
     timestamps: [],
-    labelsX: [],
+    absent: [],
+  };
+  public hrToChart: {
+    hrArray: any[];
+    timestamps: any[];
+    absent: any[];
+  } = {
+    hrArray: [],
+    timestamps: [],
+    absent: [],
+  };
+  public brToChart: {
+    brArray: any[];
+    timestamps: any[];
+    absent: any[];
+  } = {
+    brArray: [],
+    timestamps: [],
+    absent: [],
   };
 
   public profileData?: Profile;
@@ -389,6 +407,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     );
     this.ansToChart = this.getAnsToChart(this.profileData?.selectedSleepData);
     this.hrvToChart = this.getHrvToChart(this.profileData?.selectedSleepData);
+    this.hrToChart = this.getHrToChart(this.profileData?.selectedSleepData)
+    this.brToChart = this.getBrToChart(this.profileData?.selectedSleepData)
   }
 
   calculateAge(birthdate: Birthdate | undefined): string {
@@ -703,6 +723,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     let adjustmentLine: any[] = [];
     let timestamps: any[] = [];
     let datesLabel: any[] = [];
+    let absent: any[] = [];
 
     if (selectedSleepData) {
       const {
@@ -711,6 +732,30 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         hrv_rmssd_evening,
         hrv_rmssd_morning,
       } = selectedSleepData;
+
+      let exit = 0;
+
+      // selectedSleepData.hrv_rmssd_data.forEach((data: any, index: number) => {
+      //   /* TO ADD THE BEDEXIT LINES */
+      //   if (selectedSleepData.bedexit_data !== undefined) {
+      //     if (selectedSleepData.bedexit_data[exit] !== undefined) {
+      //       if (
+      //         data.timestamp >
+      //         selectedSleepData.bedexit_data[exit].startTimestamp
+      //       ) {
+      //         absent.push([selectedSleepData.bedexit_data[exit].startTimestamp, 100]);
+      //       } else {
+      //         absent.push([0, 0]);
+      //       }
+      //       if (
+      //         data.timestamp >
+      //         selectedSleepData.bedexit_data[exit].endTimestamp
+      //       ) {
+      //         exit++; //WHEN A LINE GETS ADDED IT MOVES TO THE NEXT TIMESTAMP
+      //       }
+      //     }
+      //   }
+      // });
 
       console.log(selectedSleepData);
 
@@ -781,6 +826,51 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       laArray: adjustmentLine,
       timestamps: timestamps,
       labelsX: datesLabel,
+      absent,
+    };
+  }
+
+  getHrToChart(selectedSleepData?: SleepData) {
+    let heartRateArray: any[] = [];
+    let timestamps: any[] = [];
+
+    if (selectedSleepData) {
+      const {
+        calc_data
+      } = selectedSleepData;
+
+      calc_data.forEach((data: any) => {
+        timestamps.push(data.timestamp);
+        heartRateArray.push([data.timestamp, data.heartRate]);
+      });
+    }
+
+    return {
+      hrArray: heartRateArray,
+      timestamps: timestamps,
+      absent: []
+    };
+  }
+
+  getBrToChart(selectedSleepData?: SleepData) {
+    let breathingRateArray: any[] = [];
+    let timestamps: any[] = [];
+
+    if (selectedSleepData) {
+      const {
+        calc_data
+      } = selectedSleepData;
+
+      calc_data.forEach((data: any) => {
+        timestamps.push(data.timestamp);
+        breathingRateArray.push([data.timestamp, data.breathingRate]);
+      });
+    }
+
+    return {
+      brArray: breathingRateArray,
+      timestamps: timestamps,
+      absent: []
     };
   }
 }

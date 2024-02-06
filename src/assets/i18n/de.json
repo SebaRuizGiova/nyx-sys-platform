@@ -347,7 +347,7 @@
   "profileViewBPMMax": "BPM Max",
   "profileViewBPMRepose": "BPM im Ruhezustand",
   "profileViewBPMAverage": "Durchschnittliche BPM",
-  "profileViewRespiratoryRateTitle": "Atemfrequenz",
+  "profileViewBreathingRateTitle": "Atemfrequenz",
   "profileViewMovementTitle": "Bewegung",
   "profileViewMovementsAndTurns": "Bewegungen und Drehungen",
   "profileViewAverageInActivity": "Durchschnittliche Aktivität",

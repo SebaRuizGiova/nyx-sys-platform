@@ -37,6 +37,8 @@ import { RecoveryChartComponent } from './components/charts/recovery-chart/recov
 import { SleepScoreChartComponent } from './components/charts/sleep-score-chart/sleep-score-chart.component';
 import { ANSChartComponent } from './components/charts/ans-chart/ans-chart.component';
 import { HrvChartComponent } from './components/charts/hrv-chart/hrv-chart.component';
+import { BrChartComponent } from './components/charts/br-chart/br-chart.component';
+import { HrChartComponent } from './components/charts/hr-chart/hr-chart.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { HrvChartComponent } from './components/charts/hrv-chart/hrv-chart.compo
     RecoveryChartComponent,
     SleepScoreChartComponent,
     ANSChartComponent,
-    HrvChartComponent
+    HrvChartComponent,
+    BrChartComponent,
+    HrChartComponent
   ],
   imports: [
     CommonModule,
@@ -97,7 +101,9 @@ import { HrvChartComponent } from './components/charts/hrv-chart/hrv-chart.compo
     RecoveryChartComponent,
     SleepScoreChartComponent,
     ANSChartComponent,
-    HrvChartComponent
+    HrvChartComponent,
+    BrChartComponent,
+    HrChartComponent
   ]
 })
 export class SharedModule { }

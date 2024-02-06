@@ -172,6 +172,7 @@ export class AdminPageComponent implements OnInit {
   public showEditUser: boolean = false;
   public genderItems: ItemDropdown[] = [];
   public usersItems: ItemDropdown[] = [];
+  public groupsItemsFilter: ItemDropdown[] = [];
   public groupsItems: ItemDropdown[] = [];
   public profilesItems: ItemDropdown[] = [];
   public countriesItems: ItemDropdown[] = [];
@@ -287,6 +288,10 @@ export class AdminPageComponent implements OnInit {
       .getGroupsByUser(userId || this.authService.userId)
       .subscribe((groups) => {
         this.groups = groups;
+        this.groupsItemsFilter = this.groups.map((group) => ({
+          label: group.teamName,
+          value: group.id,
+        }));
         this.filteredGroups = groups;
         this.loadingService.setLoading(false);
       });
@@ -393,6 +398,12 @@ export class AdminPageComponent implements OnInit {
         this.collaborators = collaborators;
         this.collaboratorsByUser = collaborators;
         this.filteredCollaborators = collaborators;
+
+        this.groupsItemsFilter = this.groups.map((group) => ({
+          label: group.teamName,
+          value: group.id,
+        }));
+
         this.loadingService.setLoading(false);
       });
   }

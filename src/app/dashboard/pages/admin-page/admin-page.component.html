@@ -53,7 +53,7 @@
             <i class="pi pi-search"></i>
           </span>
           <shared-select
-            [options]="groupsItems"
+            [options]="groupsItemsFilter"
             [placeholder]="'adminFilterPlaceholder' | translate"
             [formGroup]="actionsProfilesForm"
             formControlName="filterByGroup"
@@ -557,7 +557,15 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>{{ "IrreversibleAction" | translate }}</p>
+  <div class="modal-content">
+    <div class="alert">
+      <i
+        class="pi pi-exclamation-triangle"
+        style="color: #d71d1d; font-size: 2rem"
+      ></i>
+    </div>
+    <p>{{ "IrreversibleAction" | translate }}</p>
+  </div>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -636,7 +644,15 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>{{ "IrreversibleAction" | translate }}</p>
+  <div class="modal-content">
+    <div class="alert">
+      <i
+        class="pi pi-exclamation-triangle"
+        style="color: #d71d1d; font-size: 2rem"
+      ></i>
+    </div>
+    <p>{{ "IrreversibleAction" | translate }}</p>
+  </div>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -705,7 +721,15 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>{{ "IrreversibleAction" | translate }}</p>
+  <div class="modal-content">
+    <div class="alert">
+      <i
+        class="pi pi-exclamation-triangle"
+        style="color: #d71d1d; font-size: 2rem"
+      ></i>
+    </div>
+    <p>{{ "IrreversibleAction" | translate }}</p>
+  </div>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -726,6 +750,12 @@
   width="20vw"
 >
   <div class="modal-content">
+    <div class="alert">
+      <i
+        class="pi pi-exclamation-triangle"
+        style="color: #d71d1d; font-size: 2rem"
+      ></i>
+    </div>
     <p>{{ "IrreversibleAction" | translate }}</p>
     <form [formGroup]="deleteGroupForm" class="checkbox">
       <p-checkbox
@@ -864,7 +894,15 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>{{ "IrreversibleAction" | translate }}</p>
+  <div class="modal-content">
+    <div class="alert">
+      <i
+        class="pi pi-exclamation-triangle"
+        style="color: #d71d1d; font-size: 2rem"
+      ></i>
+    </div>
+    <p>{{ "IrreversibleAction" | translate }}</p>
+  </div>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"
@@ -966,7 +1004,15 @@
   [title]="'settingsConfirmModalTitle' | translate"
   width="20vw"
 >
-  <p>{{ "IrreversibleAction" | translate }}</p>
+  <div class="modal-content">
+    <div class="alert">
+      <i
+        class="pi pi-exclamation-triangle"
+        style="color: #d71d1d; font-size: 2rem"
+      ></i>
+    </div>
+    <p>{{ "IrreversibleAction" | translate }}</p>
+  </div>
   <div class="buttons-modal">
     <shared-button
       [label]="'settingsConfirmModalAccept' | translate"

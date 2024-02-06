@@ -1,24 +1,20 @@
-import { HelpersService } from './../../../services/helpers.service';
+import { HelpersService } from '../../../services/helpers.service';
 import { Component, Input, OnChanges } from '@angular/core';
 import { Chart } from 'angular-highcharts';
 import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
 
 @Component({
-  selector: 'hrv-chart',
-  templateUrl: './hrv-chart.component.html',
-  styleUrls: ['./hrv-chart.component.scss'],
+  selector: 'hr-chart',
+  templateUrl: './hr-chart.component.html',
+  styleUrls: ['./hr-chart.component.scss'],
 })
-export class HrvChartComponent implements OnChanges {
-  @Input() hrv: {
+export class HrChartComponent implements OnChanges {
+  @Input() hr: {
     hrArray: any[];
-    hrvArray: any[];
-    laArray: any[];
     timestamps: any[];
     absent: any[];
   } = {
     hrArray: [],
-    hrvArray: [],
-    laArray: [],
     timestamps: [],
     absent: [],
   };
@@ -30,16 +26,17 @@ export class HrvChartComponent implements OnChanges {
   ) {}
 
   ngOnChanges(): void {
-    const hrValues = this.hrv.hrArray;
-    const hrvValues = this.hrv.hrvArray;
-    const laValues = this.hrv.laArray;
-    const timestamps = this.hrv.timestamps.map((timestamp) =>
+    let hrValues;
+    let timestamps;
+    let absentValues;
+    hrValues = this.hr.hrArray;
+    timestamps = this.hr.timestamps.map((timestamp) =>
       this.helpersService.formatTimestamp(
         timestamp,
         this.timezoneService.timezoneOffset
       )
     );
-    const absentValues = this.hrv.absent;
+    absentValues = this.hr.absent;
 
     const self = this;
 
@@ -68,22 +65,14 @@ export class HrvChartComponent implements OnChanges {
           tickPixelInterval: 10,
           gridLineColor: '#3b3b3b',
         },
-        {
-          title: {
-            text: 'RMSSD',
-          },
-          tickInterval: 10,
-          tickPixelInterval: 10,
-          gridLineColor: '#3b3b3b',
-        },
-        {
-          title: {
-            text: 'Adjusment line of RMSSD',
-          },
-          tickInterval: 10,
-          tickPixelInterval: 10,
-          gridLineColor: '#3b3b3b',
-        },
+        // {
+        //   title: {
+        //     text: 'Breathing rate',
+        //   },
+        //   tickInterval: 5,
+        //   tickPixelInterval: 5,
+        //   gridLineColor: '#3b3b3b',
+        // },
         // {
         //   title: {
         //     text: 'Absent',
@@ -100,15 +89,16 @@ export class HrvChartComponent implements OnChanges {
         enabled: false,
       },
       legend: {
-        align: 'center',
-        verticalAlign: 'top',
-        layout: 'horizontal',
-        itemStyle: {
-          color: '#d9d9d9',
-          fontWeight: 'bold',
-          fontSize: '11px',
-        },
-        y: -18,
+        // align: 'center',
+        // verticalAlign: 'top',
+        // layout: 'horizontal',
+        // itemStyle: {
+        //   color: '#d9d9d9',
+        //   fontWeight: 'bold',
+        //   fontSize: '11px',
+        // },
+        // y: -18,
+        enabled: false,
       },
       plotOptions: {
         spline: {
@@ -125,7 +115,10 @@ export class HrvChartComponent implements OnChanges {
       tooltip: {
         shared: true,
         formatter: function () {
-          const timestamp = self.helpersService.formatTimestamp(this.point.x, self.timezoneService.timezoneOffset);
+          const timestamp = self.helpersService.formatTimestamp(
+            this.point.x,
+            self.timezoneService.timezoneOffset
+          );
           const value = this.point.y;
           return `<b>${timestamp}</b><br/>Data: ${value}`;
         },
@@ -139,25 +132,6 @@ export class HrvChartComponent implements OnChanges {
           },
           type: 'spline',
           data: hrValues,
-        },
-        {
-          name: 'RMSSD',
-          yAxis: 1,
-          marker: {
-            symbol: 'circle',
-          },
-          type: 'line',
-          data: hrvValues,
-        },
-        {
-          name: 'Adjusment line of RMSSD',
-          yAxis: 2,
-          marker: {
-            symbol: 'circle',
-          },
-          type: 'line',
-          data: laValues,
-          pointRange: 100,
         },
         // {
         //   name: 'Absent',
