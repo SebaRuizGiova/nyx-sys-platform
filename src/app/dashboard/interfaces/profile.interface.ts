@@ -36,6 +36,7 @@ export interface SleepData {
   duration_in_light?:    number | string;
   duration_in_light_percent?:    number | string;
   duration_in_sleep?:    number | string;
+  duration_in_sleep_parsed?:    number | string;
   duration_in_sleep_percent?:    number | string;
   max_hr:                number;
   duration_sleep_onset?: number;
@@ -46,6 +47,7 @@ export interface SleepData {
   id:                    string;
   hrv_rmssd_data:        HrvRmssdDatum[];
   duration_awake?:       number | string;
+  duration_awake_parsed?:       number | string;
   duration_awake_percent?: number | string;
   average_rmssd?: number | string;
   sleep_score?:          number;
@@ -64,6 +66,7 @@ export interface SleepData {
   hrv_score:             number;
   calc_data:             CalcDatum[];
   duration_in_bed:       number | string;
+  duration_in_bed_parsed:       number | string;
   avg_act:               number;
   hrv_rmssd_evening:     number;
   fm_data:               string;

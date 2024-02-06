@@ -40,6 +40,7 @@ import { HrvChartComponent } from './components/charts/hrv-chart/hrv-chart.compo
 import { BrChartComponent } from './components/charts/br-chart/br-chart.component';
 import { HrChartComponent } from './components/charts/hr-chart/hr-chart.component';
 import { MovementChartComponent } from './components/charts/movement-chart/movement-chart.component';
+import { SleepTimeChartComponent } from './components/charts/sleep-time-chart/sleep-time-chart.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { MovementChartComponent } from './components/charts/movement-chart/movem
     BrChartComponent,
     HrChartComponent,
     MovementChartComponent,
+    SleepTimeChartComponent
   ],
   imports: [
     CommonModule,
@@ -107,6 +109,7 @@ import { MovementChartComponent } from './components/charts/movement-chart/movem
     BrChartComponent,
     HrChartComponent,
     MovementChartComponent,
+    SleepTimeChartComponent
   ],
 })
 export class SharedModule {}

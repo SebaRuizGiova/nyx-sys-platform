@@ -123,6 +123,10 @@
             [xl]="true"
           />
           <p class="desc">
+            <i
+              class="pi pi-exclamation-circle"
+              style="font-size: 1rem; color: #1ee280"
+            ></i>
             {{ messageSleepScore }}
           </p>
         </div>
@@ -202,6 +206,7 @@
             <shared-progress-bar
               [progress]="profileData?.selectedSleepData?.hrv_hf || 0"
               style="width: 100%"
+              color="#26A7FF"
             />
             <span>
               {{
@@ -217,6 +222,7 @@
               [progress]="profileData?.selectedSleepData?.hrv_lf || 0"
               variant="dark"
               style="width: 100%"
+              color="#544FC5"
             />
             <span>
               {{
@@ -388,17 +394,21 @@
           <div class="data-desc">{{ "profileViewInBed" | translate }}</div>
           <div class="data-value">
             {{
-              profileData?.selectedSleepData?.duration_in_bed?.toString() ||
+              profileData?.selectedSleepData?.duration_in_bed_parsed?.toString() ||
                 "No data"
             }}
           </div>
           <div class="data-desc">{{ "profileViewSleeping" | translate }}</div>
           <div class="data-progress">
-            <shared-progress-bar [progress]="91" style="width: 100%" />
+            <shared-progress-bar
+              [progress]="91"
+              style="width: 100%"
+              color="#544FC5"
+            />
             <span>
               {{
-                profileData?.selectedSleepData?.duration_in_sleep?.toString()
-                  ? profileData?.selectedSleepData?.duration_in_sleep +
+                profileData?.selectedSleepData?.duration_in_sleep_parsed?.toString()
+                  ? profileData?.selectedSleepData?.duration_in_sleep_parsed +
                     " (" +
                     profileData?.selectedSleepData?.duration_in_sleep_percent +
                     ")"
@@ -412,11 +422,12 @@
               [progress]="9"
               variant="dark"
               style="width: 100%"
+              color="#18a058"
             />
             <span>
               {{
-                profileData?.selectedSleepData?.duration_awake?.toString()
-                  ? profileData?.selectedSleepData?.duration_awake +
+                profileData?.selectedSleepData?.duration_awake_parsed?.toString()
+                  ? profileData?.selectedSleepData?.duration_awake_parsed +
                     " (" +
                     profileData?.selectedSleepData?.duration_awake_percent +
                     ")"
@@ -425,7 +436,9 @@
             </span>
           </div>
         </div>
-        <div class="graphic-card"></div>
+        <div class="graphic-card">
+          <sleep-time-chart [periods]="sleepTimeToChart"></sleep-time-chart>
+        </div>
       </div>
     </div>
 
@@ -449,7 +462,11 @@
         <div class="data-grid">
           <div class="data-desc">{{ "profileViewSoft" | translate }}</div>
           <div class="data-progress">
-            <shared-progress-bar [progress]="56" style="width: 100%" />
+            <shared-progress-bar
+              [progress]="56"
+              style="width: 100%"
+              color="#26A7FF"
+            />
             <span>
               {{
                 profileData?.selectedSleepData?.duration_in_light
@@ -467,6 +484,7 @@
               [progress]="24"
               variant="super-dark"
               style="width: 100%"
+              color="#544FC5"
             />
             <span>
               {{
@@ -485,6 +503,7 @@
               [progress]="20"
               variant="dark"
               style="width: 100%"
+              color="#3043CE"
             />
             <span>
               {{

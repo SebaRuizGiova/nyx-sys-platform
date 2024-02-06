@@ -114,7 +114,7 @@ export class MovementChartComponent implements OnChanges {
           data: movementsValues,
           color: '#544FC5',
           borderColor: '#544FC5',
-          borderRadius: 0
+          borderRadius: '10%'
         },
         {
           name: 'Turns/Night',
@@ -129,7 +129,5 @@ export class MovementChartComponent implements OnChanges {
         },
       ],
     });
-
-    console.log(this.movement);
   }
 }

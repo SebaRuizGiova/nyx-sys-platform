@@ -79,6 +79,17 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     timestamps: [],
     absent: [],
   };
+  public sleepTimeToChart: {
+    durationInBed: any[];
+    durationInSleep: any[];
+    durationInAwake: any[];
+    dates: any[];
+  } = {
+    durationInBed: [],
+    durationInSleep: [],
+    durationInAwake: [],
+    dates: [],
+  };
 
   public movementToChart: any;
 
@@ -167,13 +178,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       sleepDataSnapshot.docs.map((doc) => doc.data())
     );
     const formattedSleepData = sleepData.map((data) => {
-      const duration_in_sleep = this.helpersService.calcHoursSleepData(
+      const duration_in_sleep_parsed = this.helpersService.calcHoursSleepData(
         data.duration_in_sleep
       );
-      const duration_in_bed = this.helpersService.calcHoursSleepData(
+      const duration_in_bed_parsed = this.helpersService.calcHoursSleepData(
         data.duration_in_bed
       );
-      const duration_awake = this.helpersService.calcHoursSleepData(
+      const duration_awake_parsed = this.helpersService.calcHoursSleepData(
         data.duration_awake
       );
       const duration_in_sleep_percent = this.helpersService.calcPercentHours(
@@ -212,9 +223,9 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
       return {
         ...data,
-        duration_in_sleep,
-        duration_in_bed,
-        duration_awake,
+        duration_in_sleep_parsed,
+        duration_in_bed_parsed,
+        duration_awake_parsed,
         duration_in_sleep_percent,
         duration_awake_percent,
         average_rmssd,
@@ -412,7 +423,10 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.hrvToChart = this.getHrvToChart(this.profileData?.selectedSleepData);
     this.hrToChart = this.getHrToChart(this.profileData?.selectedSleepData);
     this.brToChart = this.getBrToChart(this.profileData?.selectedSleepData);
-    this.movementToChart = this.getMovementToChart(this.profileData?.selectedSleepData);
+    this.movementToChart = this.getMovementToChart(
+      this.profileData?.selectedSleepData
+    );
+    this.sleepTimeToChart = this.getSleepTimeToChart(this.profileData?.sleepData);
   }
 
   calculateAge(birthdate: Birthdate | undefined): string {
@@ -761,8 +775,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       //   }
       // });
 
-      console.log(selectedSleepData);
-
       calc_data.forEach((data: any) => {
         timestamps.push(data.timestamp);
         heartRateArray.push([data.timestamp, data.heartRate]);
@@ -887,7 +899,12 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         counter = counter + 1;
         if (counter == 5) {
           datesOfficial.push(data);
-          timestamps.push(this.helpersService.formatTimestamp(data.timestamp, this.timezoneService.timezoneOffset));
+          timestamps.push(
+            this.helpersService.formatTimestamp(
+              data.timestamp,
+              this.timezoneService.timezoneOffset
+            )
+          );
           counter = 0;
         }
       });
@@ -947,8 +964,34 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     return {
       movement,
       totalActivity,
-      timestamps
-    }
+      timestamps,
+    };
   }
 
+  getSleepTimeToChart(sleepDataArray?: SleepData[]) {
+    let durationInBed: any[] = [];
+    let durationInSleep: any[] = [];
+    let durationInAwake: any[] = [];
+    let dates: any[] = [];
+
+    if (sleepDataArray) {
+      sleepDataArray.slice(0, 6).forEach((night: any) => {
+        durationInSleep.push(Number((night.duration_in_sleep / 60 / 60).toFixed(2)));
+        durationInBed.push(Number((night.duration_in_bed / 60 / 60).toFixed(2)));
+        durationInAwake.push(Number((night.duration_awake / 60 / 60).toFixed(2)));
+        dates.push(
+          this.helpersService.formatTimestampToDate(
+            night.to,
+            this.timezoneService.timezoneOffset
+          )
+        );
+      });
+    }
+    return {
+      durationInBed,
+      durationInSleep,
+      durationInAwake,
+      dates,
+    };
+  }
 }

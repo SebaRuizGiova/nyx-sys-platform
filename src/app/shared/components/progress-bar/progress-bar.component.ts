@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ProgressBarComponent {
   @Input() progress: number = 0;
-  @Input() variant?: 'light' | 'dark' | 'super-dark' = 'light';
+  @Input() color: string = '';
   // @Input() width?: string = '100%';
 }

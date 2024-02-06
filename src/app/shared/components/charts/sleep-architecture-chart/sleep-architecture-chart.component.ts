@@ -55,7 +55,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
         },
         {
           name: 'Deep',
-          color: '#000A3D',
+          color: '#544FC5',
           data: this.getSeriesData(1),
         },
         {
@@ -64,6 +64,8 @@ export class SleepArchitectureChartComponent implements OnChanges {
           data: this.getSeriesData(3),
         },
       ];
+
+      console.log(seriesData);
 
       this.chart = new Chart({
         chart: {

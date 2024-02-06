@@ -49,12 +49,11 @@ export class RecoveryChartComponent implements OnChanges {
         enabled: false,
       },
       plotOptions: {
-        spline: {
-          marker: {
-            radius: 4,
-            lineColor: '#544FC5',
-            lineWidth: 1,
-          },
+        column: {
+          stacking: 'normal',
+          borderRadius: '10%',
+          borderWidth: 0,
+          groupPadding: 0,
         },
       },
       tooltip: {
@@ -66,12 +65,14 @@ export class RecoveryChartComponent implements OnChanges {
       series: [
         {
           name: 'Total de Recuperación',
-          marker: {
+        /*   marker: {
             symbol: 'circle',
-          },
-          type: 'spline',
+          }, */
+          type: 'column',
           data: totalRecoveryValues,
-          color: '#544FC5'
+          color: '#544FC5',
+          borderColor: '#544FC5',
+          borderRadius: 5
         },
       ],
     });
