@@ -479,7 +479,7 @@ export class DatabaseService {
 
       groupRef
         .update({
-          deleted: true
+          deleted: true,
         })
         .then((res) => {
           // Eliminar los perfiles vinculados al grupo
@@ -688,6 +688,45 @@ export class DatabaseService {
           .catch((error) => {
             reject(error);
           });
+      }
+    });
+  }
+
+  editUser(user: User) {
+    return new Promise((resolve, reject) => {
+      const userRef = this.firestore.doc(`/users/nyxsys/content/${user.id}`);
+
+      userRef
+        .update({
+          role: user.role,
+          nickName: user.nickName,
+        })
+        .then((res) => {
+          resolve(res);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  }
+
+  deleteUser(user: User | null) {
+    return new Promise((resolve, reject) => {
+      if (this.authService && user) {
+        const userRef = this.firestore.doc(`/users/nyxsys/content/${user.id}`);
+
+        userRef
+          .update({
+            deleted: true,
+          })
+          .then((res) => {
+            resolve(res);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+
+        this.authService.deleteUser(user);
       }
     });
   }

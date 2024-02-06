@@ -436,11 +436,13 @@
                   class="pi pi-user-edit"
                   [pTooltip]="'adminEditUserTooltip' | translate"
                   tooltipPosition="bottom"
+                  (click)="toggleEditUser(user)"
                 ></i>
                 <i
                   class="pi pi-trash"
                   [pTooltip]="'adminDeleteUserTooltip' | translate"
                   tooltipPosition="bottom"
+                  (click)="toggleConfirmDeleteUser(user)"
                 ></i>
               </div>
             </td>
@@ -577,6 +579,7 @@
       | translate
   "
   width="25vw"
+  (onCloseEvent)="onCloseModalDevice()"
 >
   <div class="modal-content" [formGroup]="addDeviceForm">
     <p class="legend">{{ "adminExplanationDevice" | translate }}</p>
@@ -655,6 +658,7 @@
       | translate
   "
   width="25vw"
+  (onCloseEvent)="onCloseModalGroup()"
 >
   <div class="modal-content" [formGroup]="addGroupForm">
     <shared-input-text
@@ -730,7 +734,9 @@
         inputId="deleteProfiles"
         (onChange)="toggleConfirmDeleteProfilesGroup()"
       ></p-checkbox>
-      <label for="deleteProfiles">{{ 'adminDeleteProfilesByGroup' | translate }}</label>
+      <label for="deleteProfiles">{{
+        "adminDeleteProfilesByGroup" | translate
+      }}</label>
     </form>
   </div>
   <div class="buttons-modal">
@@ -751,6 +757,7 @@
   [showModal]="showAddCollaborator"
   [title]="'adminAddCollaboratorTitle' | translate"
   width="25vw"
+  (onCloseEvent)="onCloseModalAddCollaborator()"
 >
   <div class="modal-content" [formGroup]="addCollaboratorForm">
     <p class="legend">{{ "adminExplanationCollaborator" | translate }}</p>
@@ -818,6 +825,7 @@
   [showModal]="showEditCollaborator"
   [title]="'adminEditCollaboratorTitle' | translate"
   width="25vw"
+  (onCloseEvent)="onCloseModalEditCollaborator()"
 >
   <div class="modal-content" [formGroup]="editCollaboratorForm">
     <p>{{ "adminExplanationCollaborator" | translate }}</p>
@@ -873,14 +881,12 @@
 <!-- MODAL AÑADIR USUARIO -->
 <shared-modal
   [showModal]="showAddUser"
-  [title]="
-    (enableEditProfile ? 'adminEditUserTitle' : 'adminAddUserTitle') | translate
-  "
+  [title]="'adminAddUserTitle' | translate"
   width="25vw"
+  (onCloseEvent)="onCloseModalAddUser()"
 >
   <div class="modal-content" [formGroup]="addUserForm">
     <shared-input-text
-      *ngIf="!enableEditUser"
       [formGroup]="addUserForm"
       formControlName="email"
       [placeholder]="'adminModalAddUserEmail' | translate"
@@ -912,6 +918,43 @@
         [label]="'adminModalCancel' | translate"
         variant="secondary"
         (click)="toggleAddUser()"
+      />
+    </div>
+  </div>
+</shared-modal>
+
+<!-- MODAL EDITAR USUARIO -->
+<shared-modal
+  [showModal]="showEditUser"
+  [title]="'adminEditUserTitle' | translate"
+  width="25vw"
+  (onCloseEvent)="onCloseModalEditUser()"
+>
+  <div class="modal-content" [formGroup]="editUserForm">
+    <shared-input-text
+      [formGroup]="editUserForm"
+      formControlName="nickName"
+      [placeholder]="'adminModalAddUserAlias' | translate"
+      [error]="!!validateInputs(editUserForm, 'nickName')"
+      [helper]="validateInputs(editUserForm, 'nickName')"
+    />
+    <shared-select
+      [options]="roleUserItems"
+      [placeholder]="'adminModalAddUserRole' | translate"
+      [formGroup]="editUserForm"
+      formControlName="role"
+      [error]="!!validateInputs(editUserForm, 'role')"
+    />
+    <div class="buttons-modal">
+      <shared-button
+        [label]="'adminModalSave' | translate"
+        (click)="editUser()"
+        [disabled]="editUserForm.status === 'INVALID'"
+      />
+      <shared-button
+        [label]="'adminModalCancel' | translate"
+        variant="secondary"
+        (click)="toggleEditUser()"
       />
     </div>
   </div>
