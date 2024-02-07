@@ -157,14 +157,6 @@ export class DatabaseService {
       .ref.get();
   }
 
-  getFirstGroupCollection(userId: string) {
-    return this.firestore
-      .collection(`/users/${environment.client}/content/${userId}/teams`)
-      .ref.where('hided', '==', false)
-      .limit(1)
-      .get();
-  }
-
   getGroupsByUserCollection(userId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
@@ -319,7 +311,7 @@ export class DatabaseService {
 
       profileRef
         .update({
-          deleted: true
+          deleted: true,
         })
         .then((res) => {
           resolve(res);
@@ -347,7 +339,7 @@ export class DatabaseService {
     });
   }
 
-  addDevice(device: Device) {
+  addDevice(device: Device, users: User[]) {
     return new Promise((resolve, reject) => {
       if (this.authService) {
         this.authService.checkRole().subscribe((role) => {
@@ -361,8 +353,17 @@ export class DatabaseService {
             }/devices`
           );
 
+          const userLinked = users.find(
+            (user) => user.id === device.playerID.toString()
+          );
+
+          const newDevice = {
+            ...device,
+            playerName: userLinked?.nickName || false,
+          };
+
           deviceRef
-            .add(device)
+            .add(newDevice)
             .then((res) => {
               resolve(res);
             })
@@ -539,19 +540,23 @@ export class DatabaseService {
       if (this.authService) {
         let userId = '';
 
-        this.authService.checkRole().subscribe((role) => {
+        this.authService.checkRole().subscribe(async (role) => {
           this.userRole = role;
+
+          let userAccess: User | undefined = undefined;
 
           if (this.userRole === 'superAdmin') {
             userId = collaborator.UID;
+
+            userAccess = users.find((user) => {
+              return user.id === userId;
+            });
           } else {
-            userId = this.authService!.currentUser;
+            userId = this.authService!.userId;
+
+            const userDataDoc = await this.getUserDataDoc(userId)
+            userAccess = <User>userDataDoc.data();
           }
-
-          const userAccess: User | undefined = users.find((user) => {
-            return user.id === userId;
-          });
-
           const accessTo = [
             {
               email: userAccess?.email,
@@ -582,7 +587,6 @@ export class DatabaseService {
     return new Promise((resolve, reject) => {
       if (this.authService) {
         this.authService.checkRole().subscribe((role) => {
-          debugger;
           this.userRole = role;
 
           const userAccessRef = this.firestore
@@ -653,9 +657,17 @@ export class DatabaseService {
 
           await collaboratorRef.delete();
 
-          const userToAccess = users.find(
-            (user: User) => user.id === userIdToAccess
-          );
+          let userToAccess: User | undefined = undefined;
+
+          if (this.userRole === 'superAdmin') {
+            userToAccess = users.find(
+              (user: User) => user.id === userIdToAccess
+            );
+          } else {
+            const userDataDoc = await this.getUserDataDoc(userIdToAccess)
+            userToAccess = <User>userDataDoc.data();
+          }
+
           const newCollaboratorsUserToAccess =
             userToAccess?.collaborators.filter(
               (collaborator: Collaborator) => collaborator.id !== collaboratorId
@@ -666,6 +678,7 @@ export class DatabaseService {
           });
 
           this.authService.deleteUser(collaborator);
+          resolve('Colaborador eliminado correctamente');
         } catch (error) {
           throw error;
         }

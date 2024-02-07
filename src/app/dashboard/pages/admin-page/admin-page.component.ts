@@ -263,6 +263,7 @@ export class AdminPageComponent implements OnInit {
       .subscribe((profiles) => {
         this.profiles = profiles;
         this.filteredProfiles = profiles;
+        this.profilesByUser = profiles;
         this.loadingService.setLoading(false);
       });
   }
@@ -283,6 +284,7 @@ export class AdminPageComponent implements OnInit {
         );
         this.devices = devicesWithStatus;
         this.filteredDevices = devicesWithStatus;
+        this.devicesByUser = devicesWithStatus;
         this.loadingService.setLoading(false);
       });
   }
@@ -298,6 +300,7 @@ export class AdminPageComponent implements OnInit {
           value: group.id,
         }));
         this.filteredGroups = groups;
+        this.groupsByUser = groups;
         this.loadingService.setLoading(false);
       });
   }
@@ -317,9 +320,10 @@ export class AdminPageComponent implements OnInit {
         userId: collaboratorData.UID,
       };
     });
-    this.collaborators = collaborators;
-    this.filteredCollaborators = collaborators;
-    this.collaboratorsByUser = collaborators;
+    const collaboratorsFiltersByUser = collaborators.filter(collaborator => collaborator.accessTo[0].id === this.authService.userId);
+    this.collaborators = collaboratorsFiltersByUser;
+    this.filteredCollaborators = collaboratorsFiltersByUser;
+    this.collaboratorsByUser = collaboratorsFiltersByUser;
 
     this.loadingService.setLoading(false);
   }
@@ -635,6 +639,12 @@ export class AdminPageComponent implements OnInit {
   //? MODALES GRUPOS
   toggleAddGroup() {
     this.showAddGroup = !this.showAddGroup;
+
+    if (this.userRole !== 'superAdmin') {
+      this.addGroupForm.patchValue({
+        userID: this.authService.userId
+      })
+    }
   }
 
   toggleEditGroup(group?: Group) {
@@ -672,6 +682,10 @@ export class AdminPageComponent implements OnInit {
   //? MODALES COLABORADORES
   toggleAddCollaborator() {
     this.showAddCollaborator = !this.showAddCollaborator;
+
+    this.addCollaboratorForm.patchValue({
+      UID: this.authService.userId
+    })
   }
 
   toggleEditCollaborator(collaborator?: Collaborator) {
@@ -720,36 +734,6 @@ export class AdminPageComponent implements OnInit {
   //? ACCIONES PERFILES
   addProfile() {
     if (this.addProfileForm.status !== 'INVALID') {
-      // const profileRef = this.firestore.collection(
-      //   `/users/nyxsys/content/${
-      //     this.userRole === 'superAdmin'
-      //       ? this.addProfileForm.value.userID
-      //       : this.authService.userId
-      //   }/players`
-      // );
-
-      // this.loadingService.setLoading(true);
-      // profileRef
-      //   .add({
-      //     ...this.addProfileForm.value,
-      //   })
-      //   .then(() => {
-      //     this.toggleAddProfile();
-      //     this.messageService.add({
-      //       severity: 'success',
-      //       summary: this.translateService.instant('ToastTitleCorrect'),
-      //       detail: this.translateService.instant('adminAddProfileSuccess'),
-      //     });
-      //     this.loadData();
-      //   })
-      //   .catch(() => {
-      //     this.loadingService.setLoading(false);
-      //     this.messageService.add({
-      //       severity: 'error',
-      //       summary: this.translateService.instant('ToastTitleError'),
-      //       detail: this.translateService.instant('adminAddProfileError'),
-      //     });
-      //   });
       this.loadingService.setLoading(true);
       this.databaseService
         .addProfile(this.addProfileForm.value)
@@ -775,41 +759,6 @@ export class AdminPageComponent implements OnInit {
 
   editProfile() {
     if (this.addProfileForm.status !== 'INVALID') {
-      // const profileRef = this.firestore.doc(
-      //   `/users/nyxsys/content/${
-      //     this.userRole === 'superAdmin'
-      //       ? this.addProfileForm.value.userID
-      //       : this.authService.userId
-      //   }/players/${this.profileIdToEdit}`
-      // );
-
-      // this.loadingService.setLoading(true);
-      // profileRef
-      //   .set(
-      //     {
-      //       ...this.addProfileForm.value,
-      //     },
-      //     { merge: true }
-      //   )
-      //   .then(() => {
-      //     this.toggleEditProfile();
-      //     this.actionsProfilesForm.reset();
-      //     this.messageService.add({
-      //       severity: 'success',
-      //       summary: this.translateService.instant('ToastTitleCorrect'),
-      //       detail: this.translateService.instant('adminEditProfileSuccess'),
-      //     });
-      //     this.profileIdToEdit = '';
-      //     this.loadData();
-      //   })
-      //   .catch(() => {
-      //     this.loadingService.setLoading(false);
-      //     this.messageService.add({
-      //       severity: 'error',
-      //       summary: this.translateService.instant('ToastTitleError'),
-      //       detail: this.translateService.instant('adminEditProfileError'),
-      //     });
-      //   });
       this.databaseService
         .editProfile(this.addProfileForm.value)
         .then(() => {
@@ -867,34 +816,6 @@ export class AdminPageComponent implements OnInit {
   }
 
   deleteProfile() {
-    // const profileRef = this.firestore.doc(
-    //   `/users/nyxsys/content/${this.userIdProfileToDelete}/players/${this.profileIdToDelete}`
-    // );
-
-    // this.userIdProfileToDelete = '';
-    // this.profileIdToDelete = '';
-
-    // this.loadingService.setLoading(true);
-    // profileRef
-    // .delete()
-    // .then(() => {
-    //     this.toggleConfirmDeleteProfile();
-    //     this.actionsProfilesForm.reset();
-    //     this.messageService.add({
-    //       severity: 'success',
-    //       summary: this.translateService.instant('ToastTitleCorrect'),
-    //       detail: this.translateService.instant('adminDeleteProfileSuccess'),
-    //     });
-    //     this.loadData();
-    //   })
-    //   .catch(() => {
-    //     this.loadingService.setLoading(false);
-    //     this.messageService.add({
-    //       severity: 'error',
-    //       summary: this.translateService.instant('ToastTitleError'),
-    //       detail: this.translateService.instant('adminDeleteProfileError'),
-    //     });
-    //   });
     this.loadingService.setLoading(true);
     this.databaseService
       .deleteProfile(this.profileIdToDelete, this.userIdProfileToDelete)
@@ -979,39 +900,9 @@ export class AdminPageComponent implements OnInit {
   //? ACCIONES DISPOSITIVOS
   addDevice() {
     if (this.addDeviceForm.status !== 'INVALID') {
-      // const deviceRef = this.firestore.collection(
-      //   `/users/nyxsys/content/${
-      //     this.userRole === 'superAdmin'
-      //       ? this.addDeviceForm.value.userID
-      //       : this.authService.userId
-      //   }/devices`
-      // );
-
-      // this.loadingService.setLoading(true);
-      // deviceRef
-      //   .add({
-      //     ...this.addDeviceForm.value,
-      //   })
-      //   .then(() => {
-      //     this.toggleAddDevice();
-      //     this.messageService.add({
-      //       severity: 'success',
-      //       summary: this.translateService.instant('ToastTitleCorrect'),
-      //       detail: this.translateService.instant('adminAddDeviceSuccess'),
-      //     });
-      //     this.loadData();
-      //   })
-      //   .catch(() => {
-      //     this.loadingService.setLoading(false);
-      //     this.messageService.add({
-      //       severity: 'error',
-      //       summary: this.translateService.instant('ToastTitleError'),
-      //       detail: this.translateService.instant('adminAddDeviceError'),
-      //     });
-      //   });
       this.loadingService.setLoading(true);
       this.databaseService
-        .addDevice(this.addDeviceForm.value)
+        .addDevice(this.addDeviceForm.value, this.users)
         .then(() => {
           this.toggleAddDevice();
           this.messageService.add({
@@ -1431,53 +1322,6 @@ export class AdminPageComponent implements OnInit {
 
   //? ACCIONES COLABORADORES
   addCollaborator() {
-    // try {
-    //   if (this.addCollaboratorForm.status !== 'INVALID') {
-    //     let userId = '';
-
-    //     if (this.userRole === 'superAdmin') {
-    //       userId = this.addCollaboratorForm.value.UID;
-    //     } else {
-    //       userId = this.authService.currentUser;
-    //     }
-
-    //     const userAccess: User | undefined = this.users.find((user) => {
-    //       return user.id === userId;
-    //     });
-
-    //     const accessTo = [
-    //       {
-    //         email: userAccess?.email,
-    //         id: userAccess?.id,
-    //         nickName: userAccess?.nickName,
-    //       },
-    //     ];
-
-    //     this.loadingService.setLoading(true);
-    //     await this.authService.registerCollaborator(
-    //       this.addCollaboratorForm.value.email,
-    //       this.addCollaboratorForm.value.password,
-    //       this.addCollaboratorForm.value.nickName,
-    //       this.addCollaboratorForm.value.role,
-    //       accessTo
-    //     );
-    //     this.toggleAddCollaborator();
-    //     this.loadingService.setLoading(false);
-    //     this.messageService.add({
-    //       severity: 'success',
-    //       summary: this.translateService.instant('ToastTitleCorrect'),
-    //       detail: this.translateService.instant('adminAddCollaboratorSuccess'),
-    //     });
-    //     this.loadData();
-    //   }
-    // } catch (error) {
-    //   this.loadingService.setLoading(false);
-    //   this.messageService.add({
-    //     severity: 'error',
-    //     summary: this.translateService.instant('ToastTitleError'),
-    //     detail: this.translateService.instant('adminAddCollaboratorError'),
-    //   });
-    // }
     this.loadingService.setLoading(true);
 
     this.databaseService
@@ -1492,7 +1336,7 @@ export class AdminPageComponent implements OnInit {
         });
         this.loadData();
       })
-      .catch(() => {
+      .catch((err) => {
         this.loadingService.setLoading(false);
         this.messageService.add({
           severity: 'error',
@@ -1951,6 +1795,17 @@ export class AdminPageComponent implements OnInit {
       }));
   }
 
+  selectPlayerLinked(profileId: string) {
+    const userLinked = this.profiles.find(profile => profile.id === profileId);
+
+    if (userLinked) {
+      this.addDeviceForm.patchValue({
+        player: true,
+        playerName: `${userLinked.name} ${userLinked.lastName}`
+      })
+    }
+  }
+
   validateInputs(form: FormGroup, field: string): string {
     const errors = form.controls[field].errors;
     const touched = form.controls[field].touched;
@@ -1970,11 +1825,14 @@ export class AdminPageComponent implements OnInit {
       if (errors['existName']) {
         return this.translateService.instant('adminExistNameError');
       }
-      if (errors['minlength'].requiredLength === 5) {
+      if (errors['minlength']?.requiredLength === 5) {
         return this.translateService.instant('adminLength5Characters');
       }
-      if (errors['minlength'].requiredLength === 6) {
+      if (errors['minlength']?.requiredLength === 6) {
         return this.translateService.instant('adminLength6Characters');
+      }
+      if (errors['noEqualPasswords']) {
+        return this.translateService.instant('adminNoEqualPasswords');
       }
     }
     return '';
@@ -2011,6 +1869,25 @@ export class AdminPageComponent implements OnInit {
     if (existEmail) {
       this.addCollaboratorForm.controls['email'].setErrors({
         existEmail: true,
+      });
+    }
+  }
+
+  validatePasswordsCollaborator(password1: string, password2: string) {
+    const equalPasswords = password1 === password2;
+    if (!equalPasswords) {
+      this.addCollaboratorForm.controls['password'].setErrors({
+        noEqualPasswords: true,
+      });
+      this.addCollaboratorForm.controls['confirmPassword'].setErrors({
+        noEqualPasswords: true,
+      });
+    } else {
+      this.addCollaboratorForm.controls['password'].setErrors({
+        noEqualPasswords: false,
+      });
+      this.addCollaboratorForm.controls['confirmPassword'].setErrors({
+        noEqualPasswords: false,
       });
     }
   }

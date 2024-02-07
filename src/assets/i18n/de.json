@@ -271,6 +271,7 @@
   "adminExistEmailError": "Die E-Mail existiert bereits",
   "adminLength5Characters": "Das Feld muss 5 Stellen haben",
   "adminLength6Characters": "Das Feld muss 6 Zeichen haben",
+  "adminNoEqualPasswords": "Passwörter müssen übereinstimmen",
   "adminDeleteProfilesByGroup": "Alle verknüpften Profile löschen",
   "settingsHelpCardTitle": "Tutorials und FAQs",
   "settingsContactCardTitle": "Kontakt",

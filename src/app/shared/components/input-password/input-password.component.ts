@@ -1,4 +1,4 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -19,6 +19,7 @@ export class InputPasswordComponent implements ControlValueAccessor {
   @Input() formControlName: string = '';
   @Input() helper: string = '';
   @Input() error: boolean = false;
+  @Output() inputChange: EventEmitter<any> = new EventEmitter();
 
   private innerValue: string = '';
 
@@ -36,5 +37,13 @@ export class InputPasswordComponent implements ControlValueAccessor {
 
   registerOnTouched(fn: any): void {
     this.onTouch = fn;
+  }
+
+  onInputChange(event: Event) {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.innerValue = inputValue;
+    this.onChange(this.innerValue);
+    this.onTouch();
+    this.inputChange.emit((event.target as HTMLInputElement).value);
   }
 }
