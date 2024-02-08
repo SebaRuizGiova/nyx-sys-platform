@@ -156,6 +156,10 @@
 
       .desc {
         font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
       }
 
       .data {

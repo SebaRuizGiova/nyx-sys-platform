@@ -122,14 +122,14 @@
             [sleepScore]="profileData?.selectedSleepData?.sleep_score || 0"
             [xl]="true"
           />
-          <p class="desc">
-            <i
-              class="pi pi-exclamation-circle"
-              style="font-size: 1rem; color: #1ee280"
-            ></i>
-            {{ messageSleepScore }}
-          </p>
         </div>
+        <p class="desc">
+          <i
+            class="pi pi-exclamation-circle"
+            style="font-size: 1rem; color: #1ee280"
+          ></i>
+          <span>{{ messageSleepScore }}</span>
+        </p>
         <div class="graphic-card">
           <sleep-score-chart
             [sleepScore]="sleepScoreToChart"

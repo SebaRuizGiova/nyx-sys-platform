@@ -553,6 +553,26 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
+        // TODO: Definir mensaje por defecto
+    } else if (sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage1+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          let message = this.getRandomMessage(messages);
+          if (message.includes('*sleep_score*')) {
+            message = message.replace('*sleep_score*', sleepScore.toString());
+          }
+          this.messageSleepScore = message;
+        });
+    } else if (sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage1-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
     }
   }
 
