@@ -339,10 +339,11 @@ export class DatabaseService {
     });
   }
 
-  addDevice(device: Device, users: User[]) {
+  addDevice(device: Device, profiles: Profile[]) {
     return new Promise((resolve, reject) => {
       if (this.authService) {
         this.authService.checkRole().subscribe((role) => {
+          let deviceId = '';
           this.userRole = role;
 
           const deviceRef = this.firestore.collection(
@@ -353,19 +354,42 @@ export class DatabaseService {
             }/devices`
           );
 
-          const userLinked = users.find(
+          const profileLinked = profiles.find(
             (user) => user.id === device.playerID.toString()
           );
 
           const newDevice = {
             ...device,
-            playerName: userLinked?.nickName || false,
+            playerName: `${profileLinked?.name} ${profileLinked?.lastName}` || false,
           };
 
           deviceRef
             .add(newDevice)
-            .then((res) => {
-              resolve(res);
+            .then((docRef) => {
+              deviceId = docRef.id;
+              if (device.playerID) {
+                const profileRef = this.firestore.doc(
+                  `/users/nyxsys/content/${
+                    this.userRole === 'superAdmin'
+                      ? device.userID
+                      : this.authService!.userId
+                  }/players/${device.playerID}`
+                );
+
+                profileRef
+                  .update({
+                    device: true,
+                    deviceID: deviceId,
+                    deviceSN: device.serialNumber,
+                  })
+                  .then((res) => {
+                    resolve(res);
+                  })
+                  .catch((error) => {
+                    reject(error);
+                  });
+              }
+              resolve(docRef);
             })
             .catch((error) => {
               reject(error);
@@ -389,14 +413,39 @@ export class DatabaseService {
             }/devices/${device.id}`
           );
 
-          deviceRef
-            .set(device, { merge: true })
-            .then((res) => {
-              resolve(res);
-            })
-            .catch((error) => {
-              reject(error);
+          const deviceRefPromise = deviceRef.set(device, { merge: true });
+
+          if (device.playerID) {
+            const profileRef = this.firestore.doc(
+              `/users/nyxsys/content/${
+                this.userRole === 'superAdmin'
+                  ? device.userID
+                  : this.authService!.userId
+              }/players/${device.playerID}`
+            );
+
+            const profileRefPromise = profileRef.update({
+              device: true,
+              deviceID: device.id,
+              deviceSN: device.serialNumber,
             });
+
+            Promise.all([deviceRefPromise, profileRefPromise])
+              .then((res) => {
+                resolve(res);
+              })
+              .catch((error) => {
+                reject(error);
+              });
+          } else {
+            deviceRefPromise
+              .then((res) => {
+                resolve(res);
+              })
+              .catch((error) => {
+                reject(error);
+              });
+          }
         });
       }
     });
@@ -408,10 +457,44 @@ export class DatabaseService {
         `/users/nyxsys/content/${userId}/devices/${deviceId}`
       );
 
-      deviceRef
-        .delete()
-        .then((res) => {
-          resolve(res);
+      // Obtener referencias a la colección de jugadores ('players')
+      const playersRef = this.firestore.collection(
+        `/users/nyxsys/content/${userId}/players`
+      );
+
+      // Realizar la operación de eliminación del dispositivo y la actualización de los jugadores en una transacción
+      this.firestore.firestore
+        .runTransaction((transaction) => {
+          // Obtener el dispositivo a eliminar
+          return transaction.get(deviceRef.ref).then((deviceDoc) => {
+            if (!deviceDoc.exists) {
+              throw new Error('El dispositivo no existe');
+            }
+
+            // Eliminar el dispositivo
+            transaction.delete(deviceRef.ref);
+
+            // Obtener el ID del dispositivo a eliminar
+            const deviceId = deviceDoc.id;
+
+            // Actualizar las propiedades 'device', 'deviceID' y 'deviceSN' de los jugadores vinculados a ese dispositivo
+            return playersRef.ref
+              .where('deviceID', '==', deviceId)
+              .get()
+              .then((playersSnapshot) => {
+                playersSnapshot.forEach((playerDoc) => {
+                  const playerRef = playersRef.doc(playerDoc.id);
+                  transaction.update(playerRef.ref, {
+                    device: false,
+                    deviceID: '',
+                    deviceSN: '',
+                  });
+                });
+              });
+          });
+        })
+        .then(() => {
+          resolve('Operaciones completadas exitosamente');
         })
         .catch((error) => {
           reject(error);
@@ -554,7 +637,7 @@ export class DatabaseService {
           } else {
             userId = this.authService!.userId;
 
-            const userDataDoc = await this.getUserDataDoc(userId)
+            const userDataDoc = await this.getUserDataDoc(userId);
             userAccess = <User>userDataDoc.data();
           }
           const accessTo = [
@@ -664,7 +747,7 @@ export class DatabaseService {
               (user: User) => user.id === userIdToAccess
             );
           } else {
-            const userDataDoc = await this.getUserDataDoc(userIdToAccess)
+            const userDataDoc = await this.getUserDataDoc(userIdToAccess);
             userToAccess = <User>userDataDoc.data();
           }
 
@@ -727,20 +810,72 @@ export class DatabaseService {
   deleteUser(user: User | null) {
     return new Promise((resolve, reject) => {
       if (this.authService && user) {
-        const userRef = this.firestore.doc(`/users/nyxsys/content/${user.id}`);
+        const userRef = this.firestore.doc(
+          `/users/nyxsys/content/${user.id}`
+        ).ref;
+        const batch = this.firestore.firestore.batch(); // Inicializar un lote de escritura en Firestore
 
-        userRef
-          .update({
-            deleted: true,
-          })
-          .then((res) => {
-            resolve(res);
+        // Actualizar la propiedad 'deleted' del usuario a true
+        batch.update(userRef, { deleted: true });
+
+        // Obtener referencias a las colecciones de 'teams', 'players' y 'devices'
+        const teamsRef = userRef.collection('teams');
+        const playersRef = userRef.collection('players');
+        const devicesRef = userRef.collection('devices');
+
+        // Obtener todos los documentos de 'teams' y 'players' para actualizar la propiedad 'deleted' a true
+        teamsRef
+          .get()
+          .then((teamsSnapshot) => {
+            teamsSnapshot.forEach((doc) => {
+              const teamRef = teamsRef.doc(doc.id);
+              batch.update(teamRef, { deleted: true });
+            });
+
+            // Actualizar la propiedad 'deleted', 'device', 'deviceID' y 'deviceSN' de cada jugador
+            playersRef
+              .get()
+              .then((playersSnapshot) => {
+                playersSnapshot.forEach((doc) => {
+                  const playerRef = playersRef.doc(doc.id);
+                  batch.update(playerRef, {
+                    device: false,
+                    deviceID: '',
+                    deviceSN: '',
+                    deleted: true,
+                  });
+                });
+
+                // Eliminar todos los documentos de la colección 'devices'
+                devicesRef
+                  .get()
+                  .then((devicesSnapshot) => {
+                    devicesSnapshot.forEach((doc) => {
+                      const deviceRef = devicesRef.doc(doc.id);
+                      batch.delete(deviceRef);
+                    });
+
+                    // Ejecutar todas las operaciones en lote
+                    batch
+                      .commit()
+                      .then(() => {
+                        resolve('Operaciones completadas exitosamente');
+                      })
+                      .catch((error) => {
+                        reject(error);
+                      });
+                  })
+                  .catch((error) => {
+                    reject(error);
+                  });
+              })
+              .catch((error) => {
+                reject(error);
+              });
           })
           .catch((error) => {
             reject(error);
           });
-
-        this.authService.deleteUser(user);
       }
     });
   }

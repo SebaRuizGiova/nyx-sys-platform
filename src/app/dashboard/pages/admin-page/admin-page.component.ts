@@ -320,7 +320,9 @@ export class AdminPageComponent implements OnInit {
         userId: collaboratorData.UID,
       };
     });
-    const collaboratorsFiltersByUser = collaborators.filter(collaborator => collaborator.accessTo[0].id === this.authService.userId);
+    const collaboratorsFiltersByUser = collaborators.filter(
+      (collaborator) => collaborator.accessTo[0].id === this.authService.userId
+    );
     this.collaborators = collaboratorsFiltersByUser;
     this.filteredCollaborators = collaboratorsFiltersByUser;
     this.collaboratorsByUser = collaboratorsFiltersByUser;
@@ -568,6 +570,10 @@ export class AdminPageComponent implements OnInit {
     if (this.userRole !== 'superAdmin') {
       this.selectUserProfile(this.authService.userId);
     }
+
+    this.addProfileForm.reset();
+    this.addProfileForm.controls['sex'].setErrors(null);
+    this.addProfileForm.controls['userID'].setErrors(null);
   }
 
   toggleEditProfile(profile?: Profile) {
@@ -591,6 +597,10 @@ export class AdminPageComponent implements OnInit {
         profile.teamID
       );
     }
+
+    this.addProfileForm.reset();
+    this.addProfileForm.controls['sex'].setErrors(null);
+    this.addProfileForm.controls['userID'].setErrors(null);
   }
 
   toggleConfirmDeleteProfile(userId?: string, profileId?: string) {
@@ -609,12 +619,26 @@ export class AdminPageComponent implements OnInit {
     if (this.userRole !== 'superAdmin') {
       this.selectUserDevice(this.authService.userId);
     }
+
+    this.addDeviceForm.reset();
+    this.addDeviceForm.controls['userID'].setErrors(null);
+    this.addDeviceForm?.get('playerID')?.reset({
+      value: '',
+      disabled: true,
+    });
   }
 
   toggleEditDevice(device?: Device) {
     this.enableEditDevice = !this.enableEditDevice;
     this.showAddDevice = !this.showAddDevice;
     this.deviceIdToEdit = device?.id || '';
+
+    this.addDeviceForm.reset();
+    this.addDeviceForm.controls['userID'].setErrors(null);
+    this.addDeviceForm?.get('playerID')?.reset({
+      value: '',
+      disabled: true,
+    });
 
     if (device) {
       this.addDeviceForm.patchValue(device);
@@ -642,14 +666,22 @@ export class AdminPageComponent implements OnInit {
 
     if (this.userRole !== 'superAdmin') {
       this.addGroupForm.patchValue({
-        userID: this.authService.userId
-      })
+        userID: this.authService.userId,
+      });
     }
+
+    this.addGroupForm.reset();
+    this.addGroupForm.controls['gmt'].setErrors(null);
+    this.addGroupForm.controls['userID'].setErrors(null);
   }
 
   toggleEditGroup(group?: Group) {
     this.enableEditGroup = !this.enableEditGroup;
     this.showAddGroup = !this.showAddGroup;
+
+    this.addGroupForm.reset();
+    this.addGroupForm.controls['gmt'].setErrors(null);
+    this.addGroupForm.controls['userID'].setErrors(null);
 
     if (group) {
       this.addGroupForm.patchValue(group);
@@ -683,13 +715,23 @@ export class AdminPageComponent implements OnInit {
   toggleAddCollaborator() {
     this.showAddCollaborator = !this.showAddCollaborator;
 
-    this.addCollaboratorForm.patchValue({
-      UID: this.authService.userId
-    })
+    if (this.userRole !== 'superAdmin') {
+      this.addCollaboratorForm.patchValue({
+        UID: this.authService.userId,
+      });
+    }
+
+    this.addCollaboratorForm.reset();
+    this.addCollaboratorForm.controls['role'].setErrors(null);
+    this.addCollaboratorForm.controls['UID'].setErrors(null);
   }
 
   toggleEditCollaborator(collaborator?: Collaborator) {
     this.showEditCollaborator = !this.showEditCollaborator;
+
+    this.addCollaboratorForm.reset();
+    this.addCollaboratorForm.controls['role'].setErrors(null);
+    this.addCollaboratorForm.controls['UID'].setErrors(null);
 
     if (collaborator) {
       this.editCollaboratorForm.patchValue(collaborator);
@@ -713,10 +755,16 @@ export class AdminPageComponent implements OnInit {
   //? MODALES USUARIOS
   toggleAddUser() {
     this.showAddUser = !this.showAddUser;
+
+    this.addUserForm.reset();
+    this.addUserForm.controls['role'].setErrors(null);
   }
 
   toggleEditUser(user?: User) {
     this.showEditUser = !this.showEditUser;
+
+    this.addUserForm.reset();
+    this.addUserForm.controls['role'].setErrors(null);
 
     if (user) {
       this.editUserForm.patchValue(user);
@@ -902,7 +950,7 @@ export class AdminPageComponent implements OnInit {
     if (this.addDeviceForm.status !== 'INVALID') {
       this.loadingService.setLoading(true);
       this.databaseService
-        .addDevice(this.addDeviceForm.value, this.users)
+        .addDevice(this.addDeviceForm.value, this.profiles)
         .then(() => {
           this.toggleAddDevice();
           this.messageService.add({
@@ -1796,13 +1844,15 @@ export class AdminPageComponent implements OnInit {
   }
 
   selectPlayerLinked(profileId: string) {
-    const userLinked = this.profiles.find(profile => profile.id === profileId);
+    const userLinked = this.profiles.find(
+      (profile) => profile.id === profileId
+    );
 
     if (userLinked) {
       this.addDeviceForm.patchValue({
         player: true,
-        playerName: `${userLinked.name} ${userLinked.lastName}`
-      })
+        playerName: `${userLinked.name} ${userLinked.lastName}`,
+      });
     }
   }
 
