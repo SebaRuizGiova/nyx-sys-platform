@@ -273,6 +273,7 @@
   "adminLength6Characters": "El campo debe tener 6 caracteres",
   "adminNoEqualPasswords": "Las contraseñas deben ser iguales",
   "adminDeleteProfilesByGroup": "Eliminar todos los perfiles vinculados",
+  "adminDeleteDevicesByGroup": "Eliminar todos los dispositivos vinculados",
   "settingsHelpCardTitle": "Tutoriales y FAQs",
   "settingsContactCardTitle": "Contacto",
   "settingsPasswordCardTitle": "Cambio de contraseña",

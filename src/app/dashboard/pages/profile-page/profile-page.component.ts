@@ -702,7 +702,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
       let exit = 0;
 
-      newAnsArray.forEach((data: any) => {
+      newAnsArray.forEach((data: any, index: number) => {
         /* TO ADD THE BEDEXIT LINES */
         if (selectedSleepDataArray.bedexit_data !== undefined) {
           if (selectedSleepDataArray.bedexit_data[exit] !== undefined) {
@@ -711,8 +711,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
               selectedSleepDataArray.bedexit_data[exit].startTimestamp
             ) {
               duration_out_of_bed.push(100);
+              newAnsArray[index] = {
+                ...newAnsArray[index],
+                hf: null,
+                lf: null,
+              };
             } else {
-              duration_out_of_bed.push(0);
+              duration_out_of_bed.push(null);
             }
             if (
               data.timestamp >

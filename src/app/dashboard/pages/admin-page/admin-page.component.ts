@@ -80,6 +80,7 @@ export class AdminPageComponent implements OnInit {
   });
   public deleteGroupForm: FormGroup = this.fb.group({
     deleteProfiles: [false],
+    deleteDevices: [false]
   });
   public addCollaboratorForm: FormGroup = this.fb.group({
     id: [''],
@@ -704,6 +705,7 @@ export class AdminPageComponent implements OnInit {
     if (cancel) {
       this.deleteGroupForm.patchValue({
         deleteProfiles: false,
+        deleteDevices: false,
       });
     }
 
@@ -1253,34 +1255,6 @@ export class AdminPageComponent implements OnInit {
   }
 
   deleteGroup() {
-    // const groupRef = this.firestore.doc(
-    //   `/users/nyxsys/content/${this.userIdGroupToDelete}/teams/${this.groupIdToDelete}`
-    // );
-
-    // this.userIdGroupToDelete = '';
-    // this.groupIdToDelete = '';
-
-    // this.toggleConfirmDeleteGroup();
-    // this.loadingService.setLoading(true);
-    // groupRef
-    //   .delete()
-    //   .then(() => {
-    //     this.actionsGroupsForm.reset();
-    //     this.messageService.add({
-    //       severity: 'success',
-    //       summary: this.translateService.instant('ToastTitleCorrect'),
-    //       detail: this.translateService.instant('adminDeleteGroupSuccess'),
-    //     });
-    //     this.loadData();
-    //   })
-    //   .catch(() => {
-    //     this.loadingService.setLoading(false);
-    //     this.messageService.add({
-    //       severity: 'error',
-    //       summary: this.translateService.instant('ToastTitleError'),
-    //       detail: this.translateService.instant('adminDeleteGroupError'),
-    //     });
-    //   });
     this.toggleConfirmDeleteGroup();
 
     this.loadingService.setLoading(true);
@@ -1288,7 +1262,8 @@ export class AdminPageComponent implements OnInit {
       .deleteGroup(
         this.groupIdToDelete,
         this.userIdGroupToDelete,
-        this.deleteGroupForm.value.deleteProfiles
+        this.deleteGroupForm.value.deleteProfiles,
+        this.deleteGroupForm.value.deleteDevices
       )
       .then(() => {
         this.actionsGroupsForm.reset();

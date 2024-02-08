@@ -758,16 +758,29 @@
       ></i>
     </div>
     <p>{{ "IrreversibleAction" | translate }}</p>
-    <form [formGroup]="deleteGroupForm" class="checkbox">
-      <p-checkbox
-        formControlName="deleteProfiles"
-        [binary]="true"
-        inputId="deleteProfiles"
-        (onChange)="toggleConfirmDeleteProfilesGroup()"
-      ></p-checkbox>
-      <label for="deleteProfiles">{{
-        "adminDeleteProfilesByGroup" | translate
-      }}</label>
+    <form [formGroup]="deleteGroupForm" class="checkbox-container">
+      <div class="checkbox">
+        <p-checkbox
+          formControlName="deleteProfiles"
+          [binary]="true"
+          inputId="deleteProfiles"
+          (onChange)="toggleConfirmDeleteProfilesGroup()"
+        ></p-checkbox>
+        <label for="deleteProfiles">{{
+          "adminDeleteProfilesByGroup" | translate
+        }}</label>
+      </div>
+      <div class="checkbox">
+        <p-checkbox
+          formControlName="deleteDevices"
+          [binary]="true"
+          inputId="deleteDevices"
+          (onChange)="toggleConfirmDeleteProfilesGroup()"
+        ></p-checkbox>
+        <label for="deleteDevices">{{
+          "adminDeleteDevicesByGroup" | translate
+        }}</label>
+      </div>
     </form>
   </div>
   <div class="buttons-modal">
@@ -806,7 +819,12 @@
       formControlName="password"
       [error]="!!validateInputs(addCollaboratorForm, 'password')"
       [helper]="validateInputs(addCollaboratorForm, 'password')"
-      (inputChange)="validatePasswordsCollaborator($event, addCollaboratorForm.value.confirmPassword)"
+      (inputChange)="
+        validatePasswordsCollaborator(
+          $event,
+          addCollaboratorForm.value.confirmPassword
+        )
+      "
     />
     <shared-input-password
       [placeholder]="'adminModalAddCollaboratorConfirmPassword' | translate"
@@ -814,7 +832,12 @@
       formControlName="confirmPassword"
       [error]="!!validateInputs(addCollaboratorForm, 'confirmPassword')"
       [helper]="validateInputs(addCollaboratorForm, 'confirmPassword')"
-      (inputChange)="validatePasswordsCollaborator(addCollaboratorForm.value.password, $event)"
+      (inputChange)="
+        validatePasswordsCollaborator(
+          addCollaboratorForm.value.password,
+          $event
+        )
+      "
     />
     <shared-input-text
       [formGroup]="addCollaboratorForm"

@@ -360,7 +360,8 @@ export class DatabaseService {
 
           const newDevice = {
             ...device,
-            playerName: `${profileLinked?.name} ${profileLinked?.lastName}` || false,
+            playerName:
+              `${profileLinked?.name} ${profileLinked?.lastName}` || false,
           };
 
           deviceRef
@@ -556,33 +557,42 @@ export class DatabaseService {
     });
   }
 
-  deleteGroup(groupId: string, userId: string, deleteProfiles: boolean) {
+  deleteGroup(groupId: string, userId: string, deleteProfiles: boolean, deleteDevices: boolean) {
     return new Promise((resolve, reject) => {
       const groupRef = this.firestore.doc(
         `/users/nyxsys/content/${userId}/teams/${groupId}`
       );
-
+  
       groupRef
         .update({
           deleted: true,
         })
         .then((res) => {
+          // Batch para realizar operaciones en lote
+          const batch = this.firestore.firestore.batch();
+  
           // Eliminar los perfiles vinculados al grupo
           if (deleteProfiles) {
             const profilesRef = this.firestore.collection(
               `/users/nyxsys/content/${userId}/players`,
               (ref) => ref.where('teamID', '==', groupId)
-            );
-
-            profilesRef.ref
-              .get()
+            ).ref;
+  
+            profilesRef.get()
               .then((querySnapshot) => {
-                const batch = this.firestore.firestore.batch();
-
-                querySnapshot.forEach((doc) => {
+                querySnapshot.forEach((doc: any) => {
                   batch.update(doc.ref, { deleted: true });
+  
+                  // Eliminar dispositivos asociados a los perfiles si es necesario
+                  if (deleteDevices) {
+                    const deviceID = doc.data().deviceID;
+                    if (deviceID) {
+                      const deviceRef = this.firestore.doc(`/users/nyxsys/content/${userId}/devices/${deviceID}`).ref;
+                      batch.delete(deviceRef);
+                    }
+                  }
                 });
-
+  
                 return batch.commit();
               })
               .then(() => {
@@ -592,7 +602,35 @@ export class DatabaseService {
                 reject(error);
               });
           } else {
-            resolve(res);
+            // No eliminar perfiles, solo actualizar la referencia del equipo en los perfiles a ''
+            const profilesRef = this.firestore.collection(
+              `/users/nyxsys/content/${userId}/players`,
+              (ref) => ref.where('teamID', '==', groupId)
+            ).ref;
+  
+            profilesRef.get()
+              .then((querySnapshot) => {
+                querySnapshot.forEach((doc: any) => {
+                  batch.update(doc.ref, { teamID: '' });
+  
+                  // Eliminar dispositivos asociados a los perfiles si es necesario
+                  if (deleteDevices) {
+                    const deviceID = doc.data().deviceID;
+                    if (deviceID) {
+                      const deviceRef = this.firestore.doc(`/users/nyxsys/content/${userId}/devices/${deviceID}`).ref;
+                      batch.delete(deviceRef);
+                    }
+                  }
+                });
+  
+                return batch.commit();
+              })
+              .then(() => {
+                resolve('Grupo y perfiles actualizados correctamente.');
+              })
+              .catch((error) => {
+                reject(error);
+              });
           }
         })
         .catch((error) => {
@@ -600,6 +638,7 @@ export class DatabaseService {
         });
     });
   }
+  
 
   hideGroup(userIdGroup: string, groupId: string, hideValue: boolean) {
     return new Promise((resolve, reject) => {
@@ -818,7 +857,7 @@ export class DatabaseService {
         // Actualizar la propiedad 'deleted' del usuario a true
         batch.update(userRef, { deleted: true });
 
-        // Obtener referencias a las colecciones de 'teams', 'players' y 'devices'
+        // Obtener referencias a las colecciones de 'teams', 'players', 'devices' y 'collaborators'
         const teamsRef = userRef.collection('teams');
         const playersRef = userRef.collection('players');
         const devicesRef = userRef.collection('devices');
@@ -839,7 +878,7 @@ export class DatabaseService {
                 playersSnapshot.forEach((doc) => {
                   const playerRef = playersRef.doc(doc.id);
                   batch.update(playerRef, {
-                    device: false,
+                    device: '',
                     deviceID: '',
                     deviceSN: '',
                     deleted: true,
@@ -855,11 +894,31 @@ export class DatabaseService {
                       batch.delete(deviceRef);
                     });
 
-                    // Ejecutar todas las operaciones en lote
-                    batch
-                      .commit()
-                      .then(() => {
-                        resolve('Operaciones completadas exitosamente');
+                    // Obtener todos los colaboradores y eliminarlos
+                    userRef
+                      .get()
+                      .then((userDoc) => {
+                        const userData = <User>userDoc.data();
+                        if (userData && userData.collaborators) {
+                          userData.collaborators.forEach(
+                            (collaboratorId: string) => {
+                              const collaboratorRef = this.firestore.doc(
+                                `/users/nyxsys/content/${collaboratorId}`
+                              ).ref;
+                              batch.delete(collaboratorRef);
+                            }
+                          );
+                        }
+
+                        // Ejecutar todas las operaciones en lote
+                        batch
+                          .commit()
+                          .then(() => {
+                            resolve('Operaciones completadas exitosamente');
+                          })
+                          .catch((error) => {
+                            reject(error);
+                          });
                       })
                       .catch((error) => {
                         reject(error);

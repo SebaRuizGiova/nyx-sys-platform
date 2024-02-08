@@ -110,9 +110,9 @@ export interface HrvDatum {
 
 export interface HrvRmssdDatum {
   timestamp: number;
-  lf:        number;
+  lf:        number | null;
   zero:      number;
-  hf:        number;
+  hf:        number | null;
   rmssd:     number;
   activity:  number;
 }

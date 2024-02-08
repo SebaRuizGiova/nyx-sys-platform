@@ -273,6 +273,7 @@
   "adminLength6Characters": "Das Feld muss 6 Zeichen haben",
   "adminNoEqualPasswords": "Passwörter müssen übereinstimmen",
   "adminDeleteProfilesByGroup": "Alle verknüpften Profile löschen",
+  "adminDeleteDevicesByGroup": "Alle verknüpften Geräte löschen",
   "settingsHelpCardTitle": "Tutorials und FAQs",
   "settingsContactCardTitle": "Kontakt",
   "settingsPasswordCardTitle": "Passwort ändern",
