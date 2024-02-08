@@ -402,5 +402,17 @@
     "Seven days with low scores are a sign that your body needs more attention. Consider making significant adjustments to your nighttime routine to improve your sleep. Your well-being will thank you!",
     "Maintaining low scores for a week is a call to action. Make changes in your lifestyle and prioritize your sleep to get back on the path to quality rest. We're here to support you in this positive change!"
   ],
-  "IrreversibleAction": "This action is irreversible"
+  "IrreversibleAction": "This action is irreversible",
+  "sleepScoreChartTotalRecovery": "Total Recovery",
+  "ansChartAbsent": "Absent",
+  "hrvChartHeartRate": "Heart rate",
+  "hrvChartAdjustmentLine": "Adjustment line of RMSSD",
+  "brChartBreathingRate": "Breathing Rate",
+  "movementsChartMovement": "Amount of big movements",
+  "movementsChartTurns": "Turns/Night",
+  "sleepTimeChartAwake": "Awake",
+  "sleepTimeChartSleep": "Sleeping",
+  "sleepArcChartLight": "Light",
+  "sleepArcChartDeep": "Deep",
+  "sleepArcChartTitle": "Sleep Architecture"
 }

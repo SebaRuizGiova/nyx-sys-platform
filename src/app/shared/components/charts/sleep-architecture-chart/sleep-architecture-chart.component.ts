@@ -7,6 +7,8 @@ import {
 import { HelpersService } from '../../../services/helpers.service';
 import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
 import { timestamp } from 'rxjs';
+import { LanguageService } from 'src/app/shared/services/language.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'sleep-architecture-chart',
@@ -22,7 +24,9 @@ export class SleepArchitectureChartComponent implements OnChanges {
 
   constructor(
     private helpersService: HelpersService,
-    private timezoneService: TimezoneService
+    private timezoneService: TimezoneService,
+    private languageService: LanguageService,
+    private translateService: TranslateService
   ) {}
 
   ngOnChanges(): void {
@@ -38,95 +42,213 @@ export class SleepArchitectureChartComponent implements OnChanges {
         )
       );
 
-      const seriesData: any[] = [
-        {
-          name: 'Absent',
-          color: '#d9d9d9',
-          data: this.getSeriesData(5),
-        },
-        {
-          name: 'Awake',
-          color: '#18A058',
-          data: this.getSeriesData(4),
-        },
-        {
-          name: 'Light',
-          color: '#56a7ff',
-          data: this.getSeriesData(2),
-        },
-        {
-          name: 'Deep',
-          color: '#544FC5',
-          data: this.getSeriesData(1),
-        },
-        {
-          name: 'REM',
-          color: '#3043CE',
-          data: this.getSeriesData(3),
-        },
-      ];
+      this.languageService.langChanged$.subscribe(() => {
+        this.translateService
+          .get([
+            'ansChartAbsent',
+            'sleepTimeChartAwake',
+            'sleepArcChartLight',
+            'sleepArcChartDeep',
+            'sleepArcChartTitle',
+          ])
+          .subscribe((translations: { [key: string]: string }) => {
+            const absentTranslate = translations['ansChartAbsent'];
+            const awakeTranslate = translations['sleepTimeChartAwake'];
+            const lightTranslate = translations['sleepArcChartLight'];
+            const deepTranslate = translations['sleepArcChartDeep'];
+            const chartTitleTranslate = translations['sleepArcChartTitle'];
+            const seriesData: any[] = [
+              {
+                name: absentTranslate,
+                color: '#d9d9d9',
+                data: this.getSeriesData(5),
+              },
+              {
+                name: awakeTranslate,
+                color: '#18A058',
+                data: this.getSeriesData(4),
+              },
+              {
+                name: lightTranslate,
+                color: '#56a7ff',
+                data: this.getSeriesData(2),
+              },
+              {
+                name: deepTranslate,
+                color: '#544FC5',
+                data: this.getSeriesData(1),
+              },
+              {
+                name: 'REM',
+                color: '#3043CE',
+                data: this.getSeriesData(3),
+              },
+            ];
 
-      const self = this;
-
-      this.chart = new Chart({
-        chart: {
-          type: 'column', // Cambiado a 'column' para barras verticales
-          backgroundColor: '#242526',
-          animation: true,
-        },
-        title: {
-          text: 'Sleep architecture',
-          style: {
-            color: '#d9d9d9',
-            fontWeight: 'bold',
-          },
-        },
-        xAxis: {
-          categories: categories,
-          labels: {
-            style: {
-              color: '#d9d9d9',
-            },
-          },
-        },
-        yAxis: {
-          gridLineColor: '#3b3b3b',
-          labels: {
-            enabled: false,
-          },
-          title: {
-            text: '',
-          },
-        },
-        colors: ['#d9d9d9', '#18A058', '#56a7ff', '#3043CE', '#000A3D'],
-        credits: {
-          enabled: false,
-        },
-        plotOptions: {
-          column: {
-            stacking: 'normal',
-            borderRadius: '10%',
-            borderWidth: 0,
-            groupPadding: 0,
-          },
-        },
-        tooltip: {
-          shared: true,
-          formatter: function () {
-            return `<b>${categories[Number(this.point.x)]}</b>`;
-          },
-        },
-        legend: {
-          align: 'center',
-          verticalAlign: 'top',
-          layout: 'horizontal',
-          itemStyle: {
-            color: '#d9d9d9',
-            fontWeight: 'bold',
-          },
-        },
-        series: seriesData,
+            this.chart = new Chart({
+              chart: {
+                type: 'column', // Cambiado a 'column' para barras verticales
+                backgroundColor: '#242526',
+                animation: true,
+              },
+              title: {
+                text: chartTitleTranslate,
+                style: {
+                  color: '#d9d9d9',
+                  fontWeight: 'bold',
+                },
+              },
+              xAxis: {
+                categories: categories,
+                labels: {
+                  style: {
+                    color: '#d9d9d9',
+                  },
+                },
+              },
+              yAxis: {
+                gridLineColor: '#3b3b3b',
+                labels: {
+                  enabled: false,
+                },
+                title: {
+                  text: '',
+                },
+              },
+              colors: ['#d9d9d9', '#18A058', '#56a7ff', '#3043CE', '#000A3D'],
+              credits: {
+                enabled: false,
+              },
+              plotOptions: {
+                column: {
+                  stacking: 'normal',
+                  borderRadius: '10%',
+                  borderWidth: 0,
+                  groupPadding: 0,
+                },
+              },
+              tooltip: {
+                shared: true,
+                formatter: function () {
+                  return `<b>${categories[Number(this.point.x)]}</b>`;
+                },
+              },
+              legend: {
+                align: 'center',
+                verticalAlign: 'top',
+                layout: 'horizontal',
+                itemStyle: {
+                  color: '#d9d9d9',
+                  fontWeight: 'bold',
+                },
+              },
+              series: seriesData,
+            });
+          });
       });
+
+      this.translateService
+        .get([
+          'ansChartAbsent',
+          'sleepTimeChartAwake',
+          'sleepArcChartLight',
+          'sleepArcChartDeep',
+          'sleepArcChartTitle',
+        ])
+        .subscribe((translations: { [key: string]: string }) => {
+          const absentTranslate = translations['ansChartAbsent'];
+          const awakeTranslate = translations['sleepTimeChartAwake'];
+          const lightTranslate = translations['sleepArcChartLight'];
+          const deepTranslate = translations['sleepArcChartDeep'];
+          const chartTitleTranslate = translations['sleepArcChartTitle'];
+          const seriesData: any[] = [
+            {
+              name: absentTranslate,
+              color: '#d9d9d9',
+              data: this.getSeriesData(5),
+            },
+            {
+              name: awakeTranslate,
+              color: '#18A058',
+              data: this.getSeriesData(4),
+            },
+            {
+              name: lightTranslate,
+              color: '#56a7ff',
+              data: this.getSeriesData(2),
+            },
+            {
+              name: deepTranslate,
+              color: '#544FC5',
+              data: this.getSeriesData(1),
+            },
+            {
+              name: 'REM',
+              color: '#3043CE',
+              data: this.getSeriesData(3),
+            },
+          ];
+
+          this.chart = new Chart({
+            chart: {
+              type: 'column', // Cambiado a 'column' para barras verticales
+              backgroundColor: '#242526',
+              animation: true,
+            },
+            title: {
+              text: chartTitleTranslate,
+              style: {
+                color: '#d9d9d9',
+                fontWeight: 'bold',
+              },
+            },
+            xAxis: {
+              categories: categories,
+              labels: {
+                style: {
+                  color: '#d9d9d9',
+                },
+              },
+            },
+            yAxis: {
+              gridLineColor: '#3b3b3b',
+              labels: {
+                enabled: false,
+              },
+              title: {
+                text: '',
+              },
+            },
+            colors: ['#d9d9d9', '#18A058', '#56a7ff', '#3043CE', '#000A3D'],
+            credits: {
+              enabled: false,
+            },
+            plotOptions: {
+              column: {
+                stacking: 'normal',
+                borderRadius: '10%',
+                borderWidth: 0,
+                groupPadding: 0,
+              },
+            },
+            tooltip: {
+              shared: true,
+              formatter: function () {
+                return `<b>${categories[Number(this.point.x)]}</b>`;
+              },
+            },
+            legend: {
+              align: 'center',
+              verticalAlign: 'top',
+              layout: 'horizontal',
+              itemStyle: {
+                color: '#d9d9d9',
+                fontWeight: 'bold',
+              },
+            },
+            series: seriesData,
+          });
+        });
     }
   }
 

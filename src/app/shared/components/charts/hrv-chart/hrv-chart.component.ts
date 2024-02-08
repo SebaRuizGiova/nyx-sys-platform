@@ -1,6 +1,8 @@
 import { HelpersService } from './../../../services/helpers.service';
 import { Component, Input, OnChanges } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Chart } from 'angular-highcharts';
+import { LanguageService } from 'src/app/shared/services/language.service';
 import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
 
 @Component({
@@ -26,7 +28,9 @@ export class HrvChartComponent implements OnChanges {
 
   constructor(
     private helpersService: HelpersService,
-    private timezoneService: TimezoneService
+    private timezoneService: TimezoneService,
+    private languageService: LanguageService,
+    private translateService: TranslateService
   ) {}
 
   ngOnChanges(): void {
@@ -43,133 +47,282 @@ export class HrvChartComponent implements OnChanges {
 
     const self = this;
 
-    this.chart = new Chart({
-      chart: {
-        backgroundColor: '#242526',
-        animation: true,
-        height: '115px',
-        margin: 0,
-        style: {
-          overflow: 'visible',
-        },
-      },
-      xAxis: {
-        categories: timestamps,
-        labels: {
-          enabled: false,
-        },
-      },
-      yAxis: [
-        {
-          title: {
-            text: 'Heart rate',
-          },
-          tickInterval: 10,
-          tickPixelInterval: 10,
-          gridLineColor: '#3b3b3b',
-        },
-        {
-          title: {
-            text: 'RMSSD',
-          },
-          tickInterval: 10,
-          tickPixelInterval: 10,
-          gridLineColor: '#3b3b3b',
-        },
-        {
-          title: {
-            text: 'Adjusment line of RMSSD',
-          },
-          tickInterval: 10,
-          tickPixelInterval: 10,
-          gridLineColor: '#3b3b3b',
-        },
-        // {
-        //   title: {
-        //     text: 'Absent',
-        //   },
-        //   tickInterval: 10,
-        //   tickPixelInterval: 10,
-        //   gridLineColor: '#d9d9d9',
-        // },
-      ],
-      title: {
-        text: '',
-      },
-      credits: {
-        enabled: false,
-      },
-      legend: {
-        align: 'center',
-        verticalAlign: 'top',
-        layout: 'horizontal',
-        itemStyle: {
-          color: '#d9d9d9',
-          fontWeight: 'bold',
-          fontSize: '11px',
-        },
-        y: -18,
-      },
-      plotOptions: {
-        spline: {
-          marker: {
-            radius: 0,
-            lineColor: '#56a7ff',
-            lineWidth: 1,
-          },
-        },
-        series: {
-          stickyTracking: true,
-        },
-      },
-      tooltip: {
-        shared: true,
-        formatter: function () {
-          const timestamp = self.helpersService.formatTimestamp(this.point.x, self.timezoneService.timezoneOffset);
-          const value = this.point.y;
-          return `<b>${timestamp}</b><br/>Data: ${value}`;
-        },
-      },
-      series: [
-        {
-          name: 'Heart rate',
-          yAxis: 0,
-          marker: {
-            symbol: 'circle',
-          },
-          type: 'spline',
-          data: hrValues,
-          lineWidth: 1.5
-        },
-        {
-          name: 'RMSSD',
-          yAxis: 1,
-          marker: {
-            symbol: 'circle',
-          },
-          type: 'line',
-          data: hrvValues,
-          lineWidth: 1.5
-        },
-        {
-          name: 'Adjusment line of RMSSD',
-          yAxis: 2,
-          marker: {
-            symbol: 'circle',
-          },
-          type: 'line',
-          data: laValues,
-          pointRange: 100,
-          lineWidth: 1.5
-        },
-        // {
-        //   name: 'Absent',
-        //   yAxis: 3,
-        //   type: 'column',
-        //   data: absentValues,
-        //   pointRange: 100,
-        // },
-      ],
+    this.languageService.langChanged$.subscribe(() => {
+      this.translateService
+        .get(['hrvChartHeartRate', 'hrvChartAdjustmentLine'])
+        .subscribe((translations: { [key: string]: string }) => {
+          const heartRateTranslate = translations['hrvChartHeartRate'];
+          const adjustmentLineTranslate =
+            translations['hrvChartAdjustmentLine'];
+          this.chart = new Chart({
+            chart: {
+              backgroundColor: '#242526',
+              animation: true,
+              height: '115px',
+              margin: 0,
+              style: {
+                overflow: 'visible',
+              },
+            },
+            xAxis: {
+              categories: timestamps,
+              labels: {
+                enabled: false,
+              },
+            },
+            yAxis: [
+              {
+                title: {
+                  text: heartRateTranslate,
+                },
+                tickInterval: 10,
+                tickPixelInterval: 10,
+                gridLineColor: '#3b3b3b',
+              },
+              {
+                title: {
+                  text: 'RMSSD',
+                },
+                tickInterval: 10,
+                tickPixelInterval: 10,
+                gridLineColor: '#3b3b3b',
+              },
+              {
+                title: {
+                  text: adjustmentLineTranslate,
+                },
+                tickInterval: 10,
+                tickPixelInterval: 10,
+                gridLineColor: '#3b3b3b',
+              },
+              // {
+              //   title: {
+              //     text: 'Absent',
+              //   },
+              //   tickInterval: 10,
+              //   tickPixelInterval: 10,
+              //   gridLineColor: '#d9d9d9',
+              // },
+            ],
+            title: {
+              text: '',
+            },
+            credits: {
+              enabled: false,
+            },
+            legend: {
+              align: 'center',
+              verticalAlign: 'top',
+              layout: 'horizontal',
+              itemStyle: {
+                color: '#d9d9d9',
+                fontWeight: 'bold',
+                fontSize: '11px',
+              },
+              y: -18,
+            },
+            plotOptions: {
+              spline: {
+                marker: {
+                  radius: 0,
+                  lineColor: '#56a7ff',
+                  lineWidth: 1,
+                },
+              },
+              series: {
+                stickyTracking: true,
+              },
+            },
+            tooltip: {
+              shared: true,
+              formatter: function () {
+                const timestamp = self.helpersService.formatTimestamp(
+                  this.point.x,
+                  self.timezoneService.timezoneOffset
+                );
+                const value = this.point.y;
+                return `<b>${timestamp}</b><br/>Data: ${value}`;
+              },
+            },
+            series: [
+              {
+                name: heartRateTranslate,
+                yAxis: 0,
+                marker: {
+                  symbol: 'circle',
+                },
+                type: 'spline',
+                data: hrValues,
+                lineWidth: 1.5,
+              },
+              {
+                name: 'RMSSD',
+                yAxis: 1,
+                marker: {
+                  symbol: 'circle',
+                },
+                type: 'line',
+                data: hrvValues,
+                lineWidth: 1.5,
+              },
+              {
+                name: adjustmentLineTranslate,
+                yAxis: 2,
+                marker: {
+                  symbol: 'circle',
+                },
+                type: 'line',
+                data: laValues,
+                pointRange: 100,
+                lineWidth: 1.5,
+              },
+              // {
+              //   name: 'Absent',
+              //   yAxis: 3,
+              //   type: 'column',
+              //   data: absentValues,
+              //   pointRange: 100,
+              // },
+            ],
+          });
+        });
     });
+    this.translateService
+      .get(['hrvChartHeartRate', 'hrvChartAdjustmentLine'])
+      .subscribe((translations: { [key: string]: string }) => {
+        const heartRateTranslate = translations['hrvChartHeartRate'];
+        const adjustmentLineTranslate = translations['hrvChartAdjustmentLine'];
+        this.chart = new Chart({
+          chart: {
+            backgroundColor: '#242526',
+            animation: true,
+            height: '115px',
+            margin: 0,
+            style: {
+              overflow: 'visible',
+            },
+          },
+          xAxis: {
+            categories: timestamps,
+            labels: {
+              enabled: false,
+            },
+          },
+          yAxis: [
+            {
+              title: {
+                text: heartRateTranslate,
+              },
+              tickInterval: 10,
+              tickPixelInterval: 10,
+              gridLineColor: '#3b3b3b',
+            },
+            {
+              title: {
+                text: 'RMSSD',
+              },
+              tickInterval: 10,
+              tickPixelInterval: 10,
+              gridLineColor: '#3b3b3b',
+            },
+            {
+              title: {
+                text: adjustmentLineTranslate,
+              },
+              tickInterval: 10,
+              tickPixelInterval: 10,
+              gridLineColor: '#3b3b3b',
+            },
+            // {
+            //   title: {
+            //     text: 'Absent',
+            //   },
+            //   tickInterval: 10,
+            //   tickPixelInterval: 10,
+            //   gridLineColor: '#d9d9d9',
+            // },
+          ],
+          title: {
+            text: '',
+          },
+          credits: {
+            enabled: false,
+          },
+          legend: {
+            align: 'center',
+            verticalAlign: 'top',
+            layout: 'horizontal',
+            itemStyle: {
+              color: '#d9d9d9',
+              fontWeight: 'bold',
+              fontSize: '11px',
+            },
+            y: -18,
+          },
+          plotOptions: {
+            spline: {
+              marker: {
+                radius: 0,
+                lineColor: '#56a7ff',
+                lineWidth: 1,
+              },
+            },
+            series: {
+              stickyTracking: true,
+            },
+          },
+          tooltip: {
+            shared: true,
+            formatter: function () {
+              const timestamp = self.helpersService.formatTimestamp(
+                this.point.x,
+                self.timezoneService.timezoneOffset
+              );
+              const value = this.point.y;
+              return `<b>${timestamp}</b><br/>Data: ${value}`;
+            },
+          },
+          series: [
+            {
+              name: heartRateTranslate,
+              yAxis: 0,
+              marker: {
+                symbol: 'circle',
+              },
+              type: 'spline',
+              data: hrValues,
+              lineWidth: 1.5,
+            },
+            {
+              name: 'RMSSD',
+              yAxis: 1,
+              marker: {
+                symbol: 'circle',
+              },
+              type: 'line',
+              data: hrvValues,
+              lineWidth: 1.5,
+            },
+            {
+              name: adjustmentLineTranslate,
+              yAxis: 2,
+              marker: {
+                symbol: 'circle',
+              },
+              type: 'line',
+              data: laValues,
+              pointRange: 100,
+              lineWidth: 1.5,
+            },
+            // {
+            //   name: 'Absent',
+            //   yAxis: 3,
+            //   type: 'column',
+            //   data: absentValues,
+            //   pointRange: 100,
+            // },
+          ],
+        });
+      });
   }
 }

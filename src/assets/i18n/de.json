@@ -402,5 +402,17 @@
     "Sieben Tage mit niedrigen Punktzahlen sind ein Signal, dass dein Körper mehr Aufmerksamkeit benötigt. Erwäge bedeutende Anpassungen in deiner nächtlichen Routine, um deinen Schlaf zu verbessern. Dein Wohlbefinden wird es dir danken!",
     "Niedrige Punktzahlen über eine Woche hinweg sind ein Aufruf zur Aktion. Ändere deinen Lebensstil und priorisiere deinen Schlaf, um wieder auf den Weg zu erholsamer Qualität zu kommen. Wir stehen hinter dir in dieser positiven Veränderung!"
   ],
-  "IrreversibleAction": "Diese Aktion ist nicht rückgängig zu machen"
+  "IrreversibleAction": "Diese Aktion ist nicht rückgängig zu machen",
+  "sleepScoreChartTotalRecovery": "Gesamterholung",
+  "ansChartAbsent": "Abwesend",
+  "hrvChartHeartRate": "Herzfrequenz",
+  "hrvChartAdjustmentLine": "RMSSD-Anpassungslinie",
+  "brChartBreathingRate": "Atemfrequenz",
+  "movementsChartMovement": "Anzahl der großen Bewegungen",
+  "movementsChartTurns": "Drehungen/Nacht",
+  "sleepTimeChartAwake": "Wach",
+  "sleepTimeChartSleep": "Schlafen",
+  "sleepArcChartLight": "Leicht",
+  "sleepArcChartDeep": "Tief",
+  "sleepArcChartTitle": "Schlafarchitektur"
 }

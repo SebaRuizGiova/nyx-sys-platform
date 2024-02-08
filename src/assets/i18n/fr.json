@@ -402,5 +402,17 @@
     "Sept jours avec des scores bas sont un signe que votre corps a besoin de plus d'attention. Envisagez des ajustements significatifs dans votre routine nocturne pour améliorer votre sommeil. Votre bien-être vous en remerciera !",
     "Maintenir des scores bas pendant une semaine est un appel à l'action. Faites des changements dans votre style de vie et priorisez votre sommeil pour retrouver la voie de la qualité de repos. Nous sommes là pour vous soutenir dans ce changement positif !"
   ],
-  "IrreversibleAction": "Cette action est irréversible"
+  "IrreversibleAction": "Cette action est irréversible",
+  "sleepScoreChartTotalRecovery": "Total de récupération",
+  "ansChartAbsent": "Absent",
+  "hrvChartHeartRate": "Fréquence cardiaque",
+  "hrvChartAdjustmentLine": "Ligne de réglage RMSSD",
+  "brChartBreathingRate": "Fréquence respiratoire",
+  "movementsChartMovement": "Quantité de grands mouvements",
+  "movementsChartTurns": "Tours/Nuit",
+  "sleepTimeChartAwake": "Éveillé",
+  "sleepTimeChartSleep": "Dormant",
+  "sleepArcChartLight": "Léger",
+  "sleepArcChartDeep": "Profond",
+  "sleepArcChartTitle": "Architecture du sommeil"
 }

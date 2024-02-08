@@ -402,5 +402,17 @@
     "Sette giorni con punteggi bassi sono un segnale che il tuo corpo ha bisogno di più attenzione. Considera apportare modifiche significative alla tua routine notturna per migliorare il sonno. Il tuo benessere te ne sarà grato!",
     "Mantenere punteggi bassi per una settimana è un segnale d'allarme. Apporta cambiamenti nel tuo stile di vita e dai priorità al sonno per tornare sulla strada della qualità del riposo. Siamo qui per sostenerti in questo cambio positivo!"
   ],
-  "IrreversibleAction": "Questa azione è irreversibile"
+  "IrreversibleAction": "Questa azione è irreversibile",
+  "sleepScoreChartTotalRecovery": "Totale Recupero",
+  "ansChartAbsent": "Assente",
+  "hrvChartHeartRate": "Frequenza cardiaca",
+  "hrvChartAdjustmentLine": "Linea di regolazione RMSSD",
+  "brChartBreathingRate": "Frequenza respiratoria",
+  "movementsChartMovement": "Quantità di grandi movimenti",
+  "movementsChartTurns": "Giri/Notte",
+  "sleepTimeChartAwake": "Sveglio",
+  "sleepTimeChartSleep": "Dormendo",
+  "sleepArcChartLight": "Leggero",
+  "sleepArcChartDeep": "Profondo",
+  "sleepArcChartTitle": "Architettura del sonno"
 }

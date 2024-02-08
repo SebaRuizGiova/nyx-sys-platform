@@ -227,7 +227,6 @@ export class AdminPageComponent implements OnInit {
     private validatorsService: ValidatorsService,
     private helpersService: HelpersService,
     private languageService: LanguageService,
-    private firestore: AngularFirestore,
     private timezoneService: TimezoneService,
     private messageService: MessageService
   ) {}

@@ -998,11 +998,11 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
                 ? Number((night.duration_in_sleep / 60 / 60).toFixed(2))
                 : 0
             );
-            durationInBed.push(
-              night.duration_in_bed
-                ? Number((night.duration_in_bed / 60 / 60).toFixed(2))
-                : 0
-            );
+            // durationInBed.push(
+            //   night.duration_in_bed
+            //     ? Number((night.duration_in_bed / 60 / 60).toFixed(2))
+            //     : 0
+            // );
             durationInAwake.push(
               night.duration_awake
                 ? Number((night.duration_awake / 60 / 60).toFixed(2))
