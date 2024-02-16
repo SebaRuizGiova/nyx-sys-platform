@@ -112,7 +112,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.languageService.langChanged$.subscribe(() => {
       this.loadTranslations();
       if (this.profileData?.sleepData && this.profileData?.selectedSleepData) {
-        const processedSleepData = this.processSleepData(
+        const processedSleepData = this.processSleepScoreData(
           this.profileData.sleepData,
           this.profileData.selectedSleepData
         );
@@ -260,7 +260,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
     this.getLiveData();
 
-    const processedSleepData = this.processSleepData(
+    const processedSleepData = this.processSleepScoreData(
       this.profileData.sleepData,
       this.profileData.selectedSleepData
     );
@@ -405,7 +405,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         previousSleepData,
       };
 
-      const processedSleepData = this.processSleepData(
+      const processedSleepData = this.processSleepScoreData(
         this.profileData.sleepData,
         this.profileData.selectedSleepData
       );
@@ -505,6 +505,22 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
+    } else if (consecutiveDays === 2 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage2+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 2 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage2-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
     } else if (consecutiveDays === 3 && sleepScore >= 80) {
       this.languageService
         .getTranslate('profileSleepScoreMessage3+')
@@ -521,6 +537,22 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
+    } else if (consecutiveDays === 4 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage4+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 4 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage4-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
     } else if (consecutiveDays === 5 && sleepScore >= 80) {
       this.languageService
         .getTranslate('profileSleepScoreMessage5+')
@@ -532,6 +564,22 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     } else if (consecutiveDays === 5 && sleepScore < 80) {
       this.languageService
         .getTranslate('profileSleepScoreMessage5-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 6 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage6+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 6 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage6-')
         .subscribe((translations: any) => {
           const messages = translations;
           const message = this.getRandomMessage(messages);
@@ -554,9 +602,105 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           this.messageSleepScore = message;
         });
         // TODO: Definir mensaje por defecto
+    } else if (consecutiveDays === 8 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage8+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 8 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage8-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 9 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage9+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 9 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage9-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 10 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage10+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 10 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessage10-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 14 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessageTwoWeeks+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 14 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessageTwoWeeks-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 21 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessageThreeWeeks+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 21 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessageThreeWeeks-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 30 && sleepScore >= 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessageOneMonth+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
+    } else if (consecutiveDays === 30 && sleepScore < 80) {
+      this.languageService
+        .getTranslate('profileSleepScoreMessageOneMonth-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageSleepScore = message;
+        });
     } else if (sleepScore >= 80) {
       this.languageService
-        .getTranslate('profileSleepScoreMessage1+')
+        .getTranslate('profileSleepScoreMessageDefault+')
         .subscribe((translations: any) => {
           const messages = translations;
           let message = this.getRandomMessage(messages);
@@ -567,7 +711,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         });
     } else if (sleepScore < 80) {
       this.languageService
-        .getTranslate('profileSleepScoreMessage1-')
+        .getTranslate('profileSleepScoreMessageDefault-')
         .subscribe((translations: any) => {
           const messages = translations;
           const message = this.getRandomMessage(messages);
@@ -589,7 +733,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     return messages[randomIndex];
   }
 
-  processSleepData(sleepDataArray: SleepData[], selectedSleepData?: SleepData) {
+  processSleepScoreData(sleepDataArray: SleepData[], selectedSleepData?: SleepData) {
     if (selectedSleepData) {
       const selectedSleepScore: number = selectedSleepData.sleep_score || 0;
       let selectedSleepScoreStatus: 'negative' | 'positive' =
@@ -602,8 +746,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
       for (const [index, sleepData] of sleepDataArray.entries()) {
         if (
-          index > selectedSleepDataIndex &&
-          index <= selectedSleepDataIndex + 7
+          index > selectedSleepDataIndex
         ) {
           if (sleepData.sleep_score && sleepData.sleep_score >= 80) {
             actualSleepScoreStatus = 'positive';

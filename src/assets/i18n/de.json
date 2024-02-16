@@ -363,44 +363,228 @@
   "profileViewREM": "REM",
   "profileViewYearsDropdown": " Jahre",
   "profileSleepScoreMessage1+": [
-    "Herzlichen Glückwunsch zu deiner Schlafpunktzahl! Dein Einsatz für erholsamen Schlaf spiegelt sich in deinem Wohlbefinden wider. Mach weiter so!",
-    "Unglaublich! Du hast heute eine optimale Schlafpunktzahl erreicht. Dein Körper und Geist danken es dir. Schlaf gut und wache erfrischt auf!",
-    "Heute hast du gezeigt, dass das Priorisieren von Schlaf entscheidend für deine Leistung ist. Bravo, dass du eine Punktzahl von *sleep_score* erzielt hast! Setze deine Erholung fort."
+    "Herzlichen Glückwunsch zu deinem Schlafscore! Deine Hingabe an die Erholung spiegelt sich in deinem Wohlbefinden wider. Mach weiter so!",
+    "Unglaublich! Du hast heute einen optimalen Schlafscore erreicht. Dein Körper und Geist danken es dir. Schlaf gut und wache erfrischt auf!",
+    "Heute hast du gezeigt, dass Priorität auf Schlaf für deine Leistungsfähigkeit entscheidend ist. Bravo, dass du einen *sleep_score* erreicht hast! Mach weiterhin auf deinen Schlaf aufmerksam.",
+    "Hervorragender Start! Dein Schlafscore war heute herausragend. Mach weiter so und sorge dafür, dass dieser Schwung erhalten bleibt!",
+    "Fantastischer Start! Ein hoher Schlafscore an nur einem Tag zu erreichen, ist eine würdige Leistung, die es zu feiern gilt. Mach weiter so, und du wirst große Verbesserungen in deinem Wohlbefinden sehen!",
+    "Ein ganzer Tag optimalen Schlafs ist ein ausgezeichneter Anfang. Mach weiter so und baue auf diesem Erfolg für eine bessere Lebensqualität auf!"
   ],
   "profileSleepScoreMessage1-": [
-    "Lass dich nicht von einer niedrigen Punktzahl heute entmutigen. Jeder Tag ist eine neue Gelegenheit zur Verbesserung. Überlege, was deinen Schlaf beeinflusst haben könnte, und mach einen Schritt zu einer erholsameren Nacht. Du schaffst das!",
-    "Wir wissen, dass heute kein optimaler Schlaf-Tag war, aber jeder Tag bietet eine neue Chance zur Verbesserung. Denke über kleine Änderungen in deiner nächtlichen Routine nach und bereite dich auf eine bessere Nacht vor. Du schaffst das!",
-    "Die heutige Punktzahl war vielleicht nicht ideal, aber mach dir keine Sorgen. Lerne von heute und arbeite auf einen erholsameren Schlaf hin. Kleine Veränderungen können einen Unterschied machen!"
+    "Lass dich nicht von einem niedrigen Score heute entmutigen. Jeder Tag ist eine neue Gelegenheit, sich zu verbessern. Überlege, was deinen Schlaf beeinflusst haben könnte, und mach einen Schritt zu einem erholsameren Schlaf morgen. Du schaffst das!",
+    "Wir wissen, dass heute kein besonders guter Tag für den Schlaf war, aber jeder Tag ist eine neue Gelegenheit, sich zu verbessern. Überlege dir kleine Veränderungen in deiner nächtlichen Routine und bereite dich auf eine bessere Nacht vor. Kopf hoch!",
+    "Der heutige Score war nicht ideal, aber keine Sorge. Lerne aus heute und arbeite auf einen erholsameren Schlaf morgen hin. Kleine Veränderungen können einen Unterschied machen!",
+    "Ein niedriger Score definiert nicht deine Fähigkeit, gut zu schlafen. Lerne aus dieser Erfahrung und suche nach Möglichkeiten, die Qualität deines Schlafs zu verbessern.",
+    "Die Schlafqualität kann von Tag zu Tag variieren. Nimm dieses Ergebnis als Zeichen, dass es immer noch Raum gibt, deine Schlafgewohnheiten zu verbessern.",
+    "Lass dich von einem niedrigen Schlafscore nicht entmutigen. Nutze diese Gelegenheit, um neue Strategien zu erkunden, die dir helfen, in Zukunft besser zu schlafen."
+  ],
+  "profileSleepScoreMessage2+": [
+    "Doppelter Sieg! Zwei aufeinanderfolgende Tage mit guten Schlafscores zeigen dein Engagement für gesunde Erholung. Mach weiter so und halte diese ausgezeichnete Serie aufrecht!",
+    "Zwei makellose Tage! Deine Beharrlichkeit bei der Aufrechterhaltung eines guten Ruhezustands ist bewundernswert. Mach weiter so und genieße die kontinuierlichen Vorteile erholsamen Schlafs!",
+    "Doppelter Erfolg! Zwei aufeinanderfolgende Tage mit qualitativ hochwertigem Schlaf sind ein großer Schritt hin zu einem ausgeglicheneren Leben. Mach weiter so und setze deine Gesundheit an erste Stelle!",
+    "Zwei phänomenale Tage! Deine Hingabe an guten Schlaf ist offensichtlich. Mach weiter so und kümmere dich weiterhin gut um dich, um diese positive Serie aufrechtzuerhalten!",
+    "Fantastische Arbeit! Zwei aufeinanderfolgende Tage mit guten Schlafscores sind eine würdige Leistung, die es zu feiern gilt. Mach weiter so und erlebe den Unterschied in deinem allgemeinen Wohlbefinden!",
+    "Ausgezeichnete Serie! Zwei aufeinanderfolgende Tage mit optimalem Schlaf sind eine großartige Leistung. Mach weiter so und setze deine Gesundheit und dein Wohlbefinden weiterhin an erste Stelle!"
+  ],
+  "profileSleepScoreMessage2-": [
+    "Lass dich von dieser negativen Serie nicht entmutigen. Nutze diese Ergebnisse als Motivation, um Bereiche für Verbesserungen in deiner Ruheroutine zu identifizieren.",
+    "Zwei aufeinanderfolgende Tage mit niedrigen Schlafscores können herausfordernd sein, aber denke daran, dass jeder Tag eine neue Gelegenheit zur Verbesserung ist.",
+    "Manchmal sind schlechte Nächte des Schlafes vorübergehend. Nutze diese Ergebnisse als Gelegenheit, deine Routine anzupassen und nach Möglichkeiten zu suchen, besser zu ruhen.",
+    "Zwei aufeinanderfolgende Tage mit niedrigen Schlafscores können schwer sein, aber lass dich nicht entmutigen. Suche nach neuen Strategien, um die Qualität deines Schlafes zu verbessern.",
+    "Die Schlafqualität kann von Tag zu Tag variieren. Nimm diese Ergebnisse als Zeichen, dass es wichtig ist, deinen Ruhe- und Wohlfühlbedürfnissen Priorität einzuräumen.",
+    "Lass dich von einer Serie von schlechten Schlafscores nicht entmutigen. Nutze diese Erfahrung als Gelegenheit, neue Möglichkeiten zu erkunden, um deine Ruhe zu verbessern."
   ],
   "profileSleepScoreMessage3+": [
-    "Dreifache Serie! Du hast drei Tage lang eine Schlafpunktzahl von 80 oder mehr beibehalten. Du baust gesunde Gewohnheiten auf! Mach weiter so, dein Körper wird es dir danken!",
-    "Incredible Beständigkeit! Drei aufeinander folgende Tage mit optimalem Schlaf. Du bist auf dem richtigen Weg zu langfristigem Wohlbefinden. Schlaf weiterhin gut!",
-    "Herzlichen Glückwunsch, drei aufeinander folgende Tage mit einer ausgezeichneten Schlafpunktzahl! Du bist ein Champion der Erholung. Mach weiter so, und du wirst den Unterschied bemerken!"
+    "Dreifache Serie! Du hast für 3 Tage einen Schlafscore von 80 oder höher gehalten. Du baust gesunde Gewohnheiten auf! Mach weiter so, dein Körper wird es dir danken!",
+    "Incredible Kontinuität! Drei aufeinanderfolgende Tage mit optimalem Schlaf. Du bist auf dem richtigen Weg zu dauerhaftem Wohlbefinden. Schlaf weiter gut!",
+    "Herzlichen Glückwunsch, drei aufeinanderfolgende Tage mit einer ausgezeichneten Schlafwertung! Du bist ein Schlafchampion. Mach weiter so und du wirst den Unterschied bemerken!",
+    "Drei phänomenale Tage! Deine Ausdauer bei der Aufrechterhaltung eines guten Ruhezustands ist beeindruckend. Mach weiter so und setze weiterhin deine Gesundheit und dein Wohlbefinden an erste Stelle!",
+    "Dreifacher Sieg! Drei aufeinanderfolgende Tage mit guten Schlafwerten zeigen dein Engagement für eine gesunde Ruhe-Routine. Mach weiter so und genieße die kontinuierlichen Vorteile!",
+    "Ausgezeichnete Serie! Drei aufeinanderfolgende Tage mit qualitativ hochwertigem Schlaf sind eine bemerkenswerte Leistung. Mach weiter so und kümmere dich weiterhin gut um dich, um diesen positiven Trend aufrechtzuerhalten!"
   ],
   "profileSleepScoreMessage3-": [
-    "Drei Tage mit niedrigen Punktzahlen können herausfordernd sein, aber jeder Tag ist eine Gelegenheit zur Veränderung. Denke über deine nächtliche Routine nach und mache kleine Anpassungen für eine bessere Erholung. Du bist auf dem Weg zur Verbesserung!",
-    "Es ist normal, schwierige Phasen zu haben. Drei aufeinander folgende Tage mit niedrigen Punktzahlen sollten als Weckruf dienen. Überlege Anpassungen an deiner Routine und ergreife Maßnahmen, um deine Schlafqualität zu verbessern. Du schaffst das!",
-    "Niedrige Punktzahlen für drei aufeinander folgende Tage sind ein Zeichen für Veränderungen. Analysiere, was deinen Schlaf beeinflussen könnte, und ergreife Maßnahmen zur Verbesserung. Du kontrollierst deine Gewohnheiten!"
+    "Drei Tage mit niedrigen Werten können herausfordernd sein, aber jeder Tag ist eine Gelegenheit für Veränderungen. Reflektiere über deine nächtliche Routine und mache kleine Anpassungen für bessere Erholung. Du bist auf dem Weg zur Verbesserung!",
+    "Es ist normal, schwierige Serien zu haben. Drei aufeinanderfolgende Tage mit niedrigen Werten können ein Aufruf zum Handeln sein. Berücksichtige Anpassungen in deiner Routine und ergreife Maßnahmen, um die Qualität deines Schlafes zu verbessern. Du kannst es schaffen!",
+    "Das Halten niedriger Werte für drei aufeinanderfolgende Tage ist ein Signal für Veränderungen. Analysiere, was deinen Schlaf beeinflussen könnte, und ergreife Maßnahmen zur Verbesserung. Du kontrollierst deine Gewohnheiten!",
+    "Drei aufeinanderfolgende Tage mit niedrigen Schlafwerten können schwer sein, aber verliere nicht die Hoffnung. Suche nach neuen Strategien und Gewohnheiten, die deine Schlafqualität verbessern können.",
+    "Die Schlafqualität kann von Tag zu Tag variieren. Nimm diese Ergebnisse als Zeichen, dass es wichtig ist, auf dein Wohlbefinden zu achten und Wege zu finden, um deine Ruhe zu verbessern.",
+    "Lass dich nicht von einer Serie schlechter Schlafwerte entmutigen. Nutze diese Erfahrung als Gelegenheit zum Lernen und erkunde neue Möglichkeiten, um deine Ruhe und Gesundheit zu priorisieren."
+  ],
+  "profileSleepScoreMessage4+": [
+    "Vierfacher Erfolg! Vier aufeinanderfolgende Tage mit guter Schlafbewertung zeigen Ihr Engagement für gesunden Schlaf. Machen Sie weiter so und halten Sie diese ausgezeichnete Serie aufrecht!",
+    "Vier makellose Tage! Ihr Engagement für guten Schlaf ist bewundernswert. Machen Sie weiter so und genießen Sie die kontinuierlichen Vorteile erholsamen Schlafs!",
+    "Vier phänomenale Tage! Die Aufrechterhaltung dieser Serie von gutem Schlaf ist ein großer Schritt zu einem ausgewogeneren Leben. Machen Sie weiter so und priorisieren Sie Ihr Wohlbefinden!",
+    "Vierfacher Sieg! Vier aufeinanderfolgende Tage mit guter Schlafbewertung sind ein Zeichen für Ihr Engagement für angemessene Erholung. Machen Sie weiter so und halten Sie diesen unglaublichen Trend aufrecht!",
+    "Fantastische Arbeit! Vier aufeinanderfolgende Tage mit guter Schlafbewertung sind eine würdige Leistung. Machen Sie weiter so und erleben Sie den Unterschied in Ihrem allgemeinen Wohlbefinden!",
+    "Vier außergewöhnliche Tage! Ihre Beständigkeit im Erhalten guten Schlafs ist beeindruckend. Machen Sie weiter so und kümmern Sie sich weiterhin gut um sich, um diese positive Serie aufrechtzuerhalten!"
+  ],
+  "profileSleepScoreMessage4-": [
+    "Eine Serie von vier Tagen mit niedrigen Schlafbewertungen aufrechtzuerhalten, kann herausfordernd sein, aber denken Sie daran, dass es immer Möglichkeiten gibt, Ihren Schlaf zu verbessern.",
+    "Lassen Sie sich nicht von dieser negativen Serie entmutigen. Verwenden Sie diese Ergebnisse als Motivation, um Bereiche zur Verbesserung Ihrer Schlaf- und Wohlfühlroutine zu identifizieren.",
+    "Manchmal ist es vorübergehend, eine Phase mit niedrigen Schlafbewertungen durchzumachen. Nutzen Sie diese Ergebnisse als Gelegenheit, Ihre Routine anzupassen und Wege zu finden, sich besser auszuruhen.",
+    "Vier aufeinanderfolgende Tage mit niedrigen Schlafbewertungen können hart sein, aber verlieren Sie nicht die Hoffnung. Suchen Sie nach neuen Strategien und Gewohnheiten, die Ihre Schlafqualität verbessern können.",
+    "Die Schlafqualität kann von Tag zu Tag schwanken. Nehmen Sie diese Ergebnisse als ein Zeichen dafür, dass es wichtig ist, auf Ihr Wohlbefinden zu achten und Wege zu finden, Ihren Schlaf zu verbessern.",
+    "Lassen Sie sich von einer Serie von schlechten Schlafbewertungen nicht entmutigen. Nutzen Sie diese Erfahrung als Gelegenheit, zu lernen und neue Möglichkeiten zu erkunden, Ihren Schlaf und Ihre Gesundheit zu priorisieren."
   ],
   "profileSleepScoreMessage5+": [
-    "Bravo! Du hast fünf Tage hintereinander eine hervorragende Schlafpunktzahl erreicht. Dein Engagement für die Erholung zeigt konkrete Ergebnisse. Mach weiter so, und du wirst den Unterschied in deinem allgemeinen Wohlbefinden spüren!",
-    "Fünf aufeinander folgende Tage mit beneidenswerten Schlafpunktzahlen. Du baust ein solides Fundament für deine Gesundheit und Energie auf. Setze weiterhin auf deinen Schlaf, und du wirst langfristige Vorteile ernten!",
-    "Incredible Serie! In den letzten fünf Tagen war dein Schlaf konstant und erholsam. Dein Körper und Geist danken es dir. Kümmere dich weiterhin um dich und genieße revitalisierende Nächte!"
+    "Herzlichen Glückwunsch! Du hast fünf Tage hintereinander einen ausgezeichneten Schlafscore erreicht. Dein Engagement für Erholung zeigt konkrete Ergebnisse. Mach weiter so und du wirst den Unterschied in deinem allgemeinen Wohlbefinden bemerken!",
+    "Fünf aufeinanderfolgende Tage mit beneidenswerten Schlafscores. Du baust ein solides Fundament für deine Gesundheit und Energie auf. Setze weiterhin Priorität auf deinen Schlaf und du wirst langfristige Vorteile ernten!",
+    "Unglaubliche Serie! Seit fünf Tagen ist dein Schlaf konstant und erholsam. Dein Körper und Geist danken es dir. Kümmere dich weiterhin gut um dich und genieße revitalisierende Nächte!",
+    "Fünf Tage mit qualitativ hochwertigem Schlaf! Du hast ein Muster geschaffen, das es wert ist, gefeiert zu werden. Mach weiter so und beobachte, wie deine Energie und Konzentration zunehmen.",
+    "Fünf Tage der erneuernden Erholung. Deine Beständigkeit ist der Schlüssel zu einem ausgewogenen Lebensstil. Mach weiter so und genieße dein verdientes Wohlbefinden!",
+    "Unglaublich! Fünf Tage erholsamer Schlaf sind eine Leistung, auf die du stolz sein kannst. Mach weiter so und setze deine Gesundheit und Glück weiterhin an oberste Stelle!"
   ],
   "profileSleepScoreMessage5-": [
-    "Fünf Tage hintereinander niedrige Punktzahlen zu halten, ist ein Warnzeichen. Denke über die Faktoren nach, die deinen Schlaf beeinträchtigen könnten, und erwäge Anpassungen in deiner nächtlichen Routine.",
-    "Fünf Tage mit niedrigen Schlafpunktzahlen sind eine Erinnerung an die Bedeutung der Priorisierung der Erholung. Überlege mögliche Veränderungen in deiner Umgebung und deinen Gewohnheiten, um die Qualität deines Schlafs zu verbessern.",
-    "Eine Serie von fünf niedrigen Punktzahlen kann sich auf dein Wohlbefinden auswirken. Erwäge neue Strategien, um einen erholsameren Schlaf zu gewährleisten."
+    "Fünf aufeinanderfolgende Tage mit niedrigen Scores sind ein Warnsignal. Überlege, welche Faktoren deinen Schlaf beeinflussen könnten, und ziehe in Betracht, Anpassungen an deiner nächtlichen Routine vorzunehmen.",
+    "Fünf Tage mit niedrigen Schlafscores sind eine Erinnerung an die Bedeutung der Priorisierung von Ruhe. Überprüfe potenzielle Änderungen in deiner Umgebung und deinen Gewohnheiten, um die Schlafqualität zu verbessern.",
+    "Eine Serie von fünf Tagen mit niedrigen Scores kann sich auf dein Wohlbefinden auswirken. Denke darüber nach, neue Strategien zu erkunden, um einen erholsameren Schlaf zu gewährleisten.",
+    "Fünf Tage mit unzureichendem Schlaf können ermüdend sein, aber verliere nicht die Hoffnung. Suche nach neuen Strategien, um die Qualität deines Schlafs zu verbessern.",
+    "Die Schlafqualität kann variieren, aber dein Engagement für dein Wohlbefinden sollte nicht schwanken. Nutze diese Erfahrung als Gelegenheit zum Nachdenken und zur Verbesserung.",
+    "Lass dich nicht von einer Serie von schlechten Schlafscores entmutigen. Nutze diese Tage als Motivation, um Ruhe und Wohlbefinden Priorität einzuräumen. Du kannst die Qualität deines Schlafs verbessern!"
+  ],
+  "profileSleepScoreMessage6+": [
+    "Sechs Tage erholsamer Schlaf. Dein Engagement für dein Wohlbefinden ist bewundernswert. Mach weiter so und halte diese lebhafte Energie aufrecht!",
+    "Eine Serie von sechs Tagen mit verjüngendem Schlaf. Deine Hingabe an deine Gesundheit verdient Applaus. Mach weiter so und genieße einen revitalisierten Körper und Geist!",
+    "Sechs aufeinanderfolgende Tage süßer Träume. Deine Beständigkeit ist der Schlüssel zu deinem Wohlbefinden. Mach weiter so und erlebe den Unterschied in deiner Lebensqualität!",
+    "Sechs Tage mit konstantem Schlaf! Du hast eine Routine etabliert, die es wert ist, gefeiert zu werden. Mach weiter so und beobachte, wie sich dein allgemeines Wohlbefinden verbessert.",
+    "Sechs Tage erneuernder Ruhe. Deine Hingabe an deine Erholung ist lobenswert. Mach weiter so und halte dein Engagement für gesunden Schlaf aufrecht!",
+    "Unglaublich! Sechs Tage erholsamer Schlaf sind ein Erfolg, den es zu feiern gilt. Mach weiter so und priorisiere deine Gesundheit und tägliche Glückseligkeit!"
+  ],
+  "profileSleepScoreMessage6-": [
+    "Sechs herausfordernde Tage. Nutze diese Serie als Motivation, um positive Veränderungen in deiner Schlafroutine umzusetzen. Jeder Tag ist eine neue Gelegenheit zur Verbesserung!",
+    "Eine Serie von sechs herausfordernden Tagen kann anstrengend sein, aber denke daran, dass jede Herausforderung eine Gelegenheit für Wachstum und Veränderung ist.",
+    "Sechs aufeinanderfolgende Tage mit niedrigen Schlafpunkten können entmutigend sein, aber verliere nicht die Hoffnung. Suche nach neuen Strategien, um die Qualität deines Schlafs zu verbessern.",
+    "Kontinuität ist auch in schwierigen Zeiten entscheidend. Nutze diese Erfahrung als Gelegenheit zur Reflexion und mache positive Anpassungen in deiner Schlafroutine.",
+    "Sechs Tage mit unbefriedigendem Schlaf können schwer sein, aber denke daran, dass du die Kraft hast, deine Gewohnheiten zu ändern und dein Wohlbefinden zu verbessern.",
+    "Lass dich nicht von einer Serie von schlechten Schlafpunkten entmutigen. Nutze diese Tage als Erinnerung an die Wichtigkeit der Priorisierung deiner Ruhe und deines Wohlbefindens. Du kannst diese Herausforderung meistern!"
   ],
   "profileSleepScoreMessage7+": [
-    "Eine ganze Woche mit qualitativ hochwertigem Schlaf! Eine Schlafpunktzahl von 80 oder mehr an sieben aufeinander folgenden Tagen zu erreichen, ist eine beeindruckende Leistung. Dein Körper und Geist befinden sich im optimalen Modus. Kümmere dich weiterhin um dich!",
-    "Incredible Meilenstein! Du hast eine Schlafpunktzahl von 80 oder mehr die gesamte Woche über aufrechterhalten. Das ist ein Zeugnis deines Engagements für dein Wohlbefinden. Mach weiter so und erobere jeden Tag!",
-    "Du hast eine ganze Woche mit optimalem Schlaf erreicht! Deine Hingabe zur Erholung zahlt sich aus. Kümmere dich weiterhin um deinen Schlaf und genieße die kontinuierlichen Vorteile. Du bist ein Schlafchampion!"
+    "Komplette Woche mit qualitativem Schlaf! Es ist eine beeindruckende Leistung, für 7 aufeinanderfolgende Tage eine Punktzahl von 80 oder mehr zu erreichen. Dein Körper und Geist sind im optimalen Modus. Kümmere dich weiterhin um dich selbst!",
+    "Unglaublicher Meilenstein! Du hast eine Schlafpunktzahl von 80 oder mehr für eine ganze Woche aufrechterhalten. Dies ist ein Beweis für dein Engagement für dein Wohlbefinden. Mach weiter so und erobere jeden Tag!",
+    "Du hast eine komplette Woche mit optimalen Schlaf erreicht! Deine Hingabe an die Erholung zahlt sich aus. Kümmere dich weiterhin um deinen Schlaf und genieße die kontinuierlichen Vorteile. Du bist ein Schlaf-Champion!",
+    "Eine komplette Woche mit qualitativ hochwertigem Schlaf! Du hast gezeigt, dass du eine gesunde Routine aufrechterhalten kannst. Mach weiter so und beobachte, wie sich dein allgemeines Wohlbefinden verbessert!",
+    "Sieben Tage erholsamer Ruhe. Deine Hingabe an deine Erholung ist bewundernswert. Mach weiter so und genieße einen revitalisierten Körper und Geist!",
+    "Prächtig! Sieben Tage erholsamer Schlaf sind eine bemerkenswerte Leistung. Mach weiter so und kümmere dich weiterhin gut um dich, um diesen positiven Trend aufrechtzuerhalten!"
   ],
   "profileSleepScoreMessage7-": [
-    "Eine Woche mit niedrigen Punktzahlen kann eine Herausforderung sein, bietet aber auch die Möglichkeit zu signifikanten Veränderungen. Evaluier deine nächtliche Routine und suche nach Wegen, deinen Schlaf zu priorisieren. Fang heute damit an!",
-    "Sieben Tage mit niedrigen Punktzahlen sind ein Signal, dass dein Körper mehr Aufmerksamkeit benötigt. Erwäge bedeutende Anpassungen in deiner nächtlichen Routine, um deinen Schlaf zu verbessern. Dein Wohlbefinden wird es dir danken!",
-    "Niedrige Punktzahlen über eine Woche hinweg sind ein Aufruf zur Aktion. Ändere deinen Lebensstil und priorisiere deinen Schlaf, um wieder auf den Weg zu erholsamer Qualität zu kommen. Wir stehen hinter dir in dieser positiven Veränderung!"
+    "Eine Woche mit niedrigen Punkten kann eine Herausforderung sein, bietet aber auch die Möglichkeit, bedeutende Veränderungen vorzunehmen. Überprüfe deine nächtliche Routine und suche nach Möglichkeiten, deine Erholung zu priorisieren. Fang heute damit an!",
+    "Sieben Tage mit niedrigen Punkten sind ein Zeichen dafür, dass dein Körper mehr Aufmerksamkeit benötigt. Erwäge, bedeutende Anpassungen an deiner nächtlichen Routine vorzunehmen, um deinen Schlaf zu verbessern. Dein Wohlbefinden wird es dir danken!",
+    "Das Aufrechterhalten niedriger Punktzahlen für eine Woche ist ein Aufruf zum Handeln. Ändere deinen Lebensstil und priorisiere deinen Schlaf, um zurück auf den Weg zur qualitativ hochwertigen Erholung zu gelangen. Wir unterstützen dich bei diesem positiven Wandel!",
+    "Kontinuität ist der Schlüssel, auch in schwierigen Zeiten. Nutze diese Erfahrung als Gelegenheit zur Reflexion und mache positive Anpassungen an deiner Schlafroutine.",
+    "Sieben Tage unzureichenden Schlafs können herausfordernd sein, aber denke daran, dass du die Kraft hast, deine Gewohnheiten zu ändern und dein Wohlbefinden zu verbessern.",
+    "Lass dich nicht von einer Serie von schlechten Schlafpunkten entmutigen. Nutze diese Tage als Erinnerung an die Bedeutung der Priorisierung deiner Erholung und deines Wohlbefindens. Du kannst diese Herausforderung bewältigen!"
+  ],
+  "profileSleepScoreMessage8+": [
+    "Acht Tage erholsamer Ruhe. Jede Nacht tiefen Schlafs bringt dich näher an dein bestes Selbst. Fahre mit dieser Reise zum vollen Wohlbefinden fort!",
+    "Du hast eine Decke aus erholsamen Träumen für eine ganze Woche gewebt. Jeder Faden erinnert an die transformative Kraft der Ruhe. Mach weiter für eine hellere Zukunft!",
+    "Herzlichen Glückwunsch zu acht Tagen erholsamen Schlafs. Jedes Erwachen ist eine Gelegenheit, erneuerte Energie und geistige Klarheit zu umarmen. Ernte weiter die Belohnungen wohlverdienten Ruhe!",
+    "Acht Tage Schlaf wie eine sanfte Umarmung für deine müde Seele. Jede Nacht ist ein Versprechen auf Erneuerung und Kraft, um neuen Herausforderungen zu begegnen. Möge diese positive Streifen weiterhin zu deiner Erfüllung führen!",
+    "Du schreibst eine Geschichte von Ruhe und Erneuerung, die es wert ist, erzählt zu werden. Jedes Kapitel tiefen Schlafs ist eine Hommage an dein Engagement für Wohlbefinden. Schreibe weiter für eine Zukunft voller Vitalität und Freude!",
+    "Acht Tage erholsamen Schlafs sind ein Zeugnis deiner Hingabe zur Selbstpflege. Jede gut geschlafene Nacht ist eine Investition in deine körperliche und geistige Gesundheit. Bleibe weiterhin der Architekt deines Wohlbefindens!"
+  ],
+  "profileSleepScoreMessage8-": [
+    "Acht Tage Herausforderungen im Reich des Schlafs. Jede Nacht ist eine Gelegenheit zu lernen, anzupassen und sich für gesünderen Schlaf zu engagieren. Transformation beginnt mit einer Wahl!",
+    "Du hast dich durch acht Tage turbulentes Wasser im Ozean des Schlafs gekämpft. Jedes Erwachen ist eine Einladung, über deine Gewohnheiten und Prioritäten nachzudenken. Vertraue darauf, dass du Ruhe inmitten des Sturms finden kannst!",
+    "Acht Tage unzufriedener Schlaf mögen wie ein unüberwindlicher Berg erscheinen, aber jeder Schritt ist ein Schritt näher am Gipfel. Denke daran, Ausdauer ist der Schlüssel, der die Türen des Wandels öffnet!",
+    "Jede unruhige Nacht des Schlafs über acht Tage hinweg ist ein Weckruf vom Körper und Geist. Höre mit Mitgefühl zu und öffne dein Herz für Selbstfürsorge und Erkundung neuer Ruhepraktiken. Dein Wohlbefinden verdient deine Aufmerksamkeit!",
+    "Acht Tage Herausforderungen auf der Schlaffront können erschöpfend sein, aber sie sind auch eine Erinnerung an deine Widerstandsfähigkeit und innere Stärke. Gehe weiter mutig und selbstbewusst voran!",
+    "Jede schwierige Nacht des Schlafs über acht Tage hinweg ist eine Gelegenheit, Mitgefühl und Verständnis für dich selbst zu entwickeln. Umarme deine Menschlichkeit und lass jede Erfahrung dich zu einem erholsameren Schlaf und einem erfüllteren Leben führen."
+  ],
+  "profileSleepScoreMessage9+": [
+    "Neun Tage erholsamer Schlaf sind wie die Ziegelsteine eines ruhigen und friedlichen Zuhauses. Jede gut geschlafene Nacht ist eine Säule für dein Wohlbefinden.",
+    "Für neun Tage hat dein Kissen deine süßesten und erholsamsten Träume erlebt. Mach weiter so und baue eine Oase der Ruhe und Verjüngung.",
+    "Jeder Morgendämmerung nach neun Nächten tiefen Schlafs ist eine Einladung, erneuerte Energie und geistige Klarheit zu umarmen. Halte diese Strähne aufrecht und erreiche neue Höhen.",
+    "Neun Tage Erholung haben dich auf eine Reise der Selbstentdeckung und Erneuerung geführt. Folge diesem Weg und entdecke die Magie des erholsamen Schlafs.",
+    "Herzlichen Glückwunsch zu neun Tagen erholsamen Schlafs. Jede gut geschlafene Nacht ist eine Hommage an dein Engagement für Gesundheit und Wohlbefinden.",
+    "Für neun Tage hast du dem Schlaf als einen wesentlichen Teil deines Lebens gehuldigt. Mach weiter so und ernte die Früchte eines revitalisierten Geistes und Körpers."
+  ],
+  "profileSleepScoreMessage9-": [
+    "Neun herausfordernde Tage des Schlafs können überwältigend erscheinen, aber jede Nacht ist eine neue Gelegenheit zum Lernen und Wachsen.",
+    "Eine Serie von neun herausfordernden Tagen aufrechtzuerhalten kann erschöpfend sein, aber denke daran, dass jede Hürde eine Gelegenheit ist, sich zu stärken.",
+    "Für neun Tage hast du Herausforderungen in deinem Schlaf gemeistert, aber jede Nacht ist auch eine Gelegenheit, sich neu zu kalibrieren und zu verbessern.",
+    "Neun Tage unzufriedenstellenden Schlafs können entmutigend sein, aber jede Morgendämmerung bringt das Versprechen eines Neuanfangs mit sich.",
+    "Neun Tage Schlafherausforderungen zu bewältigen ist ein Zeugnis deiner Widerstandsfähigkeit und inneren Stärke. Geh weiter mit Entschlossenheit und Vertrauen in dich selbst.",
+    "Gib nicht auf, suche weiterhin nach neuen Möglichkeiten, deinen Schlaf zu verbessern!"
+  ],
+  "profileSleepScoreMessage10+": [
+    "Zehn Tage erholsamer Schlaf sind ein Zeugnis deines Engagements für Wohlbefinden. Mach weiter so und setze deine Erholung und deine Gesundheit weiterhin an erste Stelle.",
+    "Für zehn Tage hast du eine Serie von erholsamem Schlaf beibehalten. Jede gut geschlafene Nacht ist ein Geschenk, das dich einem ausgewogenen Leben näher bringt.",
+    "Zehn Tage erholsamer Schlaf sind wie ein sanftes Flüstern der Natur, das dich daran erinnert, wie wichtig es ist, gut auf dich aufzupassen. Mach weiter so und finde Harmonie in jeder Nacht.",
+    "Herzlichen Glückwunsch zu zehn Tagen erholsamem Schlaf. Jede Nacht erinnert an dein Engagement für ein Leben voller Energie und Vitalität.",
+    "Zehn Tage tiefen und erholsamen Schlafs sind wie eine tröstliche Umarmung für deinen Körper und Geist. Mach weiter so und erlebe die Fülle jeden Tages.",
+    "Für zehn Tage hast du deinen Körper und Geist mit erholsamem Schlaf genährt. Folge diesem Weg und finde Frieden und Gelassenheit in jeder Nacht."
+  ],
+  "profileSleepScoreMessage10-": [
+    "Zehn Tage schlechten Schlafs können herausfordernd sein, aber jede Nacht ist eine Gelegenheit, neue Möglichkeiten zur Verbesserung deines Schlafs zu finden.",
+    "Eine Serie von zehn herausfordernden Tagen aufrechtzuerhalten kann ermüdend sein, aber denke daran, dass jeder Tag eine Gelegenheit zum Lernen und Wachsen ist.",
+    "Für zehn Tage hast du Herausforderungen in deinem Schlaf gemeistert, aber jede Nacht ist auch eine Gelegenheit zum Neukalibrieren und Verbessern.",
+    "Zehn Tage unzufriedenstellenden Schlafs können entmutigend sein, aber jede Morgendämmerung bringt das Versprechen eines neuen Anfangs mit sich.",
+    "Zehn Tage Schlafherausforderungen zu bewältigen ist ein Zeugnis deiner Widerstandsfähigkeit und inneren Stärke. Gehe weiter mit Entschlossenheit und Selbstvertrauen.",
+    "Lass dich nicht von einer schlechten Serie entmutigen. Nutze diese Tage als Erinnerung an die Bedeutung, deine Erholung und dein Wohlbefinden zu priorisieren. Du kannst diese Herausforderung meistern!"
+  ],
+  "profileSleepScoreMessageTwoWeeks+": [
+    "Zwei Wochen erholsamer Schlaf sind wie eine Reise zur totalen Erneuerung. Jede gut geschlafene Nacht ist ein Schritt näher zum vollständigen Wohlbefinden.",
+    "Über zwei Wochen hast du eine Brücke zum erholsamen Schlaf gebaut. Geh weiter mit Entschlossenheit und du wirst bei jedem Schritt Ruhe finden.",
+    "Jeder Morgen nach zwei Wochen tiefen Schlafs lädt ein, erneuerte Energie und geistige Klarheit zu umarmen. Halte diese Serie aufrecht und erreiche neue Höhen.",
+    "Zwei Wochen Erholung haben dich auf eine Reise der Selbstentdeckung und Erneuerung geführt. Folge diesem Weg und entdecke die Magie des erholsamen Schlafs.",
+    "Herzlichen Glückwunsch zu zwei Wochen erholsamem Schlaf. Jede gut geschlafene Nacht ist eine Hommage an dein Engagement für Gesundheit und Wohlbefinden.",
+    "Für zwei Wochen hast du den Schlaf als wesentlichen Teil deines Lebens geehrt. Mach weiter so und ernte die Früchte eines revitalisierten Geistes und Körpers."
+  ],
+  "profileSleepScoreMessageTwoWeeks-": [
+    "Über zwei Wochen hast du Herausforderungen im Finden angemessener Erholung bewältigt. Es ist Zeit, über deine Gewohnheiten nachzudenken und kleine Änderungen vorzunehmen, die dich näher an einen erholsameren Schlaf bringen.",
+    "Eine Serie von zwei herausfordernden Wochen aufrechtzuerhalten kann erschöpfend sein, aber jeder Tag bietet dir die Möglichkeit, gesündere Entscheidungen für deine Erholung zu treffen. Lass uns darauf konzentrieren, Lösungen zu finden!",
+    "Für zwei Wochen hast du Schwierigkeiten gehabt, gut zu schlafen, aber jede Nacht bietet dir eine neue Chance, dich zu verbessern. Es ist Zeit, neue Strategien und Gewohnheiten zu erkunden, die dir helfen, besser zu schlafen.",
+    "Zwei Wochen lang mit Schlafproblemen zu kämpfen, erinnert daran, wie wichtig es ist, auf die eigene Gesundheit und das eigene Wohlbefinden zu achten. Verpflichte dich dazu, positive Veränderungen in deiner Routine vorzunehmen, um die Qualität deiner Erholung zu verbessern.",
+    "Für zwei Wochen hast du dich damit herumgeschlagen, erholsamen Schlaf zu finden, aber jeder Tag bringt dich näher an die Entdeckung dessen, was für dich am besten funktioniert. Lass uns weiterhin nach Lösungen suchen und eine positive Einstellung zur Veränderung bewahren.",
+    "Für zwei Wochen hattest du Schwierigkeiten beim Schlafen, aber jede Herausforderung bietet die Möglichkeit zu lernen und zu wachsen. Lass uns darauf konzentrieren, wirksame Möglichkeiten zu finden, unsere Erholung zu verbessern."
+  ],
+  "profileSleepScoreMessageThreeWeeks+": [
+    "Drei Wochen erholsamer Schlaf sind wie eine Hymne auf dein Wohlbefinden. Jede gut geschlafene Nacht ist eine Melodie, die dich zu innerem Gleichgewicht führt.",
+    "Über drei Wochen hast du ein Heiligtum erholsamer Träume geschaffen. Pflege diesen heiligen Raum weiter und finde Frieden in jedem Atemzug.",
+    "Jedes Erwachen nach drei Wochen tiefen Schlafs ist eine Feier des Lebens und der Vitalität. Halte diese Serie aufrecht und lass dein inneres Licht noch heller strahlen.",
+    "Drei Wochen Ruhe haben dich durch eine Oase der Selbstentdeckung und Erneuerung geführt. Erforsche weiterhin dieses Gebiet und entdecke die Magie der Selbstfürsorge.",
+    "Herzlichen Glückwunsch zu drei Wochen erholsamem Schlaf. Jede gut geschlafene Nacht ist eine Hommage an dein Engagement für ein ausgewogenes und energiegeladenes Leben.",
+    "Für drei Wochen hast du einen Garten der Ruhe und Verjüngung kultiviert. Halte diese Samen weiterhin feucht und beobachte, wie sie in ein erfüllteres Leben aufblühen."
+  ],
+  "profileSleepScoreMessageThreeWeeks-": [
+    "Drei Wochen Schlafschwierigkeiten sind eine Erinnerung an die Wichtigkeit, sich um die eigene geistige und körperliche Gesundheit zu kümmern. Es ist Zeit, konkrete Schritte zu unternehmen, um deine Erholung und dein allgemeines Wohlbefinden zu verbessern.",
+    "Eine Serie von drei herausfordernden Wochen aufrechtzuerhalten kann schwierig sein, aber jeder Tag bietet dir die Möglichkeit, positive Entscheidungen für deinen Schlaf zu treffen. Verpflichte dich, Veränderungen umzusetzen, die deine Schlafqualität verbessern.",
+    "Für drei Wochen hattest du Schwierigkeiten beim Einschlafen und erholsamen Schlaf, aber jede Nacht bietet dir die Chance, es erneut zu versuchen. Lass uns weiterhin neue Strategien und Gewohnheiten erkunden, die dir helfen, besser zu schlafen.",
+    "Drei Wochen Schlafherausforderungen zeigen, dass du deine Gesundheit und dein Wohlbefinden priorisieren musst. Nimm dir die Zeit, um herauszufinden, was deinen Schlaf beeinträchtigt, und arbeite an effektiven Lösungen.",
+    "Für drei Wochen hast du damit gekämpft, erholsamen Schlaf zu finden, aber jeder Tag bringt dich näher an Lösungen, die für dich funktionieren. Lass uns eine positive Einstellung bewahren und uns verpflichten, Veränderungen vorzunehmen, die unsere Lebensqualität verbessern.",
+    "Für drei Wochen hast du darum gekämpft, erholsamen Schlaf zu finden, aber jede Herausforderung bietet die Möglichkeit zu lernen und zu wachsen. Lass uns mit Entschlossenheit voranschreiten und aktiv nach Möglichkeiten suchen, unseren Schlaf zu verbessern."
+  ],
+  "profileSleepScoreMessageOneMonth+": [
+    "Herzlichen Glückwunsch! Ein ganzer Monat erholsamen Schlafs ist eine bemerkenswerte Leistung. Jede gut geschlafene Nacht ist ein Geschenk für Ihre Gesundheit und Ihr Wohlbefinden. Mach weiter so!",
+    "Ein Monat mit konsequent guten Schlafgewohnheiten verdient eine Feier. Ihre Hingabe an die Erholung trägt Früchte, und Ihr Körper und Geist danken es Ihnen. Machen Sie weiterhin gut für sich selbst!",
+    "Für einen ganzen Monat haben Sie bewundernswerte Einsatzbereitschaft für Ihre Erholung gezeigt. Jede Nacht erholsamen Schlafs ist ein Schritt zu einem ausgeglicheneren und erfüllteren Leben. Machen Sie weiter so, Schlaf-Champion!",
+    "Ein ganzer Monat guter Erholung ist ein Zeugnis Ihrer Entschlossenheit und Selbstfürsorge. Jede Nacht erholsamen Schlafs ist eine Investition in Ihre langfristige Gesundheit und Glückseligkeit. Bleiben Sie stark!",
+    "Ein ganzer Monat mit qualitativ hochwertigem Schlaf verdient Applaus! Ihre Hingabe an Ihr Wohlbefinden spiegelt sich in jeder Erholungsnacht wider. Machen Sie weiterhin gut auf sich auf und priorisieren Sie Ihre Gesundheit.",
+    "Für einen Monat haben Sie gezeigt, dass guter Schlaf eine Priorität ist. Jede gut geschlafene Nacht ist ein Schritt zu einem gesünderen und lebendigeren Leben. Machen Sie weiter so, halten Sie die gute Arbeit aufrecht!"
+  ],
+  "profileSleepScoreMessageOneMonth-": [
+    "Ein Monat mit Schlafschwierigkeiten kann herausfordernd sein, aber jeder Tag gibt uns die Möglichkeit zur Reflexion und Verbesserung unserer Schlafgewohnheiten. Es ist Zeit, Maßnahmen zu ergreifen, um sich um Ihr Wohlbefinden zu kümmern!",
+    "Für einen ganzen Monat haben Sie Hindernisse in Ihrem Schlaf bewältigt, aber jede Nacht ist auch eine Gelegenheit zum Lernen und Anpassen Ihres Ansatzes. Sie sind auf dem Weg zu besserem Schlaf!",
+    "Ein Monat mit negativen Schlafresultaten ist ein Zeichen dafür, dass es Zeit ist, auf Ihr Wohlbefinden zu achten. Mit Entschlossenheit und Engagement können Sie Änderungen implementieren, die Ihnen helfen, besser zu schlafen.",
+    "Für einen Monat haben Sie Herausforderungen in Ihrem Schlaf gemeistert, aber jede Nacht ist auch eine Gelegenheit zur Erneuerung und Aufladung. Lassen Sie sich nicht entmutigen, Sie sind auf dem Weg zu erholsamerem Schlaf!",
+    "Ein Monat mit Schlafschwierigkeiten kann anstrengend sein, aber es ist auch eine Gelegenheit, neue Strategien und Gewohnheiten zu erkunden, die Ihnen helfen, besser zu schlafen. Machen Sie weiter stark!",
+    "Für einen Monat haben Sie Hindernisse in Ihrem Schlaf überwunden, aber jede Nacht ist auch eine Gelegenheit zur Erneuerung und Aufladung. Geben Sie nicht auf, Sie sind auf dem Weg zu besserem Schlaf!"
+  ],
+  "profileSleepScoreMessageDefault+": [
+    "Du glänzt weiterhin mit deinem Engagement für gesunden Schlaf! Jede gut ausgeruhte Nacht ist ein Schritt zu einem ausgewogeneren und erfüllteren Leben. Mach weiter so!",
+    "Dein Einsatz für Ruhe zahlt sich aus, und dein Wohlbefinden spiegelt das wider. Jede Nacht erholsamen Schlafs ist eine Investition in deine langfristige Gesundheit und Glückseligkeit. Kümmere dich weiterhin um dich!",
+    "Eine positive Serie im Schlaf fortzusetzen, zeigt dein Engagement für dein Wohlbefinden. Jede Nacht angemessener Ruhe ist eine Erinnerung an dein Engagement für Selbstfürsorge. Bleib stark dabei!",
+    "Eine positive Serie im Schlaf aufrechtzuerhalten, ist ein Zeugnis deiner Entschlossenheit und Disziplin. Jede gut geschlafene Nacht ist ein Schritt zu einem gesünderen und ausgewogeneren Leben. Mach weiter so, Schlafchampion!",
+    "Wir feiern deine Beharrlichkeit, eine positive Serie im Schlaf aufrechtzuerhalten. Jede Nacht erholsamen Schlafs ist ein Erfolg, der dich näher zu einer besseren Lebensqualität bringt. Setze weiterhin deine Gesundheit an erste Stelle!",
+    "Dein Engagement für qualitativ hochwertigen Schlaf ist bewundernswert und verdient Anerkennung. Jede Nacht guten Schlafs ist ein Schritt zu einer gesünderen und glücklicheren Version von dir selbst. Mach weiter so, es gibt keine Grenzen für dein Wohlbefinden!"
+  ],
+  "profileSleepScoreMessageDefault-": [
+    "Auch wenn du Herausforderungen im Schlaf gegenüberstehst, ist dein Wille zur Verbesserung inspirierend. Jede Nacht ist eine Gelegenheit zu lernen und den Fokus auf einen erholsameren Schlaf zu richten. Lass dich nicht entmutigen!",
+    "Eine negative Serie im Schlaf fortzusetzen, kann herausfordernd sein, aber jeder Tag bietet die Möglichkeit zur Reflexion und Verbesserung unserer Gewohnheiten. Du bist auf dem Weg zu einem gesünderen Schlaf!",
+    "Trotz Hindernissen im Ruhezustand ist dein Wille, Lösungen zu finden, bewundernswert. Mit jeder Nacht kommst du der Entdeckung näher, was für dich am besten funktioniert. Gib nicht auf!",
+    "Deine Ausdauer inmitten einer negativen Serie im Schlaf zeigt dein Engagement für dein Wohlbefinden. Jede Nacht ist eine Gelegenheit zur Erneuerung und Regeneration. Geh weiter mit Entschlossenheit!",
+    "Auch wenn du Schwierigkeiten beim Schlafen hast, ist jede Nacht auch eine Gelegenheit, neue Strategien und Gewohnheiten zu erkunden. Dein Wille, deinen Schlaf zu verbessern, ist der erste Schritt zu einer besseren Lebensqualität. Geh weiter!",
+    "Wir feiern deinen Mut und deine Entschlossenheit, Herausforderungen im Schlaf zu meistern. Jede Nacht ist eine Gelegenheit zum Lernen und Wachsen, und jeder Schritt bringt dich näher zu erholsamem Schlaf. Verliere nicht den Mut!"
   ],
   "IrreversibleAction": "Diese Aktion ist nicht rückgängig zu machen",
   "sleepScoreChartTotalRecovery": "Gesamterholung",
@@ -412,6 +596,8 @@
   "movementsChartTurns": "Drehungen/Nacht",
   "sleepTimeChartAwake": "Wach",
   "sleepTimeChartSleep": "Schlafen",
+  "sleepTimeChartAwakeHS": "Wach (std)",
+  "sleepTimeChartSleepHS": "Schlafen (std)",
   "sleepArcChartLight": "Leicht",
   "sleepArcChartDeep": "Tief",
   "sleepArcChartTitle": "Schlafarchitektur"

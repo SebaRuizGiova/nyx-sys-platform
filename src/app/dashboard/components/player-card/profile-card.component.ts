@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { SleepData } from '../../interfaces/profile.interface';
 
 interface SNA {
@@ -11,7 +11,7 @@ interface SNA {
   templateUrl: './profile-card.component.html',
   styleUrls: ['./profile-card.component.scss']
 })
-export class ProfileCardComponent {
+export class ProfileCardComponent implements OnChanges {
   @Input() profileId: string = '';
   @Input() userId: string = '';
   @Input() profileName: string = '';
@@ -24,9 +24,9 @@ export class ProfileCardComponent {
 
   public previousRecovery: number = 0;
 
-  constructor() {
+  ngOnChanges(): void {
     if (this.previousSleepData) {
-      this.previousRecovery = this.previousSleepData.hrv_data[0].totalRecovery
+      this.previousRecovery = this.previousSleepData.hrv_data[0].totalRecovery;
     }
   }
 }

@@ -17,7 +17,9 @@ import { TimezoneService } from 'src/app/shared/services/timezoneService.service
 })
 export class GroupsPageComponent implements OnInit, OnDestroy {
   public periodForm: FormGroup = this.fb.group({
-    period: this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+    period: this.helpersService.getActualDate(
+      this.timezoneService.timezoneOffset
+    ),
   });
   public groupForm: FormGroup = this.fb.group({
     selectedGroup: null,
@@ -97,7 +99,24 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
     } else {
       this.loadDataUser();
     }
-    this.intervalId = setInterval(() => this.loadProfiles(), 30000);
+    this.intervalId = setInterval(async () => {
+      if (this.profiles.length) {
+        const updatedProfiles = await Promise.all(this.profiles.map(async (profile) => {
+          try {
+            const liveData = await this.getStatusDevice(profile.deviceSN.toString());
+            return {
+              ...profile,
+              liveData,
+            };
+          } catch (error) {
+            console.error('Error updating profile:', error);
+            return profile; // Mantener el perfil sin cambios en caso de error
+          }
+        }));
+        this.profiles = updatedProfiles;
+        this.filteredProfiles = updatedProfiles;
+      }
+    }, 30000);
   }
 
   async loadDataAdmin() {
@@ -230,7 +249,10 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
       this.profiles.push(profile);
     });
     this.filteredProfiles = this.profiles;
-    this.periodItems = this.helpersService.generatePeriods(this.profiles, this.timezoneService.timezoneOffset);
+    this.periodItems = this.helpersService.generatePeriods(
+      this.profiles,
+      this.timezoneService.timezoneOffset
+    );
     this.selectSleepData();
     this.filterProfiles();
     this.databaseService.setProfiles(this.profiles);
@@ -275,9 +297,10 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  getStatusDevice(deviceId: string): Promise<any> {
+  async getStatusDevice(deviceId: string): Promise<Status> {
     return new Promise(async (resolve, reject) => {
       try {
+        debugger
         const liveDataSnapshot =
           await this.databaseService.getLiveDataCollection(deviceId);
         const liveData: any[] = liveDataSnapshot.docs.map((doc) => doc.data());
@@ -296,7 +319,9 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
               liveData[0]?.date_occurred,
               this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+            this.helpersService.getActualDate(
+              this.timezoneService.timezoneOffset
+            ),
             this.timezoneService.timezoneOffset
           ) === 0
         ) {
@@ -308,7 +333,9 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
               liveData[0]?.date_occurred,
               this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+            this.helpersService.getActualDate(
+              this.timezoneService.timezoneOffset
+            ),
             this.timezoneService.timezoneOffset
           ) === 0
         ) {
@@ -320,7 +347,9 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
               liveData[0].date_occurred,
               this.timezoneService.timezoneOffset
             ),
-            this.helpersService.getActualDate(this.timezoneService.timezoneOffset),
+            this.helpersService.getActualDate(
+              this.timezoneService.timezoneOffset
+            ),
             this.timezoneService.timezoneOffset
           ) === 0
         ) {
@@ -330,7 +359,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
         }
         resolve(mapLiveData);
       } catch (error) {
-        reject(error);
+        reject({ status: 'Offline' });
       }
     });
   }
@@ -386,13 +415,19 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   selectSleepData(selectedPeriod: string = this.periodForm.value.period) {
     this.profiles = this.profiles.map((profile) => {
       const selectedSleepData = profile.sleepData.find((sd) => {
-        const periodData = this.helpersService.formatTimestampToDate(sd.to, this.timezoneService.timezoneOffset);
+        const periodData = this.helpersService.formatTimestampToDate(
+          sd.to,
+          this.timezoneService.timezoneOffset
+        );
         return periodData === selectedPeriod;
       });
       const previousSleepData = profile.sleepData.find((sd) => {
         return (
           this.helpersService.compareDates(
-            this.helpersService.formatTimestampToDate(sd.to, this.timezoneService.timezoneOffset),
+            this.helpersService.formatTimestampToDate(
+              sd.to,
+              this.timezoneService.timezoneOffset
+            ),
             selectedPeriod,
             this.timezoneService.timezoneOffset
           ) === 1

@@ -364,43 +364,227 @@
   "profileViewYearsDropdown": " anni",
   "profileSleepScoreMessage1+": [
     "Congratulazioni per il tuo punteggio di sonno! La tua dedizione al riposo si riflette nel tuo benessere. Continua così!",
-    "Incredibile! Hai raggiunto un punteggio di sonno ottimale oggi. Il tuo corpo e la tua mente ti ringraziano. Dormi bene e svegliati riposato!",
-    "Oggi hai dimostrato che dare priorità al sonno è fondamentale per le tue performance. Bravo per aver raggiunto un punteggio di *sleep_score*! Continua a prenderti cura del tuo riposo."
+    "Incredibile! Hai raggiunto un punteggio di sonno ottimale oggi. Il tuo corpo e la tua mente ti ringraziano. Dormi bene e svegliati rinfrescato!",
+    "Oggi hai dimostrato che dare priorità al sonno è fondamentale per le tue prestazioni. Bravo per aver raggiunto un punteggio di *sleep_score*! Continua a prenderti cura del tuo riposo.",
+    "Ottimo inizio! Il tuo punteggio di sonno è stato eccezionale oggi. Continua così e assicurati di mantenere questo slancio!",
+    "Fantastico inizio! Raggiungere un punteggio di sonno elevato in un solo giorno è un traguardo degno di celebrazione. Continua così e vedrai grandi miglioramenti nel tuo benessere!",
+    "Una giornata intera di sonno ottimale è un ottimo inizio. Continua così e costruisci su questo successo per una migliore qualità della vita!"
   ],
   "profileSleepScoreMessage1-": [
-    "Non scoraggiarti per un punteggio basso oggi. Ogni giorno è una nuova opportunità per migliorare. Rifletti su cosa potrebbe aver influito sul tuo sonno e fai un passo verso una notte più riposante domani. Ce la puoi fare!",
-    "Sappiamo che oggi non è stato il miglior giorno in termini di sonno, ma ogni giorno è una nuova opportunità per migliorare. Considera piccoli cambiamenti nella tua routine serale e preparati per una notte migliore. Forza!",
-    "Il punteggio di oggi non è stato ideale, ma non preoccuparti. Impara da oggi e lavora per un sonno più riposante domani. Piccoli cambiamenti possono fare la differenza!"
+    "Non scoraggiarti per un punteggio basso oggi. Ogni giorno è una nuova opportunità per migliorare. Rifletti su cosa potrebbe aver influito sul tuo sonno e fai un passo verso un sonno più riposante domani. Ce la puoi fare!",
+    "Sappiamo che oggi non è stato il miglior giorno per il sonno, ma ogni giorno è una nuova opportunità per migliorare. Considera piccoli cambiamenti nella tua routine serale e preparati per una notte migliore. Forza!",
+    "Il punteggio di oggi non è stato ideale, ma non preoccuparti. Impara da oggi e lavora verso un sonno più riposante domani. Piccoli cambiamenti possono fare la differenza!",
+    "Un punteggio basso non definisce la tua capacità di riposare bene. Impara da questa esperienza e cerca modi per migliorare la qualità del tuo sonno.",
+    "La qualità del sonno può variare di giorno in giorno. Prendi questo risultato come un segnale che c'è ancora spazio per migliorare le tue abitudini di riposo.",
+    "Non lasciare che un punteggio basso di sonno ti scoraggi. Usa questa opportunità per esplorare nuove strategie che ti aiutino a dormire meglio in futuro."
+  ],
+  "profileSleepScoreMessage2+": [
+    "Doppia vittoria! Due giorni consecutivi con un buon punteggio di sonno dimostrano il tuo impegno per un riposo sano. Continua così e mantieni questa striscia eccellente!",
+    "Due giorni impeccabili! La tua perseveranza nel mantenere un buon riposo è ammirevole. Continua così e goditi i continui benefici del sonno rigenerante!",
+    "Doppio successo! Mantenere due giorni consecutivi di sonno di qualità è un grande passo verso una vita più equilibrata. Continua così e dai priorità al tuo benessere!",
+    "Due giorni fenomenali! La tua dedizione al buon sonno è evidente. Continua così e continua a prenderti cura di te stesso per mantenere questa striscia positiva!",
+    "Fantastico lavoro! Due giorni consecutivi con un buon punteggio di sonno sono un risultato degno di essere celebrato. Continua così e sperimenta la differenza nel tuo benessere generale!",
+    "Striscia eccellente! Mantenere due giorni consecutivi di sonno ottimale è un grande successo. Continua così e continua a dare priorità alla tua salute e al tuo benessere!"
+  ],
+  "profileSleepScoreMessage2-": [
+    "Non scoraggiarti da questa striscia negativa. Usa questi risultati come motivazione per individuare aree di miglioramento nella tua routine di riposo.",
+    "Due giorni consecutivi con punteggi di sonno bassi possono essere sfidanti, ma ricorda che ogni giorno è una nuova opportunità per migliorare.",
+    "A volte, le brutte notti di sonno sono temporanee. Usa questi risultati come opportunità per regolare la tua routine e cercare modi per riposare meglio.",
+    "Due giorni consecutivi con punteggi di sonno bassi possono essere duri, ma non lasciarti scoraggiare. Cerca nuove strategie per migliorare la qualità del tuo sonno.",
+    "La qualità del sonno può variare di giorno in giorno. Prendi questi risultati come segno che è importante dare priorità al tuo riposo e benessere.",
+    "Non lasciare che una serie di punteggi di sonno scadenti ti demotivi. Usa questa esperienza come opportunità per esplorare nuovi modi per migliorare il tuo riposo."
   ],
   "profileSleepScoreMessage3+": [
-    "Tripla striscia! Hai mantenuto un punteggio di sonno di 80 o più per 3 giorni. Stai costruendo abitudini salutari! Continua così, il tuo corpo te ne sarà grato!",
+    "Tripla serie! Hai mantenuto un punteggio di sonno di 80 o superiore per 3 giorni. Stai costruendo abitudini sane! Continua così, il tuo corpo te ne sarà grato!",
     "Incredibile consistenza! Tre giorni consecutivi con un sonno ottimale. Sei sulla strada giusta per un benessere duraturo. Continua a dormire bene!",
-    "Congratulazioni, tre giorni consecutivi con un punteggio di sonno eccellente! Sei un campione del riposo. Continua così e noterai la differenza!"
+    "Congratulazioni, tre giorni consecutivi con un punteggio di sonno eccellente! Sei un campione del sonno. Continua così e noterai la differenza!",
+    "Tre giorni fenomenali! La tua perseveranza nel mantenere un buon riposo è impressionante. Continua così e continua a dare priorità alla tua salute e al tuo benessere!",
+    "Tripla vittoria! Tre giorni consecutivi con buoni punteggi di sonno mostrano il tuo impegno per una routine di riposo sano. Continua così e goditi i continui benefici!",
+    "Serie eccellente! Mantenere tre giorni consecutivi di sonno di qualità è un risultato notevole. Continua così e continua a prenderti cura di te stesso per mantenere questa tendenza positiva!"
   ],
   "profileSleepScoreMessage3-": [
-    "Tre giorni con punteggi bassi possono essere sfidanti, ma ogni giorno è un'opportunità per cambiare. Rifletti sulla tua routine notturna e fai piccoli aggiustamenti per un riposo migliore. Sei sulla strada per il miglioramento!",
-    "È normale avere periodi difficili. Tre giorni consecutivi con punteggi bassi possono essere un segnale d'allarme. Considera aggiustamenti alla tua routine e intraprendi azioni per migliorare la qualità del sonno. Ce la puoi fare!",
-    "Mantenere punteggi bassi per tre giorni consecutivi è un segnale per apportare cambiamenti. Analizza cosa potrebbe influenzare il tuo sonno e intraprendi azioni per migliorare. Hai il controllo delle tue abitudini!"
+    "Tre giorni con punteggi bassi possono essere sfidanti, ma ogni giorno è un'opportunità per cambiare. Rifletti sulla tua routine notturna e apporta piccoli aggiustamenti per un riposo migliore. Sei sulla strada per il miglioramento!",
+    "È normale avere serie difficili. Tre giorni consecutivi con punteggi bassi possono essere un invito all'azione. Considera aggiustamenti nella tua routine e prendi provvedimenti per migliorare la qualità del tuo sonno. Ce la puoi fare!",
+    "Mantenere bassi i punteggi per tre giorni consecutivi è un segnale per apportare modifiche. Analizza cosa potrebbe influenzare il tuo sonno e prendi provvedimenti per migliorare. Sei tu a controllare le tue abitudini!",
+    "Tre giorni consecutivi con punteggi di sonno bassi possono essere duri, ma non perdere la speranza. Cerca nuove strategie e abitudini che possano migliorare la qualità del tuo sonno.",
+    "La qualità del sonno può variare di giorno in giorno. Prendi questi risultati come un segnale che è importante prestare attenzione al tuo benessere e cercare modi per migliorare il tuo riposo.",
+    "Non lasciare che una serie di punteggi di sonno scadenti ti scoraggi. Usa questa esperienza come un'opportunità per imparare ed esplorare nuovi modi per dare priorità al tuo riposo e alla tua salute."
+  ],
+  "profileSleepScoreMessage4+": [
+    "Quadruplo successo! Quattro giorni consecutivi con un buon punteggio di sonno mostrano il tuo impegno per un riposo sano. Continua così e mantieni questa eccellente striscia!",
+    "Quattro giorni impeccabili! La tua dedizione al buon sonno è ammirevole. Continua così e goditi i continui benefici del sonno riposante!",
+    "Quattro giorni fenomenali! Mantenere questa striscia di buon sonno è un grande passo verso una vita più equilibrata. Continua così e dai priorità al tuo benessere!",
+    "Quadrupla vittoria! Quattro giorni consecutivi con buoni punteggi di sonno sono una testimonianza del tuo impegno per un riposo adeguato. Continua così e mantieni questa incredibile tendenza!",
+    "Fantastico lavoro! Quattro giorni consecutivi con buoni punteggi di sonno sono un traguardo degno di celebrazione. Continua così e sperimenta la differenza nel tuo benessere generale!",
+    "Quattro giorni eccezionali! La tua coerenza nel mantenere un buon riposo è impressionante. Continua così e continua a prenderti cura di te stesso per mantenere questa striscia positiva!"
+  ],
+  "profileSleepScoreMessage4-": [
+    "Mantenere una striscia di quattro giorni con punteggi di sonno bassi può essere impegnativo, ma ricorda che ci sono sempre opportunità per migliorare il tuo riposo.",
+    "Non scoraggiarti da questa striscia negativa. Usa questi risultati come motivazione per identificare aree di miglioramento nella tua routine di sonno e benessere.",
+    "A volte, attraversare un periodo di punteggi di sonno bassi è temporaneo. Considera questi risultati come un'opportunità per adattare la tua routine e trovare modi per riposare meglio.",
+    "Quattro giorni consecutivi con punteggi di sonno bassi possono essere duri, ma non perdere la speranza. Cerca nuove strategie e abitudini che possano migliorare la qualità del tuo sonno.",
+    "La qualità del sonno può fluttuare giorno per giorno. Considera questi risultati come un segnale che è importante prestare attenzione al tuo benessere e cercare modi per migliorare il tuo riposo.",
+    "Non lasciare che una striscia di punteggi di sonno scadenti ti scoraggi. Usa questa esperienza come un'opportunità per imparare ed esplorare nuovi modi per dare priorità al tuo riposo e alla tua salute."
   ],
   "profileSleepScoreMessage5+": [
-    "Bravo! Hai raggiunto un punteggio di sonno eccellente per cinque giorni consecutivi. Il tuo impegno per il riposo sta producendo risultati tangibili. Continua così e noterai la differenza nel tuo benessere generale!",
-    "Cinque giorni consecutivi con punteggi di sonno invidiabili. Stai costruendo una base solida per la tua salute ed energia. Continua a dare priorità al tuo sonno e raccoglierai benefici a lungo termine!",
-    "Incredibile striscia! Per cinque giorni, il tuo sonno è stato consistente e rigenerante. Il tuo corpo e la tua mente ti ringraziano. Continua a prenderti cura di te stesso e goditi notti rivitalizzanti!"
+    "Congratulazioni! Hai raggiunto un eccellente punteggio di sonno per cinque giorni consecutivi. Il tuo impegno nel riposare sta dando risultati tangibili. Continua così e noterai la differenza nel tuo benessere generale!",
+    "Cinque giorni consecutivi con punteggi di sonno invidiabili. Stai costruendo una solida base per la tua salute e energia. Continua a dare priorità al tuo sonno e raccoglierai benefici a lungo termine!",
+    "Streak incredibile! Per cinque giorni, il tuo sonno è stato costante e riparatore. Il tuo corpo e la tua mente ti ringraziano. Continua a prenderti cura di te stesso e goditi notti rivitalizzanti!",
+    "Cinque giorni di sonno di qualità! Hai creato un modello degno di celebrazione. Continua così e guarda come aumenta la tua energia e concentrazione.",
+    "Cinque giorni di riposo rigenerante. La tua costanza è fondamentale per uno stile di vita equilibrato. Continua così e goditi il tuo benessere meritato!",
+    "Incredibile! Cinque giorni di sonno riposante sono un traguardo di cui essere orgogliosi. Continua così e continua a dare priorità alla tua salute e felicità!"
   ],
   "profileSleepScoreMessage5-": [
-    "Mantenere punteggi bassi per cinque giorni consecutivi è un segnale di allarme. Rifletti su fattori che potrebbero influenzare il tuo sonno e considera apportare modifiche alla tua routine notturna.",
-    "Cinque giorni con punteggi di sonno bassi sono un promemoria dell'importanza di dare priorità al riposo. Valuta possibili cambiamenti nel tuo ambiente e nelle abitudini per migliorare la qualità del sonno.",
-    "Mantenere una striscia di punteggi bassi per cinque giorni può influire sul tuo benessere. Considera l'esplorazione di nuove strategie per garantire un sonno più riposante."
+    "Mantenere punteggi bassi per cinque giorni consecutivi è un segno di avvertimento. Rifletti sui fattori che potrebbero influenzare il tuo sonno e considera di apportare modifiche alla tua routine serale.",
+    "Cinque giorni con punteggi di sonno bassi sono un promemoria dell'importanza di dare priorità al riposo. Valuta eventuali cambiamenti nel tuo ambiente e nelle abitudini per migliorare la qualità del sonno.",
+    "Mantenere una serie di punteggi bassi per cinque giorni può influenzare il tuo benessere. Valuta nuove strategie per garantire un sonno più riposante.",
+    "Cinque giorni di sonno insoddisfacente possono essere stancanti, ma non perdere la speranza. Cerca nuove strategie per migliorare la qualità del tuo sonno.",
+    "La qualità del sonno può variare, ma il tuo impegno per il tuo benessere non dovrebbe vacillare. Usa questa esperienza come un'opportunità per riflettere e migliorare.",
+    "Non lasciare che una serie di punteggi di sonno scadenti ti scoraggi. Usa questi giorni come motivazione per dare priorità al tuo riposo e benessere. Puoi migliorare la qualità del tuo sonno!"
+  ],
+  "profileSleepScoreMessage6+": [
+    "Sei giorni di riposo rigenerante. Il tuo impegno per il tuo benessere è ammirevole. Continua così e mantieni questa energia vibrante!",
+    "Mantenendo una serie di sei giorni di sonno rigenerante. La tua dedizione alla tua salute merita applausi. Continua così e goditi un corpo e una mente rivitalizzati!",
+    "Sei giorni consecutivi di sogni dolci. La tua costanza è la chiave del tuo benessere. Continua così e vivi la differenza nella tua qualità di vita!",
+    "Sei giorni di sonno costante! Hai stabilito una routine degna di celebrazione. Continua così e guarda come migliorano il tuo benessere generale.",
+    "Sei giorni di riposo rinnovatore. La tua dedizione al riposo è lodevole. Continua così e mantieni il tuo impegno per un sonno sano!",
+    "Incredibile! Sei giorni di sonno riposante sono un risultato da celebrare. Continua così e dai priorità alla tua salute e alla tua felicità quotidiana!"
+  ],
+  "profileSleepScoreMessage6-": [
+    "Sei giorni impegnativi. Usa questa serie come motivazione per implementare cambiamenti positivi nella tua routine di sonno. Ogni giorno è una nuova opportunità di miglioramento!",
+    "Mantenere una serie di sei giorni impegnativi può essere esaustivo, ma ricorda che ogni sfida è un'opportunità di crescita e cambiamento.",
+    "Sei giorni consecutivi con punteggi bassi di sonno possono essere scoraggianti, ma non perdere la speranza. Cerca nuove strategie per migliorare la qualità del tuo sonno.",
+    "La costanza è fondamentale, anche nei momenti difficili. Usa questa esperienza come opportunità per riflettere e apportare aggiustamenti positivi alla tua routine di sonno.",
+    "Sei giorni di sonno insoddisfacente possono essere duri, ma ricorda che hai il potere di cambiare le tue abitudini e migliorare il tuo benessere.",
+    "Non lasciare che una serie di punteggi bassi di sonno ti scoraggi. Usa questi giorni come promemoria dell'importanza di dare priorità al tuo riposo e benessere. Puoi superare questa sfida!"
   ],
   "profileSleepScoreMessage7+": [
     "Settimana completa di sonno di qualità! Raggiungere un punteggio di 80 o più per 7 giorni consecutivi è un risultato impressionante. Il tuo corpo e la tua mente sono in modalità ottimale. Continua a prenderti cura di te stesso!",
-    "Incredibile traguardo! Hai mantenuto un punteggio di sonno di 80 o più per un'intera settimana. Questo è un attestato del tuo impegno per il tuo benessere. Continua così e conquista ogni giorno!",
-    "Hai raggiunto una settimana completa di sonno ottimale! La tua dedizione al riposo sta dando frutti. Continua a prenderti cura del tuo sonno e goditi i benefici continui. Sei un campione del sonno!"
+    "Incredibile traguardo! Hai mantenuto un punteggio di sonno di 80 o più per un'intera settimana. Questo è un testamento del tuo impegno per il tuo benessere. Continua così e conquista ogni giorno!",
+    "Hai raggiunto una settimana completa di sonno ottimale! La tua dedizione al riposo sta dando frutti. Continua a prenderti cura del tuo sonno e goditi i continui benefici. Sei un campione del sonno!",
+    "Una settimana completa di sonno di qualità! Hai dimostrato di poter mantenere una routine sana. Continua così e guarda come migliora il tuo benessere generale!",
+    "Sette giorni di riposo rigenerante. La tua dedizione al tuo riposo è ammirevole. Continua così e goditi un corpo e una mente rivitalizzati!",
+    "Splendido! Sette giorni di sonno riparatore sono un risultato notevole. Continua così e continua a prenderti cura di te stesso per mantenere questa tendenza positiva!"
   ],
   "profileSleepScoreMessage7-": [
-    "Una settimana di punteggi bassi può essere una sfida, ma è anche un'opportunità per apportare cambiamenti significativi. Valuta la tua routine notturna e trova modi per dare priorità al tuo riposo. Inizia oggi stesso!",
-    "Sette giorni con punteggi bassi sono un segnale che il tuo corpo ha bisogno di più attenzione. Considera apportare modifiche significative alla tua routine notturna per migliorare il sonno. Il tuo benessere te ne sarà grato!",
-    "Mantenere punteggi bassi per una settimana è un segnale d'allarme. Apporta cambiamenti nel tuo stile di vita e dai priorità al sonno per tornare sulla strada della qualità del riposo. Siamo qui per sostenerti in questo cambio positivo!"
+    "Una settimana di punteggi bassi può essere impegnativa, ma è anche un'opportunità per apportare cambiamenti significativi. Valuta la tua routine serale e cerca modi per dare priorità al riposo. Inizia oggi stesso!",
+    "Sette giorni con punteggi bassi sono un segno che il tuo corpo ha bisogno di più attenzione. Considera di apportare modifiche significative alla tua routine serale per migliorare il sonno. Il tuo benessere te ne sarà grato!",
+    "Mantenere punteggi bassi per una settimana è un invito all'azione. Apporta cambiamenti allo stile di vita e dai priorità al sonno per tornare sulla strada del riposo di qualità. Siamo qui per sostenerti in questo cambiamento positivo!",
+    "La costanza è fondamentale, anche nei momenti difficili. Usa questa esperienza come opportunità per riflettere e apportare modifiche positive alla tua routine di sonno.",
+    "Sette giorni di sonno insoddisfacente possono essere difficili, ma ricorda che hai il potere di cambiare le tue abitudini e migliorare il tuo benessere.",
+    "Non lasciare che una serie di punteggi bassi nel sonno ti scoraggi. Usa questi giorni come promemoria dell'importanza di dare priorità al riposo e al benessere. Puoi superare questa sfida!"
+  ],
+  "profileSleepScoreMessage8+": [
+    "Otto giorni di riposo rigenerante. Ogni notte di sonno profondo ti avvicina alla tua migliore versione. Continua questo viaggio verso il completo benessere!",
+    "Hai tessuto una coperta di sogni riposanti per un'intera settimana. Ogni filo è un promemoria del potere trasformativo del riposo. Continua a tessere per un domani più luminoso!",
+    "Congratulazioni per otto giorni di sonno rigenerante. Ogni risveglio è un'opportunità per abbracciare energia rinnovata e chiarezza mentale. Continua a raccogliere i frutti di un riposo ben meritato!",
+    "Otto giorni di sonno come un dolce abbraccio per la tua anima stanca. Ogni notte è una promessa di rinnovamento e forza per affrontare nuove sfide. Che questa striscia positiva continui a guidarti verso il compimento!",
+    "Stai scrivendo una storia di riposo e rinnovamento degna di essere raccontata. Ogni capitolo di sonno profondo è un omaggio al tuo impegno per il benessere. Continua a scrivere verso un futuro pieno di vitalità e gioia!",
+    "Otto giorni di sonno riposante sono una testimonianza della tua dedizione all'autocura. Ogni notte dormita bene è un investimento nella tua salute fisica e mentale. Continua ad essere l'architetto del tuo benessere!"
+  ],
+  "profileSleepScoreMessage8-": [
+    "Otto giorni di sfide nel regno del sonno. Ogni notte è un'opportunità per imparare, adattarsi e impegnarsi per un riposo più sano. La trasformazione inizia con una scelta!",
+    "Hai navigato attraverso otto giorni di acque turbolente nell'oceano del sonno. Ogni risveglio è un invito a riflettere sui tuoi abitudini e priorità. Fidati che puoi trovare calma in mezzo alla tempesta!",
+    "Otto giorni di sonno insoddisfacente possono sembrare una montagna insormontabile, ma ogni passo è un passo più vicino alla vetta. Ricorda, la persistenza è la chiave che sblocca le porte del cambiamento!",
+    "Ogni notte insonne di sonno per otto giorni è un segnale di sveglia dal corpo e dalla mente. Ascolta con compassione e apri il tuo cuore all'autocura e all'esplorazione di nuove pratiche di riposo. Il tuo benessere merita la tua attenzione!",
+    "Otto giorni di sfide sul fronte del sonno possono essere esaustivi, ma sono anche un promemoria della tua resilienza e forza interiore. Continua ad andare avanti con coraggio e fiducia in te stesso!",
+    "Ogni notte difficile di sonno per otto giorni è un'opportunità per coltivare compassione e comprensione verso te stesso. Abbraccia la tua umanità e lascia che ogni esperienza ti guidi verso un sonno più riposante e una vita più piena."
+  ],
+  "profileSleepScoreMessage9+": [
+    "Nove giorni di sonno riposante sono come i mattoni di una casa tranquilla e serena. Ogni notte ben dormita è un pilastro per il tuo benessere.",
+    "Per nove giorni, il tuo cuscino ha assistito ai tuoi sogni più dolci e rigeneranti. Continua così e costruisci un rifugio di riposo e ringiovanimento.",
+    "Ogni alba dopo nove notti di sonno profondo è un invito ad abbracciare energia rinnovata e chiarezza mentale. Mantieni questa striscia e raggiungi nuove vette.",
+    "Nove giorni di riposo ti hanno portato attraverso un viaggio di autoscoperta e rinnovamento. Segui questo percorso e scopri la magia del sonno riparatore.",
+    "Congratulazioni per nove giorni di sonno riposante. Ogni notte ben dormita è un tributo al tuo impegno per la salute e il benessere.",
+    "Per nove giorni, hai onorato il riposo come parte essenziale della tua vita. Continua così e raccogli i frutti di una mente e di un corpo rivitalizzati."
+  ],
+  "profileSleepScoreMessage9-": [
+    "Nove giorni impegnativi di sonno possono sembrare schiaccianti, ma ogni notte è una nuova opportunità per imparare e crescere.",
+    "Mantenere una striscia di nove giorni impegnativi può essere esaustivo, ma ricorda che ogni ostacolo è un'opportunità per rafforzarti.",
+    "Per nove giorni, hai affrontato sfide nel tuo riposo, ma ogni notte è anche un'opportunità per ricalibrare e migliorare.",
+    "Nove giorni di sonno insoddisfacente possono essere scoraggianti, ma ogni alba porta con sé la promessa di un nuovo inizio.",
+    "Affrontare nove giorni di sfide nel sonno è una testimonianza della tua resilienza e forza interiore. Continua ad andare avanti con determinazione e fiducia in te stesso.",
+    "Non arrenderti, continua a cercare nuovi modi per migliorare il tuo riposo!"
+  ],
+  "profileSleepScoreMessage10+": [
+    "Dieci giorni di sonno riposante sono una testimonianza del tuo impegno per il benessere. Continua così e continua a dare priorità al tuo riposo e alla tua salute.",
+    "Per dieci giorni, hai mantenuto una serie di sonni rigeneranti. Ogni notte ben dormita è un regalo che ti avvicina a una vita equilibrata.",
+    "Dieci giorni di sonno riposante sono come un delicato sussurro della natura, che ti ricorda l'importanza di prenderti cura di te stesso. Continua così e trova armonia in ogni notte.",
+    "Congratulazioni per dieci giorni di sonno riposante. Ogni notte è un promemoria del tuo impegno per una vita piena di energia e vitalità.",
+    "Dieci giorni di sonno profondo e riposante sono come un abbraccio confortante per il tuo corpo e la tua mente. Continua così e vivi appieno ogni giorno.",
+    "Per dieci giorni, hai nutrito il tuo corpo e la tua mente con un sonno riparatore. Segui questa strada e trova pace e serenità in ogni notte."
+  ],
+  "profileSleepScoreMessage10-": [
+    "Dieci giorni di sonno scadente possono essere impegnativi, ma ogni notte è un'opportunità per trovare nuovi modi per migliorare il tuo riposo.",
+    "Mantenere una serie di dieci giorni impegnativi può essere esaustivo, ma ricorda che ogni giorno è un'opportunità per imparare e crescere.",
+    "Per dieci giorni, hai affrontato sfide nel tuo riposo, ma ogni notte è anche un'opportunità per ricalibrare e migliorare.",
+    "Dieci giorni di sonno insoddisfacente possono essere scoraggianti, ma ogni alba porta con sé la promessa di un nuovo inizio.",
+    "Affrontare dieci giorni di sfide nel sonno è una testimonianza della tua resilienza e forza interiore. Continua ad andare avanti con determinazione e fiducia in te stesso.",
+    "Non lasciare che una serie negativa ti scoraggi. Usa questi giorni come promemoria dell'importanza di dare priorità al tuo riposo e al tuo benessere. Puoi superare questa sfida!"
+  ],
+  "profileSleepScoreMessageTwoWeeks+": [
+    "Due settimane di sonno riposante sono come un viaggio verso il rinnovamento totale. Ogni notte ben dormita è un passo più vicino al benessere completo.",
+    "Per oltre due settimane, hai costruito un ponte verso il sonno riposante. Continua a camminare con determinazione e troverai serenità ad ogni passo.",
+    "Ogni alba dopo due settimane di sonno profondo è un invito ad abbracciare energia rinnovata e chiarezza mentale. Mantieni questa striscia e raggiungi nuove vette.",
+    "Due settimane di riposo ti hanno portato attraverso un viaggio di auto-scoperta e rinnovamento. Segui questo percorso e scopri la magia del sonno riparatore.",
+    "Congratulazioni per due settimane di sonno riposante. Ogni notte ben dormita è un tributo al tuo impegno per la salute e il benessere.",
+    "Per due settimane, hai onorato il riposo come parte essenziale della tua vita. Continua così e raccogli i frutti di una mente e un corpo rivitalizzati."
+  ],
+  "profileSleepScoreMessageTwoWeeks-": [
+    "Per oltre due settimane, hai affrontato sfide nel trovare un riposo adeguato. È il momento di riflettere sui tuoi hábiti e apportare piccoli cambiamenti che ti avvicinino a un sonno più riposante.",
+    "Mantenere una striscia di due settimane impegnative può essere esaustivo, ma ogni giorno ti offre l'opportunità di fare scelte più sane per il tuo riposo. Concentriamoci su trovare soluzioni!",
+    "Per due settimane, hai faticato a dormire bene, ma ogni notte ti offre una nuova possibilità di migliorare. È tempo di esplorare nuove strategie e abitudini per aiutarti a riposare meglio.",
+    "Affrontare due settimane di sfide nel sonno è un promemoria dell'importanza di prendersi cura della propria salute e del proprio benessere. Impegnati a fare cambiamenti positivi nella tua routine per migliorare la qualità del tuo riposo.",
+    "Per due settimane, hai lottato per trovare un sonno riposante, ma ogni giorno ti avvicina sempre di più a scoprire cosa funziona meglio per te. Continuiamo a cercare soluzioni e manteniamo un atteggiamento positivo verso il cambiamento.",
+    "Per due settimane, hai avuto difficoltà a dormire, ma ogni sfida offre l'opportunità di imparare e crescere. Manteniamoci concentrati nel trovare modi efficaci per migliorare il nostro riposo."
+  ],
+  "profileSleepScoreMessageThreeWeeks+": [
+    "Tre settimane di sonno riposante sono come un inno al tuo benessere. Ogni notte ben dormita è una melodia che ti porta verso l'armonia interiore.",
+    "Per oltre tre settimane, hai costruito un santuario di sogni riposanti. Continua a nutrire questo spazio sacro e trova pace in ogni respiro.",
+    "Ogni risveglio dopo tre settimane di sonno profondo è una celebrazione della vita e della vitalità. Mantieni questa striscia e lascia che la tua luce interiore brilli ancora più intensamente.",
+    "Tre settimane di riposo ti hanno portato attraverso un'oasi di auto-scoperta e rinnovamento. Continua a esplorare questo territorio e scopri la magia dell'auto-cura.",
+    "Congratulazioni per tre settimane di sonno riposante. Ogni notte ben dormita è un tributo al tuo impegno per una vita equilibrata e piena di energia.",
+    "Per tre settimane, hai coltivato un giardino di riposo e ringiovanimento. Continua ad annaffiare questi semi e osserva come fioriscono in una vita più piena."
+  ],
+  "profileSleepScoreMessageThreeWeeks-": [
+    "Tre settimane di difficoltà nel dormire sono un promemoria dell'importanza di prendersi cura della propria salute mentale e fisica. È tempo di prendere misure concrete per migliorare il tuo riposo e il tuo benessere generale.",
+    "Mantenere una serie di tre settimane impegnative può essere difficile, ma ogni giorno ti offre l'opportunità di fare scelte positive per il tuo riposo. Impegnati ad apportare cambiamenti che migliorino la qualità del tuo sonno.",
+    "Per tre settimane, hai avuto difficoltà ad addormentarti e a riposare bene, ma ogni notte ti dà la possibilità di riprovare. Continuiamo a esplorare nuove strategie e abitudini per aiutarti a dormire meglio.",
+    "Affrontare tre settimane di sfide nel sonno è un promemoria che devi prioritizzare la tua salute e il tuo benessere. Prenditi il tempo per identificare cosa sta influenzando il tuo riposo e lavorare su soluzioni efficaci.",
+    "Per tre settimane, hai lottato per trovare un sonno riposante, ma ogni giorno ti avvicina sempre di più a trovare soluzioni che funzionano per te. Manteniamo un atteggiamento positivo e impegniamoci a fare cambiamenti che migliorino la nostra qualità di vita.",
+    "Per tre settimane, hai combattuto per trovare un sonno riposante, ma ogni sfida offre un'opportunità per imparare e crescere. Andiamo avanti con determinazione e cerchiamo attivamente modi per migliorare il nostro riposo."
+  ],
+  "profileSleepScoreMessageOneMonth+": [
+    "Congratulazioni! Un intero mese di sonno riposante è un risultato notevole. Ogni notte ben dormita è un regalo per la tua salute e il tuo benessere. Continua così!",
+    "Un mese di abitudini di sonno costantemente buone merita una celebrazione. La tua dedizione al riposo sta dando frutti, e il tuo corpo e la tua mente te ne ringraziano. Continua a prenderti cura!",
+    "Per un intero mese, hai dimostrato un impegno ammirevole per il tuo riposo. Ogni notte di sonno riposante è un passo verso una vita più equilibrata e appagante. Continua così, campione del sonno!",
+    "Un intero mese di buon riposo è una testimonianza della tua determinazione e del tuo auto-cura. Ogni notte di sonno riposante è un investimento nella tua salute e felicità a lungo termine. Continua così!",
+    "Un intero mese di sonno di qualità merita applausi! La tua dedizione al tuo benessere si riflette in ogni notte di riposo. Continua a prenderti cura di te stesso e a dare priorità alla tua salute.",
+    "Per un mese, hai dimostrato che il buon riposo è una priorità. Ogni notte ben dormita è un passo verso una vita più sana e vibrante. Continua così, continua il ​​buon lavoro!"
+  ],
+  "profileSleepScoreMessageOneMonth-": [
+    "Un mese di difficoltà nel dormire può essere impegnativo, ma ogni giorno ci offre l'opportunità di riflettere e migliorare le nostre abitudini di sonno. È ora di prendere provvedimenti per prenderti cura del tuo benessere!",
+    "Per un intero mese, hai affrontato ostacoli nel tuo riposo, ma ogni notte è anche un'opportunità per imparare e adattare il tuo approccio. Sei sulla strada per un sonno migliore!",
+    "Un mese di esiti negativi del sonno è un segno che è tempo di prestare attenzione al tuo benessere. Con determinazione e impegno, puoi apportare modifiche per aiutarti a riposare meglio.",
+    "Per un mese, hai affrontato sfide nel tuo riposo, ma ogni notte è anche un'opportunità per rinnovare e ricaricare. Non scoraggiarti, sei sulla strada per un sonno più riposante!",
+    "Un mese di difficoltà nel dormire può essere estenuante, ma è anche un'opportunità per esplorare nuove strategie e abitudini per aiutarti a riposare meglio. Continua così!",
+    "Per un mese, hai affrontato ostacoli nel tuo sonno, ma ogni notte è anche un'opportunità per rinnovare e ricaricare. Non arrenderti, sei sulla strada per un riposo migliore!"
+  ],
+  "profileSleepScoreMessageDefault+": [
+    "Continui a brillare con il tuo impegno per un sonno sano! Ogni notte ben riposata è un passo verso una vita più equilibrata e appagante. Continua così!",
+    "Il tuo impegno per il riposo sta dando i suoi frutti e il tuo benessere lo riflette. Ogni notte di sonno riposante è un investimento nella tua salute e felicità a lungo termine. Continua a prenderti cura di te stesso!",
+    "Continuare una serie positiva nel sonno dimostra il tuo impegno per il tuo benessere. Ogni notte di riposo adeguato è un promemoria del tuo impegno per l'autocura. Continua così con determinazione!",
+    "Mantenere una serie positiva nel sonno è una testimonianza della tua determinazione e disciplina. Ogni notte ben dormita è un passo verso una vita più sana e equilibrata. Continua così, campione del sonno!",
+    "Celebriamo la tua perseveranza nel mantenere una serie positiva nel sonno. Ogni notte di riposo ristoratore è un traguardo che ti avvicina a una migliore qualità della vita. Continua a dare priorità al tuo benessere!",
+    "Il tuo impegno per un sonno di qualità è ammirevole e merita di essere celebrato. Ogni notte di buon riposo è un passo verso una versione più sana e felice di te stesso. Continua così, non ci sono limiti al tuo benessere!"
+  ],
+  "profileSleepScoreMessageDefault-": [
+    "Anche se affronti delle sfide nel sonno, la tua determinazione a migliorare è fonte di ispirazione. Ogni notte è un'opportunità per imparare e regolare il tuo focus verso un sonno più riposante. Non scoraggiarti!",
+    "Continuare una serie negativa nel sonno può essere impegnativo, ma ogni giorno ci offre la possibilità di riflettere e migliorare le nostre abitudini. Sei sulla strada per un sonno più sano!",
+    "Nonostante gli ostacoli nel tuo riposo, la tua determinazione nel trovare soluzioni è ammirevole. Con ogni notte, ti avvicini sempre di più alla scoperta di ciò che funziona meglio per te. Non arrenderti!",
+    "La tua perseveranza in mezzo a una serie negativa nel sonno mostra il tuo impegno per il tuo benessere. Ogni notte è un'opportunità per rinnovarti e ricaricarti. Continua con determinazione!",
+    "Anche se affronti difficoltà nel dormire, ogni notte è anche un'opportunità per esplorare nuove strategie e abitudini. La tua determinazione a migliorare il tuo riposo è il primo passo verso una migliore qualità della vita. Continua così!",
+    "Celebriamo il tuo coraggio e la tua determinazione nel affrontare le sfide nel sonno. Ogni notte è un'opportunità per imparare e crescere, e ogni passo ti avvicina a un sonno riposante. Non perdere la speranza!"
   ],
   "IrreversibleAction": "Questa azione è irreversibile",
   "sleepScoreChartTotalRecovery": "Totale Recupero",
@@ -412,6 +596,8 @@
   "movementsChartTurns": "Giri/Notte",
   "sleepTimeChartAwake": "Sveglio",
   "sleepTimeChartSleep": "Dormendo",
+  "sleepTimeChartAwakeHS": "Sveglio (ore)",
+  "sleepTimeChartSleepHS": "Dormendo (ore)",
   "sleepArcChartLight": "Leggero",
   "sleepArcChartDeep": "Profondo",
   "sleepArcChartTitle": "Architettura del sonno"

@@ -114,10 +114,10 @@ export class SleepTimeChartComponent implements OnChanges {
     });
 
     this.translateService
-      .get('sleepTimeChartAwake')
+      .get('sleepTimeChartAwakeHS')
       .subscribe((awakeTranslate: string) => {
         this.translateService
-          .get('sleepTimeChartSleep')
+          .get('sleepTimeChartSleepHS')
           .subscribe((sleepTranslate: string) => {
             this.chart = new Chart({
               chart: {

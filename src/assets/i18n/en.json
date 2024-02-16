@@ -365,42 +365,226 @@
   "profileSleepScoreMessage1+": [
     "Congratulations on your sleep score! Your dedication to rest reflects in your well-being. Keep it up!",
     "Incredible! You achieved an optimal sleep score today. Your body and mind thank you. Sleep well and wake up refreshed!",
-    "Today, you demonstrated that prioritizing sleep is key to your performance. Bravo for reaching a score of *sleep_score*! Keep taking care of your rest."
+    "Today, you demonstrated that prioritizing sleep is key to your performance. Bravo for reaching a *sleep_score* score! Keep taking care of your rest.",
+    "Excellent start! Your sleep score has been outstanding today. Keep it up and make sure to maintain this momentum!",
+    "Fantastic start! Achieving a high sleep score in just one day is a worthy achievement to celebrate. Keep it up, and you'll see great improvements in your well-being!",
+    "A full day of optimal sleep is an excellent beginning. Keep it up and build on this success for a better quality of life!"
   ],
   "profileSleepScoreMessage1-": [
-    "Don't be discouraged by a low score today. Every day is a new opportunity to improve. Reflect on what might have affected your sleep and take a step towards a more restful night tomorrow. You can do it!",
-    "We know today wasn't the best day in terms of sleep, but every day is a new opportunity to improve. Consider small changes in your nighttime routine and get ready for a better night. Cheer up!",
-    "Today's score wasn't ideal, but don't worry. Learn from today and work towards a more restful sleep tomorrow. Small changes can make a difference!"
+    "Don't be discouraged by a low score today. Every day is a new opportunity to improve. Reflect on what might have affected your sleep and take a step towards a more restful sleep tomorrow. You can do it!",
+    "We know today wasn't the best day for sleep, but every day is a new opportunity to improve. Consider small changes in your nighttime routine and get ready for a better night. Hang in there!",
+    "Today's score wasn't ideal, but don't worry. Learn from today and work towards a more restful sleep tomorrow. Small changes can make a difference!",
+    "A low score doesn't define your ability to rest well. Learn from this experience and seek ways to improve your sleep quality.",
+    "Sleep quality can vary from day to day. Take this result as a sign that there's still room to improve your rest habits.",
+    "Don't let a low sleep score discourage you. Use this opportunity to explore new strategies to help you sleep better in the future."
+  ],
+  "profileSleepScoreMessage2+": [
+    "Double victory! Two consecutive days with good sleep scores show your commitment to healthy rest. Keep it up and maintain this excellent streak!",
+    "Two flawless days! Your persistence in maintaining good rest is admirable. Keep it up and enjoy the continuous benefits of restorative sleep!",
+    "Double achievement! Maintaining two consecutive days of quality sleep is a big step towards a more balanced life. Keep it up and prioritize your well-being!",
+    "Two phenomenal days! Your dedication to good sleep is evident. Keep it up and continue taking good care of yourself to maintain this positive streak!",
+    "Fantastic job! Two consecutive days with good sleep scores are a worthy achievement to celebrate. Keep it up and experience the difference in your overall well-being!",
+    "Excellent streak! Maintaining two consecutive days of optimal sleep is a great achievement. Keep it up and continue prioritizing your health and well-being!"
+  ],
+  "profileSleepScoreMessage2-": [
+    "Don't be discouraged by this negative streak. Use these results as motivation to identify areas for improvement in your rest routine.",
+    "Two consecutive days with low sleep scores can be challenging, but remember that each day is a new opportunity to improve.",
+    "Sometimes, bad nights of sleep are temporary. Use these results as an opportunity to adjust your routine and seek ways to rest better.",
+    "Two consecutive days with low sleep scores can be tough, but don't let them discourage you. Look for new strategies to improve your sleep quality.",
+    "Sleep quality can vary day by day. Take these results as a sign that it's important to prioritize your rest and well-being.",
+    "Don't let a streak of poor sleep scores demotivate you. Use this experience as an opportunity to explore new ways to enhance your rest."
   ],
   "profileSleepScoreMessage3+": [
-    "Triple streak! You've maintained a sleep score of 80 or more for 3 days. You're building healthy habits! Keep it up, your body will thank you!",
+    "Triple streak! You've maintained a sleep score of 80 or higher for 3 days. You're building healthy habits! Keep it up, your body will thank you!",
     "Incredible consistency! Three consecutive days with optimal sleep. You're on the right path to lasting well-being. Keep sleeping well!",
-    "Congratulations, three consecutive days with an excellent sleep score! You're a sleep champion. Keep it up, and you'll notice the difference!"
+    "Congratulations, three consecutive days with an excellent sleep score! You're a sleep champion. Keep it up and you'll notice the difference!",
+    "Three phenomenal days! Your persistence in maintaining good rest is impressive. Keep it up and continue prioritizing your health and well-being!",
+    "Triple victory! Three consecutive days with good sleep scores show your commitment to a healthy rest routine. Keep it up and enjoy the continuous benefits!",
+    "Excellent streak! Maintaining three consecutive days of quality sleep is a notable achievement. Keep it up and continue taking good care of yourself to maintain this positive trend!"
   ],
   "profileSleepScoreMessage3-": [
-    "Three days with low scores can be challenging, but each day is an opportunity to change. Reflect on your nighttime routine and make small adjustments for better rest. You're on the path to improvement!",
-    "It's normal to have tough streaks. Three consecutive days with low scores can be a call to action. Consider adjustments to your routine and take steps to improve your sleep quality. You can do it!",
-    "Maintaining low scores for three consecutive days is a signal to make changes. Analyze what might be affecting your sleep and take steps to improve. You're in control of your habits!"
+    "Three days with low scores can be challenging, but each day is an opportunity for change. Reflect on your nighttime routine and make small adjustments for better rest. You're on the path to improvement!",
+    "It's normal to have tough streaks. Three consecutive days with low scores can be a call to action. Consider adjustments in your routine and take steps to improve your sleep quality. You can do it!",
+    "Keeping scores low for three consecutive days is a signal to make changes. Analyze what could be affecting your sleep and take steps to improve. You're in control of your habits!",
+    "Three consecutive days with low sleep scores can be tough, but don't lose hope. Look for new strategies and habits that can improve your sleep quality.",
+    "Sleep quality can fluctuate day by day. Take these results as a sign that it's important to pay attention to your well-being and seek ways to improve your rest.",
+    "Don't let a streak of poor sleep scores discourage you. Use this experience as an opportunity to learn and explore new ways to prioritize your rest and health."
+  ],
+  "profileSleepScoreMessage4+": [
+    "Quadruple achievement! Four consecutive days with good sleep scores show your commitment to healthy rest. Keep it up and maintain this excellent streak!",
+    "Four impeccable days! Your dedication to good sleep is admirable. Keep it up and enjoy the continuous benefits of restful sleep!",
+    "Four phenomenal days! Maintaining this streak of good sleep is a great step towards a more balanced life. Keep it up and prioritize your well-being!",
+    "Quadruple victory! Four consecutive days with good sleep scores are a testament to your commitment to proper rest. Keep it up and maintain this incredible trend!",
+    "Fantastic work! Four consecutive days with good sleep scores are a worthy achievement. Keep it up and experience the difference in your overall well-being!",
+    "Four exceptional days! Your consistency in maintaining good rest is impressive. Keep it up and continue taking good care of yourself to maintain this positive streak!"
+  ],
+  "profileSleepScoreMessage4-": [
+    "Maintaining a streak of four days with low sleep scores can be challenging, but remember there are always opportunities to improve your rest.",
+    "Don't be discouraged by this negative streak. Use these results as motivation to identify areas for improvement in your sleep and well-being routine.",
+    "Sometimes, going through a period of low sleep scores is temporary. Take these results as an opportunity to adjust your routine and find ways to rest better.",
+    "Four consecutive days with low sleep scores can be tough, but don't lose hope. Look for new strategies and habits that can improve your sleep quality.",
+    "Sleep quality can fluctuate day by day. Take these results as a sign that it's important to pay attention to your well-being and seek ways to improve your rest.",
+    "Don't let a streak of poor sleep scores discourage you. Use this experience as an opportunity to learn and explore new ways to prioritize your rest and health."
   ],
   "profileSleepScoreMessage5+": [
-    "Bravo! You've achieved an excellent sleep score for five consecutive days. Your commitment to rest is yielding tangible results. Keep it up, and you'll notice the difference in your overall well-being!",
-    "Five consecutive days with enviable sleep scores. You're building a solid foundation for your health and energy. Keep prioritizing your sleep, and you'll reap long-term benefits!",
-    "Incredible streak! For five days, your sleep has been consistent and restorative. Your body and mind thank you. Keep taking care of yourself and enjoy revitalizing nights!"
+    "Congratulations! You've achieved an excellent sleep score for five consecutive days. Your commitment to rest is yielding tangible results. Keep it up and you'll notice the difference in your overall well-being!",
+    "Five consecutive days with enviable sleep scores. You're building a solid foundation for your health and energy. Keep prioritizing your sleep and you'll reap long-term benefits!",
+    "Incredible streak! For five days, your sleep has been consistent and restorative. Your body and mind thank you. Keep taking care of yourself and enjoy revitalizing nights!",
+    "Five days of quality sleep! You've created a pattern worth celebrating. Keep it up and watch as your energy and focus increase.",
+    "Five days of rejuvenating rest. Your consistency is key to a balanced lifestyle. Keep it up and enjoy your well-deserved wellness!",
+    "Incredible! Five days of restful sleep are an achievement to be proud of. Keep it up and continue prioritizing your health and happiness!"
   ],
   "profileSleepScoreMessage5-": [
-    "Maintaining low scores for five consecutive days is a warning sign. Reflect on factors that might be affecting your sleep and consider making adjustments to your nighttime routine.",
-    "Five days with low sleep scores are a reminder of the importance of prioritizing rest. Evaluate possible changes in your environment and habits to improve sleep quality.",
-    "Maintaining a streak of low scores for five days can impact your well-being. Consider exploring new strategies to ensure more restful sleep."
+    "Maintaining low scores for five consecutive days is a warning sign. Reflect on factors that may be affecting your sleep and consider making adjustments to your nighttime routine.",
+    "Five days with low sleep scores are a reminder of the importance of prioritizing rest. Evaluate potential changes in your environment and habits to improve sleep quality.",
+    "Maintaining a streak of low scores for five days can impact your well-being. Consider exploring new strategies to ensure more restful sleep.",
+    "Five days of unsatisfactory sleep can be draining, but don't lose hope. Look for new strategies to improve your sleep quality.",
+    "Sleep quality may vary, but your commitment to your well-being should not waver. Use this experience as an opportunity to reflect and improve.",
+    "Don't let a streak of poor sleep scores discourage you. Use these days as motivation to prioritize your rest and well-being. You can improve your sleep quality!"
+  ],
+  "profileSleepScoreMessage6+": [
+    "Six days of restorative rest. Your commitment to your well-being is admirable. Keep it up and maintain this vibrant energy!",
+    "Maintaining a streak of six days of rejuvenating sleep. Your dedication to your health deserves applause. Keep it up and enjoy a revitalized body and mind!",
+    "Six consecutive days of sweet dreams. Your consistency is the key to your well-being. Keep it up and experience the difference in your quality of life!",
+    "Six days of consistent sleep! You've established a routine worth celebrating. Keep it up and watch as your overall well-being improves.",
+    "Six days of renewing rest. Your dedication to your rest is commendable. Keep it up and maintain your commitment to healthy sleep!",
+    "Incredible! Six days of restful sleep are an achievement to celebrate. Keep it up and prioritize your health and daily happiness!"
+  ],
+  "profileSleepScoreMessage6-": [
+    "Six challenging days. Use this streak as motivation to implement positive changes in your sleep routine. Every day is a new opportunity for improvement!",
+    "Maintaining a streak of six challenging days can be exhausting, but remember that every challenge is an opportunity for growth and change.",
+    "Six consecutive days with low sleep scores can be disheartening, but don't lose hope. Seek new strategies to improve your sleep quality.",
+    "Consistency is key, even in tough times. Use this experience as an opportunity to reflect and make positive adjustments to your sleep routine.",
+    "Six days of unsatisfactory sleep can be tough, but remember you have the power to change your habits and improve your well-being.",
+    "Don't let a streak of poor sleep scores discourage you. Use these days as a reminder of the importance of prioritizing your rest and well-being. You can overcome this challenge!"
   ],
   "profileSleepScoreMessage7+": [
-    "Complete week of quality sleep! Achieving a score of 80 or more for 7 consecutive days is an impressive accomplishment. Your body and mind are in optimal mode. Keep taking care of yourself!",
+    "Complete week of quality sleep! Achieving a score of 80 or more for 7 consecutive days is an impressive achievement. Your body and mind are in optimal mode. Keep taking care of yourself!",
     "Incredible milestone! You've maintained a sleep score of 80 or more for an entire week. This is a testament to your commitment to your well-being. Keep it up and conquer each day!",
-    "You've reached a complete week of optimal sleep! Your dedication to rest is paying off. Keep taking care of your sleep and enjoy the ongoing benefits. You're a sleep champion!"
+    "You've reached a complete week of optimal sleep! Your dedication to rest is paying off. Keep taking care of your sleep and enjoy the continuous benefits. You're a sleep champion!",
+    "A complete week of quality sleep! You've shown that you can maintain a healthy routine. Keep it up and watch as your overall well-being improves!",
+    "Seven days of rejuvenating rest. Your dedication to your rest is admirable. Keep it up and enjoy a revitalized body and mind!",
+    "Splendid! Seven days of restorative sleep are a remarkable achievement. Keep it up and continue taking good care of yourself to maintain this positive trend!"
   ],
   "profileSleepScoreMessage7-": [
-    "A week of low scores can be a challenge, but it's also an opportunity for significant changes. Evaluate your nighttime routine and find ways to prioritize your rest. Start today!",
+    "A week of low scores can be challenging, but it's also an opportunity to make significant changes. Evaluate your nighttime routine and look for ways to prioritize your rest. Start today!",
     "Seven days with low scores are a sign that your body needs more attention. Consider making significant adjustments to your nighttime routine to improve your sleep. Your well-being will thank you!",
-    "Maintaining low scores for a week is a call to action. Make changes in your lifestyle and prioritize your sleep to get back on the path to quality rest. We're here to support you in this positive change!"
+    "Maintaining low scores for a week is a call to action. Make lifestyle changes and prioritize your sleep to get back on the path to quality rest. We're here to support you in this positive change!",
+    "Consistency is key, even in tough times. Use this experience as an opportunity to reflect and make positive adjustments to your sleep routine.",
+    "Seven days of unsatisfactory sleep can be tough, but remember that you have the power to change your habits and improve your well-being.",
+    "Don't let a streak of poor sleep scores discourage you. Use these days as a reminder of the importance of prioritizing your rest and well-being. You can overcome this challenge!"
+  ],
+  "profileSleepScoreMessage8+": [
+    "Eight days of rejuvenating rest. Each night of deep sleep brings you closer to your best self. Continue this journey towards full well-being!",
+    "You've woven a blanket of restful dreams for a whole week. Each thread is a reminder of the transformative power of rest. Keep weaving for a brighter tomorrow!",
+    "Congratulations on eight days of restorative sleep. Each awakening is an opportunity to embrace renewed energy and mental clarity. Keep reaping the rewards of well-deserved rest!",
+    "Eight days of sleep like a gentle embrace for your weary soul. Each night is a promise of renewal and strength to face new challenges. May this positive streak continue to guide you towards fulfillment!",
+    "You're writing a story of rest and renewal worth telling. Each chapter of deep sleep is a tribute to your commitment to well-being. Keep writing towards a future full of vitality and joy!",
+    "Eight days of restful sleep are a testament to your dedication to self-care. Each well-slept night is an investment in your physical and mental health. Keep being the architect of your well-being!"
+  ],
+  "profileSleepScoreMessage8-": [
+    "Eight days of challenges in the realm of sleep. Each night is an opportunity to learn, adjust, and commit to healthier rest. Transformation begins with a choice!",
+    "You've sailed through eight days of turbulent waters in the ocean of sleep. Each awakening is an invitation to reflect on your habits and priorities. Trust that you can find calm amidst the storm!",
+    "Eight days of unsatisfactory sleep may seem like an insurmountable mountain, but each step is a step closer to the summit. Remember, persistence is the key that unlocks the doors of change!",
+    "Each restless night of sleep over eight days is a wake-up call from the body and mind. Listen with compassion and open your heart to self-care and exploration of new rest practices. Your well-being deserves your attention!",
+    "Eight days of challenges on the sleep front can be exhausting, but they're also a reminder of your resilience and inner strength. Keep moving forward with courage and confidence in yourself!",
+    "Each difficult night of sleep over eight days is an opportunity to cultivate compassion and understanding towards yourself. Embrace your humanity and let each experience guide you towards more restful sleep and a fuller life."
+  ],
+  "profileSleepScoreMessage9+": [
+    "Nine days of restful sleep are like the bricks of a peaceful and serene home. Each well-slept night is a pillar for your well-being.",
+    "For nine days, your pillow has witnessed your sweetest and most restorative dreams. Keep it up and build a haven of rest and rejuvenation.",
+    "Each dawn after nine nights of deep sleep is an invitation to embrace renewed energy and mental clarity. Maintain this streak and reach new heights.",
+    "Nine days of rest have taken you through a journey of self-discovery and renewal. Follow this path and discover the magic of restorative sleep.",
+    "Congratulations on nine days of restful sleep. Each well-slept night is a tribute to your commitment to health and wellness.",
+    "For nine days, you have honored rest as an essential part of your life. Keep it up and reap the rewards of a revitalized mind and body."
+  ],
+  "profileSleepScoreMessage9-": [
+    "Nine challenging days of sleep may seem overwhelming, but each night is a new opportunity to learn and grow.",
+    "Maintaining a streak of nine challenging days can be exhausting, but remember that every obstacle is an opportunity to strengthen yourself.",
+    "For nine days, you have faced challenges in your rest, but each night is also an opportunity to recalibrate and improve.",
+    "Nine days of unsatisfactory sleep can be discouraging, but each dawn brings the promise of a fresh start.",
+    "Facing nine days of sleep challenges is a testament to your resilience and inner strength. Keep moving forward with determination and confidence in yourself.",
+    "Don't give up, keep seeking new ways to improve your rest!"
+  ],
+  "profileSleepScoreMessage10+": [
+    "Ten days of restful sleep are a testament to your dedication to wellness. Keep it up and continue prioritizing your rest and your health.",
+    "For ten days, you have maintained a streak of restorative sleep. Each well-slept night is a gift that brings you closer to a balanced life.",
+    "Ten days of restful sleep are like a gentle whisper from nature, reminding you of the importance of taking good care of yourself. Keep it up and find harmony in each night.",
+    "Congratulations on ten days of restful sleep. Each night is a reminder of your commitment to a life full of energy and vitality.",
+    "Ten days of deep and restful sleep are like a comforting embrace for your body and mind. Keep it up and experience the fullness of each day.",
+    "For ten days, you have nourished your body and mind with restorative sleep. Follow this path and find peace and serenity in each night."
+  ],
+  "profileSleepScoreMessage10-": [
+    "Ten days of poor sleep can be challenging, but each night is an opportunity to find new ways to improve your rest.",
+    "Maintaining a streak of ten challenging days can be exhausting, but remember that each day is an opportunity to learn and grow.",
+    "For ten days, you have faced challenges in your rest, but each night is also an opportunity to recalibrate and improve.",
+    "Ten days of unsatisfactory sleep can be discouraging, but each dawn brings the promise of a new beginning.",
+    "Facing ten days of sleep challenges is a testament to your resilience and inner strength. Keep moving forward with determination and confidence in yourself.",
+    "Don't let a bad streak discourage you. Use these days as a reminder of the importance of prioritizing your rest and well-being. You can overcome this challenge!"
+  ],
+  "profileSleepScoreMessageTwoWeeks+": [
+    "Two weeks of restful sleep are like a journey towards total renewal. Each well-slept night is a step closer to complete well-being.",
+    "Over two weeks, you've built a bridge to restful sleep. Keep walking with determination and you'll find serenity with every step.",
+    "Each dawn after two weeks of deep sleep is an invitation to embrace renewed energy and mental clarity. Maintain this streak and reach new heights.",
+    "Two weeks of rest have taken you through a journey of self-discovery and renewal. Follow this path and discover the magic of restorative sleep.",
+    "Congratulations on two weeks of restful sleep. Each well-slept night is a tribute to your commitment to health and well-being.",
+    "For two weeks, you've honored rest as an essential part of your life. Keep it up and reap the rewards of a revitalized mind and body."
+  ],
+  "profileSleepScoreMessageTwoWeeks-": [
+    "Over two weeks, you've faced challenges in finding proper rest. It's time to reflect on your habits and make small changes that bring you closer to more restful sleep.",
+    "Maintaining a streak of two challenging weeks can be exhausting, but each day offers you the opportunity to make healthier choices for your rest. Let's focus on finding solutions!",
+    "For two weeks, you've struggled to sleep well, but each night gives you a fresh chance to improve. It's time to explore new strategies and habits to help you rest better.",
+    "Facing two weeks of sleep challenges is a reminder of the importance of caring for your health and well-being. Commit to making positive changes in your routine to enhance the quality of your rest.",
+    "For two weeks, you've grappled with finding restful sleep, but each day brings you closer to discovering what works best for you. Let's continue seeking solutions and maintain a positive attitude towards change.",
+    "For two weeks, you've experienced difficulties sleeping, but each challenge provides an opportunity to learn and grow. Let's stay focused on finding effective ways to improve our rest."
+  ],
+  "profileSleepScoreMessageThreeWeeks+": [
+    "Three weeks of restful sleep are like an anthem to your well-being. Each well-slept night is a melody leading you towards inner harmony.",
+    "Over three weeks, you've built a sanctuary of restorative dreams. Keep nurturing this sacred space and find peace in every breath.",
+    "Each awakening after three weeks of deep sleep is a celebration of life and vitality. Maintain this streak and let your inner light shine even brighter.",
+    "Three weeks of rest have taken you through an oasis of self-discovery and renewal. Keep exploring this territory and discover the magic of self-care.",
+    "Congratulations on three weeks of restful sleep. Each well-slept night is a tribute to your commitment to a balanced and energized life.",
+    "For three weeks, you've cultivated a garden of rest and rejuvenation. Keep watering these seeds and watch them bloom into a fuller life."
+  ],
+  "profileSleepScoreMessageThreeWeeks-": [
+    "Three weeks of sleep difficulties are a reminder of the importance of taking care of your mental and physical health. It's time to take concrete steps to improve your rest and overall well-being.",
+    "Maintaining a streak of three challenging weeks can be tough, but each day offers you the opportunity to make positive choices for your rest. Commit to implementing changes that enhance your sleep quality.",
+    "For three weeks, you've experienced difficulties falling asleep and resting well, but each night gives you the chance to try again. Let's continue exploring new strategies and habits to help you sleep better.",
+    "Facing three weeks of sleep challenges is a reminder that you need to prioritize your health and well-being. Take the time to identify what's affecting your rest and work on effective solutions.",
+    "For three weeks, you've struggled to find restful sleep, but each day brings you closer to finding solutions that work for you. Let's maintain a positive attitude and commit to making changes that improve our quality of life.",
+    "For three weeks, you've battled to find restorative sleep, but each challenge provides an opportunity to learn and grow. Let's move forward with determination and actively seek ways to improve our rest."
+  ],
+  "profileSleepScoreMessageOneMonth+": [
+    "Congratulations! A full month of restorative sleep is a remarkable achievement. Each well-slept night is a gift to your health and well-being. Keep it up!",
+    "A month of consistently good sleep habits deserves celebration. Your dedication to rest is bearing fruit, and your body and mind thank you for it. Keep taking care!",
+    "For an entire month, you've demonstrated admirable commitment to your rest. Each night of restful sleep is a step towards a more balanced and fulfilling life. Keep it up, sleep champion!",
+    "A whole month of good rest is a testament to your determination and self-care. Each night of restorative sleep is an investment in your long-term health and happiness. Keep going strong!",
+    "A full month of quality sleep deserves applause! Your dedication to your well-being is reflected in every night of rest. Keep taking care of yourself and prioritizing your health.",
+    "For a month, you've shown that good rest is a priority. Each well-slept night is a step towards a healthier and vibrant life. Keep it up, keep up the good work!"
+  ],
+  "profileSleepScoreMessageOneMonth-": [
+    "A month of sleep difficulties can be challenging, but each day gives us the opportunity to reflect and improve our sleep habits. It's time to take steps to care for your well-being!",
+    "For a whole month, you've faced obstacles in your rest, but each night is also an opportunity to learn and adjust your approach. You're on the path to better sleep!",
+    "A month of negative sleep outcomes is a sign that it's time to pay attention to your well-being. With determination and commitment, you can implement changes to help you rest better.",
+    "For a month, you've faced challenges in your rest, but each night is also an opportunity to renew and recharge. Don't be discouraged, you're on the path to more restorative sleep!",
+    "A month of sleep difficulties can be exhausting, but it's also an opportunity to explore new strategies and habits to help you rest better. Keep going strong!",
+    "For a month, you've faced obstacles in your sleep, but each night is also an opportunity to renew and recharge. Don't give up, you're on the path to better rest!"
+  ],
+  "profileSleepScoreMessageDefault+": [
+    "You continue to shine with your commitment to healthy sleep! Each well-rested night is a step towards a more balanced and fulfilling life. Keep it up!",
+    "Your dedication to rest is paying off, and your well-being reflects it. Each night of restful sleep is an investment in your long-term health and happiness. Keep taking care of yourself!",
+    "Continuing a positive streak in sleep demonstrates your commitment to your well-being. Each night of proper rest is a reminder of your dedication to self-care. Keep going strong!",
+    "Maintaining a positive streak in sleep is a testament to your determination and discipline. Each well-slept night is a step towards a healthier and more balanced life. Keep it up, sleep champion!",
+    "We celebrate your persistence in maintaining a positive streak in sleep. Each night of restorative rest is an achievement that brings you closer to a better quality of life. Keep prioritizing your well-being!",
+    "Your commitment to quality sleep is admirable and worthy of celebration. Each night of good rest is a step towards a healthier and happier version of yourself. Keep it up, there are no limits to your well-being!"
+  ],
+  "profileSleepScoreMessageDefault-": [
+    "Even as you face challenges in your sleep, your determination to improve is inspiring. Each night is an opportunity to learn and adjust your focus towards more restful sleep. Don't get discouraged!",
+    "Continuing a negative streak in sleep can be challenging, but each day offers us the chance to reflect and improve our habits. You're on the path to a healthier sleep!",
+    "Despite obstacles in your rest, your determination to find solutions is admirable. With each night, you're getting closer to discovering what works best for you. Don't give up!",
+    "Your persistence amidst a negative streak in sleep shows your commitment to your well-being. Each night is an opportunity to renew and recharge. Keep going with determination!",
+    "Even as you face difficulties sleeping, each night is also an opportunity to explore new strategies and habits. Your determination to improve your rest is the first step towards a better quality of life. Keep going!",
+    "We celebrate your courage and determination to face challenges in your sleep. Each night is an opportunity to learn and grow, and each step brings you closer to restful sleep. Don't lose hope!"
   ],
   "IrreversibleAction": "This action is irreversible",
   "sleepScoreChartTotalRecovery": "Total Recovery",
@@ -411,7 +595,9 @@
   "movementsChartMovement": "Amount of big movements",
   "movementsChartTurns": "Turns/Night",
   "sleepTimeChartAwake": "Awake",
+  "sleepTimeChartAwakeHS": "Awake (hs)",
   "sleepTimeChartSleep": "Sleeping",
+  "sleepTimeChartSleepHS": "Sleeping (hs)",
   "sleepArcChartLight": "Light",
   "sleepArcChartDeep": "Deep",
   "sleepArcChartTitle": "Sleep Architecture"

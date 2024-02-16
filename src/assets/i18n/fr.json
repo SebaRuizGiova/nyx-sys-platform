@@ -364,43 +364,227 @@
   "profileViewYearsDropdown": " ans",
   "profileSleepScoreMessage1+": [
     "Félicitations pour votre score de sommeil ! Votre dévouement au repos se reflète dans votre bien-être. Continuez comme ça !",
-    "Incroyable ! Vous avez obtenu un score de sommeil optimal aujourd'hui. Votre corps et votre esprit vous en remercient. Dormez bien et réveillez-vous revitalisé !",
-    "Aujourd'hui, vous avez démontré que prioriser le sommeil est essentiel pour votre performance. Bravo d'avoir atteint un score de *sleep_score* ! Continuez à prendre soin de votre repos."
+    "Incroyable ! Vous avez obtenu un score de sommeil optimal aujourd'hui. Votre corps et votre esprit vous remercient. Dormez bien et réveillez-vous rafraîchi !",
+    "Aujourd'hui, vous avez démontré que la priorité au sommeil est essentielle à votre performance. Bravo pour avoir atteint un score de *sleep_score* ! Continuez à prendre soin de votre repos.",
+    "Excellent début ! Votre score de sommeil a été exceptionnel aujourd'hui. Continuez ainsi et veillez à maintenir cette dynamique !",
+    "Début fantastique ! Atteindre un score de sommeil élevé en juste un jour est une réussite digne de célébration. Continuez comme ça, et vous verrez de grandes améliorations dans votre bien-être !",
+    "Une journée complète de sommeil optimal est un excellent début. Continuez ainsi et construisez sur ce succès pour une meilleure qualité de vie !"
   ],
   "profileSleepScoreMessage1-": [
-    "Ne soyez pas découragé par un score bas aujourd'hui. Chaque jour est une nouvelle opportunité pour s'améliorer. Réfléchissez à ce qui pourrait avoir affecté votre sommeil et faites un pas vers une nuit plus réparatrice demain. Vous pouvez le faire !",
-    "Nous savons que aujourd'hui n'a pas été le meilleur jour en termes de sommeil, mais chaque jour est une nouvelle opportunité pour s'améliorer. Envisagez de petits changements dans votre routine nocturne et préparez-vous à une meilleure nuit. Courage !",
-    "Le score d'aujourd'hui n'était pas idéal, mais ne vous inquiétez pas. Apprenez de aujourd'hui et travaillez vers un sommeil plus réparateur demain. De petits changements peuvent faire la différence !"
+    "Ne soyez pas découragé par un score bas aujourd'hui. Chaque jour est une nouvelle opportunité pour s'améliorer. Réfléchissez à ce qui aurait pu affecter votre sommeil et faites un pas vers un sommeil plus réparateur demain. Vous pouvez le faire !",
+    "Nous savons que aujourd'hui n'était pas le meilleur jour pour le sommeil, mais chaque jour est une nouvelle opportunité pour s'améliorer. Envisagez de petits changements dans votre routine nocturne et préparez-vous à une meilleure nuit. Courage !",
+    "Le score d'aujourd'hui n'était pas idéal, mais ne vous inquiétez pas. Apprenez de aujourd'hui et travaillez vers un sommeil plus réparateur demain. De petits changements peuvent faire une différence !",
+    "Un score bas ne définit pas votre capacité à bien vous reposer. Apprenez de cette expérience et recherchez des moyens d'améliorer la qualité de votre sommeil.",
+    "La qualité du sommeil peut varier d'un jour à l'autre. Prenez ce résultat comme un signe qu'il y a encore de la place pour améliorer vos habitudes de repos.",
+    "Ne laissez pas un score de sommeil bas vous décourager. Profitez de cette opportunité pour explorer de nouvelles stratégies qui vous aideront à mieux dormir à l'avenir."
+  ],
+  "profileSleepScoreMessage2+": [
+    "Double victoire ! Deux jours consécutifs avec un bon score de sommeil montrent votre engagement pour un repos sain. Continuez comme ça et maintenez cette excellente série !",
+    "Deux jours impeccables ! Votre persistance à maintenir un bon repos est admirable. Continuez comme ça et profitez des bénéfices continus du sommeil réparateur !",
+    "Double réussite ! Maintenir deux jours consécutifs de sommeil de qualité est un grand pas vers une vie plus équilibrée. Continuez comme ça et donnez la priorité à votre bien-être !",
+    "Deux jours phénoménaux ! Votre dévouement pour un bon sommeil est évident. Continuez comme ça et continuez à bien prendre soin de vous pour maintenir cette série positive !",
+    "Travail fantastique ! Deux jours consécutifs avec de bons scores de sommeil sont une réalisation digne de célébration. Continuez comme ça et ressentez la différence dans votre bien-être général !",
+    "Série excellente ! Maintenir deux jours consécutifs de sommeil optimal est une grande réussite. Continuez comme ça et continuez à donner la priorité à votre santé et à votre bien-être !"
+  ],
+  "profileSleepScoreMessage2-": [
+    "Ne vous laissez pas décourager par cette série négative. Utilisez ces résultats comme motivation pour identifier les domaines à améliorer dans votre routine de repos.",
+    "Deux jours consécutifs avec des scores de sommeil bas peuvent être difficiles, mais rappelez-vous que chaque jour est une nouvelle opportunité d'amélioration.",
+    "Parfois, les mauvaises nuits de sommeil sont temporaires. Utilisez ces résultats comme une opportunité pour ajuster votre routine et chercher des moyens de mieux vous reposer.",
+    "Deux jours consécutifs avec des scores de sommeil bas peuvent être difficiles, mais ne les laissez pas vous décourager. Recherchez de nouvelles stratégies pour améliorer la qualité de votre sommeil.",
+    "La qualité du sommeil peut varier d'un jour à l'autre. Prenez ces résultats comme un signe qu'il est important de donner la priorité à votre repos et à votre bien-être.",
+    "Ne laissez pas une série de mauvais scores de sommeil vous démoraliser. Utilisez cette expérience comme une opportunité pour explorer de nouvelles façons d'améliorer votre repos."
   ],
   "profileSleepScoreMessage3+": [
-    "Triple série ! Vous avez maintenu un score de sommeil de 80 ou plus pendant 3 jours. Vous êtes en train de construire des habitudes saines ! Continuez comme ça, votre corps vous en remerciera !",
-    "Incroyable constance ! Trois jours d'affilée avec un sommeil optimal. Vous êtes sur la bonne voie pour un bien-être durable. Continuez à bien dormir !",
-    "Félicitations, trois jours consécutifs avec un score de sommeil excellent ! Vous êtes un champion du repos. Continuez ainsi et vous remarquerez la différence !"
+    "Série triple ! Vous avez maintenu un score de sommeil de 80 ou plus pendant 3 jours. Vous construisez des habitudes saines ! Continuez comme ça, votre corps vous remerciera !",
+    "Incredible continuité ! Trois jours consécutifs avec un sommeil optimal. Vous êtes sur la bonne voie pour un bien-être durable. Continuez à bien dormir !",
+    "Félicitations, trois jours consécutifs avec un excellent score de sommeil ! Vous êtes un champion du sommeil. Continuez comme ça et vous remarquerez la différence !",
+    "Trois jours phénoménaux ! Votre persistance à maintenir un bon repos est impressionnante. Continuez comme ça et continuez à donner la priorité à votre santé et à votre bien-être !",
+    "Triple victoire ! Trois jours consécutifs avec de bons scores de sommeil montrent votre engagement pour une routine de repos saine. Continuez comme ça et profitez des avantages continus !",
+    "Série excellente ! Maintenir trois jours consécutifs de sommeil de qualité est un exploit notable. Continuez comme ça et continuez à bien prendre soin de vous pour maintenir cette tendance positive !"
   ],
   "profileSleepScoreMessage3-": [
     "Trois jours avec des scores bas peuvent être difficiles, mais chaque jour est une opportunité de changer. Réfléchissez à votre routine nocturne et apportez de petits ajustements pour un meilleur repos. Vous êtes sur la voie de l'amélioration !",
-    "Il est normal d'avoir des périodes difficiles. Trois jours d'affilée avec des scores bas peuvent être un signal d'alarme. Envisagez des ajustements dans votre routine et prenez des mesures pour améliorer votre qualité de sommeil. Vous pouvez le faire !",
-    "Maintenir des scores bas pendant trois jours d'affilée est un signe pour faire des changements. Analysez ce qui pourrait affecter votre sommeil et prenez des mesures pour améliorer. Vous avez le contrôle sur vos habitudes !"
+    "Il est normal d'avoir des séries difficiles. Trois jours consécutifs avec des scores bas peuvent être un appel à l'action. Envisagez des ajustements dans votre routine et prenez des mesures pour améliorer la qualité de votre sommeil. Vous pouvez le faire !",
+    "Maintenir des scores bas pendant trois jours consécutifs est un signal pour apporter des changements. Analysez ce qui pourrait affecter votre sommeil et prenez des mesures pour vous améliorer. Vous contrôlez vos habitudes !",
+    "Trois jours consécutifs avec des scores de sommeil bas peuvent être difficiles, mais ne perdez pas espoir. Recherchez de nouvelles stratégies et habitudes qui peuvent améliorer la qualité de votre sommeil.",
+    "La qualité du sommeil peut varier d'un jour à l'autre. Prenez ces résultats comme un signe qu'il est important de prêter attention à votre bien-être et de chercher des moyens d'améliorer votre repos.",
+    "Ne laissez pas une série de mauvais scores de sommeil vous décourager. Utilisez cette expérience comme une opportunité d'apprentissage et explorez de nouvelles façons de prioriser votre repos et votre santé."
+  ],
+  "profileSleepScoreMessage4+": [
+    "Quadruple réussite ! Quatre jours consécutifs avec un bon score de sommeil montrent votre engagement pour un repos sain. Continuez ainsi et maintenez cette excellente série !",
+    "Quatre jours impeccables ! Votre dévouement pour un bon sommeil est admirable. Continuez ainsi et profitez des avantages continus d'un sommeil réparateur !",
+    "Quatre jours phénoménaux ! Maintenir cette série de bons sommeils est un grand pas vers une vie plus équilibrée. Continuez ainsi et donnez la priorité à votre bien-être !",
+    "Quadruple victoire ! Quatre jours consécutifs avec un bon score de sommeil témoignent de votre engagement pour un repos adéquat. Continuez ainsi et maintenez cette tendance incroyable !",
+    "Travail fantastique ! Quatre jours consécutifs avec un bon score de sommeil sont une réussite digne de célébration. Continuez ainsi et ressentez la différence dans votre bien-être général !",
+    "Quatre jours exceptionnels ! Votre constance dans le maintien d'un bon repos est impressionnante. Continuez ainsi et continuez à prendre soin de vous pour maintenir cette série positive !"
+  ],
+  "profileSleepScoreMessage4-": [
+    "Maintenir une série de quatre jours avec des scores de sommeil bas peut être difficile, mais rappelez-vous qu'il y a toujours des opportunités pour améliorer votre repos.",
+    "Ne vous découragez pas par cette série négative. Utilisez ces résultats comme motivation pour identifier les domaines à améliorer dans votre routine de sommeil et de bien-être.",
+    "Parfois, traverser une période de scores de sommeil bas est temporaire. Prenez ces résultats comme une occasion d'ajuster votre routine et de trouver des moyens de mieux vous reposer.",
+    "Quatre jours consécutifs avec des scores de sommeil bas peuvent être difficiles, mais ne perdez pas espoir. Cherchez de nouvelles stratégies et habitudes qui peuvent améliorer la qualité de votre sommeil.",
+    "La qualité du sommeil peut fluctuer de jour en jour. Prenez ces résultats comme un signe qu'il est important de prêter attention à votre bien-être et de rechercher des moyens d'améliorer votre repos.",
+    "Ne laissez pas une série de mauvais scores de sommeil vous décourager. Utilisez cette expérience comme une occasion d'apprendre et d'explorer de nouvelles façons de prioriser votre repos et votre santé."
   ],
   "profileSleepScoreMessage5+": [
-    "Bravo ! Vous avez atteint un score de sommeil excellent pendant cinq jours d'affilée. Votre engagement envers le repos porte des fruits tangibles. Continuez comme ça et vous verrez la différence dans votre bien-être général !",
-    "Cinq jours consécutifs avec des scores de sommeil enviables. Vous construisez une base solide pour votre santé et votre énergie. Continuez à prioriser votre sommeil et vous récolterez des avantages à long terme !",
-    "Incroyable série ! Pendant cinq jours, votre sommeil a été constant et réparateur. Votre corps et votre esprit vous en remercient. Continuez à prendre soin de vous et profitez de nuits revigorantes !"
+    "Félicitations ! Vous avez atteint un excellent score de sommeil pendant cinq jours consécutifs. Votre engagement pour le repos porte des fruits tangibles. Continuez ainsi et vous remarquerez la différence dans votre bien-être général !",
+    "Cinq jours consécutifs avec des scores de sommeil enviables. Vous construisez une base solide pour votre santé et votre énergie. Continuez à donner la priorité à votre sommeil et vous récolterez des bénéfices à long terme !",
+    "Série incroyable ! Depuis cinq jours, votre sommeil est constant et réparateur. Votre corps et votre esprit vous remercient. Continuez à prendre soin de vous et profitez de nuits revitalisantes !",
+    "Cinq jours de sommeil de qualité ! Vous avez créé un modèle qui mérite d'être célébré. Continuez ainsi et observez comment votre énergie et votre concentration augmentent.",
+    "Cinq jours de repos régénérant. Votre constance est la clé d'un mode de vie équilibré. Continuez ainsi et profitez de votre bien-être mérité !",
+    "Incroyable ! Cinq jours de sommeil réparateur sont une réalisation dont vous pouvez être fier. Continuez ainsi et continuez à donner la priorité à votre santé et votre bonheur !"
   ],
   "profileSleepScoreMessage5-": [
-    "Maintenir des scores bas pendant cinq jours d'affilée est un signal d'alerte. Réfléchissez aux facteurs qui pourraient affecter votre sommeil et envisagez des ajustements dans votre routine nocturne.",
-    "Cinq jours avec des scores de sommeil bas sont un rappel de l'importance de prioriser le repos. Évaluez les changements possibles dans votre environnement et vos habitudes pour améliorer la qualité de votre sommeil.",
-    "Maintenir une série de scores bas pendant cinq jours peut affecter votre bien-être. Envisagez d'explorer de nouvelles stratégies pour garantir un sommeil plus réparateur."
+    "Maintenir des scores bas pendant cinq jours consécutifs est un signal d'alarme. Réfléchissez aux facteurs qui pourraient affecter votre sommeil et envisagez d'apporter des ajustements à votre routine nocturne.",
+    "Cinq jours avec des scores de sommeil bas sont un rappel de l'importance de prioriser le repos. Évaluez les changements potentiels dans votre environnement et vos habitudes pour améliorer la qualité du sommeil.",
+    "Maintenir une série de scores bas pendant cinq jours peut affecter votre bien-être. Envisagez d'explorer de nouvelles stratégies pour garantir un sommeil plus réparateur.",
+    "Cinq jours de sommeil insatisfaisant peuvent être épuisants, mais ne perdez pas espoir. Recherchez de nouvelles stratégies pour améliorer la qualité de votre sommeil.",
+    "La qualité du sommeil peut varier, mais votre engagement envers votre bien-être ne doit pas vaciller. Utilisez cette expérience comme une opportunité pour réfléchir et vous améliorer.",
+    "Ne laissez pas une série de mauvais scores de sommeil vous décourager. Utilisez ces jours comme motivation pour donner la priorité à votre repos et votre bien-être. Vous pouvez améliorer la qualité de votre sommeil !"
+  ],
+  "profileSleepScoreMessage6+": [
+    "Six jours de repos réparateur. Ton engagement pour ton bien-être est admirable. Continue comme ça et maintiens cette énergie vibrante!",
+    "Maintenir une série de six jours de sommeil revigorant. Ton dévouement à ta santé mérite des applaudissements. Continue ainsi et profite d'un corps et d'un esprit revitalisés!",
+    "Six jours consécutifs de doux rêves. Ta constance est la clé de ton bien-être. Continue comme ça et ressens la différence dans ta qualité de vie!",
+    "Six jours de sommeil constant! Tu as établi une routine qui mérite d'être célébrée. Continue comme ça et observe comment ton bien-être général s'améliore.",
+    "Six jours de repos régénérateur. Ton dévouement à ton repos est louable. Continue ainsi et maintiens ton engagement pour un sommeil sain!",
+    "Incroyable! Six jours de sommeil réparateur sont un succès à célébrer. Continue ainsi et donne la priorité à ta santé et à ton bonheur quotidien!"
+  ],
+  "profileSleepScoreMessage6-": [
+    "Six jours difficiles. Utilise cette série comme motivation pour mettre en œuvre des changements positifs dans ta routine de sommeil. Chaque jour est une nouvelle opportunité d'amélioration!",
+    "Maintenir une série de six jours difficiles peut être épuisant, mais rappelle-toi que chaque défi est une opportunité de croissance et de changement.",
+    "Six jours consécutifs avec des scores de sommeil bas peuvent être décourageants, mais ne perds pas espoir. Recherche de nouvelles stratégies pour améliorer la qualité de ton sommeil.",
+    "La constance est essentielle, même en période difficile. Utilise cette expérience comme occasion de réflexion et apporte des ajustements positifs à ta routine de sommeil.",
+    "Six jours de sommeil insatisfaisant peuvent être difficiles, mais rappelle-toi que tu as le pouvoir de changer tes habitudes et d'améliorer ton bien-être.",
+    "Ne laisse pas une série de mauvais scores de sommeil te décourager. Utilise ces jours comme rappel de l'importance de prioriser ton repos et ton bien-être. Tu peux surmonter ce défi!"
   ],
   "profileSleepScoreMessage7+": [
-    "Semaine complète de sommeil de qualité ! Atteindre un score de 80 ou plus pendant 7 jours d'affilée est une réalisation impressionnante. Votre corps et votre esprit sont en mode optimal. Continuez à prendre soin de vous !",
-    "Incroyable jalon ! Vous avez maintenu un score de sommeil de 80 ou plus pendant toute une semaine. C'est un témoignage de votre engagement envers votre bien-être. Continuez ainsi et conquérez chaque jour !",
-    "Vous avez atteint une semaine complète de sommeil optimal ! Votre dévouement au repos porte ses fruits. Continuez à prendre soin de votre sommeil et profitez des avantages continus. Vous êtes un champion du sommeil !"
+    "Semaine complète de sommeil de qualité ! Atteindre un score de 80 ou plus pendant 7 jours consécutifs est une réussite impressionnante. Votre corps et votre esprit sont en mode optimal. Continuez à prendre soin de vous !",
+    "Un jalon incroyable ! Vous avez maintenu un score de sommeil de 80 ou plus pendant une semaine entière. C'est un témoignage de votre engagement envers votre bien-être. Continuez ainsi et conquérez chaque jour !",
+    "Vous avez atteint une semaine complète de sommeil optimal ! Votre dévouement au repos porte ses fruits. Continuez à prendre soin de votre sommeil et profitez des avantages continus. Vous êtes un champion du sommeil !",
+    "Une semaine complète de sommeil de qualité ! Vous avez montré que vous pouvez maintenir une routine saine. Continuez ainsi et observez comment votre bien-être général s'améliore !",
+    "Sept jours de repos régénérateur. Votre dévouement à votre repos est admirable. Continuez ainsi et profitez d'un corps et d'un esprit revitalisés !",
+    "Splendide ! Sept jours de sommeil réparateur sont une réalisation remarquable. Continuez ainsi et continuez à prendre bien soin de vous pour maintenir cette tendance positive !"
   ],
   "profileSleepScoreMessage7-": [
-    "Une semaine de scores bas peut être un défi, mais c'est aussi une opportunité de faire des changements significatifs. Évaluez votre routine nocturne et recherchez des moyens de prioriser votre repos. Commencez dès aujourd'hui !",
-    "Sept jours avec des scores bas sont un signe que votre corps a besoin de plus d'attention. Envisagez des ajustements significatifs dans votre routine nocturne pour améliorer votre sommeil. Votre bien-être vous en remerciera !",
-    "Maintenir des scores bas pendant une semaine est un appel à l'action. Faites des changements dans votre style de vie et priorisez votre sommeil pour retrouver la voie de la qualité de repos. Nous sommes là pour vous soutenir dans ce changement positif !"
+    "Une semaine de scores bas peut être difficile, mais c'est aussi une occasion de faire des changements significatifs. Évaluez votre routine nocturne et cherchez des moyens de donner la priorité à votre repos. Commencez dès aujourd'hui !",
+    "Sept jours avec des scores bas sont un signe que votre corps a besoin de plus d'attention. Envisagez de faire des ajustements significatifs à votre routine nocturne pour améliorer votre sommeil. Votre bien-être vous en sera reconnaissant !",
+    "Maintenir des scores bas pendant une semaine est un appel à l'action. Faites des changements de mode de vie et donnez la priorité à votre sommeil pour revenir sur le chemin du repos de qualité. Nous sommes là pour vous soutenir dans ce changement positif !",
+    "La constance est la clé, même en période difficile. Utilisez cette expérience comme une occasion de réfléchir et de faire des ajustements positifs à votre routine de sommeil.",
+    "Sept jours de sommeil insatisfaisant peuvent être difficiles, mais rappelez-vous que vous avez le pouvoir de changer vos habitudes et d'améliorer votre bien-être.",
+    "Ne laissez pas une série de mauvais scores de sommeil vous décourager. Utilisez ces jours comme un rappel de l'importance de donner la priorité à votre repos et à votre bien-être. Vous pouvez relever ce défi !"
+  ],
+  "profileSleepScoreMessage8+": [
+    "Huit jours de repos régénérant. Chaque nuit de sommeil profond vous rapproche de votre meilleur moi. Continuez ce voyage vers un bien-être complet !",
+    "Vous avez tissé une couverture de rêves paisibles pendant toute une semaine. Chaque fil est un rappel du pouvoir transformateur du repos. Continuez à tisser pour un avenir plus lumineux !",
+    "Félicitations pour huit jours de sommeil réparateur. Chaque réveil est une occasion d'embrasser une énergie renouvelée et une clarté mentale. Continuez à récolter les fruits d'un repos bien mérité !",
+    "Huit jours de sommeil comme une douce étreinte pour votre âme fatiguée. Chaque nuit est une promesse de renouveau et de force pour affronter de nouveaux défis. Que cette série positive continue de vous guider vers l'accomplissement !",
+    "Vous écrivez une histoire de repos et de renouveau qui mérite d'être racontée. Chaque chapitre de sommeil profond est un hommage à votre engagement envers le bien-être. Continuez à écrire vers un avenir plein de vitalité et de joie !",
+    "Huit jours de sommeil réparateur sont un témoignage de votre dévouement à l'autosoins. Chaque nuit bien dormie est un investissement dans votre santé physique et mentale. Continuez à être l'architecte de votre bien-être !"
+  ],
+  "profileSleepScoreMessage8-": [
+    "Huit jours de défis dans le royaume du sommeil. Chaque nuit est une opportunité d'apprendre, de s'adapter et de s'engager pour un repos plus sain. La transformation commence par un choix !",
+    "Vous avez navigué à travers huit jours d'eaux tumultueuses dans l'océan du sommeil. Chaque réveil est une invitation à réfléchir sur vos habitudes et vos priorités. Ayez confiance en votre capacité à trouver le calme au milieu de la tempête !",
+    "Huit jours de sommeil insatisfaisant peuvent sembler une montagne insurmontable, mais chaque pas vous rapproche du sommet. N'oubliez pas, la persistance est la clé qui ouvre les portes du changement !",
+    "Chaque nuit agitée de sommeil pendant huit jours est un signal d'alarme du corps et de l'esprit. Écoutez avec compassion et ouvrez votre cœur à l'autosoins et à l'exploration de nouvelles pratiques de repos. Votre bien-être mérite votre attention !",
+    "Huit jours de défis sur le front du sommeil peuvent être épuisants, mais ils sont aussi un rappel de votre résilience et de votre force intérieure. Continuez à avancer avec courage et confiance en vous !",
+    "Chaque nuit difficile de sommeil pendant huit jours est une opportunité de cultiver la compassion et la compréhension envers vous-même. Embrassez votre humanité et laissez chaque expérience vous guider vers un sommeil plus réparateur et une vie plus épanouie."
+  ],
+  "profileSleepScoreMessage9+": [
+    "Neuf jours de sommeil réparateur sont comme les briques d'une maison paisible et sereine. Chaque nuit bien dormie est un pilier pour votre bien-être.",
+    "Pendant neuf jours, votre oreiller a été témoin de vos rêves les plus doux et les plus réparateurs. Continuez ainsi et construisez un refuge de repos et de rajeunissement.",
+    "Chaque aube après neuf nuits de sommeil profond est une invitation à embrasser une énergie renouvelée et une clarté mentale. Maintenez cette série et atteignez de nouveaux sommets.",
+    "Neuf jours de repos vous ont emmené dans un voyage de découverte de soi et de renouveau. Suivez ce chemin et découvrez la magie du sommeil réparateur.",
+    "Félicitations pour neuf jours de sommeil réparateur. Chaque nuit bien dormie est un hommage à votre engagement pour la santé et le bien-être.",
+    "Pendant neuf jours, vous avez honoré le repos comme une partie essentielle de votre vie. Continuez ainsi et récoltez les fruits d'un esprit et d'un corps revitalisés."
+  ],
+  "profileSleepScoreMessage9-": [
+    "Neuf jours difficiles de sommeil peuvent sembler écrasants, mais chaque nuit est une nouvelle opportunité d'apprendre et de grandir.",
+    "Maintenir une série de neuf jours difficiles peut être épuisant, mais rappelez-vous que chaque obstacle est une opportunité de vous renforcer.",
+    "Pendant neuf jours, vous avez fait face à des défis dans votre repos, mais chaque nuit est également une opportunité de recalibrer et d'améliorer.",
+    "Neuf jours de sommeil insatisfaisant peuvent être décourageants, mais chaque aube apporte la promesse d'un nouveau départ.",
+    "Affronter neuf jours de défis dans le sommeil est un témoignage de votre résilience et de votre force intérieure. Continuez à avancer avec détermination et confiance en vous-même.",
+    "Ne baissez pas les bras, continuez à chercher de nouvelles façons d'améliorer votre repos !"
+  ],
+  "profileSleepScoreMessage10+": [
+    "Dix jours de sommeil réparateur témoignent de ton engagement envers le bien-être. Continue ainsi et continue de donner la priorité à ton repos et à ta santé.",
+    "Pendant dix jours, tu as maintenu une série de sommeils réparateurs. Chaque nuit bien dormie est un cadeau qui te rapproche d'une vie équilibrée.",
+    "Dix jours de sommeil réparateur sont comme un doux murmure de la nature, te rappelant l'importance de prendre soin de toi. Continue ainsi et trouve l'harmonie dans chaque nuit.",
+    "Félicitations pour dix jours de sommeil réparateur. Chaque nuit est un rappel de ton engagement envers une vie pleine d'énergie et de vitalité.",
+    "Dix jours de sommeil profond et réparateur sont comme une étreinte réconfortante pour ton corps et ton esprit. Continue ainsi et ressens la plénitude de chaque jour.",
+    "Pendant dix jours, tu as nourri ton corps et ton esprit avec un sommeil réparateur. Suis ce chemin et trouve la paix et la sérénité dans chaque nuit."
+  ],
+  "profileSleepScoreMessage10-": [
+    "Dix jours de mauvais sommeil peuvent être difficiles, mais chaque nuit est une occasion de trouver de nouvelles façons d'améliorer ton repos.",
+    "Maintenir une série de dix jours difficiles peut être épuisant, mais rappelle-toi que chaque jour est une occasion d'apprendre et de grandir.",
+    "Pendant dix jours, tu as fait face à des défis dans ton repos, mais chaque nuit est aussi une occasion de recalibrer et d'améliorer.",
+    "Dix jours de sommeil insatisfaisant peuvent être décourageants, mais chaque aube apporte la promesse d'un nouveau départ.",
+    "Affronter dix jours de défis dans le sommeil est un témoignage de ta résilience et de ta force intérieure. Avance avec détermination et confiance en toi-même.",
+    "Ne laisse pas une mauvaise série te décourager. Utilise ces jours comme un rappel de l'importance de prioriser ton repos et ton bien-être. Tu peux surmonter ce défi !"
+  ],
+  "profileSleepScoreMessageTwoWeeks+": [
+    "Deux semaines de sommeil réparateur sont comme un voyage vers le renouveau total. Chaque nuit bien dormie est un pas de plus vers un bien-être complet.",
+    "Pendant plus de deux semaines, tu as construit un pont vers un sommeil réparateur. Continue à marcher avec détermination et tu trouveras la sérénité à chaque pas.",
+    "Chaque aube après deux semaines de sommeil profond est une invitation à embrasser l'énergie renouvelée et la clarté mentale. Maintiens cette série et atteins de nouveaux sommets.",
+    "Deux semaines de repos t'ont emmené dans un voyage de découverte de soi et de renouveau. Suis ce chemin et découvre la magie du sommeil réparateur.",
+    "Félicitations pour deux semaines de sommeil réparateur. Chaque nuit bien dormie est un hommage à ton engagement envers la santé et le bien-être.",
+    "Pendant deux semaines, tu as honoré le repos comme une partie essentielle de ta vie. Continue ainsi et récolte les fruits d'un esprit et d'un corps revigorés."
+  ],
+  "profileSleepScoreMessageTwoWeeks-": [
+    "Pendant plus de deux semaines, tu as été confronté à des défis pour trouver le repos adéquat. Il est temps de réfléchir à tes habitudes et de faire de petits changements qui te rapprochent d'un sommeil plus réparateur.",
+    "Maintenir une série de deux semaines difficiles peut être épuisant, mais chaque jour t'offre l'opportunité de prendre des décisions plus saines pour ton repos. Concentrons-nous sur la recherche de solutions !",
+    "Pendant deux semaines, tu as eu du mal à bien dormir, mais chaque nuit te donne une nouvelle chance de t'améliorer. Il est temps d'explorer de nouvelles stratégies et habitudes pour t'aider à mieux te reposer.",
+    "Affronter deux semaines de défis dans le sommeil est un rappel de l'importance de prendre soin de ta santé et de ton bien-être. Engage-toi à faire des changements positifs dans ta routine pour améliorer la qualité de ton repos.",
+    "Pendant deux semaines, tu as eu du mal à trouver un sommeil réparateur, mais chaque jour te rapproche de la découverte de ce qui fonctionne le mieux pour toi. Continuons à chercher des solutions et à maintenir une attitude positive face au changement.",
+    "Pendant deux semaines, tu as rencontré des difficultés à dormir, mais chaque défi offre une opportunité d'apprendre et de grandir. Concentrons-nous sur la recherche de moyens efficaces pour améliorer notre repos."
+  ],
+  "profileSleepScoreMessageThreeWeeks+": [
+    "Trois semaines de sommeil réparateur sont comme un hymne à votre bien-être. Chaque nuit bien dormie est une mélodie qui vous conduit vers l'harmonie intérieure.",
+    "Pendant plus de trois semaines, vous avez construit un sanctuaire de rêves réparateurs. Continuez à nourrir cet espace sacré et trouvez la paix dans chaque respiration.",
+    "Chaque réveil après trois semaines de sommeil profond est une célébration de la vie et de la vitalité. Maintenez cette série et laissez votre lumière intérieure briller encore plus.",
+    "Trois semaines de repos vous ont conduit à travers une oasis de découverte de soi et de renouveau. Continuez à explorer ce territoire et découvrez la magie de l'auto-soin.",
+    "Félicitations pour trois semaines de sommeil réparateur. Chaque nuit bien dormie est un hommage à votre engagement pour une vie équilibrée et pleine d'énergie.",
+    "Pendant trois semaines, vous avez cultivé un jardin de repos et de rajeunissement. Continuez à arroser ces graines et regardez-les fleurir dans une vie plus pleine."
+  ],
+  "profileSleepScoreMessageThreeWeeks-": [
+    "Trois semaines de difficultés de sommeil sont un rappel de l'importance de prendre soin de votre santé mentale et physique. Il est temps de prendre des mesures concrètes pour améliorer votre repos et votre bien-être général.",
+    "Maintenir une série de trois semaines difficiles peut être difficile, mais chaque jour vous offre l'opportunité de faire des choix positifs pour votre repos. Engagez-vous à mettre en œuvre des changements qui améliorent la qualité de votre sommeil.",
+    "Pendant trois semaines, vous avez rencontré des difficultés pour vous endormir et bien dormir, mais chaque nuit vous donne l'occasion d'essayer à nouveau. Continuons à explorer de nouvelles stratégies et habitudes pour vous aider à mieux dormir.",
+    "Affronter trois semaines de défis de sommeil est un rappel que vous devez prioriser votre santé et votre bien-être. Prenez le temps d'identifier ce qui affecte votre repos et travaillez sur des solutions efficaces.",
+    "Pendant trois semaines, vous avez eu du mal à trouver un sommeil réparateur, mais chaque jour vous rapproche de trouver des solutions qui fonctionnent pour vous. Gardons une attitude positive et engageons-nous à faire des changements qui améliorent notre qualité de vie.",
+    "Pendant trois semaines, vous avez lutté pour trouver un sommeil réparateur, mais chaque défi offre une opportunité d'apprendre et de grandir. Avançons avec détermination et recherchons activement des moyens d'améliorer notre repos."
+  ],
+  "profileSleepScoreMessageOneMonth+": [
+    "Félicitations ! Un mois complet de sommeil réparateur est une réalisation remarquable. Chaque nuit bien dormie est un cadeau pour votre santé et votre bien-être. Continuez ainsi !",
+    "Un mois d'habitudes de sommeil constamment bonnes mérite d'être célébré. Votre dévouement au repos porte ses fruits, et votre corps et votre esprit vous en remercient. Continuez à prendre soin de vous !",
+    "Pendant tout un mois, vous avez fait preuve d'un engagement admirable envers votre repos. Chaque nuit de sommeil réparateur est un pas vers une vie plus équilibrée et épanouie. Continuez ainsi, champion du sommeil !",
+    "Un mois entier de bon repos est un témoignage de votre détermination et de votre auto-soin. Chaque nuit de sommeil réparateur est un investissement dans votre santé et votre bonheur à long terme. Continuez sur cette lancée !",
+    "Un mois complet de sommeil de qualité mérite des applaudissements ! Votre dévouement à votre bien-être se reflète dans chaque nuit de repos. Continuez à prendre soin de vous et à prioriser votre santé.",
+    "Pendant un mois, vous avez montré que le bon repos est une priorité. Chaque nuit bien dormie est un pas vers une vie plus saine et vibrante. Continuez ainsi, maintenez le bon travail !"
+  ],
+  "profileSleepScoreMessageOneMonth-": [
+    "Un mois de difficultés de sommeil peut être difficile, mais chaque jour nous donne l'occasion de réfléchir et d'améliorer nos habitudes de sommeil. Il est temps de prendre des mesures pour prendre soin de votre bien-être !",
+    "Pendant tout un mois, vous avez fait face à des obstacles dans votre repos, mais chaque nuit est également une opportunité d'apprendre et d'ajuster votre approche. Vous êtes sur la voie d'un meilleur sommeil !",
+    "Un mois de résultats négatifs en matière de sommeil est un signe qu'il est temps de prêter attention à votre bien-être. Avec détermination et engagement, vous pouvez mettre en œuvre des changements pour vous aider à mieux dormir.",
+    "Pendant un mois, vous avez fait face à des défis dans votre repos, mais chaque nuit est également une occasion de se renouveler et de se recharger. Ne vous découragez pas, vous êtes sur la voie d'un sommeil plus réparateur !",
+    "Un mois de difficultés de sommeil peut être épuisant, mais c'est aussi une opportunité d'explorer de nouvelles stratégies et habitudes pour vous aider à mieux dormir. Continuez sur cette lancée !",
+    "Pendant un mois, vous avez fait face à des obstacles dans votre sommeil, mais chaque nuit est également une occasion de se renouveler et de se recharger. Ne baissez pas les bras, vous êtes sur la voie d'un meilleur repos !"
+  ],
+  "profileSleepScoreMessageDefault+": [
+    "Tu continues à briller par ton engagement pour un sommeil sain ! Chaque nuit bien reposée est un pas vers une vie plus équilibrée et épanouissante. Continue comme ça !",
+    "Ton dévouement au repos porte ses fruits et ton bien-être le reflète. Chaque nuit de sommeil réparateur est un investissement pour ta santé et ton bonheur à long terme. Continue à prendre soin de toi !",
+    "Poursuivre une série positive dans le sommeil démontre ton engagement pour ton bien-être. Chaque nuit de repos adéquat est un rappel de ton engagement pour l'auto-soin. Continue ainsi avec force !",
+    "Maintenir une série positive dans le sommeil est un témoignage de ta détermination et discipline. Chaque nuit bien dormie est un pas vers une vie plus saine et équilibrée. Continue ainsi, champion du sommeil !",
+    "Nous célébrons ta persistance à maintenir une série positive dans le sommeil. Chaque nuit de repos restaurateur est un accomplissement qui te rapproche d'une meilleure qualité de vie. Continue à prioriser ton bien-être !",
+    "Ton engagement pour un sommeil de qualité est admirable et mérite d'être célébré. Chaque nuit de bon repos est un pas vers une version plus saine et heureuse de toi-même. Continue ainsi, il n'y a pas de limites à ton bien-être !"
+  ],
+  "profileSleepScoreMessageDefault-": [
+    "Même si tu fais face à des défis dans ton sommeil, ta détermination à t'améliorer est inspirante. Chaque nuit est une opportunité pour apprendre et ajuster ton focus vers un sommeil plus réparateur. Ne te décourage pas !",
+    "Continuer une série négative dans le sommeil peut être difficile, mais chaque jour nous offre la chance de réfléchir et améliorer nos habitudes. Tu es sur la voie d'un sommeil plus sain !",
+    "Malgré les obstacles dans ton repos, ta détermination à trouver des solutions est admirable. À chaque nuit, tu te rapproches de découvrir ce qui fonctionne le mieux pour toi. Ne abandonne pas !",
+    "Ta persistance au milieu d'une série négative dans le sommeil montre ton engagement pour ton bien-être. Chaque nuit est une opportunité pour se renouveler et recharger les batteries. Continue avec détermination !",
+    "Même si tu fais face à des difficultés pour dormir, chaque nuit est aussi une opportunité pour explorer de nouvelles stratégies et habitudes. Ta détermination à améliorer ton repos est le premier pas vers une meilleure qualité de vie. Continue !",
+    "Nous célébrons ton courage et ta détermination à affronter les défis dans ton sommeil. Chaque nuit est une opportunité pour apprendre et grandir, et chaque pas te rapproche d'un sommeil réparateur. Ne perd pas espoir !"
   ],
   "IrreversibleAction": "Cette action est irréversible",
   "sleepScoreChartTotalRecovery": "Total de récupération",
@@ -412,6 +596,8 @@
   "movementsChartTurns": "Tours/Nuit",
   "sleepTimeChartAwake": "Éveillé",
   "sleepTimeChartSleep": "Dormant",
+  "sleepTimeChartAwakeHS": "Éveillé (hs)",
+  "sleepTimeChartSleepHS": "Dormant (hs)",
   "sleepArcChartLight": "Léger",
   "sleepArcChartDeep": "Profond",
   "sleepArcChartTitle": "Architecture du sommeil"

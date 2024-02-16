@@ -365,42 +365,226 @@
   "profileSleepScoreMessage1+": [
     "¡Felicidades por tu puntuación de sueño! Tu dedicación al descanso se refleja en tu bienestar. ¡Sigue así!",
     "¡Increíble! Lograste una puntuación de sueño óptima hoy. Tu cuerpo y mente te agradecen. ¡Duerme bien y despierta recargado!",
-    "Hoy demostraste que priorizar el sueño es clave para tu rendimiento. ¡Bravo por alcanzar una puntuación de *sleep_score*! Continúa cuidando tu descanso."
+    "Hoy demostraste que priorizar el sueño es clave para tu rendimiento. ¡Bravo por alcanzar una puntuación de *sleep_score*! Continúa cuidando tu descanso.",
+    "¡Excelente inicio! Tu puntaje de sueño ha sido sobresaliente hoy. ¡Sigue así y asegúrate de mantener este impulso!",
+    "¡Fantástico comienzo! Lograr un alto puntaje de sueño en sólo un día es un logro digno de celebración. ¡Continúa así y verás grandes mejoras en tu bienestar!",
+    "Un día completo de sueño óptimo es un excelente comienzo. ¡Sigue así y construye sobre este éxito para una mejor calidad de vida!"
   ],
   "profileSleepScoreMessage1-": [
     "No te desanimes por un puntaje bajo hoy. Cada día es una nueva oportunidad para mejorar. Reflexiona sobre lo que podría haber afectado tu sueño y da un paso hacia un descanso más reparador mañana. ¡Tú puedes hacerlo!",
     "Sabemos que hoy no fue el mejor día en cuanto a sueño, pero cada día es una nueva oportunidad para mejorar. Considera pequeños cambios en tu rutina nocturna y prepárate para una mejor noche. ¡Ánimo!",
-    "El puntaje de hoy no fue el ideal, pero no te preocupes. Aprende de hoy y trabaja hacia un sueño más reparador mañana. ¡Pequeños cambios pueden marcar la diferencia!"
+    "El puntaje de hoy no fue el ideal, pero no te preocupes. Aprende de hoy y trabaja hacia un sueño más reparador mañana. ¡Pequeños cambios pueden marcar la diferencia!",
+    "Un resultado bajo no define tu capacidad para descansar bien. Aprende de esta experiencia y busca formas de mejorar tu calidad de sueño.",
+    "La calidad del sueño puede variar día a día. Toma este resultado como una señal de que aún hay espacio para mejorar tus hábitos de descanso.",
+    "No dejes que un puntaje bajo de sueño te desanime. Utiliza esta oportunidad para explorar nuevas estrategias que te ayuden a dormir mejor en el futuro."
+  ],
+  "profileSleepScoreMessage2+": [
+    "¡Doble victoria! Dos días seguidos con buen puntaje de sueño muestran tu compromiso con un descanso saludable. ¡Sigue así y mantén esta excelente racha!",
+    "¡Dos días impecables! Tu persistencia en mantener un buen descanso es admirable. ¡Sigue así y disfruta de los beneficios continuos del sueño reparador!",
+    "¡Doble logro! Mantener dos días consecutivos de sueño de calidad es un gran paso hacia una vida más equilibrada. ¡Sigue así y prioriza tu bienestar!",
+    "¡Dos días fenomenales! Tu dedicación al buen sueño es evidente. ¡Sigue así y continúa cuidándote bien para mantener esta racha positiva!",
+    "¡Fantástico trabajo! Dos días seguidos con buen puntaje de sueño son un logro digno de celebración. ¡Sigue así y experimenta la diferencia en tu bienestar general!",
+    "¡Excelente racha! Mantener dos días seguidos de sueño óptimo es un gran logro. ¡Sigue así y continúa priorizando tu salud y bienestar!"
+  ],
+  "profileSleepScoreMessage2-": [
+    "No te desanimes por esta racha negativa. Usa estos resultados como motivación para identificar áreas de mejora en tu rutina de descanso.",
+    "Dos días consecutivos con bajos puntajes de sueño pueden ser desafiantes, pero recuerda que cada día es una nueva oportunidad para mejorar.",
+    "A veces, las malas noches de sueño son temporales. Utiliza estos resultados como una oportunidad para ajustar tu rutina y buscar formas de descansar mejor.",
+    "Dos días seguidos con puntajes de sueño bajos pueden ser difíciles, pero no permitas que te desanimen. Busca nuevas estrategias para mejorar tu calidad de sueño.",
+    "La calidad del sueño puede variar día a día. Toma estos resultados como una señal de que es importante priorizar tu descanso y bienestar.",
+    "No dejes que una racha de malos puntajes de sueño te desmotive. Utiliza esta experiencia como una oportunidad para explorar nuevas formas de mejorar tu descanso."
   ],
   "profileSleepScoreMessage3+": [
     "¡Triple racha! Has mantenido una puntuación de sueño de 80 o más durante 3 días. ¡Estás construyendo hábitos saludables! Sigue así, ¡tu cuerpo te lo agradecerá!",
     "¡Increíble consistencia! Tres días seguidos con un sueño óptimo. Estás en el camino correcto para un bienestar duradero. ¡Sigue durmiendo bien!",
-    "¡Felicidades, tres días consecutivos con una puntuación de sueño excelente! Eres un campeón del descanso. ¡Sigue así y notarás la diferencia!"
+    "¡Felicidades, tres días consecutivos con una puntuación de sueño excelente! Eres un campeón del descanso. ¡Sigue así y notarás la diferencia!",
+    "¡Tres días fenomenales! Tu persistencia en mantener un buen descanso es impresionante. ¡Sigue así y continúa priorizando tu salud y bienestar!",
+    "¡Triple victoria! Tres días seguidos con buen puntaje de sueño muestran tu compromiso con una rutina de descanso saludable. ¡Sigue así y disfruta de los beneficios continuos!",
+    "¡Excelente racha! Mantener tres días seguidos de sueño de calidad es un logro notable. ¡Sigue así y continúa cuidándote bien para mantener esta positiva tendencia!"
   ],
   "profileSleepScoreMessage3-": [
     "Tres días con puntajes bajos pueden ser desafiantes, pero cada día es una oportunidad para cambiar. Reflexiona sobre tu rutina nocturna y haz pequeños ajustes para un mejor descanso. ¡Estás en el camino hacia la mejora!",
     "Es normal tener rachas difíciles. Tres días seguidos con puntajes bajos pueden ser un llamado a la acción. Considera ajustes en tu rutina y toma medidas para mejorar tu calidad de sueño. ¡Tú puedes hacerlo!",
-    "Mantener bajos los puntajes durante tres días seguidos es una señal para hacer cambios. Analiza qué podría estar afectando tu sueño y toma medidas para mejorar. ¡Estás en control de tus hábitos!"
+    "Mantener bajos los puntajes durante tres días seguidos es una señal para hacer cambios. Analiza qué podría estar afectando tu sueño y toma medidas para mejorar. ¡Estás en control de tus hábitos!",
+    "Tres días seguidos con bajos puntajes de sueño pueden ser difíciles, pero no pierdas la esperanza. Busca nuevas estrategias y hábitos que puedan mejorar tu calidad de sueño.",
+    "La calidad del sueño puede fluctuar día a día. Toma estos resultados como una señal de que es importante prestar atención a tu bienestar y buscar formas de mejorar tu descanso.",
+    "No permitas que una racha de malos puntajes de sueño te desanime. Utiliza esta experiencia como una oportunidad para aprender y explorar nuevas formas de priorizar tu descanso y salud."
+  ],
+  "profileSleepScoreMessage4+": [
+    "¡Cuádruple logro! Cuatro días seguidos con buen puntaje de sueño muestran tu compromiso con un descanso saludable. ¡Sigue así y mantén esta excelente racha!",
+    "¡Cuatro días impecables! Tu dedicación al buen sueño es digna de admiración. ¡Sigue así y disfruta de los beneficios continuos del sueño reparador!",
+    "¡Cuatro días fenomenales! Mantener esta racha de buen sueño es un gran paso hacia una vida más equilibrada. ¡Sigue así y prioriza tu bienestar!",
+    "¡Cuádruple victoria! Cuatro días seguidos con buen puntaje de sueño son una muestra de tu compromiso con un descanso adecuado. ¡Sigue así y mantén esta increíble tendencia!",
+    "¡Fantástico trabajo! Cuatro días seguidos con buen puntaje de sueño son un logro digno de celebración. ¡Sigue así y experimenta la diferencia en tu bienestar general!",
+    "¡Cuatro días excepcionales! Tu consistencia en mantener un buen descanso es impresionante. ¡Sigue así y continúa cuidándote bien para mantener esta racha positiva!"
+  ],
+  "profileSleepScoreMessage4-": [
+    "Mantener una racha de cuatro días con bajos puntajes de sueño puede ser desafiante, pero recuerda que siempre hay oportunidades para mejorar tu descanso.",
+    "No te desanimes por esta racha negativa. Utiliza estos resultados como una motivación para identificar áreas de mejora en tu rutina de sueño y bienestar.",
+    "A veces, atravesar un período de malos puntajes de sueño es temporal. Toma estos resultados como una oportunidad para ajustar tu rutina y encontrar formas de descansar mejor.",
+    "Cuatro días seguidos con bajos puntajes de sueño pueden ser difíciles, pero no pierdas la esperanza. Busca nuevas estrategias y hábitos que puedan mejorar tu calidad de sueño.",
+    "La calidad del sueño puede fluctuar día a día. Toma estos resultados como una señal de que es importante prestar atención a tu bienestar y buscar formas de mejorar tu descanso.",
+    "No permitas que una racha de malos puntajes de sueño te desanime. Utiliza esta experiencia como una oportunidad para aprender y explorar nuevas formas de priorizar tu descanso y salud."
   ],
   "profileSleepScoreMessage5+": [
     "¡Bravo! Has alcanzado un puntaje de sueño excelente durante cinco días seguidos. Tu compromiso con el descanso está dando resultados tangibles. ¡Sigue así y notarás la diferencia en tu bienestar general!",
     "Cinco días consecutivos con puntajes de sueño envidiables. Estás construyendo un sólido fundamento para tu salud y energía. ¡Continúa priorizando tu sueño y cosecharás los beneficios a largo plazo!",
-    "¡Increíble racha! Durante cinco días, tu sueño ha sido consistente y reparador. Tu cuerpo y mente te agradecen. ¡Sigue cuidándote y disfrutando de noches revitalizantes!"
+    "¡Increíble racha! Durante cinco días, tu sueño ha sido consistente y reparador. Tu cuerpo y mente te agradecen. ¡Sigue cuidándote y disfrutando de noches revitalizantes!",
+    "¡Cinco días de sueño de calidad! Has creado un patrón que merece celebración. Continúa así y observa cómo tu energía y enfoque aumentan.",
+    "Cinco días de descanso rejuvenecedor. Tu consistencia es clave para un estilo de vida equilibrado. ¡Sigue así y disfruta de tu bienestar merecido!",
+    "¡Increíble! Cinco días de sueño reparador son un logro para estar orgulloso. ¡Sigue así y continúa priorizando tu salud y felicidad!"
   ],
   "profileSleepScoreMessage5-": [
     "Mantener bajos los puntajes durante cinco días seguidos es una señal de alerta. Reflexiona sobre los factores que podrían estar afectando tu sueño y considera hacer ajustes en tu rutina nocturna.",
     "Cinco días con puntajes de sueño bajos son un recordatorio de la importancia de priorizar el descanso. Evalúa posibles cambios en tu entorno y hábitos para mejorar la calidad del sueño.",
-    "Mantener una racha de puntajes bajos durante cinco días puede afectar tu bienestar. Considera explorar nuevas estrategias para garantizar un sueño más reparador."
+    "Mantener una racha de puntajes bajos durante cinco días puede afectar tu bienestar. Considera explorar nuevas estrategias para garantizar un sueño más reparador.",
+    "Cinco días de sueño insatisfactorio pueden ser agotadores, pero no pierdas la esperanza. Busca nuevas estrategias para mejorar tu calidad de sueño.",
+    "La calidad del sueño puede variar, pero tu compromiso con tu bienestar no debe vacilar. Utiliza esta experiencia como una oportunidad para reflexionar y mejorar.",
+    "No permitas que una racha de malos puntajes de sueño te desanime. Utiliza estos días como motivación para priorizar tu descanso y bienestar. ¡Tú puedes mejorar tu calidad de sueño!"
+  ],
+  "profileSleepScoreMessage6+": [
+    "Seis días de descanso reparador. Tu compromiso con tu bienestar es admirable. ¡Sigue así y mantén esta vibrante energía!",
+    "Manteniendo una racha de seis días de sueño rejuvenecedor. Tu dedicación a tu salud merece aplausos. ¡Sigue así y disfruta de un cuerpo y mente revitalizados!",
+    "Seis días consecutivos de sueños dulces. Tu consistencia es la clave de tu bienestar. ¡Sigue así y experimenta la diferencia en tu calidad de vida!",
+    "¡Seis días de sueño consistente! Has establecido una rutina que merece celebración. Continúa así y observa cómo tu bienestar general mejora.",
+    "Seis días de descanso renovador. Tu dedicación a tu descanso es digna de elogio. ¡Sigue así y mantén tu compromiso con un sueño saludable!",
+    "¡Increíble! Seis días de sueño reparador son un logro para celebrar. ¡Sigue así y prioriza tu salud y felicidad diaria!"
+  ],
+  "profileSleepScoreMessage6-": [
+    "Seis días desafiantes. Utiliza esta racha como motivación para implementar cambios positivos en tu rutina de sueño. ¡Cada día es una nueva oportunidad para mejorar!",
+    "Mantener una racha de seis días difíciles puede ser agotador, pero recuerda que cada desafío es una oportunidad de crecimiento y cambio.",
+    "Seis días seguidos con bajos puntajes de sueño pueden ser desalentadores, pero no pierdas la esperanza. Busca nuevas estrategias para mejorar tu calidad de sueño.",
+    "La consistencia es clave, incluso en los momentos difíciles. Utiliza esta experiencia como una oportunidad para reflexionar y hacer ajustes positivos en tu rutina de sueño.",
+    "Seis días de sueño insatisfactorio pueden ser difíciles, pero recuerda que tienes el poder de cambiar tus hábitos y mejorar tu bienestar.",
+    "No permitas que una racha de malos puntajes de sueño te desanime. Utiliza estos días como un recordatorio de la importancia de priorizar tu descanso y bienestar. ¡Tú puedes superar este desafío!"
   ],
   "profileSleepScoreMessage7+": [
     "¡Semana completa de sueño de calidad! Alcanzar una puntuación de 80 o más durante 7 días seguidos es un logro impresionante. Tu cuerpo y mente están en modo óptimo. ¡Continúa cuidándote!",
     "¡Increíble hito! Has mantenido una puntuación de sueño de 80 o más durante toda una semana. Esto es un testimonio de tu compromiso con tu bienestar. ¡Sigue así y conquista cada día!",
-    "¡Has alcanzado una semana completa de sueño óptimo! Tu dedicación al descanso está dando frutos. Sigue cuidando tu sueño y disfruta de los beneficios continuos. ¡Eres un campeón del sueño!"
+    "¡Has alcanzado una semana completa de sueño óptimo! Tu dedicación al descanso está dando frutos. Sigue cuidando tu sueño y disfruta de los beneficios continuos. ¡Eres un campeón del sueño!",
+    "¡Una semana completa de sueño de calidad! Has demostrado que puedes mantener una rutina saludable. ¡Sigue así y observa cómo tu bienestar general mejora!",
+    "Siete días de descanso renovador. Tu dedicación a tu descanso es digna de admiración. ¡Sigue así y disfruta de un cuerpo y mente revitalizados!",
+    "¡Espléndido! Siete días de sueño reparador son un logro notable. ¡Sigue así y continúa cuidándote bien para mantener esta positiva tendencia!"
   ],
   "profileSleepScoreMessage7-": [
     "Una semana de bajos puntajes puede ser un desafío, pero también es una oportunidad para hacer cambios significativos. Evalúa tu rutina nocturna y busca maneras de priorizar tu descanso. ¡Empieza hoy mismo!",
     "Siete días con puntajes bajos son una señal de que tu cuerpo necesita más atención. Considera hacer ajustes significativos en tu rutina nocturna para mejorar tu sueño. ¡Tu bienestar lo agradecerá!",
-    "Mantener bajos los puntajes durante una semana es una llamada a la acción. Haz cambios en tu estilo de vida y prioriza tu sueño para volver al camino de la calidad de descanso. ¡Estamos aquí para apoyarte en este cambio positivo!"
+    "Mantener bajos los puntajes durante una semana es una llamada a la acción. Haz cambios en tu estilo de vida y prioriza tu sueño para volver al camino de la calidad de descanso. ¡Estamos aquí para apoyarte en este cambio positivo!",
+    "La consistencia es clave, incluso en los momentos difíciles. Utiliza esta experiencia como una oportunidad para reflexionar y hacer ajustes positivos en tu rutina de sueño.",
+    "Siete días de sueño insatisfactorio pueden ser difíciles, pero recuerda que tienes el poder de cambiar tus hábitos y mejorar tu bienestar.",
+    "No permitas que una racha de malos puntajes de sueño te desanime. Utiliza estos días como un recordatorio de la importancia de priorizar tu descanso y bienestar. ¡Tú puedes superar este desafío!"
+  ],
+  "profileSleepScoreMessage8+": [
+    "Ocho días de descanso regenerador. Cada noche de sueño profundo te lleva más cerca de tu mejor versión. ¡Continúa este viaje hacia el bienestar pleno!",
+    "Has tejido una manta de sueños reparadores durante toda una semana. Cada hilo es un recordatorio del poder transformador del descanso. ¡Sigue tejiendo para un mañana más brillante!",
+    "Enhorabuena por ocho días de sueño restaurador. Cada despertar es una oportunidad para abrazar la energía renovada y la claridad mental. ¡Sigue cosechando los frutos de un descanso bien merecido!",
+    "Ocho días de sueño como un suave abrazo para tu alma fatigada. Cada noche es una promesa de renovación y fuerza para enfrentar nuevos desafíos. ¡Que esta racha positiva siga guiándote hacia la plenitud!",
+    "Estás escribiendo una historia de descanso y renovación que merece ser contada. Cada capítulo de sueño profundo es un tributo a tu compromiso con el bienestar. ¡Sigue escribiendo hacia un futuro lleno de vitalidad y alegría!",
+    "Ocho días de sueño reparador son un testimonio de tu dedicación al cuidado propio. Cada noche bien dormida es una inversión en tu salud física y mental. ¡Sigue siendo el arquitecto de tu bienestar!"
+  ],
+  "profileSleepScoreMessage8-": [
+    "Ocho días de desafíos en el reino del sueño. Cada noche es una oportunidad para aprender, ajustar y comprometerse con un descanso más saludable. ¡La transformación comienza con una elección!",
+    "Has navegado por ocho días de aguas turbulentas en el océano del sueño. Cada despertar es una invitación a reflexionar sobre tus hábitos y prioridades. ¡Confía en que puedes encontrar la calma en medio de la tormenta!",
+    "Ocho días de sueño insatisfactorio pueden parecer una montaña insuperable, pero cada paso es un paso más cerca de la cima. ¡Recuerda que la persistencia es la llave que abre las puertas del cambio!",
+    "Cada noche de sueño inquieto durante ocho días es una llamada de atención del cuerpo y la mente. Escucha con compasión y abre tu corazón al autocuidado y la exploración de nuevas prácticas de descanso. ¡Tu bienestar merece tu atención!",
+    "Ocho días de desafíos en el frente del sueño pueden ser agotadores, pero también son un recordatorio de tu resiliencia y fuerza interior. ¡Sigue adelante con valentía y confianza en ti mismo!",
+    "Cada noche de sueño difícil durante ocho días es una oportunidad para cultivar la compasión y la comprensión hacia ti mismo. Abraza tu humanidad y permite que cada experiencia te guíe hacia un sueño más reparador y una vida más plena."
+  ],
+  "profileSleepScoreMessage9+": [
+    "Nueve días de sueño reparador son como los ladrillos de un hogar tranquilo y sereno. Cada noche bien dormida es un pilar para tu bienestar.",
+    "Durante nueve días, tu almohada ha sido testigo de tus sueños más dulces y reparadores. Sigue así y construye un refugio de descanso y rejuvenecimiento.",
+    "Cada amanecer después de nueve noches de sueño profundo es una invitación a abrazar la energía renovada y la claridad mental. Mantén esta racha y alcanza nuevas alturas.",
+    "Nueve días de descanso te han llevado a través de un viaje de autodescubrimiento y renovación. Sigue este camino y descubre la magia del sueño reparador.",
+    "Enhorabuena por nueve días de sueño reparador. Cada noche bien dormida es un tributo a tu compromiso con la salud y el bienestar.",
+    "Durante nueve días, has honrado el descanso como una parte esencial de tu vida. Sigue así y cosecha los frutos de una mente y un cuerpo revitalizados."
+  ],
+  "profileSleepScoreMessage9-": [
+    "Nueve días desafiantes de sueño pueden parecer abrumadores, pero cada noche es una nueva oportunidad para aprender y crecer.",
+    "Mantener una racha de nueve días difíciles puede ser agotador, pero recuerda que cada obstáculo es una oportunidad para fortalecerte.",
+    "Durante nueve días, has enfrentado desafíos en tu descanso, pero cada noche también es una oportunidad para recalibrar y mejorar.",
+    "Nueve días de sueño insatisfactorio pueden ser desalentadores, pero cada amanecer trae consigo la promesa de un nuevo comienzo.",
+    "Enfrentar nueve días de desafíos en el sueño es un testimonio de tu resiliencia y fuerza interior. Sigue adelante con determinación y confianza en ti mismo.",
+    "No decaigas, sigue buscando nuevas formas de mejorar tu descanso!"
+  ],
+  "profileSleepScoreMessage10+": [
+    "Diez días de sueño reparador son un testimonio de tu dedicación al bienestar. Sigue así y continúa priorizando tu descanso y tu salud.",
+    "Durante diez días, has mantenido una racha de sueño restaurador. Cada noche bien dormida es un regalo que te acerca más a una vida equilibrada.",
+    "Diez días de sueño reparador son como un suave susurro de la naturaleza, recordándote la importancia de cuidarte bien. Sigue así y encuentra la armonía en cada noche.",
+    "Enhorabuena por diez días de sueño reparador. Cada noche es un recordatorio de tu compromiso con una vida llena de energía y vitalidad.",
+    "Diez días de sueño profundo y reparador son como un abrazo reconfortante para tu cuerpo y tu mente. Sigue así y experimenta la plenitud de cada día.",
+    "Durante diez días, has nutrido tu cuerpo y tu mente con un sueño reparador. Sigue este camino y encuentra la paz y la serenidad en cada noche."
+  ],
+  "profileSleepScoreMessage10-": [
+    "Diez días durmiendo mal pueden ser difíciles, pero cada noche es una oportunidad para encontrar nuevas formas de mejorar tu descanso.",
+    "Mantener una racha de diez días difíciles puede ser agotador, pero recuerda que cada día es una oportunidad para aprender y crecer.",
+    "Durante diez días, has enfrentado desafíos en tu descanso, pero cada noche también es una oportunidad para recalibrar y mejorar.",
+    "Diez días de sueño insatisfactorio pueden ser desalentadores, pero cada amanecer trae consigo la promesa de un nuevo comienzo.",
+    "Enfrentar diez días de desafíos en el sueño es un testimonio de tu resiliencia y fuerza interior. Sigue adelante con determinación y confianza en ti mismo.",
+    "No permitas que una mala racha te desanime. Utiliza estos días como un recordatorio de la importancia de priorizar tu descanso y bienestar. ¡Tú puedes superar este desafío!"
+  ],
+  "profileSleepScoreMessageTwoWeeks+": [
+    "Dos semanas de sueño reparador son como un viaje hacia la renovación total. Cada noche bien dormida es un paso más hacia un bienestar completo.",
+    "Durante dos semanas, has construido un puente hacia el descanso reparador. Sigue caminando con determinación y encontrarás la serenidad en cada paso.",
+    "Cada amanecer después de dos semanas de sueño profundo es una invitación a abrazar la energía renovada y la claridad mental. Mantén esta racha y alcanza nuevas alturas.",
+    "Dos semanas de descanso te han llevado a través de un viaje de autodescubrimiento y renovación. Sigue este camino y descubre la magia del sueño reparador.",
+    "Enhorabuena por dos semanas de sueño reparador. Cada noche bien dormida es un tributo a tu compromiso con la salud y el bienestar.",
+    "Durante dos semanas, has honrado el descanso como una parte esencial de tu vida. Sigue así y cosecha los frutos de una mente y un cuerpo revitalizados."
+  ],
+  "profileSleepScoreMessageTwoWeeks-": [
+    "Durante dos semanas, has enfrentado desafíos para encontrar el descanso adecuado. Es momento de reflexionar sobre tus hábitos y hacer pequeños cambios que te acerquen a un sueño más reparador.",
+    "Mantener una racha de dos semanas difíciles puede ser agotador, pero cada día te ofrece la oportunidad de tomar decisiones más saludables para tu descanso. ¡Vamos a enfocarnos en encontrar soluciones!",
+    "Durante dos semanas, has tenido dificultades para dormir bien, pero cada noche te brinda una nueva oportunidad para mejorar. Es hora de explorar nuevas estrategias y hábitos que te ayuden a descansar mejor.",
+    "Enfrentar dos semanas de desafíos en el sueño es un recordatorio de la importancia de cuidar tu salud y bienestar. Comprométete a hacer cambios positivos en tu rutina para mejorar la calidad de tu descanso.",
+    "Durante dos semanas, has luchado por encontrar un sueño reparador, pero cada día te acerca más a descubrir qué funciona mejor para ti. Sigamos buscando soluciones y mantengamos una actitud positiva hacia el cambio.",
+    "Durante dos semanas, has experimentado dificultades para dormir, pero cada desafío te brinda la oportunidad de aprender y crecer. Mantengámonos enfocados en encontrar formas efectivas de mejorar nuestro descanso."
+  ],
+  "profileSleepScoreMessageThreeWeeks+": [
+    "Tres semanas de sueño reparador son como un himno a tu bienestar. Cada noche bien dormida es una melodía que te lleva hacia la armonía interior.",
+    "Durante tres semanas, has construido un santuario de sueños reparadores. Sigue nutriendo este espacio sagrado y encuentra la paz en cada respiración.",
+    "Cada despertar después de tres semanas de sueño profundo es una celebración de la vida y la vitalidad. Mantén esta racha y deja que tu luz interior brille aún más.",
+    "Tres semanas de descanso te han llevado a través de un oasis de autodescubrimiento y renovación. Sigue explorando este territorio y descubre la magia del autocuidado.",
+    "Enhorabuena por tres semanas de sueño reparador. Cada noche bien dormida es un tributo a tu compromiso con una vida equilibrada y llena de energía.",
+    "Durante tres semanas, has cultivado un jardín de descanso y rejuvenecimiento. Sigue regando estas semillas y observa cómo florecen en una vida más plena."
+  ],
+  "profileSleepScoreMessageThreeWeeks-": [
+    "Tres semanas de dificultades para dormir son un recordatorio de la importancia de cuidar tu salud mental y física. Es momento de tomar medidas concretas para mejorar tu descanso y bienestar general.",
+    "Mantener una racha de tres semanas difíciles puede ser desafiante, pero cada día te ofrece la oportunidad de tomar decisiones positivas para tu descanso. Comprométete a implementar cambios que mejoren tu calidad de sueño.",
+    "Durante tres semanas, has experimentado dificultades para conciliar el sueño y descansar bien, pero cada noche te brinda la oportunidad de intentarlo de nuevo. Sigamos explorando nuevas estrategias y hábitos que te ayuden a dormir mejor.",
+    "Enfrentar tres semanas de desafíos en el sueño es un recordatorio de que debes priorizar tu salud y bienestar. Tómate el tiempo para identificar qué está afectando tu descanso y trabaja en soluciones efectivas.",
+    "Durante tres semanas, has enfrentado dificultades para dormir, pero cada día te acerca más a encontrar soluciones que funcionen para ti. Mantengamos una actitud positiva y comprometámonos a hacer cambios que mejoren nuestra calidad de vida.",
+    "Durante tres semanas, has luchado por encontrar un sueño reparador, pero cada desafío te brinda la oportunidad de aprender y crecer. Sigamos adelante con determinación y busquemos activamente formas de mejorar nuestro descanso."
+  ],
+  "profileSleepScoreMessageOneMonth+": [
+    "¡Felicidades! Un mes completo de sueño reparador es un logro notable. Cada noche bien dormida es un regalo para tu salud y bienestar. ¡Sigue así!",
+    "Un mes de hábitos de sueño consistentemente buenos merece ser celebrado. Tu dedicación al descanso está dando frutos, y tu cuerpo y mente te lo agradecen. ¡Continúa cuidándote!",
+    "Durante todo un mes, has demostrado un compromiso admirable con tu descanso. Cada noche de sueño reparador es un paso hacia una vida más equilibrada y plena. ¡Sigue así, campeón del sueño!",
+    "Un mes entero de buen descanso es un testimonio de tu determinación y autocuidado. Cada noche de sueño reparador es una inversión en tu salud y felicidad a largo plazo. ¡Sigue adelante con fuerza!",
+    "¡Un mes completo de sueño de calidad merece un aplauso! Tu dedicación a tu bienestar se refleja en cada noche de descanso. Sigue cuidando de ti mismo y priorizando tu salud.",
+    "Durante un mes, has demostrado que el buen descanso es una prioridad. Cada noche bien dormida es un paso hacia una vida más saludable y vibrante. ¡Sigue así, mantén el buen trabajo!"
+  ],
+  "profileSleepScoreMessageOneMonth-": [
+    "Un mes de dificultades para dormir puede ser desafiante, pero cada día nos brinda la oportunidad de reflexionar y mejorar nuestros hábitos de sueño. ¡Es hora de tomar medidas para cuidar tu bienestar!",
+    "Durante todo un mes, has enfrentado obstáculos en tu descanso, pero cada noche también es una oportunidad para aprender y ajustar tu enfoque. ¡Estás en el camino hacia un mejor sueño!",
+    "Un mes de resultados negativos en el sueño es una señal de que es momento de prestar atención a tu bienestar. Con determinación y compromiso, puedes implementar cambios que te ayuden a descansar mejor.",
+    "Durante un mes, has enfrentado desafíos en tu descanso, pero cada noche también es una oportunidad para renovarte y recargar energías. ¡No te desanimes, estás en el camino hacia un sueño más reparador!",
+    "Un mes de dificultades para dormir puede ser agotador, pero también es una oportunidad para explorar nuevas estrategias y hábitos que te ayuden a descansar mejor. ¡Sigue adelante con determinación!",
+    "Durante un mes, has enfrentado obstáculos en tu sueño, pero cada noche también es una oportunidad para renovarte y recargar energías. ¡No te rindas, estás en el camino hacia un mejor descanso!"
+  ],
+  "profileSleepScoreMessageDefault+": [
+    "¡Sigues brillando con tu compromiso hacia un sueño saludable! Cada noche bien dormida es un paso hacia una vida más equilibrada y plena. ¡Sigue así!",
+    "Tu dedicación al descanso está dando frutos y tu bienestar lo refleja. Cada noche de sueño reparador es una inversión en tu salud y felicidad a largo plazo. ¡Sigue cuidando de ti mismo!",
+    "Continuar con una racha positiva en el sueño demuestra tu compromiso con tu bienestar. Cada noche de descanso adecuado es un recordatorio de tu dedicación al autocuidado. ¡Sigue adelante con fuerza!",
+    "Mantener una racha positiva en el sueño es una prueba de tu determinación y disciplina. Cada noche bien dormida es un paso hacia una vida más saludable y equilibrada. ¡Sigue así, campeón del sueño!",
+    "Celebramos tu persistencia en mantener una racha positiva en el sueño. Cada noche de descanso reparador es un logro que te acerca a una mejor calidad de vida. ¡Sigue priorizando tu bienestar!",
+    "Tu compromiso con un sueño de calidad es admirable y digno de celebración. Cada noche de buen descanso es un paso hacia una versión más saludable y feliz de ti mismo. ¡Sigue así, no hay límites para tu bienestar!"
+  ],
+  "profileSleepScoreMessageDefault-": [
+    "Aunque enfrentes desafíos en tu sueño, tu determinación para mejorar es inspiradora. Cada noche es una oportunidad para aprender y ajustar tu enfoque hacia un descanso más reparador. ¡No te desanimes!",
+    "Continuar con una racha negativa en el sueño puede ser desafiante, pero cada día nos ofrece la oportunidad de reflexionar y mejorar nuestros hábitos. ¡Estás en el camino hacia un sueño más saludable!",
+    "A pesar de los obstáculos en tu descanso, tu determinación para encontrar soluciones es admirable. Con cada noche, te acercas más a descubrir qué funciona mejor para ti. ¡No te rindas!",
+    "Tu persistencia en medio de una racha negativa en el sueño muestra tu compromiso con tu bienestar. Cada noche es una oportunidad para renovarte y recargar energías. ¡Sigue adelante con determinación!",
+    "Aunque enfrentes dificultades para dormir, cada noche también es una oportunidad para explorar nuevas estrategias y hábitos. Tu determinación por mejorar tu descanso es el primer paso hacia una mejor calidad de vida. ¡Sigue adelante!",
+    "Celebramos tu valentía y determinación para enfrentar los desafíos en tu sueño. Cada noche es una oportunidad para aprender y crecer, y cada paso te acerca más a un descanso reparador. ¡No pierdas la esperanza!"
   ],
   "IrreversibleAction": "Esta acción es permanente",
   "sleepScoreChartTotalRecovery": "Total de Recuperación",
@@ -411,7 +595,9 @@
   "movementsChartMovement": "Cantidad de grandes movimientos",
   "movementsChartTurns": "Vueltas/Noche",
   "sleepTimeChartAwake": "Despierto",
+  "sleepTimeChartAwakeHS": "Despierto (hs)",
   "sleepTimeChartSleep": "Durmiendo",
+  "sleepTimeChartSleepHS": "Durmiendo (hs)",
   "sleepArcChartLight": "Liviano",
   "sleepArcChartDeep": "Profundo",
   "sleepArcChartTitle": "Arquitectura del sueño"
