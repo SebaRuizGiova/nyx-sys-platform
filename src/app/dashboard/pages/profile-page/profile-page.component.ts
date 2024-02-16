@@ -43,6 +43,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   public rangeDownloadItems?: string[];
   public gmtItems: ItemDropdown[] = this.helpersService.GMTItems;
   public messageSleepScore: string = '';
+  public messageRecovery: string = '';
+  public messageANS: string = '';
   public selectedProfileId: string = '';
   public selectedProfileIndex: number = 0;
   public totalRecoveryToChart: any[] = [];
@@ -117,7 +119,19 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           this.profileData.selectedSleepData
         );
 
+        const processedRecoveryData = this.processRecoveryData(
+          this.profileData.sleepData,
+          this.profileData.selectedSleepData
+        );
+
+        const processedAnsData = this.processAnsData(
+          this.profileData.sleepData,
+          this.profileData.selectedSleepData
+        );
+
         this.setSleepScoreMessage(processedSleepData);
+        this.setRecoveryMessage(processedRecoveryData);
+        this.setANSMessage(processedAnsData);
       }
     });
     this.route.paramMap.subscribe((params) => {
@@ -265,7 +279,19 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       this.profileData.selectedSleepData
     );
 
+    const processedRecoveryData = this.processRecoveryData(
+      this.profileData.sleepData,
+      this.profileData.selectedSleepData
+    );
+
+    const processedAnsData = this.processAnsData(
+      this.profileData.sleepData,
+      this.profileData.selectedSleepData
+    );
+
     this.setSleepScoreMessage(processedSleepData);
+    this.setRecoveryMessage(processedRecoveryData);
+    this.setANSMessage(processedAnsData);
 
     this.selectedProfileIndex = this.profilesItems.findIndex(
       (profile) => profile.value === this.selectedProfileId
@@ -409,8 +435,18 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         this.profileData.sleepData,
         this.profileData.selectedSleepData
       );
+      const processedRecoveryData = this.processRecoveryData(
+        this.profileData.sleepData,
+        this.profileData.selectedSleepData
+      );
+      const processedAnsData = this.processAnsData(
+        this.profileData.sleepData,
+        this.profileData.selectedSleepData
+      );
 
       this.setSleepScoreMessage(processedSleepData);
+      this.setRecoveryMessage(processedRecoveryData);
+      this.setANSMessage(processedAnsData);
     }
 
     this.totalRecoveryToChart = this.getTotalRecoveryToChart(
@@ -720,12 +756,481 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     }
   }
 
-  setRecoveryMessage() {
-    // TODO: Desarrollar funcion
-  }
+  setRecoveryMessage(processedSleepData: {
+    recovery: number;
+    consecutiveDays: number;
+  }) {
+    const { consecutiveDays, recovery } = processedSleepData;
 
-  setANSMessage() {
-    // TODO: Desarrollar funcion
+    if (consecutiveDays === 1 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage1+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          let message = this.getRandomMessage(messages);
+          if (message.includes('*sleep_score*')) {
+            message = message.replace('*sleep_score*', recovery.toString());
+          }
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 1 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage1-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 2 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage2+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 2 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage2-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 3 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage3+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 3 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage3-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 4 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage4+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 4 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage4-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 5 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage5+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 5 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage5-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 6 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage6+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 6 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage6-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 7 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage7+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 7 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage7-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+        // TODO: Definir mensaje por defecto
+    } else if (consecutiveDays === 8 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage8+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 8 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage8-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 9 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage9+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 9 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage9-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 10 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage10+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 10 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessage10-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 14 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessageTwoWeeks+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 14 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessageTwoWeeks-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 21 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessageThreeWeeks+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 21 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessageThreeWeeks-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 30 && recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessageOneMonth+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (consecutiveDays === 30 && recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessageOneMonth-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    } else if (recovery >= 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessageDefault+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          let message = this.getRandomMessage(messages);
+          if (message.includes('*sleep_score*')) {
+            message = message.replace('*sleep_score*', recovery.toString());
+          }
+          this.messageRecovery = message;
+        });
+    } else if (recovery < 0) {
+      this.languageService
+        .getTranslate('profileRecoveryMessageDefault-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageRecovery = message;
+        });
+    }
+  }
+  
+  setANSMessage(processedANSData: {
+    balance: { sympathetic: number, parasympathetic: number };
+    consecutiveDays: number;
+  }) {
+    const { consecutiveDays, balance } = processedANSData;
+    const { sympathetic, parasympathetic } = balance;
+    const difference = Math.abs(sympathetic - parasympathetic);
+
+    if (consecutiveDays === 1 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessage1+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays === 1 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessage1-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays === 2 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessage2+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays === 2 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessage2-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays === 3 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessage3+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays === 3 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessage3-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 4 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessage4+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 4 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessage4-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 5 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessage5+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 5 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessage5-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 6 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessage6+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 6 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessage6-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 7 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessage7+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 7 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessage7-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 8 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessage8+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 8 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessage8-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 9 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessage9+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 9 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessage9-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 10 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessage10+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 10 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessage10-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 14 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessageTwoWeeks+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 14 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessageTwoWeeks-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 21 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessageThreeWeeks+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 21 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessageThreeWeeks-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 30 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      this.languageService
+        .getTranslate('profileANSMessageOneMonth+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (consecutiveDays >= 30 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+      this.languageService
+        .getTranslate('profileANSMessageOneMonth-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+      // Mensaje por defecto si no coincide con ninguna condición
+      this.languageService
+        .getTranslate('profileANSMessageDefault+')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    } else if (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65) {
+      // Mensaje por defecto si no coincide con ninguna condición
+      this.languageService
+        .getTranslate('profileANSMessageDefault-')
+        .subscribe((translations: any) => {
+          const messages = translations;
+          const message = this.getRandomMessage(messages);
+          this.messageANS = message;
+        });
+    }
   }
 
   getRandomMessage(messages: string[]): string {
@@ -769,6 +1274,100 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
     return {
       sleepScore: 0,
+      consecutiveDays: 0,
+    };
+  }
+
+  processRecoveryData(sleepDataArray: SleepData[], selectedSleepData?: SleepData) {
+    if (selectedSleepData) {
+      const selectedRecovery: number = selectedSleepData.hrv_data[0].totalRecovery || 0;
+      let selectedRecoveryStatus: 'negative' | 'positive' =
+        selectedRecovery > 0 ? 'positive' : 'negative';
+      let actualRecoveryStatus: 'negative' | 'positive' | '' = '';
+      let consecutiveDays: number = 0;
+      const selectedSleepDataIndex: number = sleepDataArray.findIndex(
+        (sd) => sd.id === selectedSleepData.id
+      );
+
+      for (const [index, sleepData] of sleepDataArray.entries()) {
+        if (
+          index > selectedSleepDataIndex
+        ) {
+          if (sleepData.hrv_data[0].totalRecovery && sleepData.hrv_data[0].totalRecovery >= 0) {
+            actualRecoveryStatus = 'positive';
+          } else if (sleepData.hrv_data[0].totalRecovery && sleepData.hrv_data[0].totalRecovery < 0) {
+            actualRecoveryStatus = 'negative';
+          }
+          if (selectedRecoveryStatus === actualRecoveryStatus) {
+            consecutiveDays++;
+          } else {
+            break;
+          }
+        }
+      }
+
+      return {
+        recovery: selectedRecovery,
+        consecutiveDays,
+      };
+    }
+
+    return {
+      recovery: 0,
+      consecutiveDays: 0,
+    };
+  }
+
+  processAnsData(sleepDataArray: SleepData[], selectedSleepData?: SleepData) {
+    if (selectedSleepData) {
+      const selectedANSBalance: { sympathetic: number, parasympathetic: number } = {
+        sympathetic: selectedSleepData.hrv_lf || 0,
+        parasympathetic: selectedSleepData.hrv_hf || 0
+      };
+      let selectedBalanceStatus: 'negative' | 'positive' =
+        Math.abs(selectedANSBalance.sympathetic - selectedANSBalance.parasympathetic) <= 15 &&
+        selectedANSBalance.sympathetic >= 35 && selectedANSBalance.sympathetic <= 65 &&
+        selectedANSBalance.parasympathetic >= 35 && selectedANSBalance.parasympathetic <= 65
+        ? 'positive' : 'negative';
+      let actualBalanceStatus: 'negative' | 'positive' | '' = '';
+      let consecutiveDays: number = 0;
+      const selectedSleepDataIndex: number = sleepDataArray.findIndex(
+        (sd) => sd.id === selectedSleepData.id
+      );
+
+      for (const [index, sleepData] of sleepDataArray.entries()) {
+        if (
+          index > selectedSleepDataIndex
+        ) {
+          const actualANSBalance: { sympathetic: number, parasympathetic: number } = {
+            sympathetic: sleepData.hrv_lf || 0,
+            parasympathetic: sleepData.hrv_hf || 0
+          };
+          if (
+            Math.abs(actualANSBalance.sympathetic - actualANSBalance.parasympathetic) <= 15 &&
+            actualANSBalance.sympathetic >= 35 && actualANSBalance.sympathetic <= 65 &&
+            actualANSBalance.parasympathetic >= 35 && actualANSBalance.parasympathetic <= 65
+          ) {
+            actualBalanceStatus = 'positive';
+          } else {
+            actualBalanceStatus = 'negative';
+          }
+          if (selectedBalanceStatus === actualBalanceStatus) {
+            consecutiveDays++;
+          } else {
+            break;
+          }
+        }
+      }
+
+      return {
+        balance: selectedANSBalance,
+        consecutiveDays,
+      };
+    }
+
+    return {
+      balance: { sympathetic: 0, parasympathetic: 0 },
       consecutiveDays: 0,
     };
   }
