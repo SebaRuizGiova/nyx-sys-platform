@@ -20,6 +20,7 @@ export class InputPasswordComponent implements ControlValueAccessor {
   @Input() helper: string = '';
   @Input() error: boolean = false;
   @Output() inputChange: EventEmitter<any> = new EventEmitter();
+  @Output() enterPressed: EventEmitter<void> = new EventEmitter();
 
   private innerValue: string = '';
 
@@ -45,5 +46,11 @@ export class InputPasswordComponent implements ControlValueAccessor {
     this.onChange(this.innerValue);
     this.onTouch();
     this.inputChange.emit((event.target as HTMLInputElement).value);
+  }
+
+  onEnterPressed(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.enterPressed.emit();
+    }
   }
 }

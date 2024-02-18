@@ -23,6 +23,7 @@
                   [error]="isValidFieldLogin('emailLogin')"
                   [formGroup]="loginForm"
                   formControlName="emailLogin"
+                  (enterPressed)="onLogin()"
                 />
                 <shared-input-password
                   [placeholder]="'loginPlaceholderPassword' | translate"
@@ -30,6 +31,7 @@
                   [error]="isValidFieldLogin('passwordLogin')"
                   [formGroup]="loginForm"
                   formControlName="passwordLogin"
+                  (enterPressed)="onLogin()"
                 />
               </div>
               <div class="button-login">

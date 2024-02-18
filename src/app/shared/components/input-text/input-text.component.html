@@ -9,6 +9,7 @@
       [class.ng-invalid]="error"
       [class.ng-dirty]="error"
       (input)="onInputChange($event)"
+      (keydown)="onEnterPressed($event)"
     />
     <small *ngIf="error" id="helperRef" class="p-error">{{ helper }}</small>
   </div>

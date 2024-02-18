@@ -146,6 +146,7 @@ export class AuthService {
       this.helpersService.sendWelcomeEmail(email, password);
     } catch (error) {
       console.log(error);
+      throw error;
     }
   }
 

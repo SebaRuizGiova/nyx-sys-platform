@@ -21,6 +21,7 @@ export class InputTextComponent implements ControlValueAccessor {
   @Input() formControlName: string = '';
   @Input() error?: boolean = false;
   @Output() inputChange: EventEmitter<any> = new EventEmitter();
+  @Output() enterPressed: EventEmitter<void> = new EventEmitter();
 
   onChange: any = () => {};
   onTouch: any = () => {};
@@ -45,5 +46,11 @@ export class InputTextComponent implements ControlValueAccessor {
     this.onChange(this.innerValue);
     this.onTouch();
     this.inputChange.emit((event.target as HTMLInputElement).value);
+  }
+
+  onEnterPressed(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.enterPressed.emit();
+    }
   }
 }

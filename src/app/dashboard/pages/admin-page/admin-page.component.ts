@@ -127,8 +127,10 @@ export class AdminPageComponent implements OnInit {
     UID: ['', Validators.required],
     email: [
       '',
-      Validators.required,
-      Validators.pattern(this.validatorsService.emailPattern),
+      [
+        Validators.required,
+        Validators.pattern(this.validatorsService.emailPattern),
+      ],
     ],
     nickName: ['', Validators.required],
     role: ['', Validators.required],
@@ -535,7 +537,7 @@ export class AdminPageComponent implements OnInit {
   filterUsers() {
     let filteredUsers = this.users;
 
-    filteredUsers = filteredUsers.filter(user => {
+    filteredUsers = filteredUsers.filter((user) => {
       return user.nickName
         .toLowerCase()
         .includes(this.actionsUsersForm.value.search.toLowerCase());
@@ -915,34 +917,6 @@ export class AdminPageComponent implements OnInit {
   }
 
   hideProfile(userIdProfile: string, profileId: string, hideValue: boolean) {
-    // const profileRef = this.firestore.doc(
-    //   `/users/nyxsys/content/${userIdProfile}/players/${profileId}`
-    // );
-
-    // this.loadingService.setLoading(true);
-    // profileRef
-    //   .update({ hided: !hideValue })
-    //   .then(() => {
-    //     this.actionsProfilesForm.reset();
-    //     this.messageService.add({
-    //       severity: 'success',
-    //       summary: this.translateService.instant('ToastTitleCorrect'),
-    //       detail: this.translateService.instant(
-    //         hideValue ? 'adminShowProfileSuccess' : 'adminHideProfileSuccess'
-    //       ),
-    //     });
-    //     this.loadData();
-    //   })
-    //   .catch(() => {
-    //     this.loadingService.setLoading(false);
-    //     this.messageService.add({
-    //       severity: 'error',
-    //       summary: this.translateService.instant('ToastTitleError'),
-    //       detail: this.translateService.instant(
-    //         hideValue ? 'adminShowProfileError' : 'adminHideProfileError'
-    //       ),
-    //     });
-    //   });
     this.loadingService.setLoading(true);
     this.databaseService
       .hideProfile(userIdProfile, profileId, hideValue)
@@ -997,41 +971,6 @@ export class AdminPageComponent implements OnInit {
 
   editDevice() {
     if (this.addDeviceForm.status !== 'INVALID') {
-      // const deviceRef = this.firestore.doc(
-      //   `/users/nyxsys/content/${
-      //     this.userRole === 'superAdmin'
-      //       ? this.addDeviceForm.value.userID
-      //       : this.authService.userId
-      //   }/devices/${this.deviceIdToEdit}`
-      // );
-
-      // this.loadingService.setLoading(true);
-      // deviceRef
-      //   .set(
-      //     {
-      //       ...this.addDeviceForm.value,
-      //     },
-      //     { merge: true }
-      //   )
-      //   .then(() => {
-      //     this.toggleEditDevice();
-      //     this.actionsDevicesForm.reset();
-      //     this.messageService.add({
-      //       severity: 'success',
-      //       summary: this.translateService.instant('ToastTitleCorrect'),
-      //       detail: this.translateService.instant('adminEditDeviceSuccess'),
-      //     });
-      //     this.deviceIdToEdit = '';
-      //     this.loadData();
-      //   })
-      //   .catch(() => {
-      //     this.loadingService.setLoading(false);
-      //     this.messageService.add({
-      //       severity: 'error',
-      //       summary: this.translateService.instant('ToastTitleError'),
-      //       detail: this.translateService.instant('adminEditDeviceError'),
-      //     });
-      //   });
       this.loadingService.setLoading(true);
       this.databaseService
         .editDevice(this.addDeviceForm.value)
@@ -1385,7 +1324,7 @@ export class AdminPageComponent implements OnInit {
           });
           this.loadData();
         })
-        .catch(() => {
+        .catch((error) => {
           this.loadingService.setLoading(false);
           this.messageService.add({
             severity: 'error',
