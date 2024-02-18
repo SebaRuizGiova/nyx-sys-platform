@@ -1,7 +1,7 @@
 <form [formGroup]="formGroup">
   <div class="background" *ngIf="showPopup" (click)="tooglePopup()"></div>
   <div class="dropdown">
-    <span (click)="tooglePopup()" class="external-label">{{ externalLabel }}</span>
+    <span *ngIf="externalLabelPosition === 'left';" (click)="tooglePopup()" class="external-label">{{ externalLabel }}</span>
     <shared-button
       *ngIf="!noButton; else buttonText"
       [label]="labelButton"
@@ -10,6 +10,7 @@
       [pTooltip]="!labelButton && tooltipButton ? tooltipButton : ''"
       [tooltipPosition]="tooltipPosition || 'left'"
     />
+    <span *ngIf="externalLabelPosition === 'right';" (click)="tooglePopup()" class="external-label">{{ externalLabel }}</span>
     <ng-template #buttonText>
       <span
         class="buttonText"

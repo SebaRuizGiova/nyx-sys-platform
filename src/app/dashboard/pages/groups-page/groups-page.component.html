@@ -10,8 +10,9 @@
       [formGroup]="periodForm"
       formControlName="period"
       (dropdownChange)="selectSleepData($event)"
+      [externalLabel]="periodForm.value.period"
+      externalLabelPosition="right"
     />
-    {{periodForm.value.period}}
   </form>
   <form [formGroup]="groupForm" class="selectGroup">
     <i
@@ -95,9 +96,7 @@
             [placeholder]="'groupOrderBy' | translate"
             [formGroup]="filtersForm"
             formControlName="orderBy"
-            (selectChange)="
-              filterProfiles()
-            "
+            (selectChange)="filterProfiles()"
           />
           <span class="switch">
             <span>{{
@@ -107,9 +106,7 @@
             }}</span>
             <p-inputSwitch
               formControlName="actualPeriod"
-              (onChange)="
-                filterProfiles()
-              "
+              (onChange)="filterProfiles()"
             />
           </span>
         </div>
@@ -130,13 +127,11 @@
     [deviceName]="profile.deviceSN"
     [sna]="{
       sympathetic:
-        profile.selectedSleepData &&
-        profile.selectedSleepData.hrv_lf
+        profile.selectedSleepData && profile.selectedSleepData.hrv_lf
           ? profile.selectedSleepData.hrv_lf
           : null,
       parasympathetic:
-        profile.selectedSleepData &&
-        profile.selectedSleepData.hrv_hf
+        profile.selectedSleepData && profile.selectedSleepData.hrv_hf
           ? profile.selectedSleepData.hrv_hf
           : null
     }"

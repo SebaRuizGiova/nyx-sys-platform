@@ -1,4 +1,7 @@
-<div class="card-player" [routerLink]="['/dashboard/profile/' + userId + '/' + profileId]">
+<div
+  class="card-player"
+  [routerLink]="['/dashboard/profile/' + userId + '/' + profileId]"
+>
   <div class="card-header">
     <span class="player-name">{{ profileName }}</span>
     <span class="device-name">{{
@@ -57,7 +60,12 @@
           tooltipPosition="left"
           [showDelay]="400"
         ></i>
-        <span>{{ recovery || "-" }}</span>
+        <span
+          [pTooltip]="'profileCardRecoveryDescriptionTooltip' | translate"
+          tooltipPosition="bottom"
+          [showDelay]="400"
+        >{{ recovery || "-" }}</span
+        >
         <span
           class="description"
           [pTooltip]="'profileCardRecoveryDescriptionTooltip' | translate"
