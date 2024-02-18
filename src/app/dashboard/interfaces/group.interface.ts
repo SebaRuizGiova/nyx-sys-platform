@@ -8,4 +8,5 @@ export interface Group {
   userID:            string;
   logoUrl:           string;
   gmt:               string;
+  deleted:           boolean;
 }

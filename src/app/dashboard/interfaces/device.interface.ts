@@ -11,4 +11,5 @@ export interface Device {
   teamID:           string;
   hided:            boolean;
   playerID:         boolean;
+  deleted:          boolean;
 }

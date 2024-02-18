@@ -28,13 +28,17 @@ export class DatabaseService {
     return this.firestore
       .collection(`users/${environment.client}/content`)
       .get()
-      .pipe(map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)));
+      .pipe(
+        map((snapshot) => snapshot.docs.map((doc) => doc.data() as any)),
+        map((users) => users.filter((user) => !user.deleted))
+      );
   }
 
   getAllUsersCollection() {
     return this.firestore
       .collection(`users/${environment.client}/content`)
       .ref.where('role', 'in', ['user', 'superAdmin'])
+      .where('deleted', '==', false)
       .get();
   }
 
@@ -74,6 +78,7 @@ export class DatabaseService {
       .collection(`/users/${environment.client}/content/${userId}/players`)
       .ref.where('hided', '==', false)
       .where('teamID', '==', teamId)
+      .where('deleted', '==', false)
       .get();
   }
 
@@ -97,7 +102,10 @@ export class DatabaseService {
               id: doc.ref.id,
             };
           })
-        )
+        ),
+        map((users) => {
+          return users.filter((user) => !user.deleted);
+        })
       );
   }
 
@@ -114,16 +122,11 @@ export class DatabaseService {
               id: doc.ref.id,
             };
           })
-        )
+        ),
+        map((devices) => {
+          return devices.filter((device) => !device.deleted);
+        })
       );
-  }
-
-  getUserData(userId: string): Observable<any> {
-    return this.firestore
-      .collection(`/users/${environment.client}/content`)
-      .doc(userId)
-      .get()
-      .pipe(map((user) => user.data()));
   }
 
   getUserDataDoc(userId: string) {
@@ -146,21 +149,18 @@ export class DatabaseService {
               id: doc.ref.id,
             };
           })
-        )
+        ),
+        map((groups) => {
+          return groups.filter((group) => !group.deleted);
+        })
       );
-  }
-
-  getGroupByIdDoc(userId: string, groupId: string) {
-    return this.firestore
-      .collection(`/users/${environment.client}/content/${userId}/teams`)
-      .doc(groupId)
-      .ref.get();
   }
 
   getGroupsByUserCollection(userId: string) {
     return this.firestore
       .collection(`/users/${environment.client}/content/${userId}/teams`)
       .ref.where('hided', '==', false)
+      .where('deleted', '==', false)
       .get();
   }
 
@@ -261,7 +261,19 @@ export class DatabaseService {
           profileRef
             .add(profile)
             .then((res) => {
-              resolve(res);
+              // Obtener el ID generado y establecerlo en la propiedad id del perfil
+              const profileId = res.id;
+              profile.id = profileId;
+
+              // Actualizar el perfil con el ID establecido
+              res
+                .update({ id: profileId })
+                .then(() => {
+                  resolve(profile);
+                })
+                .catch((error) => {
+                  reject(error);
+                });
             })
             .catch((error) => {
               reject(error);
@@ -557,12 +569,17 @@ export class DatabaseService {
     });
   }
 
-  deleteGroup(groupId: string, userId: string, deleteProfiles: boolean, deleteDevices: boolean) {
+  deleteGroup(
+    groupId: string,
+    userId: string,
+    deleteProfiles: boolean,
+    deleteDevices: boolean
+  ) {
     return new Promise((resolve, reject) => {
       const groupRef = this.firestore.doc(
         `/users/nyxsys/content/${userId}/teams/${groupId}`
       );
-  
+
       groupRef
         .update({
           deleted: true,
@@ -570,29 +587,32 @@ export class DatabaseService {
         .then((res) => {
           // Batch para realizar operaciones en lote
           const batch = this.firestore.firestore.batch();
-  
+
           // Eliminar los perfiles vinculados al grupo
           if (deleteProfiles) {
             const profilesRef = this.firestore.collection(
               `/users/nyxsys/content/${userId}/players`,
               (ref) => ref.where('teamID', '==', groupId)
             ).ref;
-  
-            profilesRef.get()
+
+            profilesRef
+              .get()
               .then((querySnapshot) => {
                 querySnapshot.forEach((doc: any) => {
                   batch.update(doc.ref, { deleted: true });
-  
+
                   // Eliminar dispositivos asociados a los perfiles si es necesario
                   if (deleteDevices) {
                     const deviceID = doc.data().deviceID;
                     if (deviceID) {
-                      const deviceRef = this.firestore.doc(`/users/nyxsys/content/${userId}/devices/${deviceID}`).ref;
+                      const deviceRef = this.firestore.doc(
+                        `/users/nyxsys/content/${userId}/devices/${deviceID}`
+                      ).ref;
                       batch.delete(deviceRef);
                     }
                   }
                 });
-  
+
                 return batch.commit();
               })
               .then(() => {
@@ -607,22 +627,25 @@ export class DatabaseService {
               `/users/nyxsys/content/${userId}/players`,
               (ref) => ref.where('teamID', '==', groupId)
             ).ref;
-  
-            profilesRef.get()
+
+            profilesRef
+              .get()
               .then((querySnapshot) => {
                 querySnapshot.forEach((doc: any) => {
                   batch.update(doc.ref, { teamID: '' });
-  
+
                   // Eliminar dispositivos asociados a los perfiles si es necesario
                   if (deleteDevices) {
                     const deviceID = doc.data().deviceID;
                     if (deviceID) {
-                      const deviceRef = this.firestore.doc(`/users/nyxsys/content/${userId}/devices/${deviceID}`).ref;
+                      const deviceRef = this.firestore.doc(
+                        `/users/nyxsys/content/${userId}/devices/${deviceID}`
+                      ).ref;
                       batch.delete(deviceRef);
                     }
                   }
                 });
-  
+
                 return batch.commit();
               })
               .then(() => {
@@ -638,7 +661,6 @@ export class DatabaseService {
         });
     });
   }
-  
 
   hideGroup(userIdGroup: string, groupId: string, hideValue: boolean) {
     return new Promise((resolve, reject) => {

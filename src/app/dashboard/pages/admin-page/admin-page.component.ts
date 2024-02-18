@@ -56,8 +56,9 @@ export class AdminPageComponent implements OnInit {
     teamID: [{ value: '', disabled: true }],
     device: [false],
     deviceSN: [false],
-    hided: [false],
     deviceID: [false],
+    hided: [false],
+    deleted: [false],
   });
   public addDeviceForm: FormGroup = this.fb.group({
     id: [''],
@@ -77,10 +78,11 @@ export class AdminPageComponent implements OnInit {
     gmt: ['', Validators.required],
     userID: ['', Validators.required],
     hided: [false],
+    deleted: [false],
   });
   public deleteGroupForm: FormGroup = this.fb.group({
     deleteProfiles: [false],
-    deleteDevices: [false]
+    deleteDevices: [false],
   });
   public addCollaboratorForm: FormGroup = this.fb.group({
     id: [''],
@@ -131,6 +133,7 @@ export class AdminPageComponent implements OnInit {
     nickName: ['', Validators.required],
     role: ['', Validators.required],
     collaborators: [[]],
+    deleted: [false],
   });
   public editUserForm: FormGroup = this.fb.group({
     id: [''],
@@ -420,37 +423,36 @@ export class AdminPageComponent implements OnInit {
   }
 
   //? FILTRADO Y ACCIONES
-  filterProfiles(groupId?: string) {
+  filterProfiles() {
+    let filteredProfiles = this.profilesByUser;
+    const groupId = this.actionsProfilesForm.value.filterByGroup;
+
+    // Filtrar por grupo si se proporciona el ID del grupo
     if (groupId) {
-      this.filteredProfiles = this.profilesByUser.filter((profile) => {
-        return (
-          (profile.name
-            .toLowerCase()
-            .includes(this.actionsProfilesForm.value.search.toLowerCase()) ||
-            profile.lastName
-              .toLowerCase()
-              .includes(this.actionsProfilesForm.value.search.toLowerCase())) &&
-          profile.teamID === groupId
-        );
-      });
-    } else {
-      this.filteredProfiles = this.profilesByUser.filter((profile) => {
-        return (
-          profile.name
-            .toLowerCase()
-            .includes(this.actionsProfilesForm.value.search.toLowerCase()) ||
-          (profile.lastName
-            .toLowerCase()
-            .includes(this.actionsProfilesForm.value.search.toLowerCase()) &&
-            (this.dontShowHiddenProfiles ? !profile.hided : true))
-        );
+      filteredProfiles = filteredProfiles.filter((profile) => {
+        return profile.teamID === groupId;
       });
     }
-    if (this.dontShowHiddenProfiles) {
-      this.filteredProfiles = this.filteredProfiles.filter(
-        (profile) => !profile.hided
+
+    // Filtrar por nombre y apellido
+    filteredProfiles = filteredProfiles.filter((profile) => {
+      return (
+        profile.name
+          .toLowerCase()
+          .includes(this.actionsProfilesForm.value.search.toLowerCase()) ||
+        profile.lastName
+          .toLowerCase()
+          .includes(this.actionsProfilesForm.value.search.toLowerCase())
       );
+    });
+
+    // Filtrar perfiles ocultos si está habilitado el filtro
+    if (this.dontShowHiddenProfiles) {
+      filteredProfiles = filteredProfiles.filter((profile) => !profile.hided);
     }
+
+    // Asignar los perfiles filtrados al arreglo this.filteredProfiles
+    this.filteredProfiles = filteredProfiles;
   }
 
   toggleHiddenProfiles() {
@@ -458,35 +460,33 @@ export class AdminPageComponent implements OnInit {
     this.filterProfiles();
   }
 
-  filterDevices(groupId?: string) {
+  filterDevices() {
+    let filteredDevices = this.devicesByUser;
+    const groupId = this.actionsDevicesForm.value.filterByGroup;
+
     if (groupId) {
-      this.filteredDevices = this.devicesByUser.filter((device) => {
-        return (
-          device.serialNumber
-            .toString()
-            .toLowerCase()
-            .includes(this.actionsDevicesForm.value.search.toLowerCase()) &&
-          device.teamID === groupId
-        );
-      });
-    } else {
-      this.filteredDevices = this.devicesByUser.filter((device) => {
-        return (
-          device.serialNumber
-            .toLowerCase()
-            .includes(this.actionsDevicesForm.value.search.toLowerCase()) ||
-          device.playerName
-            .toString()
-            .toLowerCase()
-            .includes(this.actionsDevicesForm.value.search.toLowerCase())
-        );
+      filteredDevices = filteredDevices.filter((device) => {
+        return device.teamID === groupId;
       });
     }
-    if (this.dontShowHiddenDevices) {
-      this.filteredDevices = this.filteredDevices.filter(
-        (device) => !device.hided
+
+    filteredDevices = filteredDevices.filter((device) => {
+      return (
+        device.serialNumber
+          .toLowerCase()
+          .includes(this.actionsDevicesForm.value.search.toLowerCase()) ||
+        device.playerName
+          .toString()
+          .toLowerCase()
+          .includes(this.actionsDevicesForm.value.search.toLowerCase())
       );
+    });
+
+    if (this.dontShowHiddenDevices) {
+      filteredDevices = filteredDevices.filter((device) => !device.hided);
     }
+
+    this.filteredDevices = filteredDevices;
   }
 
   toggleHiddenDevices() {
@@ -495,14 +495,19 @@ export class AdminPageComponent implements OnInit {
   }
 
   filterGroups() {
-    this.filteredGroups = this.groupsByUser.filter((group) => {
+    let filteredGroups = this.groupsByUser;
+
+    filteredGroups = filteredGroups.filter((group) => {
       return group.teamName
         .toLowerCase()
         .includes(this.actionsGroupsForm.value.search.toLowerCase());
     });
+
     if (this.dontShowHiddenGroups) {
-      this.filteredGroups = this.filteredGroups.filter((group) => !group.hided);
+      filteredGroups = filteredGroups.filter((group) => !group.hided);
     }
+
+    this.filteredGroups = filteredGroups;
   }
 
   toggleHiddenGroups() {
@@ -511,24 +516,32 @@ export class AdminPageComponent implements OnInit {
   }
 
   filterCollaborators() {
-    this.filteredCollaborators = this.collaboratorsByUser.filter(
-      (collaborator) => {
-        return (
-          // TODO: Retomar cuando tenga datos
-          collaborator.nickName
-            .toLowerCase()
-            .includes(this.actionsCollaboratorsForm.value.search.toLowerCase())
-        );
-      }
-    );
+    let filteredCollaborators = this.collaboratorsByUser;
+
+    filteredCollaborators = filteredCollaborators.filter((collaborator) => {
+      return (
+        collaborator.nickName
+          .toLowerCase()
+          .includes(this.actionsCollaboratorsForm.value.search.toLowerCase()) ||
+        collaborator.linked
+          ?.toLowerCase()
+          .includes(this.actionsCollaboratorsForm.value.search.toLowerCase())
+      );
+    });
+
+    this.filteredCollaborators = filteredCollaborators;
   }
 
   filterUsers() {
-    this.filteredUsers = this.users.filter((user) => {
+    let filteredUsers = this.users;
+
+    filteredUsers = filteredUsers.filter(user => {
       return user.nickName
         .toLowerCase()
         .includes(this.actionsUsersForm.value.search.toLowerCase());
     });
+
+    this.filteredUsers = filteredUsers;
   }
 
   filterDataByUser(userId?: string) {
@@ -564,16 +577,18 @@ export class AdminPageComponent implements OnInit {
   }
 
   //? MODALES PERFILES
-  toggleAddProfile() {
-    this.showAddProfile = !this.showAddProfile;
+  toggleAddProfile(toggle: boolean) {
+    this.showAddProfile = toggle;
 
     if (this.userRole !== 'superAdmin') {
       this.selectUserProfile(this.authService.userId);
     }
 
-    this.addProfileForm.reset();
-    this.addProfileForm.controls['sex'].setErrors(null);
-    this.addProfileForm.controls['userID'].setErrors(null);
+    if (!toggle) {
+      this.addProfileForm.reset();
+      this.addProfileForm.controls['sex'].setErrors(null);
+      this.addProfileForm.controls['userID'].setErrors(null);
+    }
   }
 
   toggleEditProfile(profile?: Profile) {
@@ -613,19 +628,21 @@ export class AdminPageComponent implements OnInit {
   }
 
   //? MODALES DISPOSITIVOS
-  toggleAddDevice() {
-    this.showAddDevice = !this.showAddDevice;
+  toggleAddDevice(toggle: boolean) {
+    this.showAddDevice = toggle;
 
     if (this.userRole !== 'superAdmin') {
       this.selectUserDevice(this.authService.userId);
     }
 
-    this.addDeviceForm.reset();
-    this.addDeviceForm.controls['userID'].setErrors(null);
-    this.addDeviceForm?.get('playerID')?.reset({
-      value: '',
-      disabled: true,
-    });
+    if (!toggle) {
+      this.addDeviceForm.reset();
+      this.addDeviceForm.controls['userID'].setErrors(null);
+      this.addDeviceForm?.get('playerID')?.reset({
+        value: '',
+        disabled: true,
+      });
+    }
   }
 
   toggleEditDevice(device?: Device) {
@@ -661,8 +678,8 @@ export class AdminPageComponent implements OnInit {
   }
 
   //? MODALES GRUPOS
-  toggleAddGroup() {
-    this.showAddGroup = !this.showAddGroup;
+  toggleAddGroup(toggle: boolean) {
+    this.showAddGroup = toggle;
 
     if (this.userRole !== 'superAdmin') {
       this.addGroupForm.patchValue({
@@ -670,9 +687,11 @@ export class AdminPageComponent implements OnInit {
       });
     }
 
-    this.addGroupForm.reset();
-    this.addGroupForm.controls['gmt'].setErrors(null);
-    this.addGroupForm.controls['userID'].setErrors(null);
+    if (!toggle) {
+      this.addGroupForm.reset();
+      this.addGroupForm.controls['gmt'].setErrors(null);
+      this.addGroupForm.controls['userID'].setErrors(null);
+    }
   }
 
   toggleEditGroup(group?: Group) {
@@ -713,8 +732,8 @@ export class AdminPageComponent implements OnInit {
   }
 
   //? MODALES COLABORADORES
-  toggleAddCollaborator() {
-    this.showAddCollaborator = !this.showAddCollaborator;
+  toggleAddCollaborator(toggle: boolean) {
+    this.showAddCollaborator = toggle;
 
     if (this.userRole !== 'superAdmin') {
       this.addCollaboratorForm.patchValue({
@@ -722,9 +741,11 @@ export class AdminPageComponent implements OnInit {
       });
     }
 
-    this.addCollaboratorForm.reset();
-    this.addCollaboratorForm.controls['role'].setErrors(null);
-    this.addCollaboratorForm.controls['UID'].setErrors(null);
+    if (!toggle) {
+      this.addCollaboratorForm.reset();
+      this.addCollaboratorForm.controls['role'].setErrors(null);
+      this.addCollaboratorForm.controls['UID'].setErrors(null);
+    }
   }
 
   toggleEditCollaborator(collaborator?: Collaborator) {
@@ -754,11 +775,13 @@ export class AdminPageComponent implements OnInit {
   }
 
   //? MODALES USUARIOS
-  toggleAddUser() {
-    this.showAddUser = !this.showAddUser;
+  toggleAddUser(toggle: boolean) {
+    this.showAddUser = toggle;
 
-    this.addUserForm.reset();
-    this.addUserForm.controls['role'].setErrors(null);
+    if (!toggle) {
+      this.addUserForm.reset();
+      this.addUserForm.controls['role'].setErrors(null);
+    }
   }
 
   toggleEditUser(user?: User) {
@@ -787,7 +810,7 @@ export class AdminPageComponent implements OnInit {
       this.databaseService
         .addProfile(this.addProfileForm.value)
         .then(() => {
-          this.toggleAddProfile();
+          this.toggleAddProfile(false);
           this.messageService.add({
             severity: 'success',
             summary: this.translateService.instant('ToastTitleCorrect'),
@@ -953,7 +976,7 @@ export class AdminPageComponent implements OnInit {
       this.databaseService
         .addDevice(this.addDeviceForm.value, this.profiles)
         .then(() => {
-          this.toggleAddDevice();
+          this.toggleAddDevice(false);
           this.messageService.add({
             severity: 'success',
             summary: this.translateService.instant('ToastTitleCorrect'),
@@ -1060,35 +1083,6 @@ export class AdminPageComponent implements OnInit {
   }
 
   deleteDevice() {
-    // const deviceRef = this.firestore.doc(
-    //   `/users/nyxsys/content/${this.userIdDeviceToDelete}/devices/${this.deviceIdToDelete}`
-    // );
-
-    // this.toggleConfirmDeleteDevice();
-
-    // this.userIdDeviceToDelete = '';
-    // this.deviceIdToDelete = '';
-
-    // this.loadingService.setLoading(true);
-    // deviceRef
-    //   .delete()
-    //   .then(() => {
-    //     this.actionsDevicesForm.reset();
-    //     this.messageService.add({
-    //       severity: 'success',
-    //       summary: this.translateService.instant('ToastTitleCorrect'),
-    //       detail: this.translateService.instant('adminDeleteDeviceSuccess'),
-    //     });
-    //     this.loadData();
-    //   })
-    //   .catch(() => {
-    //     this.loadingService.setLoading(false);
-    //     this.messageService.add({
-    //       severity: 'error',
-    //       summary: this.translateService.instant('ToastTitleError'),
-    //       detail: this.translateService.instant('adminDeleteDeviceError'),
-    //     });
-    //   });
     this.toggleConfirmDeleteDevice();
 
     this.loadingService.setLoading(true);
@@ -1119,41 +1113,11 @@ export class AdminPageComponent implements OnInit {
   //? ACCIONES GRUPOS
   addGroup() {
     if (this.addGroupForm.status !== 'INVALID') {
-      // const groupRef = this.firestore.collection(
-      //   `/users/nyxsys/content/${
-      //     this.userRole === 'superAdmin'
-      //       ? this.addGroupForm.value.userID
-      //       : this.authService.userId
-      //   }/teams`
-      // );
-
-      // this.toggleAddGroup();
-      // this.loadingService.setLoading(true);
-      // groupRef
-      //   .add({
-      //     ...this.addGroupForm.value,
-      //   })
-      //   .then(() => {
-      //     this.messageService.add({
-      //       severity: 'success',
-      //       summary: this.translateService.instant('ToastTitleCorrect'),
-      //       detail: this.translateService.instant('adminAddGroupSuccess'),
-      //     });
-      //     this.loadData();
-      //   })
-      //   .catch(() => {
-      //     this.loadingService.setLoading(false);
-      //     this.messageService.add({
-      //       severity: 'error',
-      //       summary: this.translateService.instant('ToastTitleError'),
-      //       detail: this.translateService.instant('adminAddGroupError'),
-      //     });
-      //   });
       this.loadingService.setLoading(true);
       this.databaseService
         .addGroup(this.addGroupForm.value)
         .then(() => {
-          this.toggleAddGroup();
+          this.toggleAddGroup(false);
           this.messageService.add({
             severity: 'success',
             summary: this.translateService.instant('ToastTitleCorrect'),
@@ -1174,41 +1138,6 @@ export class AdminPageComponent implements OnInit {
 
   editGroup() {
     if (this.addGroupForm.status !== 'INVALID') {
-      // const groupRef = this.firestore.doc(
-      //   `/users/nyxsys/content/${
-      //     this.userRole === 'superAdmin'
-      //       ? this.addGroupForm.value.userID
-      //       : this.authService.userId
-      //   }/teams/${this.groupIdToEdit}`
-      // );
-
-      // this.loadingService.setLoading(true);
-      // groupRef
-      //   .set(
-      //     {
-      //       ...this.addGroupForm.value,
-      //     },
-      //     { merge: true }
-      //   )
-      //   .then(() => {
-      //     this.toggleEditGroup();
-      //     this.actionsGroupsForm.reset();
-      //     this.messageService.add({
-      //       severity: 'success',
-      //       summary: this.translateService.instant('ToastTitleCorrect'),
-      //       detail: this.translateService.instant('adminEditGroupSuccess'),
-      //     });
-      //     this.groupIdToEdit = '';
-      //     this.loadData();
-      //   })
-      //   .catch(() => {
-      //     this.loadingService.setLoading(false);
-      //     this.messageService.add({
-      //       severity: 'error',
-      //       summary: this.translateService.instant('ToastTitleError'),
-      //       detail: this.translateService.instant('adminEditGroupError'),
-      //     });
-      //   });
       this.loadingService.setLoading(true);
       this.databaseService
         .editGroup(this.addGroupForm.value)
@@ -1287,34 +1216,6 @@ export class AdminPageComponent implements OnInit {
   }
 
   hideGroup(userIdGroup: string, groupId: string, hideValue: boolean) {
-    // const groupRef = this.firestore.doc(
-    //   `/users/nyxsys/content/${userIdGroup}/teams/${groupId}`
-    // );
-
-    // this.loadingService.setLoading(true);
-    // groupRef
-    //   .update({ hided: !hideValue })
-    //   .then(() => {
-    //     this.actionsGroupsForm.reset();
-    //     this.messageService.add({
-    //       severity: 'success',
-    //       summary: this.translateService.instant('ToastTitleCorrect'),
-    //       detail: this.translateService.instant(
-    //         hideValue ? 'adminShowGroupSuccess' : 'adminHideGroupSuccess'
-    //       ),
-    //     });
-    //     this.loadData();
-    //   })
-    //   .catch(() => {
-    //     this.loadingService.setLoading(false);
-    //     this.messageService.add({
-    //       severity: 'error',
-    //       summary: this.translateService.instant('ToastTitleError'),
-    //       detail: this.translateService.instant(
-    //         hideValue ? 'adminShowGroupError' : 'adminHideGroupError'
-    //       ),
-    //     });
-    //   });
     this.loadingService.setLoading(true);
 
     this.databaseService
@@ -1349,7 +1250,7 @@ export class AdminPageComponent implements OnInit {
     this.databaseService
       .addCollaborator(this.addCollaboratorForm.value, this.users)
       .then(() => {
-        this.toggleAddCollaborator();
+        this.toggleAddCollaborator(false);
         this.loadingService.setLoading(false);
         this.messageService.add({
           severity: 'success',
@@ -1434,50 +1335,6 @@ export class AdminPageComponent implements OnInit {
   }
 
   deleteCollaborator() {
-    // try {
-    //   const collaboratorRef = this.firestore.doc(
-    //     `/users/nyxsys/content/${this.collaboratorIdToDelete}`
-    //   );
-
-    //   const userAccessRef = this.firestore.doc(
-    //     `/users/nyxsys/content/${this.userIdToAccessCollaboratorToDelete}`
-    //   );
-
-    //   this.toggleConfirmDeleteCollaborator();
-    //   this.loadingService.setLoading(true);
-    //   await collaboratorRef.delete();
-
-    //   const userToAccess = this.users.find(
-    //     (user: User) => user.id === this.userIdToAccessCollaboratorToDelete
-    //   );
-    //   const newCollaboratorsUserToAccess = userToAccess?.collaborators.filter(
-    //     (collaborator: Collaborator) =>
-    //       collaborator.id !== this.collaboratorIdToDelete
-    //   );
-
-    //   await userAccessRef.update({
-    //     collaborators: newCollaboratorsUserToAccess,
-    //   });
-
-    //   this.authService.deleteUser(this.collaboratorToDelete);
-    //   this.collaboratorToDelete = null;
-    //   this.collaboratorIdToDelete = '';
-    //   this.userIdToAccessCollaboratorToDelete = '';
-    //   this.actionsCollaboratorsForm.reset();
-    //   this.messageService.add({
-    //     severity: 'success',
-    //     summary: this.translateService.instant('ToastTitleCorrect'),
-    //     detail: this.translateService.instant('adminDeleteCollaboratorSuccess'),
-    //   });
-    //   this.loadData();
-    // } catch (error) {
-    //   this.loadingService.setLoading(false);
-    //   this.messageService.add({
-    //     severity: 'error',
-    //     summary: this.translateService.instant('ToastTitleError'),
-    //     detail: this.translateService.instant('adminDeleteCollaboratorError'),
-    //   });
-    // }
     this.toggleConfirmDeleteCollaborator();
 
     this.loadingService.setLoading(true);
@@ -1520,7 +1377,7 @@ export class AdminPageComponent implements OnInit {
       this.databaseService
         .addUser(this.addUserForm.value)
         .then(() => {
-          this.toggleAddUser();
+          this.toggleAddUser(false);
           this.messageService.add({
             severity: 'success',
             summary: this.translateService.instant('ToastTitleCorrect'),
@@ -1588,6 +1445,7 @@ export class AdminPageComponent implements OnInit {
   }
 
   deleteUser() {
+    this.toggleConfirmDeleteUser();
     this.loadingService.setLoading(true);
     this.databaseService
       .deleteUser(this.userToDelete)

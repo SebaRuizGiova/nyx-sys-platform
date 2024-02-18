@@ -101,18 +101,22 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
     }
     this.intervalId = setInterval(async () => {
       if (this.profiles.length) {
-        const updatedProfiles = await Promise.all(this.profiles.map(async (profile) => {
-          try {
-            const liveData = await this.getStatusDevice(profile.deviceSN.toString());
-            return {
-              ...profile,
-              liveData,
-            };
-          } catch (error) {
-            console.error('Error updating profile:', error);
-            return profile; // Mantener el perfil sin cambios en caso de error
-          }
-        }));
+        const updatedProfiles = await Promise.all(
+          this.profiles.map(async (profile) => {
+            try {
+              const liveData = await this.getStatusDevice(
+                profile.deviceSN.toString()
+              );
+              return {
+                ...profile,
+                liveData,
+              };
+            } catch (error) {
+              console.error('Error updating profile:', error);
+              return profile; // Mantener el perfil sin cambios en caso de error
+            }
+          })
+        );
         this.profiles = updatedProfiles;
         this.filteredProfiles = updatedProfiles;
       }
@@ -212,50 +216,55 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   }
 
   async loadProfiles() {
-    const profiles = await this.getProfilesByGroup(
-      this.groupForm.value.selectedGroup.userId || '',
-      this.groupForm.value.selectedGroup.value.toString()
-    );
-    const profilePromises = profiles.map((profile) => {
-      return new Promise(async (resolve, reject) => {
-        try {
-          const sleepDataPromise =
-            this.databaseService.getSleepDataWithLimitCollection(
-              this.groupForm.value.selectedGroup.userId,
-              profile.id
-            );
-          const profileData = profile.data();
-          const liveDataPromise = this.getStatusDevice(profileData.deviceSN);
-          const results = await Promise.all([
-            sleepDataPromise,
-            liveDataPromise,
-          ]);
-          const sleepDataSnapshot = results[0];
-          const sleepData = sleepDataSnapshot.docs.map((doc) => doc.data());
-          const status = results[1];
-          resolve({
-            ...profileData,
-            sleepData,
-            liveData: status,
-          });
-        } catch (error) {
-          reject(error);
-        }
+    try {
+      const profiles = await this.getProfilesByGroup(
+        this.groupForm.value.selectedGroup.userId || '',
+        this.groupForm.value.selectedGroup.value.toString()
+      );
+      const profilePromises = profiles.map((profile) => {
+        return new Promise(async (resolve, reject) => {
+          try {
+            const sleepDataPromise =
+              this.databaseService.getSleepDataWithLimitCollection(
+                this.groupForm.value.selectedGroup.userId,
+                profile.id
+              );
+            const profileData = profile.data();
+            const liveDataPromise = this.getStatusDevice(profileData.deviceSN);
+            const results = await Promise.all([
+              sleepDataPromise,
+              liveDataPromise,
+            ]);
+            const sleepDataSnapshot = results[0];
+            const sleepData = sleepDataSnapshot.docs.map((doc) => doc.data());
+            const status = results[1];
+            resolve({
+              ...profileData,
+              sleepData,
+              liveData: status,
+            });
+          } catch (error) {
+            reject(error);
+          }
+        });
       });
-    });
-    const resultProfiles = await Promise.all(profilePromises);
-    this.profiles = [];
-    resultProfiles.forEach((profile: any) => {
-      this.profiles.push(profile);
-    });
-    this.filteredProfiles = this.profiles;
-    this.periodItems = this.helpersService.generatePeriods(
-      this.profiles,
-      this.timezoneService.timezoneOffset
-    );
-    this.selectSleepData();
-    this.filterProfiles();
-    this.databaseService.setProfiles(this.profiles);
+      const resultProfiles = await Promise.all(profilePromises);
+      this.profiles = [];
+      resultProfiles.forEach((profile: any) => {
+        this.profiles.push(profile);
+      });
+      this.filteredProfiles = this.profiles;
+      this.periodItems = this.helpersService.generatePeriods(
+        this.profiles,
+        this.timezoneService.timezoneOffset
+      );
+      this.selectSleepData();
+      this.filterProfiles();
+      this.databaseService.setProfiles(this.profiles);
+    } catch (error) {
+      console.log(error);
+      this.loadingService.setLoading(false);
+    }
   }
 
   getAllUsers(): Promise<any[]> {
@@ -300,7 +309,6 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   async getStatusDevice(deviceId: string): Promise<Status> {
     return new Promise(async (resolve, reject) => {
       try {
-        debugger
         const liveDataSnapshot =
           await this.databaseService.getLiveDataCollection(deviceId);
         const liveData: any[] = liveDataSnapshot.docs.map((doc) => doc.data());

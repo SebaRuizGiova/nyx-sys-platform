@@ -40,7 +40,7 @@
           <shared-button
             icon="pi-plus"
             [tooltipButton]="'adminAddProfileTooltip' | translate"
-            (click)="toggleAddProfile()"
+            (click)="toggleAddProfile(true)"
           />
           <span class="p-input-icon-right">
             <input
@@ -57,7 +57,8 @@
             [placeholder]="'adminFilterPlaceholder' | translate"
             [formGroup]="actionsProfilesForm"
             formControlName="filterByGroup"
-            (selectChange)="filterProfiles($event)"
+            (selectChange)="filterProfiles()"
+            [showClear]="true"
           />
         </div>
       </div>
@@ -160,7 +161,7 @@
           <shared-button
             icon="pi-plus"
             [tooltipButton]="'adminAddDeviceTooltip' | translate"
-            (click)="toggleAddDevice()"
+            (click)="toggleAddDevice(true)"
           />
           <span class="p-input-icon-right">
             <input
@@ -173,11 +174,12 @@
             <i class="pi pi-search"></i>
           </span>
           <shared-select
-            [options]="groupsItems"
+            [options]="groupsItemsFilter"
             [placeholder]="'adminFilterPlaceholder' | translate"
             [formGroup]="actionsProfilesForm"
             formControlName="filterByGroup"
-            (selectChange)="filterDevices($event)"
+            (selectChange)="filterDevices()"
+            [showClear]="true"
           />
         </div>
       </div>
@@ -255,7 +257,7 @@
           <shared-button
             icon="pi-plus"
             [tooltipButton]="'adminAddGroupTooltip' | translate"
-            (click)="toggleAddGroup()"
+            (click)="toggleAddGroup(true)"
           />
           <span class="p-input-icon-right">
             <input
@@ -333,7 +335,7 @@
           <shared-button
             icon="pi-plus"
             [tooltipButton]="'adminAddCollaboratorTooltip' | translate"
-            (click)="toggleAddCollaborator()"
+            (click)="toggleAddCollaborator(true)"
           />
           <span class="p-input-icon-right">
             <input
@@ -401,7 +403,7 @@
           <shared-button
             icon="pi-plus"
             [tooltipButton]="'adminAddUserTooltip' | translate"
-            (click)="toggleAddUser()"
+            (click)="toggleAddUser(true)"
           />
           <span class="p-input-icon-right">
             <input
@@ -545,7 +547,7 @@
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
-        (click)="toggleAddProfile()"
+        (click)="toggleAddProfile(false)"
       />
     </div>
   </div>
@@ -633,7 +635,7 @@
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
-        (click)="toggleAddDevice()"
+        (click)="toggleAddDevice(false)"
       />
     </div>
   </div>
@@ -710,7 +712,7 @@
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
-        (click)="toggleAddGroup()"
+        (click)="toggleAddGroup(false)"
       />
     </div>
   </div>
@@ -870,7 +872,7 @@
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
-        (click)="toggleAddCollaborator()"
+        (click)="toggleAddCollaborator(false)"
       />
     </div>
   </div>
@@ -981,7 +983,7 @@
       <shared-button
         [label]="'adminModalCancel' | translate"
         variant="secondary"
-        (click)="toggleAddUser()"
+        (click)="toggleAddUser(false)"
       />
     </div>
   </div>

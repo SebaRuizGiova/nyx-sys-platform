@@ -8,4 +8,5 @@ export interface User {
   UID:           string;
   uid:           string;
   collaborators: any[];
+  deleted:       boolean;
 }
