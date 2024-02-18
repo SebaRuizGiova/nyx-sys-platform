@@ -107,6 +107,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
               const liveData = await this.getStatusDevice(
                 profile.deviceSN.toString()
               );
+              // Actualizar solo la propiedad liveData de cada perfil
               return {
                 ...profile,
                 liveData,
@@ -117,10 +118,12 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
             }
           })
         );
-        this.profiles = updatedProfiles;
-        this.filteredProfiles = updatedProfiles;
+        // Copiar solo la propiedad liveData actualizada de cada perfil al array profiles
+        updatedProfiles.forEach((updatedProfile, index) => {
+          this.profiles[index].liveData = updatedProfile.liveData;
+        });
       }
-    }, 30000);
+    }, 5000);
   }
 
   async loadDataAdmin() {
