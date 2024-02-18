@@ -1723,4 +1723,39 @@ export class AdminPageComponent implements OnInit {
       });
     }
   }
+
+  clearProfilesSearch() {
+    this.actionsProfilesForm.patchValue({
+      search: ''
+    })
+    this.filterProfiles();
+  }
+
+  clearDevicesSearch() {
+    this.actionsDevicesForm.patchValue({
+      search: ''
+    })
+    this.filterDevices();
+  }
+
+  clearGroupsSearch() {
+    this.actionsGroupsForm.patchValue({
+      search: ''
+    })
+    this.filterGroups();
+  }
+
+  clearCollaboratorsSearch() {
+    this.actionsCollaboratorsForm.patchValue({
+      search: ''
+    })
+    this.filterCollaborators();
+  }
+
+  clearUsersSearch() {
+    this.actionsUsersForm.patchValue({
+      search: ''
+    })
+    this.filterUsers();
+  }
 }

@@ -50,7 +50,10 @@
               [placeholder]="'adminSearchPlaceholder' | translate"
               (input)="filterProfiles()"
             />
-            <i class="pi pi-search"></i>
+            <i *ngIf="!actionsProfilesForm.value.search;else clearProfiles" class="pi pi-search"></i>
+            <ng-template #clearProfiles>
+              <i class="pi pi-times" (click)="clearProfilesSearch()"></i>
+            </ng-template>
           </span>
           <shared-select
             [options]="groupsItemsFilter"
@@ -171,12 +174,15 @@
               [placeholder]="'adminSearchPlaceholder' | translate"
               (input)="filterDevices()"
             />
-            <i class="pi pi-search"></i>
+            <i *ngIf="!actionsDevicesForm.value.search;else clearDevices" class="pi pi-search"></i>
+            <ng-template #clearDevices>
+              <i class="pi pi-times" (click)="clearDevicesSearch()"></i>
+            </ng-template>
           </span>
           <shared-select
             [options]="groupsItemsFilter"
             [placeholder]="'adminFilterPlaceholder' | translate"
-            [formGroup]="actionsProfilesForm"
+            [formGroup]="actionsDevicesForm"
             formControlName="filterByGroup"
             (selectChange)="filterDevices()"
             [showClear]="true"
@@ -267,7 +273,10 @@
               [placeholder]="'adminSearchPlaceholder' | translate"
               (input)="filterGroups()"
             />
-            <i class="pi pi-search"></i>
+            <i *ngIf="!actionsGroupsForm.value.search;else clearGroups" class="pi pi-search"></i>
+            <ng-template #clearGroups>
+              <i class="pi pi-times" (click)="clearGroupsSearch()"></i>
+            </ng-template>
           </span>
         </div>
       </div>
@@ -345,7 +354,10 @@
               [placeholder]="'adminSearchPlaceholder' | translate"
               (input)="filterCollaborators()"
             />
-            <i class="pi pi-search"></i>
+            <i *ngIf="!actionsCollaboratorsForm.value.search;else clearCollaborators" class="pi pi-search"></i>
+            <ng-template #clearCollaborators>
+              <i class="pi pi-times" (click)="clearCollaboratorsSearch()"></i>
+            </ng-template>
           </span>
         </div>
       </div>
@@ -413,7 +425,10 @@
               [placeholder]="'adminSearchPlaceholder' | translate"
               (input)="filterUsers()"
             />
-            <i class="pi pi-search"></i>
+            <i *ngIf="!actionsUsersForm.value.search;else clearUsers" class="pi pi-search"></i>
+            <ng-template #clearUsers>
+              <i class="pi pi-times" (click)="clearUsersSearch()"></i>
+            </ng-template>
           </span>
         </div>
       </div>
