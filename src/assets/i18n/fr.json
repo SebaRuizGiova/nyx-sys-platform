@@ -61,6 +61,8 @@
   "loginLangES": "Espagnol",
   "loginLangEN": "Anglais",
   "loginLangIT": "Italien",
+  "loginLangDE": "Allemand",
+  "loginLangFR": "Français",
   "loginTooltipBack": "Retour",
   "loginInvalidEmail": "Veuillez entrer une adresse e-mail valide",
   "loginInvalidPassword": "Veuillez entrer un mot de passe",

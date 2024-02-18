@@ -61,6 +61,8 @@
   "loginLangES": "Spanish",
   "loginLangEN": "English",
   "loginLangIT": "Italian",
+  "loginLangDE": "German",
+  "loginLangFR": "French",
   "loginTooltipBack": "Back",
   "loginInvalidEmail": "You must enter a valid email address",
   "loginInvalidPassword": "You must enter a password",
