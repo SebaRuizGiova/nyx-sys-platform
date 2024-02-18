@@ -26,7 +26,6 @@
     </form>
     <div class="header-actions">
       <div class="buttons-actions">
-        {{ periodForm.value.period }}
         <form [formGroup]="periodForm">
           <shared-dropdown
             iconButton="pi-calendar"
@@ -37,6 +36,7 @@
             [formGroup]="periodForm"
             formControlName="period"
             (dropdownChange)="selectSleepData($event)"
+            [externalLabel]="periodForm.value.period"
           />
         </form>
         <!-- <div class="group-buttons">

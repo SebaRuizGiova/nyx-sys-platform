@@ -23,6 +23,7 @@ export interface ItemDropdown {
 export class DropdownComponent implements ControlValueAccessor {
 
   @Input() labelButton?: string;
+  @Input() externalLabel?: string;
   @Input() tooltipButton?: string;
   @Input() tooltipPosition?: 'right' | 'left' | 'top' | 'bottom';
   @Input() iconButton?: string;

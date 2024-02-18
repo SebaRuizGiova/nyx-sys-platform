@@ -1,6 +1,7 @@
 <form [formGroup]="formGroup">
   <div class="background" *ngIf="showPopup" (click)="tooglePopup()"></div>
   <div class="dropdown">
+    <span (click)="tooglePopup()" class="external-label">{{ externalLabel }}</span>
     <shared-button
       *ngIf="!noButton; else buttonText"
       [label]="labelButton"
