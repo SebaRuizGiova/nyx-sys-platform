@@ -17,6 +17,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class SleepArchitectureChartComponent implements OnChanges {
   @Input() period?: SleepData;
+  @Input() noTitle?: boolean = false;
   public sleepData: SleepDatum[] = [];
   public timestamps: string[] = [];
   public sleepTypes: number[] = [];
@@ -92,7 +93,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
                 animation: true,
               },
               title: {
-                text: chartTitleTranslate,
+                text: !this.noTitle ? chartTitleTranslate : '',
                 style: {
                   color: '#d9d9d9',
                   fontWeight: 'bold',
@@ -196,7 +197,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
               animation: true,
             },
             title: {
-              text: chartTitleTranslate,
+              text: !this.noTitle ? chartTitleTranslate : '',
               style: {
                 color: '#d9d9d9',
                 fontWeight: 'bold',

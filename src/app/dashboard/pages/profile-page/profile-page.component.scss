@@ -267,6 +267,24 @@
       height: 80%;
     }
   }
+
+  .modal-card-content {
+    width: 100%;
+
+    .dropdown-range {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .description {
+      color: darken($nyxsys-white, 20%);
+    }
+    .annotation {
+      font-weight: bold;
+      color: darken($nyxsys-white, 10%);
+    }
+  }
 }
 
 :host ::ng-deep .p-overlay {

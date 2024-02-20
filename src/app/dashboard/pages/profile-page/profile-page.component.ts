@@ -92,12 +92,21 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     durationInAwake: [],
     dates: [],
   };
-
   public movementToChart: any;
 
   public profileData?: Profile;
 
   private intervalId: any;
+
+  public showModalSleepArchitecture: boolean = false;
+  public showModalSleepScore: boolean = false;
+  public showModalRecovery: boolean = false;
+  public showModalANS: boolean = false;
+  public showModalHRV: boolean = false;
+  public showModalHeartRate: boolean = false;
+  public showModalBreathingRate: boolean = false;
+  public showModalMovement: boolean = false;
+  public showModalSleepTime: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -1785,5 +1794,37 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       durationInAwake,
       dates,
     };
+  }
+
+  preventClick(event: MouseEvent) {
+    event.stopPropagation();
+  }
+
+  toggleModalSleepScore() {
+    this.showModalSleepScore = !this.showModalSleepScore;
+  }
+  toggleModalRecovery() {
+    this.showModalRecovery = !this.showModalRecovery;
+  }
+  toggleModalANS() {
+    this.showModalANS = !this.showModalANS;
+  }
+  toggleModalHRV() {
+    this.showModalHRV = !this.showModalHRV;
+  }
+  toggleModalHeartRate() {
+    this.showModalHeartRate = !this.showModalHeartRate;
+  }
+  toggleModalBreathingRate() {
+    this.showModalBreathingRate = !this.showModalBreathingRate;
+  }
+  toggleModalMovement() {
+    this.showModalMovement = !this.showModalMovement;
+  }
+  toggleModalSleepTime() {
+    this.showModalSleepTime = !this.showModalSleepTime;
+  }
+  toggleModalSleepArchitecture() {
+    this.showModalSleepArchitecture = !this.showModalSleepArchitecture;
   }
 }

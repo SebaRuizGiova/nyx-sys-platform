@@ -9,6 +9,7 @@ export class ModalComponent {
   @Input() title: string = '';
   @Input() width: string = '50vw';
   @Input({ required: true }) showModal: boolean = false;
+  @Input() closable: boolean = false;
   @Output() onCloseEvent: EventEmitter<void> = new EventEmitter<void>();
 
   onClose(event: any) {

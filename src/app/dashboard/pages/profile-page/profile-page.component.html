@@ -108,12 +108,15 @@
 <hr />
 <main class="main-content">
   <div class="grid-sup">
-    <div class="card sleep-score">
+    <div class="card sleep-score" (click)="toggleModalSleepScore()">
       <div class="card-header">
         <span>{{ "profileViewSleepScoreTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
+          [pTooltip]="'profileCardSleepScoreTooltip' | translate"
+          tooltipPosition="left"
+          [showDelay]="400"
         ></i>
       </div>
       <hr />
@@ -139,12 +142,15 @@
       </div>
     </div>
 
-    <div class="card recovery">
+    <div class="card recovery" (click)="toggleModalRecovery()">
       <div class="card-header">
         <span>{{ "profileViewRecoveryTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
+          [pTooltip]="'profileCardRecoveryTooltip' | translate"
+          tooltipPosition="left"
+          [showDelay]="400"
         ></i>
       </div>
       <hr />
@@ -189,12 +195,15 @@
       </div>
     </div>
 
-    <div class="card ans">
+    <div class="card ans" (click)="toggleModalANS()">
       <div class="card-header">
         <span>{{ "profileViewAnsTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
+          [pTooltip]="'profileCardANSTooltip' | translate"
+          tooltipPosition="left"
+          [showDelay]="400"
         ></i>
       </div>
       <hr />
@@ -249,12 +258,15 @@
       </div>
     </div>
 
-    <div class="card heart-rate-var">
+    <div class="card heart-rate-var" (click)="toggleModalHRV()">
       <div class="card-header">
         <span>{{ "profileViewAnsHrVariabilityTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
+          [pTooltip]="'profileCardHRVTooltip' | translate"
+          tooltipPosition="left"
+          [showDelay]="400"
         ></i>
       </div>
       <hr />
@@ -291,12 +303,15 @@
       </div>
     </div>
 
-    <div class="card heart-rate">
+    <div class="card heart-rate" (click)="toggleModalHeartRate()">
       <div class="card-header">
         <span>{{ "profileViewHeartRateTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
+          [pTooltip]="'profileCardHeartRateTooltip' | translate"
+          tooltipPosition="left"
+          [showDelay]="400"
         ></i>
       </div>
       <hr />
@@ -321,12 +336,15 @@
       </div>
     </div>
 
-    <div class="card breathing-rate">
+    <div class="card breathing-rate" (click)="toggleModalBreathingRate()">
       <div class="card-header">
         <span>{{ "profileViewBreathingRateTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
+          [pTooltip]="'profileCardBreathingRateTooltip' | translate"
+          tooltipPosition="left"
+          [showDelay]="400"
         ></i>
       </div>
       <hr />
@@ -351,12 +369,15 @@
       </div>
     </div>
 
-    <div class="card movement">
+    <div class="card movement" (click)="toggleModalMovement()">
       <div class="card-header">
         <span>{{ "profileViewMovementTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
+          [pTooltip]="'profileCardMovementsTooltip' | translate"
+          tooltipPosition="left"
+          [showDelay]="400"
         ></i>
       </div>
       <hr />
@@ -381,12 +402,15 @@
       </div>
     </div>
 
-    <div class="card sleep-time">
+    <div class="card sleep-time" (click)="toggleModalSleepTime()">
       <div class="card-header">
         <span>{{ "profileViewSleepTimeTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
+          [pTooltip]="'profileCardSleepTimeTooltip' | translate"
+          tooltipPosition="left"
+          [showDelay]="400"
         ></i>
       </div>
       <hr />
@@ -450,12 +474,15 @@
       ></sleep-architecture-chart>
     </div>
 
-    <div class="card sleep-arc">
+    <div class="card sleep-arc" (click)="toggleModalSleepArchitecture()">
       <div class="card-header">
-        <span>{{ "profileViewSleepArqTitle" | translate }}</span>
+        <span>{{ "profileViewSleepArcTitle" | translate }}</span>
         <i
           class="pi pi-exclamation-circle"
           style="font-size: 1rem; color: #56a7ff"
+          [pTooltip]="'profileCardSleepArcTooltip' | translate"
+          tooltipPosition="left"
+          [showDelay]="400"
         ></i>
       </div>
       <hr />
@@ -521,5 +548,290 @@
       </div>
     </div>
   </div>
-  <!-- <hrv-chart [hrv]="hrvToChart"></hrv-chart> -->
+
+  <!-- MODAL SLEEP SCORE -->
+  <shared-modal
+    [showModal]="showModalSleepScore"
+    [title]="'profileViewSleepScoreTitle' | translate"
+    [closable]="true"
+    width="80vw"
+    (onCloseEvent)="toggleModalSleepScore()"
+  >
+    <div class="modal-card-content">
+      <p class="description">
+        {{ "profileModalSleepScoreDesc" | translate }}
+      </p>
+      <!-- TODO: Agregar mensaje según rango -->
+      <div class="dropdown-range">
+        <form [formGroup]="downloadForm">
+          <shared-select
+            [options]="rangeDownloadItems || []"
+            [placeholder]="'groupSelectRangePlaceholder' | translate"
+            [formGroup]="downloadForm"
+            formControlName="range"
+          />
+        </form>
+      </div>
+      <sleep-architecture-chart
+        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
+        [period]="profileData!.selectedSleepData"
+        [noTitle]="true"
+      ></sleep-architecture-chart>
+    </div>
+  </shared-modal>
+
+  <!-- MODAL RECOVERY -->
+  <shared-modal
+    [showModal]="showModalRecovery"
+    [title]="'profileViewRecoveryTitle' | translate"
+    [closable]="true"
+    width="80vw"
+    (onCloseEvent)="toggleModalRecovery()"
+  >
+    <div class="modal-card-content">
+      <p class="description">
+        {{ "profileModalRecoveryDesc" | translate }}
+      </p>
+      <p class="annotation">
+        {{ "profileModalRecoveryAnnotation" | translate }}
+      </p>
+      <!-- TODO: Agregar mensaje según rango -->
+      <div class="dropdown-range">
+        <form [formGroup]="downloadForm">
+          <shared-select
+            [options]="rangeDownloadItems || []"
+            [placeholder]="'groupSelectRangePlaceholder' | translate"
+            [formGroup]="downloadForm"
+            formControlName="range"
+          />
+        </form>
+      </div>
+      <sleep-architecture-chart
+        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
+        [period]="profileData!.selectedSleepData"
+        [noTitle]="true"
+      ></sleep-architecture-chart>
+    </div>
+  </shared-modal>
+
+  <!-- MODAL ANS -->
+  <shared-modal
+    [showModal]="showModalANS"
+    [title]="'profileViewAnsTitle' | translate"
+    [closable]="true"
+    width="80vw"
+    (onCloseEvent)="toggleModalANS()"
+  >
+    <div class="modal-card-content">
+      <p class="description">
+        {{ "profileModalANSDesc" | translate }}
+      </p>
+      <!-- TODO: Agregar mensaje según rango -->
+      <div class="dropdown-range">
+        <form [formGroup]="downloadForm">
+          <shared-select
+            [options]="rangeDownloadItems || []"
+            [placeholder]="'groupSelectRangePlaceholder' | translate"
+            [formGroup]="downloadForm"
+            formControlName="range"
+          />
+        </form>
+      </div>
+      <sleep-architecture-chart
+        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
+        [period]="profileData!.selectedSleepData"
+        [noTitle]="true"
+      ></sleep-architecture-chart>
+    </div>
+  </shared-modal>
+
+  <!-- MODAL HRV -->
+  <shared-modal
+    [showModal]="showModalHRV"
+    [title]="'profileViewAnsHrVariabilityTitle' | translate"
+    [closable]="true"
+    width="80vw"
+    (onCloseEvent)="toggleModalHRV()"
+  >
+    <div class="modal-card-content">
+      <p class="description">
+        {{ "profileModalHRVDesc" | translate }}
+      </p>
+      <!-- TODO: Esta anotación es para semanal -->
+      <p class="annotation">
+        {{ "profileModalHRVWeeklyAnnotation" | translate }}
+      </p>
+      <!-- TODO: Agregar mensaje según rango -->
+      <div class="dropdown-range">
+        <form [formGroup]="downloadForm">
+          <shared-select
+            [options]="rangeDownloadItems || []"
+            [placeholder]="'groupSelectRangePlaceholder' | translate"
+            [formGroup]="downloadForm"
+            formControlName="range"
+          />
+        </form>
+      </div>
+      <sleep-architecture-chart
+        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
+        [period]="profileData!.selectedSleepData"
+        [noTitle]="true"
+      ></sleep-architecture-chart>
+    </div>
+  </shared-modal>
+
+  <!-- MODAL HEART RATE -->
+  <shared-modal
+    [showModal]="showModalHeartRate"
+    [title]="'profileViewHeartRateTitle' | translate"
+    [closable]="true"
+    width="80vw"
+    (onCloseEvent)="toggleModalHeartRate()"
+  >
+    <div class="modal-card-content">
+      <p class="description">
+        {{ "profileModalHeartRateDesc" | translate }}
+      </p>
+      <!-- TODO: Agregar mensaje según rango -->
+      <div class="dropdown-range">
+        <form [formGroup]="downloadForm">
+          <shared-select
+            [options]="rangeDownloadItems || []"
+            [placeholder]="'groupSelectRangePlaceholder' | translate"
+            [formGroup]="downloadForm"
+            formControlName="range"
+          />
+        </form>
+      </div>
+      <sleep-architecture-chart
+        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
+        [period]="profileData!.selectedSleepData"
+        [noTitle]="true"
+      ></sleep-architecture-chart>
+    </div>
+  </shared-modal>
+
+  <!-- MODAL BREATHING RATE -->
+  <shared-modal
+    [showModal]="showModalBreathingRate"
+    [title]="'profileViewBreathingRateTitle' | translate"
+    [closable]="true"
+    width="80vw"
+    (onCloseEvent)="toggleModalBreathingRate()"
+  >
+    <div class="modal-card-content">
+      <p class="description">
+        {{ "profileModalBreathingRateDesc" | translate }}
+      </p>
+      <!-- TODO: Agregar mensaje según rango -->
+      <div class="dropdown-range">
+        <form [formGroup]="downloadForm">
+          <shared-select
+            [options]="rangeDownloadItems || []"
+            [placeholder]="'groupSelectRangePlaceholder' | translate"
+            [formGroup]="downloadForm"
+            formControlName="range"
+          />
+        </form>
+      </div>
+      <sleep-architecture-chart
+        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
+        [period]="profileData!.selectedSleepData"
+        [noTitle]="true"
+      ></sleep-architecture-chart>
+    </div>
+  </shared-modal>
+
+  <!-- MODAL MOVEMENT -->
+  <shared-modal
+    [showModal]="showModalMovement"
+    [title]="'profileViewMovementTitle' | translate"
+    [closable]="true"
+    width="80vw"
+    (onCloseEvent)="toggleModalMovement()"
+  >
+    <div class="modal-card-content">
+      <p class="description">
+        {{ "profileModalMovementsDesc" | translate }}
+      </p>
+      <!-- TODO: Agregar mensaje según rango -->
+      <div class="dropdown-range">
+        <form [formGroup]="downloadForm">
+          <shared-select
+            [options]="rangeDownloadItems || []"
+            [placeholder]="'groupSelectRangePlaceholder' | translate"
+            [formGroup]="downloadForm"
+            formControlName="range"
+          />
+        </form>
+      </div>
+      <sleep-architecture-chart
+        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
+        [period]="profileData!.selectedSleepData"
+        [noTitle]="true"
+      ></sleep-architecture-chart>
+    </div>
+  </shared-modal>
+
+  <!-- MODAL SLEEP TIME -->
+  <shared-modal
+    [showModal]="showModalSleepTime"
+    [title]="'profileViewSleepTimeTitle' | translate"
+    [closable]="true"
+    width="80vw"
+    (onCloseEvent)="toggleModalSleepTime()"
+  >
+    <div class="modal-card-content">
+      <p class="description">
+        {{ "profileModalSleepTimeDesc" | translate }}
+      </p>
+      <!-- TODO: Agregar mensaje según rango -->
+      <div class="dropdown-range">
+        <form [formGroup]="downloadForm">
+          <shared-select
+            [options]="rangeDownloadItems || []"
+            [placeholder]="'groupSelectRangePlaceholder' | translate"
+            [formGroup]="downloadForm"
+            formControlName="range"
+          />
+        </form>
+      </div>
+      <sleep-architecture-chart
+        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
+        [period]="profileData!.selectedSleepData"
+        [noTitle]="true"
+      ></sleep-architecture-chart>
+    </div>
+  </shared-modal>
+
+  <!-- MODAL SLEEP ARCHITECTURE -->
+  <shared-modal
+    [showModal]="showModalSleepArchitecture"
+    [title]="'profileViewSleepArcTitle' | translate"
+    [closable]="true"
+    width="80vw"
+    (onCloseEvent)="toggleModalSleepArchitecture()"
+  >
+    <div class="modal-card-content">
+      <p class="description">
+        {{ "profileModalSleepArcDesc" | translate }}
+      </p>
+      <!-- TODO: Agregar mensaje según rango -->
+      <div class="dropdown-range">
+        <form [formGroup]="downloadForm">
+          <shared-select
+            [options]="rangeDownloadItems || []"
+            [placeholder]="'groupSelectRangePlaceholder' | translate"
+            [formGroup]="downloadForm"
+            formControlName="range"
+          />
+        </form>
+      </div>
+      <sleep-architecture-chart
+        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
+        [period]="profileData!.selectedSleepData"
+        [noTitle]="true"
+      ></sleep-architecture-chart>
+    </div>
+  </shared-modal>
 </main>
