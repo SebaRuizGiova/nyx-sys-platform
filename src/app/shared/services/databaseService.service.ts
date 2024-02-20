@@ -366,20 +366,34 @@ export class DatabaseService {
             }/devices`
           );
 
-          const profileLinked = profiles.find(
-            (user) => user.id === device.playerID.toString()
-          );
+          let newDevice = device;
 
-          const newDevice = {
-            ...device,
-            playerName:
-              `${profileLinked?.name} ${profileLinked?.lastName}` || false,
-          };
+          if (device.playerID) {
+            const profileLinked = profiles.find(
+              (user) => user.id === device.playerID.toString()
+            );
+
+            newDevice = {
+              ...device,
+              playerName:
+                `${profileLinked?.name} ${profileLinked?.lastName}` || false,
+            };
+          }
 
           deviceRef
             .add(newDevice)
             .then((docRef) => {
               deviceId = docRef.id;
+              docRef
+                .update({
+                  id: deviceId,
+                })
+                .then((res) => {
+                  resolve(res);
+                })
+                .catch((err) => {
+                  reject(err);
+                });
               if (device.playerID) {
                 const profileRef = this.firestore.doc(
                   `/users/nyxsys/content/${

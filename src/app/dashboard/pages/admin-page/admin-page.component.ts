@@ -62,8 +62,8 @@ export class AdminPageComponent implements OnInit {
   });
   public addDeviceForm: FormGroup = this.fb.group({
     id: [''],
-    serialNumber: ['', [Validators.required, Validators.minLength(6)]],
-    verificationCode: ['', [Validators.required, Validators.minLength(5)]],
+    serialNumber: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
+    verificationCode: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
     userID: ['', Validators.required],
     playerID: [{ value: '', disabled: true }],
     teamID: [''],
@@ -203,7 +203,6 @@ export class AdminPageComponent implements OnInit {
 
   public userIdDeviceToDelete: string = '';
   public deviceIdToDelete: string = '';
-  public deviceIdToEdit?: string;
   public enableEditDevice: boolean = false;
 
   public userIdGroupToDelete: string = '';
@@ -269,6 +268,7 @@ export class AdminPageComponent implements OnInit {
         this.profiles = profiles;
         this.filteredProfiles = profiles;
         this.profilesByUser = profiles;
+        this.filterProfiles();
         this.loadingService.setLoading(false);
       });
   }
@@ -290,6 +290,7 @@ export class AdminPageComponent implements OnInit {
         this.devices = devicesWithStatus;
         this.filteredDevices = devicesWithStatus;
         this.devicesByUser = devicesWithStatus;
+        this.filterDevices();
         this.loadingService.setLoading(false);
       });
   }
@@ -306,6 +307,7 @@ export class AdminPageComponent implements OnInit {
         }));
         this.filteredGroups = groups;
         this.groupsByUser = groups;
+        this.filterGroups();
         this.loadingService.setLoading(false);
       });
   }
@@ -332,6 +334,7 @@ export class AdminPageComponent implements OnInit {
     this.filteredCollaborators = collaboratorsFiltersByUser;
     this.collaboratorsByUser = collaboratorsFiltersByUser;
 
+    this.filterCollaborators();
     this.loadingService.setLoading(false);
   }
 
@@ -420,6 +423,7 @@ export class AdminPageComponent implements OnInit {
           value: group.id,
         }));
 
+        this.filterAll();
         this.loadingService.setLoading(false);
       });
   }
@@ -596,7 +600,6 @@ export class AdminPageComponent implements OnInit {
   toggleEditProfile(profile?: Profile) {
     this.enableEditProfile = !this.enableEditProfile;
     this.showAddProfile = !this.showAddProfile;
-    // this.profileIdToEdit = profile?.id || '';
 
     if (profile) {
       const birthdate = new Date(profile.birthdate.seconds * 1000);
@@ -606,6 +609,10 @@ export class AdminPageComponent implements OnInit {
         birthdate,
       };
 
+      this.addProfileForm.reset();
+      this.addProfileForm.controls['sex'].setErrors(null);
+      this.addProfileForm.controls['userID'].setErrors(null);
+
       this.addProfileForm.patchValue(newValue);
       this.selectUserProfile(
         this.userRole !== 'superAdmin'
@@ -614,10 +621,6 @@ export class AdminPageComponent implements OnInit {
         profile.teamID
       );
     }
-
-    this.addProfileForm.reset();
-    this.addProfileForm.controls['sex'].setErrors(null);
-    this.addProfileForm.controls['userID'].setErrors(null);
   }
 
   toggleConfirmDeleteProfile(userId?: string, profileId?: string) {
@@ -637,20 +640,17 @@ export class AdminPageComponent implements OnInit {
       this.selectUserDevice(this.authService.userId);
     }
 
-    if (!toggle) {
-      this.addDeviceForm.reset();
-      this.addDeviceForm.controls['userID'].setErrors(null);
-      this.addDeviceForm?.get('playerID')?.reset({
-        value: '',
-        disabled: true,
-      });
-    }
+    this.addDeviceForm.reset();
+    this.addDeviceForm.controls['userID'].setErrors(null);
+    this.addDeviceForm?.get('playerID')?.reset({
+      value: '',
+      disabled: true,
+    });
   }
 
   toggleEditDevice(device?: Device) {
     this.enableEditDevice = !this.enableEditDevice;
     this.showAddDevice = !this.showAddDevice;
-    this.deviceIdToEdit = device?.id || '';
 
     this.addDeviceForm.reset();
     this.addDeviceForm.controls['userID'].setErrors(null);
@@ -689,11 +689,9 @@ export class AdminPageComponent implements OnInit {
       });
     }
 
-    if (!toggle) {
-      this.addGroupForm.reset();
-      this.addGroupForm.controls['gmt'].setErrors(null);
-      this.addGroupForm.controls['userID'].setErrors(null);
-    }
+    this.addGroupForm.reset();
+    this.addGroupForm.controls['gmt'].setErrors(null);
+    this.addGroupForm.controls['userID'].setErrors(null);
   }
 
   toggleEditGroup(group?: Group) {
@@ -743,11 +741,9 @@ export class AdminPageComponent implements OnInit {
       });
     }
 
-    if (!toggle) {
-      this.addCollaboratorForm.reset();
-      this.addCollaboratorForm.controls['role'].setErrors(null);
-      this.addCollaboratorForm.controls['UID'].setErrors(null);
-    }
+    this.addCollaboratorForm.reset();
+    this.addCollaboratorForm.controls['role'].setErrors(null);
+    this.addCollaboratorForm.controls['UID'].setErrors(null);
   }
 
   toggleEditCollaborator(collaborator?: Collaborator) {
@@ -780,10 +776,8 @@ export class AdminPageComponent implements OnInit {
   toggleAddUser(toggle: boolean) {
     this.showAddUser = toggle;
 
-    if (!toggle) {
-      this.addUserForm.reset();
-      this.addUserForm.controls['role'].setErrors(null);
-    }
+    this.addUserForm.reset();
+    this.addUserForm.controls['role'].setErrors(null);
   }
 
   toggleEditUser(user?: User) {
@@ -837,7 +831,6 @@ export class AdminPageComponent implements OnInit {
         .editProfile(this.addProfileForm.value)
         .then(() => {
           this.toggleEditProfile();
-          this.actionsProfilesForm.reset();
           this.messageService.add({
             severity: 'success',
             summary: this.translateService.instant('ToastTitleCorrect'),
@@ -895,7 +888,6 @@ export class AdminPageComponent implements OnInit {
       .deleteProfile(this.profileIdToDelete, this.userIdProfileToDelete)
       .then(() => {
         this.toggleConfirmDeleteProfile();
-        this.actionsProfilesForm.reset();
         this.messageService.add({
           severity: 'success',
           summary: this.translateService.instant('ToastTitleCorrect'),
@@ -921,7 +913,6 @@ export class AdminPageComponent implements OnInit {
     this.databaseService
       .hideProfile(userIdProfile, profileId, hideValue)
       .then(() => {
-        this.actionsProfilesForm.reset();
         this.messageService.add({
           severity: 'success',
           summary: this.translateService.instant('ToastTitleCorrect'),
@@ -982,7 +973,6 @@ export class AdminPageComponent implements OnInit {
             summary: this.translateService.instant('ToastTitleCorrect'),
             detail: this.translateService.instant('adminEditDeviceSuccess'),
           });
-          this.deviceIdToEdit = '';
           this.loadData();
         })
         .catch(() => {
@@ -1606,12 +1596,27 @@ export class AdminPageComponent implements OnInit {
     this.addDeviceForm.patchValue({
       userID: userId,
     });
-    this.profilesItems = this.profiles
-      .filter((profile) => profile.userID === userId)
-      .map((profile: Profile) => ({
-        label: `${profile.name} ${profile.lastName}`,
-        value: profile.id,
-      }));
+
+    if (!this.enableEditDevice) {
+      this.profilesItems = this.profiles
+        .filter(
+          (profile) =>
+            profile.userID === userId &&
+            !this.enableEditDevice &&
+            !profile.deviceID
+        )
+        .map((profile: Profile) => ({
+          label: `${profile.name} ${profile.lastName}`,
+          value: profile.id,
+        }));
+    } else {
+      this.profilesItems = this.profiles
+        .filter((profile) => profile.userID === userId)
+        .map((profile: Profile) => ({
+          label: `${profile.name} ${profile.lastName}`,
+          value: profile.id,
+        }));
+    }
   }
 
   selectPlayerLinked(profileId: string) {
@@ -1650,6 +1655,12 @@ export class AdminPageComponent implements OnInit {
         return this.translateService.instant('adminLength5Characters');
       }
       if (errors['minlength']?.requiredLength === 6) {
+        return this.translateService.instant('adminLength6Characters');
+      }
+      if (errors['maxlength']?.requiredLength === 5) {
+        return this.translateService.instant('adminLength5Characters');
+      }
+      if (errors['maxlength']?.requiredLength === 6) {
         return this.translateService.instant('adminLength6Characters');
       }
       if (errors['noEqualPasswords']) {
@@ -1726,36 +1737,44 @@ export class AdminPageComponent implements OnInit {
 
   clearProfilesSearch() {
     this.actionsProfilesForm.patchValue({
-      search: ''
-    })
+      search: '',
+    });
     this.filterProfiles();
   }
 
   clearDevicesSearch() {
     this.actionsDevicesForm.patchValue({
-      search: ''
-    })
+      search: '',
+    });
     this.filterDevices();
   }
 
   clearGroupsSearch() {
     this.actionsGroupsForm.patchValue({
-      search: ''
-    })
+      search: '',
+    });
     this.filterGroups();
   }
 
   clearCollaboratorsSearch() {
     this.actionsCollaboratorsForm.patchValue({
-      search: ''
-    })
+      search: '',
+    });
     this.filterCollaborators();
   }
 
   clearUsersSearch() {
     this.actionsUsersForm.patchValue({
-      search: ''
-    })
+      search: '',
+    });
+    this.filterUsers();
+  }
+
+  filterAll() {
+    this.filterProfiles();
+    this.filterDevices();
+    this.filterGroups();
+    this.filterCollaborators();
     this.filterUsers();
   }
 }

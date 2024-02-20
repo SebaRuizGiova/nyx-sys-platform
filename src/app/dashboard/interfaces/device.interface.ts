@@ -5,7 +5,7 @@ export interface Device {
   id:               string;
   offSet:           string;
   serialNumber:     string;
-  playerName:       string;
+  playerName:       string | boolean;
   verificationCode: string;
   userID:           string;
   teamID:           string;
