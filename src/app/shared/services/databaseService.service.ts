@@ -315,22 +315,48 @@ export class DatabaseService {
     });
   }
 
-  deleteProfile(profileId: string, userId: string) {
+  deleteProfile(profile: Profile | null) {
     return new Promise((resolve, reject) => {
-      const profileRef = this.firestore.doc(
-        `/users/nyxsys/content/${userId}/players/${profileId}`
-      );
+      if (profile) {
+        const profileRef = this.firestore.doc(
+          `/users/nyxsys/content/${profile.userID}/players/${profile.id}`
+        );
 
-      profileRef
-        .update({
-          deleted: true,
-        })
-        .then((res) => {
-          resolve(res);
-        })
-        .catch((error) => {
-          reject(error);
-        });
+        profileRef
+          .update({
+            deleted: true,
+            device: false,
+            deviceID: null,
+            deviceSN: null,
+          })
+          .then((res) => {
+            const deviceRef = this.firestore.doc(
+              `/users/nyxsys/content/${
+                this.userRole === 'superAdmin'
+                  ? profile.userID
+                  : this.authService!.userId
+              }/devices/${profile.deviceID}`
+            );
+
+            deviceRef
+              .update({
+                player: false,
+                playerID: null,
+                playerName: null,
+                teamID: null,
+              })
+              .then((res) => {
+                resolve(res);
+              })
+              .catch((error) => {
+                reject(error);
+              });
+            resolve(res);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      }
     });
   }
 
@@ -377,6 +403,7 @@ export class DatabaseService {
               ...device,
               playerName:
                 `${profileLinked?.name} ${profileLinked?.lastName}` || false,
+              teamID: profileLinked?.teamID || '',
             };
           }
 
@@ -426,7 +453,7 @@ export class DatabaseService {
     });
   }
 
-  editDevice(device: Device) {
+  editDevice(device: Device, profiles: Profile[]) {
     return new Promise((resolve, reject) => {
       if (this.authService) {
         this.authService.checkRole().subscribe((role) => {
@@ -443,7 +470,36 @@ export class DatabaseService {
           const deviceRefPromise = deviceRef.set(device, { merge: true });
 
           if (device.playerID) {
-            const profileRef = this.firestore.doc(
+            const profileToUnlink = profiles.find(
+              (profile) => profile.deviceID.toString() === device.id
+            );
+            if (
+              profileToUnlink?.id &&
+              profileToUnlink?.id !== device.playerID.toString()
+            ) {
+              const profileToUnlinkRef = this.firestore.doc(
+                `/users/nyxsys/content/${
+                  this.userRole === 'superAdmin'
+                    ? profileToUnlink.userID
+                    : this.authService!.userId
+                }/players/${profileToUnlink.id}`
+              );
+
+              profileToUnlinkRef
+                .update({
+                  device: false,
+                  deviceID: null,
+                  deviceSN: null,
+                })
+                .then((res) => {
+                  resolve(res);
+                })
+                .catch((error) => {
+                  reject(error);
+                });
+            }
+
+            const profileToLinkRef = this.firestore.doc(
               `/users/nyxsys/content/${
                 this.userRole === 'superAdmin'
                   ? device.userID
@@ -451,7 +507,7 @@ export class DatabaseService {
               }/players/${device.playerID}`
             );
 
-            const profileRefPromise = profileRef.update({
+            const profileRefPromise = profileToLinkRef.update({
               device: true,
               deviceID: device.id,
               deviceSN: device.serialNumber,
@@ -513,8 +569,8 @@ export class DatabaseService {
                   const playerRef = playersRef.doc(playerDoc.id);
                   transaction.update(playerRef.ref, {
                     device: false,
-                    deviceID: '',
-                    deviceSN: '',
+                    deviceID: null,
+                    deviceSN: null,
                   });
                 });
               });
@@ -646,7 +702,7 @@ export class DatabaseService {
               .get()
               .then((querySnapshot) => {
                 querySnapshot.forEach((doc: any) => {
-                  batch.update(doc.ref, { teamID: '' });
+                  batch.update(doc.ref, { teamID: null });
 
                   // Eliminar dispositivos asociados a los perfiles si es necesario
                   if (deleteDevices) {
@@ -914,9 +970,9 @@ export class DatabaseService {
                 playersSnapshot.forEach((doc) => {
                   const playerRef = playersRef.doc(doc.id);
                   batch.update(playerRef, {
-                    device: '',
-                    deviceID: '',
-                    deviceSN: '',
+                    device: false,
+                    deviceID: null,
+                    deviceSN: null,
                     deleted: true,
                   });
                 });

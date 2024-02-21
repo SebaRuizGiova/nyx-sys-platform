@@ -50,7 +50,10 @@
               [placeholder]="'adminSearchPlaceholder' | translate"
               (input)="filterProfiles()"
             />
-            <i *ngIf="!actionsProfilesForm.value.search;else clearProfiles" class="pi pi-search"></i>
+            <i
+              *ngIf="!actionsProfilesForm.value.search; else clearProfiles"
+              class="pi pi-search"
+            ></i>
             <ng-template #clearProfiles>
               <i class="pi pi-times" (click)="clearProfilesSearch()"></i>
             </ng-template>
@@ -126,7 +129,7 @@
                   [pTooltip]="'adminDeleteProfileTooltip' | translate"
                   tooltipPosition="bottom"
                   (click)="
-                    toggleConfirmDeleteProfile(profile.userID, profile.id)
+                    toggleConfirmDeleteProfile(profile)
                   "
                 ></i>
               </div>
@@ -174,7 +177,10 @@
               [placeholder]="'adminSearchPlaceholder' | translate"
               (input)="filterDevices()"
             />
-            <i *ngIf="!actionsDevicesForm.value.search;else clearDevices" class="pi pi-search"></i>
+            <i
+              *ngIf="!actionsDevicesForm.value.search; else clearDevices"
+              class="pi pi-search"
+            ></i>
             <ng-template #clearDevices>
               <i class="pi pi-times" (click)="clearDevicesSearch()"></i>
             </ng-template>
@@ -205,16 +211,23 @@
         </ng-template>
         <ng-template pTemplate="body" let-device>
           <tr>
-            <td>{{ device.serialNumber }}</td>
-            <td>
+            <td [style]="!device.playerName ? 'color: #7c7c7c' : ''">
+              {{ device.serialNumber }}
+            </td>
+            <td [style]="!device.playerName ? 'color: #7c7c7c' : ''">
               {{
                 device.playerName
                   ? device.playerName
                   : ("adminNotLinked" | translate)
               }}
             </td>
-            <td>{{ device.status }}</td>
-            <td class="column-rigth">
+            <td [style]="!device.playerName ? 'color: #7c7c7c' : ''">
+              {{ device.status }}
+            </td>
+            <td
+              class="column-rigth"
+              [style]="!device.playerName ? 'color: #7c7c7c' : ''"
+            >
               <div class="actions">
                 <i
                   class="pi pi-cog"
@@ -273,7 +286,10 @@
               [placeholder]="'adminSearchPlaceholder' | translate"
               (input)="filterGroups()"
             />
-            <i *ngIf="!actionsGroupsForm.value.search;else clearGroups" class="pi pi-search"></i>
+            <i
+              *ngIf="!actionsGroupsForm.value.search; else clearGroups"
+              class="pi pi-search"
+            ></i>
             <ng-template #clearGroups>
               <i class="pi pi-times" (click)="clearGroupsSearch()"></i>
             </ng-template>
@@ -354,7 +370,13 @@
               [placeholder]="'adminSearchPlaceholder' | translate"
               (input)="filterCollaborators()"
             />
-            <i *ngIf="!actionsCollaboratorsForm.value.search;else clearCollaborators" class="pi pi-search"></i>
+            <i
+              *ngIf="
+                !actionsCollaboratorsForm.value.search;
+                else clearCollaborators
+              "
+              class="pi pi-search"
+            ></i>
             <ng-template #clearCollaborators>
               <i class="pi pi-times" (click)="clearCollaboratorsSearch()"></i>
             </ng-template>
@@ -425,7 +447,10 @@
               [placeholder]="'adminSearchPlaceholder' | translate"
               (input)="filterUsers()"
             />
-            <i *ngIf="!actionsUsersForm.value.search;else clearUsers" class="pi pi-search"></i>
+            <i
+              *ngIf="!actionsUsersForm.value.search; else clearUsers"
+              class="pi pi-search"
+            ></i>
             <ng-template #clearUsers>
               <i class="pi pi-times" (click)="clearUsersSearch()"></i>
             </ng-template>

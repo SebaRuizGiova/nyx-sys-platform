@@ -15,7 +15,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { ValidatorsService } from 'src/app/shared/services/validators.service';
 import { HelpersService } from 'src/app/shared/services/helpers.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
 
 import 'moment/locale/es';
@@ -196,8 +195,7 @@ export class AdminPageComponent implements OnInit {
   public roleCollaboratorItems: ItemDropdown[] = [];
   public roleUserItems: ItemDropdown[] = [];
 
-  public userIdProfileToDelete: string = '';
-  public profileIdToDelete: string = '';
+  public profileToDelete?: Profile | null;
   public profileIdToEdit?: string;
   public enableEditProfile: boolean = false;
 
@@ -444,11 +442,11 @@ export class AdminPageComponent implements OnInit {
     filteredProfiles = filteredProfiles.filter((profile) => {
       return (
         profile.name
-          .toLowerCase()
-          .includes(this.actionsProfilesForm.value.search.toLowerCase()) ||
+          ?.toLowerCase()
+          .includes(this.actionsProfilesForm.value.search?.toLowerCase()) ||
         profile.lastName
-          .toLowerCase()
-          .includes(this.actionsProfilesForm.value.search.toLowerCase())
+          ?.toLowerCase()
+          .includes(this.actionsProfilesForm.value.search?.toLowerCase())
       );
     });
 
@@ -479,12 +477,12 @@ export class AdminPageComponent implements OnInit {
     filteredDevices = filteredDevices.filter((device) => {
       return (
         device.serialNumber
-          .toLowerCase()
-          .includes(this.actionsDevicesForm.value.search.toLowerCase()) ||
+          ?.toLowerCase()
+          .includes(this.actionsDevicesForm.value.search?.toLowerCase()) ||
         device.playerName
           .toString()
-          .toLowerCase()
-          .includes(this.actionsDevicesForm.value.search.toLowerCase())
+          ?.toLowerCase()
+          .includes(this.actionsDevicesForm.value.search?.toLowerCase())
       );
     });
 
@@ -505,8 +503,8 @@ export class AdminPageComponent implements OnInit {
 
     filteredGroups = filteredGroups.filter((group) => {
       return group.teamName
-        .toLowerCase()
-        .includes(this.actionsGroupsForm.value.search.toLowerCase());
+        ?.toLowerCase()
+        .includes(this.actionsGroupsForm.value.search?.toLowerCase());
     });
 
     if (this.dontShowHiddenGroups) {
@@ -527,11 +525,11 @@ export class AdminPageComponent implements OnInit {
     filteredCollaborators = filteredCollaborators.filter((collaborator) => {
       return (
         collaborator.nickName
-          .toLowerCase()
-          .includes(this.actionsCollaboratorsForm.value.search.toLowerCase()) ||
+          ?.toLowerCase()
+          .includes(this.actionsCollaboratorsForm.value.search?.toLowerCase()) ||
         collaborator.linked
           ?.toLowerCase()
-          .includes(this.actionsCollaboratorsForm.value.search.toLowerCase())
+          .includes(this.actionsCollaboratorsForm.value.search?.toLowerCase())
       );
     });
 
@@ -543,8 +541,8 @@ export class AdminPageComponent implements OnInit {
 
     filteredUsers = filteredUsers.filter((user) => {
       return user.nickName
-        .toLowerCase()
-        .includes(this.actionsUsersForm.value.search.toLowerCase());
+        ?.toLowerCase()
+        .includes(this.actionsUsersForm.value.search?.toLowerCase());
     });
 
     this.filteredUsers = filteredUsers;
@@ -623,10 +621,9 @@ export class AdminPageComponent implements OnInit {
     }
   }
 
-  toggleConfirmDeleteProfile(userId?: string, profileId?: string) {
-    if (userId && profileId) {
-      this.userIdProfileToDelete = userId;
-      this.profileIdToDelete = profileId;
+  toggleConfirmDeleteProfile(profile?: Profile) {
+    if (profile) {
+      this.profileToDelete = profile;
     }
 
     this.showConfirmDeleteProfile = !this.showConfirmDeleteProfile;
@@ -885,7 +882,7 @@ export class AdminPageComponent implements OnInit {
   deleteProfile() {
     this.loadingService.setLoading(true);
     this.databaseService
-      .deleteProfile(this.profileIdToDelete, this.userIdProfileToDelete)
+      .deleteProfile(this.profileToDelete || null)
       .then(() => {
         this.toggleConfirmDeleteProfile();
         this.messageService.add({
@@ -904,8 +901,7 @@ export class AdminPageComponent implements OnInit {
         });
       });
 
-    this.userIdProfileToDelete = '';
-    this.profileIdToDelete = '';
+    this.profileToDelete = null;
   }
 
   hideProfile(userIdProfile: string, profileId: string, hideValue: boolean) {
@@ -964,10 +960,9 @@ export class AdminPageComponent implements OnInit {
     if (this.addDeviceForm.status !== 'INVALID') {
       this.loadingService.setLoading(true);
       this.databaseService
-        .editDevice(this.addDeviceForm.value)
+        .editDevice(this.addDeviceForm.value, this.profiles)
         .then(() => {
           this.toggleEditDevice();
-          this.actionsDevicesForm.reset();
           this.messageService.add({
             severity: 'success',
             summary: this.translateService.instant('ToastTitleCorrect'),
@@ -1018,7 +1013,6 @@ export class AdminPageComponent implements OnInit {
     this.databaseService
       .deleteDevice(this.deviceIdToDelete, this.userIdDeviceToDelete)
       .then(() => {
-        this.actionsDevicesForm.reset();
         this.messageService.add({
           severity: 'success',
           summary: this.translateService.instant('ToastTitleCorrect'),
@@ -1072,7 +1066,6 @@ export class AdminPageComponent implements OnInit {
         .editGroup(this.addGroupForm.value)
         .then(() => {
           this.toggleEditGroup();
-          this.actionsGroupsForm.reset();
           this.messageService.add({
             severity: 'success',
             summary: this.translateService.instant('ToastTitleCorrect'),
@@ -1123,7 +1116,6 @@ export class AdminPageComponent implements OnInit {
         this.deleteGroupForm.value.deleteDevices
       )
       .then(() => {
-        this.actionsGroupsForm.reset();
         this.messageService.add({
           severity: 'success',
           summary: this.translateService.instant('ToastTitleCorrect'),
@@ -1150,7 +1142,6 @@ export class AdminPageComponent implements OnInit {
     this.databaseService
       .hideGroup(userIdGroup, groupId, hideValue)
       .then(() => {
-        this.actionsGroupsForm.reset();
         this.messageService.add({
           severity: 'success',
           summary: this.translateService.instant('ToastTitleCorrect'),
@@ -1205,7 +1196,6 @@ export class AdminPageComponent implements OnInit {
         .editCollaborator(this.editCollaboratorForm.value, this.users)
         .then(() => {
           this.toggleEditCollaborator();
-          this.actionsCollaboratorsForm.reset();
           this.messageService.add({
             severity: 'success',
             summary: this.translateService.instant('ToastTitleCorrect'),
@@ -1275,7 +1265,6 @@ export class AdminPageComponent implements OnInit {
         this.users
       )
       .then(() => {
-        this.actionsCollaboratorsForm.reset();
         this.messageService.add({
           severity: 'success',
           summary: this.translateService.instant('ToastTitleCorrect'),
@@ -1673,7 +1662,7 @@ export class AdminPageComponent implements OnInit {
   validateDeviceSerialNumber(value: string) {
     if (value.length >= 6) {
       const existDevice = this.devices.some(
-        (device) => device.serialNumber.toLowerCase() === value.toLowerCase()
+        (device) => device.serialNumber?.toLowerCase() === value?.toLowerCase()
       );
       if (existDevice) {
         this.addDeviceForm.controls['serialNumber'].setErrors({
@@ -1685,7 +1674,7 @@ export class AdminPageComponent implements OnInit {
 
   validateGroupName(value: string) {
     const existGroupName = this.groups.some(
-      (group) => group.teamName.toLowerCase() === value.toLowerCase()
+      (group) => group.teamName?.toLowerCase() === value?.toLowerCase()
     );
     if (existGroupName) {
       this.addGroupForm.controls['teamName'].setErrors({
@@ -1696,7 +1685,7 @@ export class AdminPageComponent implements OnInit {
 
   validateEmailCollaborator(value: string) {
     const existEmail = this.collaborators.some(
-      (collaborator) => collaborator.email.toLowerCase() === value.toLowerCase()
+      (collaborator) => collaborator.email?.toLowerCase() === value?.toLowerCase()
     );
     if (existEmail) {
       this.addCollaboratorForm.controls['email'].setErrors({
@@ -1726,7 +1715,7 @@ export class AdminPageComponent implements OnInit {
 
   validateEmailUser(value: string) {
     const existEmail = this.users.some(
-      (user) => user.email.toLowerCase() === value.toLowerCase()
+      (user) => user.email?.toLowerCase() === value?.toLowerCase()
     );
     if (existEmail) {
       this.addUserForm.controls['email'].setErrors({
