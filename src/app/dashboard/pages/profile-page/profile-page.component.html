@@ -137,6 +137,7 @@
         <div class="graphic-card">
           <sleep-score-chart
             [sleepScore]="sleepScoreToChart"
+            (click)="preventClick($event)"
           ></sleep-score-chart>
         </div>
       </div>

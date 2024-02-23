@@ -531,7 +531,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   }) {
     const { consecutiveDays, sleepScore } = processedSleepData;
 
-    if (consecutiveDays === 1 && sleepScore >= 80) {
+    if (consecutiveDays === 1 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage1+')
         .subscribe((translations: any) => {
@@ -542,7 +542,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           }
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 1 && sleepScore < 80) {
+    } else if (consecutiveDays === 1 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage1-')
         .subscribe((translations: any) => {
@@ -550,7 +550,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 2 && sleepScore >= 80) {
+    } else if (consecutiveDays === 2 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage2+')
         .subscribe((translations: any) => {
@@ -558,7 +558,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 2 && sleepScore < 80) {
+    } else if (consecutiveDays === 2 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage2-')
         .subscribe((translations: any) => {
@@ -566,7 +566,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 3 && sleepScore >= 80) {
+    } else if (consecutiveDays === 3 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage3+')
         .subscribe((translations: any) => {
@@ -574,7 +574,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 3 && sleepScore < 80) {
+    } else if (consecutiveDays === 3 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage3-')
         .subscribe((translations: any) => {
@@ -582,7 +582,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 4 && sleepScore >= 80) {
+    } else if (consecutiveDays === 4 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage4+')
         .subscribe((translations: any) => {
@@ -590,7 +590,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 4 && sleepScore < 80) {
+    } else if (consecutiveDays === 4 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage4-')
         .subscribe((translations: any) => {
@@ -598,7 +598,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 5 && sleepScore >= 80) {
+    } else if (consecutiveDays === 5 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage5+')
         .subscribe((translations: any) => {
@@ -606,7 +606,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 5 && sleepScore < 80) {
+    } else if (consecutiveDays === 5 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage5-')
         .subscribe((translations: any) => {
@@ -614,7 +614,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 6 && sleepScore >= 80) {
+    } else if (consecutiveDays === 6 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage6+')
         .subscribe((translations: any) => {
@@ -622,7 +622,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 6 && sleepScore < 80) {
+    } else if (consecutiveDays === 6 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage6-')
         .subscribe((translations: any) => {
@@ -630,7 +630,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 7 && sleepScore >= 80) {
+    } else if (consecutiveDays === 7 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage7+')
         .subscribe((translations: any) => {
@@ -638,7 +638,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 7 && sleepScore < 80) {
+    } else if (consecutiveDays === 7 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage7-')
         .subscribe((translations: any) => {
@@ -646,8 +646,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-        // TODO: Definir mensaje por defecto
-    } else if (consecutiveDays === 8 && sleepScore >= 80) {
+      // TODO: Definir mensaje por defecto
+    } else if (consecutiveDays === 8 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage8+')
         .subscribe((translations: any) => {
@@ -655,7 +655,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 8 && sleepScore < 80) {
+    } else if (consecutiveDays === 8 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage8-')
         .subscribe((translations: any) => {
@@ -663,7 +663,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 9 && sleepScore >= 80) {
+    } else if (consecutiveDays === 9 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage9+')
         .subscribe((translations: any) => {
@@ -671,7 +671,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 9 && sleepScore < 80) {
+    } else if (consecutiveDays === 9 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage9-')
         .subscribe((translations: any) => {
@@ -679,7 +679,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 10 && sleepScore >= 80) {
+    } else if (consecutiveDays === 10 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage10+')
         .subscribe((translations: any) => {
@@ -687,7 +687,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 10 && sleepScore < 80) {
+    } else if (consecutiveDays === 10 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessage10-')
         .subscribe((translations: any) => {
@@ -695,7 +695,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 14 && sleepScore >= 80) {
+    } else if (consecutiveDays === 14 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessageTwoWeeks+')
         .subscribe((translations: any) => {
@@ -703,7 +703,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 14 && sleepScore < 80) {
+    } else if (consecutiveDays === 14 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessageTwoWeeks-')
         .subscribe((translations: any) => {
@@ -711,7 +711,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 21 && sleepScore >= 80) {
+    } else if (consecutiveDays === 21 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessageThreeWeeks+')
         .subscribe((translations: any) => {
@@ -719,7 +719,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 21 && sleepScore < 80) {
+    } else if (consecutiveDays === 21 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessageThreeWeeks-')
         .subscribe((translations: any) => {
@@ -727,7 +727,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 30 && sleepScore >= 80) {
+    } else if (consecutiveDays === 30 && sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessageOneMonth+')
         .subscribe((translations: any) => {
@@ -735,7 +735,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (consecutiveDays === 30 && sleepScore < 80) {
+    } else if (consecutiveDays === 30 && sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessageOneMonth-')
         .subscribe((translations: any) => {
@@ -743,7 +743,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageSleepScore = message;
         });
-    } else if (sleepScore >= 80) {
+    } else if (sleepScore >= 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessageDefault+')
         .subscribe((translations: any) => {
@@ -754,7 +754,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           }
           this.messageSleepScore = message;
         });
-    } else if (sleepScore < 80) {
+    } else if (sleepScore < 75) {
       this.languageService
         .getTranslate('profileSleepScoreMessageDefault-')
         .subscribe((translations: any) => {
@@ -886,7 +886,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageRecovery = message;
         });
-        // TODO: Definir mensaje por defecto
+      // TODO: Definir mensaje por defecto
     } else if (consecutiveDays === 8 && recovery >= 0) {
       this.languageService
         .getTranslate('profileRecoveryMessage8+')
@@ -1004,16 +1004,23 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         });
     }
   }
-  
+
   setANSMessage(processedANSData: {
-    balance: { sympathetic: number, parasympathetic: number };
+    balance: { sympathetic: number; parasympathetic: number };
     consecutiveDays: number;
   }) {
     const { consecutiveDays, balance } = processedANSData;
     const { sympathetic, parasympathetic } = balance;
-    const difference = Math.abs(sympathetic - parasympathetic);
+    const differenceSympathetic = Math.abs(sympathetic - 50);
+    const differenceParasympathetic = Math.abs(parasympathetic - 50);
 
-    if (consecutiveDays === 1 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    if (
+      consecutiveDays === 1 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessage1+')
         .subscribe((translations: any) => {
@@ -1021,7 +1028,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays === 1 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays === 1 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessage1-')
         .subscribe((translations: any) => {
@@ -1029,7 +1042,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays === 2 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      consecutiveDays === 2 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessage2+')
         .subscribe((translations: any) => {
@@ -1037,7 +1056,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays === 2 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays === 2 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessage2-')
         .subscribe((translations: any) => {
@@ -1045,7 +1070,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays === 3 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      consecutiveDays === 3 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessage3+')
         .subscribe((translations: any) => {
@@ -1053,7 +1084,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays === 3 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays === 3 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessage3-')
         .subscribe((translations: any) => {
@@ -1061,7 +1098,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 4 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      consecutiveDays >= 4 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessage4+')
         .subscribe((translations: any) => {
@@ -1069,7 +1112,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 4 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays >= 4 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessage4-')
         .subscribe((translations: any) => {
@@ -1077,7 +1126,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 5 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      consecutiveDays >= 5 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessage5+')
         .subscribe((translations: any) => {
@@ -1085,7 +1140,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 5 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays >= 5 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessage5-')
         .subscribe((translations: any) => {
@@ -1093,7 +1154,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 6 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      consecutiveDays >= 6 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessage6+')
         .subscribe((translations: any) => {
@@ -1101,7 +1168,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 6 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays >= 6 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessage6-')
         .subscribe((translations: any) => {
@@ -1109,7 +1182,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 7 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      consecutiveDays >= 7 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessage7+')
         .subscribe((translations: any) => {
@@ -1117,7 +1196,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 7 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays >= 7 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessage7-')
         .subscribe((translations: any) => {
@@ -1125,7 +1210,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 8 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      consecutiveDays >= 8 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessage8+')
         .subscribe((translations: any) => {
@@ -1133,7 +1224,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 8 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays >= 8 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessage8-')
         .subscribe((translations: any) => {
@@ -1141,7 +1238,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 9 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      consecutiveDays >= 9 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessage9+')
         .subscribe((translations: any) => {
@@ -1149,7 +1252,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 9 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays >= 9 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessage9-')
         .subscribe((translations: any) => {
@@ -1157,7 +1266,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 10 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      consecutiveDays >= 10 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessage10+')
         .subscribe((translations: any) => {
@@ -1165,7 +1280,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 10 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays >= 10 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessage10-')
         .subscribe((translations: any) => {
@@ -1173,7 +1294,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 14 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      consecutiveDays >= 14 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessageTwoWeeks+')
         .subscribe((translations: any) => {
@@ -1181,7 +1308,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 14 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays >= 14 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessageTwoWeeks-')
         .subscribe((translations: any) => {
@@ -1189,7 +1322,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 21 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      consecutiveDays >= 21 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessageThreeWeeks+')
         .subscribe((translations: any) => {
@@ -1197,7 +1336,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 21 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays >= 21 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessageThreeWeeks-')
         .subscribe((translations: any) => {
@@ -1205,7 +1350,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 30 && difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      consecutiveDays >= 30 &&
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       this.languageService
         .getTranslate('profileANSMessageOneMonth+')
         .subscribe((translations: any) => {
@@ -1213,7 +1364,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays >= 30 && (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65)) {
+    } else if (
+      consecutiveDays >= 30 &&
+      (differenceSympathetic > 15 ||
+        differenceParasympathetic > 15 ||
+        sympathetic < 35 ||
+        parasympathetic < 35)
+    ) {
       this.languageService
         .getTranslate('profileANSMessageOneMonth-')
         .subscribe((translations: any) => {
@@ -1221,7 +1378,12 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (difference <= 15 && sympathetic >= 35 && sympathetic <= 65 && parasympathetic >= 35 && parasympathetic <= 65) {
+    } else if (
+      differenceSympathetic <= 15 &&
+      differenceParasympathetic <= 15 &&
+      sympathetic >= 35 &&
+      parasympathetic >= 35
+    ) {
       // Mensaje por defecto si no coincide con ninguna condición
       this.languageService
         .getTranslate('profileANSMessageDefault+')
@@ -1230,7 +1392,12 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (difference > 15 || sympathetic < 35 || sympathetic > 65 || parasympathetic < 35 || parasympathetic > 65) {
+    } else if (
+      differenceSympathetic > 15 ||
+      differenceParasympathetic > 15 ||
+      sympathetic < 35 ||
+      parasympathetic < 35
+    ) {
       // Mensaje por defecto si no coincide con ninguna condición
       this.languageService
         .getTranslate('profileANSMessageDefault-')
@@ -1247,7 +1414,10 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     return messages[randomIndex];
   }
 
-  processSleepScoreData(sleepDataArray: SleepData[], selectedSleepData?: SleepData) {
+  processSleepScoreData(
+    sleepDataArray: SleepData[],
+    selectedSleepData?: SleepData
+  ) {
     if (selectedSleepData) {
       const selectedSleepScore: number = selectedSleepData.sleep_score || 0;
       let selectedSleepScoreStatus: 'negative' | 'positive' =
@@ -1259,9 +1429,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       );
 
       for (const [index, sleepData] of sleepDataArray.entries()) {
-        if (
-          index > selectedSleepDataIndex
-        ) {
+        if (index > selectedSleepDataIndex) {
           if (sleepData.sleep_score && sleepData.sleep_score >= 80) {
             actualSleepScoreStatus = 'positive';
           } else if (sleepData.sleep_score && sleepData.sleep_score < 80) {
@@ -1287,9 +1455,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     };
   }
 
-  processRecoveryData(sleepDataArray: SleepData[], selectedSleepData?: SleepData) {
+  processRecoveryData(
+    sleepDataArray: SleepData[],
+    selectedSleepData?: SleepData
+  ) {
     if (selectedSleepData) {
-      const selectedRecovery: number = selectedSleepData.hrv_data[0].totalRecovery || 0;
+      const selectedRecovery: number =
+        selectedSleepData.hrv_data[0].totalRecovery || 0;
       let selectedRecoveryStatus: 'negative' | 'positive' =
         selectedRecovery > 0 ? 'positive' : 'negative';
       let actualRecoveryStatus: 'negative' | 'positive' | '' = '';
@@ -1299,12 +1471,16 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       );
 
       for (const [index, sleepData] of sleepDataArray.entries()) {
-        if (
-          index > selectedSleepDataIndex
-        ) {
-          if (sleepData.hrv_data[0].totalRecovery && sleepData.hrv_data[0].totalRecovery >= 0) {
+        if (index > selectedSleepDataIndex) {
+          if (
+            sleepData.hrv_data[0].totalRecovery &&
+            sleepData.hrv_data[0].totalRecovery >= 0
+          ) {
             actualRecoveryStatus = 'positive';
-          } else if (sleepData.hrv_data[0].totalRecovery && sleepData.hrv_data[0].totalRecovery < 0) {
+          } else if (
+            sleepData.hrv_data[0].totalRecovery &&
+            sleepData.hrv_data[0].totalRecovery < 0
+          ) {
             actualRecoveryStatus = 'negative';
           }
           if (selectedRecoveryStatus === actualRecoveryStatus) {
@@ -1329,15 +1505,23 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
   processAnsData(sleepDataArray: SleepData[], selectedSleepData?: SleepData) {
     if (selectedSleepData) {
-      const selectedANSBalance: { sympathetic: number, parasympathetic: number } = {
+      const selectedANSBalance: {
+        sympathetic: number;
+        parasympathetic: number;
+      } = {
         sympathetic: selectedSleepData.hrv_lf || 0,
-        parasympathetic: selectedSleepData.hrv_hf || 0
+        parasympathetic: selectedSleepData.hrv_hf || 0,
       };
       let selectedBalanceStatus: 'negative' | 'positive' =
-        Math.abs(selectedANSBalance.sympathetic - selectedANSBalance.parasympathetic) <= 15 &&
-        selectedANSBalance.sympathetic >= 35 && selectedANSBalance.sympathetic <= 65 &&
-        selectedANSBalance.parasympathetic >= 35 && selectedANSBalance.parasympathetic <= 65
-        ? 'positive' : 'negative';
+        Math.abs(
+          selectedANSBalance.sympathetic - selectedANSBalance.parasympathetic
+        ) <= 15 &&
+        selectedANSBalance.sympathetic >= 35 &&
+        selectedANSBalance.sympathetic <= 65 &&
+        selectedANSBalance.parasympathetic >= 35 &&
+        selectedANSBalance.parasympathetic <= 65
+          ? 'positive'
+          : 'negative';
       let actualBalanceStatus: 'negative' | 'positive' | '' = '';
       let consecutiveDays: number = 0;
       const selectedSleepDataIndex: number = sleepDataArray.findIndex(
@@ -1345,17 +1529,22 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       );
 
       for (const [index, sleepData] of sleepDataArray.entries()) {
-        if (
-          index > selectedSleepDataIndex
-        ) {
-          const actualANSBalance: { sympathetic: number, parasympathetic: number } = {
+        if (index > selectedSleepDataIndex) {
+          const actualANSBalance: {
+            sympathetic: number;
+            parasympathetic: number;
+          } = {
             sympathetic: sleepData.hrv_lf || 0,
-            parasympathetic: sleepData.hrv_hf || 0
+            parasympathetic: sleepData.hrv_hf || 0,
           };
           if (
-            Math.abs(actualANSBalance.sympathetic - actualANSBalance.parasympathetic) <= 15 &&
-            actualANSBalance.sympathetic >= 35 && actualANSBalance.sympathetic <= 65 &&
-            actualANSBalance.parasympathetic >= 35 && actualANSBalance.parasympathetic <= 65
+            Math.abs(
+              actualANSBalance.sympathetic - actualANSBalance.parasympathetic
+            ) <= 15 &&
+            actualANSBalance.sympathetic >= 35 &&
+            actualANSBalance.sympathetic <= 65 &&
+            actualANSBalance.parasympathetic >= 35 &&
+            actualANSBalance.parasympathetic <= 65
           ) {
             actualBalanceStatus = 'positive';
           } else {
