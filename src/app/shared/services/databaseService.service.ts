@@ -392,15 +392,17 @@ export class DatabaseService {
             }/devices`
           );
 
-          let newDevice = device;
+          const { previousUserId, ...rest } = device;
+
+          let newDevice = { ...rest };
 
           if (device.playerID) {
             const profileLinked = profiles.find(
-              (user) => user.id === device.playerID.toString()
+              (user) => user.id === device.playerID?.toString()
             );
 
             newDevice = {
-              ...device,
+              ...rest,
               playerName:
                 `${profileLinked?.name} ${profileLinked?.lastName}` || false,
               teamID: profileLinked?.teamID || '',
@@ -459,24 +461,19 @@ export class DatabaseService {
         this.authService.checkRole().subscribe((role) => {
           this.userRole = role;
 
-          const deviceRef = this.firestore.doc(
-            `/users/nyxsys/content/${
-              this.userRole === 'superAdmin'
-                ? device.userID
-                : this.authService!.userId
-            }/devices/${device.id}`
-          );
+          const { previousUserId, ...rest } = device;
 
-          const deviceRefPromise = deviceRef.set(device, { merge: true });
-
-          if (device.playerID) {
-            const profileToUnlink = profiles.find(
-              (profile) => profile.deviceID.toString() === device.id
+          if (previousUserId) {
+            const previousDeviceRef = this.firestore.doc(
+              `/users/nyxsys/content/${previousUserId}/devices/${device.id}`
             );
-            if (
-              profileToUnlink?.id &&
-              profileToUnlink?.id !== device.playerID.toString()
-            ) {
+
+            const addDevicePromise = this.addDevice(device, profiles);
+            const deleteDevicePromise = previousDeviceRef.delete();
+            const profileToUnlink = profiles.find(
+              (profile) => profile.deviceID?.toString() === device.id
+            );
+            if (profileToUnlink?.id) {
               const profileToUnlinkRef = this.firestore.doc(
                 `/users/nyxsys/content/${
                   this.userRole === 'superAdmin'
@@ -485,12 +482,87 @@ export class DatabaseService {
                 }/players/${profileToUnlink.id}`
               );
 
-              profileToUnlinkRef
-                .update({
-                  device: false,
-                  deviceID: null,
-                  deviceSN: null,
+              const profileToUnlinkRefPromise = profileToUnlinkRef.update({
+                device: false,
+                deviceID: null,
+                deviceSN: null,
+              });
+
+              Promise.all([
+                addDevicePromise,
+                deleteDevicePromise,
+                profileToUnlinkRefPromise,
+              ])
+                .then((res) => resolve(res))
+                .catch((err) => reject(err));
+            }
+          } else {
+            const deviceRef = this.firestore.doc(
+              `/users/nyxsys/content/${
+                this.userRole === 'superAdmin'
+                  ? device.userID
+                  : this.authService!.userId
+              }/devices/${device.id}`
+            );
+
+            const deviceRefPromise = deviceRef.set(
+              { ...rest },
+              { merge: true }
+            );
+
+            if (device.playerID) {
+              const profileToUnlink = profiles.find(
+                (profile) => profile.deviceID?.toString() === device.id
+              );
+              if (
+                profileToUnlink?.id &&
+                profileToUnlink?.id !== device.playerID?.toString()
+              ) {
+                const profileToUnlinkRef = this.firestore.doc(
+                  `/users/nyxsys/content/${
+                    this.userRole === 'superAdmin'
+                      ? profileToUnlink.userID
+                      : this.authService!.userId
+                  }/players/${profileToUnlink.id}`
+                );
+
+                profileToUnlinkRef
+                  .update({
+                    device: false,
+                    deviceID: null,
+                    deviceSN: null,
+                  })
+                  .then((res) => {
+                    resolve(res);
+                  })
+                  .catch((error) => {
+                    reject(error);
+                  });
+              }
+
+              const profileToLinkRef = this.firestore.doc(
+                `/users/nyxsys/content/${
+                  this.userRole === 'superAdmin'
+                    ? device.userID
+                    : this.authService!.userId
+                }/players/${device.playerID}`
+              );
+
+              const profileToLinkRefPromise = profileToLinkRef.update({
+                device: true,
+                deviceID: device.id,
+                deviceSN: device.serialNumber,
+              });
+
+              Promise.all([deviceRefPromise, profileToLinkRefPromise])
+                .then((res) => {
+                  resolve(res);
                 })
+                .catch((error) => {
+                  reject(error);
+                });
+            } else {
+              deviceRefPromise
                 .then((res) => {
                   resolve(res);
                 })
@@ -498,36 +570,6 @@ export class DatabaseService {
                   reject(error);
                 });
             }
-
-            const profileToLinkRef = this.firestore.doc(
-              `/users/nyxsys/content/${
-                this.userRole === 'superAdmin'
-                  ? device.userID
-                  : this.authService!.userId
-              }/players/${device.playerID}`
-            );
-
-            const profileRefPromise = profileToLinkRef.update({
-              device: true,
-              deviceID: device.id,
-              deviceSN: device.serialNumber,
-            });
-
-            Promise.all([deviceRefPromise, profileRefPromise])
-              .then((res) => {
-                resolve(res);
-              })
-              .catch((error) => {
-                reject(error);
-              });
-          } else {
-            deviceRefPromise
-              .then((res) => {
-                resolve(res);
-              })
-              .catch((error) => {
-                reject(error);
-              });
           }
         });
       }

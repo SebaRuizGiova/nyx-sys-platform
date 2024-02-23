@@ -76,6 +76,7 @@ export class AdminPageComponent implements OnInit {
     offSet: [''],
     player: [''],
     playerName: [''],
+    previousUserId: ['']
   });
   public addGroupForm: FormGroup = this.fb.group({
     id: [''],
@@ -221,6 +222,7 @@ export class AdminPageComponent implements OnInit {
 
   public userToDelete: User | null = null;
   public userIdToDelete: string = '';
+  public previousUserIdDeviceToEdit: string = '';
   public enableEditUser: boolean = false;
 
   public userRole: string = '';
@@ -661,7 +663,9 @@ export class AdminPageComponent implements OnInit {
     this.enableEditDevice = !this.enableEditDevice;
     this.showAddDevice = !this.showAddDevice;
 
-    this.addDeviceForm.reset();
+    const previousUserIdValue = this.addDeviceForm.get('previousUserId')?.value || null;
+
+    this.addDeviceForm.reset({ previousUserId: previousUserIdValue });
     this.addDeviceForm.controls['userID'].setErrors(null);
     this.addDeviceForm?.get('playerID')?.reset({
       value: '',
@@ -980,6 +984,7 @@ export class AdminPageComponent implements OnInit {
             summary: this.translateService.instant('ToastTitleCorrect'),
             detail: this.translateService.instant('adminEditDeviceSuccess'),
           });
+          this.previousUserIdDeviceToEdit = '';
           this.loadData();
         })
         .catch(() => {
@@ -1594,9 +1599,18 @@ export class AdminPageComponent implements OnInit {
       value: profileId || '',
       disabled: false,
     });
-    this.addDeviceForm.patchValue({
-      userID: userId,
-    });
+    if (!this.addDeviceForm.value.previousUserId) {
+      this.addDeviceForm.patchValue({
+        userID: userId,
+        previousUserId: this.previousUserIdDeviceToEdit
+      });
+    } else {
+      this.addDeviceForm.patchValue({
+        userID: userId
+      });
+    }
+
+    this.previousUserIdDeviceToEdit = this.addDeviceForm.value.userID;
 
     this.profilesItems = this.profiles
       .filter(

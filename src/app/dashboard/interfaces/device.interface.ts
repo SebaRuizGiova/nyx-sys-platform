@@ -12,4 +12,5 @@ export interface Device {
   hided:            boolean;
   playerID:         boolean;
   deleted:          boolean;
+  previousUserId:   string;
 }
