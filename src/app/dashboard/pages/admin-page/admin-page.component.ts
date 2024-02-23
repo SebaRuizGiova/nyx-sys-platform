@@ -159,7 +159,7 @@ export class AdminPageComponent implements OnInit {
   public filteredProfiles: Profile[] = [];
   public filteredDevices: Device[] = [];
   public filteredGroups: Group[] = [];
-  public filteredCollaborators: any[] = [];
+  public filteredCollaborators: Collaborator[] = [];
   public filteredUsers: User[] = [];
   public dontShowHiddenProfiles: boolean = false;
   public dontShowHiddenDevices: boolean = false;
@@ -430,6 +430,14 @@ export class AdminPageComponent implements OnInit {
   filterProfiles() {
     let filteredProfiles = this.profilesByUser;
     const groupId = this.actionsProfilesForm.value.filterByGroup;
+    const userId = this.filterByUserForm.value.userId;
+
+    // Filtrar por usuario si se proporciona el ID del usuario
+    if (userId) {
+      filteredProfiles = filteredProfiles.filter((profile) => {
+        return profile.userID === userId;
+      });
+    }
 
     // Filtrar por grupo si se proporciona el ID del grupo
     if (groupId) {
@@ -467,6 +475,14 @@ export class AdminPageComponent implements OnInit {
   filterDevices() {
     let filteredDevices = this.devicesByUser;
     const groupId = this.actionsDevicesForm.value.filterByGroup;
+    const userId = this.filterByUserForm.value.userId;
+
+    // Filtrar por usuario si se proporciona el ID del usuario
+    if (userId) {
+      filteredDevices = filteredDevices.filter((device) => {
+        return device.userID === userId;
+      });
+    }
 
     if (groupId) {
       filteredDevices = filteredDevices.filter((device) => {
@@ -480,7 +496,7 @@ export class AdminPageComponent implements OnInit {
           ?.toLowerCase()
           .includes(this.actionsDevicesForm.value.search?.toLowerCase()) ||
         device.playerName
-          .toString()
+          ?.toString()
           ?.toLowerCase()
           .includes(this.actionsDevicesForm.value.search?.toLowerCase())
       );
@@ -500,6 +516,14 @@ export class AdminPageComponent implements OnInit {
 
   filterGroups() {
     let filteredGroups = this.groupsByUser;
+    const userId = this.filterByUserForm.value.userId;
+
+    // Filtrar por usuario si se proporciona el ID del usuario
+    if (userId) {
+      filteredGroups = filteredGroups.filter((group) => {
+        return group.userID === userId;
+      });
+    }
 
     filteredGroups = filteredGroups.filter((group) => {
       return group.teamName
@@ -521,6 +545,14 @@ export class AdminPageComponent implements OnInit {
 
   filterCollaborators() {
     let filteredCollaborators = this.collaboratorsByUser;
+    const userId = this.filterByUserForm.value.userId;
+
+    // Filtrar por usuario si se proporciona el ID del usuario
+    if (userId) {
+      filteredCollaborators = filteredCollaborators.filter((collaborator) => {
+        return collaborator.userId === userId;
+      });
+    }
 
     filteredCollaborators = filteredCollaborators.filter((collaborator) => {
       return (
@@ -548,36 +580,8 @@ export class AdminPageComponent implements OnInit {
     this.filteredUsers = filteredUsers;
   }
 
-  filterDataByUser(userId?: string) {
-    if (!userId) {
-      this.profilesByUser = this.profiles;
-      this.devicesByUser = this.devices;
-      this.groupsByUser = this.groups;
-      this.collaboratorsByUser = this.collaborators;
-
-      this.filteredProfiles = this.profilesByUser;
-      this.filteredDevices = this.devicesByUser;
-      this.filteredGroups = this.groupsByUser;
-      this.filteredCollaborators = this.collaboratorsByUser;
-    } else {
-      this.profilesByUser = this.profiles.filter(
-        (profile) => profile.userID === userId
-      );
-      this.devicesByUser = this.devices.filter(
-        (device) => device.userID === userId
-      );
-      this.groupsByUser = this.groups.filter(
-        (group) => group.userID === userId
-      );
-      this.collaboratorsByUser = this.collaborators.filter((collaborator) => {
-        return collaborator.accessTo.some((access) => access.id === userId);
-      });
-
-      this.filteredProfiles = this.profilesByUser;
-      this.filteredDevices = this.devicesByUser;
-      this.filteredGroups = this.groupsByUser;
-      this.filteredCollaborators = this.collaboratorsByUser;
-    }
+  filterDataByUser() {
+    this.filterAll();
   }
 
   //? MODALES PERFILES
@@ -662,7 +666,7 @@ export class AdminPageComponent implements OnInit {
         this.userRole !== 'superAdmin'
           ? this.authService.userId
           : this.addDeviceForm.value.userID,
-        device.playerID.toString()
+        device.playerID?.toString()
       );
     }
   }
