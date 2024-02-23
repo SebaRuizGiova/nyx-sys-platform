@@ -61,8 +61,14 @@ export class AdminPageComponent implements OnInit {
   });
   public addDeviceForm: FormGroup = this.fb.group({
     id: [''],
-    serialNumber: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
-    verificationCode: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
+    serialNumber: [
+      '',
+      [Validators.required, Validators.minLength(6), Validators.maxLength(6)],
+    ],
+    verificationCode: [
+      '',
+      [Validators.required, Validators.minLength(5), Validators.maxLength(5)],
+    ],
     userID: ['', Validators.required],
     playerID: [{ value: '', disabled: true }],
     teamID: [''],
@@ -558,7 +564,9 @@ export class AdminPageComponent implements OnInit {
       return (
         collaborator.nickName
           ?.toLowerCase()
-          .includes(this.actionsCollaboratorsForm.value.search?.toLowerCase()) ||
+          .includes(
+            this.actionsCollaboratorsForm.value.search?.toLowerCase()
+          ) ||
         collaborator.linked
           ?.toLowerCase()
           .includes(this.actionsCollaboratorsForm.value.search?.toLowerCase())
@@ -1590,25 +1598,26 @@ export class AdminPageComponent implements OnInit {
       userID: userId,
     });
 
-    if (!this.enableEditDevice) {
-      this.profilesItems = this.profiles
-        .filter(
-          (profile) =>
-            profile.userID === userId &&
-            !this.enableEditDevice &&
-            !profile.deviceID
-        )
-        .map((profile: Profile) => ({
-          label: `${profile.name} ${profile.lastName}`,
-          value: profile.id,
-        }));
-    } else {
-      this.profilesItems = this.profiles
-        .filter((profile) => profile.userID === userId)
-        .map((profile: Profile) => ({
-          label: `${profile.name} ${profile.lastName}`,
-          value: profile.id,
-        }));
+    this.profilesItems = this.profiles
+      .filter(
+        (profile) =>
+          profile.userID === userId &&
+          !profile.deviceID
+      )
+      .map((profile: Profile) => ({
+        label: `${profile.name} ${profile.lastName}`,
+        value: profile.id,
+      }));
+    if (this.enableEditDevice) {
+      const selectedProfile = this.profiles.find(
+        (profile) => profile.id === profileId
+      );
+      if (selectedProfile) {
+        this.profilesItems.push({
+          label: `${selectedProfile.name} ${selectedProfile.lastName}`,
+          value: selectedProfile.id,
+        });
+      }
     }
   }
 
@@ -1689,7 +1698,8 @@ export class AdminPageComponent implements OnInit {
 
   validateEmailCollaborator(value: string) {
     const existEmail = this.collaborators.some(
-      (collaborator) => collaborator.email?.toLowerCase() === value?.toLowerCase()
+      (collaborator) =>
+        collaborator.email?.toLowerCase() === value?.toLowerCase()
     );
     if (existEmail) {
       this.addCollaboratorForm.controls['email'].setErrors({
