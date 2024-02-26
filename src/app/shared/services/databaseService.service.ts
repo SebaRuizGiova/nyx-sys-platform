@@ -665,6 +665,12 @@ export class DatabaseService {
           groupRef
             .add(group)
             .then((res) => {
+              res
+                .update({
+                  id: res.id,
+                })
+                .then((res) => resolve(res))
+                .catch((err) => reject(err));
               resolve(res);
             })
             .catch((error) => {

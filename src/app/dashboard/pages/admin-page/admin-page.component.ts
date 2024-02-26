@@ -76,7 +76,7 @@ export class AdminPageComponent implements OnInit {
     offSet: [''],
     player: [''],
     playerName: [''],
-    previousUserId: ['']
+    previousUserId: [''],
   });
   public addGroupForm: FormGroup = this.fb.group({
     id: [''],
@@ -602,6 +602,21 @@ export class AdminPageComponent implements OnInit {
 
     if (!toggle) {
       this.addProfileForm.reset();
+      this.addProfileForm.patchValue({
+        id: '',
+        name: '',
+        lastName: '',
+        birthdate: '',
+        sex: null,
+        birthplace: '',
+        userID: '',
+        teamID: { value: '', disabled: true },
+        device: false,
+        deviceSN: false,
+        deviceID: false,
+        hided: false,
+        deleted: false,
+      });
       this.addProfileForm.controls['sex'].setErrors(null);
       this.addProfileForm.controls['userID'].setErrors(null);
     }
@@ -620,6 +635,21 @@ export class AdminPageComponent implements OnInit {
       };
 
       this.addProfileForm.reset();
+      this.addProfileForm.patchValue({
+        id: '',
+        name: '',
+        lastName: '',
+        birthdate: '',
+        sex: null,
+        birthplace: '',
+        userID: '',
+        teamID: { value: '', disabled: true },
+        device: false,
+        deviceSN: false,
+        deviceID: false,
+        hided: false,
+        deleted: false,
+      });
       this.addProfileForm.controls['sex'].setErrors(null);
       this.addProfileForm.controls['userID'].setErrors(null);
 
@@ -650,6 +680,19 @@ export class AdminPageComponent implements OnInit {
     }
 
     this.addDeviceForm.reset();
+    this.addDeviceForm.patchValue({
+      id: '',
+      serialNumber: '',
+      verificationCode: '',
+      userID: '',
+      playerID: { value: '', disabled: true },
+      teamID: '',
+      hided: false,
+      offSet: '',
+      player: '',
+      playerName: '',
+      previousUserId: '',
+    });
     this.addDeviceForm.controls['userID'].setErrors(null);
     this.addDeviceForm?.get('playerID')?.reset({
       value: '',
@@ -661,7 +704,8 @@ export class AdminPageComponent implements OnInit {
     this.enableEditDevice = !this.enableEditDevice;
     this.showAddDevice = !this.showAddDevice;
 
-    const previousUserIdValue = this.addDeviceForm.get('previousUserId')?.value || null;
+    const previousUserIdValue =
+      this.addDeviceForm.get('previousUserId')?.value || null;
 
     this.addDeviceForm.reset({ previousUserId: previousUserIdValue });
     this.addDeviceForm.controls['userID'].setErrors(null);
@@ -671,6 +715,7 @@ export class AdminPageComponent implements OnInit {
     });
 
     if (device) {
+      this.addDeviceForm.reset();
       this.addDeviceForm.patchValue(device);
       this.selectUserDevice(
         this.userRole !== 'superAdmin'
@@ -700,8 +745,15 @@ export class AdminPageComponent implements OnInit {
         userID: this.authService.userId,
       });
     }
-
     this.addGroupForm.reset();
+    this.addGroupForm.patchValue({
+      id: '',
+      teamName: '',
+      gmt: '',
+      userID: '',
+      hided: false,
+      deleted: false,
+    });
     this.addGroupForm.controls['gmt'].setErrors(null);
     this.addGroupForm.controls['userID'].setErrors(null);
   }
@@ -711,6 +763,14 @@ export class AdminPageComponent implements OnInit {
     this.showAddGroup = !this.showAddGroup;
 
     this.addGroupForm.reset();
+    this.addGroupForm.patchValue({
+      id: '',
+      teamName: '',
+      gmt: '',
+      userID: '',
+      hided: false,
+      deleted: false,
+    });
     this.addGroupForm.controls['gmt'].setErrors(null);
     this.addGroupForm.controls['userID'].setErrors(null);
 
@@ -754,6 +814,16 @@ export class AdminPageComponent implements OnInit {
     }
 
     this.addCollaboratorForm.reset();
+    this.addCollaboratorForm.patchValue({
+      id: '',
+      email: '',
+      accessTo: [],
+      password: '',
+      confirmPassword: '',
+      nickName: '',
+      role: '',
+      UID: '',
+    });
     this.addCollaboratorForm.controls['role'].setErrors(null);
     this.addCollaboratorForm.controls['UID'].setErrors(null);
   }
@@ -762,6 +832,16 @@ export class AdminPageComponent implements OnInit {
     this.showEditCollaborator = !this.showEditCollaborator;
 
     this.addCollaboratorForm.reset();
+    this.addCollaboratorForm.patchValue({
+      id: '',
+      email: '',
+      accessTo: [],
+      password: '',
+      confirmPassword: '',
+      nickName: '',
+      role: '',
+      UID: '',
+    });
     this.addCollaboratorForm.controls['role'].setErrors(null);
     this.addCollaboratorForm.controls['UID'].setErrors(null);
 
@@ -789,14 +869,28 @@ export class AdminPageComponent implements OnInit {
     this.showAddUser = toggle;
 
     this.addUserForm.reset();
+    this.addUserForm.patchValue({
+      email: '',
+      nickName: '',
+      role: '',
+      collaborators: [],
+      deleted: false,
+    });
     this.addUserForm.controls['role'].setErrors(null);
   }
 
   toggleEditUser(user?: User) {
     this.showEditUser = !this.showEditUser;
 
-    this.addUserForm.reset();
-    this.addUserForm.controls['role'].setErrors(null);
+    this.editUserForm.reset();
+    this.editUserForm.patchValue({
+      email: '',
+      nickName: '',
+      role: '',
+      collaborators: [],
+      deleted: false,
+    });
+    this.editUserForm.controls['role'].setErrors(null);
 
     if (user) {
       this.editUserForm.patchValue(user);
@@ -1601,11 +1695,11 @@ export class AdminPageComponent implements OnInit {
     if (!this.addDeviceForm.value.previousUserId && edit) {
       this.addDeviceForm.patchValue({
         userID: userId,
-        previousUserId: this.previousUserIdDeviceToEdit
+        previousUserId: this.previousUserIdDeviceToEdit,
       });
     } else {
       this.addDeviceForm.patchValue({
-        userID: userId
+        userID: userId,
       });
     }
 
@@ -1614,11 +1708,7 @@ export class AdminPageComponent implements OnInit {
     }
 
     this.profilesItems = this.profiles
-      .filter(
-        (profile) =>
-          profile.userID === userId &&
-          !profile.deviceID
-      )
+      .filter((profile) => profile.userID === userId && !profile.deviceID)
       .map((profile: Profile) => ({
         label: `${profile.name} ${profile.lastName}`,
         value: profile.id,
