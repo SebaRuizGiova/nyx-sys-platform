@@ -129,8 +129,6 @@ export class AdminPageComponent implements OnInit {
     id: [''],
   });
   public addUserForm: FormGroup = this.fb.group({
-    id: ['', Validators.required],
-    UID: ['', Validators.required],
     email: [
       '',
       [
