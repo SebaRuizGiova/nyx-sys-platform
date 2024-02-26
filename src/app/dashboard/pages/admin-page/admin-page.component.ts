@@ -678,7 +678,8 @@ export class AdminPageComponent implements OnInit {
         this.userRole !== 'superAdmin'
           ? this.authService.userId
           : this.addDeviceForm.value.userID,
-        device.playerID?.toString()
+        device.playerID?.toString(),
+        true
       );
     }
   }
@@ -1594,12 +1595,12 @@ export class AdminPageComponent implements OnInit {
       }));
   }
 
-  selectUserDevice(userId: string, profileId?: string) {
+  selectUserDevice(userId: string, profileId?: string, edit?: boolean) {
     this.addDeviceForm.controls['playerID'].reset({
       value: profileId || '',
       disabled: false,
     });
-    if (!this.addDeviceForm.value.previousUserId) {
+    if (!this.addDeviceForm.value.previousUserId && edit) {
       this.addDeviceForm.patchValue({
         userID: userId,
         previousUserId: this.previousUserIdDeviceToEdit
@@ -1610,7 +1611,9 @@ export class AdminPageComponent implements OnInit {
       });
     }
 
-    this.previousUserIdDeviceToEdit = this.addDeviceForm.value.userID;
+    if (edit) {
+      this.previousUserIdDeviceToEdit = this.addDeviceForm.value.userID;
+    }
 
     this.profilesItems = this.profiles
       .filter(

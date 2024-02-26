@@ -459,6 +459,7 @@ export class DatabaseService {
     return new Promise((resolve, reject) => {
       if (this.authService) {
         this.authService.checkRole().subscribe((role) => {
+          debugger;
           this.userRole = role;
 
           const { previousUserId, ...rest } = device;
@@ -505,12 +506,14 @@ export class DatabaseService {
               }/devices/${device.id}`
             );
 
-            const deviceRefPromise = deviceRef.set(
-              { ...rest },
-              { merge: true }
-            );
+            const deviceRefPromise = deviceRef.update({
+              ...rest,
+              player: device.playerID ? true : false,
+              playerID: device.playerID ? device.playerID : '',
+              userID: device.userID ? device.userID : '',
+            });
 
-            if (device.playerID) {
+            if (device?.playerID) {
               const profileToUnlink = profiles.find(
                 (profile) => profile.deviceID?.toString() === device.id
               );
@@ -562,13 +565,35 @@ export class DatabaseService {
                   reject(error);
                 });
             } else {
-              deviceRefPromise
-                .then((res) => {
-                  resolve(res);
-                })
-                .catch((error) => {
-                  reject(error);
+              const profileToUnlink = profiles.find(
+                (profile) => profile.deviceID?.toString() === device.id
+              );
+              if (
+                profileToUnlink?.id &&
+                profileToUnlink?.id !== device.playerID?.toString()
+              ) {
+                const profileToUnlinkRef = this.firestore.doc(
+                  `/users/nyxsys/content/${
+                    this.userRole === 'superAdmin'
+                      ? profileToUnlink.userID
+                      : this.authService!.userId
+                  }/players/${profileToUnlink.id}`
+                );
+
+                const profileToUnlinkRefPromise = profileToUnlinkRef.update({
+                  device: false,
+                  deviceID: null,
+                  deviceSN: null,
                 });
+
+                Promise.all([profileToUnlinkRefPromise, deviceRefPromise])
+                  .then((res) => {
+                    resolve(res);
+                  })
+                  .catch((error) => {
+                    reject(error);
+                  });
+              }
             }
           }
         });
