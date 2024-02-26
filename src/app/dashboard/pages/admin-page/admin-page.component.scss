@@ -84,6 +84,16 @@
     font-size: 12px;
   }
 
+  .input-modal {
+    width: 100%;
+    
+    .info-input {
+      margin: 5px 0 0 0;
+      text-align: left;
+      font-size: .8rem;
+    }
+  }
+
   .checkbox-container {
     width: 100%;
     display: flex;

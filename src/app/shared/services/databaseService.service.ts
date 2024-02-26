@@ -261,13 +261,9 @@ export class DatabaseService {
           profileRef
             .add(profile)
             .then((res) => {
-              // Obtener el ID generado y establecerlo en la propiedad id del perfil
-              const profileId = res.id;
-              profile.id = profileId;
-
               // Actualizar el perfil con el ID establecido
               res
-                .update({ id: profileId })
+                .update({ id: res.id })
                 .then(() => {
                   resolve(profile);
                 })

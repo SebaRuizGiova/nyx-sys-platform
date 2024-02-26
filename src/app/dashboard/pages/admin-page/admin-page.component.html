@@ -128,9 +128,7 @@
                   class="pi pi-trash"
                   [pTooltip]="'adminDeleteProfileTooltip' | translate"
                   tooltipPosition="bottom"
-                  (click)="
-                    toggleConfirmDeleteProfile(profile)
-                  "
+                  (click)="toggleConfirmDeleteProfile(profile)"
                 ></i>
               </div>
             </td>
@@ -633,21 +631,27 @@
 >
   <div class="modal-content" [formGroup]="addDeviceForm">
     <p class="legend">{{ "adminExplanationDevice" | translate }}</p>
-    <shared-input-text
-      [formGroup]="addDeviceForm"
-      formControlName="serialNumber"
-      [placeholder]="'adminModalAddDeviceSerialNumber' | translate"
-      [error]="!!validateInputs(addDeviceForm, 'serialNumber')"
-      [helper]="validateInputs(addDeviceForm, 'serialNumber')"
-      (inputChange)="validateDeviceSerialNumber($event)"
-    />
-    <shared-input-text
-      [formGroup]="addDeviceForm"
-      formControlName="verificationCode"
-      [placeholder]="'adminModalAddDeviceCode' | translate"
-      [error]="!!validateInputs(addDeviceForm, 'verificationCode')"
-      [helper]="validateInputs(addDeviceForm, 'verificationCode')"
-    />
+    <div class="input-modal">
+      <shared-input-text
+        [formGroup]="addDeviceForm"
+        formControlName="serialNumber"
+        [placeholder]="'adminModalAddDeviceSerialNumber' | translate"
+        [error]="!!validateInputs(addDeviceForm, 'serialNumber')"
+        [helper]="validateInputs(addDeviceForm, 'serialNumber')"
+        (inputChange)="validateDeviceSerialNumber($event)"
+      />
+      <p class="info-input">{{ "adminLengthInfo6Characters" | translate }}</p>
+    </div>
+    <div class="input-modal">
+      <shared-input-text
+        [formGroup]="addDeviceForm"
+        formControlName="verificationCode"
+        [placeholder]="'adminModalAddDeviceCode' | translate"
+        [error]="!!validateInputs(addDeviceForm, 'verificationCode')"
+        [helper]="validateInputs(addDeviceForm, 'verificationCode')"
+      />
+      <p class="info-input">{{ "adminLengthInfo5Characters" | translate }}</p>
+    </div>
     <shared-select
       *ngIf="userRole === 'superAdmin'"
       [options]="usersItems"
