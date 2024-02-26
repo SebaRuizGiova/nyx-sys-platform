@@ -455,7 +455,6 @@ export class DatabaseService {
     return new Promise((resolve, reject) => {
       if (this.authService) {
         this.authService.checkRole().subscribe((role) => {
-          debugger;
           this.userRole = role;
 
           const { previousUserId, ...rest } = device;
@@ -505,6 +504,7 @@ export class DatabaseService {
             const deviceRefPromise = deviceRef.update({
               ...rest,
               player: device.playerID ? true : false,
+              playerName: device.playerID ? device.playerName : '',
               playerID: device.playerID ? device.playerID : '',
               userID: device.userID ? device.userID : '',
             });
