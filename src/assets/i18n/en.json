@@ -117,6 +117,7 @@
   "profileCardSNADescriptionTooltip": "The autonomic nervous system controls the functions of your body; it is divided into sympathetic and parasympathetic",
   "profileCardSNASTooltip": "Sympathetic System, controls your active physical response",
   "profileCardSNAPTooltip": "Parasympathetic system, regulates rest and metabolism",
+  "profileWarnProfiles": "This group does not have any profiles created yet, please proceed to the administration panel to add profiles to the group.",
   "sleepScoreTooltip": "Score based on the amount of hours of sleep and its phases Light, Deep, and REM",
   "sleepScoreTooltipDiamond": "Optimal sleep score",
   "adminAddProfileTitle": "Add Profile",

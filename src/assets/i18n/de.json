@@ -117,6 +117,7 @@
   "profileCardSNADescriptionTooltip": "Das autonome Nervensystem steuert die Funktionen Ihres Körpers; es teilt sich in das sympathische und das parasympathische System auf",
   "profileCardSNASTooltip": "Sympathisches Nervensystem, steuert Ihre aktive körperliche Reaktion",
   "profileCardSNAPTooltip": "Parasympathisches Nervensystem, reguliert Ruhe und Stoffwechsel",
+  "profileWarnProfiles": "Diese Gruppe hat noch keine Profile erstellt, bitte gehen Sie zum Administrationspanel, um Profile zur Gruppe hinzuzufügen.",
   "sleepScoreTooltip": "Bewertung basierend auf der Menge an Schlafstunden und den Phasen Leicht, Tief und REM",
   "sleepScoreTooltipDiamond": "Optimale Schlafbewertung",
   "adminAddProfileTitle": "Profil hinzufügen",

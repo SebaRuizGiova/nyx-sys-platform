@@ -119,6 +119,7 @@
 </header>
 <hr />
 <main class="main-content">
+  <p-messages *ngIf="showWarnProfiles && !filteredProfiles.length" [(value)]="warnMessage" [enableService]="false" [closable]="false"></p-messages>
   <dashboard-profile-card
     *ngFor="let profile of filteredProfiles"
     [profileId]="profile.id"

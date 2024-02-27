@@ -117,6 +117,7 @@
   "profileCardSNADescriptionTooltip": "Il sistema nervoso autonomo controlla le funzioni del tuo corpo; si divide in simpatico e parasimpatico",
   "profileCardSNASTooltip": "Sistema simpatico, controlla la tua risposta fisica attiva",
   "profileCardSNAPTooltip": "Sistema parasimpatico, regola il riposo e il metabolismo",
+  "profileWarnProfiles": "Questo gruppo non ha ancora profili creati, si prega di procedere al pannello di amministrazione per aggiungere profili al gruppo.",
   "sleepScoreTooltip": "Punteggio basato sul numero di ore di sonno e sulle fasi Leggero, Profondo e REM",
   "sleepScoreTooltipDiamond": "Punteggio di sonno ottimale",
   "adminAddProfileTitle": "Aggiungi Profilo",

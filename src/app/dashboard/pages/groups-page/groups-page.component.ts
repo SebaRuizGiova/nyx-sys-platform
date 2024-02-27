@@ -10,6 +10,7 @@ import { User } from '../../interfaces/user.interface';
 import { HelpersService } from 'src/app/shared/services/helpers.service';
 import { Group } from '../../interfaces/group.interface';
 import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
+import { Message } from 'primeng/api';
 
 @Component({
   templateUrl: './groups-page.component.html',
@@ -46,6 +47,10 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
   public profiles: Profile[] = [];
   public selectedSleepData?: SleepData;
   public userRole: string = '';
+  public showWarnProfiles: boolean = false;
+  public warnMessage: Message[] = [
+    { severity: 'warn', summary: '', detail: 'Closable Message Content' },
+  ];
 
   private intervalId: any;
 
@@ -90,6 +95,14 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
       .getTranslate('groupOrderByItems')
       .subscribe((translations: any) => {
         this.orderByItems = translations;
+      });
+    this.languageService
+      .getTranslate('profileWarnProfiles')
+      .subscribe((translation: any) => {
+        this.warnMessage = [{
+          ...this.warnMessage[0],
+          detail: translation
+        }];
       });
   }
 
@@ -257,6 +270,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
         this.profiles.push(profile);
       });
       this.filteredProfiles = this.profiles;
+      this.showWarnProfiles = this.filteredProfiles.length ? false : true;
       this.periodItems = this.helpersService.generatePeriods(
         this.profiles,
         this.timezoneService.timezoneOffset
@@ -370,7 +384,7 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
         }
         resolve(mapLiveData);
       } catch (error) {
-        reject({ status: 'Offline' });
+        resolve({ status: 'Offline' });
       }
     });
   }
@@ -472,5 +486,6 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
       // Ordenar de forma descendente
       return this.filtersForm.value.orderBy ? scoreB - scoreA : scoreA - scoreB;
     });
+    this.showWarnProfiles = this.filteredProfiles.length ? false : true;
   }
 }
