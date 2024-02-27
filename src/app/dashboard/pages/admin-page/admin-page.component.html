@@ -623,7 +623,7 @@
 <shared-modal
   [showModal]="showAddDevice"
   [title]="
-    (enableEditProfile ? 'adminEditDeviceTitle' : 'adminAddDeviceTitle')
+    (enableEditDevice ? 'adminEditDeviceTitle' : 'adminAddDeviceTitle')
       | translate
   "
   width="25vw"
@@ -658,7 +658,7 @@
       [placeholder]="'adminModalAddDeviceUser' | translate"
       [formGroup]="addDeviceForm"
       formControlName="userID"
-      (selectChange)="selectUserDevice($event)"
+      (selectChange)="selectUserDevice($event, enableEditDevice)"
       [error]="!!validateInputs(addDeviceForm, 'userID')"
     />
     <shared-select
