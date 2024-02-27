@@ -738,7 +738,7 @@ export class DatabaseService {
               .get()
               .then((querySnapshot) => {
                 querySnapshot.forEach((doc: any) => {
-                  batch.update(doc.ref, { deleted: true });
+                  batch.update(doc.ref, { deleted: true, teamID: null });
 
                   // Eliminar dispositivos asociados a los perfiles si es necesario
                   if (deleteDevices) {
@@ -747,6 +747,7 @@ export class DatabaseService {
                       const deviceRef = this.firestore.doc(
                         `/users/nyxsys/content/${userId}/devices/${deviceID}`
                       ).ref;
+                      batch.update(doc.ref, { device: false, deviceSN: null, deviceID: null });
                       batch.delete(deviceRef);
                     }
                   }
@@ -780,6 +781,7 @@ export class DatabaseService {
                       const deviceRef = this.firestore.doc(
                         `/users/nyxsys/content/${userId}/devices/${deviceID}`
                       ).ref;
+                      batch.update(doc.ref, { device: false, deviceSN: null, deviceID: null });
                       batch.delete(deviceRef);
                     }
                   }

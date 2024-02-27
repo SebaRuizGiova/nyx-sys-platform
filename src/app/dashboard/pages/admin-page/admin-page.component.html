@@ -763,10 +763,14 @@
 </shared-modal>
 
 <!-- MODAL CONFIRMAR ELIMINAR PERFILES DEL GRUPO -->
-<shared-modal
-  [showModal]="showConfirmDeleteProfilesByGroup"
-  [title]="'settingsConfirmModalTitle' | translate"
-  width="20vw"
+<p-dialog
+  [header]="'settingsConfirmModalTitle' | translate"
+  [(visible)]="showConfirmDeleteProfilesByGroup"
+  [modal]="true"
+  [style]="{ width: '20vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  [closable]="false"
 >
   <div class="modal-content">
     <div class="alert">
@@ -788,7 +792,38 @@
       (click)="toggleConfirmDeleteProfilesGroup(true)"
     />
   </div>
-</shared-modal>
+</p-dialog>
+<!-- MODAL CONFIRMAR ELIMINAR DISPOSITIVOS DEL GRUPO -->
+<p-dialog
+  [header]="'settingsConfirmModalTitle' | translate"
+  [(visible)]="showConfirmDeleteDevicesByGroup"
+  [modal]="true"
+  [style]="{ width: '20vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  [closable]="false"
+>
+  <div class="modal-content">
+    <div class="alert">
+      <i
+        class="pi pi-exclamation-triangle"
+        style="color: #d71d1d; font-size: 2rem"
+      ></i>
+    </div>
+    <p>{{ "IrreversibleAction" | translate }}</p>
+  </div>
+  <div class="buttons-modal">
+    <shared-button
+      [label]="'settingsConfirmModalAccept' | translate"
+      (click)="toggleConfirmDeleteDevicesGroup()"
+    />
+    <shared-button
+      [label]="'settingsConfirmModalCancel' | translate"
+      variant="secondary"
+      (click)="toggleConfirmDeleteDevicesGroup(true)"
+    />
+  </div>
+</p-dialog>
 
 <!-- MODAL CONFIRMAR ELIMINAR GRUPO -->
 <shared-modal
@@ -821,7 +856,7 @@
           formControlName="deleteDevices"
           [binary]="true"
           inputId="deleteDevices"
-          (onChange)="toggleConfirmDeleteProfilesGroup()"
+          (onChange)="toggleConfirmDeleteDevicesGroup()"
         ></p-checkbox>
         <label for="deleteDevices">{{
           "adminDeleteDevicesByGroup" | translate

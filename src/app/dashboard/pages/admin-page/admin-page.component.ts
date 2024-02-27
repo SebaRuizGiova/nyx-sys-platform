@@ -177,6 +177,7 @@ export class AdminPageComponent implements OnInit {
   public showConfirmDeleteDevice: boolean = false;
   public showConfirmDeleteGroup: boolean = false;
   public showConfirmDeleteProfilesByGroup: boolean = false;
+  public showConfirmDeleteDevicesByGroup: boolean = false;
   public showConfirmDeleteCollaborator: boolean = false;
   public showConfirmDeleteUser: boolean = false;
   public showAddDevice: boolean = false;
@@ -788,6 +789,11 @@ export class AdminPageComponent implements OnInit {
       this.groupIdToDelete = groupId;
     }
 
+    this.deleteGroupForm.patchValue({
+      deleteProfiles: false,
+      deleteDevices: false,
+    });
+
     this.showConfirmDeleteGroup = !this.showConfirmDeleteGroup;
   }
 
@@ -795,12 +801,22 @@ export class AdminPageComponent implements OnInit {
     if (cancel) {
       this.deleteGroupForm.patchValue({
         deleteProfiles: false,
-        deleteDevices: false,
       });
     }
 
     this.showConfirmDeleteProfilesByGroup =
       !this.showConfirmDeleteProfilesByGroup;
+  }
+
+  toggleConfirmDeleteDevicesGroup(cancel?: boolean) {
+    if (cancel) {
+      this.deleteGroupForm.patchValue({
+        deleteDevices: false,
+      });
+    }
+
+    this.showConfirmDeleteDevicesByGroup =
+      !this.showConfirmDeleteDevicesByGroup;
   }
 
   //? MODALES COLABORADORES
