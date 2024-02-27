@@ -26,7 +26,7 @@ export class ANSChartComponent implements OnChanges {
     const dates = this.ans.map((item) => item.date);
     const hfValues = this.ans.map((item) => item.hf);
     const lfValues = this.ans.map((item) => item.lf);
-    const bedExitValues = this.ans[0].bedExit;
+    const bedExitValues = this.ans[0]?.bedExit;
 
     this.languageService.langChanged$.subscribe(() => {
       this.translateService

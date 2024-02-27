@@ -345,17 +345,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         let mapLiveData: Status;
 
         if (
-          liveData.length === 0 &&
-          this.helpersService.compareDates(
-            this.helpersService.formatTimestampToDate(
-              liveData[0]?.date_occurred,
-              this.timezoneService.timezoneOffset
-            ),
-            this.helpersService.getActualDate(
-              this.timezoneService.timezoneOffset
-            ),
-            this.timezoneService.timezoneOffset
-          ) === 0
+          liveData.length === 0
         ) {
           mapLiveData = { status: 'Offline' };
         } else if (
@@ -401,12 +391,12 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   }
 
   selectSleepData(event?: any) {
-    if (this.profileData!.sleepData!.length) {
+    if (this.profileData?.sleepData?.length) {
       this.periodForm.patchValue({
         period: event
           ? event
           : this.helpersService.formatTimestampToDate(
-              this.profileData!.sleepData[0]!.to || 0,
+              this.profileData!.sleepData[0]?.to || 0,
               this.timezoneService.timezoneOffset
             ),
       });
@@ -490,7 +480,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         birthdateInSeconds * millisecondsInSecond;
       const ageYears = Math.floor(ageMilliseconds / millisecondsInYear);
 
-      return ageYears.toString();
+      return ageYears?.toString();
     }
     return '';
   }
@@ -538,7 +528,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const messages = translations;
           let message = this.getRandomMessage(messages);
           if (message.includes('*sleep_score*')) {
-            message = message.replace('*sleep_score*', sleepScore.toString());
+            message = message.replace('*sleep_score*', sleepScore?.toString());
           }
           this.messageSleepScore = message;
         });
@@ -750,7 +740,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const messages = translations;
           let message = this.getRandomMessage(messages);
           if (message.includes('*sleep_score*')) {
-            message = message.replace('*sleep_score*', sleepScore.toString());
+            message = message.replace('*sleep_score*', sleepScore?.toString());
           }
           this.messageSleepScore = message;
         });
@@ -778,7 +768,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const messages = translations;
           let message = this.getRandomMessage(messages);
           if (message.includes('*sleep_score*')) {
-            message = message.replace('*sleep_score*', recovery.toString());
+            message = message.replace('*sleep_score*', recovery?.toString());
           }
           this.messageRecovery = message;
         });
@@ -990,7 +980,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const messages = translations;
           let message = this.getRandomMessage(messages);
           if (message.includes('*sleep_score*')) {
-            message = message.replace('*sleep_score*', recovery.toString());
+            message = message.replace('*sleep_score*', recovery?.toString());
           }
           this.messageRecovery = message;
         });
@@ -1459,9 +1449,9 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     sleepDataArray: SleepData[],
     selectedSleepData?: SleepData
   ) {
-    if (selectedSleepData) {
+    if (selectedSleepData && selectedSleepData.hrv_data.length) {
       const selectedRecovery: number =
-        selectedSleepData.hrv_data[0].totalRecovery || 0;
+      selectedSleepData.hrv_data[0]?.totalRecovery || 0;
       let selectedRecoveryStatus: 'negative' | 'positive' =
         selectedRecovery > 0 ? 'positive' : 'negative';
       let actualRecoveryStatus: 'negative' | 'positive' | '' = '';
@@ -1471,15 +1461,15 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       );
 
       for (const [index, sleepData] of sleepDataArray.entries()) {
-        if (index > selectedSleepDataIndex) {
+        if (index > selectedSleepDataIndex && sleepData?.hrv_data) {
           if (
-            sleepData.hrv_data[0].totalRecovery &&
-            sleepData.hrv_data[0].totalRecovery >= 0
+            sleepData.hrv_data[0]?.totalRecovery &&
+            sleepData.hrv_data[0]?.totalRecovery >= 0
           ) {
             actualRecoveryStatus = 'positive';
           } else if (
-            sleepData.hrv_data[0].totalRecovery &&
-            sleepData.hrv_data[0].totalRecovery < 0
+            sleepData.hrv_data[0]?.totalRecovery &&
+            sleepData.hrv_data[0]?.totalRecovery < 0
           ) {
             actualRecoveryStatus = 'negative';
           }
@@ -1597,10 +1587,10 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       if (
         sleepData.hrv_data &&
         sleepData.hrv_data.length > 0 &&
-        sleepData.hrv_data[0].totalRecovery !== undefined
+        sleepData.hrv_data[0]?.totalRecovery !== undefined
       ) {
         totalRecoveryArray.push({
-          totalRecovery: sleepData.hrv_data[0].totalRecovery,
+          totalRecovery: sleepData.hrv_data[0]?.totalRecovery,
           date: this.helpersService.formatTimestampToDate(
             sleepData.to,
             this.timezoneService.timezoneOffset
@@ -1906,8 +1896,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       timeline.push(finalCalcData.timestamp);
       datesOfficial.push(finalCalcData);
       var date = new Date(finalCalcData.timestamp * 1000)
-        .toString()
-        .substr(16, 8);
+        ?.toString()
+        ?.substr(16, 8);
       timestamps.push(date);
 
       counter = 0;

@@ -26,9 +26,9 @@ export class MovementChartComponent implements OnChanges {
   ) {}
 
   ngOnChanges(): void {
-    const movementsValues = this.movement.movement;
-    const totalActivityValues = this.movement.totalActivity;
-    const timestampsValues = this.movement.timestamps;
+    const movementsValues = this.movement?.movement;
+    const totalActivityValues = this.movement?.totalActivity;
+    const timestampsValues = this.movement?.timestamps;
 
     const self = this;
 
