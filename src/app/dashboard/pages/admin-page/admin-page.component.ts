@@ -167,7 +167,7 @@ export class AdminPageComponent implements OnInit {
   public filteredCollaborators: Collaborator[] = [];
   public filteredUsers: User[] = [];
   public dontShowHiddenProfiles: boolean = false;
-  public dontShowHiddenDevices: boolean = false;
+  public dontShowUnlinkedDevices: boolean = false;
   public dontShowHiddenGroups: boolean = false;
 
   public role: string = this.authService.role;
@@ -509,15 +509,15 @@ export class AdminPageComponent implements OnInit {
       );
     });
 
-    if (this.dontShowHiddenDevices) {
-      filteredDevices = filteredDevices.filter((device) => !device.hided);
+    if (this.dontShowUnlinkedDevices) {
+      filteredDevices = filteredDevices.filter((device) => !device.player);
     }
 
     this.filteredDevices = filteredDevices;
   }
 
-  toggleHiddenDevices() {
-    this.dontShowHiddenDevices = !this.dontShowHiddenDevices;
+  toggleUnlinkedDevices() {
+    this.dontShowUnlinkedDevices = !this.dontShowUnlinkedDevices;
     this.filterDevices();
   }
 

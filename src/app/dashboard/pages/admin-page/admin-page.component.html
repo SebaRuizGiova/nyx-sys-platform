@@ -142,13 +142,13 @@
       <div class="card-header">
         <p class="title-table">{{ "adminDevicesTitle" | translate }}</p>
         <div class="actions-header" [formGroup]="actionsDevicesForm">
-          <div class="icon" *ngIf="dontShowHiddenDevices; else showDevices">
+          <div class="icon" *ngIf="dontShowUnlinkedDevices; else showDevices">
             <i
               class="pi pi-eye"
               style="font-size: 1.6rem"
               [pTooltip]="'adminShowAllDevicesTooltip' | translate"
               tooltipPosition="bottom"
-              (click)="toggleHiddenDevices()"
+              (click)="toggleUnlinkedDevices()"
             ></i>
           </div>
           <ng-template #showDevices>
@@ -158,7 +158,7 @@
                 style="font-size: 1.6rem"
                 [pTooltip]="'adminHideAllDevicesTooltip' | translate"
                 tooltipPosition="bottom"
-                (click)="toggleHiddenDevices()"
+                (click)="toggleUnlinkedDevices()"
               ></i>
             </div>
           </ng-template>
