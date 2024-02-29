@@ -1045,6 +1045,7 @@ export class DatabaseService {
                     deviceID: null,
                     deviceSN: null,
                     deleted: true,
+                    teamID: null
                   });
                 });
 
