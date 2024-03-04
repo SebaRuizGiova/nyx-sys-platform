@@ -3,6 +3,10 @@ import * as moment from 'moment-timezone';
 import { Profile } from 'src/app/dashboard/interfaces/profile.interface';
 import { ItemDropdown } from '../components/dropdown/dropdown.component';
 import { HttpClient } from '@angular/common/http';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -37,7 +41,11 @@ export class HelpersService {
   private cloudFunctionUrl =
     'https://us-central1-honyro-55d73.cloudfunctions.net/app';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private storage: AngularFireStorage,
+    private translateService: TranslateService
+  ) {}
 
   compareDates = (date1: string, date2: string, timezone: number): number => {
     const date1Obj = moment
@@ -157,20 +165,34 @@ export class HelpersService {
     return date.format('HH:mm:ss') + 'hs';
   }
 
-  sendWelcomeEmail(email: string, password: string) {
-    const subject = '¡Bienvenido a Nyx-Sys!';
-    const text = `Te damos la bienvenida a nuestra plataforma, a continuación te proveeremos de tus credenciales de acceso.\nRecuerda que puedes cambiar la contraseña en cualquier momento desde ajustes.\n\nUsuario: ${email}\nContraseña: ${password}\nUrl de acceso: https://nyxsys-global.web.app/login\nAtte: Nyx-Sys team.`;
+  async sendWelcomeEmail(
+    email: string,
+    password: string,
+    nickName: string,
+    role: string
+  ) {
 
+    const lang = localStorage.getItem('lang');
+    const imageUrl = await this.getUrlImg('Logos/nyx-sys_customer_service.png').toPromise();
+    
     const data = {
-      to: [email, 'sebastian.ruiz@nyx-sys.com', 'fernando.lerner@nyx-sys.com'],
-      subject,
-      text,
+      to: email,
+      password: password,
+      nickName: nickName,
+      role: role,
+      imageUrl: imageUrl,
+      lang: lang,
     };
 
-    const url = `${this.cloudFunctionUrl}/post/welcome-email`;
+    const url = `${this.cloudFunctionUrl}/welcome-email`;
     this.http.post(url, data).subscribe(
       (response) => {},
       (error) => {}
     );
+  }
+
+  getUrlImg(imgPath: string): Observable<string> {
+    const ref = this.storage.ref(imgPath);
+    return ref.getDownloadURL();
   }
 }

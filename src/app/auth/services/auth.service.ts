@@ -143,13 +143,13 @@ export class AuthService {
         collaborators
       );
 
-      this.helpersService.sendWelcomeEmail(email, password);
+      this.helpersService.sendWelcomeEmail(email, password, nickName, role);
     } catch (error) {
       console.log(error);
       throw error;
     }
   }
-
+  
   async registerCollaborator(
     email: string,
     password: string,
@@ -203,7 +203,7 @@ export class AuthService {
         id,
         accessTo
       );
-      this.helpersService.sendWelcomeEmail(email, password);
+      this.helpersService.sendWelcomeEmail(email, password, nickName, role);
     } catch (error) {
       throw error;
     }
