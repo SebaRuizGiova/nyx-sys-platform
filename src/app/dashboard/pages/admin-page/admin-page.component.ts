@@ -355,13 +355,14 @@ export class AdminPageComponent implements OnInit {
           return filteredUsers;
         }),
         mergeMap((users) => {
-          this.users = users;
-          this.filteredUsers = users;
+          this.sortAlphabetically(users, 'nickName')
+          this.users = users
+          this.filteredUsers = this.users;
           this.usersItems = this.users.map((user) => ({
             label: user.nickName,
             value: user.id,
           }));
-          const profilesObservables = users.map((user: User) => {
+          const profilesObservables = this.users.map((user: User) => {
             const profiles$ = this.databaseService.getProfilesByUser(user.id);
             const devices$ = this.databaseService.getDevicesByUser(user.id);
             const groups$ = this.databaseService.getGroupsByUser(user.id);
@@ -410,9 +411,14 @@ export class AdminPageComponent implements OnInit {
           })
         );
 
-        this.profiles = profiles;
-        this.profilesByUser = profiles;
-        this.filteredProfiles = profiles;
+        this.sortAlphabetically(profiles, 'name');
+        this.sortAlphabetically(devicesWithStatus, 'serialNumber');
+        this.sortAlphabetically(groups, 'teamName');
+        this.sortAlphabetically(collaborators, 'nickName');
+
+        this.profiles = profiles
+        this.profilesByUser = this.profiles;
+        this.filteredProfiles = this.profiles;
         this.devices = devicesWithStatus;
         this.devicesByUser = devicesWithStatus;
         this.filteredDevices = devicesWithStatus;
@@ -1898,5 +1904,20 @@ export class AdminPageComponent implements OnInit {
     this.filterGroups();
     this.filterCollaborators();
     this.filterUsers();
+  }
+
+  sortAlphabetically(array: any[], property: string) {
+    array.sort((a, b) => {
+      const valorA = a[property].toLowerCase();
+      const valorB = b[property].toLowerCase();
+
+      if (valorA < valorB) {
+        return -1;
+      }
+      if (valorA > valorB) {
+        return 1;
+      }
+      return 0;
+    });
   }
 }
