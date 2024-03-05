@@ -135,6 +135,13 @@
   z-index: 400;
 }
 
+.buttons-modal {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
 :host ::ng-deep .p-dropdown {
   width: 100%;
   height: 40px;

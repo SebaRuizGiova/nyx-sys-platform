@@ -37,6 +37,7 @@ export class SidebarComponent implements OnInit {
   public languages: any[] = [];
   public selectedLanguage?: Language;
   public currentRoute: string = '';
+  public showConfirmLogout: boolean = false;
 
   ngOnInit(): void {
     this.currentRouteService.rutaActiva$.subscribe((ruta) => {
@@ -122,5 +123,9 @@ export class SidebarComponent implements OnInit {
   onLogout() {
     this.authService.logout();
     window.location.reload();
+  }
+
+  toggleConfirmLogout() {
+    this.showConfirmLogout = !this.showConfirmLogout;
   }
 }

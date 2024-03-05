@@ -326,6 +326,7 @@
   "settingsValidEmailError": "Veuillez saisir une adresse e-mail valide",
   "settingsMandatoryPassword": "Le mot de passe est obligatoire",
   "settingsPatternPassword": "Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et 8 caractères.",
+  "settingsConfirmLogout": "Êtes-vous sûr de vouloir vous déconnecter?",
   "settingsConfirmModalTitle": "Êtes-vous sûr(e) ?",
   "settingsConfirmModalContent": "Souhaitez-vous supprimer votre compte de manière permanente ? Veuillez noter que toutes les informations associées seront perdues. Vous ne pourrez pas le réactiver ni récupérer son contenu. L'action prendra effet dans les 48 heures. En cas d'erreur, veuillez contacter notre équipe de support.",
   "settingsConfirmModalAccept": "Accepter",

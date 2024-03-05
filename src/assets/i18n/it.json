@@ -326,6 +326,7 @@
   "settingsValidEmailError": "Inserisci un'email valida",
   "settingsMandatoryPassword": "La password è obbligatoria",
   "settingsPatternPassword": "La password deve contenere almeno una lettera maiuscola, una lettera minuscola e essere lunga 8 caratteri.",
+  "settingsConfirmLogout": "Sei sicuro di voler uscire?",
   "settingsConfirmModalTitle": "Sei sicuro?",
   "settingsConfirmModalContent": "Desideri eliminare il tuo account in modo permanente? Tieni presente che tutte le informazioni correlate andranno perse. Non sarà possibile riattivarlo o recuperare i suoi contenuti. L'azione avrà effetto entro 48 ore; se si è trattato di un errore, ti preghiamo di contattare il nostro team di supporto.",
   "settingsConfirmModalAccept": "Accetta",

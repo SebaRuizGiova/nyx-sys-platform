@@ -1,10 +1,7 @@
 <div class="sidebar" [ngClass]="{ show: show }">
   <div class="header-sidebar" [ngClass]="{ show: show }">
     <div *ngIf="show" class="logo" routerLink="/">
-      <img
-        src="assets/logos/NYXSYS_WHITE.svg"
-        alt="Logo nyxsys"
-      />
+      <img src="assets/logos/NYXSYS_WHITE.svg" alt="Logo nyxsys" />
       <span class="slogan">Dream In-Performance</span>
     </div>
     <i
@@ -35,8 +32,16 @@
   </div>
   <hr />
   <div class="footer-sidebar" [ngClass]="{ show: show }">
-    <shared-item-sidebar [item]="configItem" [expand]="show" [path]="configItem.path || ''" />
-    <shared-item-sidebar [item]="languageItem" [expand]="show" (showSidebar)="toggleSidebar($event)">
+    <shared-item-sidebar
+      [item]="configItem"
+      [expand]="show"
+      [path]="configItem.path || ''"
+    />
+    <shared-item-sidebar
+      [item]="languageItem"
+      [expand]="show"
+      (showSidebar)="toggleSidebar($event)"
+    >
       <p-dropdown
         #element
         [options]="languages"
@@ -47,14 +52,32 @@
     </shared-item-sidebar>
     <div
       class="sesion"
-      [pTooltip]="show ? '' : 'sidebarSignOut' | translate"
+      [pTooltip]="show ? '' : ('sidebarSignOut' | translate)"
       [showDelay]="400"
       [ngClass]="{ show: show }"
-      (click)="onLogout()"
+      (click)="toggleConfirmLogout()"
     >
-      <i class="pi pi-sign-out" style="font-size: 1.3rem; color: #242526;"></i>
-      <span *ngIf="show">{{ 'sidebarSignOut' | translate }}</span>
+      <i class="pi pi-sign-out" style="font-size: 1.3rem; color: #242526"></i>
+      <span *ngIf="show">{{ "sidebarSignOut" | translate }}</span>
     </div>
   </div>
 </div>
 <div *ngIf="show" class="bg-sidebar" (click)="toggleSidebar()"></div>
+
+<shared-modal
+  [showModal]="showConfirmLogout"
+  [title]="'settingsConfirmLogout' | translate"
+  width="20vw"
+>
+  <div class="buttons-modal">
+    <shared-button
+      [label]="'settingsConfirmModalAccept' | translate"
+      (click)="onLogout()"
+    />
+    <shared-button
+      [label]="'settingsConfirmModalCancel' | translate"
+      variant="secondary"
+      (click)="toggleConfirmLogout()"
+    />
+  </div>
+</shared-modal>

@@ -326,6 +326,7 @@
   "settingsValidEmailError": "Ingrese un email válido",
   "settingsMandatoryPassword": "La contraseña es obligatoria",
   "settingsPatternPassword": "La contraseña debe contener al menos una letra mayúscula, una letra minúscula y 8 caracteres.",
+  "settingsConfirmLogout": "¿Está seguro que desea cerrar sesión?",
   "settingsConfirmModalTitle": "¿Está seguro?",
   "settingsConfirmModalContent": "¿Deseas eliminar tu cuenta de forma permanente? Ten en cuenta que se perderá toda la información relacionada con la misma. No podrás re-activarla ni recuperar su contenido. La acción se hará efectiva a las 48hs, en caso de haber sido un error, por favor comunícate con nuestro equipo de soporte.",
   "settingsConfirmModalAccept": "Aceptar",

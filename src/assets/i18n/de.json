@@ -326,6 +326,7 @@
   "settingsValidEmailError": "Geben Sie eine gültige E-Mail-Adresse ein",
   "settingsMandatoryPassword": "Das Passwort ist obligatorisch",
   "settingsPatternPassword": "Das Passwort muss mindestens einen Großbuchstaben, einen Kleinbuchstaben und 8 Zeichen enthalten.",
+  "settingsConfirmLogout": "Sind Sie sicher, dass Sie sich abmelden möchten?",
   "settingsConfirmModalTitle": "Sind Sie sicher?",
   "settingsConfirmModalContent": "Möchten Sie Ihr Konto dauerhaft löschen? Beachten Sie, dass alle damit verbundenen Informationen verloren gehen. Sie können es nicht reaktivieren oder seinen Inhalt wiederherstellen. Die Aktion wird in 48 Stunden wirksam; wenn dies ein Fehler war, kontaktieren Sie bitte unser Support-Team.",
   "settingsConfirmModalAccept": "Akzeptieren",

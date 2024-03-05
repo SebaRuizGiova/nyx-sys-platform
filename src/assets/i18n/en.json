@@ -326,6 +326,7 @@
   "settingsValidEmailError": "Enter a valid email",
   "settingsMandatoryPassword": "The password is mandatory",
   "settingsPatternPassword": "The password must contain at least one uppercase letter, one lowercase letter, and be 8 characters long.",
+  "settingsConfirmLogout": "Are you sure you want to log out?",
   "settingsConfirmModalTitle": "Are you sure?",
   "settingsConfirmModalContent": "Do you want to permanently delete your account? Please note that all related information will be lost. You won't be able to reactivate it or retrieve its content. The action will take effect in 48 hours; if this was a mistake, please contact our support team.",
   "settingsConfirmModalAccept": "Accept",
