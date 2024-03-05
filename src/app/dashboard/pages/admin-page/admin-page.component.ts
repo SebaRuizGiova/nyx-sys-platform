@@ -270,9 +270,10 @@ export class AdminPageComponent implements OnInit {
     this.databaseService
       .getProfilesByUser(userId || this.authService.userId)
       .subscribe((profiles) => {
+        this.sortAlphabetically(profiles, 'name');
         this.profiles = profiles;
-        this.filteredProfiles = profiles;
-        this.profilesByUser = profiles;
+        this.filteredProfiles = this.profiles;
+        this.profilesByUser = this.profiles;
         this.filterProfiles();
         this.loadingService.setLoading(false);
       });
@@ -292,9 +293,10 @@ export class AdminPageComponent implements OnInit {
             };
           })
         );
+        this.sortAlphabetically(devicesWithStatus, 'serialNumber');
         this.devices = devicesWithStatus;
-        this.filteredDevices = devicesWithStatus;
-        this.devicesByUser = devicesWithStatus;
+        this.filteredDevices = this.devices;
+        this.devicesByUser = this.devices;
         this.filterDevices();
         this.loadingService.setLoading(false);
       });
@@ -305,13 +307,14 @@ export class AdminPageComponent implements OnInit {
     this.databaseService
       .getGroupsByUser(userId || this.authService.userId)
       .subscribe((groups) => {
+        this.sortAlphabetically(groups, 'teamName');
         this.groups = groups;
         this.groupsItemsFilter = this.groups.map((group) => ({
           label: group.teamName,
           value: group.id,
         }));
-        this.filteredGroups = groups;
-        this.groupsByUser = groups;
+        this.filteredGroups = this.groups;
+        this.groupsByUser = this.groups;
         this.filterGroups();
         this.loadingService.setLoading(false);
       });
@@ -335,9 +338,10 @@ export class AdminPageComponent implements OnInit {
     const collaboratorsFiltersByUser = collaborators.filter(
       (collaborator) => collaborator.accessTo[0].id === this.authService.userId
     );
+    this.sortAlphabetically(collaboratorsFiltersByUser, 'nickName');
     this.collaborators = collaboratorsFiltersByUser;
-    this.filteredCollaborators = collaboratorsFiltersByUser;
-    this.collaboratorsByUser = collaboratorsFiltersByUser;
+    this.filteredCollaborators = this.collaborators;
+    this.collaboratorsByUser = this.collaborators;
 
     this.filterCollaborators();
     this.loadingService.setLoading(false);
