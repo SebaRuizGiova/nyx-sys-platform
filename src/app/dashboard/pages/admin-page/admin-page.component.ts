@@ -577,7 +577,8 @@ export class AdminPageComponent implements OnInit {
     let filteredUsers = this.users;
 
     filteredUsers = filteredUsers.filter((user) => {
-      return this.helpersService.removeAccents(user.nickName)
+      return this.helpersService
+        .removeAccents(user.nickName)
         ?.toLowerCase()
         .includes(this.actionsUsersForm.value.search?.toLowerCase());
     });
@@ -1227,8 +1228,6 @@ export class AdminPageComponent implements OnInit {
   }
 
   deleteGroup() {
-    this.toggleConfirmDeleteGroup();
-
     this.loadingService.setLoading(true);
     this.databaseService
       .deleteGroup(
@@ -1253,6 +1252,8 @@ export class AdminPageComponent implements OnInit {
           detail: this.translateService.instant('adminDeleteGroupError'),
         });
       });
+
+    this.toggleConfirmDeleteGroup();
 
     this.userIdGroupToDelete = '';
     this.groupIdToDelete = '';

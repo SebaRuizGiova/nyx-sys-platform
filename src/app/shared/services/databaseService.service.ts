@@ -585,10 +585,11 @@ export class DatabaseService {
             } else {
               const deviceRefPromise = deviceRef.update({
                 ...rest,
-                player: device.playerID ? true : false,
-                playerName: device.playerID ? device.playerName : '',
-                playerID: device.playerID ? device.playerID : '',
+                player: false,
+                playerName: null,
+                playerID: null,
                 userID: device.userID ? device.userID : '',
+                teamID: null,
               });
 
               const profileToUnlink = profiles.find(
@@ -754,9 +755,6 @@ export class DatabaseService {
           deleted: true,
         })
         .then((res) => {
-          // Batch para realizar operaciones en lote
-          const batch = this.firestore.firestore.batch();
-
           // Eliminar los perfiles vinculados al grupo
           if (deleteProfiles) {
             const profilesRef = this.firestore.collection(
@@ -768,7 +766,30 @@ export class DatabaseService {
               .get()
               .then((querySnapshot) => {
                 querySnapshot.forEach((doc: any) => {
-                  batch.update(doc.ref, { deleted: true, teamID: null });
+                  doc.ref
+                    .update({ deleted: true, teamID: null })
+                    .then(() => {
+                      const profile = doc.data();
+                      const deviceRef = this.firestore.doc(
+                        `/users/nyxsys/content/${userId}/devices/${profile.deviceID}`
+                      ).ref;
+                      deviceRef
+                        .update({
+                          player: false,
+                          playerName: null,
+                          playerID: null,
+                          teamID: null
+                        })
+                        .then(() => {
+                          resolve('Actualizacion correcta.');
+                        })
+                        .catch((error: any) => {
+                          reject(error);
+                        });
+                    })
+                    .catch((error: any) => {
+                      reject(error);
+                    });
 
                   // Eliminar dispositivos asociados a los perfiles si es necesario
                   if (deleteDevices) {
@@ -777,17 +798,22 @@ export class DatabaseService {
                       const deviceRef = this.firestore.doc(
                         `/users/nyxsys/content/${userId}/devices/${deviceID}`
                       ).ref;
-                      batch.update(doc.ref, {
+                      doc.ref.update({
                         device: false,
                         deviceSN: null,
                         deviceID: null,
                       });
-                      batch.delete(deviceRef);
+                      deviceRef
+                        .delete()
+                        .then(() => {
+                          resolve('Eliminacion correcta.');
+                        })
+                        .catch((error: any) => {
+                          reject(error);
+                        });
                     }
                   }
                 });
-
-                return batch.commit();
               })
               .then(() => {
                 resolve('Grupo y perfiles eliminados correctamente.');
@@ -806,26 +832,45 @@ export class DatabaseService {
               .get()
               .then((querySnapshot) => {
                 querySnapshot.forEach((doc: any) => {
-                  batch.update(doc.ref, { teamID: null });
+                  doc.ref
+                    .update({ teamID: null })
+                    .then(() => {
+                      resolve('Actualizacion correcta.');
+                    })
+                    .catch((error: any) => {
+                      reject(error);
+                    });
 
                   // Eliminar dispositivos asociados a los perfiles si es necesario
                   if (deleteDevices) {
+                    doc.ref
+                      .update({
+                        device: false,
+                        deviceID: null,
+                        deviceSN: null
+                      })
+                      .then(() => {
+                        resolve('Actualizacion correcta.');
+                      })
+                      .catch((error: any) => {
+                        reject(error);
+                      });
                     const deviceID = doc.data().deviceID;
                     if (deviceID) {
                       const deviceRef = this.firestore.doc(
                         `/users/nyxsys/content/${userId}/devices/${deviceID}`
                       ).ref;
-                      batch.update(doc.ref, {
-                        device: false,
-                        deviceSN: null,
-                        deviceID: null,
-                      });
-                      batch.delete(deviceRef);
+                      deviceRef
+                        .delete()
+                        .then(() => {
+                          resolve('Eliminacion correcta.');
+                        })
+                        .catch((error: any) => {
+                          reject(error);
+                        });
                     }
                   }
                 });
-
-                return batch.commit();
               })
               .then(() => {
                 resolve('Grupo y perfiles actualizados correctamente.');
