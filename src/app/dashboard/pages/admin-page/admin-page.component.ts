@@ -359,8 +359,8 @@ export class AdminPageComponent implements OnInit {
           return filteredUsers;
         }),
         mergeMap((users) => {
-          this.sortAlphabetically(users, 'nickName')
-          this.users = users
+          this.sortAlphabetically(users, 'nickName');
+          this.users = users;
           this.filteredUsers = this.users;
           this.usersItems = this.users.map((user) => ({
             label: user.nickName,
@@ -420,7 +420,7 @@ export class AdminPageComponent implements OnInit {
         this.sortAlphabetically(groups, 'teamName');
         this.sortAlphabetically(collaborators, 'nickName');
 
-        this.profiles = profiles
+        this.profiles = profiles;
         this.profilesByUser = this.profiles;
         this.filteredProfiles = this.profiles;
         this.devices = devicesWithStatus;
@@ -465,14 +465,10 @@ export class AdminPageComponent implements OnInit {
 
     // Filtrar por nombre y apellido
     filteredProfiles = filteredProfiles.filter((profile) => {
-      return (
-        profile.name
-          ?.toLowerCase()
-          .includes(this.actionsProfilesForm.value.search?.toLowerCase()) ||
-        profile.lastName
-          ?.toLowerCase()
-          .includes(this.actionsProfilesForm.value.search?.toLowerCase())
-      );
+      return this.helpersService
+        .removeAccents(`${profile.name} ${profile.lastName}`)
+        ?.toLowerCase()
+        .includes(this.actionsProfilesForm.value.search?.toLowerCase());
     });
 
     // Filtrar perfiles ocultos si está habilitado el filtro
@@ -508,15 +504,10 @@ export class AdminPageComponent implements OnInit {
     }
 
     filteredDevices = filteredDevices.filter((device) => {
-      return (
-        device.serialNumber
-          ?.toLowerCase()
-          .includes(this.actionsDevicesForm.value.search?.toLowerCase()) ||
-        device.playerName
-          ?.toString()
-          ?.toLowerCase()
-          .includes(this.actionsDevicesForm.value.search?.toLowerCase())
-      );
+      return this.helpersService
+        .removeAccents(`${device.serialNumber} ${device.playerName}`)
+        ?.toLowerCase()
+        .includes(this.actionsDevicesForm.value.search?.toLowerCase());
     });
 
     if (this.dontShowUnlinkedDevices) {
@@ -543,7 +534,8 @@ export class AdminPageComponent implements OnInit {
     }
 
     filteredGroups = filteredGroups.filter((group) => {
-      return group.teamName
+      return this.helpersService
+        .removeAccents(group.teamName)
         ?.toLowerCase()
         .includes(this.actionsGroupsForm.value.search?.toLowerCase());
     });
@@ -572,16 +564,10 @@ export class AdminPageComponent implements OnInit {
     }
 
     filteredCollaborators = filteredCollaborators.filter((collaborator) => {
-      return (
-        collaborator.nickName
-          ?.toLowerCase()
-          .includes(
-            this.actionsCollaboratorsForm.value.search?.toLowerCase()
-          ) ||
-        collaborator.linked
-          ?.toLowerCase()
-          .includes(this.actionsCollaboratorsForm.value.search?.toLowerCase())
-      );
+      return this.helpersService
+        .removeAccents(`${collaborator.nickName} ${collaborator.linked}`)
+        ?.toLowerCase()
+        .includes(this.actionsCollaboratorsForm.value.search?.toLowerCase());
     });
 
     this.filteredCollaborators = filteredCollaborators;
@@ -591,7 +577,7 @@ export class AdminPageComponent implements OnInit {
     let filteredUsers = this.users;
 
     filteredUsers = filteredUsers.filter((user) => {
-      return user.nickName
+      return this.helpersService.removeAccents(user.nickName)
         ?.toLowerCase()
         .includes(this.actionsUsersForm.value.search?.toLowerCase());
     });

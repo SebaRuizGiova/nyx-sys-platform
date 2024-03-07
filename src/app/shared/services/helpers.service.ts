@@ -171,10 +171,11 @@ export class HelpersService {
     nickName: string,
     role: string
   ) {
-
     const lang = localStorage.getItem('lang');
-    const imageUrl = await this.getUrlImg('Logos/nyx-sys_customer_service.png').toPromise();
-    
+    const imageUrl = await this.getUrlImg(
+      'Logos/nyx-sys_customer_service.png'
+    ).toPromise();
+
     const data = {
       to: email,
       password: password,
@@ -194,5 +195,9 @@ export class HelpersService {
   getUrlImg(imgPath: string): Observable<string> {
     const ref = this.storage.ref(imgPath);
     return ref.getDownloadURL();
+  }
+
+  removeAccents(str: string) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
 }
