@@ -279,7 +279,7 @@ export class DatabaseService {
     });
   }
 
-  editProfile(profile: Profile) {
+  editProfile(profile: Profile, profiles: Profile[]) {
     return new Promise((resolve, reject) => {
       if (this.authService) {
         this.authService.checkRole().subscribe((role) => {
@@ -301,6 +301,23 @@ export class DatabaseService {
               { merge: true }
             )
             .then((res) => {
+              if (profile.deviceID) {
+                const deviceRef = this.firestore.doc(
+                  `/users/nyxsys/content/${
+                    this.userRole === 'superAdmin'
+                      ? profile.userID
+                      : this.authService!.userId
+                  }/devices/${profile.deviceID}`
+                );
+
+                deviceRef
+                  .update({
+                    teamID: profile.teamID || null,
+                  })
+                  .then((res) => resolve(res))
+                  .catch((error) => reject(error));
+              }
+
               resolve(res);
             })
             .catch((error) => {
@@ -502,7 +519,9 @@ export class DatabaseService {
             );
 
             if (device?.playerID) {
-              const profileToLink = profiles.find(profile => profile.id === device.playerID.toString());
+              const profileToLink = profiles.find(
+                (profile) => profile.id === device.playerID.toString()
+              );
 
               const deviceRefPromise = deviceRef.update({
                 ...rest,
@@ -510,7 +529,7 @@ export class DatabaseService {
                 playerName: device.playerID ? device.playerName : '',
                 playerID: device.playerID ? device.playerID : '',
                 userID: device.userID ? device.userID : '',
-                teamID: profileToLink?.teamID
+                teamID: profileToLink?.teamID,
               });
 
               const profileToUnlink = profiles.find(
@@ -758,7 +777,11 @@ export class DatabaseService {
                       const deviceRef = this.firestore.doc(
                         `/users/nyxsys/content/${userId}/devices/${deviceID}`
                       ).ref;
-                      batch.update(doc.ref, { device: false, deviceSN: null, deviceID: null });
+                      batch.update(doc.ref, {
+                        device: false,
+                        deviceSN: null,
+                        deviceID: null,
+                      });
                       batch.delete(deviceRef);
                     }
                   }
@@ -792,7 +815,11 @@ export class DatabaseService {
                       const deviceRef = this.firestore.doc(
                         `/users/nyxsys/content/${userId}/devices/${deviceID}`
                       ).ref;
-                      batch.update(doc.ref, { device: false, deviceSN: null, deviceID: null });
+                      batch.update(doc.ref, {
+                        device: false,
+                        deviceSN: null,
+                        deviceID: null,
+                      });
                       batch.delete(deviceRef);
                     }
                   }
@@ -1056,7 +1083,7 @@ export class DatabaseService {
                     deviceID: null,
                     deviceSN: null,
                     deleted: true,
-                    teamID: null
+                    teamID: null,
                   });
                 });
 

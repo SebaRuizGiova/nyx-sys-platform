@@ -946,7 +946,7 @@ export class AdminPageComponent implements OnInit {
   editProfile() {
     if (this.addProfileForm.status !== 'INVALID') {
       this.databaseService
-        .editProfile(this.addProfileForm.value)
+        .editProfile(this.addProfileForm.value, this.profiles)
         .then(() => {
           this.toggleEditProfile();
           this.messageService.add({
