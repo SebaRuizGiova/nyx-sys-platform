@@ -501,15 +501,18 @@ export class DatabaseService {
               }/devices/${device.id}`
             );
 
-            const deviceRefPromise = deviceRef.update({
-              ...rest,
-              player: device.playerID ? true : false,
-              playerName: device.playerID ? device.playerName : '',
-              playerID: device.playerID ? device.playerID : '',
-              userID: device.userID ? device.userID : '',
-            });
-
             if (device?.playerID) {
+              const profileToLink = profiles.find(profile => profile.id === device.playerID.toString());
+
+              const deviceRefPromise = deviceRef.update({
+                ...rest,
+                player: device.playerID ? true : false,
+                playerName: device.playerID ? device.playerName : '',
+                playerID: device.playerID ? device.playerID : '',
+                userID: device.userID ? device.userID : '',
+                teamID: profileToLink?.teamID
+              });
+
               const profileToUnlink = profiles.find(
                 (profile) => profile.deviceID?.toString() === device.id
               );
@@ -561,6 +564,14 @@ export class DatabaseService {
                   reject(error);
                 });
             } else {
+              const deviceRefPromise = deviceRef.update({
+                ...rest,
+                player: device.playerID ? true : false,
+                playerName: device.playerID ? device.playerName : '',
+                playerID: device.playerID ? device.playerID : '',
+                userID: device.userID ? device.userID : '',
+              });
+
               const profileToUnlink = profiles.find(
                 (profile) => profile.deviceID?.toString() === device.id
               );
