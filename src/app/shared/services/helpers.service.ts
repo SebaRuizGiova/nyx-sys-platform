@@ -100,6 +100,14 @@ export class HelpersService {
       this.compareDates(a, b, timezone)
     );
 
+    const currentDate = this.getActualDate(timezone);
+
+    // Verificar si la fecha actual está en el conjunto de fechas
+    if (!sortedDates.includes(currentDate)) {
+      // Si no está presente, agregarla al principio del array
+      sortedDates.unshift(currentDate);
+    }
+
     return sortedDates.map((date) => ({
       label: date,
       value: date,
