@@ -1265,7 +1265,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     if (selectedSleepData) {
       const selectedSleepScore: number = selectedSleepData.sleep_score || 0;
       let selectedSleepScoreStatus: 'negative' | 'positive' =
-        selectedSleepScore > 80 ? 'positive' : 'negative';
+        selectedSleepScore > 75 ? 'positive' : 'negative';
       let actualSleepScoreStatus: 'negative' | 'positive' | '' = '';
       let consecutiveDays: number = 0;
       const selectedSleepDataIndex: number = sleepDataArray.findIndex(
@@ -1274,9 +1274,9 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
       for (const [index, sleepData] of sleepDataArray.entries()) {
         if (index > selectedSleepDataIndex) {
-          if (sleepData.sleep_score && sleepData.sleep_score >= 80) {
+          if (sleepData.sleep_score && sleepData.sleep_score >= 75) {
             actualSleepScoreStatus = 'positive';
-          } else if (sleepData.sleep_score && sleepData.sleep_score < 80) {
+          } else if (sleepData.sleep_score && sleepData.sleep_score < 75) {
             actualSleepScoreStatus = 'negative';
           }
           if (selectedSleepScoreStatus === actualSleepScoreStatus) {
