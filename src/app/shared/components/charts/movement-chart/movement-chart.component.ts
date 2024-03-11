@@ -1,7 +1,9 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Chart } from 'angular-highcharts';
+import { HelpersService } from 'src/app/shared/services/helpers.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
+import { TimezoneService } from 'src/app/shared/services/timezoneService.service';
 
 @Component({
   selector: 'movement-chart',
@@ -18,11 +20,14 @@ export class MovementChartComponent implements OnChanges {
     totalActivity: [],
     timestamps: [],
   };
+  @Input() modal?: boolean;
   public chart?: Chart;
 
   constructor(
     private languageService: LanguageService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private helpersService: HelpersService,
+    private timezoneService: TimezoneService
   ) {}
 
   ngOnChanges(): void {
@@ -39,19 +44,24 @@ export class MovementChartComponent implements OnChanges {
           const movementTranslate = translations['movementsChartMovement'];
           const turnsTranslate = translations['movementsChartTurns'];
           this.chart = new Chart({
-            chart: {
-              backgroundColor: '#242526',
-              animation: true,
-              height: '120px',
-              margin: 0,
-              style: {
-                overflow: 'visible',
-              },
-            },
+            chart: this.modal
+              ? {
+                  backgroundColor: '#242526',
+                  animation: true,
+                }
+              : {
+                  backgroundColor: '#242526',
+                  animation: true,
+                  height: this.modal ? '300px' : '120px',
+                  margin: 0,
+                },
             xAxis: {
               categories: timestampsValues,
               labels: {
-                enabled: false,
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
               },
             },
             yAxis: [
@@ -59,8 +69,12 @@ export class MovementChartComponent implements OnChanges {
                 title: {
                   text: movementTranslate,
                 },
-                // tickInterval: 10,
-                // tickPixelInterval: 95,
+                labels: {
+                  enabled: this.modal,
+                  style: {
+                    color: '#d9d9d9',
+                  },
+                },
                 gridLineColor: 'transparent',
               },
               {
@@ -68,7 +82,12 @@ export class MovementChartComponent implements OnChanges {
                   text: turnsTranslate,
                 },
                 tickInterval: 20,
-                // tickPixelInterval: 95,
+                labels: {
+                  enabled: this.modal,
+                  style: {
+                    color: '#d9d9d9',
+                  },
+                },
                 gridLineColor: '#3b3b3b',
               },
               // {
@@ -144,19 +163,24 @@ export class MovementChartComponent implements OnChanges {
         const movementTranslate = translations['movementsChartMovement'];
         const turnsTranslate = translations['movementsChartTurns'];
         this.chart = new Chart({
-          chart: {
-            backgroundColor: '#242526',
-            animation: true,
-            height: '120px',
-            margin: 0,
-            style: {
-              overflow: 'visible',
-            },
-          },
+          chart: this.modal
+            ? {
+                backgroundColor: '#242526',
+                animation: true,
+              }
+            : {
+                backgroundColor: '#242526',
+                animation: true,
+                height: this.modal ? '300px' : '120px',
+                margin: 0,
+              },
           xAxis: {
             categories: timestampsValues,
             labels: {
-              enabled: false,
+              enabled: this.modal,
+              style: {
+                color: '#d9d9d9',
+              },
             },
           },
           yAxis: [
@@ -164,8 +188,12 @@ export class MovementChartComponent implements OnChanges {
               title: {
                 text: movementTranslate,
               },
-              // tickInterval: 10,
-              // tickPixelInterval: 95,
+              labels: {
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
+              },
               gridLineColor: 'transparent',
             },
             {
@@ -173,7 +201,12 @@ export class MovementChartComponent implements OnChanges {
                 text: turnsTranslate,
               },
               tickInterval: 20,
-              // tickPixelInterval: 95,
+              labels: {
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
+              },
               gridLineColor: '#3b3b3b',
             },
             // {

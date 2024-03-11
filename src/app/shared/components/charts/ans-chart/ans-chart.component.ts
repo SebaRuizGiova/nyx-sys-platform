@@ -15,6 +15,7 @@ export class ANSChartComponent implements OnChanges {
     bedExit: number[];
     date: string;
   }[] = [];
+  @Input() modal?: boolean = false;
   public chart?: Chart;
 
   constructor(
@@ -37,13 +38,16 @@ export class ANSChartComponent implements OnChanges {
               type: 'spline',
               backgroundColor: '#242526',
               animation: true,
-              height: '80px',
+              height: this.modal ? null : '80px',
               margin: 0,
             },
             xAxis: {
               categories: dates,
               labels: {
-                enabled: false,
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
               },
             },
             yAxis: [
@@ -57,6 +61,9 @@ export class ANSChartComponent implements OnChanges {
                 tickInterval: 10,
                 tickPixelInterval: 10,
                 gridLineColor: '#3b3b3b',
+                labels: {
+                  enabled: this.modal,
+                },
               },
               // Eje Y para HF
               {
@@ -69,6 +76,9 @@ export class ANSChartComponent implements OnChanges {
                 tickInterval: 10,
                 tickPixelInterval: 10,
                 gridLineColor: '#3b3b3b',
+                labels: {
+                  enabled: this.modal,
+                },
               },
             ],
             title: {
@@ -87,7 +97,7 @@ export class ANSChartComponent implements OnChanges {
               },
               bar: {
                 label: {
-                  enabled: false,
+                  enabled: this.modal,
                 },
               },
             },
@@ -95,7 +105,14 @@ export class ANSChartComponent implements OnChanges {
               shared: true,
             },
             legend: {
-              enabled: false,
+              enabled: this.modal,
+              align: 'center',
+              verticalAlign: 'top',
+              layout: 'horizontal',
+              itemStyle: {
+                color: '#d9d9d9',
+                fontWeight: 'bold',
+              },
             },
             series: [
               {
@@ -132,17 +149,26 @@ export class ANSChartComponent implements OnChanges {
       .get('ansChartAbsent')
       .subscribe((translate: string) => {
         this.chart = new Chart({
-          chart: {
-            type: 'spline',
-            backgroundColor: '#242526',
-            animation: true,
-            height: '80px',
-            margin: 0,
-          },
+          chart: this.modal
+            ? {
+                type: 'spline',
+                backgroundColor: '#242526',
+                animation: true,
+              }
+            : {
+                type: 'spline',
+                backgroundColor: '#242526',
+                animation: true,
+                height: '80px',
+                margin: 0,
+              },
           xAxis: {
             categories: dates,
             labels: {
-              enabled: false,
+              enabled: this.modal,
+              style: {
+                color: '#d9d9d9',
+              },
             },
           },
           yAxis: [
@@ -151,23 +177,31 @@ export class ANSChartComponent implements OnChanges {
               title: {
                 text: 'LF',
               },
-              min: 30,
-              max: 70,
-              tickInterval: 10,
-              tickPixelInterval: 10,
+              tickInterval: this.modal ? 40 : 10,
+              tickPixelInterval: this.modal ? 40 : 10,
               gridLineColor: '#3b3b3b',
+              labels: {
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
+              },
             },
             // Eje Y para HF
             {
               title: {
                 text: 'HF',
               },
-              // opposite: true, // Para colocar este eje a la derecha
-              min: 30,
-              max: 70,
-              tickInterval: 10,
-              tickPixelInterval: 10,
+              opposite: true, // Para colocar este eje a la derecha
+              tickInterval: this.modal ? 40 : 10,
+              tickPixelInterval: this.modal ? 40 : 10,
               gridLineColor: '#3b3b3b',
+              labels: {
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
+              },
             },
           ],
           title: {
@@ -186,7 +220,7 @@ export class ANSChartComponent implements OnChanges {
             },
             bar: {
               label: {
-                enabled: false,
+                enabled: this.modal,
               },
             },
           },
@@ -194,7 +228,14 @@ export class ANSChartComponent implements OnChanges {
             shared: true,
           },
           legend: {
-            enabled: false,
+            enabled: this.modal,
+            align: 'center',
+            verticalAlign: 'top',
+            layout: 'horizontal',
+            itemStyle: {
+              color: '#d9d9d9',
+              fontWeight: 'bold',
+            },
           },
           series: [
             {

@@ -24,6 +24,7 @@ export class HrvChartComponent implements OnChanges {
     timestamps: [],
     absent: [],
   };
+  @Input() modal?: boolean = false;
   public chart?: Chart;
 
   constructor(
@@ -58,7 +59,7 @@ export class HrvChartComponent implements OnChanges {
             chart: {
               backgroundColor: '#242526',
               animation: true,
-              height: '115px',
+              height: this.modal ? '300px' : '115px',
               margin: 0,
               style: {
                 overflow: 'visible',
@@ -193,19 +194,33 @@ export class HrvChartComponent implements OnChanges {
         const heartRateTranslate = translations['hrvChartHeartRate'];
         const adjustmentLineTranslate = translations['hrvChartAdjustmentLine'];
         this.chart = new Chart({
-          chart: {
-            backgroundColor: '#242526',
-            animation: true,
-            height: '115px',
-            margin: 0,
-            style: {
-              overflow: 'visible',
-            },
-          },
+          chart: this.modal
+            ? {
+                backgroundColor: '#242526',
+                animation: true,
+              }
+            : {
+                backgroundColor: '#242526',
+                animation: true,
+                height: '115px',
+                margin: 0,
+                style: {
+                  overflow: 'visible',
+                },
+              },
           xAxis: {
             categories: timestamps,
             labels: {
-              enabled: false,
+              enabled: this.modal,
+              style: {
+                color: '#d9d9d9',
+              },
+              formatter: function () {
+                return self.helpersService.formatTimestamp(
+                  Number(this.value),
+                  self.timezoneService.timezoneOffset
+                );
+              },
             },
           },
           yAxis: [
@@ -213,25 +228,43 @@ export class HrvChartComponent implements OnChanges {
               title: {
                 text: heartRateTranslate,
               },
-              tickInterval: 10,
-              tickPixelInterval: 10,
+              tickInterval: this.modal ? 40 : 10,
+              tickPixelInterval: this.modal ? 40 : 10,
               gridLineColor: '#3b3b3b',
+              labels: {
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
+              },
             },
             {
               title: {
                 text: 'RMSSD',
               },
-              tickInterval: 10,
-              tickPixelInterval: 10,
+              tickInterval: this.modal ? 40 : 10,
+              tickPixelInterval: this.modal ? 40 : 10,
               gridLineColor: '#3b3b3b',
+              labels: {
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
+              },
             },
             {
               title: {
                 text: adjustmentLineTranslate,
               },
-              tickInterval: 10,
-              tickPixelInterval: 10,
+              tickInterval: this.modal ? 40 : 10,
+              tickPixelInterval: this.modal ? 40 : 10,
               gridLineColor: '#3b3b3b',
+              labels: {
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
+              },
             },
             // {
             //   title: {

@@ -305,7 +305,10 @@
           </div>
         </div>
         <div class="graphic-card">
-          <hrv-chart [hrv]="hrvToChart" (click)="preventClick($event)"></hrv-chart>
+          <hrv-chart
+            [hrv]="hrvToChart"
+            (click)="preventClick($event)"
+          ></hrv-chart>
         </div>
       </div>
     </div>
@@ -404,7 +407,10 @@
           </div>
         </div>
         <div class="graphic-card">
-          <movement-chart [movement]="movementToChart" (click)="preventClick($event)"></movement-chart>
+          <movement-chart
+            [movement]="movementToChart"
+            (click)="preventClick($event)"
+          ></movement-chart>
         </div>
       </div>
     </div>
@@ -469,7 +475,10 @@
           </div>
         </div>
         <div class="graphic-card">
-          <sleep-time-chart [periods]="sleepTimeToChart" (click)="preventClick($event)"></sleep-time-chart>
+          <sleep-time-chart
+            [periods]="sleepTimeToChart"
+            (click)="preventClick($event)"
+          ></sleep-time-chart>
         </div>
       </div>
     </div>
@@ -579,11 +588,11 @@
           />
         </form>
       </div>
-      <sleep-architecture-chart
-        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
-        [period]="profileData!.selectedSleepData"
-        [noTitle]="true"
-      ></sleep-architecture-chart>
+      <sleep-score-chart
+        [sleepScore]="sleepScoreToChart"
+        [modal]="true"
+        (click)="preventClick($event)"
+      ></sleep-score-chart>
     </div>
   </shared-modal>
 
@@ -613,11 +622,11 @@
           />
         </form>
       </div>
-      <sleep-architecture-chart
-        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
-        [period]="profileData!.selectedSleepData"
-        [noTitle]="true"
-      ></sleep-architecture-chart>
+      <recovery-chart
+        [recovery]="totalRecoveryToChart"
+        [modal]="true"
+        (click)="preventClick($event)"
+      ></recovery-chart>
     </div>
   </shared-modal>
 
@@ -644,11 +653,11 @@
           />
         </form>
       </div>
-      <sleep-architecture-chart
-        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
-        [period]="profileData!.selectedSleepData"
-        [noTitle]="true"
-      ></sleep-architecture-chart>
+      <ans-chart
+        [ans]="ansToChart"
+        [modal]="true"
+        (click)="preventClick($event)"
+      ></ans-chart>
     </div>
   </shared-modal>
 
@@ -679,11 +688,11 @@
           />
         </form>
       </div>
-      <sleep-architecture-chart
-        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
-        [period]="profileData!.selectedSleepData"
-        [noTitle]="true"
-      ></sleep-architecture-chart>
+      <hrv-chart
+        [hrv]="hrvToChart"
+        [modal]="true"
+        (click)="preventClick($event)"
+      ></hrv-chart>
     </div>
   </shared-modal>
 
@@ -710,11 +719,11 @@
           />
         </form>
       </div>
-      <sleep-architecture-chart
-        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
-        [period]="profileData!.selectedSleepData"
-        [noTitle]="true"
-      ></sleep-architecture-chart>
+      <hr-chart
+        [hr]="hrToChart"
+        [modal]="true"
+        (click)="preventClick($event)"
+      ></hr-chart>
     </div>
   </shared-modal>
 
@@ -741,11 +750,11 @@
           />
         </form>
       </div>
-      <sleep-architecture-chart
-        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
-        [period]="profileData!.selectedSleepData"
-        [noTitle]="true"
-      ></sleep-architecture-chart>
+      <br-chart
+        [br]="brToChart"
+        [modal]="true"
+        (click)="preventClick($event)"
+      ></br-chart>
     </div>
   </shared-modal>
 
@@ -772,11 +781,11 @@
           />
         </form>
       </div>
-      <sleep-architecture-chart
-        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
-        [period]="profileData!.selectedSleepData"
-        [noTitle]="true"
-      ></sleep-architecture-chart>
+      <movement-chart
+        [movement]="movementToChart"
+        [modal]="true"
+        (click)="preventClick($event)"
+      ></movement-chart>
     </div>
   </shared-modal>
 
@@ -803,11 +812,11 @@
           />
         </form>
       </div>
-      <sleep-architecture-chart
-        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
-        [period]="profileData!.selectedSleepData"
-        [noTitle]="true"
-      ></sleep-architecture-chart>
+      <sleep-time-chart
+        [periods]="sleepTimeToChart"
+        [modal]="true"
+        (click)="preventClick($event)"
+      ></sleep-time-chart>
     </div>
   </shared-modal>
 
@@ -837,6 +846,7 @@
       <sleep-architecture-chart
         *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
         [period]="profileData!.selectedSleepData"
+        [modal]="true"
         [noTitle]="true"
       ></sleep-architecture-chart>
     </div>

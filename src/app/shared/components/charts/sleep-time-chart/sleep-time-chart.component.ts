@@ -21,6 +21,7 @@ export class SleepTimeChartComponent implements OnChanges {
     durationInAwake: any[];
     dates: any[];
   };
+  @Input() modal?: boolean;
   public chart?: Chart;
 
   constructor(
@@ -54,7 +55,7 @@ export class SleepTimeChartComponent implements OnChanges {
               type: 'column',
               backgroundColor: '#242526',
               animation: true,
-              height: '100px',
+              height: this.modal ? '300px' : '100px',
               margin: 0,
             },
             title: {
@@ -120,7 +121,11 @@ export class SleepTimeChartComponent implements OnChanges {
           .get('sleepTimeChartSleepHS')
           .subscribe((sleepTranslate: string) => {
             this.chart = new Chart({
-              chart: {
+              chart: this.modal ? {
+                type: 'column',
+                backgroundColor: '#242526',
+                animation: true,
+              } : {
                 type: 'column',
                 backgroundColor: '#242526',
                 animation: true,
@@ -133,6 +138,7 @@ export class SleepTimeChartComponent implements OnChanges {
               xAxis: {
                 categories: datesValues,
                 labels: {
+                  enabled: this.modal,
                   style: {
                     color: '#d9d9d9',
                   },
@@ -141,7 +147,10 @@ export class SleepTimeChartComponent implements OnChanges {
               yAxis: {
                 gridLineColor: '#3b3b3b',
                 labels: {
-                  enabled: false,
+                  enabled: this.modal,
+                  style: {
+                    color: '#d9d9d9',
+                  },
                 },
                 title: {
                   text: '',

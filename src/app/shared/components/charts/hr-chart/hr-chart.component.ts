@@ -20,6 +20,7 @@ export class HrChartComponent implements OnChanges {
     timestamps: [],
     absent: [],
   };
+  @Input() modal?: boolean;
   public chart?: Chart;
 
   constructor(
@@ -46,19 +47,22 @@ export class HrChartComponent implements OnChanges {
         .get('hrvChartHeartRate')
         .subscribe((translate: string) => {
           this.chart = new Chart({
-            chart: {
+            chart: this.modal ? {
+              backgroundColor: '#242526',
+              animation: true
+            } : {
               backgroundColor: '#242526',
               animation: true,
               height: '120px',
               margin: 0,
-              style: {
-                overflow: 'visible',
-              },
             },
             xAxis: {
               categories: timestamps,
               labels: {
-                enabled: false,
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
               },
             },
             yAxis: [
@@ -69,23 +73,19 @@ export class HrChartComponent implements OnChanges {
                 tickInterval: 10,
                 tickPixelInterval: 10,
                 gridLineColor: '#3b3b3b',
+                labels: {
+                  enabled: this.modal,
+                  style: {
+                    color: '#d9d9d9',
+                  },
+                  formatter: function () {
+                    return self.helpersService.formatTimestamp(
+                      Number(this.value),
+                      self.timezoneService.timezoneOffset
+                    );
+                  },
+                },
               },
-              // {
-              //   title: {
-              //     text: 'Breathing rate',
-              //   },
-              //   tickInterval: 5,
-              //   tickPixelInterval: 5,
-              //   gridLineColor: '#3b3b3b',
-              // },
-              // {
-              //   title: {
-              //     text: 'Absent',
-              //   },
-              //   tickInterval: 10,
-              //   tickPixelInterval: 10,
-              //   gridLineColor: '#d9d9d9',
-              // },
             ],
             title: {
               text: '',
@@ -154,19 +154,28 @@ export class HrChartComponent implements OnChanges {
       .get('hrvChartHeartRate')
       .subscribe((translate: string) => {
         this.chart = new Chart({
-          chart: {
+          chart: this.modal ? {
+            backgroundColor: '#242526',
+            animation: true
+          } : {
             backgroundColor: '#242526',
             animation: true,
             height: '120px',
             margin: 0,
-            style: {
-              overflow: 'visible',
-            },
           },
           xAxis: {
             categories: timestamps,
             labels: {
-              enabled: false,
+              enabled: this.modal,
+              style: {
+                color: '#d9d9d9',
+              },
+              formatter: function () {
+                return self.helpersService.formatTimestamp(
+                  Number(this.value),
+                  self.timezoneService.timezoneOffset
+                );
+              },
             },
           },
           yAxis: [
@@ -177,23 +186,13 @@ export class HrChartComponent implements OnChanges {
               tickInterval: 10,
               tickPixelInterval: 10,
               gridLineColor: '#3b3b3b',
+              labels: {
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
+              },
             },
-            // {
-            //   title: {
-            //     text: 'Breathing rate',
-            //   },
-            //   tickInterval: 5,
-            //   tickPixelInterval: 5,
-            //   gridLineColor: '#3b3b3b',
-            // },
-            // {
-            //   title: {
-            //     text: 'Absent',
-            //   },
-            //   tickInterval: 10,
-            //   tickPixelInterval: 10,
-            //   gridLineColor: '#d9d9d9',
-            // },
           ],
           title: {
             text: '',

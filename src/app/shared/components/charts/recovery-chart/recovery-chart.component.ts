@@ -13,6 +13,7 @@ export class RecoveryChartComponent implements OnChanges {
     totalRecovery: number;
     date: string;
   }[] = [];
+  @Input() modal?: boolean;
   public chart?: Chart;
 
   constructor(
@@ -29,29 +30,41 @@ export class RecoveryChartComponent implements OnChanges {
         .get('sleepScoreChartTotalRecovery')
         .subscribe((translatedName: string) => {
           this.chart = new Chart({
-            chart: {
-              type: 'spline',
-              backgroundColor: '#242526',
-              animation: true,
-              height: '80px',
-              margin: 0,
-            },
+            chart: this.modal
+              ? {
+                  type: 'spline',
+                  backgroundColor: '#242526',
+                  animation: true,
+                }
+              : {
+                  type: 'spline',
+                  backgroundColor: '#242526',
+                  animation: true,
+                  height: '80px',
+                  margin: 0,
+                },
             xAxis: {
               categories: dates,
               labels: {
-                enabled: false,
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
               },
             },
             yAxis: {
               gridLineColor: '#3b3b3b',
               labels: {
-                enabled: false,
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
               },
               title: {
                 text: '',
               },
-              tickInterval: 10,
-              tickPixelInterval: 10,
+              tickInterval: this.modal ? 20 : 10,
+              tickPixelInterval: this.modal ? 20 : 10,
             },
             title: {
               text: '',
@@ -71,7 +84,15 @@ export class RecoveryChartComponent implements OnChanges {
               shared: true,
             },
             legend: {
-              enabled: false,
+              enabled: this.modal,
+              align: 'center',
+              verticalAlign: 'top',
+              layout: 'horizontal',
+              itemStyle: {
+                color: '#d9d9d9',
+                fontWeight: 'bold',
+                fontSize: '11px',
+              },
             },
             series: [
               {
@@ -91,29 +112,41 @@ export class RecoveryChartComponent implements OnChanges {
       .get('sleepScoreChartTotalRecovery')
       .subscribe((translatedName: string) => {
         this.chart = new Chart({
-          chart: {
-            type: 'spline',
-            backgroundColor: '#242526',
-            animation: true,
-            height: '80px',
-            margin: 0,
-          },
+          chart: this.modal
+            ? {
+                type: 'spline',
+                backgroundColor: '#242526',
+                animation: true,
+              }
+            : {
+                type: 'spline',
+                backgroundColor: '#242526',
+                animation: true,
+                height: '80px',
+                margin: 0,
+              },
           xAxis: {
             categories: dates,
             labels: {
-              enabled: false,
+              enabled: this.modal,
+              style: {
+                color: '#d9d9d9',
+              },
             },
           },
           yAxis: {
             gridLineColor: '#3b3b3b',
             labels: {
-              enabled: false,
+              enabled: this.modal,
+              style: {
+                color: '#d9d9d9',
+              },
             },
             title: {
               text: '',
             },
-            tickInterval: 10,
-            tickPixelInterval: 10,
+            tickInterval: this.modal ? 20 : 10,
+            tickPixelInterval: this.modal ? 20 : 10,
           },
           title: {
             text: '',
@@ -133,7 +166,15 @@ export class RecoveryChartComponent implements OnChanges {
             shared: true,
           },
           legend: {
-            enabled: false,
+            enabled: this.modal,
+            align: 'center',
+            verticalAlign: 'top',
+            layout: 'horizontal',
+            itemStyle: {
+              color: '#d9d9d9',
+              fontWeight: 'bold',
+              fontSize: '11px',
+            },
           },
           series: [
             {

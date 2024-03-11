@@ -18,6 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class SleepArchitectureChartComponent implements OnChanges {
   @Input() period?: SleepData;
   @Input() noTitle?: boolean = false;
+  @Input() modal?: boolean;
   public sleepData: SleepDatum[] = [];
   public timestamps: string[] = [];
   public sleepTypes: number[] = [];

@@ -20,6 +20,7 @@ export class BrChartComponent implements OnChanges {
     timestamps: [],
     absent: [],
   };
+  @Input() modal?: boolean;
   public chart?: Chart;
 
   constructor(
@@ -49,7 +50,7 @@ export class BrChartComponent implements OnChanges {
             chart: {
               backgroundColor: '#242526',
               animation: true,
-              height: '120px',
+              height: this.modal ? '300px' : '120px',
               margin: 0,
               style: {
                 overflow: 'visible',
@@ -148,19 +149,30 @@ export class BrChartComponent implements OnChanges {
       .get('brChartBreathingRate')
       .subscribe((translate: string) => {
         this.chart = new Chart({
-          chart: {
-            backgroundColor: '#242526',
-            animation: true,
-            height: '120px',
-            margin: 0,
-            style: {
-              overflow: 'visible',
-            },
-          },
+          chart: this.modal
+            ? {
+                backgroundColor: '#242526',
+                animation: true,
+              }
+            : {
+                backgroundColor: '#242526',
+                animation: true,
+                height: '120px',
+                margin: 0,
+              },
           xAxis: {
             categories: timestamps,
             labels: {
-              enabled: false,
+              enabled: this.modal,
+              style: {
+                color: '#d9d9d9',
+              },
+              formatter: function () {
+                return self.helpersService.formatTimestamp(
+                  Number(this.value),
+                  self.timezoneService.timezoneOffset
+                );
+              },
             },
           },
           yAxis: [
@@ -171,6 +183,12 @@ export class BrChartComponent implements OnChanges {
               tickInterval: 5,
               tickPixelInterval: 5,
               gridLineColor: '#3b3b3b',
+              labels: {
+                enabled: this.modal,
+                style: {
+                  color: '#d9d9d9',
+                },
+              },
             },
             // {
             //   title: {
