@@ -767,7 +767,13 @@ export class DatabaseService {
               .then((querySnapshot) => {
                 querySnapshot.forEach((doc: any) => {
                   doc.ref
-                    .update({ deleted: true, teamID: null })
+                    .update({
+                      deleted: true,
+                      teamID: null,
+                      device: false,
+                      deviceSN: null,
+                      deviceID: null,
+                    })
                     .then(() => {
                       const profile = doc.data();
                       const deviceRef = this.firestore.doc(
@@ -778,7 +784,7 @@ export class DatabaseService {
                           player: false,
                           playerName: null,
                           playerID: null,
-                          teamID: null
+                          teamID: null,
                         })
                         .then(() => {
                           resolve('Actualizacion correcta.');
@@ -847,7 +853,7 @@ export class DatabaseService {
                       .update({
                         device: false,
                         deviceID: null,
-                        deviceSN: null
+                        deviceSN: null,
                       })
                       .then(() => {
                         resolve('Actualizacion correcta.');
