@@ -76,7 +76,8 @@ export class HelpersService {
 
   generatePeriods(
     profiles: Profile[],
-    timezone: number
+    timezone: number,
+    groupView?: boolean
   ): { label: string; value: string }[] {
     const formattedDates: Set<string> = new Set();
 
@@ -103,7 +104,7 @@ export class HelpersService {
     const currentDate = this.getActualDate(timezone);
 
     // Verificar si la fecha actual está en el conjunto de fechas
-    if (!sortedDates.includes(currentDate)) {
+    if (!sortedDates.includes(currentDate) && groupView) {
       // Si no está presente, agregarla al principio del array
       sortedDates.unshift(currentDate);
     }

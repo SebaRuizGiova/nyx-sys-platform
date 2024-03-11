@@ -273,7 +273,8 @@ export class GroupsPageComponent implements OnInit, OnDestroy {
       this.showWarnProfiles = this.filteredProfiles.length ? false : true;
       this.periodItems = this.helpersService.generatePeriods(
         this.profiles,
-        this.timezoneService.timezoneOffset
+        this.timezoneService.timezoneOffset,
+        true
       );
       this.selectSleepData();
       this.filterProfiles();
