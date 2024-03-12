@@ -280,55 +280,58 @@ export class SleepArchitectureChartComponent implements OnChanges {
   }
 
   buildCompleteNight(periodToBuild: SleepData) {
-    if (periodToBuild.to) {
-      let wakeUpTime = new Date(periodToBuild.to * 1000)
+    const periodToBuildCopy = {
+      ...periodToBuild
+    }
+    if (periodToBuildCopy.to) {
+      let wakeUpTime = new Date(periodToBuildCopy.to * 1000)
         .toString()
         .substr(16, 8);
 
-      const durationOfPeriod = Math.floor(periodToBuild.duration / 3600);
+      const durationOfPeriod = Math.floor(periodToBuildCopy.duration / 3600);
 
       if (Number(wakeUpTime) <= 13) {
-        periodToBuild.period_type = 'night';
+        periodToBuildCopy.period_type = 'night';
       } else if (Number(wakeUpTime) > 13 && durationOfPeriod < 6) {
-        periodToBuild.period_type = 'day';
+        periodToBuildCopy.period_type = 'day';
       } else {
-        periodToBuild.period_type = 'night';
+        periodToBuildCopy.period_type = 'night';
       }
     }
 
-    if (periodToBuild.sleep_data) {
+    if (periodToBuildCopy.sleep_data) {
       var bedExitCounter = 0;
       let activityLabel: any[] = [];
       let sleepData: any[] = [];
 
-      periodToBuild.sleep_data.forEach((data) => {
+      periodToBuildCopy.sleep_data.forEach((data) => {
         sleepData.push(data.timestamp);
         activityLabel.push(data.sleepType);
       });
 
-      if (!periodToBuild.sleep_data.some((sd) => sd.sleepType === 5)) {
+      if (!periodToBuildCopy.sleep_data.some((sd) => sd.sleepType === 5)) {
         /* INSERTHING BEDEXIT DATA TO SLEEPDATA */
         for (let index = 0; index < sleepData.length; index++) {
-          if (periodToBuild.bedexit_data !== undefined) {
-            if (periodToBuild.bedexit_data[bedExitCounter] !== undefined) {
+          if (periodToBuildCopy.bedexit_data !== undefined) {
+            if (periodToBuildCopy.bedexit_data[bedExitCounter] !== undefined) {
               if (
-                periodToBuild.bedexit_data[bedExitCounter].startTimestamp <
+                periodToBuildCopy.bedexit_data[bedExitCounter].startTimestamp <
                 Number(sleepData[index])
               ) {
                 sleepData.splice(
                   index,
                   0,
-                  periodToBuild.bedexit_data[bedExitCounter].startTimestamp
+                  periodToBuildCopy.bedexit_data[bedExitCounter].startTimestamp
                 );
                 activityLabel.splice(index, 0, 5);
                 // THIS IS SO THE GRAPH DOESNT CONFUSE THAT THE PERSON WAS ABSENT FOR A LONGER TIME THAN THEY REALLY WERE
                 sleepData.splice(
                   index + 1,
                   0,
-                  periodToBuild.bedexit_data[bedExitCounter].endTimestamp
+                  periodToBuildCopy.bedexit_data[bedExitCounter].endTimestamp
                 );
                 activityLabel.splice(index + 1, 0, 4);
-                if (bedExitCounter == periodToBuild.bedexit_data.length - 1) {
+                if (bedExitCounter == periodToBuildCopy.bedexit_data.length - 1) {
                   break;
                 }
                 bedExitCounter++;
@@ -350,24 +353,24 @@ export class SleepArchitectureChartComponent implements OnChanges {
 
         sleepDataWithBedExit.push(bedExit);
       }
-      periodToBuild.sleep_data = JSON.parse(
+      periodToBuildCopy.sleep_data = JSON.parse(
         JSON.stringify(sleepDataWithBedExit)
       );
 
-      if (periodToBuild?.sleep_data?.length) {
-        if (periodToBuild.period_type === 'night') {
+      if (periodToBuildCopy?.sleep_data?.length) {
+        if (periodToBuildCopy.period_type === 'night') {
           /* THIS IS TO FIX THE NIGHT */
           let modifiedSleepData = [];
 
           /* THIS IS TO FIX THE PROBLEM 1 AWAKE BETWEEN 2 REMS  */
           for (
             let index = 1;
-            index < periodToBuild.sleep_data.length - 1;
+            index < periodToBuildCopy.sleep_data.length - 1;
             index++
           ) {
-            const currentSleepData = periodToBuild.sleep_data[index];
-            const previousSleepData = periodToBuild.sleep_data[index - 1];
-            const nextSleepData = periodToBuild.sleep_data[index + 1];
+            const currentSleepData = periodToBuildCopy.sleep_data[index];
+            const previousSleepData = periodToBuildCopy.sleep_data[index - 1];
+            const nextSleepData = periodToBuildCopy.sleep_data[index + 1];
 
             if (
               currentSleepData.sleepType === 4 &&
@@ -393,9 +396,9 @@ export class SleepArchitectureChartComponent implements OnChanges {
           }
 
           /* THIS IS TO ADD THE LAST AND FIRST PERIOD TO THE ARRAY */
-          const firstSleepData = periodToBuild.sleep_data[0];
+          const firstSleepData = periodToBuildCopy.sleep_data[0];
           const lastSleepData =
-            periodToBuild.sleep_data[periodToBuild.sleep_data.length - 1];
+            periodToBuildCopy.sleep_data[periodToBuildCopy.sleep_data.length - 1];
           modifiedSleepData.unshift(firstSleepData);
           modifiedSleepData.push(lastSleepData);
 
@@ -467,16 +470,16 @@ export class SleepArchitectureChartComponent implements OnChanges {
 
           for (
             let index = 0;
-            index < periodToBuild.sleep_data.length - 1;
+            index < periodToBuildCopy.sleep_data.length - 1;
             index++
           ) {
-            periodToBuild.sleep_data[index] = updatedModifiedSleepData[index];
+            periodToBuildCopy.sleep_data[index] = updatedModifiedSleepData[index];
           }
         }
       }
 
-      if (periodToBuild.sleep_data) {
-        const sleepDataFilled = periodToBuild.sleep_data;
+      if (periodToBuildCopy.sleep_data) {
+        const sleepDataFilled = periodToBuildCopy.sleep_data;
 
         for (let i = 0; i < sleepDataFilled.length - 1; i++) {
           const currentDatum = sleepDataFilled[i];
@@ -508,11 +511,11 @@ export class SleepArchitectureChartComponent implements OnChanges {
           }
         }
 
-        periodToBuild.sleep_data = sleepDataFilled;
+        periodToBuildCopy.sleep_data = sleepDataFilled;
       }
 
       /* THIS IS TO RECALCULATE THE SLEEPTYPE TIMES */
-      const sleepDataNew = periodToBuild.sleep_data;
+      const sleepDataNew = periodToBuildCopy.sleep_data;
 
       let currentSleepType = null;
       let currentSleepStartTimestamp = null;
@@ -591,32 +594,32 @@ export class SleepArchitectureChartComponent implements OnChanges {
       }
 
       durationInSleep = durationInRem + durationInLight + durationInDeep;
-      periodToBuild.duration_in_deep = this.helpersService.calcHoursSleepData(
+      periodToBuildCopy.duration_in_deep = this.helpersService.calcHoursSleepData(
         durationInDeep * 60
       );
-      periodToBuild.duration_in_light = this.helpersService.calcHoursSleepData(
+      periodToBuildCopy.duration_in_light = this.helpersService.calcHoursSleepData(
         durationInLight * 60
       );
-      periodToBuild.duration_in_rem = this.helpersService.calcHoursSleepData(
+      periodToBuildCopy.duration_in_rem = this.helpersService.calcHoursSleepData(
         durationInRem * 60
       );
-      periodToBuild.duration_awake = this.helpersService.calcHoursSleepData(
+      periodToBuildCopy.duration_awake = this.helpersService.calcHoursSleepData(
         durationAwake * 60
       );
-      periodToBuild.duration_in_sleep = this.helpersService.calcHoursSleepData(
+      periodToBuildCopy.duration_in_sleep = this.helpersService.calcHoursSleepData(
         durationInSleep * 60
       );
-      periodToBuild.duration_in_bed = this.helpersService.calcHoursSleepData(
+      periodToBuildCopy.duration_in_bed = this.helpersService.calcHoursSleepData(
         durationInBed * 60
       );
     }
 
-    if (periodToBuild.sleep_score) {
-      if (periodToBuild.sleep_score > 100) {
-        periodToBuild.sleep_score = 100;
+    if (periodToBuildCopy.sleep_score) {
+      if (periodToBuildCopy.sleep_score > 100) {
+        periodToBuildCopy.sleep_score = 100;
       }
     }
 
-    return periodToBuild;
+    return periodToBuildCopy;
   }
 }

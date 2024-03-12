@@ -288,7 +288,8 @@
 }
 
 :host ::ng-deep .p-overlay {
-  left: -118px !important;
+  left: unset !important;
+  right: 0 !important;
 }
 
 @media (max-width: 1380px) {

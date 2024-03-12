@@ -36,6 +36,12 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     format: ['', Validators.required],
     range: ['', Validators.required],
   });
+  public periodModalFormWithoutActualPeriod: FormGroup = this.fb.group({
+    range: [7],
+  });
+  public periodModalForm: FormGroup = this.fb.group({
+    range: [0],
+  });
 
   public periodItems: ItemDropdown[] = [];
   public profilesItems: ItemDropdown[] = [];
@@ -93,6 +99,52 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     dates: [],
   };
   public movementToChart: any;
+  public totalRecoveryToChartModal: any[] = [];
+  public sleepScoreToChartModal: any[] = [];
+  public ansToChartModal: any[] = [];
+  public hrvToChartModal: {
+    hrArray: any[];
+    hrvArray: any[];
+    laArray: any[];
+    timestamps: any[];
+    absent: any[];
+  } = {
+    hrArray: [],
+    hrvArray: [],
+    laArray: [],
+    timestamps: [],
+    absent: [],
+  };
+  public hrToChartModal: {
+    hrArray: any[];
+    timestamps: any[];
+    absent: any[];
+  } = {
+    hrArray: [],
+    timestamps: [],
+    absent: [],
+  };
+  public brToChartModal: {
+    brArray: any[];
+    timestamps: any[];
+    absent: any[];
+  } = {
+    brArray: [],
+    timestamps: [],
+    absent: [],
+  };
+  public sleepTimeToChartModal: {
+    durationInBed: any[];
+    durationInSleep: any[];
+    durationInAwake: any[];
+    dates: any[];
+  } = {
+    durationInBed: [],
+    durationInSleep: [],
+    durationInAwake: [],
+    dates: [],
+  };
+  public movementToChartModal: any;
 
   public profileData?: Profile;
 
@@ -271,6 +323,12 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         this.profileData.sleepData
       );
       this.sleepScoreToChart = this.getSleepScoreToChart(
+        this.profileData.sleepData
+      );
+      this.totalRecoveryToChartModal = this.getTotalRecoveryToChart(
+        this.profileData.sleepData
+      );
+      this.sleepScoreToChartModal = this.getSleepScoreToChart(
         this.profileData.sleepData
       );
     }
@@ -460,6 +518,16 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       this.profileData?.selectedSleepData
     );
     this.sleepTimeToChart = this.getSleepTimeToChart(
+      this.profileData?.sleepData,
+      this.profileData?.selectedSleepData
+    );
+    this.totalRecoveryToChartModal = this.getTotalRecoveryToChart(
+      this.profileData?.sleepData || []
+    );
+    this.sleepScoreToChartModal = this.getSleepScoreToChart(
+      this.profileData?.sleepData || []
+    );
+    this.sleepTimeToChartModal = this.getSleepTimeToChart(
       this.profileData?.sleepData,
       this.profileData?.selectedSleepData
     );
@@ -1056,7 +1124,11 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays === 4 && sympathetic >= 35 && sympathetic <= 65) {
+    } else if (
+      consecutiveDays === 4 &&
+      sympathetic >= 35 &&
+      sympathetic <= 65
+    ) {
       this.languageService
         .getTranslate('profileANSMessage4+')
         .subscribe((translations: any) => {
@@ -1072,7 +1144,11 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays === 5 && sympathetic >= 35 && sympathetic <= 65) {
+    } else if (
+      consecutiveDays === 5 &&
+      sympathetic >= 35 &&
+      sympathetic <= 65
+    ) {
       this.languageService
         .getTranslate('profileANSMessage5+')
         .subscribe((translations: any) => {
@@ -1088,7 +1164,11 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays === 6 && sympathetic >= 35 && sympathetic <= 65) {
+    } else if (
+      consecutiveDays === 6 &&
+      sympathetic >= 35 &&
+      sympathetic <= 65
+    ) {
       this.languageService
         .getTranslate('profileANSMessage6+')
         .subscribe((translations: any) => {
@@ -1104,7 +1184,11 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays === 7 && sympathetic >= 35 && sympathetic <= 65) {
+    } else if (
+      consecutiveDays === 7 &&
+      sympathetic >= 35 &&
+      sympathetic <= 65
+    ) {
       this.languageService
         .getTranslate('profileANSMessage7+')
         .subscribe((translations: any) => {
@@ -1120,7 +1204,11 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays === 8 && sympathetic >= 35 && sympathetic <= 65) {
+    } else if (
+      consecutiveDays === 8 &&
+      sympathetic >= 35 &&
+      sympathetic <= 65
+    ) {
       this.languageService
         .getTranslate('profileANSMessage8+')
         .subscribe((translations: any) => {
@@ -1136,7 +1224,11 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           const message = this.getRandomMessage(messages);
           this.messageANS = message;
         });
-    } else if (consecutiveDays === 9 && sympathetic >= 35 && sympathetic <= 65) {
+    } else if (
+      consecutiveDays === 9 &&
+      sympathetic >= 35 &&
+      sympathetic <= 65
+    ) {
       this.languageService
         .getTranslate('profileANSMessage9+')
         .subscribe((translations: any) => {
@@ -1414,7 +1506,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.loadData(userId, profileId);
   }
 
-  getTotalRecoveryToChart(sleepDataArray: SleepData[]) {
+  getTotalRecoveryToChart(sleepDataArray: SleepData[], limit: number = 7) {
     const totalRecoveryArray: any[] = [];
     const periodIndex = sleepDataArray.findIndex((sd) => {
       const formattedTimeStamp = this.helpersService.formatTimestampToDate(
@@ -1443,7 +1535,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
         count++;
 
-        if (count === 7) {
+        if (limit && count === limit) {
           break;
         }
       }
@@ -1452,7 +1544,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     return totalRecoveryArray.reverse();
   }
 
-  getSleepScoreToChart(sleepDataArray: SleepData[]) {
+  getSleepScoreToChart(sleepDataArray: SleepData[], limit: number = 7) {
     const sleepScoreArray: any[] = [];
     const periodIndex = sleepDataArray.findIndex((sd) => {
       const formattedTimeStamp = this.helpersService.formatTimestampToDate(
@@ -1477,7 +1569,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
         count++;
 
-        if (count === 7) {
+        if (limit && count === limit) {
           break;
         }
       }
@@ -1535,6 +1627,41 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       return ansArray;
     }
     return [];
+  }
+
+  getAnsToChartModal(sleepDataArray: SleepData[], limit: number = 7) {
+    const ansArray: any[] = [];
+    const periodIndex = sleepDataArray.findIndex((sd) => {
+      const formattedTimeStamp = this.helpersService.formatTimestampToDate(
+        sd.to,
+        this.timezoneService.timezoneOffset
+      );
+      return formattedTimeStamp === this.periodForm.value.period;
+    });
+
+    const newAnsArray = sleepDataArray.slice(periodIndex);
+
+    let count = 0;
+    for (const sleepData of newAnsArray) {
+      if (sleepData.hrv_hf && sleepData.hrv_lf) {
+        ansArray.push({
+          hf: sleepData.hrv_hf,
+          lf: sleepData.hrv_lf,
+          date: this.helpersService.formatTimestampToDate(
+            sleepData.to,
+            this.timezoneService.timezoneOffset
+          ),
+        });
+
+        count++;
+
+        if (limit && count === limit) {
+          break;
+        }
+      }
+    }
+
+    return ansArray.reverse();
   }
 
   getHrvToChart(selectedSleepData?: SleepData) {
@@ -1772,7 +1899,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
   getSleepTimeToChart(
     sleepDataArray?: SleepData[],
-    selectedSleepData?: SleepData
+    selectedSleepData?: SleepData,
+    limit: number = 7
   ) {
     let durationInBed: any[] = [];
     let durationInSleep: any[] = [];
@@ -1785,7 +1913,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       );
       if (startIndex !== -1) {
         sleepDataArray
-          .slice(startIndex, startIndex + 6)
+          .slice(startIndex, limit ? startIndex + (limit - 1) : undefined)
           .forEach((night: any) => {
             durationInSleep.push(
               night.duration_in_sleep
@@ -1826,28 +1954,81 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   toggleModalSleepScore() {
     this.showModalSleepScore = !this.showModalSleepScore;
   }
+
   toggleModalRecovery() {
     this.showModalRecovery = !this.showModalRecovery;
   }
+
   toggleModalANS() {
     this.showModalANS = !this.showModalANS;
+
+    if (this.periodModalForm.value === null) {
+      this.periodModalForm.patchValue({
+        range: 7
+      });
+    } else {
+      this.periodModalForm.patchValue({
+        range: 0
+      });
+    }
   }
+
   toggleModalHRV() {
     this.showModalHRV = !this.showModalHRV;
   }
+
   toggleModalHeartRate() {
     this.showModalHeartRate = !this.showModalHeartRate;
   }
+
   toggleModalBreathingRate() {
     this.showModalBreathingRate = !this.showModalBreathingRate;
   }
+
   toggleModalMovement() {
     this.showModalMovement = !this.showModalMovement;
   }
+
   toggleModalSleepTime() {
     this.showModalSleepTime = !this.showModalSleepTime;
   }
+
   toggleModalSleepArchitecture() {
     this.showModalSleepArchitecture = !this.showModalSleepArchitecture;
+  }
+
+  changePeriodSleepScoreModal(period: number) {
+    this.sleepScoreToChartModal = this.getSleepScoreToChart(
+      this.profileData?.sleepData || [],
+      period
+    );
+  }
+
+  changePeriodRecoveryModal(period: number) {
+    this.totalRecoveryToChartModal = this.getTotalRecoveryToChart(
+      this.profileData?.sleepData || [],
+      period
+    );
+  }
+
+  changePeriodANSModal(period: number) {
+    if (period === 0) {
+      this.ansToChart = this.getAnsToChart(
+        this.profileData?.selectedSleepData
+      );
+    } else {
+      this.ansToChartModal = this.getAnsToChartModal(
+        this.profileData?.sleepData || [],
+        period
+      );
+    }
+  }
+
+  changePeriodSleepTimeModal(period: number) {
+    this.sleepTimeToChartModal = this.getSleepTimeToChart(
+      this.profileData?.sleepData,
+      this.profileData?.selectedSleepData,
+      period
+    );
   }
 }

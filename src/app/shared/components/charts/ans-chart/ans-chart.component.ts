@@ -70,7 +70,7 @@ export class ANSChartComponent implements OnChanges {
                 title: {
                   text: 'HF',
                 },
-                // opposite: true, // Para colocar este eje a la derecha
+                opposite: true, // Para colocar este eje a la derecha
                 min: 30,
                 max: 70,
                 tickInterval: 10,

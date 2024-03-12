@@ -579,19 +579,19 @@
       </p>
       <!-- TODO: Agregar mensaje según rango -->
       <div class="dropdown-range">
-        <form [formGroup]="downloadForm">
+        <form [formGroup]="periodModalFormWithoutActualPeriod">
           <shared-select
-            [options]="rangeDownloadItems || []"
+            [options]="rangeDownloadItems?.slice(1) || []"
             [placeholder]="'groupSelectRangePlaceholder' | translate"
-            [formGroup]="downloadForm"
+            [formGroup]="periodModalFormWithoutActualPeriod"
             formControlName="range"
+            (selectChange)="changePeriodSleepScoreModal($event)"
           />
         </form>
       </div>
       <sleep-score-chart
-        [sleepScore]="sleepScoreToChart"
+        [sleepScore]="sleepScoreToChartModal"
         [modal]="true"
-        (click)="preventClick($event)"
       ></sleep-score-chart>
     </div>
   </shared-modal>
@@ -613,17 +613,18 @@
       </p>
       <!-- TODO: Agregar mensaje según rango -->
       <div class="dropdown-range">
-        <form [formGroup]="downloadForm">
+        <form [formGroup]="periodModalFormWithoutActualPeriod">
           <shared-select
-            [options]="rangeDownloadItems || []"
+            [options]="rangeDownloadItems?.slice(1) || []"
             [placeholder]="'groupSelectRangePlaceholder' | translate"
-            [formGroup]="downloadForm"
+            [formGroup]="periodModalFormWithoutActualPeriod"
             formControlName="range"
+            (selectChange)="changePeriodRecoveryModal($event)"
           />
         </form>
       </div>
       <recovery-chart
-        [recovery]="totalRecoveryToChart"
+        [recovery]="totalRecoveryToChartModal"
         [modal]="true"
         (click)="preventClick($event)"
       ></recovery-chart>
@@ -644,20 +645,26 @@
       </p>
       <!-- TODO: Agregar mensaje según rango -->
       <div class="dropdown-range">
-        <form [formGroup]="downloadForm">
+        <form [formGroup]="periodModalForm">
           <shared-select
             [options]="rangeDownloadItems || []"
             [placeholder]="'groupSelectRangePlaceholder' | translate"
-            [formGroup]="downloadForm"
+            [formGroup]="periodModalForm"
             formControlName="range"
+            (selectChange)="changePeriodANSModal($event)"
           />
         </form>
       </div>
       <ans-chart
+        *ngIf="periodModalForm.value.range === 0"
         [ans]="ansToChart"
         [modal]="true"
-        (click)="preventClick($event)"
       ></ans-chart>
+      <ans-modal-chart
+        *ngIf="periodModalForm.value.range !== 0"
+        [ans]="ansToChartModal"
+        [modal]="true"
+      ></ans-modal-chart>
     </div>
   </shared-modal>
 
@@ -679,19 +686,19 @@
       </p>
       <!-- TODO: Agregar mensaje según rango -->
       <div class="dropdown-range">
-        <form [formGroup]="downloadForm">
+        <form [formGroup]="periodModalForm">
           <shared-select
             [options]="rangeDownloadItems || []"
             [placeholder]="'groupSelectRangePlaceholder' | translate"
-            [formGroup]="downloadForm"
+            [formGroup]="periodModalForm"
             formControlName="range"
           />
         </form>
       </div>
       <hrv-chart
+        *ngIf="periodModalForm.value.range !== 0"
         [hrv]="hrvToChart"
         [modal]="true"
-        (click)="preventClick($event)"
       ></hrv-chart>
     </div>
   </shared-modal>
@@ -710,17 +717,17 @@
       </p>
       <!-- TODO: Agregar mensaje según rango -->
       <div class="dropdown-range">
-        <form [formGroup]="downloadForm">
+        <form [formGroup]="periodModalForm">
           <shared-select
             [options]="rangeDownloadItems || []"
             [placeholder]="'groupSelectRangePlaceholder' | translate"
-            [formGroup]="downloadForm"
+            [formGroup]="periodModalForm"
             formControlName="range"
           />
         </form>
       </div>
       <hr-chart
-        [hr]="hrToChart"
+        [hr]="hrToChartModal"
         [modal]="true"
         (click)="preventClick($event)"
       ></hr-chart>
@@ -741,17 +748,17 @@
       </p>
       <!-- TODO: Agregar mensaje según rango -->
       <div class="dropdown-range">
-        <form [formGroup]="downloadForm">
+        <form [formGroup]="periodModalForm">
           <shared-select
             [options]="rangeDownloadItems || []"
             [placeholder]="'groupSelectRangePlaceholder' | translate"
-            [formGroup]="downloadForm"
+            [formGroup]="periodModalForm"
             formControlName="range"
           />
         </form>
       </div>
       <br-chart
-        [br]="brToChart"
+        [br]="brToChartModal"
         [modal]="true"
         (click)="preventClick($event)"
       ></br-chart>
@@ -772,17 +779,17 @@
       </p>
       <!-- TODO: Agregar mensaje según rango -->
       <div class="dropdown-range">
-        <form [formGroup]="downloadForm">
+        <form [formGroup]="periodModalForm">
           <shared-select
             [options]="rangeDownloadItems || []"
             [placeholder]="'groupSelectRangePlaceholder' | translate"
-            [formGroup]="downloadForm"
+            [formGroup]="periodModalForm"
             formControlName="range"
           />
         </form>
       </div>
       <movement-chart
-        [movement]="movementToChart"
+        [movement]="movementToChartModal"
         [modal]="true"
         (click)="preventClick($event)"
       ></movement-chart>
@@ -803,17 +810,18 @@
       </p>
       <!-- TODO: Agregar mensaje según rango -->
       <div class="dropdown-range">
-        <form [formGroup]="downloadForm">
+        <form [formGroup]="periodModalFormWithoutActualPeriod">
           <shared-select
-            [options]="rangeDownloadItems || []"
+            [options]="rangeDownloadItems?.slice(1) || []"
             [placeholder]="'groupSelectRangePlaceholder' | translate"
-            [formGroup]="downloadForm"
+            [formGroup]="periodModalFormWithoutActualPeriod"
             formControlName="range"
+            (selectChange)="changePeriodSleepTimeModal($event)"
           />
         </form>
       </div>
       <sleep-time-chart
-        [periods]="sleepTimeToChart"
+        [periods]="sleepTimeToChartModal"
         [modal]="true"
         (click)="preventClick($event)"
       ></sleep-time-chart>
@@ -834,11 +842,11 @@
       </p>
       <!-- TODO: Agregar mensaje según rango -->
       <div class="dropdown-range">
-        <form [formGroup]="downloadForm">
+        <form [formGroup]="periodModalForm">
           <shared-select
             [options]="rangeDownloadItems || []"
             [placeholder]="'groupSelectRangePlaceholder' | translate"
-            [formGroup]="downloadForm"
+            [formGroup]="periodModalForm"
             formControlName="range"
           />
         </form>
