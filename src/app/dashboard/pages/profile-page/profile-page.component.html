@@ -769,7 +769,16 @@
           />
         </form>
       </div>
-      <br-chart [br]="brToChart" [modal]="true"></br-chart>
+      <br-chart
+        *ngIf="periodModalForm.value.range === 0"
+        [br]="brToChart"
+        [modal]="true"
+      ></br-chart>
+      <br-modal-chart
+        *ngIf="periodModalForm.value.range !== 0"
+        [br]="brToChartModal"
+        [modal]="true"
+      ></br-modal-chart>
     </div>
   </shared-modal>
 
