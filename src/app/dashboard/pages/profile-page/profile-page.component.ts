@@ -102,37 +102,9 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   public totalRecoveryToChartModal: any[] = [];
   public sleepScoreToChartModal: any[] = [];
   public ansToChartModal: any[] = [];
-  public hrvToChartModal: {
-    hrArray: any[];
-    hrvArray: any[];
-    laArray: any[];
-    timestamps: any[];
-    absent: any[];
-  } = {
-    hrArray: [],
-    hrvArray: [],
-    laArray: [],
-    timestamps: [],
-    absent: [],
-  };
-  public hrToChartModal: {
-    hrArray: any[];
-    timestamps: any[];
-    absent: any[];
-  } = {
-    hrArray: [],
-    timestamps: [],
-    absent: [],
-  };
-  public brToChartModal: {
-    brArray: any[];
-    timestamps: any[];
-    absent: any[];
-  } = {
-    brArray: [],
-    timestamps: [],
-    absent: [],
-  };
+  public hrvToChartModal: any[] = [];
+  public hrToChartModal: any[] = [];
+  public brToChartModal: any[] = [];
   public sleepTimeToChartModal: {
     durationInBed: any[];
     durationInSleep: any[];
@@ -1775,6 +1747,40 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     };
   }
 
+  getHrvToChartModal(sleepDataArray: SleepData[], limit: number = 7) {
+    const hrvArray: { average: any; date: any }[] = [];
+    const periodIndex = sleepDataArray.findIndex((sd) => {
+      const formattedTimeStamp = this.helpersService.formatTimestampToDate(
+        sd.to,
+        this.timezoneService.timezoneOffset
+      );
+      return formattedTimeStamp === this.periodForm.value.period;
+    });
+
+    const newHrvArray = sleepDataArray.slice(periodIndex);
+
+    let count = 0;
+    for (const sleepData of newHrvArray) {
+      if (sleepData.average_rmssd) {
+        hrvArray.push({
+          average: Number(sleepData.average_rmssd),
+          date: this.helpersService.formatTimestampToDate(
+            sleepData.to,
+            this.timezoneService.timezoneOffset
+          ),
+        });
+
+        count++;
+
+        if (limit && count === limit) {
+          break;
+        }
+      }
+    }
+
+    return hrvArray.reverse();
+  }
+
   getHrToChart(selectedSleepData?: SleepData) {
     let heartRateArray: any[] = [];
     let timestamps: any[] = [];
@@ -1795,6 +1801,40 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     };
   }
 
+  getHrToChartModal(sleepDataArray: SleepData[], limit: number = 7) {
+    const hrArray: { average: any; date: any }[] = [];
+    const periodIndex = sleepDataArray.findIndex((sd) => {
+      const formattedTimeStamp = this.helpersService.formatTimestampToDate(
+        sd.to,
+        this.timezoneService.timezoneOffset
+      );
+      return formattedTimeStamp === this.periodForm.value.period;
+    });
+
+    const newHrArray = sleepDataArray.slice(periodIndex);
+
+    let count = 0;
+    for (const sleepData of newHrArray) {
+      if (sleepData.avg_hr) {
+        hrArray.push({
+          average: Number(sleepData.avg_hr),
+          date: this.helpersService.formatTimestampToDate(
+            sleepData.to,
+            this.timezoneService.timezoneOffset
+          ),
+        });
+
+        count++;
+
+        if (limit && count === limit) {
+          break;
+        }
+      }
+    }
+
+    return hrArray.reverse();
+  }
+
   getBrToChart(selectedSleepData?: SleepData) {
     let breathingRateArray: any[] = [];
     let timestamps: any[] = [];
@@ -1813,6 +1853,40 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       timestamps: timestamps,
       absent: [],
     };
+  }
+
+  getBrToChartModal(sleepDataArray: SleepData[], limit: number = 7) {
+    const brArray: { average: any; date: any }[] = [];
+    const periodIndex = sleepDataArray.findIndex((sd) => {
+      const formattedTimeStamp = this.helpersService.formatTimestampToDate(
+        sd.to,
+        this.timezoneService.timezoneOffset
+      );
+      return formattedTimeStamp === this.periodForm.value.period;
+    });
+
+    const newBrArray = sleepDataArray.slice(periodIndex);
+
+    let count = 0;
+    for (const sleepData of newBrArray) {
+      if (sleepData.avg_rr) {
+        brArray.push({
+          average: Number(sleepData.avg_rr),
+          date: this.helpersService.formatTimestampToDate(
+            sleepData.to,
+            this.timezoneService.timezoneOffset
+          ),
+        });
+
+        count++;
+
+        if (limit && count === limit) {
+          break;
+        }
+      }
+    }
+
+    return brArray.reverse();
   }
 
   getMovementToChart(selectedSleepData?: SleepData) {
@@ -1897,6 +1971,40 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     };
   }
 
+  getMovementToChartModal(sleepDataArray: SleepData[], limit: number = 7) {
+    const hrvArray: { average: any; date: any }[] = [];
+    const periodIndex = sleepDataArray.findIndex((sd) => {
+      const formattedTimeStamp = this.helpersService.formatTimestampToDate(
+        sd.to,
+        this.timezoneService.timezoneOffset
+      );
+      return formattedTimeStamp === this.periodForm.value.period;
+    });
+
+    const newHrvArray = sleepDataArray.slice(periodIndex);
+
+    let count = 0;
+    for (const sleepData of newHrvArray) {
+      if (sleepData.average_rmssd) {
+        hrvArray.push({
+          average: Number(sleepData.average_rmssd),
+          date: this.helpersService.formatTimestampToDate(
+            sleepData.to,
+            this.timezoneService.timezoneOffset
+          ),
+        });
+
+        count++;
+
+        if (limit && count === limit) {
+          break;
+        }
+      }
+    }
+
+    return hrvArray.reverse();
+  }
+
   getSleepTimeToChart(
     sleepDataArray?: SleepData[],
     selectedSleepData?: SleepData,
@@ -1953,48 +2061,74 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
   toggleModalSleepScore() {
     this.showModalSleepScore = !this.showModalSleepScore;
+
+    this.periodModalFormWithoutActualPeriod.patchValue({
+      range: 7,
+    });
   }
 
   toggleModalRecovery() {
     this.showModalRecovery = !this.showModalRecovery;
+
+    this.periodModalFormWithoutActualPeriod.patchValue({
+      range: 7,
+    });
   }
 
   toggleModalANS() {
     this.showModalANS = !this.showModalANS;
 
-    if (this.periodModalForm.value === null) {
-      this.periodModalForm.patchValue({
-        range: 7
-      });
-    } else {
-      this.periodModalForm.patchValue({
-        range: 0
-      });
-    }
+    this.periodModalForm.patchValue({
+      range: 0,
+    });
   }
 
   toggleModalHRV() {
     this.showModalHRV = !this.showModalHRV;
+
+    this.periodModalForm.patchValue({
+      range: 0,
+    });
   }
 
   toggleModalHeartRate() {
     this.showModalHeartRate = !this.showModalHeartRate;
+
+    this.periodModalForm.patchValue({
+      range: 0,
+    });
   }
 
   toggleModalBreathingRate() {
     this.showModalBreathingRate = !this.showModalBreathingRate;
+
+    this.periodModalForm.patchValue({
+      range: 0,
+    });
   }
 
   toggleModalMovement() {
     this.showModalMovement = !this.showModalMovement;
+
+    this.periodModalForm.patchValue({
+      range: 0,
+    });
   }
 
   toggleModalSleepTime() {
     this.showModalSleepTime = !this.showModalSleepTime;
+
+    this.periodModalFormWithoutActualPeriod.patchValue({
+      range: 7,
+    });
   }
 
   toggleModalSleepArchitecture() {
     this.showModalSleepArchitecture = !this.showModalSleepArchitecture;
+
+    this.periodModalForm.patchValue({
+      range: 0,
+    });
   }
 
   changePeriodSleepScoreModal(period: number) {
@@ -2013,14 +2147,57 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
   changePeriodANSModal(period: number) {
     if (period === 0) {
-      this.ansToChart = this.getAnsToChart(
-        this.profileData?.selectedSleepData
-      );
+      this.ansToChart = this.getAnsToChart(this.profileData?.selectedSleepData);
     } else {
       this.ansToChartModal = this.getAnsToChartModal(
         this.profileData?.sleepData || [],
         period
       );
+    }
+  }
+
+  changePeriodHRVModal(period: number) {
+    if (period === 0) {
+      this.hrvToChart = this.getHrvToChart(this.profileData?.selectedSleepData);
+    } else {
+      this.hrvToChartModal = this.getHrvToChartModal(
+        this.profileData?.sleepData || [],
+        period
+      );
+    }
+  }
+
+  changePeriodHRModal(period: number) {
+    if (period === 0) {
+      this.hrToChart = this.getHrToChart(this.profileData?.selectedSleepData);
+    } else {
+      this.hrToChartModal = this.getHrToChartModal(
+        this.profileData?.sleepData || [],
+        period
+      );
+    }
+  }
+
+  changePeriodBRModal(period: number) {
+    if (period === 0) {
+      this.brToChart = this.getBrToChart(this.profileData?.selectedSleepData);
+    } else {
+      this.brToChartModal = this.getBrToChartModal(
+        this.profileData?.sleepData || [],
+        period
+      );
+    }
+  }
+
+  changePeriodMovementModal(period: number) {
+    if (period === 0) {
+      this.hrvToChart = this.getHrvToChart(this.profileData?.selectedSleepData);
+    } else {
+      this.hrvToChartModal = this.getHrvToChartModal(
+        this.profileData?.sleepData || [],
+        period
+      );
+      console.log(this.hrvToChartModal);
     }
   }
 

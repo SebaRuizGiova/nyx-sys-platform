@@ -42,6 +42,8 @@ import { HrChartComponent } from './components/charts/hr-chart/hr-chart.componen
 import { MovementChartComponent } from './components/charts/movement-chart/movement-chart.component';
 import { SleepTimeChartComponent } from './components/charts/sleep-time-chart/sleep-time-chart.component';
 import { AnsModalChartComponent } from './components/charts/ans-modal-chart/ans-modal-chart.component';
+import { HrvModalChartComponent } from './components/charts/hrv-modal-chart/hrv-modal-chart.component';
+import { HrModalChartComponent } from './components/charts/hr-modal-chart/hr-modal-chart.component';
 
 @NgModule({
   declarations: [
@@ -66,8 +68,10 @@ import { AnsModalChartComponent } from './components/charts/ans-modal-chart/ans-
     ANSChartComponent,
     AnsModalChartComponent,
     HrvChartComponent,
+    HrvModalChartComponent,
     BrChartComponent,
     HrChartComponent,
+    HrModalChartComponent,
     MovementChartComponent,
     SleepTimeChartComponent
   ],
@@ -109,8 +113,10 @@ import { AnsModalChartComponent } from './components/charts/ans-modal-chart/ans-
     ANSChartComponent,
     AnsModalChartComponent,
     HrvChartComponent,
+    HrvModalChartComponent,
     BrChartComponent,
     HrChartComponent,
+    HrModalChartComponent,
     MovementChartComponent,
     SleepTimeChartComponent
   ],

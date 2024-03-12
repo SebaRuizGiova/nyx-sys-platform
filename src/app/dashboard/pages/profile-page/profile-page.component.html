@@ -626,7 +626,6 @@
       <recovery-chart
         [recovery]="totalRecoveryToChartModal"
         [modal]="true"
-        (click)="preventClick($event)"
       ></recovery-chart>
     </div>
   </shared-modal>
@@ -692,14 +691,20 @@
             [placeholder]="'groupSelectRangePlaceholder' | translate"
             [formGroup]="periodModalForm"
             formControlName="range"
+            (selectChange)="changePeriodHRVModal($event)"
           />
         </form>
       </div>
       <hrv-chart
-        *ngIf="periodModalForm.value.range !== 0"
+        *ngIf="periodModalForm.value.range === 0"
         [hrv]="hrvToChart"
         [modal]="true"
       ></hrv-chart>
+      <hrv-modal-chart
+        *ngIf="periodModalForm.value.range !== 0"
+        [hrv]="hrvToChartModal"
+        [modal]="true"
+      ></hrv-modal-chart>
     </div>
   </shared-modal>
 
@@ -723,14 +728,20 @@
             [placeholder]="'groupSelectRangePlaceholder' | translate"
             [formGroup]="periodModalForm"
             formControlName="range"
+            (selectChange)="changePeriodHRModal($event)"
           />
         </form>
       </div>
       <hr-chart
+        *ngIf="periodModalForm.value.range === 0"
+        [hr]="hrToChart"
+        [modal]="true"
+      ></hr-chart>
+      <hr-modal-chart
+        *ngIf="periodModalForm.value.range !== 0"
         [hr]="hrToChartModal"
         [modal]="true"
-        (click)="preventClick($event)"
-      ></hr-chart>
+      ></hr-modal-chart>
     </div>
   </shared-modal>
 
@@ -754,14 +765,11 @@
             [placeholder]="'groupSelectRangePlaceholder' | translate"
             [formGroup]="periodModalForm"
             formControlName="range"
+            (selectChange)="changePeriodBRModal($event)"
           />
         </form>
       </div>
-      <br-chart
-        [br]="brToChartModal"
-        [modal]="true"
-        (click)="preventClick($event)"
-      ></br-chart>
+      <br-chart [br]="brToChart" [modal]="true"></br-chart>
     </div>
   </shared-modal>
 
@@ -785,13 +793,13 @@
             [placeholder]="'groupSelectRangePlaceholder' | translate"
             [formGroup]="periodModalForm"
             formControlName="range"
+            (selectChange)="changePeriodMovementModal($event)"
           />
         </form>
       </div>
       <movement-chart
         [movement]="movementToChartModal"
         [modal]="true"
-        (click)="preventClick($event)"
       ></movement-chart>
     </div>
   </shared-modal>
@@ -823,7 +831,6 @@
       <sleep-time-chart
         [periods]="sleepTimeToChartModal"
         [modal]="true"
-        (click)="preventClick($event)"
       ></sleep-time-chart>
     </div>
   </shared-modal>
