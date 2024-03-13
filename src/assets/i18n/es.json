@@ -1087,7 +1087,15 @@
   "sleepTimeChartAwakeHS": "Despierto (hs)",
   "sleepTimeChartSleep": "Durmiendo",
   "sleepTimeChartSleepHS": "Durmiendo (hs)",
+  "sleepArcChartAbsent": "Ausente",
+  "sleepArcChartAbsentHS": "Ausente (hs)",
+  "sleepArcChartAwake": "Despierto",
+  "sleepArcChartAwakeHS": "Despierto (hs)",
   "sleepArcChartLight": "Liviano",
+  "sleepArcChartLightHS": "Liviano (hs)",
   "sleepArcChartDeep": "Profundo",
+  "sleepArcChartDeepHS": "Profundo (hs)",
+  "sleepArcChartRem": "REM",
+  "sleepArcChartRemHS": "REM (hs)",
   "sleepArcChartTitle": "Arquitectura del sueño"
 }

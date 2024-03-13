@@ -87,7 +87,7 @@ export class SleepTimeChartComponent implements OnChanges {
             plotOptions: {
               column: {
                 stacking: 'normal',
-                borderRadius: '10%',
+                borderRadius: '5%',
                 borderWidth: 0,
                 groupPadding: 0,
               },
@@ -165,7 +165,7 @@ export class SleepTimeChartComponent implements OnChanges {
               plotOptions: {
                 column: {
                   stacking: 'normal',
-                  borderRadius: '10%',
+                  borderRadius: '5%',
                   borderWidth: 0,
                   groupPadding: 0,
                 },

@@ -116,6 +116,21 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     durationInAwake: [],
     dates: [],
   };
+  public sleepArchitectureToChartModal: {
+    durationAbsent: any[];
+    durationAwake: any[];
+    durationLight: any[];
+    durationDeep: any[];
+    durationREM: any[];
+    dates: any[];
+  } = {
+    durationAbsent: [],
+    durationAwake: [],
+    durationLight: [],
+    durationDeep: [],
+    durationREM: [],
+    dates: [],
+  };
   public movementToChartModal: any;
 
   public profileData?: Profile;
@@ -245,13 +260,13 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       const average_rmssd = this.helpersService.calcAverage(
         data.hrv_rmssd_data
       );
-      const duration_in_light = this.helpersService.calcHoursSleepData(
+      const duration_in_light_parsed = this.helpersService.calcHoursSleepData(
         data.duration_in_light
       );
-      const duration_in_deep = this.helpersService.calcHoursSleepData(
+      const duration_in_deep_parsed = this.helpersService.calcHoursSleepData(
         data.duration_in_deep
       );
-      const duration_in_rem = this.helpersService.calcHoursSleepData(
+      const duration_in_rem_parsed = this.helpersService.calcHoursSleepData(
         data.duration_in_rem
       );
 
@@ -276,9 +291,9 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         duration_in_sleep_percent,
         duration_awake_percent,
         average_rmssd,
-        duration_in_light,
-        duration_in_deep,
-        duration_in_rem,
+        duration_in_light_parsed,
+        duration_in_deep_parsed,
+        duration_in_rem_parsed,
         duration_in_light_percent,
         duration_in_deep_percent,
         duration_in_rem_percent,
@@ -2025,7 +2040,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           .forEach((night: any) => {
             durationInSleep.push(
               night.duration_in_sleep
-                ? Number((night.duration_in_sleep / 60 / 60).toFixed(2))
+                ? this.helpersService.convertirSegundosAHoras(night.duration_in_sleep)
                 : 0
             );
             // durationInBed.push(
@@ -2035,7 +2050,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
             // );
             durationInAwake.push(
               night.duration_awake
-                ? Number((night.duration_awake / 60 / 60).toFixed(2))
+                ? this.helpersService.convertirSegundosAHoras(night.duration_awake)
                 : 0
             );
             dates.push(
@@ -2055,6 +2070,72 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     };
   }
 
+  getSleepArchitectureToChartModal(
+    sleepDataArray?: SleepData[],
+    selectedSleepData?: SleepData,
+    limit: number = 7
+  ) {
+    let durationAbsent: any[] = [];
+    let durationAwake: any[] = [];
+    let durationLight: any[] = [];
+    let durationDeep: any[] = [];
+    let durationREM: any[] = [];
+    let dates: any[] = [];
+
+    if (sleepDataArray && selectedSleepData) {
+      const startIndex = sleepDataArray.findIndex(
+        (night) => night.to === selectedSleepData.to
+      );
+      if (startIndex !== -1) {
+        // debugger
+        sleepDataArray
+          .slice(startIndex, limit ? startIndex + (limit - 1) : undefined)
+          .forEach((night: any) => {
+            durationAbsent.push(
+              night.bedexit_duration
+                ? this.helpersService.convertirSegundosAHoras(night.bedexit_duration)
+                : 0
+            );
+            durationAwake.push(
+              night.duration_awake
+                ? this.helpersService.convertirSegundosAHoras(night.duration_awake)
+                : 0
+            );
+            durationLight.push(
+              night.duration_in_light
+                ? this.helpersService.convertirSegundosAHoras(night.duration_in_light)
+                : 0
+            );
+            durationDeep.push(
+              night.duration_in_deep
+                ? this.helpersService.convertirSegundosAHoras(night.duration_in_deep)
+                : 0
+            );
+            durationREM.push(
+              night.duration_in_rem
+                ? this.helpersService.convertirSegundosAHoras(night.duration_in_rem)
+                : 0
+            );
+            dates.push(
+              this.helpersService.formatTimestampToDate(
+                night.to,
+                this.timezoneService.timezoneOffset
+              )
+            );
+          });
+      }
+    }
+
+    return {
+      durationAbsent,
+      durationAwake,
+      durationLight,
+      durationDeep,
+      durationREM,
+      dates,
+    };
+  }
+
   preventClick(event: MouseEvent) {
     event.stopPropagation();
   }
@@ -2065,6 +2146,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.periodModalFormWithoutActualPeriod.patchValue({
       range: 7,
     });
+
+    this.changePeriodSleepScoreModal(7);
   }
 
   toggleModalRecovery() {
@@ -2073,6 +2156,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.periodModalFormWithoutActualPeriod.patchValue({
       range: 7,
     });
+
+    this.changePeriodRecoveryModal(7);
   }
 
   toggleModalANS() {
@@ -2081,6 +2166,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.periodModalForm.patchValue({
       range: 0,
     });
+
+    this.changePeriodANSModal(7);
   }
 
   toggleModalHRV() {
@@ -2089,6 +2176,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.periodModalForm.patchValue({
       range: 0,
     });
+
+    this.changePeriodHRVModal(0);
   }
 
   toggleModalHeartRate() {
@@ -2097,6 +2186,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.periodModalForm.patchValue({
       range: 0,
     });
+
+    this.changePeriodHRModal(0);
   }
 
   toggleModalBreathingRate() {
@@ -2105,6 +2196,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.periodModalForm.patchValue({
       range: 0,
     });
+
+    this.changePeriodBRModal(0);
   }
 
   toggleModalMovement() {
@@ -2113,6 +2206,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.periodModalForm.patchValue({
       range: 0,
     });
+
+    this.changePeriodMovementModal(0);
   }
 
   toggleModalSleepTime() {
@@ -2121,6 +2216,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.periodModalFormWithoutActualPeriod.patchValue({
       range: 7,
     });
+
+    this.changePeriodSleepTimeModal(7);
   }
 
   toggleModalSleepArchitecture() {
@@ -2129,6 +2226,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     this.periodModalForm.patchValue({
       range: 0,
     });
+
+    this.changePeriodSleepArchitectureModal(0);
   }
 
   changePeriodSleepScoreModal(period: number) {
@@ -2203,6 +2302,14 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
   changePeriodSleepTimeModal(period: number) {
     this.sleepTimeToChartModal = this.getSleepTimeToChart(
+      this.profileData?.sleepData,
+      this.profileData?.selectedSleepData,
+      period
+    );
+  }
+
+  changePeriodSleepArchitectureModal(period: number) {
+    this.sleepArchitectureToChartModal = this.getSleepArchitectureToChartModal(
       this.profileData?.sleepData,
       this.profileData?.selectedSleepData,
       period

@@ -513,8 +513,8 @@
             />
             <span>
               {{
-                profileData?.selectedSleepData?.duration_in_light
-                  ? profileData?.selectedSleepData?.duration_in_light +
+                profileData?.selectedSleepData?.duration_in_light_parsed
+                  ? profileData?.selectedSleepData?.duration_in_light_parsed +
                     " (" +
                     profileData?.selectedSleepData?.duration_in_light_percent +
                     ")"
@@ -532,8 +532,8 @@
             />
             <span>
               {{
-                profileData?.selectedSleepData?.duration_in_deep
-                  ? profileData?.selectedSleepData?.duration_in_deep +
+                profileData?.selectedSleepData?.duration_in_deep_parsed
+                  ? profileData?.selectedSleepData?.duration_in_deep_parsed +
                     " (" +
                     profileData?.selectedSleepData?.duration_in_deep_percent +
                     ")"
@@ -551,8 +551,8 @@
             />
             <span>
               {{
-                profileData?.selectedSleepData?.duration_in_rem
-                  ? profileData?.selectedSleepData?.duration_in_rem +
+                profileData?.selectedSleepData?.duration_in_rem_parsed
+                  ? profileData?.selectedSleepData?.duration_in_rem_parsed +
                     " (" +
                     profileData?.selectedSleepData?.duration_in_rem_percent +
                     ")"
@@ -864,15 +864,27 @@
             [placeholder]="'groupSelectRangePlaceholder' | translate"
             [formGroup]="periodModalForm"
             formControlName="range"
+            (selectChange)="changePeriodSleepArchitectureModal($event)"
           />
         </form>
       </div>
       <sleep-architecture-chart
-        *ngIf="profileData?.selectedSleepData?.sleep_data?.length"
+        *ngIf="
+          profileData?.selectedSleepData?.sleep_data?.length &&
+          periodModalForm.value.range === 0
+        "
         [period]="profileData!.selectedSleepData"
         [modal]="true"
         [noTitle]="true"
       ></sleep-architecture-chart>
+      <sleep-architecture-modal-chart
+        *ngIf="
+          profileData?.selectedSleepData?.sleep_data?.length &&
+          periodModalForm.value.range !== 0
+        "
+        [periods]="sleepArchitectureToChartModal"
+        [modal]="true"
+      ></sleep-architecture-modal-chart>
     </div>
   </shared-modal>
 </main>

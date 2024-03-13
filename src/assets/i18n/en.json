@@ -1087,7 +1087,15 @@
   "sleepTimeChartAwakeHS": "Awake (hs)",
   "sleepTimeChartSleep": "Sleeping",
   "sleepTimeChartSleepHS": "Sleeping (hs)",
+  "sleepArcChartAbsent": "Absent",
+  "sleepArcChartAbsentHS": "Absent (hs)",
+  "sleepArcChartAwake": "Awake",
+  "sleepArcChartAwakeHS": "Awake (hs)",
   "sleepArcChartLight": "Light",
+  "sleepArcChartLightHS": "Light (hs)",
   "sleepArcChartDeep": "Deep",
+  "sleepArcChartDeepHS": "Deep (hs)",
+  "sleepArcChartRem": "REM",
+  "sleepArcChartRemHS": "REM (hs)",
   "sleepArcChartTitle": "Sleep Architecture"
 }

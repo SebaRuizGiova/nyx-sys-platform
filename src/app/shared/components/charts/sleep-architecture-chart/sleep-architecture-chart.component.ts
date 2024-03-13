@@ -23,6 +23,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
   public timestamps: string[] = [];
   public sleepTypes: number[] = [];
   public chart?: Chart;
+  public limit?: number = 0;
 
   constructor(
     private helpersService: HelpersService,

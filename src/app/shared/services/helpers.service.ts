@@ -174,6 +174,20 @@ export class HelpersService {
     return date.format('HH:mm:ss') + 'hs';
   }
 
+  convertirSegundosAHoras(segundos: number): number {
+    const horas = Math.floor(segundos / 3600);
+    let minutos = Math.floor((segundos % 3600) / 60);
+    const segundosRestantes = segundos % 60;
+
+    const horasStr = ('0' + horas).slice(-2);
+    const minutosStr = (minutos.toString().length === 2 && minutos.toString()[1] === '0' ? (minutos + 1) : minutos.toString().length === 1 ? `0${minutos}` : minutos).toString(); // Ajuste para minutos
+    const segundosStr = ('0' + segundosRestantes).slice(-2);
+
+    const tiempoStr = horasStr + '.' + minutosStr + ',' + segundosStr;
+
+    return parseFloat(tiempoStr);
+  }
+
   async sendWelcomeEmail(
     email: string,
     password: string,

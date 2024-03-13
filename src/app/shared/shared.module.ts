@@ -45,6 +45,7 @@ import { AnsModalChartComponent } from './components/charts/ans-modal-chart/ans-
 import { HrvModalChartComponent } from './components/charts/hrv-modal-chart/hrv-modal-chart.component';
 import { HrModalChartComponent } from './components/charts/hr-modal-chart/hr-modal-chart.component';
 import { BrModalChartComponent } from './components/charts/br-modal-chart/br-modal-chart.component';
+import { SleepArchitectureModalChartComponent } from './components/charts/sleep-architecture-modal-chart/sleep-architecture-modal-chart.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { BrModalChartComponent } from './components/charts/br-modal-chart/br-mod
     UserDropdownComponent,
     ProgressBarComponent,
     SleepArchitectureChartComponent,
+    SleepArchitectureModalChartComponent,
     RecoveryChartComponent,
     SleepScoreChartComponent,
     ANSChartComponent,
@@ -110,6 +112,7 @@ import { BrModalChartComponent } from './components/charts/br-modal-chart/br-mod
     ModalComponent,
     DropdownModule,
     SleepArchitectureChartComponent,
+    SleepArchitectureModalChartComponent,
     RecoveryChartComponent,
     SleepScoreChartComponent,
     ANSChartComponent,
