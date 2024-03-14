@@ -2007,7 +2007,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       const startIndex = sleepDataArray.findIndex(
         (night) => night.to === selectedSleepData.to
         );
-        debugger
         if (startIndex !== -1) {
           sleepDataArray
           .slice(startIndex, limit ? startIndex + (limit - 1) : undefined)
@@ -2102,7 +2101,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
         (night) => night.to === selectedSleepData.to
       );
       if (startIndex !== -1) {
-        // debugger
         sleepDataArray
           .slice(startIndex, limit ? startIndex + (limit - 1) : undefined)
           .forEach((night: any) => {
