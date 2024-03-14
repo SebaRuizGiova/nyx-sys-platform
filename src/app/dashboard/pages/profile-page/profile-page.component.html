@@ -807,9 +807,15 @@
         </form>
       </div>
       <movement-chart
-        [movement]="movementToChartModal"
+        *ngIf="periodModalForm.value.range === 0"
+        [movement]="movementToChart"
         [modal]="true"
       ></movement-chart>
+      <movement-modal-chart
+        *ngIf="periodModalForm.value.range !== 0"
+        [periods]="movementToChartModal"
+        [modal]="true"
+      ></movement-modal-chart>
     </div>
   </shared-modal>
 

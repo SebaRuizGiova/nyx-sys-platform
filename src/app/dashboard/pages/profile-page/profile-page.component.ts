@@ -131,7 +131,15 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     durationREM: [],
     dates: [],
   };
-  public movementToChartModal: any;
+  public movementToChartModal: {
+    amount: any[];
+    turns: any[];
+    dates: any[];
+  } = {
+    amount: [],
+    turns: [],
+    dates: [],
+  };
 
   public profileData?: Profile;
 
@@ -1986,38 +1994,45 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
     };
   }
 
-  getMovementToChartModal(sleepDataArray: SleepData[], limit: number = 7) {
-    const hrvArray: { average: any; date: any }[] = [];
-    const periodIndex = sleepDataArray.findIndex((sd) => {
-      const formattedTimeStamp = this.helpersService.formatTimestampToDate(
-        sd.to,
-        this.timezoneService.timezoneOffset
-      );
-      return formattedTimeStamp === this.periodForm.value.period;
-    });
-
-    const newHrvArray = sleepDataArray.slice(periodIndex);
-
-    let count = 0;
-    for (const sleepData of newHrvArray) {
-      if (sleepData.average_rmssd) {
-        hrvArray.push({
-          average: Number(sleepData.average_rmssd),
-          date: this.helpersService.formatTimestampToDate(
-            sleepData.to,
-            this.timezoneService.timezoneOffset
-          ),
-        });
-
-        count++;
-
-        if (limit && count === limit) {
-          break;
-        }
+  getMovementToChartModal(
+    sleepDataArray?: SleepData[],
+    selectedSleepData?: SleepData,
+    limit: number = 7
+  ) {
+    let amount: any[] = [];
+    let turns: any[] = [];
+    let dates: any[] = [];
+    
+    if (sleepDataArray && selectedSleepData) {
+      const startIndex = sleepDataArray.findIndex(
+        (night) => night.to === selectedSleepData.to
+        );
+        debugger
+        if (startIndex !== -1) {
+          sleepDataArray
+          .slice(startIndex, limit ? startIndex + (limit - 1) : undefined)
+          .forEach((night: any) => {
+            amount.push(
+              night.tossnturn_count || 0
+            );
+            turns.push(
+              night.avg_act || 0
+            );
+            dates.push(
+              this.helpersService.formatTimestampToDate(
+                night.to,
+                this.timezoneService.timezoneOffset
+              )
+            );
+          });
       }
     }
 
-    return hrvArray.reverse();
+    return {
+      amount,
+      turns,
+      dates,
+    };
   }
 
   getSleepTimeToChart(
@@ -2040,7 +2055,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           .forEach((night: any) => {
             durationInSleep.push(
               night.duration_in_sleep
-                ? this.helpersService.convertirSegundosAHoras(night.duration_in_sleep)
+                ? this.helpersService.formatSecondsToHours(night.duration_in_sleep)
                 : 0
             );
             // durationInBed.push(
@@ -2050,7 +2065,7 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
             // );
             durationInAwake.push(
               night.duration_awake
-                ? this.helpersService.convertirSegundosAHoras(night.duration_awake)
+                ? this.helpersService.formatSecondsToHours(night.duration_awake)
                 : 0
             );
             dates.push(
@@ -2093,27 +2108,27 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
           .forEach((night: any) => {
             durationAbsent.push(
               night.bedexit_duration
-                ? this.helpersService.convertirSegundosAHoras(night.bedexit_duration)
+                ? this.helpersService.formatSecondsToHours(night.bedexit_duration)
                 : 0
             );
             durationAwake.push(
               night.duration_awake
-                ? this.helpersService.convertirSegundosAHoras(night.duration_awake)
+                ? this.helpersService.formatSecondsToHours(night.duration_awake)
                 : 0
             );
             durationLight.push(
               night.duration_in_light
-                ? this.helpersService.convertirSegundosAHoras(night.duration_in_light)
+                ? this.helpersService.formatSecondsToHours(night.duration_in_light)
                 : 0
             );
             durationDeep.push(
               night.duration_in_deep
-                ? this.helpersService.convertirSegundosAHoras(night.duration_in_deep)
+                ? this.helpersService.formatSecondsToHours(night.duration_in_deep)
                 : 0
             );
             durationREM.push(
               night.duration_in_rem
-                ? this.helpersService.convertirSegundosAHoras(night.duration_in_rem)
+                ? this.helpersService.formatSecondsToHours(night.duration_in_rem)
                 : 0
             );
             dates.push(
@@ -2289,15 +2304,11 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   }
 
   changePeriodMovementModal(period: number) {
-    if (period === 0) {
-      this.hrvToChart = this.getHrvToChart(this.profileData?.selectedSleepData);
-    } else {
-      this.hrvToChartModal = this.getHrvToChartModal(
-        this.profileData?.sleepData || [],
-        period
-      );
-      console.log(this.hrvToChartModal);
-    }
+    this.movementToChartModal = this.getMovementToChartModal(
+      this.profileData?.sleepData,
+      this.profileData?.selectedSleepData,
+      period
+    );
   }
 
   changePeriodSleepTimeModal(period: number) {

@@ -76,11 +76,11 @@
     "Excel"
   ],
   "groupRangeDownloadItems": [
-    "Current period",
-    "7 days",
-    "15 days",
-    "30 days",
-    "Historical"
+    { "label": "Current period", "value": 0},
+    { "label": "7 days", "value": 7},
+    { "label": "15 days", "value": 15},
+    { "label": "30 days", "value": 30},
+    { "label": "Historical", "value": null}
   ],
   "groupOrderByItems": [
     {

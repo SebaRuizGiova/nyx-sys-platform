@@ -174,18 +174,18 @@ export class HelpersService {
     return date.format('HH:mm:ss') + 'hs';
   }
 
-  convertirSegundosAHoras(segundos: number): number {
-    const horas = Math.floor(segundos / 3600);
-    let minutos = Math.floor((segundos % 3600) / 60);
-    const segundosRestantes = segundos % 60;
+  formatSecondsToHours(seconds: number): number {
+    const hours = Math.floor(seconds / 3600);
+    let minutes = Math.floor((seconds % 3600) / 60);
+    const secondsLeft = seconds % 60;
 
-    const horasStr = ('0' + horas).slice(-2);
-    const minutosStr = (minutos.toString().length === 2 && minutos.toString()[1] === '0' ? (minutos + 1) : minutos.toString().length === 1 ? `0${minutos}` : minutos).toString(); // Ajuste para minutos
-    const segundosStr = ('0' + segundosRestantes).slice(-2);
+    const hoursStr = ('0' + hours).slice(-2);
+    const minutesStr = (minutes.toString().length === 2 && minutes.toString()[1] === '0' ? (minutes + 1) : minutes.toString().length === 1 ? `0${minutes}` : minutes).toString(); // Ajuste para minutos
+    const secondsStr = ('0' + secondsLeft).slice(-2);
 
-    const tiempoStr = horasStr + '.' + minutosStr + ',' + segundosStr;
+    const timeStr = hoursStr + '.' + minutesStr + ',' + secondsStr;
 
-    return parseFloat(tiempoStr);
+    return parseFloat(timeStr);
   }
 
   async sendWelcomeEmail(
