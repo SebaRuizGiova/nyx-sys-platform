@@ -36,7 +36,6 @@ export class AnsModalChartComponent implements OnChanges {
             backgroundColor: '#242526',
             animation: true,
             height: '150px',
-            margin: 0,
           },
       xAxis: {
         categories: dates,
@@ -53,14 +52,17 @@ export class AnsModalChartComponent implements OnChanges {
           title: {
             text: 'HF',
           },
-          tickInterval: this.modal ? 40 : 10,
-          tickPixelInterval: this.modal ? 40 : 10,
+          tickInterval: 10,
+          tickPixelInterval: 10,
           labels: {
             enabled: this.modal,
             style: {
               color: '#d9d9d9',
             },
           },
+          min: 30,
+          max: 70,
+          endOnTick: false,
         },
         {
           opposite: true,
@@ -68,14 +70,17 @@ export class AnsModalChartComponent implements OnChanges {
           title: {
             text: 'LF',
           },
-          tickInterval: this.modal ? 40 : 10,
-          tickPixelInterval: this.modal ? 40 : 10,
+          tickInterval: 10,
+          tickPixelInterval: 10,
           labels: {
             enabled: this.modal,
             style: {
               color: '#d9d9d9',
             },
           },
+          min: 30,
+          max: 70,
+          endOnTick: false,
         },
       ],
       title: {
@@ -122,6 +127,7 @@ export class AnsModalChartComponent implements OnChanges {
           name: 'LF', // Asigna el nombre traducido
           marker: {
             symbol: 'circle',
+            lineWidth: 0
           },
           type: 'spline',
           data: lfValues,

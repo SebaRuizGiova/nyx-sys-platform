@@ -58,14 +58,17 @@ export class HrvModalChartComponent implements OnChanges {
                 title: {
                   text: translatedName,
                 },
-                tickInterval: this.modal ? 40 : 10,
-                tickPixelInterval: this.modal ? 40 : 10,
+                tickInterval: 10,
+                tickPixelInterval: 10,
                 labels: {
                   enabled: this.modal,
                   style: {
                     color: '#d9d9d9',
                   },
                 },
+                min: 20,
+                max: 100,
+                endOnTick: false,
               },
             ],
             title: {
@@ -143,14 +146,17 @@ export class HrvModalChartComponent implements OnChanges {
               title: {
                 text: translatedName,
               },
-              tickInterval: this.modal ? 40 : 10,
-              tickPixelInterval: this.modal ? 40 : 10,
+              tickInterval: 10,
+              tickPixelInterval: 10,
               labels: {
                 enabled: this.modal,
                 style: {
                   color: '#d9d9d9',
                 },
               },
+              min: 20,
+              max: 100,
+              endOnTick: false,
             },
           ],
           title: {

@@ -61,9 +61,6 @@ export class HrvChartComponent implements OnChanges {
               animation: true,
               height: this.modal ? '300px' : '115px',
               margin: 0,
-              style: {
-                overflow: 'visible',
-              },
             },
             xAxis: {
               categories: timestamps,
@@ -79,6 +76,9 @@ export class HrvChartComponent implements OnChanges {
                 tickInterval: 10,
                 tickPixelInterval: 10,
                 gridLineColor: '#3b3b3b',
+                min: 20,
+                max: 100,
+                endOnTick: false,
               },
               {
                 title: {
@@ -87,6 +87,9 @@ export class HrvChartComponent implements OnChanges {
                 tickInterval: 10,
                 tickPixelInterval: 10,
                 gridLineColor: '#3b3b3b',
+                min: 20,
+                max: 100,
+                endOnTick: false,
               },
               {
                 title: {
@@ -95,6 +98,9 @@ export class HrvChartComponent implements OnChanges {
                 tickInterval: 10,
                 tickPixelInterval: 10,
                 gridLineColor: '#3b3b3b',
+                min: 20,
+                max: 100,
+                endOnTick: false,
               },
               // {
               //   title: {
@@ -204,9 +210,6 @@ export class HrvChartComponent implements OnChanges {
                 animation: true,
                 height: '115px',
                 margin: 0,
-                style: {
-                  overflow: 'visible',
-                },
               },
           xAxis: {
             categories: timestamps,
@@ -228,8 +231,8 @@ export class HrvChartComponent implements OnChanges {
               title: {
                 text: heartRateTranslate,
               },
-              tickInterval: this.modal ? 40 : 10,
-              tickPixelInterval: this.modal ? 40 : 10,
+              tickInterval: 10,
+              tickPixelInterval: 10,
               gridLineColor: '#3b3b3b',
               labels: {
                 enabled: this.modal,
@@ -237,13 +240,16 @@ export class HrvChartComponent implements OnChanges {
                   color: '#d9d9d9',
                 },
               },
+              min: 20,
+              max: 100,
+              endOnTick: false,
             },
             {
               title: {
                 text: 'RMSSD',
               },
-              tickInterval: this.modal ? 40 : 10,
-              tickPixelInterval: this.modal ? 40 : 10,
+              tickInterval: 10,
+              tickPixelInterval: 10,
               gridLineColor: '#3b3b3b',
               labels: {
                 enabled: this.modal,
@@ -251,13 +257,16 @@ export class HrvChartComponent implements OnChanges {
                   color: '#d9d9d9',
                 },
               },
+              min: 20,
+              max: 100,
+              endOnTick: false,
             },
             {
               title: {
                 text: adjustmentLineTranslate,
               },
-              tickInterval: this.modal ? 40 : 10,
-              tickPixelInterval: this.modal ? 40 : 10,
+              tickInterval: 10,
+              tickPixelInterval: 10,
               gridLineColor: '#3b3b3b',
               labels: {
                 enabled: this.modal,
@@ -265,6 +274,9 @@ export class HrvChartComponent implements OnChanges {
                   color: '#d9d9d9',
                 },
               },
+              min: 20,
+              max: 100,
+              endOnTick: false,
             },
             // {
             //   title: {

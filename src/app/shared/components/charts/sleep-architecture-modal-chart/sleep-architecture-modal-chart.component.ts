@@ -17,7 +17,6 @@ export class SleepArchitectureModalChartComponent implements OnChanges {
     durationREM: any[];
     dates: any[];
   };
-  @Input() modal?: boolean;
   public chart?: Chart;
 
   constructor(
@@ -55,19 +54,11 @@ export class SleepArchitectureModalChartComponent implements OnChanges {
         ])
         .subscribe((translations: { [key: string]: string }) => {
           this.chart = new Chart({
-            chart: this.modal
-              ? {
-                  type: 'column',
-                  backgroundColor: '#242526',
-                  animation: true,
-                }
-              : {
-                  type: 'column',
-                  backgroundColor: '#242526',
-                  animation: true,
-                  height: '100px',
-                  margin: 0,
-                },
+            chart: {
+              type: 'column',
+              backgroundColor: '#242526',
+              animation: true,
+            },
             title: {
               text: '',
             },
@@ -89,6 +80,9 @@ export class SleepArchitectureModalChartComponent implements OnChanges {
               title: {
                 text: '',
               },
+              min: 0,
+              max: 14,
+              endOnTick: false,
             },
             credits: {
               enabled: false,
@@ -136,19 +130,11 @@ export class SleepArchitectureModalChartComponent implements OnChanges {
       ])
       .subscribe((translations: { [key: string]: string }) => {
         this.chart = new Chart({
-          chart: this.modal
-            ? {
-                type: 'column',
-                backgroundColor: '#242526',
-                animation: true,
-              }
-            : {
-                type: 'column',
-                backgroundColor: '#242526',
-                animation: true,
-                height: '100px',
-                margin: 0,
-              },
+          chart: {
+            type: 'column',
+            backgroundColor: '#242526',
+            animation: true,
+          },
           title: {
             text: '',
           },
@@ -170,6 +156,9 @@ export class SleepArchitectureModalChartComponent implements OnChanges {
             title: {
               text: '',
             },
+            min: 0,
+            max: 14,
+            endOnTick: false,
           },
           credits: {
             enabled: false,

@@ -47,21 +47,29 @@ export class HrChartComponent implements OnChanges {
         .get('hrvChartHeartRate')
         .subscribe((translate: string) => {
           this.chart = new Chart({
-            chart: this.modal ? {
-              backgroundColor: '#242526',
-              animation: true
-            } : {
-              backgroundColor: '#242526',
-              animation: true,
-              height: '120px',
-              margin: 0,
-            },
+            chart: this.modal
+              ? {
+                  backgroundColor: '#242526',
+                  animation: true,
+                }
+              : {
+                  backgroundColor: '#242526',
+                  animation: true,
+                  height: '120px',
+                  margin: 0,
+                },
             xAxis: {
               categories: timestamps,
               labels: {
                 enabled: this.modal,
                 style: {
                   color: '#d9d9d9',
+                },
+                formatter: function () {
+                  return self.helpersService.formatTimestamp(
+                    Number(this.value),
+                    self.timezoneService.timezoneOffset
+                  );
                 },
               },
             },
@@ -78,13 +86,10 @@ export class HrChartComponent implements OnChanges {
                   style: {
                     color: '#d9d9d9',
                   },
-                  formatter: function () {
-                    return self.helpersService.formatTimestamp(
-                      Number(this.value),
-                      self.timezoneService.timezoneOffset
-                    );
-                  },
                 },
+                min: 30,
+                max: 100,
+                endOnTick: false,
               },
             ],
             title: {
@@ -154,15 +159,17 @@ export class HrChartComponent implements OnChanges {
       .get('hrvChartHeartRate')
       .subscribe((translate: string) => {
         this.chart = new Chart({
-          chart: this.modal ? {
-            backgroundColor: '#242526',
-            animation: true
-          } : {
-            backgroundColor: '#242526',
-            animation: true,
-            height: '120px',
-            margin: 0,
-          },
+          chart: this.modal
+            ? {
+                backgroundColor: '#242526',
+                animation: true,
+              }
+            : {
+                backgroundColor: '#242526',
+                animation: true,
+                height: '120px',
+                margin: 0,
+              },
           xAxis: {
             categories: timestamps,
             labels: {
@@ -192,6 +199,9 @@ export class HrChartComponent implements OnChanges {
                   color: '#d9d9d9',
                 },
               },
+              min: 30,
+              max: 100,
+              endOnTick: false,
             },
           ],
           title: {

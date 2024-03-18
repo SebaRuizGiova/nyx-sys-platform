@@ -41,7 +41,6 @@ export class RecoveryChartComponent implements OnChanges {
                   backgroundColor: '#242526',
                   animation: true,
                   height: '80px',
-                  margin: 0,
                 },
             xAxis: {
               categories: dates,
@@ -63,8 +62,11 @@ export class RecoveryChartComponent implements OnChanges {
               title: {
                 text: '',
               },
-              tickInterval: this.modal ? 20 : 10,
-              tickPixelInterval: this.modal ? 20 : 10,
+              tickInterval: 10,
+              tickPixelInterval: 10,
+              min: -20,
+              max: 60,
+              endOnTick: false,
             },
             title: {
               text: '',
@@ -123,7 +125,6 @@ export class RecoveryChartComponent implements OnChanges {
                 backgroundColor: '#242526',
                 animation: true,
                 height: '80px',
-                margin: 0,
               },
           xAxis: {
             categories: dates,
@@ -145,8 +146,11 @@ export class RecoveryChartComponent implements OnChanges {
             title: {
               text: '',
             },
-            tickInterval: this.modal ? 20 : 10,
-            tickPixelInterval: this.modal ? 20 : 10,
+            tickInterval: 10,
+            tickPixelInterval: 10,
+            min: -20,
+            max: 60,
+            endOnTick: false,
           },
           title: {
             text: '',

@@ -41,7 +41,6 @@ export class SleepScoreChartComponent implements OnChanges {
                   backgroundColor: '#242526',
                   animation: true,
                   height: '150px',
-                  margin: 0,
                 },
             xAxis: {
               categories: dates,
@@ -57,14 +56,17 @@ export class SleepScoreChartComponent implements OnChanges {
               title: {
                 text: '',
               },
-              tickInterval: this.modal ? 40 : 10,
-              tickPixelInterval: this.modal ? 40 : 10,
+              tickInterval: 10,
+              tickPixelInterval: 10,
               labels: {
                 enabled: this.modal,
                 style: {
                   color: '#d9d9d9',
                 },
               },
+              min: 20,
+              max: 100,
+              endOnTick: false,
             },
             title: {
               text: '',
@@ -85,7 +87,6 @@ export class SleepScoreChartComponent implements OnChanges {
               shared: true,
             },
             legend: {
-              enabled: this.modal,
               align: 'center',
               verticalAlign: 'top',
               layout: 'horizontal',
@@ -124,7 +125,6 @@ export class SleepScoreChartComponent implements OnChanges {
                 backgroundColor: '#242526',
                 animation: true,
                 height: '150px',
-                margin: 0,
               },
           xAxis: {
             categories: dates,
@@ -140,14 +140,17 @@ export class SleepScoreChartComponent implements OnChanges {
             title: {
               text: '',
             },
-            tickInterval: this.modal ? 40 : 10,
-            tickPixelInterval: this.modal ? 40 : 10,
+            tickInterval: 10,
+            tickPixelInterval: 10,
             labels: {
               enabled: this.modal,
               style: {
                 color: '#d9d9d9',
               },
             },
+            min: 20,
+            max: 100,
+            endOnTick: false,
           },
           title: {
             text: '',
