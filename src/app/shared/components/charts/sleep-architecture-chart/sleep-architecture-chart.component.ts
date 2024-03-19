@@ -93,6 +93,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
                 type: 'column', // Cambiado a 'column' para barras verticales
                 backgroundColor: '#242526',
                 animation: true,
+                height: '345px'
               },
               title: {
                 text: !this.noTitle ? chartTitleTranslate : '',
@@ -197,6 +198,7 @@ export class SleepArchitectureChartComponent implements OnChanges {
               type: 'column', // Cambiado a 'column' para barras verticales
               backgroundColor: '#242526',
               animation: true,
+              height: '345px'
             },
             title: {
               text: !this.noTitle ? chartTitleTranslate : '',

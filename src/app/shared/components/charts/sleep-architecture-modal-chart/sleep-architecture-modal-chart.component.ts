@@ -58,6 +58,7 @@ export class SleepArchitectureModalChartComponent implements OnChanges {
               type: 'column',
               backgroundColor: '#242526',
               animation: true,
+              height: '345px'
             },
             title: {
               text: '',
@@ -134,6 +135,7 @@ export class SleepArchitectureModalChartComponent implements OnChanges {
             type: 'column',
             backgroundColor: '#242526',
             animation: true,
+            height: '345px'
           },
           title: {
             text: '',

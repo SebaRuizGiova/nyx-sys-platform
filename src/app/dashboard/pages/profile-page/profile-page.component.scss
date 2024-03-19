@@ -234,6 +234,12 @@
       width: 100%;
     }
 
+    .dropdown-range {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
     &:hover {
       transform: translateY(-5px);
     }
