@@ -1,0 +1,1101 @@
+{
+  "sidebarMenuButton": "Déployer",
+  "sidebarItems": [
+    {
+      "label": "Vue de groupe",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    },
+    {
+      "label": "Tableau de bord administratif",
+      "icon": "settings-gear-combination.svg",
+      "path": "/dashboard/admin"
+    }
+  ],
+  "sidebarItemsGroupView": [
+    {
+      "label": "Tableau de bord administratif",
+      "icon": "settings-gear-combination.svg",
+      "path": "/dashboard/admin"
+    }
+  ],
+  "sidebarItemsAdmin": [
+    {
+      "label": "Vue de groupe",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    }
+  ],
+  "sidebarSettings": "Paramètres",
+  "sidebarLanguage": "Langue",
+  "languagesDropdown": [
+    {
+      "name": "Espagnol",
+      "code": "es"
+    },
+    {
+      "name": "Anglais",
+      "code": "en"
+    },
+    {
+      "name": "Italien",
+      "code": "it"
+    },
+    {
+      "name": "Allemand",
+      "code": "de"
+    },
+    {
+      "name": "Français",
+      "code": "fr"
+    }
+  ],
+  "sidebarSignOut": "Se déconnecter",
+  "loginWelcome": "Bienvenue",
+  "loginForget": "Réinitialiser le mot de passe",
+  "loginPlaceholderEmail": "E-mail",
+  "loginPlaceholderPassword": "Mot de passe",
+  "loginButtonSignIn": "Se connecter",
+  "loginButtonSend": "Envoyer",
+  "loginForgetPassword": "Mot de passe oublié?",
+  "loginLangES": "Espagnol",
+  "loginLangEN": "Anglais",
+  "loginLangIT": "Italien",
+  "loginLangDE": "Allemand",
+  "loginLangFR": "Français",
+  "loginTooltipBack": "Retour",
+  "loginInvalidEmail": "Veuillez entrer une adresse e-mail valide",
+  "loginInvalidPassword": "Veuillez entrer un mot de passe",
+  "loginToastErrorLogin": "Identifiant et/ou mot de passe incorrect(s)",
+  "loginToastSendEmail": "E-mail envoyé avec succès",
+  "loginToastErrorSendEmail": "Une erreur s'est produite lors de l'envoi de l'e-mail",
+  "ToastTitleCorrect": "Correct",
+  "ToastTitleError": "Erreur",
+  "groupFormatDownloadItems": [
+    "PDF",
+    "Excel"
+  ],
+  "groupRangeDownloadItems": [
+    { "label": "Période actuelle", "value": 0},
+    { "label": "7 jours", "value": 7},
+    { "label": "15 jours", "value": 15},
+    { "label": "30 jours", "value": 30},
+    { "label": "Historique", "value": null}
+  ],
+  "groupOrderByItems": [
+    {
+      "label": "Score de sommeil : élevé à bas",
+      "value": true
+    },
+    {
+      "label": "Score de sommeil : bas à élevé",
+      "value": false
+    }
+  ],
+  "groupPeriodSelect": "Sélectionner la période",
+  "groupForwardTooltip": "Aller au groupe précédent",
+  "groupNextTooltip": "Aller au groupe suivant",
+  "groupAllTooltip": "Voir tous les groupes",
+  "groupDownloadReportLabel": "Télécharger le rapport",
+  "groupDownloadLabel": "Télécharger",
+  "groupSelectFormatPlaceholder": "Sélectionner le format",
+  "groupSelectRangePlaceholder": "Sélectionner la plage",
+  "groupFilterTooltip": "Filtres",
+  "groupSearchByName": "Rechercher par nom...",
+  "groupOrderBy": "Trier par...",
+  "groupShowAll": "Afficher tous",
+  "groupShowCurrentPeriod": "Afficher uniquement les profils avec une période actuelle",
+  "groupDeleteFilters": "Supprimer les filtres",
+  "groupApplyFilters": "Appliquer les filtres",
+  "profileCardDeviceName": "Appareil NS : ",
+  "profileCardAnyDevice": "Aucun appareil associé",
+  "profileCardRecoveryDescription": "Récupération",
+  "profileCardRecoveryDescriptionTooltip": "Représente l'adaptation et la récupération physique pendant le repos par rapport à votre routine quotidienne",
+  "profileCardRecoveryAscArrow": "Vous avez eu une récupération plus élevée par rapport à la dernière période",
+  "profileCardRecoveryDescArrow": "Vous avez eu une récupération plus faible par rapport à la dernière période",
+  "profileCardSNADescription": "SNA",
+  "profileCardSNADescriptionTooltip": "Le système nerveux autonome contrôle les fonctions de votre corps ; il se divise en sympathique et parasympathique",
+  "profileCardSNASTooltip": "Système sympathique, contrôle votre réponse physique active",
+  "profileCardSNAPTooltip": "Système parasympathique, régule le repos et le métabolisme",
+  "profileWarnProfiles": "Ce groupe n'a pas encore de profils créés, veuillez vous rendre sur le panneau d'administration pour ajouter des profils au groupe.",
+  "sleepScoreTooltip": "Score basé sur la quantité d'heures de sommeil et ses phases Léger, Profond et REM",
+  "sleepScoreTooltipDiamond": "Score de sommeil optimal",
+  "adminAddProfileTitle": "Ajouter un Profil",
+  "adminEditProfileTitle": "Modifier le Profil",
+  "adminAddDeviceTitle": "Ajouter un Dispositif",
+  "adminEditDeviceTitle": "Modifier le Dispositif",
+  "adminAddGroupTitle": "Ajouter un Groupe",
+  "adminEditGroupTitle": "Modifier le Groupe",
+  "adminAddCollaboratorTitle": "Ajouter un Collaborateur",
+  "adminEditCollaboratorTitle": "Modifier le collaborateur",
+  "adminAddUserTitle": "Ajouter un Utilisateur",
+  "adminEditUserTitle": "Modifier un Utilisateur",
+  "adminExplanationDevice": "*Trouvez le numéro de série et le code de vérification (PIN) de votre appareil sur l'étiquette à l'arrière de celui-ci.",
+  "adminExplanationCollaborator": "*En ajoutant un collaborateur, un nouvel utilisateur sera créé qui aura accès à toutes les équipes, joueurs et appareils de votre compte. Il existe deux types de collaborateur:\n\nCollaborateur: Cet utilisateur aura accès à la visualisation et à la modification des équipes, joueurs et appareils, ainsi qu'au téléchargement de rapports.\n\nVisualiseur: Cet utilisateur pourra uniquement visualiser les équipes, joueurs et appareils mais ne pourra pas les modifier ; il pourra également télécharger des rapports.",
+  "adminUsersFilterPlaceholder": "Filtrer par utilisateur",
+  "adminProfilesTitle": "Profils",
+  "adminDevicesTitle": "Appareils",
+  "adminGroupsTitle": "Groupes",
+  "adminCollaboratorsTitle": "Collaborateurs",
+  "adminUsersTitle": "Utilisateurs",
+  "adminColumnName": "Nom",
+  "adminColumnLastName": "Nom de famille",
+  "adminColumnSerialNumber": "Numéro de série",
+  "adminColumnLinked": "Lié(e)",
+  "adminColumnStatus": "Statut",
+  "adminColumnRole": "Rôle",
+  "adminNotLinked": "Non lié",
+  "adminSearchPlaceholder": "Rechercher...",
+  "adminFilterPlaceholder": "Filtrer par groupe",
+  "adminAddProfileTooltip": "Ajouter un profil",
+  "adminShowAllProfilesTooltip": "Afficher tous les profils masqués",
+  "adminHideAllProfilesTooltip": "Ne pas afficher les profils masqués",
+  "adminShowProfileTooltip": "Afficher le profil",
+  "adminHideProfileTooltip": "Masquer le profil",
+  "adminEditProfileTooltip": "Modifier le profil",
+  "adminDeleteProfileTooltip": "Supprimer le profil",
+  "adminAddDeviceTooltip": "Ajouter un appareil",
+  "adminShowAllDevicesTooltip": "Afficher les appareils liés",
+  "adminHideAllDevicesTooltip": "Masquer les appareils liés",
+  "adminDeleteDeviceTooltip": "Supprimer l'appareil",
+  "adminEditDeviceTooltip": "Modifier l'appareil",
+  "adminAddGroupTooltip": "Ajouter un groupe",
+  "adminShowAllGroupsTooltip": "Afficher tous les groupes masqués",
+  "adminHideAllGroupsTooltip": "Ne pas afficher les groupes masqués",
+  "adminShowGroupTooltip": "Afficher le groupe",
+  "adminHideGroupTooltip": "Masquer le groupe",
+  "adminEditGroupTooltip": "Modifier le groupe",
+  "adminDeleteGroupTooltip": "Supprimer le groupe",
+  "adminAddCollaboratorTooltip": "Ajouter un collaborateur",
+  "adminEditCollaboratorTooltip": "Modifier le collaborateur",
+  "adminDeleteCollaboratorTooltip": "Supprimer le collaborateur",
+  "adminAddUserTooltip": "Ajouter un utilisateur",
+  "adminEditUserTooltip": "Modifier l'utilisateur",
+  "adminDeleteUserTooltip": "Supprimer l'utilisateur",
+  "adminModalAddProfileName": "Nom",
+  "adminModalAddProfileLastname": "Nom de famille",
+  "adminModalAddProfileBirthDate": "Date de naissance",
+  "adminModalAddProfileGender": "Genre",
+  "adminModalAddProfileBirthplace": "Lieu de naissance",
+  "adminModalAddProfileUser": "Sélectionner un utilisateur",
+  "adminModalAddProfileGroup": "Sélectionner un groupe",
+  "adminModalAddDeviceSerialNumber": "Numéro de série",
+  "adminModalAddDeviceCode": "Code de vérification",
+  "adminModalAddDeviceUser": "Sélectionner un utilisateur",
+  "adminModalAddDeviceProfile": "Sélectionner le profil",
+  "adminModalAddGroupName": "Nom",
+  "adminModalAddGroupGMT": "GMT",
+  "adminModalAddGroupUser": "Sélectionner un utilisateur",
+  "adminModalAddCollaboratorEmail": "Email",
+  "adminModalAddCollaboratorPassword": "Mot de passe",
+  "adminModalAddCollaboratorConfirmPassword": "Confirmer le mot de passe",
+  "adminModalAddCollaboratorAlias": "Alias",
+  "adminModalAddCollaboratorRole": "Sélectionner un rôle",
+  "adminModalAddCollaboratorUser": "Sélectionner un utilisateur",
+  "adminModalAddUserEmail": "Email",
+  "adminModalAddUserAlias": "Alias",
+  "adminModalAddUserRole": "Sélectionner un rôle",
+  "adminModalSave": "Enregistrer",
+  "adminModalCancel": "Annuler",
+  "adminModalGenderItems": [
+    {
+      "label": "Homme",
+      "value": "Male"
+    },
+    {
+      "label": "Femme",
+      "value": "Female"
+    },
+    {
+      "label": "Autre",
+      "value": "Other"
+    }
+  ],
+  "adminModalRoleCollaboratorItems": [
+    {
+      "label": "Collaborateur",
+      "value": "collaborator"
+    },
+    {
+      "label": "Visualiseur",
+      "value": "viewer"
+    }
+  ],
+  "adminModalRoleUserItems": [
+    {
+      "label": "User",
+      "value": "user"
+    },
+    {
+      "label": "Super admin",
+      "value": "superAdmin"
+    }
+  ],
+  "adminAddProfileSuccess": "Profil ajouté avec succès",
+  "adminAddProfileError": "Erreur lors de l'ajout du profil",
+  "adminEditProfileSuccess": "Profil modifié avec succès",
+  "adminEditProfileError": "Erreur lors de la modification du profil",
+  "adminDeleteProfileSuccess": "Profil supprimé avec succès",
+  "adminDeleteProfileError": "Erreur lors de la suppression du profil",
+  "adminHideProfileSuccess": "Profil caché avec succès",
+  "adminHideProfileError": "Erreur lors du masquage du profil",
+  "adminShowProfileSuccess": "Profil affiché avec succès",
+  "adminShowProfileError": "Erreur lors de l'affichage du profil",
+  "adminAddDeviceSuccess": "Appareil ajouté avec succès",
+  "adminAddDeviceError": "Erreur lors de l'ajout de l'appareil",
+  "adminEditDeviceSuccess": "Appareil modifié avec succès",
+  "adminEditDeviceError": "Erreur lors de la modification de l'appareil",
+  "adminDeleteDeviceSuccess": "Appareil supprimé avec succès",
+  "adminDeleteDeviceError": "Erreur lors de la suppression de l'appareil",
+  "adminAddGroupSuccess": "Groupe ajouté avec succès",
+  "adminAddGroupError": "Erreur lors de l'ajout du groupe",
+  "adminEditGroupSuccess": "Groupe modifié avec succès",
+  "adminEditGroupError": "Erreur lors de la modification du groupe",
+  "adminDeleteGroupSuccess": "Groupe supprimé avec succès",
+  "adminDeleteGroupError": "Erreur lors de la suppression du groupe",
+  "adminHideGroupSuccess": "Groupe caché avec succès",
+  "adminHideGroupError": "Erreur lors du masquage du groupe",
+  "adminShowGroupSuccess": "Groupe affiché avec succès",
+  "adminShowGroupError": "Erreur lors de l'affichage du groupe",
+  "adminAddCollaboratorSuccess": "Collaborateur ajouté avec succès",
+  "adminAddCollaboratorError": "Erreur lors de l'ajout du collaborateur",
+  "adminEditCollaboratorSuccess": "Collaborateur modifié avec succès",
+  "adminEditCollaboratorError": "Erreur lors de la modification du collaborateur",
+  "adminDeleteCollaboratorSuccess": "Collaborateur supprimé avec succès",
+  "adminDeleteCollaboratorError": "Erreur lors de la suppression du collaborateur",
+  "adminAddUserSuccess": "Utilisateur ajouté avec succès",
+  "adminAddUserError": "Erreur lors de l'ajout de l'utilisateur",
+  "adminEditUserSuccess": "Utilisateur modifié avec succès",
+  "adminEditUserError": "Erreur lors de la modification de l'utilisateur",
+  "adminDeleteUserSuccess": "Utilisateur supprimé avec succès",
+  "adminDeleteUserError": "Erreur lors de la suppression de l'utilisateur",
+  "adminExistDeviceError": "Le dispositif existe déjà",
+  "adminExistNameError": "Le nom existe déjà",
+  "adminExistEmailError": "L'e-mail existe déjà",
+  "adminLength5Characters": "Il doit avoir 5 caractères",
+  "adminLength6Characters": "Il doit avoir 6 caractères",
+  "adminLengthInfo5Characters": "Il a 5 chiffres, exemple 01234",
+  "adminLengthInfo6Characters": "Il a 6 chiffres ou lettres, exemple 00AA21",
+  "adminNoEqualPasswords": "Les mots de passe doivent être identiques",
+  "adminDeleteProfilesByGroup": "Supprimer tous les profils liés",
+  "adminDeleteDevicesByGroup": "Supprimer tous les dispositifs liés",
+  "settingsHelpCardTitle": "Tutoriels et FAQ",
+  "settingsContactCardTitle": "Contact",
+  "settingsPasswordCardTitle": "Changement de mot de passe",
+  "settingsVideoCorrectUse": "Utilisation correcte du dispositif",
+  "settingsVideoRoute": "Parcours sur la plateforme",
+  "settingsPdfInstructions": "Instructions d'installation et d'utilisation",
+  "settingsPdfGuide": "Guide rapide",
+  "settingsPdfTooltip": "Télécharger le PDF",
+  "settingsFAQ1Title": "Comment savoir si mon appareil est connecté à Internet ?",
+  "settingsFAQ1Desc": "Vérifiez que la LED verte située à l'avant de l'appareil est allumée. Sinon, vérifiez l'état de votre réseau Internet.",
+  "settingsFAQ2Title": "Le profil n'apparaît pas dans le panneau de groupe.",
+  "settingsFAQ2Desc": "Vérifiez dans le panneau d'administration que le profil n'est pas “caché”.",
+  "settingsFAQ3Title": "Lorsque je connecte l'appareil à Internet et saisis le mot de passe, j'obtiens une erreur de 'mot de passe incorrect'.",
+  "settingsFAQ3Desc": "N'oubliez pas que lors de la saisie du mot de passe de l'appareil, vous devez également inclure les tirets, c'est-à-dire saisir le mot de passe exactement tel qu'il est écrit, par exemple : 'xxxx-xxxx-xxx'.",
+  "settingsFAQ4Title": "Où doit-on placer le capteur ?",
+  "settingsFAQ4Desc": "Le capteur doit être installé exclusivement sous le matelas ou le surmatelas. Pour capter un signal plus fort, la partie centrale du capteur (la bande en plastique) doit être placée directement sous ou à la hauteur du cœur de l'utilisateur lorsqu'il est couché.\n\nSi vous avez un lit double et que deux personnes y dorment, le capteur doit être placé le plus près possible du bord du lit avec le câble sur un côté, parallèlement au corps, toujours avec la majeure partie de la bande située à la hauteur du cœur. Si vous utilisez un lit double mais que vous dormez seul, il est recommandé de placer le capteur perpendiculairement à l'utilisateur, toujours à la hauteur du cœur, mais en positionnant le dispositif d'un côté ou de l'autre du lit ou plus au centre, selon les préférences de position de l'utilisateur dans le lit. Évitez que le câble passe au milieu du lit, car cela peut provoquer des signaux erronés.",
+  "settingsFAQ5Title": "L'appareil doit-il être toujours branché ?",
+  "settingsFAQ5Desc": "L'appareil utilise une quantité insignifiante d'énergie, il n'est donc pas nécessaire de le débrancher pour économiser de l'électricité.\n\nSi vous souhaitez le débrancher lorsque vous ne l'utilisez pas, faites-le seulement 10 minutes après être sorti du lit, afin que l'appareil ait suffisamment de temps pour envoyer l'événement de sortie du lit à nos serveurs. Sinon, des périodes de présence excessivement longues peuvent se produire. De même, lorsque vous le rebranchez au moment d'aller vous coucher, faites-le 10 minutes avant votre présence dans le lit.",
+  "settingsFAQ6Title": "Si j'éteins l'appareil et le rallume, se reconnecte-t-il automatiquement au réseau Wi-Fi auquel il était précédemment connecté ?",
+  "settingsFAQ6Desc": "Si le réseau Wi-Fi est le même que celui auquel l'appareil s'est connecté en dernier, il n'est pas nécessaire de reconfigurer l'appareil.",
+  "settingsFAQ7Title": "Comment puis-je voir les résultats des nuits précédentes ?",
+  "settingsFAQ7Desc": "Toutes les informations sur vos nuits sont disponibles sur la plateforme Nyx-Sys, en cliquant sur l'icône -X- du panneau individuel.",
+  "settingsFAQ8Title": "Que signifie le message d'erreur avec l'icône -X- indiquant que certaines données de la nuit n'ont pas pu être traitées ?",
+  "settingsFAQ8Desc": "La perte de données pendant une période de sommeil peut être due à plusieurs facteurs, les plus courants étant généralement :\n\n\t- Un faible signal de l'appareil. Pour résoudre cela, repositionnez l'appareil sous votre lit selon les recommandations données au point X.\n\n\t- En cas de partage d'un lit double avec une deuxième personne, l'appareil a enregistré des données des deux personnes et a généré des données erronées ou superposées.\n\n\t- Il y a eu une coupure de courant pendant l'enregistrement.",
+  "settingsFAQ9Title": "Que signifie le clignotement de la lumière rouge sur l'appareil ?",
+  "settingsFAQ9Desc": "Généralement, les clignotements rouges indiquent des problèmes de connexion au réseau. Si ces interruptions sont de courte durée, vous ne devriez pas vous inquiéter.",
+  "settingsFAQ10Title": "Que se passe-t-il si Internet est coupé ?",
+  "settingsFAQ10Desc": "Si la connexion à Internet est perdue temporairement, la mémoire interne enregistre jusqu'à 12 heures de données. Lorsque la connexion est rétablie, les données sont envoyées dans le cloud pour être traitées.",
+  "settingsFAQ11Title": "Puis-je utiliser le capteur sur un lit double ?",
+  "settingsFAQ11Desc": "Oui, vous pouvez utiliser l'appareil sur un lit double. Cependant, l'extrémité du câble du capteur doit être installée le plus près possible du bord, car les mouvements de votre conjoint peuvent entraîner un enregistrement de présence plus prolongé après que vous vous soyez levé du lit.",
+  "settingsPlaceholderEmail": "E-mail",
+  "settingsPlaceholderSubject": "Sujet",
+  "settingsPlaceholderMessage": "Message",
+  "settingsPlaceholderActualPassword": "Mot de passe actuel",
+  "settingsPlaceholderNewPassword": "Nouveau mot de passe",
+  "settingsPlaceholderConfirmPassword": "Confirmer le mot de passe",
+  "settingsButtonSend": "Envoyer",
+  "settingsButtonSave": "Enregistrer",
+  "settingsVisitWeb": "Visitez notre site web",
+  "settingsSocialAccounts": "Retrouvez-nous également sur les réseaux sociaux",
+  "settingsDeleteAccountTitle": "Supprimer mon compte",
+  "settingsDeleteAccountDesc": "Souhaitez-vous supprimer votre compte de manière permanente ? Veuillez noter que toutes les informations associées seront perdues. Vous ne pourrez pas le réactiver ni récupérer son contenu.\n\nL'action prendra effet dans les 48 heures. En cas d'erreur, veuillez contacter notre équipe de support.",
+  "settingsDeleteAccountButton": "Supprimer le compte",
+  "settingsMandatoryFieldError": "Le champ est obligatoire",
+  "settingsValidEmailError": "Veuillez saisir une adresse e-mail valide",
+  "settingsMandatoryPassword": "Le mot de passe est obligatoire",
+  "settingsPatternPassword": "Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et 8 caractères.",
+  "settingsConfirmLogout": "Êtes-vous sûr de vouloir vous déconnecter?",
+  "settingsConfirmModalTitle": "Êtes-vous sûr(e) ?",
+  "settingsConfirmModalContent": "Souhaitez-vous supprimer votre compte de manière permanente ? Veuillez noter que toutes les informations associées seront perdues. Vous ne pourrez pas le réactiver ni récupérer son contenu. L'action prendra effet dans les 48 heures. En cas d'erreur, veuillez contacter notre équipe de support.",
+  "settingsConfirmModalAccept": "Accepter",
+  "settingsConfirmModalCancel": "Annuler",
+  "profileViewSelectProfileTooltip": "Sélectionner le profil",
+  "profileViewAddPeriodTooltip": "Ajouter une période manuellement",
+  "profileViewEditProfileTooltip": "Modifier le profil",
+  "profileViewDeletePeriod": "Supprimer la période",
+  "profileViewSelectGMT": "Sélectionner GMT",
+  "profileViewSleepScoreTitle": "Score de sommeil",
+  "profileViewSleepScoreDescription": "C'est fantastique de voir que tu as récemment prêté attention à ton sommeil. Continue comme ça !",
+  "profileViewRecoveryTitle": "Récupération",
+  "profileViewTotalRecovery": "Récupération totale",
+  "profileViewIntegratedRecovery": "Récupération intégrée",
+  "profileViewUnities": " unités",
+  "profileViewHrvAlert": "Ton HRV est plus élevé que d'habitude. Un HRV élevé indique que ton système nerveux est prêt à gérer le stress et que ton corps est en équilibre.",
+  "profileViewAnsTitle": "Équilibre du système nerveux autonome",
+  "profileViewParasympathetic": "Parasympathique (Relaxation)",
+  "profileViewSympathetic": "Sympathique (Stress)",
+  "profileViewAnsAlert": "Ton Ans penche du côté sympathique, ce qui signifie que ton corps est prêt pour des situations actives.",
+  "profileViewAnsHrVariabilityTitle": "Variabilité de la fréquence cardiaque",
+  "profileViewNight": "Nuit",
+  "profileViewMorning": "Matin",
+  "profileViewAverage": "Moyenne",
+  "profileViewHeartRateTitle": "Fréquence cardiaque",
+  "profileViewBPMMax": "BPM Max",
+  "profileViewBPMRepose": "BPM au repos",
+  "profileViewBPMAverage": "BPM moyen",
+  "profileViewBreathingRateTitle": "Fréquence respiratoire",
+  "profileViewMovementTitle": "Mouvement",
+  "profileViewMovementsAndTurns": "Mouvements et rotations",
+  "profileViewAverageInActivity": "Activité moyenne",
+  "profileViewSleepTimeTitle": "Temps de sommeil",
+  "profileViewInBed": "Au lit",
+  "profileViewSleeping": "En train de dormir",
+  "profileViewAwake": "Éveillé",
+  "profileViewSleepArcTitle": "Architecture du sommeil",
+  "profileViewSoft": "Léger",
+  "profileViewDeep": "Profond",
+  "profileViewREM": "REM",
+  "profileViewYearsDropdown": " ans",
+  "profileSleepScoreMessage1+": [
+    "Félicitations pour votre score de sommeil ! Votre dévouement au repos se reflète dans votre bien-être. Continuez comme ça !",
+    "Incroyable ! Vous avez obtenu un score de sommeil optimal aujourd'hui. Votre corps et votre esprit vous remercient. Dormez bien et réveillez-vous rafraîchi !",
+    "Aujourd'hui, vous avez démontré que la priorité au sommeil est essentielle à votre performance. Bravo pour avoir atteint un score de *sleep_score* ! Continuez à prendre soin de votre repos.",
+    "Excellent début ! Votre score de sommeil a été exceptionnel aujourd'hui. Continuez ainsi et veillez à maintenir cette dynamique !",
+    "Début fantastique ! Atteindre un score de sommeil élevé en juste un jour est une réussite digne de célébration. Continuez comme ça, et vous verrez de grandes améliorations dans votre bien-être !",
+    "Une journée complète de sommeil optimal est un excellent début. Continuez ainsi et construisez sur ce succès pour une meilleure qualité de vie !"
+  ],
+  "profileSleepScoreMessage1-": [
+    "Ne soyez pas découragé par un score bas aujourd'hui. Chaque jour est une nouvelle opportunité pour s'améliorer. Réfléchissez à ce qui aurait pu affecter votre sommeil et faites un pas vers un sommeil plus réparateur demain. Vous pouvez le faire !",
+    "Nous savons que aujourd'hui n'était pas le meilleur jour pour le sommeil, mais chaque jour est une nouvelle opportunité pour s'améliorer. Envisagez de petits changements dans votre routine nocturne et préparez-vous à une meilleure nuit. Courage !",
+    "Le score d'aujourd'hui n'était pas idéal, mais ne vous inquiétez pas. Apprenez de aujourd'hui et travaillez vers un sommeil plus réparateur demain. De petits changements peuvent faire une différence !",
+    "Un score bas ne définit pas votre capacité à bien vous reposer. Apprenez de cette expérience et recherchez des moyens d'améliorer la qualité de votre sommeil.",
+    "La qualité du sommeil peut varier d'un jour à l'autre. Prenez ce résultat comme un signe qu'il y a encore de la place pour améliorer vos habitudes de repos.",
+    "Ne laissez pas un score de sommeil bas vous décourager. Profitez de cette opportunité pour explorer de nouvelles stratégies qui vous aideront à mieux dormir à l'avenir."
+  ],
+  "profileSleepScoreMessage2+": [
+    "Double victoire ! Deux jours consécutifs avec un bon score de sommeil montrent votre engagement pour un repos sain. Continuez comme ça et maintenez cette excellente série !",
+    "Deux jours impeccables ! Votre persistance à maintenir un bon repos est admirable. Continuez comme ça et profitez des bénéfices continus du sommeil réparateur !",
+    "Double réussite ! Maintenir deux jours consécutifs de sommeil de qualité est un grand pas vers une vie plus équilibrée. Continuez comme ça et donnez la priorité à votre bien-être !",
+    "Deux jours phénoménaux ! Votre dévouement pour un bon sommeil est évident. Continuez comme ça et continuez à bien prendre soin de vous pour maintenir cette série positive !",
+    "Travail fantastique ! Deux jours consécutifs avec de bons scores de sommeil sont une réalisation digne de célébration. Continuez comme ça et ressentez la différence dans votre bien-être général !",
+    "Série excellente ! Maintenir deux jours consécutifs de sommeil optimal est une grande réussite. Continuez comme ça et continuez à donner la priorité à votre santé et à votre bien-être !"
+  ],
+  "profileSleepScoreMessage2-": [
+    "Ne vous laissez pas décourager par cette série négative. Utilisez ces résultats comme motivation pour identifier les domaines à améliorer dans votre routine de repos.",
+    "Deux jours consécutifs avec des scores de sommeil bas peuvent être difficiles, mais rappelez-vous que chaque jour est une nouvelle opportunité d'amélioration.",
+    "Parfois, les mauvaises nuits de sommeil sont temporaires. Utilisez ces résultats comme une opportunité pour ajuster votre routine et chercher des moyens de mieux vous reposer.",
+    "Deux jours consécutifs avec des scores de sommeil bas peuvent être difficiles, mais ne les laissez pas vous décourager. Recherchez de nouvelles stratégies pour améliorer la qualité de votre sommeil.",
+    "La qualité du sommeil peut varier d'un jour à l'autre. Prenez ces résultats comme un signe qu'il est important de donner la priorité à votre repos et à votre bien-être.",
+    "Ne laissez pas une série de mauvais scores de sommeil vous démoraliser. Utilisez cette expérience comme une opportunité pour explorer de nouvelles façons d'améliorer votre repos."
+  ],
+  "profileSleepScoreMessage3+": [
+    "Série triple ! Vous avez maintenu un score de sommeil de 80 ou plus pendant 3 jours. Vous construisez des habitudes saines ! Continuez comme ça, votre corps vous remerciera !",
+    "Incredible continuité ! Trois jours consécutifs avec un sommeil optimal. Vous êtes sur la bonne voie pour un bien-être durable. Continuez à bien dormir !",
+    "Félicitations, trois jours consécutifs avec un excellent score de sommeil ! Vous êtes un champion du sommeil. Continuez comme ça et vous remarquerez la différence !",
+    "Trois jours phénoménaux ! Votre persistance à maintenir un bon repos est impressionnante. Continuez comme ça et continuez à donner la priorité à votre santé et à votre bien-être !",
+    "Triple victoire ! Trois jours consécutifs avec de bons scores de sommeil montrent votre engagement pour une routine de repos saine. Continuez comme ça et profitez des avantages continus !",
+    "Série excellente ! Maintenir trois jours consécutifs de sommeil de qualité est un exploit notable. Continuez comme ça et continuez à bien prendre soin de vous pour maintenir cette tendance positive !"
+  ],
+  "profileSleepScoreMessage3-": [
+    "Trois jours avec des scores bas peuvent être difficiles, mais chaque jour est une opportunité de changer. Réfléchissez à votre routine nocturne et apportez de petits ajustements pour un meilleur repos. Vous êtes sur la voie de l'amélioration !",
+    "Il est normal d'avoir des séries difficiles. Trois jours consécutifs avec des scores bas peuvent être un appel à l'action. Envisagez des ajustements dans votre routine et prenez des mesures pour améliorer la qualité de votre sommeil. Vous pouvez le faire !",
+    "Maintenir des scores bas pendant trois jours consécutifs est un signal pour apporter des changements. Analysez ce qui pourrait affecter votre sommeil et prenez des mesures pour vous améliorer. Vous contrôlez vos habitudes !",
+    "Trois jours consécutifs avec des scores de sommeil bas peuvent être difficiles, mais ne perdez pas espoir. Recherchez de nouvelles stratégies et habitudes qui peuvent améliorer la qualité de votre sommeil.",
+    "La qualité du sommeil peut varier d'un jour à l'autre. Prenez ces résultats comme un signe qu'il est important de prêter attention à votre bien-être et de chercher des moyens d'améliorer votre repos.",
+    "Ne laissez pas une série de mauvais scores de sommeil vous décourager. Utilisez cette expérience comme une opportunité d'apprentissage et explorez de nouvelles façons de prioriser votre repos et votre santé."
+  ],
+  "profileSleepScoreMessage4+": [
+    "Quadruple réussite ! Quatre jours consécutifs avec un bon score de sommeil montrent votre engagement pour un repos sain. Continuez ainsi et maintenez cette excellente série !",
+    "Quatre jours impeccables ! Votre dévouement pour un bon sommeil est admirable. Continuez ainsi et profitez des avantages continus d'un sommeil réparateur !",
+    "Quatre jours phénoménaux ! Maintenir cette série de bons sommeils est un grand pas vers une vie plus équilibrée. Continuez ainsi et donnez la priorité à votre bien-être !",
+    "Quadruple victoire ! Quatre jours consécutifs avec un bon score de sommeil témoignent de votre engagement pour un repos adéquat. Continuez ainsi et maintenez cette tendance incroyable !",
+    "Travail fantastique ! Quatre jours consécutifs avec un bon score de sommeil sont une réussite digne de célébration. Continuez ainsi et ressentez la différence dans votre bien-être général !",
+    "Quatre jours exceptionnels ! Votre constance dans le maintien d'un bon repos est impressionnante. Continuez ainsi et continuez à prendre soin de vous pour maintenir cette série positive !"
+  ],
+  "profileSleepScoreMessage4-": [
+    "Maintenir une série de quatre jours avec des scores de sommeil bas peut être difficile, mais rappelez-vous qu'il y a toujours des opportunités pour améliorer votre repos.",
+    "Ne vous découragez pas par cette série négative. Utilisez ces résultats comme motivation pour identifier les domaines à améliorer dans votre routine de sommeil et de bien-être.",
+    "Parfois, traverser une période de scores de sommeil bas est temporaire. Prenez ces résultats comme une occasion d'ajuster votre routine et de trouver des moyens de mieux vous reposer.",
+    "Quatre jours consécutifs avec des scores de sommeil bas peuvent être difficiles, mais ne perdez pas espoir. Cherchez de nouvelles stratégies et habitudes qui peuvent améliorer la qualité de votre sommeil.",
+    "La qualité du sommeil peut fluctuer de jour en jour. Prenez ces résultats comme un signe qu'il est important de prêter attention à votre bien-être et de rechercher des moyens d'améliorer votre repos.",
+    "Ne laissez pas une série de mauvais scores de sommeil vous décourager. Utilisez cette expérience comme une occasion d'apprendre et d'explorer de nouvelles façons de prioriser votre repos et votre santé."
+  ],
+  "profileSleepScoreMessage5+": [
+    "Félicitations ! Vous avez atteint un excellent score de sommeil pendant cinq jours consécutifs. Votre engagement pour le repos porte des fruits tangibles. Continuez ainsi et vous remarquerez la différence dans votre bien-être général !",
+    "Cinq jours consécutifs avec des scores de sommeil enviables. Vous construisez une base solide pour votre santé et votre énergie. Continuez à donner la priorité à votre sommeil et vous récolterez des bénéfices à long terme !",
+    "Série incroyable ! Depuis cinq jours, votre sommeil est constant et réparateur. Votre corps et votre esprit vous remercient. Continuez à prendre soin de vous et profitez de nuits revitalisantes !",
+    "Cinq jours de sommeil de qualité ! Vous avez créé un modèle qui mérite d'être célébré. Continuez ainsi et observez comment votre énergie et votre concentration augmentent.",
+    "Cinq jours de repos régénérant. Votre constance est la clé d'un mode de vie équilibré. Continuez ainsi et profitez de votre bien-être mérité !",
+    "Incroyable ! Cinq jours de sommeil réparateur sont une réalisation dont vous pouvez être fier. Continuez ainsi et continuez à donner la priorité à votre santé et votre bonheur !"
+  ],
+  "profileSleepScoreMessage5-": [
+    "Maintenir des scores bas pendant cinq jours consécutifs est un signal d'alarme. Réfléchissez aux facteurs qui pourraient affecter votre sommeil et envisagez d'apporter des ajustements à votre routine nocturne.",
+    "Cinq jours avec des scores de sommeil bas sont un rappel de l'importance de prioriser le repos. Évaluez les changements potentiels dans votre environnement et vos habitudes pour améliorer la qualité du sommeil.",
+    "Maintenir une série de scores bas pendant cinq jours peut affecter votre bien-être. Envisagez d'explorer de nouvelles stratégies pour garantir un sommeil plus réparateur.",
+    "Cinq jours de sommeil insatisfaisant peuvent être épuisants, mais ne perdez pas espoir. Recherchez de nouvelles stratégies pour améliorer la qualité de votre sommeil.",
+    "La qualité du sommeil peut varier, mais votre engagement envers votre bien-être ne doit pas vaciller. Utilisez cette expérience comme une opportunité pour réfléchir et vous améliorer.",
+    "Ne laissez pas une série de mauvais scores de sommeil vous décourager. Utilisez ces jours comme motivation pour donner la priorité à votre repos et votre bien-être. Vous pouvez améliorer la qualité de votre sommeil !"
+  ],
+  "profileSleepScoreMessage6+": [
+    "Six jours de repos réparateur. Ton engagement pour ton bien-être est admirable. Continue comme ça et maintiens cette énergie vibrante!",
+    "Maintenir une série de six jours de sommeil revigorant. Ton dévouement à ta santé mérite des applaudissements. Continue ainsi et profite d'un corps et d'un esprit revitalisés!",
+    "Six jours consécutifs de doux rêves. Ta constance est la clé de ton bien-être. Continue comme ça et ressens la différence dans ta qualité de vie!",
+    "Six jours de sommeil constant! Tu as établi une routine qui mérite d'être célébrée. Continue comme ça et observe comment ton bien-être général s'améliore.",
+    "Six jours de repos régénérateur. Ton dévouement à ton repos est louable. Continue ainsi et maintiens ton engagement pour un sommeil sain!",
+    "Incroyable! Six jours de sommeil réparateur sont un succès à célébrer. Continue ainsi et donne la priorité à ta santé et à ton bonheur quotidien!"
+  ],
+  "profileSleepScoreMessage6-": [
+    "Six jours difficiles. Utilise cette série comme motivation pour mettre en œuvre des changements positifs dans ta routine de sommeil. Chaque jour est une nouvelle opportunité d'amélioration!",
+    "Maintenir une série de six jours difficiles peut être épuisant, mais rappelle-toi que chaque défi est une opportunité de croissance et de changement.",
+    "Six jours consécutifs avec des scores de sommeil bas peuvent être décourageants, mais ne perds pas espoir. Recherche de nouvelles stratégies pour améliorer la qualité de ton sommeil.",
+    "La constance est essentielle, même en période difficile. Utilise cette expérience comme occasion de réflexion et apporte des ajustements positifs à ta routine de sommeil.",
+    "Six jours de sommeil insatisfaisant peuvent être difficiles, mais rappelle-toi que tu as le pouvoir de changer tes habitudes et d'améliorer ton bien-être.",
+    "Ne laisse pas une série de mauvais scores de sommeil te décourager. Utilise ces jours comme rappel de l'importance de prioriser ton repos et ton bien-être. Tu peux surmonter ce défi!"
+  ],
+  "profileSleepScoreMessage7+": [
+    "Semaine complète de sommeil de qualité ! Atteindre un score de 80 ou plus pendant 7 jours consécutifs est une réussite impressionnante. Votre corps et votre esprit sont en mode optimal. Continuez à prendre soin de vous !",
+    "Un jalon incroyable ! Vous avez maintenu un score de sommeil de 80 ou plus pendant une semaine entière. C'est un témoignage de votre engagement envers votre bien-être. Continuez ainsi et conquérez chaque jour !",
+    "Vous avez atteint une semaine complète de sommeil optimal ! Votre dévouement au repos porte ses fruits. Continuez à prendre soin de votre sommeil et profitez des avantages continus. Vous êtes un champion du sommeil !",
+    "Une semaine complète de sommeil de qualité ! Vous avez montré que vous pouvez maintenir une routine saine. Continuez ainsi et observez comment votre bien-être général s'améliore !",
+    "Sept jours de repos régénérateur. Votre dévouement à votre repos est admirable. Continuez ainsi et profitez d'un corps et d'un esprit revitalisés !",
+    "Splendide ! Sept jours de sommeil réparateur sont une réalisation remarquable. Continuez ainsi et continuez à prendre bien soin de vous pour maintenir cette tendance positive !"
+  ],
+  "profileSleepScoreMessage7-": [
+    "Une semaine de scores bas peut être difficile, mais c'est aussi une occasion de faire des changements significatifs. Évaluez votre routine nocturne et cherchez des moyens de donner la priorité à votre repos. Commencez dès aujourd'hui !",
+    "Sept jours avec des scores bas sont un signe que votre corps a besoin de plus d'attention. Envisagez de faire des ajustements significatifs à votre routine nocturne pour améliorer votre sommeil. Votre bien-être vous en sera reconnaissant !",
+    "Maintenir des scores bas pendant une semaine est un appel à l'action. Faites des changements de mode de vie et donnez la priorité à votre sommeil pour revenir sur le chemin du repos de qualité. Nous sommes là pour vous soutenir dans ce changement positif !",
+    "La constance est la clé, même en période difficile. Utilisez cette expérience comme une occasion de réfléchir et de faire des ajustements positifs à votre routine de sommeil.",
+    "Sept jours de sommeil insatisfaisant peuvent être difficiles, mais rappelez-vous que vous avez le pouvoir de changer vos habitudes et d'améliorer votre bien-être.",
+    "Ne laissez pas une série de mauvais scores de sommeil vous décourager. Utilisez ces jours comme un rappel de l'importance de donner la priorité à votre repos et à votre bien-être. Vous pouvez relever ce défi !"
+  ],
+  "profileSleepScoreMessage8+": [
+    "Huit jours de repos régénérant. Chaque nuit de sommeil profond vous rapproche de votre meilleur moi. Continuez ce voyage vers un bien-être complet !",
+    "Vous avez tissé une couverture de rêves paisibles pendant toute une semaine. Chaque fil est un rappel du pouvoir transformateur du repos. Continuez à tisser pour un avenir plus lumineux !",
+    "Félicitations pour huit jours de sommeil réparateur. Chaque réveil est une occasion d'embrasser une énergie renouvelée et une clarté mentale. Continuez à récolter les fruits d'un repos bien mérité !",
+    "Huit jours de sommeil comme une douce étreinte pour votre âme fatiguée. Chaque nuit est une promesse de renouveau et de force pour affronter de nouveaux défis. Que cette série positive continue de vous guider vers l'accomplissement !",
+    "Vous écrivez une histoire de repos et de renouveau qui mérite d'être racontée. Chaque chapitre de sommeil profond est un hommage à votre engagement envers le bien-être. Continuez à écrire vers un avenir plein de vitalité et de joie !",
+    "Huit jours de sommeil réparateur sont un témoignage de votre dévouement à l'autosoins. Chaque nuit bien dormie est un investissement dans votre santé physique et mentale. Continuez à être l'architecte de votre bien-être !"
+  ],
+  "profileSleepScoreMessage8-": [
+    "Huit jours de défis dans le royaume du sommeil. Chaque nuit est une opportunité d'apprendre, de s'adapter et de s'engager pour un repos plus sain. La transformation commence par un choix !",
+    "Vous avez navigué à travers huit jours d'eaux tumultueuses dans l'océan du sommeil. Chaque réveil est une invitation à réfléchir sur vos habitudes et vos priorités. Ayez confiance en votre capacité à trouver le calme au milieu de la tempête !",
+    "Huit jours de sommeil insatisfaisant peuvent sembler une montagne insurmontable, mais chaque pas vous rapproche du sommet. N'oubliez pas, la persistance est la clé qui ouvre les portes du changement !",
+    "Chaque nuit agitée de sommeil pendant huit jours est un signal d'alarme du corps et de l'esprit. Écoutez avec compassion et ouvrez votre cœur à l'autosoins et à l'exploration de nouvelles pratiques de repos. Votre bien-être mérite votre attention !",
+    "Huit jours de défis sur le front du sommeil peuvent être épuisants, mais ils sont aussi un rappel de votre résilience et de votre force intérieure. Continuez à avancer avec courage et confiance en vous !",
+    "Chaque nuit difficile de sommeil pendant huit jours est une opportunité de cultiver la compassion et la compréhension envers vous-même. Embrassez votre humanité et laissez chaque expérience vous guider vers un sommeil plus réparateur et une vie plus épanouie."
+  ],
+  "profileSleepScoreMessage9+": [
+    "Neuf jours de sommeil réparateur sont comme les briques d'une maison paisible et sereine. Chaque nuit bien dormie est un pilier pour votre bien-être.",
+    "Pendant neuf jours, votre oreiller a été témoin de vos rêves les plus doux et les plus réparateurs. Continuez ainsi et construisez un refuge de repos et de rajeunissement.",
+    "Chaque aube après neuf nuits de sommeil profond est une invitation à embrasser une énergie renouvelée et une clarté mentale. Maintenez cette série et atteignez de nouveaux sommets.",
+    "Neuf jours de repos vous ont emmené dans un voyage de découverte de soi et de renouveau. Suivez ce chemin et découvrez la magie du sommeil réparateur.",
+    "Félicitations pour neuf jours de sommeil réparateur. Chaque nuit bien dormie est un hommage à votre engagement pour la santé et le bien-être.",
+    "Pendant neuf jours, vous avez honoré le repos comme une partie essentielle de votre vie. Continuez ainsi et récoltez les fruits d'un esprit et d'un corps revitalisés."
+  ],
+  "profileSleepScoreMessage9-": [
+    "Neuf jours difficiles de sommeil peuvent sembler écrasants, mais chaque nuit est une nouvelle opportunité d'apprendre et de grandir.",
+    "Maintenir une série de neuf jours difficiles peut être épuisant, mais rappelez-vous que chaque obstacle est une opportunité de vous renforcer.",
+    "Pendant neuf jours, vous avez fait face à des défis dans votre repos, mais chaque nuit est également une opportunité de recalibrer et d'améliorer.",
+    "Neuf jours de sommeil insatisfaisant peuvent être décourageants, mais chaque aube apporte la promesse d'un nouveau départ.",
+    "Affronter neuf jours de défis dans le sommeil est un témoignage de votre résilience et de votre force intérieure. Continuez à avancer avec détermination et confiance en vous-même.",
+    "Ne baissez pas les bras, continuez à chercher de nouvelles façons d'améliorer votre repos !"
+  ],
+  "profileSleepScoreMessage10+": [
+    "Dix jours de sommeil réparateur témoignent de ton engagement envers le bien-être. Continue ainsi et continue de donner la priorité à ton repos et à ta santé.",
+    "Pendant dix jours, tu as maintenu une série de sommeils réparateurs. Chaque nuit bien dormie est un cadeau qui te rapproche d'une vie équilibrée.",
+    "Dix jours de sommeil réparateur sont comme un doux murmure de la nature, te rappelant l'importance de prendre soin de toi. Continue ainsi et trouve l'harmonie dans chaque nuit.",
+    "Félicitations pour dix jours de sommeil réparateur. Chaque nuit est un rappel de ton engagement envers une vie pleine d'énergie et de vitalité.",
+    "Dix jours de sommeil profond et réparateur sont comme une étreinte réconfortante pour ton corps et ton esprit. Continue ainsi et ressens la plénitude de chaque jour.",
+    "Pendant dix jours, tu as nourri ton corps et ton esprit avec un sommeil réparateur. Suis ce chemin et trouve la paix et la sérénité dans chaque nuit."
+  ],
+  "profileSleepScoreMessage10-": [
+    "Dix jours de mauvais sommeil peuvent être difficiles, mais chaque nuit est une occasion de trouver de nouvelles façons d'améliorer ton repos.",
+    "Maintenir une série de dix jours difficiles peut être épuisant, mais rappelle-toi que chaque jour est une occasion d'apprendre et de grandir.",
+    "Pendant dix jours, tu as fait face à des défis dans ton repos, mais chaque nuit est aussi une occasion de recalibrer et d'améliorer.",
+    "Dix jours de sommeil insatisfaisant peuvent être décourageants, mais chaque aube apporte la promesse d'un nouveau départ.",
+    "Affronter dix jours de défis dans le sommeil est un témoignage de ta résilience et de ta force intérieure. Avance avec détermination et confiance en toi-même.",
+    "Ne laisse pas une mauvaise série te décourager. Utilise ces jours comme un rappel de l'importance de prioriser ton repos et ton bien-être. Tu peux surmonter ce défi !"
+  ],
+  "profileSleepScoreMessageTwoWeeks+": [
+    "Deux semaines de sommeil réparateur sont comme un voyage vers le renouveau total. Chaque nuit bien dormie est un pas de plus vers un bien-être complet.",
+    "Pendant plus de deux semaines, tu as construit un pont vers un sommeil réparateur. Continue à marcher avec détermination et tu trouveras la sérénité à chaque pas.",
+    "Chaque aube après deux semaines de sommeil profond est une invitation à embrasser l'énergie renouvelée et la clarté mentale. Maintiens cette série et atteins de nouveaux sommets.",
+    "Deux semaines de repos t'ont emmené dans un voyage de découverte de soi et de renouveau. Suis ce chemin et découvre la magie du sommeil réparateur.",
+    "Félicitations pour deux semaines de sommeil réparateur. Chaque nuit bien dormie est un hommage à ton engagement envers la santé et le bien-être.",
+    "Pendant deux semaines, tu as honoré le repos comme une partie essentielle de ta vie. Continue ainsi et récolte les fruits d'un esprit et d'un corps revigorés."
+  ],
+  "profileSleepScoreMessageTwoWeeks-": [
+    "Pendant plus de deux semaines, tu as été confronté à des défis pour trouver le repos adéquat. Il est temps de réfléchir à tes habitudes et de faire de petits changements qui te rapprochent d'un sommeil plus réparateur.",
+    "Maintenir une série de deux semaines difficiles peut être épuisant, mais chaque jour t'offre l'opportunité de prendre des décisions plus saines pour ton repos. Concentrons-nous sur la recherche de solutions !",
+    "Pendant deux semaines, tu as eu du mal à bien dormir, mais chaque nuit te donne une nouvelle chance de t'améliorer. Il est temps d'explorer de nouvelles stratégies et habitudes pour t'aider à mieux te reposer.",
+    "Affronter deux semaines de défis dans le sommeil est un rappel de l'importance de prendre soin de ta santé et de ton bien-être. Engage-toi à faire des changements positifs dans ta routine pour améliorer la qualité de ton repos.",
+    "Pendant deux semaines, tu as eu du mal à trouver un sommeil réparateur, mais chaque jour te rapproche de la découverte de ce qui fonctionne le mieux pour toi. Continuons à chercher des solutions et à maintenir une attitude positive face au changement.",
+    "Pendant deux semaines, tu as rencontré des difficultés à dormir, mais chaque défi offre une opportunité d'apprendre et de grandir. Concentrons-nous sur la recherche de moyens efficaces pour améliorer notre repos."
+  ],
+  "profileSleepScoreMessageThreeWeeks+": [
+    "Trois semaines de sommeil réparateur sont comme un hymne à votre bien-être. Chaque nuit bien dormie est une mélodie qui vous conduit vers l'harmonie intérieure.",
+    "Pendant plus de trois semaines, vous avez construit un sanctuaire de rêves réparateurs. Continuez à nourrir cet espace sacré et trouvez la paix dans chaque respiration.",
+    "Chaque réveil après trois semaines de sommeil profond est une célébration de la vie et de la vitalité. Maintenez cette série et laissez votre lumière intérieure briller encore plus.",
+    "Trois semaines de repos vous ont conduit à travers une oasis de découverte de soi et de renouveau. Continuez à explorer ce territoire et découvrez la magie de l'auto-soin.",
+    "Félicitations pour trois semaines de sommeil réparateur. Chaque nuit bien dormie est un hommage à votre engagement pour une vie équilibrée et pleine d'énergie.",
+    "Pendant trois semaines, vous avez cultivé un jardin de repos et de rajeunissement. Continuez à arroser ces graines et regardez-les fleurir dans une vie plus pleine."
+  ],
+  "profileSleepScoreMessageThreeWeeks-": [
+    "Trois semaines de difficultés de sommeil sont un rappel de l'importance de prendre soin de votre santé mentale et physique. Il est temps de prendre des mesures concrètes pour améliorer votre repos et votre bien-être général.",
+    "Maintenir une série de trois semaines difficiles peut être difficile, mais chaque jour vous offre l'opportunité de faire des choix positifs pour votre repos. Engagez-vous à mettre en œuvre des changements qui améliorent la qualité de votre sommeil.",
+    "Pendant trois semaines, vous avez rencontré des difficultés pour vous endormir et bien dormir, mais chaque nuit vous donne l'occasion d'essayer à nouveau. Continuons à explorer de nouvelles stratégies et habitudes pour vous aider à mieux dormir.",
+    "Affronter trois semaines de défis de sommeil est un rappel que vous devez prioriser votre santé et votre bien-être. Prenez le temps d'identifier ce qui affecte votre repos et travaillez sur des solutions efficaces.",
+    "Pendant trois semaines, vous avez eu du mal à trouver un sommeil réparateur, mais chaque jour vous rapproche de trouver des solutions qui fonctionnent pour vous. Gardons une attitude positive et engageons-nous à faire des changements qui améliorent notre qualité de vie.",
+    "Pendant trois semaines, vous avez lutté pour trouver un sommeil réparateur, mais chaque défi offre une opportunité d'apprendre et de grandir. Avançons avec détermination et recherchons activement des moyens d'améliorer notre repos."
+  ],
+  "profileSleepScoreMessageOneMonth+": [
+    "Félicitations ! Un mois complet de sommeil réparateur est une réalisation remarquable. Chaque nuit bien dormie est un cadeau pour votre santé et votre bien-être. Continuez ainsi !",
+    "Un mois d'habitudes de sommeil constamment bonnes mérite d'être célébré. Votre dévouement au repos porte ses fruits, et votre corps et votre esprit vous en remercient. Continuez à prendre soin de vous !",
+    "Pendant tout un mois, vous avez fait preuve d'un engagement admirable envers votre repos. Chaque nuit de sommeil réparateur est un pas vers une vie plus équilibrée et épanouie. Continuez ainsi, champion du sommeil !",
+    "Un mois entier de bon repos est un témoignage de votre détermination et de votre auto-soin. Chaque nuit de sommeil réparateur est un investissement dans votre santé et votre bonheur à long terme. Continuez sur cette lancée !",
+    "Un mois complet de sommeil de qualité mérite des applaudissements ! Votre dévouement à votre bien-être se reflète dans chaque nuit de repos. Continuez à prendre soin de vous et à prioriser votre santé.",
+    "Pendant un mois, vous avez montré que le bon repos est une priorité. Chaque nuit bien dormie est un pas vers une vie plus saine et vibrante. Continuez ainsi, maintenez le bon travail !"
+  ],
+  "profileSleepScoreMessageOneMonth-": [
+    "Un mois de difficultés de sommeil peut être difficile, mais chaque jour nous donne l'occasion de réfléchir et d'améliorer nos habitudes de sommeil. Il est temps de prendre des mesures pour prendre soin de votre bien-être !",
+    "Pendant tout un mois, vous avez fait face à des obstacles dans votre repos, mais chaque nuit est également une opportunité d'apprendre et d'ajuster votre approche. Vous êtes sur la voie d'un meilleur sommeil !",
+    "Un mois de résultats négatifs en matière de sommeil est un signe qu'il est temps de prêter attention à votre bien-être. Avec détermination et engagement, vous pouvez mettre en œuvre des changements pour vous aider à mieux dormir.",
+    "Pendant un mois, vous avez fait face à des défis dans votre repos, mais chaque nuit est également une occasion de se renouveler et de se recharger. Ne vous découragez pas, vous êtes sur la voie d'un sommeil plus réparateur !",
+    "Un mois de difficultés de sommeil peut être épuisant, mais c'est aussi une opportunité d'explorer de nouvelles stratégies et habitudes pour vous aider à mieux dormir. Continuez sur cette lancée !",
+    "Pendant un mois, vous avez fait face à des obstacles dans votre sommeil, mais chaque nuit est également une occasion de se renouveler et de se recharger. Ne baissez pas les bras, vous êtes sur la voie d'un meilleur repos !"
+  ],
+  "profileSleepScoreMessageDefault+": [
+    "Tu continues à briller par ton engagement pour un sommeil sain ! Chaque nuit bien reposée est un pas vers une vie plus équilibrée et épanouissante. Continue comme ça !",
+    "Ton dévouement au repos porte ses fruits et ton bien-être le reflète. Chaque nuit de sommeil réparateur est un investissement pour ta santé et ton bonheur à long terme. Continue à prendre soin de toi !",
+    "Poursuivre une série positive dans le sommeil démontre ton engagement pour ton bien-être. Chaque nuit de repos adéquat est un rappel de ton engagement pour l'auto-soin. Continue ainsi avec force !",
+    "Maintenir une série positive dans le sommeil est un témoignage de ta détermination et discipline. Chaque nuit bien dormie est un pas vers une vie plus saine et équilibrée. Continue ainsi, champion du sommeil !",
+    "Nous célébrons ta persistance à maintenir une série positive dans le sommeil. Chaque nuit de repos restaurateur est un accomplissement qui te rapproche d'une meilleure qualité de vie. Continue à prioriser ton bien-être !",
+    "Ton engagement pour un sommeil de qualité est admirable et mérite d'être célébré. Chaque nuit de bon repos est un pas vers une version plus saine et heureuse de toi-même. Continue ainsi, il n'y a pas de limites à ton bien-être !"
+  ],
+  "profileSleepScoreMessageDefault-": [
+    "Même si tu fais face à des défis dans ton sommeil, ta détermination à t'améliorer est inspirante. Chaque nuit est une opportunité pour apprendre et ajuster ton focus vers un sommeil plus réparateur. Ne te décourage pas !",
+    "Continuer une série négative dans le sommeil peut être difficile, mais chaque jour nous offre la chance de réfléchir et améliorer nos habitudes. Tu es sur la voie d'un sommeil plus sain !",
+    "Malgré les obstacles dans ton repos, ta détermination à trouver des solutions est admirable. À chaque nuit, tu te rapproches de découvrir ce qui fonctionne le mieux pour toi. Ne abandonne pas !",
+    "Ta persistance au milieu d'une série négative dans le sommeil montre ton engagement pour ton bien-être. Chaque nuit est une opportunité pour se renouveler et recharger les batteries. Continue avec détermination !",
+    "Même si tu fais face à des difficultés pour dormir, chaque nuit est aussi une opportunité pour explorer de nouvelles stratégies et habitudes. Ta détermination à améliorer ton repos est le premier pas vers une meilleure qualité de vie. Continue !",
+    "Nous célébrons ton courage et ta détermination à affronter les défis dans ton sommeil. Chaque nuit est une opportunité pour apprendre et grandir, et chaque pas te rapproche d'un sommeil réparateur. Ne perd pas espoir !"
+  ],
+  "profileRecoveryMessage1+": [
+    "Départ incroyable ! Ta récupération aujourd'hui est positive, ce qui indique que ton corps est bien préparé pour affronter la journée. Prêt à tirer le meilleur parti de tes activités et de ton entraînement !",
+    "Aujourd'hui, ton corps montre une excellente adaptation et récupération. Tu es en harmonie avec toi-même ! Utilise cette énergie pour performer au mieux et profiter d'une journée active et productive.",
+    "Ta récupération aujourd'hui est comme un feu vert pour une journée énergique et efficace. Continue à prendre soin de toi, tu construis une base solide pour ton bien-être !",
+    "Une journée de bon repos est une grande réussite ! Chaque nuit bien dormie te rapproche de tes objectifs de bien-être. Continue à construire des habitudes de sommeil saines !",
+    "Ta capacité à bien dormir est un atout inestimable. Célèbre chaque journée de bon repos comme un pas vers une vie plus équilibrée et heureuse.",
+    "Une journée de sommeil réparateur est un cadeau que tu te fais. Profite de cette énergie renouvelée pour affronter la journée avec optimisme et vitalité !"
+  ],
+  "profileRecoveryMessage1-": [
+    "La récupération d'aujourd'hui est un peu difficile, mais chaque jour est une opportunité pour s'ajuster et s'améliorer. N'oublie pas de prendre soin de toi pour éviter les risques et maximiser ton énergie.",
+    "La récupération d'aujourd'hui peut rappeler l'importance d'écouter son corps. Envisage d'ajuster ton activité quotidienne pour minimiser le risque de fatigue et de blessures.",
+    "Bien que la récupération d'aujourd'hui soit nulle, ne te décourage pas. Prends des mesures pour améliorer la qualité de ton sommeil et préparer ton corps pour une journée plus optimale demain.",
+    "Chaque jour difficile est une opportunité pour apprendre et grandir. Utilise cette journée difficile comme motivation pour améliorer tes habitudes de sommeil et ton soin personnel.",
+    "Ne laisse pas une journée de repos insuffisant te décourager. Maintiens ta détermination à donner la priorité à ton bien-être et recherche des solutions pour améliorer la qualité de ton sommeil.",
+    "Bien que aujourd'hui ait été difficile, demain est une nouvelle opportunité de mieux dormir. N'oublie pas que chaque nuit mal dormie est une opportunité pour ajuster et améliorer tes habitudes de sommeil. Avance avec espoir et détermination !"
+  ],
+  "profileRecoveryMessage2+": [
+    "Deux jours de bon repos témoignent de votre engagement à prendre soin de votre corps et de votre esprit. Chaque nuit de sommeil réparateur est un pas vers une vie plus équilibrée et épanouissante.",
+    "Maintenir une série de deux jours de sommeil de qualité est une réussite significative. Il est temps de célébrer vos efforts pour trouver un équilibre sain et prêter attention aux besoins de votre corps.",
+    "Félicitations pour deux jours consécutifs de bon sommeil. Votre constance dans le soin de votre repos est admirable et témoigne de votre engagement pour votre bien-être général.",
+    "Deux jours consécutifs de bon repos sont le signe que vous trouvez un équilibre sain dans votre vie. Continuez à écouter votre corps, à réduire le stress et à maintenir des habitudes de sommeil positives.",
+    "Célébrez vos deux jours de sommeil réparateur comme une victoire dans votre parcours vers une meilleure santé et un bien-être. Continuez à rechercher des moyens d'améliorer vos habitudes nocturnes et à écouter les signaux de votre corps.",
+    "Votre constance dans le maintien d'un bon repos pendant deux jours est inspirante. Continuez à prêter attention à votre corps, à pratiquer la relaxation et à maintenir une routine de sommeil constante pour maximiser votre bien-être."
+  ],
+  "profileRecoveryMessage2-": [
+    "Deux jours consécutifs de mauvais sommeil peuvent rappeler l'importance de prendre soin de votre bien-être nocturne. Prenez note de vos expériences et cherchez à ajuster vos habitudes pour améliorer la qualité de votre sommeil.",
+    "Reconnaître deux jours consécutifs de mauvais repos est la première étape pour apporter des changements positifs. Faites attention aux signaux de votre corps, réduisez le stress et créez un environnement propice au sommeil réparateur.",
+    "Malgré les défis des deux derniers jours, souvenez-vous que chaque nuit est une nouvelle opportunité d'amélioration. Maintenez la détermination à trouver un équilibre sain et à améliorer vos habitudes de sommeil.",
+    "Maintenir une série de deux jours de mauvais sommeil est un signe qu'il est temps de revoir vos routines nocturnes. Cherchez des moyens de réduire le stress, d'établir des limites claires et de créer un environnement propice au repos.",
+    "Deux jours consécutifs de mauvais repos peuvent être difficiles, mais ils sont aussi une occasion d'apprendre et de grandir. Prenez des mesures pour améliorer votre bien-être nocturne et recherchez du soutien si nécessaire.",
+    "Ne laissez pas deux jours de mauvais sommeil vous décourager. Engagez-vous à trouver des solutions pour améliorer la qualité de votre sommeil et à prêter attention aux besoins de votre corps."
+  ],
+  "profileRecoveryMessage3+": [
+    "Trois jours consécutifs de récupération positive indiquent que vous êtes sur la bonne voie. Votre corps est bien préparé pour le défi. Continuez ainsi et profitez d'une performance constante !",
+    "Une série de trois jours positifs ! Votre corps apprécie votre attention au repos. Vous réduisez le risque de blessures et maximisez votre potentiel dans chaque activité.",
+    "Maintenir une récupération positive pendant trois jours consécutifs est une réalisation significative. Vous construisez une base solide pour l'endurance et l'efficacité dans vos activités quotidiennes.",
+    "Trois jours consécutifs de bon repos sont un signe que vous êtes en phase avec les besoins de votre corps. Continuez à prêter attention aux signaux qu'il envoie et maintenez vos bonnes habitudes de sommeil.",
+    "Célébrer trois jours de sommeil réparateur reconnaît votre engagement envers une vie équilibrée. Continuez à cultiver un environnement propice au repos et vous verrez des améliorations dans votre bien-être physique et mental.",
+    "Votre constance à maintenir un bon sommeil pendant trois jours est admirable. Continuez à nourrir votre bien-être physique et mental avec des habitudes nocturnes saines et de la pleine conscience."
+  ],
+  "profileRecoveryMessage3-": [
+    "Trois jours consécutifs avec des résultats de récupération difficiles indiquent la nécessité d'apporter des ajustements. Réfléchissez à votre routine et apportez des changements pour éviter les risques inutiles.",
+    "Maintenir un faible niveau de récupération pendant trois jours peut avoir un impact sur vos performances. Évaluez vos habitudes de sommeil et votre routine quotidienne pour minimiser les risques et maximiser le bien-être.",
+    "Trois jours de récupération difficile peuvent indiquer que votre corps a besoin de plus d'attention. Prenez le temps de vous reposer et apportez des changements à votre routine pour éviter la fatigue et les blessures.",
+    "Maintenir une série de trois jours de mauvais sommeil est un signe qu'il est temps de revoir vos habitudes de sommeil. Écoutez les signaux de votre corps et cherchez de l'aide si nécessaire pour améliorer votre repos.",
+    "Trois jours consécutifs de mauvais repos peuvent être difficiles, mais ils sont également une opportunité d'apprendre et de grandir. Engagez-vous à trouver des solutions pour améliorer la qualité de votre sommeil et revitaliser votre bien-être.",
+    "Ne laissez pas trois jours de mauvais sommeil vous décourager. Utilisez cette expérience comme motivation pour ajuster vos habitudes de sommeil et rechercher l'équilibre nécessaire à votre santé et votre vitalité."
+  ],
+  "profileRecoveryMessage4+": [
+    "Quatre jours consécutifs de récupération solide montrent votre engagement envers des soins complets pour votre corps et votre esprit. Continuez à honorer vos besoins de repos pour maintenir votre vitalité et votre équilibre émotionnel.",
+    "Maintenir une série de quatre jours de récupération adéquate est un signe de votre attention au bien-être général. Votre constance dans le repos reflète votre engagement envers une vie équilibrée et saine.",
+    "Félicitations pour avoir priorisé votre récupération pendant quatre jours consécutifs. Cette réalisation montre votre dévouement à optimiser vos performances et votre bien-être dans tous les domaines de votre vie.",
+    "Quatre jours consécutifs de bon repos et de récupération sont un témoignage de votre engagement envers un mode de vie équilibré. Continuez à écouter les besoins de votre corps et de votre esprit pour maximiser votre bien-être.",
+    "Célébrer quatre jours de récupération solide, c'est célébrer votre dévouement à l'auto-soin et à la santé holistique. Continuez à nourrir votre corps avec un repos adéquat et observez comment votre bien-être physique et mental s'épanouit.",
+    "Votre persistance à maintenir une bonne récupération pendant quatre jours mérite d'être reconnue. Continuez à cultiver des habitudes de sommeil saines et profitez des avantages qu'elles apportent à vos performances et à votre bien-être global."
+  ],
+  "profileRecoveryMessage4-": [
+    "Quatre jours consécutifs de mauvaise récupération peuvent être un rappel de l'importance de prendre soin de votre bien-être global. Prenez note de vos expériences et cherchez à ajuster vos habitudes pour améliorer la qualité de votre repos et de votre récupération.",
+    "Reconnaître quatre jours consécutifs de mauvaise récupération est la première étape pour apporter des changements positifs. Prenez des mesures pour réduire le stress, établir des routines de relaxation et donner la priorité à votre repos pour revitaliser votre bien-être.",
+    "Malgré les défis des quatre derniers jours, rappelez-vous que chaque nuit est une nouvelle opportunité pour restaurer votre énergie et votre vitalité. Maintenez la détermination à trouver un équilibre sain pour votre corps et votre esprit.",
+    "Maintenir une série de quatre jours de mauvaise récupération est un signe qu'il est temps de revoir vos habitudes et priorités. Écoutez les signaux de votre corps et recherchez un soutien si nécessaire pour améliorer votre bien-être global.",
+    "Quatre jours consécutifs de mauvaise récupération peuvent être difficiles, mais ils sont aussi une opportunité pour apprendre et grandir. Engagez-vous à trouver des solutions pour améliorer la qualité de votre sommeil et revitaliser votre santé et vos performances.",
+    "Ne laissez pas quatre jours de mauvaise récupération vous décourager. Utilisez cette expérience comme motivation pour ajuster vos habitudes et trouver l'équilibre nécessaire pour optimiser votre bien-être physique et mental."
+  ],
+  "profileRecoveryMessage5+": [
+    "Cinq jours de récupération positive témoignent de votre engagement pour la santé et les performances. Votre corps est dans sa meilleure forme pour relever les défis physiques. Continuez ainsi et continuez à dépasser vos objectifs !",
+    "Victoire quintuple ! Votre récupération sur cinq jours consécutifs est exceptionnelle. Votre corps est fort et prêt pour tout défi qui se présente. Félicitations !",
+    "Maintenir une récupération positive pendant cinq jours est un signe de constance et de bien-être. Vous cultivez une base solide pour vos performances à long terme.",
+    "Impressionnant ! Vous avez maintenu une récupération optimale pendant cinq jours consécutifs. Votre corps se régénère efficacement. Continuez à prendre soin de vous et profitez de cette vitalité renouvelée !",
+    "Cinq jours consécutifs de récupération adéquate reflètent votre attention au bien-être holistique. Votre engagement pour un sommeil réparateur vous renforce physiquement et mentalement, vous fournissant la force et l'endurance nécessaires pour vos activités quotidiennes.",
+    "Célébrer cinq jours de solide récupération nocturne, c'est célébrer votre attention à la santé globale. Votre corps et votre esprit bénéficient de vos habitudes de sommeil saines, vous permettant d'aborder chaque jour avec confiance et détermination.",
+    "Votre persistance à maintenir une bonne récupération pendant cinq jours consécutifs est admirable. Continuez à cultiver un environnement propice au repos et au renouveau, et vous verrez votre bien-être général atteindre de nouveaux sommets."
+  ],
+  "profileRecoveryMessage5-": [
+    "Cinq jours consécutifs de récupération difficile sont un signe qu'il est temps de prêter plus d'attention à votre bien-être. Envisagez de faire des changements significatifs pour protéger votre santé à long terme.",
+    "Maintenir une faible récupération pendant cinq jours indique la nécessité d'une pause et de réflexion. Apportez des ajustements à votre mode de vie pour améliorer la qualité de votre sommeil et mieux vous préparer à vos activités quotidiennes.",
+    "Bien que les cinq derniers jours aient été difficiles en termes de récupération, chaque jour est une nouvelle opportunité de faire des changements positifs. Écoutez votre corps et ajustez votre routine pour maximiser votre performance.",
+    "Cinq jours consécutifs de récupération difficile pourraient être un signe que votre corps a besoin de repos supplémentaire. N'oubliez pas d'écouter les signaux qu'il envoie et envisagez de réduire l'intensité de votre activité physique ou mentale pour permettre une récupération adéquate.",
+    "Reconnaître cinq jours consécutifs de récupération insuffisante est une invitation à revoir vos routines quotidiennes. Vous vous demandez peut-être trop à votre corps et à votre esprit. Envisagez de pratiquer des activités de relaxation et d'ajuster votre charge de travail pour favoriser un sommeil réparateur.",
+    "Malgré les défis des cinq derniers jours, il est important de se rappeler que le repos adéquat est essentiel pour votre bien-être général. Prenez un moment pour évaluer vos habitudes et trouver un équilibre qui vous permette de récupérer pleinement chaque nuit."
+  ],
+  "profileRecoveryMessage6+": [
+    "Six jours consécutifs de récupération solide témoignent de votre engagement envers le bien-être global. Écouter les besoins de votre corps et de votre esprit vous mène à un état d'équilibre et de vitalité. Continuez ainsi!",
+    "Maintenir une série de six jours de récupération optimale est essentiel pour une performance constante. Votre dévouement au repos reflète votre engagement envers une vie épanouie et équilibrée sous tous ses aspects.",
+    "Félicitations pour maintenir une routine de récupération efficace pendant six jours consécutifs. Votre constance dans le repos renforce à la fois votre corps et votre esprit, vous préparant à affronter tout défi avec clarté et énergie.",
+    "Six jours consécutifs de bon repos et de récupération démontrent votre engagement envers un mode de vie équilibré. Continuez à prioriser votre bien-être et observez toutes les sphères de votre vie s'épanouir.",
+    "Célébrer six jours de récupération solide, c'est célébrer votre focus sur la santé et l'auto-soin. Votre engagement pour un repos adéquat vous permet de briller dans toutes vos activités quotidiennes.",
+    "Votre persistance à maintenir une bonne récupération pendant six jours consécutifs mérite d'être reconnue. Continuez à cultiver des habitudes de sommeil saines et profitez des bienfaits qu'elles apportent à votre bien-être physique et mental."
+  ],
+  "profileRecoveryMessage6-": [
+    "Six jours consécutifs de récupération difficile peuvent indiquer que vous avez besoin d'ajuster vos habitudes et vos priorités. Écoutez les signaux que votre corps vous envoie et prenez des mesures pour réduire le stress et améliorer la qualité de votre sommeil.",
+    "Reconnaître six jours consécutifs de récupération insuffisante est le premier pas vers un changement positif. Envisagez de revoir vos routines quotidiennes et de trouver des moyens d'intégrer plus de temps de repos et de relaxation.",
+    "Malgré les défis des six derniers jours, rappelez-vous que chaque nuit est une opportunité de revitaliser votre corps et votre esprit. Priorisez l'auto-soin et la récupération pour restaurer votre énergie et votre clarté mentale.",
+    "Maintenir une série de six jours de mauvaise récupération peut indiquer que vous surchargez votre corps et votre esprit. Prenez un moment pour évaluer vos engagements et trouver un équilibre qui vous permette de vous reposer et de vous ressourcer.",
+    "Six jours consécutifs de récupération difficile peuvent indiquer qu'il est temps d'apporter des changements significatifs dans vos habitudes quotidiennes. Envisagez de rechercher un soutien professionnel et de prendre des mesures concrètes pour améliorer votre bien-être général.",
+    "Ne laissez pas six jours de récupération difficile vous décourager. Utilisez cette expérience comme motivation pour apporter des ajustements positifs dans votre mode de vie et pour donner la priorité à votre santé et à votre bien-être. Écoutez les besoins de votre corps et apportez des changements qui favorisent une récupération efficace."
+  ],
+  "profileRecoveryMessage7+": [
+    "Une semaine complète de récupération positive est une réalisation extraordinaire. Votre corps est dans un état optimal, minimisant les risques et maximisant les bénéfices. Continuez comme ça et profitez de votre bien-être continu !",
+    "Sept jours de récupération positive ! Votre corps vous remercie pour votre attention et vos soins. Vous êtes sur la bonne voie pour des performances exceptionnelles. Félicitations !",
+    "Maintenir une récupération positive pendant une semaine complète est un témoignage de votre dévouement au bien-être. Votre corps est dans sa meilleure forme. Continuez à prendre soin de vous !",
+    "Sept jours consécutifs de sommeil réparateur démontrent votre engagement envers les soins personnels. Votre dévouement au repos vous prépare à briller dans toutes vos activités quotidiennes.",
+    "Maintenir une semaine de sommeil régulier est essentiel pour votre santé globale. Prenez un moment pour célébrer vos efforts pour prendre soin de votre repos.",
+    "Une semaine de bon repos est comme une recharge pour votre corps et votre esprit. Vous êtes prêt à relever les défis avec une énergie et une détermination renouvelées."
+  ],
+  "profileRecoveryMessage7-": [
+    "Une semaine complète avec des résultats de récupération faibles est un appel à l'action. Prenez le temps de vous reposer et d'ajuster votre routine pour éviter les risques à long terme.",
+    "Maintenir une faible récupération pendant sept jours consécutifs indique la nécessité d'une révision attentive de votre style de vie. Effectuez des changements significatifs pour protéger votre bien-être à long terme.",
+    "Malgré la semaine difficile, chaque jour est une nouvelle opportunité d'amélioration. Effectuez des ajustements à votre routine et donnez la priorité à votre bien-être pour construire une base solide pour les performances futures.",
+    "Maintenir une semaine de sommeil difficile est un signe qu'il est temps de faire des changements. Réfléchissez à vos activités quotidiennes et à vos engagements pour trouver un équilibre qui favorise un meilleur repos.",
+    "Reconnaître une semaine de repos difficile est le premier pas vers l'autosoins. Prenez le temps nécessaire pour vous reposer et récupérer correctement.",
+    "Une semaine de sommeil irrégulier est une occasion de réévaluer votre approche du repos. Donnez la priorité à votre bien-être et recherchez des moyens d'améliorer la qualité de votre sommeil."
+  ],
+  "profileRecoveryMessage8+": [
+    "Huit jours consécutifs de sommeil réparateur sont un excellent signe que vous prenez soin de votre bien-être ! Continuez comme ça, vous êtes sur la bonne voie pour une vie plus équilibrée et saine !",
+    "Maintenir une série de huit jours de bon repos est une preuve de votre engagement envers votre santé physique et mentale. Vous posez les bases d'un mode de vie plus sain et plus énergique.",
+    "Félicitations pour avoir atteint une semaine complète de sommeil réparateur. Votre corps et votre esprit vous en remercient, continuez ainsi et vous remarquerez la différence dans votre qualité de vie !",
+    "Huit jours consécutifs de sommeil réparateur sont un signe que vous donnez la priorité à votre santé et à votre bien-être. Continuez à écouter les besoins de votre corps et continuez à prendre soin de vous.",
+    "Avec huit jours de sommeil réparateur, vous démontrez que le repos de qualité est une partie essentielle de votre routine quotidienne. Maintenez vos habitudes positives et profitez des bienfaits que vous procure un bon repos.",
+    "Maintenir une série de huit jours de sommeil réparateur est une raison de célébrer vos efforts pour prendre soin de votre bien-être. Continuez ainsi et vous atteindrez vos objectifs de santé et de bonheur."
+  ],
+  "profileRecoveryMessage8-": [
+    "Reconnaître huit jours de sommeil difficile est la première étape pour apporter des changements positifs à votre routine. Prenez un moment pour réfléchir aux ajustements que vous pouvez apporter pour améliorer votre repos.",
+    "Huit jours de sommeil irrégulier peuvent indiquer qu'il est temps de réévaluer vos habitudes et priorités. Écoutez les signaux que votre corps vous envoie et cherchez des moyens de mieux prendre soin de vous.",
+    "Maintenir une série de huit jours de sommeil difficile est une invitation à accorder plus d'attention à votre bien-être. Envisagez les changements que vous pouvez apporter à votre mode de vie pour favoriser un repos plus réparateur et revigorant.",
+    "Reconnaître huit jours de sommeil difficile est la première étape vers l'autosoins. Prenez le temps nécessaire pour vous reposer et récupérer correctement, et cherchez du soutien si nécessaire.",
+    "Huit jours de sommeil irrégulier peuvent être un signe que vous devez revoir vos habitudes quotidiennes pour favoriser un meilleur repos. Envisagez les ajustements que vous pouvez apporter pour encourager un sommeil plus réparateur et satisfaisant.",
+    "Huit jours consécutifs de sommeil difficile sont une occasion de revoir votre approche du repos. Donnez la priorité à votre bien-être et recherchez des moyens d'améliorer la qualité de votre sommeil pour vous sentir mieux et plus rafraîchi."
+  ],
+  "profileRecoveryMessage9+": [
+    "Neuf jours de sommeil réparateur sont comme les briques d'une maison tranquille et sereine. Chaque nuit bien dormie est un pilier pour votre bien-être.",
+    "Pendant neuf jours, votre oreiller a été témoin de vos rêves les plus doux et les plus réparateurs. Continuez ainsi et construisez un refuge de repos et de rajeunissement.",
+    "Chaque aube après neuf nuits de sommeil profond est une invitation à embrasser une énergie renouvelée et une clarté mentale. Maintenez cette série et atteignez de nouveaux sommets.",
+    "Neuf jours de repos vous ont emmené à travers un voyage de découverte de soi et de renouveau. Suivez ce chemin et découvrez la magie du sommeil réparateur.",
+    "Félicitations pour neuf jours de sommeil réparateur. Chaque nuit bien dormie est un hommage à votre engagement envers la santé et le bien-être.",
+    "Pendant neuf jours, vous avez honoré le repos comme une partie essentielle de votre vie. Continuez ainsi et récoltez les fruits d'un esprit et d'un corps revitalisés."
+  ],
+  "profileRecoveryMessage9-": [
+    "Reconnaître neuf jours de sommeil difficile est le premier pas vers le changement. Prenez un moment pour évaluer vos routines et chercher des moyens d'améliorer votre repos.",
+    "Neuf jours de sommeil irrégulier peuvent indiquer qu'il est temps d'apporter des ajustements à votre mode de vie. Écoutez les signaux que votre corps vous envoie et cherchez des moyens de mieux prendre soin de vous.",
+    "Maintenir une série de neuf jours de sommeil difficile est une invitation à réfléchir à votre bien-être. Envisagez les changements que vous pouvez apporter pour promouvoir un repos plus réparateur et revitalisant.",
+    "Reconnaître neuf jours de sommeil difficile est une opportunité pour prioriser votre santé et votre bien-être. Consacrez du temps à l'auto-soins et cherchez du soutien si nécessaire.",
+    "Neuf jours de sommeil irrégulier peuvent indiquer que vous devez revoir vos habitudes et vos routines quotidiennes. Envisagez les ajustements que vous pouvez faire pour favoriser un sommeil plus réparateur et satisfaisant.",
+    "Neuf jours consécutifs de sommeil difficile sont un appel à prêter plus d'attention à votre bien-être. Cherchez des ressources et du soutien pour améliorer la qualité de votre sommeil et revitaliser votre corps et votre esprit."
+  ],
+  "profileRecoveryMessage10+": [
+    "Dix jours consécutifs de sommeil réparateur sont une réalisation incroyable ! Votre engagement envers le repos montre votre dévouement à une vie équilibrée et saine. Continuez ainsi !",
+    "Maintenir une série de dix jours de bon repos est la preuve de votre détermination à prendre soin de votre santé et de votre bien-être. Vous posez les bases d'une vie pleine d'énergie et de vitalité !",
+    "Félicitations pour avoir atteint plus d'une semaine de sommeil réparateur. Votre corps et votre esprit vous en remercient, continuez ainsi et vous remarquerez une amélioration remarquable de votre bien-être général !",
+    "Dix jours consécutifs de sommeil réparateur sont un signe clair que vous écoutez les besoins de votre corps et de votre esprit. Continuez à donner la priorité à votre bien-être et profitez des avantages que vous offre un bon repos.",
+    "Avec dix jours de sommeil réparateur, vous construisez une base solide pour une vie équilibrée et saine. Continuez avec vos habitudes positives et maintenez votre engagement envers les soins personnels quotidiens.",
+    "Maintenir une série de dix jours de sommeil réparateur est un témoignage de votre dévouement à votre santé et à votre bonheur. Continuez à prendre soin de vous et profitez de la sensation de renouveau et de revitalisation que vous apporte un bon repos."
+  ],
+  "profileRecoveryMessage10-": [
+    "Reconnaître dix jours de sommeil difficile est le premier pas vers un changement positif. Prenez un moment pour réfléchir à vos habitudes et chercher des moyens d'améliorer votre repos.",
+    "Dix jours de sommeil irrégulier peuvent indiquer qu'il est temps d'apporter des ajustements à votre mode de vie. Écoutez les signaux que votre corps vous envoie et cherchez des moyens de mieux prendre soin de vous.",
+    "Maintenir une série de dix jours de sommeil difficile est une invitation à réfléchir à votre bien-être. Envisagez les changements que vous pouvez apporter pour promouvoir un repos plus réparateur et revitalisant.",
+    "Reconnaître dix jours de sommeil difficile est une opportunité de donner la priorité à votre santé et à votre bien-être. Consacrez du temps à l'auto-soins et cherchez du soutien si nécessaire.",
+    "Dix jours de sommeil irrégulier peuvent indiquer que vous devez revoir vos habitudes et vos routines quotidiennes. Envisagez les ajustements que vous pouvez faire pour favoriser un sommeil plus réparateur et satisfaisant.",
+    "Dix jours consécutifs de sommeil difficile sont un signal d'alarme pour accorder plus d'attention à votre bien-être. Cherchez des ressources et du soutien pour améliorer la qualité de votre sommeil et revitaliser votre corps et votre esprit."
+  ],
+  "profileRecoveryMessageTwoWeeks+": [
+    "Deux semaines consécutives de sommeil réparateur sont une réussite impressionnante. Votre dévouement au repos reflète votre engagement envers votre santé et votre bien-être.",
+    "Maintenir une série de quatorze jours de bon repos démontre votre détermination à prioriser votre bien-être. Continuez ainsi, vous êtes sur la bonne voie !",
+    "Félicitations pour deux semaines de sommeil réparateur. Votre corps et votre esprit ressentent les bienfaits d'un repos de qualité.",
+    "Quatorze jours consécutifs de sommeil réparateur sont la preuve de votre engagement envers votre santé mentale et physique. Continuez à prendre soin de vous et à écouter les besoins de votre corps.",
+    "Deux semaines de sommeil régulier constituent la base d'un mode de vie équilibré et sain. Poursuivez vos habitudes positives et vous remarquerez comment votre bien-être général s'améliore.",
+    "Avec deux semaines de sommeil réparateur, vous établissez une routine qui nourrit votre corps et votre esprit. Continuez à avancer avec cet investissement dans votre santé à long terme."
+  ],
+  "profileRecoveryMessageTwoWeeks-": [
+    "Reconnaître deux semaines de sommeil difficile est une première étape cruciale vers le changement. Prenez un moment pour évaluer vos routines et trouver des moyens d'améliorer votre repos.",
+    "Deux semaines de sommeil irrégulier peuvent indiquer qu'il est temps d'apporter des ajustements à votre mode de vie. Écoutez les signaux que votre corps envoie et prenez des mesures pour mieux prendre soin de vous.",
+    "Maintenir une série de quatorze jours de sommeil difficile est une invitation à réfléchir à votre bien-être. Envisagez les changements que vous pouvez apporter pour favoriser un repos plus réparateur et revitalisant.",
+    "Reconnaître deux semaines de sommeil difficile est une occasion de donner la priorité à votre santé et à votre bien-être. Prenez le temps de vous reposer et de récupérer correctement.",
+    "Deux semaines de sommeil irrégulier peuvent indiquer que vous devez revoir vos habitudes et vos routines quotidiennes. Envisagez comment vous pouvez ajuster votre style de vie pour encourager un sommeil plus réparateur.",
+    "Deux semaines consécutives de sommeil difficile sont un signal d'alarme pour accorder plus d'attention à votre bien-être. Recherchez du soutien et des ressources pour améliorer la qualité de votre sommeil et prendre soin de votre santé mentale et physique."
+  ],
+  "profileRecoveryMessageThreeWeeks+": [
+    "Trois semaines consécutives de sommeil réparateur sont une étape notable dans votre parcours vers un meilleur bien-être ! Votre engagement pour le repos porte ses fruits.",
+    "Maintenir une série de vingt et un jours de bon repos est la preuve de votre dévouement à prendre soin de votre santé physique et mentale. Continuez ainsi, vous faites du bon travail !",
+    "Félicitations pour avoir atteint trois semaines de sommeil réparateur. Votre corps et votre esprit ressentent les bienfaits d'un repos de qualité constant.",
+    "Vingt et un jours consécutifs de sommeil réparateur sont une preuve de votre engagement envers votre bien-être. Continuez à écouter les besoins de votre corps et à prendre soin de vous.",
+    "Trois semaines de sommeil régulier constituent la base d'un mode de vie équilibré et sain. Vous posez les bases d'une vie plus riche et plus énergique.",
+    "Avec trois semaines de sommeil réparateur, vous montrez que le repos de qualité est une priorité dans votre vie. Continuez à prendre soin de vous et à profiter des bienfaits d'un sommeil réparateur."
+  ],
+  "profileRecoveryMessageThreeWeeks-": [
+    "Reconnaître trois semaines de sommeil difficile est une étape importante vers le changement. Prenez un moment pour réfléchir à vos habitudes et trouver des moyens d'améliorer votre repos.",
+    "Trois semaines de sommeil irrégulier peuvent indiquer que vous avez besoin d'apporter des ajustements à votre mode de vie. Écoutez les signaux que votre corps envoie et trouvez des moyens de mieux prendre soin de vous.",
+    "Maintenir une série de vingt et un jours de sommeil difficile est une invitation à réévaluer votre bien-être. Envisagez ce que vous pouvez changer pour favoriser un repos plus réparateur et revitalisant.",
+    "Reconnaître trois semaines de sommeil difficile est une occasion de prioriser votre santé et votre bien-être. Prenez le temps de prendre soin de vous et cherchez du soutien si nécessaire.",
+    "Trois semaines de sommeil irrégulier peuvent indiquer que vous devez revoir vos habitudes et routines quotidiennes. Réfléchissez à ce que vous pouvez ajuster pour favoriser un sommeil plus réparateur et satisfaisant.",
+    "Trois semaines consécutives de sommeil difficile sont un rappel de l'importance de prendre soin de votre bien-être. Cherchez des ressources et du soutien pour améliorer la qualité de votre sommeil et revitaliser votre corps et votre esprit."
+  ],
+  "profileRecoveryMessageOneMonth+": [
+    "Un mois complet de sommeil réparateur est une réalisation remarquable ! Vous avez fait preuve d'un engagement exceptionnel envers votre bien-être. Continuez à prendre soin de vous et à profiter des bienfaits d'un repos de qualité.",
+    "Maintenir une série d'un mois de bon sommeil est un témoignage de votre dévouement à votre santé et votre bonheur. Vous posez les bases d'une vie plus équilibrée et énergique.",
+    "Félicitations pour avoir atteint un mois entier de sommeil réparateur. Votre persistance à donner la priorité à votre repos a été remarquable, et votre corps et votre esprit vous en remercient. Continuez ainsi !",
+    "Un mois consécutif de sommeil réparateur est une étape significative dans votre parcours vers une vie plus saine. Votre engagement pour l'auto-soin est admirable et vous mène sur la bonne voie.",
+    "Avec un mois de sommeil réparateur, vous ressentez les bienfaits d'un repos de qualité dans tous les aspects de votre vie. Continuez vos habitudes positives et continuez à prendre soin de vous.",
+    "Maintenir une série d'un mois de sommeil réparateur est un témoignage de votre discipline et de votre engagement envers votre bien-être. Continuez à écouter les besoins de votre corps et profitez de la sensation de renouveau que procure un bon repos."
+  ],
+  "profileRecoveryMessageOneMonth-": [
+    "Reconnaître un mois de sommeil difficile est un appel à l'action. Prenez un moment pour évaluer vos habitudes et envisager les changements que vous pouvez apporter pour améliorer votre repos.",
+    "Un mois de sommeil irrégulier peut indiquer la nécessité de revoir vos routines quotidiennes. Écoutez les signaux que votre corps vous envoie et trouvez des moyens de mieux prendre soin de vous.",
+    "Maintenir une série d'un mois de sommeil difficile est un signe qu'il est temps d'apporter des changements à votre mode de vie. Envisagez les ajustements que vous pouvez apporter pour favoriser un sommeil plus réparateur et revitalisant.",
+    "Reconnaître un mois de sommeil difficile est la première étape vers l'auto-soin. Prenez le temps de vous reposer et de récupérer correctement, et cherchez du soutien si nécessaire.",
+    "Un mois de sommeil irrégulier peut indiquer que vous devez prêter plus attention à votre bien-être. Envisagez les ajustements que vous pouvez apporter pour encourager un sommeil plus réparateur et satisfaisant.",
+    "Un mois consécutif de sommeil difficile est un signe que vous devez mieux prendre soin de vous. Priorisez votre santé et recherchez des moyens d'améliorer la qualité de votre sommeil pour vous sentir mieux et plus revigoré."
+  ],
+  "profileRecoveryMessageDefault+": [
+    "Votre engagement pour un sommeil réparateur porte ses fruits ! Continuez à cultiver ces habitudes saines et vous verrez comment elles se reflètent sur votre bien-être général.",
+    "Chaque nuit de sommeil réparateur est un pas vers une vie plus équilibrée et épanouie. Poursuivez votre série positive et profitez des avantages qu'elle apporte.",
+    "Maintenir une série positive dans votre repos témoigne de votre dévouement à l'auto-soin. Continuez à écouter les besoins de votre corps et avancez avec confiance.",
+    "Vos efforts pour améliorer votre sommeil portent leurs fruits. Poursuivez votre série positive et célèbrez chaque nuit de sommeil réparateur comme une réussite sur votre chemin vers une meilleure santé.",
+    "Chaque nuit de sommeil réparateur est un investissement dans votre bien-être à long terme. Continuez ainsi et vous remarquerez comment votre énergie et votre vitalité augmentent jour après jour.",
+    "Votre engagement pour un repos de qualité mérite reconnaissance. Poursuivez votre série positive et rappelez-vous que chaque nuit de sommeil réparateur est une opportunité de vous renouveler et de vous revitaliser."
+  ],
+  "profileRecoveryMessageDefault-": [
+    "Reconnaître une série négative est le premier pas vers un changement positif. Prenez un moment pour réfléchir à vos habitudes et envisagez les ajustements que vous pouvez apporter pour améliorer votre repos.",
+    "Chaque nuit est une occasion d'améliorer la qualité de votre sommeil. Si vous avez connu une série négative, envisagez les changements que vous pouvez apporter pour favoriser un sommeil plus réparateur.",
+    "Maintenir une série négative dans votre sommeil est un signe qu'il est temps de prêter plus d'attention à votre bien-être. Recherchez des moyens de réduire le stress et de promouvoir un environnement propice au sommeil.",
+    "Reconnaître une série négative dans votre repos est une invitation à prendre mieux soin de vous-même. Priorisez votre santé et envisagez les mesures que vous pouvez prendre pour améliorer la qualité de votre sommeil.",
+    "Chaque nuit est une nouvelle opportunité d'améliorer votre repos. Si vous avez connu une série négative, recherchez des moyens de vous détendre avant de vous coucher et créez un environnement propice au sommeil.",
+    "Votre bien-être est une priorité, et chaque nuit de sommeil est une opportunité de mieux prendre soin de vous-même. Si vous avez connu une série négative, prenez le temps nécessaire pour récupérer et cherchez du soutien si nécessaire."
+  ],
+  "profileANSMessage1+": [
+    "Votre équilibre autonome était positif aujourd'hui, continuez ainsi ! Célébrez vos réalisations et continuez à pratiquer des habitudes saines pour maintenir l'harmonie.",
+    "Excellent ! L'équilibre de votre système nerveux autonome suggère une journée de calme et d'équilibre. Continuez à cultiver des habitudes saines et profitez des avantages continus.",
+    "Excellent début ! Votre système nerveux montre un équilibre sain aujourd'hui. Continuez à prendre soin de vous pour maintenir cette harmonie et profiter de plus de jours pleins de vitalité.",
+    "Aujourd'hui, votre corps et votre esprit sont synchronisés. C'est un bon rappel que vos habitudes positives portent leurs fruits. Continuez ainsi et vous verrez comment cela se reflète dans votre bien-être général.",
+    "Une journée d'équilibre dans votre système nerveux est un pas dans la bonne direction. Profitez de cet élan pour continuer à nourrir votre santé et à promouvoir un bien-être durable."
+  ],
+  "profileANSMessage1-": [
+    "Aujourd'hui, l'équilibre de votre système nerveux autonome suggère un stress plus élevé. Réfléchissez à ce qui pourrait avoir contribué à cela et envisagez des techniques de relaxation pour améliorer votre bien-être.",
+    "Bien que l'équilibre autonome d'aujourd'hui n'ait pas été idéal, rappelez-vous qu'il s'agit simplement d'une journée. Identifiez les sources de stress et cherchez des moyens d'incorporer la relaxation dans votre routine pour améliorer votre réponse au stress.",
+    "Aujourd'hui, vous avez éprouvé un déséquilibre dans votre système nerveux. Profitez de ce moment comme une opportunité pour réfléchir à vos habitudes et trouver des moyens de restaurer l'harmonie dans votre corps et votre esprit.",
+    "Reconnaître une journée de déséquilibre est la première étape pour retrouver l'harmonie. Réfléchissez à ce qui aurait pu causer cette disparité et prenez des mesures pour mieux prendre soin de vous à l'avenir.",
+    "Une journée de déséquilibre dans votre système nerveux est un signe que vous devez prêter plus d'attention à votre bien-être. Utilisez cette expérience comme motivation pour chercher des moyens de promouvoir le calme et la stabilité dans votre vie quotidienne."
+  ],
+  "profileANSMessage2+": [
+    "Double dose d'équilibre ! Deux jours consécutifs avec votre système nerveux en harmonie sont un signe que vous prenez bien soin de vous. Continuez comme ça !",
+    "Deux jours consécutifs d'équilibre montrent votre engagement pour le bien-être. Continuez à nourrir cet équilibre avec des habitudes saines et positives.",
+    "Bravo pour maintenir l'équilibre ! Deux jours consécutifs avec votre système nerveux en synchronie sont une raison de célébrer vos efforts vers un plus grand bien-être.",
+    "Votre corps et votre esprit dansent en harmonie pendant deux jours consécutifs. Continuez à nourrir cette connexion avec des pratiques qui vous font du bien.",
+    "Deux jours d'équilibre sont comme une étreinte réconfortante pour votre système nerveux. Continuez comme ça et vous remarquerez comment votre bien-être général en bénéficie.",
+    "Deux jours, une grande réussite ! Votre engagement pour l'équilibre vous mène loin. Continuez avec cette même détermination."
+  ],
+  "profileANSMessage2-": [
+    "Deux jours de déséquilibre peuvent être un signe que vous devez prêter plus d'attention à votre bien-être. Prenez un moment pour réfléchir et trouver des moyens de restaurer l'harmonie.",
+    "Reconnaître deux jours de déséquilibre est la première étape vers un changement positif. Envisagez les ajustements que vous pouvez apporter pour promouvoir un état de calme et d'équilibre dans votre vie quotidienne.",
+    "Deux jours de déséquilibre sont un appel à prendre mieux soin de vous. Utilisez cette expérience comme motivation pour chercher des moyens de réduire le stress et de promouvoir le calme dans votre routine quotidienne.",
+    "Parfois, deux jours de déséquilibre ne sont qu'un rappel que vous devez écouter les signaux de votre corps. Trouvez le temps de vous détendre et de restaurer votre équilibre intérieur.",
+    "Deux jours de déséquilibre peuvent être un défi, mais ils sont aussi une opportunité d'apprendre et de grandir. Réfléchissez à ce que vous pouvez faire pour mieux soutenir votre bien-être mental et émotionnel.",
+    "Reconnaître deux jours de déséquilibre vous permet de prendre des mesures proactives pour retrouver votre équilibre. Continuez avec détermination et cherchez des moyens de promouvoir le calme et le bien-être dans votre vie quotidienne."
+  ],
+  "profileANSMessage3+": [
+    "Trois jours consécutifs avec un équilibre autonome positif sont une réalisation significative. Assurez-vous de maintenir ces habitudes et de faire face efficacement au stress.",
+    "Triple série d'équilibre autonome. Vous construisez une base solide pour votre bien-être. Continuez avec vos pratiques saines pour maintenir l'harmonie.",
+    "Trois jours d'équilibre constant ! Votre système nerveux est en synchronisation et votre bien-être est élevé. Continuez à nourrir ce flux positif avec vos habitudes saines.",
+    "Trois jours consécutifs d'harmonie montrent votre engagement envers le bien-être global. Continuez à faire ce que vous faites, vous êtes sur la bonne voie !",
+    "Votre corps et votre esprit sont synchronisés pendant trois jours consécutifs. C'est une réalisation significative qui mérite d'être célébrée. Continuez à prendre soin de vous et à maintenir ce flux positif.",
+    "Trois jours d'équilibre sont comme un cadeau pour votre système nerveux. Continuez à nourrir cette connexion avec des pratiques qui vous nourrissent et vous font vous sentir bien."
+  ],
+  "profileANSMessage3-": [
+    "Trois jours consécutifs avec un déséquilibre autonome suggèrent un schéma. Il est temps de donner la priorité à la relaxation et de réduire le stress dans votre vie quotidienne. De petits changements peuvent faire une grande différence.",
+    "Bien que l'équilibre autonome n'ait pas été idéal pendant trois jours, chaque jour est une nouvelle opportunité de restaurer l'harmonie. Introduisez des pratiques de relaxation et d'auto-soin pour améliorer votre bien-être.",
+    "Trois jours de déséquilibre peuvent indiquer que vous avez besoin de prendre un moment pour mieux prendre soin de vous. Réfléchissez à ce qui cause ce déséquilibre et prenez des mesures pour restaurer l'harmonie.",
+    "Reconnaître trois jours de déséquilibre est le premier pas vers un changement positif. Envisagez les ajustements que vous pouvez apporter à votre mode de vie pour promouvoir un état de calme et d'équilibre.",
+    "Trois jours de déséquilibre sont un signal pour prêter plus d'attention à votre bien-être. Utilisez cette expérience comme motivation pour rechercher des moyens de réduire le stress et de promouvoir la tranquillité dans votre vie quotidienne.",
+    "Parfois, trois jours de déséquilibre sont un rappel que vous devez écouter les besoins de votre corps. Prenez un moment pour vous reposer et restaurer votre équilibre intérieur."
+  ],
+  "profileANSMessage4+": [
+    "Quatre jours consécutifs d'équilibre continu sont une réalisation remarquable. Votre corps et votre esprit sont en synchronisation, continuez ainsi et vous atteindrez de nouveaux sommets de bien-être !",
+    "Quatre jours consécutifs d'équilibre ! Il est évident que vous faites des choix sains qui bénéficient à votre système nerveux. Continuez avec cet élan positif !",
+    "Votre système nerveux est resté en harmonie pendant quatre jours consécutifs. C'est un accomplissement qui mérite d'être célébré. Continuez à prendre soin de vous et appréciez la puissance de vos habitudes saines.",
+    "Quatre jours d'équilibre constant témoignent de votre dévouement au bien-être. Continuez à nourrir cette connexion esprit-corps et vous récolterez les fruits d'une vie équilibrée.",
+    "Merveilleux ! Quatre jours consécutifs d'harmonie montrent votre engagement envers votre santé globale. Continuez à cultiver ce flux positif et observez comment il transforme votre bien-être.",
+    "Votre système nerveux est resté en équilibre pendant quatre jours consécutifs. C'est une étape importante qui reflète votre engagement envers une vie saine et équilibrée."
+  ],
+  "profileANSMessage4-": [
+    "Quatre jours de déséquilibre peuvent indiquer que vous devez prêter plus d'attention à votre bien-être. Prenez un moment pour réfléchir et chercher des moyens de restaurer l'harmonie dans votre vie quotidienne.",
+    "Reconnaître quatre jours de déséquilibre est le premier pas vers un changement positif. Envisagez les ajustements que vous pouvez apporter à votre mode de vie pour promouvoir un état de calme et d'équilibre.",
+    "Quatre jours de déséquilibre sont un signal pour mieux prendre soin de vous. Utilisez cette expérience comme motivation pour rechercher des moyens de réduire le stress et de promouvoir la tranquillité dans votre routine quotidienne.",
+    "Parfois, quatre jours de déséquilibre sont un rappel que vous devez écouter les besoins de votre corps. Prenez un moment pour vous reposer et restaurer votre équilibre intérieur.",
+    "Quatre jours de déséquilibre peuvent être un défi, mais ils sont aussi une opportunité d'apprendre et de grandir. Réfléchissez à ce que vous pouvez faire pour mieux soutenir votre bien-être mental et émotionnel.",
+    "Reconnaître quatre jours de déséquilibre vous permet de prendre des mesures proactives pour retrouver votre équilibre. Continuez à avancer avec détermination et cherchez des moyens de promouvoir le calme et le bien-être dans votre vie quotidienne."
+  ],
+  "profileANSMessage5+": [
+    "Fantastique! Votre système nerveux autonome était en équilibre positif pendant cinq jours consécutifs. Cela indique une remarquable harmonie entre le système sympathique et parasympathique, offrant stabilité et bien-être à votre corps. Vous créez un environnement propice à la santé et à des performances optimales!",
+    "Cinq jours d'équilibre positif dans le SNA sont un signe que votre corps est en équilibre. Cette cohérence entre les systèmes nerveux sympathique et parasympathique favorise la récupération, la résistance au stress et la santé en général. Continuez à prendre soin de vous et vous en récolterez les bénéfices à long terme!",
+    "Maintenir un équilibre positif dans le système nerveux autonome pendant cinq jours est une réalisation significative. Votre corps apprécie l'attention que vous lui avez accordée. Profitez de la sensation de bien-être que vous avez créée et continuez avec vos pratiques saines.",
+    "Cinq jours d'équilibre harmonieux! Votre corps et votre esprit étaient en harmonie, ce qui indique une bonne régulation entre le système nerveux sympathique et parasympathique. Continuez ainsi et nourrissez cet équilibre!",
+    "Pendant cinq jours consécutifs, vous avez maintenu un état d'équilibre qui reflète l'harmonie entre votre système sympathique et parasympathique. C'est une réussite admirable qui mérite d'être célébrée!",
+    "Cinq jours d'équilibre constant sont un signe clair que vous prenez bien soin de vous. Votre système nerveux fonctionne en harmonie, vous permettant de relever les défis quotidiens avec calme et clarté.",
+    "Votre corps a été en équilibre pendant cinq jours consécutifs, ce qui démontre une régulation saine entre le système sympathique et parasympathique. Continuez à cultiver ce flux positif et vous verrez comment votre bien-être général s'améliore."
+  ],
+  "profileANSMessage5-": [
+    "Cinq jours consécutifs de déséquilibre dans le système nerveux autonome indiquent une zone qui nécessite une attention particulière. Ce déséquilibre peut affecter la réponse au stress et la capacité de récupération. Envisagez des stratégies pour restaurer l'harmonie et améliorer votre bien-être général.",
+    "Maintenir un équilibre négatif dans le SNA pendant cinq jours peut avoir des répercussions sur votre santé physique et mentale. C'est un rappel de l'importance de prendre soin de votre système nerveux pour prévenir la fatigue et l'épuisement. Prenez le temps nécessaire pour vous détendre et récupérer.",
+    "Malgré les cinq derniers jours difficiles en termes d'équilibre du système nerveux autonome, chaque jour est une nouvelle opportunité pour apporter des ajustements positifs. Écoutez votre corps, mettez en place des pratiques relaxantes et travaillez à restaurer l'équilibre. Votre bien-être est entre vos mains.",
+    "Cinq jours de déséquilibre peuvent indiquer une surcharge de votre système nerveux sympathique, ce qui peut entraîner des sentiments d'anxiété ou d'agitation. Il est important de prendre du temps pour se détendre et retrouver le calme.",
+    "Reconnaître cinq jours de déséquilibre est la première étape pour rétablir l'harmonie entre votre système sympathique et parasympathique. Envisagez d'incorporer des pratiques de relaxation et d'auto-soin dans votre routine quotidienne.",
+    "Cinq jours de déséquilibre sont un signal que vous devez prêter attention à votre bien-être émotionnel et physique. Cherchez des moyens de réduire le stress et de favoriser la détente pour restaurer l'équilibre dans votre vie quotidienne.",
+    "Parfois, cinq jours de déséquilibre sont un rappel de l'importance d'écouter les signaux de votre corps. Prenez le temps de vous reconnecter avec vous-même et trouvez des moyens de soutenir votre bien-être global."
+  ],
+  "profileANSMessage6+": [
+    "Six jours d'équilibre constant sont une preuve de votre engagement envers votre bien-être. Votre système nerveux a été en harmonie, ce qui indique une bonne régulation entre le système sympathique et parasympathique.",
+    "Pendant six jours consécutifs, vous avez maintenu un état d'équilibre qui reflète l'harmonie entre votre système sympathique et parasympathique. Continuez à cultiver ce flux positif et vous verrez comment votre bien-être général s'améliore.",
+    "Votre corps et votre esprit étaient en synchronisation pendant six jours consécutifs, ce qui démontre une régulation saine entre le système sympathique et parasympathique. Continuez à nourrir cet équilibre avec vos habitudes saines.",
+    "Six jours consécutifs d'équilibre! Ce succès est une preuve de votre capacité à prendre bien soin de vous. Continuez sur cette lancée positive et gardez votre bien-être au centre de vos priorités.",
+    "Votre corps a été en équilibre pendant six jours consécutifs, ce qui démontre une connexion profonde entre votre esprit et votre bien-être physique. Continuez à cultiver cet équilibre et vous verrez comment il se reflète dans votre vie quotidienne.",
+    "Pendant six jours consécutifs, vous avez maintenu une synchronisation notable entre votre corps et votre esprit. Ce succès est un rappel de votre capacité à prendre soin de vous et à soutenir votre santé globale."
+  ],
+  "profileANSMessage6-": [
+    "Six jours de déséquilibre peuvent indiquer que vous avez besoin de prendre un moment pour mieux prendre soin de vous. Il est important de prêter attention aux signaux que votre corps vous envoie et de chercher des moyens de restaurer l'harmonie.",
+    "Reconnaître six jours de déséquilibre est la première étape pour initier des changements positifs dans votre vie. Envisagez les ajustements que vous pouvez apporter à votre routine quotidienne pour promouvoir un état de calme et d'équilibre.",
+    "Six jours de déséquilibre sont un signe que vous devez apporter des changements dans votre vie pour soutenir votre bien-être physique et émotionnel. Prenez le temps de réfléchir à ce qui vous cause du stress et cherchez des moyens de le réduire.",
+    "Parfois, six jours de déséquilibre sont un rappel que vous devez écouter les besoins de votre corps. Prenez une pause et cherchez des activités qui vous aideront à recharger vos batteries et à restaurer votre équilibre interne.",
+    "Reconnaître six jours de déséquilibre vous permet de prendre des mesures proactives pour retrouver votre bien-être. Continuez avec détermination et cherchez des moyens de promouvoir le calme et l'équilibre dans votre vie quotidienne.",
+    "Six jours de déséquilibre peuvent être un défi, mais ils sont aussi une opportunité d'apprendre et de grandir. Réfléchissez à ce que vous pouvez faire pour mieux soutenir votre santé mentale et émotionnelle et prenez des mesures pour améliorer votre qualité de vie."
+  ],
+  "profileANSMessage7+": [
+    "Malgré une semaine d'équilibre autonome positif, ne baissez pas la garde. Continuez à prendre soin de votre bien-être et à gérer le stress de manière efficace.",
+    "Une semaine complète d'équilibre autonome ! Vous démontrez un engagement significatif envers votre santé mentale. Continuez comme ça et profitez d'une vie plus équilibrée.",
+    "Une semaine entière d'équilibre et d'harmonie ! Vos habitudes de sommeil et de bien-être sont synchronisées, vous permettant de vous réveiller chaque jour rafraîchi.",
+    "Sept jours consécutifs d'équilibre montrent votre engagement envers une vie saine. Votre corps et votre esprit sont synchronisés, prêts à affronter les défis quotidiens avec calme et clarté.",
+    "Pendant sept jours consécutifs, vous avez maintenu une stabilité notable, reflétant un état de bien-être global. C'est une réalisation qui mérite d'être célébrée !",
+    "Une semaine complète d'équilibre est la preuve de votre engagement envers l'auto-soin. Continuez à nourrir cet équilibre et vous verrez comment il se reflète dans tous les aspects de votre vie."
+  ],
+  "profileANSMessage7-": [
+    "Maintenir un déséquilibre autonome pendant une semaine est un signe d'alarme. Il est crucial de s'attaquer aux sources de stress et de donner la priorité à la relaxation pour restaurer l'harmonie dans votre système nerveux.",
+    "Malgré une semaine difficile en termes d'équilibre autonome, vous avez le contrôle de votre bien-être. Mettez en œuvre des changements significatifs dans votre mode de vie pour favoriser le calme et la relaxation.",
+    "Sept jours de déséquilibre peuvent être un rappel important d'écouter les besoins de votre corps. Envisagez les changements que vous pouvez apporter pour améliorer votre bien-être général.",
+    "Reconnaître sept jours de déséquilibre est la première étape vers un changement positif. Prenez le temps d'évaluer votre routine et trouvez des moyens de favoriser la relaxation et le repos réparateur.",
+    "Sept jours de déséquilibre peuvent être difficiles, mais ils sont aussi une opportunité de réfléchir et d'ajuster votre approche pour adopter un mode de vie plus équilibré.",
+    "Si vous avez vécu sept jours de déséquilibre, il est temps de donner la priorité à votre bien-être. Apportez de petits changements à votre routine quotidienne pour encourager un sommeil réparateur et restaurer l'harmonie dans votre vie."
+  ],
+  "profileANSMessage8+": [
+    "Huit jours d'équilibre constant sont une preuve de votre engagement envers votre bien-être. Votre système nerveux a été en harmonie, indiquant une bonne régulation entre les systèmes sympathique et parasympathique.",
+    "Pendant huit jours consécutifs, vous avez maintenu un état d'équilibre qui reflète l'harmonie entre vos systèmes sympathique et parasympathique. Continuez à nourrir ce flux positif et vous verrez des améliorations dans votre bien-être général.",
+    "Votre corps et votre esprit ont été synchronisés pendant huit jours consécutifs, démontrant une régulation saine entre les systèmes sympathique et parasympathique. Continuez à nourrir cet équilibre avec vos habitudes saines.",
+    "Huit jours consécutifs d'équilibre ! Cette réussite est la preuve de votre capacité à prendre soin de vous. Continuez avec cette élan positif et gardez votre bien-être au centre de vos priorités.",
+    "Votre corps a été en équilibre pendant huit jours consécutifs, démontrant une connexion profonde entre votre esprit et votre bien-être physique. Continuez à cultiver cet équilibre et vous verrez comment il se reflète dans votre vie quotidienne.",
+    "Pendant huit jours consécutifs, vous avez maintenu une synchronisation notable entre votre corps et votre esprit. Cette réussite est un rappel de votre capacité à prendre soin de vous et à soutenir votre santé intégrale."
+  ],
+  "profileANSMessage8-": [
+    "Huit jours de déséquilibre peuvent indiquer que vous devez prendre un peu de temps pour mieux prendre soin de vous. Il est important de prêter attention aux signaux que votre corps vous envoie et de trouver des moyens de restaurer l'harmonie.",
+    "Reconnaître huit jours de déséquilibre est la première étape vers l'initiation de changements positifs dans votre vie. Envisagez des ajustements que vous pouvez apporter à votre routine quotidienne pour promouvoir un état de calme et d'équilibre.",
+    "Huit jours de déséquilibre indiquent que vous devez apporter des changements dans votre vie pour soutenir votre bien-être physique et émotionnel. Prenez le temps de réfléchir à ce qui vous cause du stress et cherchez des moyens de le réduire.",
+    "Parfois, huit jours de déséquilibre servent de rappel que vous devez écouter les besoins de votre corps. Faites une pause et cherchez des activités qui vous aideront à vous ressourcer et à restaurer votre équilibre interne.",
+    "Reconnaître huit jours de déséquilibre vous permet de prendre des mesures proactives pour retrouver votre bien-être. Continuez à avancer avec détermination et cherchez des moyens de promouvoir le calme et l'équilibre dans votre vie quotidienne.",
+    "Huit jours de déséquilibre peuvent être un défi, mais ils sont aussi une opportunité d'apprendre et de grandir. Réfléchissez à ce que vous pouvez faire pour mieux soutenir votre santé mentale et émotionnelle et prenez des mesures pour améliorer votre qualité de vie."
+  ],
+  "profileANSMessage9+": [
+    "Neuf jours d'équilibre continu sont un exploit admirable ! Votre engagement envers le bien-être reflète votre dévouement à prendre soin de vous-même.",
+    "Vous avez démontré une constance remarquable pendant neuf jours consécutifs. Maintenez cette impulsion positive et continuez à nourrir votre bien-être physique et mental.",
+    "Votre détermination brille à travers neuf jours d'équilibre constant. Continuez à cultiver cette harmonie intérieure et vous verrez comment elle impacte positivement votre vie quotidienne.",
+    "Neuf jours d'équilibre montrent votre capacité à vous adapter et à prioriser votre bien-être. Célébrez chaque réussite dans ce voyage vers une vie plus équilibrée et satisfaisante !",
+    "Chaque jour de ces neuf reflète votre engagement envers une vie pleine et saine. Continuez à trouver de la joie dans les petits moments et prenez soin de votre corps et de votre esprit avec amour et attention.",
+    "Votre persistance pendant neuf jours d'équilibre est un témoignage de votre force intérieure et de votre détermination. Continuez avec confiance, sachant que vous construisez un avenir plus sain et équilibré."
+  ],
+  "profileANSMessage9-": [
+    "Neuf jours de déséquilibre peuvent être difficiles, mais ils sont aussi une opportunité de réfléchir et d'ajuster votre approche pour un mode de vie plus équilibré.",
+    "Reconnaître neuf jours de déséquilibre est la première étape vers un changement positif. Prenez le temps d'évaluer votre routine et trouvez des moyens de favoriser la relaxation et le repos réparateur.",
+    "Neuf jours de déséquilibre sont un signe qu'il est temps de prêter attention à votre bien-être. Accordez-vous du temps pour prendre soin de vous et recherchez des activités qui vous aideront à recharger vos batteries et à restaurer l'équilibre intérieur.",
+    "Il est normal de faire face à neuf jours de déséquilibre parfois, mais c'est aussi une opportunité d'apprendre et de grandir. Réfléchissez à ce que vous pouvez faire pour mieux soutenir votre bien-être et prenez des mesures pour améliorer votre qualité de vie.",
+    "Pendant neuf jours de déséquilibre, il est important de se rappeler que chaque jour est une opportunité de recommencer. Gardez une perspective positive et cherchez des moyens de cultiver l'harmonie dans votre vie quotidienne.",
+    "Malgré neuf jours de défis, rappelez-vous que vous avez le pouvoir de changer votre situation. Avec de petits pas et des décisions conscientes, vous pouvez restaurer l'équilibre et avancer vers une vie plus pleine et plus satisfaisante."
+  ],
+  "profileANSMessage10+": [
+    "Dix jours d'équilibre constant sont un accomplissement impressionnant ! Votre dévouement au bien-être a créé une base solide pour une vie plus épanouie et satisfaisante.",
+    "Maintenir l'équilibre pendant dix jours consécutifs est une démonstration de votre engagement et de votre détermination. Continuez à prendre soin de votre corps et de votre esprit avec amour et attention.",
+    "Dix jours d'équilibre montrent votre capacité à vous adapter et à prospérer même dans les moments les plus difficiles. Continuez à cultiver ce sentiment d'harmonie et de bien-être dans votre vie quotidienne.",
+    "Votre constance pendant dix jours consécutifs reflète votre dévouement à l'auto-soin et au bien-être général. Célébrez chaque petit pas vers une vie plus équilibrée et significative !",
+    "Chaque jour de ces dix souligne votre engagement envers un mode de vie sain et équilibré. Continuez à trouver de la joie dans les petites choses et à nourrir votre corps et votre esprit avec des habitudes positives.",
+    "Dix jours d'équilibre sont un témoignage de votre force intérieure et de votre persévérance. Avancez avec confiance, sachant que vous construisez un avenir plus sain et plus heureux."
+  ],
+  "profileANSMessage10-": [
+    "Dix jours de déséquilibre peuvent être difficiles, mais ils sont aussi une opportunité de réfléchir et d'ajuster votre approche pour un mode de vie plus équilibré.",
+    "Reconnaître dix jours de déséquilibre est la première étape vers un changement positif. Prenez le temps d'évaluer votre routine et trouvez des moyens de favoriser la relaxation et le repos réparateur.",
+    "Dix jours de déséquilibre sont un signe qu'il est temps de prêter attention à votre bien-être. Accordez-vous du temps pour prendre soin de vous et recherchez des activités qui vous aideront à recharger vos batteries et à restaurer l'équilibre intérieur.",
+    "Il est normal de faire face à dix jours de déséquilibre parfois, mais c'est aussi une opportunité d'apprendre et de grandir. Réfléchissez à ce que vous pouvez faire pour mieux soutenir votre bien-être et prenez des mesures pour améliorer votre qualité de vie.",
+    "Pendant dix jours de déséquilibre, il est important de se rappeler que chaque jour est une opportunité de recommencer. Gardez une perspective positive et cherchez des moyens de cultiver l'harmonie dans votre vie quotidienne.",
+    "Malgré dix jours de défis, rappelez-vous que vous avez le pouvoir de changer votre situation. Avec de petits pas et des décisions conscientes, vous pouvez restaurer l'équilibre et avancer vers une vie plus pleine et plus satisfaisante."
+  ],
+  "profileANSMessageTwoWeeks+": [
+    "Deux semaines d'équilibre continu sont une réalisation impressionnante ! Votre dévouement au bien-être a créé une base solide pour une vie plus épanouissante et satisfaisante.",
+    "Maintenir l'équilibre pendant deux semaines consécutives est une démonstration de votre engagement et de votre détermination. Continuez à prendre soin de votre corps et de votre esprit avec amour et attention.",
+    "Deux semaines d'équilibre montrent votre capacité à vous adapter et à prospérer même dans les moments les plus difficiles. Continuez à cultiver ce sentiment d'harmonie et de bien-être dans votre vie quotidienne.",
+    "Votre constance pendant deux semaines consécutives reflète votre dévouement à l'auto-soin et au bien-être général. Célébrez chaque petit pas vers une vie plus équilibrée et significative !",
+    "Chaque jour de ces deux semaines met en évidence votre engagement pour un mode de vie sain et équilibré. Continuez à trouver de la joie dans les petites choses et à nourrir votre corps et votre esprit avec des habitudes positives.",
+    "Deux semaines d'équilibre sont un témoignage de votre force intérieure et de votre persévérance. Avancez avec confiance, sachant que vous êtes en train de construire un avenir plus sain et plus heureux."
+  ],
+  "profileANSMessageTwoWeeks-": [
+    "Deux semaines de déséquilibre peuvent être difficiles, mais elles sont aussi une opportunité de réfléchir et d'ajuster votre approche à un mode de vie plus équilibré.",
+    "Reconnaître deux semaines de déséquilibre est la première étape vers un changement positif. Prenez le temps d'évaluer votre routine et trouvez des moyens de promouvoir la relaxation et le repos réparateur.",
+    "Deux semaines de déséquilibre sont un signe qu'il est temps de prêter attention à votre bien-être. Consacrez du temps à prendre soin de vous et recherchez des activités qui vous aident à recharger vos batteries et à restaurer l'équilibre intérieur.",
+    "Faire face à deux semaines de déséquilibre est normal parfois, mais c'est aussi une occasion d'apprendre et de grandir. Réfléchissez à ce que vous pouvez faire pour mieux soutenir votre bien-être et prenez des mesures pour améliorer votre qualité de vie.",
+    "Pendant deux semaines de déséquilibre, il est important de se rappeler que chaque jour est une opportunité de recommencer à zéro. Gardez une attitude positive et cherchez des moyens de cultiver l'harmonie dans votre vie quotidienne.",
+    "Malgré les défis de deux semaines, rappelez-vous que vous avez le pouvoir de changer votre situation. Avec de petits pas et des décisions conscientes, vous pouvez restaurer l'équilibre et avancer vers une vie plus épanouissante et satisfaisante."
+  ],
+  "profileANSMessageThreeWeeks+": [
+    "Trois semaines d'équilibre continu sont une réalisation remarquable ! Votre engagement pour le bien-être vous mène sur un chemin d'harmonie et de vitalité.",
+    "Maintenir l'équilibre pendant trois semaines consécutives démontre votre détermination et votre dévouement. Continuez à nourrir votre corps et votre esprit avec des habitudes positives qui améliorent votre bien-être général.",
+    "Trois semaines d'équilibre reflètent votre capacité à vous adapter et à prospérer dans toutes les circonstances. Continuez à cultiver une vie pleine de bien-être et de gratitude.",
+    "Votre persévérance sur trois semaines consécutives montre un engagement profond envers votre santé et votre bonheur. Célébrez chaque petit progrès et continuez votre chemin vers un bien-être durable.",
+    "Chaque jour de ces trois semaines souligne votre engagement pour un mode de vie équilibré et conscient. Continuez à chercher la beauté dans les petites choses et à nourrir votre corps et votre âme avec amour et soin.",
+    "Trois semaines d'équilibre sont un témoignage de votre force intérieure et de votre détermination. Avancez avec confiance et optimisme, sachant que vous êtes en train de construire une base solide pour une vie épanouissante et saine."
+  ],
+  "profileANSMessageThreeWeeks-": [
+    "Trois semaines de déséquilibre peuvent être un défi, mais elles représentent également une occasion de réfléchir et d'ajuster votre approche à un mode de vie plus équilibré.",
+    "Reconnaître trois semaines de déséquilibre est la première étape vers un changement positif. Prenez un moment pour évaluer vos habitudes et chercher des moyens de promouvoir la relaxation et le repos réparateur.",
+    "Trois semaines de déséquilibre sont un signe qu'il est important de prioriser votre bien-être. Consacrez du temps à prendre soin de vous et recherchez des activités qui vous aident à recharger vos batteries et à restaurer l'équilibre intérieur.",
+    "Bien qu'affronter trois semaines de déséquilibre puisse être difficile, c'est aussi une occasion d'apprendre et de grandir. Réfléchissez à la manière dont vous pouvez mieux soutenir votre bien-être et prenez des mesures positives vers une vie plus équilibrée.",
+    "Pendant trois semaines de déséquilibre, rappelez-vous que chaque jour est une nouvelle opportunité de recommencer à zéro. Gardez une attitude positive et cherchez des moyens de cultiver le calme et la sérénité dans votre vie quotidienne.",
+    "Malgré les défis de trois semaines, rappelez-vous que vous avez la force et la capacité de changer votre situation. Avec détermination et concentration, vous pouvez restaurer l'équilibre et avancer vers une vie plus épanouissante et satisfaisante."
+  ],
+  "profileANSMessageOneMonth+": [
+    "Un mois d'équilibre continu est une réalisation remarquable ! Chaque jour, tu as démontré ton engagement envers une vie saine et équilibrée.",
+    "Maintenir l'équilibre pendant un mois entier est le signe de ta force intérieure et de ta détermination à prioriser ton bien-être. Continue ainsi !",
+    "Célébrant un mois de bonnes habitudes. Chaque petit pas mène à de grands résultats. Tu es sur la bonne voie !",
+    "Un mois d'équilibre reflète ton engagement et ton dévouement envers ta santé et ton bonheur. Continue à trouver l'harmonie dans chaque jour.",
+    "Chaque jour de ce mois a été une occasion de grandir et de prendre soin de toi. Félicitations pour un mois de bonnes habitudes qui t'aident à prospérer.",
+    "Ton engagement pendant un mois est un rappel de ta capacité à créer des changements significatifs dans ta vie. Continue avec détermination et gratitude !"
+  ],
+  "profileANSMessageOneMonth-": [
+    "Reconnaître un mois de déséquilibre est le premier pas vers un changement positif. Il est temps de réfléchir et de trouver de nouvelles stratégies pour améliorer ton bien-être.",
+    "Malgré les défis de ce mois, rappelle-toi que chaque jour est une nouvelle opportunité de recommencer à zéro. Ne te décourage pas et cherche du soutien pour t'améliorer.",
+    "Pendant ce mois, chaque difficulté a été une opportunité d'apprendre et de grandir. Utilise cette expérience pour te renforcer et progresser vers un avenir plus équilibré.",
+    "Bien que ce mois ait été difficile, rappelle-toi que tu as le pouvoir de changer ta situation. Avec patience et persévérance, tu peux trouver l'équilibre dont tu as besoin.",
+    "Un mois de déséquilibre est un avertissement pour prêter plus attention à ton bien-être. Prends le temps de prendre soin de toi et cherche des moyens de restaurer ton équilibre intérieur.",
+    "Malgré les défis de ce mois, rappelle-toi que tu as le contrôle sur tes habitudes et ta santé. Chaque nouveau jour est une opportunité de prendre des décisions qui te rapprochent d'une vie plus équilibrée."
+  ],
+  "profileANSMessageDefault+": [
+    "Continue de briller avec ta série positive ! Chaque jour est une opportunité de continuer à remporter des succès et de progresser vers tes objectifs.",
+    "Ta constance dans la série positive est inspirante. Avance avec confiance et détermination, sachant que tu es sur la bonne voie.",
+    "Chaque pas que tu fais renforce ta série positive. Célèbre tes réussites et maintiens l'énergie positive alors que tu avances vers un avenir radieux.",
+    "Ton engagement pour l'excellence se manifeste dans ta série positive. Reste concentré sur tes objectifs et laisse ton succès être ta meilleure motivation.",
+    "Avec chaque jour de cette série positive, tu construis un chemin vers un avenir plein de possibilités. Avance avec enthousiasme et détermination !",
+    "Ta persistance dans la série positive est un témoignage de ta force et de ta résilience. Garde la flamme allumée et continue d'éclairer le chemin vers tes rêves."
+  ],
+  "profileANSMessageDefault-": [
+    "Reconnaître la série négative est le premier pas vers un changement positif. Accepte le défi et utilise ta détermination pour le surmonter.",
+    "Même si la série négative peut être difficile, chaque jour est une nouvelle opportunité de changer de cap. Garde espoir et cherche des solutions pour t'améliorer.",
+    "La série négative ne définit pas ton destin, mais ta réponse à celle-ci. Avec chaque défi, tu as l'opportunité d'apprendre et de devenir plus fort.",
+    "Malgré les obstacles de la série négative, rappelle-toi que tu es capable de les surmonter. Aie confiance en ta capacité à trouver le chemin vers la lumière.",
+    "Chaque jour de la série négative est une opportunité de te renforcer et de montrer ta résilience. Ne baisse pas les bras ; avance avec détermination et courage.",
+    "La série négative n'est qu'une partie de ton histoire ; ta capacité à la surmonter est ce qui définit ton avenir. Garde la foi et continue d'avancer courageusement vers un avenir meilleur."
+  ],
+  "profileCardSleepArcTooltip": "Le sommeil se déroule en cycles de 90 à 110 minutes, essentiels pour un repos sain. Un sommeil normal comprend quatre à six cycles complets, chacun avec des étapes de sommeil léger, profond et paradoxal (REM). Le sommeil léger est la transition entre l'éveil et le sommeil profond, tandis que le sommeil REM est celui où surviennent les rêves. Interrompre le sommeil affecte sa qualité.",
+  "profileModalSleepArcDesc": "La période de sommeil se déroule en cycles d'une durée de 90 à 110 minutes et constitue une partie essentielle d'un schéma de sommeil sain. En temps normal, quatre à six cycles complets se produisent généralement. Chaque cycle se compose de trois étapes : sommeil léger, sommeil profond et sommeil paradoxal (REM).\n\nLe sommeil LÉGER est le moment de transition de l'état d'éveil au sommeil PROFOND. Les yeux ne bougent pas, et le tonus musculaire diminue.\n\nPendant le sommeil PROFOND, le mouvement physique et le tonus musculaire sont presque inexistants. C'est essentiel pour la récupération physique et la plupart des systèmes physiologiques.\n\nPendant le sommeil REM, c'est là que nous rêvons, caractérisé par des mouvements rapides des yeux, des muscles paralysés, une pression artérielle variable et une fréquence cardiaque. Le sommeil REM est nécessaire pour la récupération mentale.\n\nLa durée du sommeil est aussi importante que le fait de s'assurer qu'il n'est pas interrompu, car tous les avantages d'un repos continu et réparateur ne seront pas atteints.",
+  "profileModalSleepArcDaily": "Pour une récupération complète de votre corps et de votre esprit, vous devez dormir suffisamment en général, cela signifie également disposer d'assez de sommeil REM et PROFOND. Le sommeil REM devrait représenter entre 20% et 25% de votre sommeil total, le sommeil PROFOND entre 10% et 20%, et le sommeil LÉGER entre 50% et 60%.",
+  "profileModalSleepArcWeekly": "Vous pouvez utiliser ce graphique pour comprendre les tendances de vos cycles de sommeil et de leurs phases tout au long de la semaine et ainsi établir une routine pour les moments où vous vous endormez et vous réveillez. Pratiquez des habitudes qui favorisent le sommeil et évitez les interruptions nocturnes, car tous les avantages d'un repos continu et réparateur ne seront pas atteints, même si vous avez dormi les 8 heures recommandées.",
+  "profileCardSleepScoreTooltip": "La qualité du sommeil est déterminée par la durée et la quantité de sommeil REM et profond. Plus d'heures et de sommeil de qualité signifient un meilleur score. La plupart des adultes ont besoin de 7 à 8 heures de sommeil pour une bonne santé. Un graphique hebdomadaire peut aider à comprendre les tendances et à améliorer les habitudes de sommeil si nécessaire.",
+  "profileModalSleepScoreDesc": "Le score de sommeil est déterminé en fonction du nombre d'heures que vous avez dormi et, pendant ces heures, de la quantité de sommeil REM et PROFOND que vous avez eu. Plus vous dormez d'heures, plus vous aurez de sommeil REM et PROFOND, donc, meilleur sera votre score de sommeil. À l'inverse, plus vous restez éveillé et/ou plus vous avez d'interruptions pendant votre période de sommeil, plus le score sera diminué.\n\nLa plupart des adultes ont besoin de 7 à 8 heures de sommeil chaque nuit. Pendant le sommeil, plusieurs processus biologiques et hormonaux se produisent, favorisant une bonne santé et permettant au corps de fonctionner de manière optimale.",
+  "profileModalSleepScoreWeekly": "Vous pouvez vous baser sur ce graphique pour comprendre les tendances de votre score de sommeil au fil des jours et, si votre score est en dessous de la moyenne, créer ou renforcer des habitudes qui vous guideront vers les 8 heures de sommeil recommandées.",
+  "profileCardRecoveryTooltip": "Les points de récupération montrent comment le corps se remet de la tension quotidienne. Ils sont calculés par la différence de variabilité de la fréquence cardiaque entre le matin et la nuit précédente. Un graphique hebdomadaire aide à équilibrer la routine et à prévenir les blessures.",
+  "profileModalRecoveryDesc": "Les points de récupération représentent l'adaptation et la récupération physique pendant le repos par rapport à votre routine quotidienne, et sont calculés par la différence entre les valeurs de la Variabilité de la Fréquence Cardiaque (VFC) du matin et de la nuit précédente.\n\nIl est très important de prendre en compte les activités qui génèrent du stress physique et/ou mental réalisées la veille, entraînements, journée de travail, etc. Les niveaux de récupération refléteront comment votre corps s'est rétabli pendant le sommeil de l'épuisement physique de la journée précédente.",
+  "profileModalRecoveryAnnotation": "*Notez que si la charge de la veille était faible, la récupération ne sera pas nécessairement élevée le lendemain, car le corps n'a pas de charge à récupérer.",
+  "profileModalRecoveryWeekly": "Vous pouvez vous baser sur ce graphique pour optimiser et équilibrer votre routine d'activités tout au long de la semaine, en comprenant vos tendances de récupération et en évitant ainsi une possible surcharge physique ou blessure.",
+  "profileCardANSTooltip": "Le système nerveux autonome contrôle les fonctions corporelles, divisé en sympathique et parasympathique. Le parasympathique régule le repos et la digestion, diminuant le rythme cardiaque. Le sympathique réagit au stress ou à l'activité, augmentant la pression artérielle et le rythme cardiaque.",
+  "profileModalANSDesc": "Le système nerveux autonome contrôle les fonctions de votre corps ; il se divise en sympathique et parasympathique. Pendant la journée, vous avez des moments de détente, où le système parasympathique est plus présent, et des moments d'excitation ou d'activité, où le système sympathique prend le contrôle. Ces systèmes fonctionnent comme un accélérateur et un frein qui s'alternent pour maintenir un équilibre.\n\nLe système parasympathique, associé aux mécanismes de \"repos et digestion\" (rest and digest), régule le repos et le métabolisme, gérant des systèmes internes tels que la digestion, la respiration et la croissance des ongles. Ce système provoque une diminution du rythme cardiaque.\n\nLe système sympathique, associé aux mécanismes de \"combat ou fuite\" (fight or flight), contrôle votre réponse physique active, réagissant à des variables externes telles que le stress et l'exercice. Il génère une augmentation de la pression artérielle et du rythme cardiaque.",
+  "profileModalANSDaily": "Pendant le sommeil, vous constaterez des alternances dans l'activité du système nerveux autonome qui reflètent les différentes phases du sommeil et les états d'activation ou de relaxation de votre corps.",
+  "profileModalANSWeekly": "Vous pouvez vous baser sur ce graphique pour comprendre les tendances dans l'équilibre du système nerveux autonome (SNA). Si les valeurs restent à 50/50, avec une correction de +/- 10, vous êtes dans les paramètres standards, indiquant un bon fonctionnement homéostatique de votre système nerveux autonome, associé à une bonne condition physique et à un moindre stress de l'organisme.\n\nSi les tendances indiquent un déséquilibre, cela peut être dû à une fatigue accumulée due à un mauvais repos et/ou à un manque d'heures de sommeil, et si la tendance se maintient à moyen ou long terme, cela pourrait être un indicateur de stress chronique.",
+  "profileCardHRVTooltip": "La HRV mesure la variation entre les battements cardiaques et reflète la santé et la condition physique. Des niveaux élevés indiquent une meilleure condition physique et moins de stress. Elle est influencée par l'interaction entre les branches Sympathique et Parasympathique du Système Nerveux Autonome.",
+  "profileModalHRVDesc": "La Variabilité du Rythme Cardiaque (VRC) est la variation du temps entre les battements du cœur. Utilisée comme indicateur de la santé et de la condition physique générale, elle permet de déterminer votre état psychophysiologique. La VRC analysée à court terme indique la préparation de votre corps à affronter la routine quotidienne.\n\nEn général, des valeurs plus élevées de VRC indiquent une meilleure condition physique et un moindre stress de l'organisme. Une faible VRC peut être associée au manque d'exercice physique et au risque de blessure.\n\nLa VRC est déterminée par le résultat de l'interaction entre le Système Sympathique, responsable des réactions de votre corps pour combattre ou fuir, et le Système Parasympathique, responsable des réactions de repos et de digestion ; tous deux composent le Système Nerveux Autonome et, dans un équilibre approprié, envoient des signaux à votre cœur pour battre plus rapidement (Sympathique) ou plus lentement (Parasympathique) ; cette fluctuation entre les battements est précisément la Variabilité du Rythme Cardiaque (VRC).",
+  "profileModalHRVDaily": "Une VRC plus élevée indique une meilleure récupération et un moindre stress de l'organisme. L'entraînement à moyen et long terme a tendance à augmenter les valeurs de VRC. À l'inverse, un faible niveau de VRC est associé à un risque potentiel de blessure et, à long terme, à des maladies associées.",
+  "profileModalHRVWeekly": "Vous pouvez vous baser sur ce graphique pour comprendre vos tendances de VRC. Lorsque les valeurs sont supérieures à la moyenne de vos 7 derniers jours, vous pouvez faire un entraînement intense. Si elles sont intermédiaires, un entraînement modéré ou léger est recommandé, et si elles sont inférieures, il est préférable de se reposer ou de faire un entraînement très léger pour éviter le surentraînement ou une blessure possible.",
+  "profileModalHRVWeeklyAnnotation": "*Une diminution à long terme de la RMSSD peut indiquer qu'une condition de surentraînement approche.",
+  "profileCardHeartRateTooltip": "La fréquence cardiaque au repos pour les adultes varie entre 60 et 100 battements par minute. Un rythme plus bas implique une meilleure fonction cardiaque et santé cardiovasculaire. Elle est calculée en prenant la valeur la plus basse de la moyenne des battements par minute par intervalles de trois minutes pendant toute la nuit.",
+  "profileModalHeartRateDesc": "La fréquence cardiaque normale au repos pour les adultes varie entre 60 et 100 battements par minute. En général, une fréquence cardiaque au repos plus basse implique une fonction cardiaque plus efficace et une meilleure condition cardiovasculaire.\n\nVotre fréquence cardiaque au repos est calculée en fonction de votre moyenne de battements par minute pour chaque intervalle de trois minutes tout au long de la nuit, en prenant la valeur la plus basse dans chaque intervalle.",
+  "profileModalHeartRateDaily": "Les battements par minute au repos peuvent être utilisés comme indicateur léger de stress ou de surentraînement.",
+  "profileModalHeartRateWeekly": "Vous pouvez utiliser ce graphique pour référencer votre fréquence cardiaque au repos de manière hebdomadaire, en vérifiant également d'éventuelles déviations notables par rapport au niveau de référence.\n\nL'exercice physique a tendance à diminuer la fréquence cardiaque au repos à moyen et long terme, indiquant que vous améliorez votre condition physique!",
+  "profileCardBreathingRateTooltip": "La fréquence respiratoire normale d'un adulte au repos est de 12 à 18 respirations par minute. Une fréquence inférieure à 12 ou supérieure à 25 respirations par minute au repos peut indiquer un problème de santé sous-jacent.",
+  "profileModalBreathingRateDesc": "La fréquence respiratoire normale pour un adulte au repos est de 12 à 18 respirations par minute. Une fréquence respiratoire inférieure à 12 ou supérieure à 25 respirations par minute au repos peut être un signe d'un problème de santé sous-jacent.",
+  "profileModalBreathingRateDaily": "La fréquence respiratoire normale pour un adulte au repos est de 12 à 18 respirations par minute. Notez que les taux de respiration peuvent augmenter avec des conditions médicales telles que la fièvre ou la maladie.",
+  "profileModalBreathingRateWeekly": "Vous pouvez utiliser ce graphique pour comprendre les tendances de votre fréquence respiratoire au repos tout au long de la semaine et obtenir vos valeurs de référence.",
+  "profileCardMovementsTooltip": "L'activité moyenne mesure des mouvements plus importants que ceux causés par les battements de cœur et la respiration, comme le mouvement d'une jambe ou d'un bras. Les rotations indiquent des mouvements corporels plus importants.",
+  "profileModalMovementsDesc": "L'activité moyenne mesure des mouvements plus importants que ceux causés par les battements du cœur et la respiration, tels que bouger une jambe ou un bras ou changer légèrement de position. Les mouvements plus importants de votre corps sont indiqués par le nombre de rotations.",
+  "profileModalMovementsDaily": "Une valeur plus élevée que la normale tant dans l'activité moyenne que dans le nombre de rotations peut indiquer une nuit agitée. Gardez à l'esprit que vous devez les comparer à vos propres valeurs de référence.",
+  "profileModalMovementsWeekly": "Vous pouvez vous baser sur ce graphique pour comprendre les valeurs de référence dans votre activité et le nombre de rotations moyennes pendant vos nuits. Une augmentation à long terme de ces chiffres peut indiquer que vous vous approchez d'une condition de surentraînement.",
+  "profileCardSleepTimeTooltip": "Ici, vous pouvez voir combien de temps vous avez passé au lit et combien vous avez dormi. Pour les adultes, 7 à 8 heures de sommeil sont idéales. Le temps au lit exclut le temps passé à l'extérieur. Quitter le lit pendant plus de 10 minutes mettra fin à la période de sommeil.",
+  "profileModalSleepTimeDesc": "Ici, vous verrez le temps total que vous avez passé au lit et combien de temps vous avez dormi. Pour les adultes, dormir entre 7 et 8 heures est considéré comme optimal.\n\nLa durée au lit exclut la durée totale des sorties du lit. Gardez à l'esprit que si vous quittez le lit pendant plus de 10 minutes, cela mettra fin à la période de présence et créera l'enregistrement nocturne avec les informations collectées jusqu'à ce moment-là.",
+  "IrreversibleAction": "Cette action est irréversible",
+  "sleepScoreChartTotalRecovery": "Total de récupération",
+  "ansChartAbsent": "Absent",
+  "hrvChartHeartRate": "Fréquence cardiaque",
+  "hrvChartAdjustmentLine": "Ligne de réglage RMSSD",
+  "brChartBreathingRate": "Fréquence respiratoire",
+  "movementsChartMovement": "Quantité de grands mouvements",
+  "movementsChartTurns": "Tours/Nuit",
+  "sleepTimeChartAwake": "Éveillé",
+  "sleepTimeChartSleep": "Dormant",
+  "sleepTimeChartAwakeHS": "Éveillé (hs)",
+  "sleepTimeChartSleepHS": "Dormant (hs)",
+  "sleepArcChartAbsent": "Absent",
+  "sleepArcChartAbsentHS": "Absent (hs)",
+  "sleepArcChartAwake": "Éveillé",
+  "sleepArcChartAwakeHS": "Éveillé (hs)",
+  "sleepArcChartLight": "Léger",
+  "sleepArcChartLightHS": "Léger (hs)",
+  "sleepArcChartDeep": "Profond",
+  "sleepArcChartDeepHS": "Profond (hs)",
+  "sleepArcChartRem": "REM",
+  "sleepArcChartRemHS": "REM (hs)",
+  "sleepArcChartTitle": "Architecture du sommeil"
+}

@@ -1,0 +1,1101 @@
+{
+  "sidebarMenuButton": "Expand",
+  "sidebarItems": [
+    {
+      "label": "Group View",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    },
+    {
+      "label": "Administration Panel",
+      "icon": "settings-gear-combination.svg",
+      "path": "/dashboard/admin"
+    }
+  ],
+  "sidebarItemsGroupView": [
+    {
+      "label": "Administration Panel",
+      "icon": "settings-gear-combination.svg",
+      "path": "/dashboard/admin"
+    }
+  ],
+  "sidebarItemsAdmin": [
+    {
+      "label": "Group View",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    }
+  ],
+  "sidebarSettings": "Settings",
+  "sidebarLanguage": "Language",
+  "languagesDropdown": [
+    {
+      "name": "Spanish",
+      "code": "es"
+    },
+    {
+      "name": "English",
+      "code": "en"
+    },
+    {
+      "name": "Italian",
+      "code": "it"
+    },
+    {
+      "name": "German",
+      "code": "de"
+    },
+    {
+      "name": "French",
+      "code": "fr"
+    }
+  ],
+  "sidebarSignOut": "Sign Out",
+  "loginWelcome": "Welcome",
+  "loginForget": "Forgot Password",
+  "loginPlaceholderEmail": "Email",
+  "loginPlaceholderPassword": "Password",
+  "loginButtonSignIn": "Sign In",
+  "loginButtonSend": "Send",
+  "loginForgetPassword": "Forgot your password?",
+  "loginLangES": "Spanish",
+  "loginLangEN": "English",
+  "loginLangIT": "Italian",
+  "loginLangDE": "German",
+  "loginLangFR": "French",
+  "loginTooltipBack": "Back",
+  "loginInvalidEmail": "You must enter a valid email address",
+  "loginInvalidPassword": "You must enter a password",
+  "loginToastErrorLogin": "Incorrect username and/or password",
+  "loginToastSendEmail": "Email sent successfully",
+  "loginToastErrorSendEmail": "There was an error sending the email",
+  "ToastTitleCorrect": "Correct",
+  "ToastTitleError": "Error",
+  "groupFormatDownloadItems": [
+    "PDF",
+    "Excel"
+  ],
+  "groupRangeDownloadItems": [
+    { "label": "Current period", "value": 0},
+    { "label": "7 days", "value": 7},
+    { "label": "15 days", "value": 15},
+    { "label": "30 days", "value": 30},
+    { "label": "Historical", "value": null}
+  ],
+  "groupOrderByItems": [
+    {
+      "label": "Sleep score: high to low",
+      "value": true
+    },
+    {
+      "label": "Sleep score: low to high",
+      "value": false
+    }
+  ],
+  "groupPeriodSelect": "Select period",
+  "groupForwardTooltip": "Go to the previous group",
+  "groupNextTooltip": "Go to the next group",
+  "groupAllTooltip": "View all groups",
+  "groupDownloadReportLabel": "Download report",
+  "groupDownloadLabel": "Download",
+  "groupSelectFormatPlaceholder": "Select format",
+  "groupSelectRangePlaceholder": "Select range",
+  "groupFilterTooltip": "Filters",
+  "groupSearchByName": "Search by name...",
+  "groupOrderBy": "Order by...",
+  "groupShowAll": "Show all",
+  "groupShowCurrentPeriod": "Show only profiles with current period",
+  "groupDeleteFilters": "Clear filters",
+  "groupApplyFilters": "Apply filters",
+  "profileCardDeviceName": "Device NS: ",
+  "profileCardAnyDevice": "No associated device",
+  "profileCardRecoveryDescription": "Recovery",
+  "profileCardRecoveryDescriptionTooltip": "Represents the adaptation and physical recovery during rest in relation to your daily routine",
+  "profileCardRecoveryAscArrow": "You’ve had a greater recovery compared to the last period",
+  "profileCardRecoveryDescArrow": "You’ve had a lower recovery compared to the last period",
+  "profileCardSNADescription": "ANS",
+  "profileCardSNADescriptionTooltip": "The autonomic nervous system controls the functions of your body; it is divided into sympathetic and parasympathetic",
+  "profileCardSNASTooltip": "Sympathetic System, controls your active physical response",
+  "profileCardSNAPTooltip": "Parasympathetic system, regulates rest and metabolism",
+  "profileWarnProfiles": "This group does not have any profiles created yet, please proceed to the administration panel to add profiles to the group.",
+  "sleepScoreTooltip": "Score based on the amount of hours of sleep and its phases Light, Deep, and REM",
+  "sleepScoreTooltipDiamond": "Optimal sleep score",
+  "adminAddProfileTitle": "Add Profile",
+  "adminEditProfileTitle": "Edit Profile",
+  "adminAddDeviceTitle": "Add Device",
+  "adminEditDeviceTitle": "Edit Device",
+  "adminAddGroupTitle": "Add Group",
+  "adminEditGroupTitle": "Edit Group",
+  "adminAddCollaboratorTitle": "Add Collaborator",
+  "adminEditCollaboratorTitle": "Edit collaborator",
+  "adminAddUserTitle": "Add User",
+  "adminEditUserTitle": "Edit User",
+  "adminExplanationDevice": "*Locate the serial number and verification code (PIN) of your device on the label on the back of it.",
+  "adminExplanationCollaborator": "*When adding a collaborator, a new user will be created who will have access to all teams, players, and devices in your account. There are two types of collaborator:\n\nCollaborator: This user will have access to view and modify teams, players, and devices, as well as download reports.\n\nViewer: This user will only be able to view teams, players, and devices but not modify them; they will also be able to download reports.",
+  "adminUsersFilterPlaceholder": "Filter by user",
+  "adminProfilesTitle": "Profiles",
+  "adminDevicesTitle": "Devices",
+  "adminGroupsTitle": "Groups",
+  "adminCollaboratorsTitle": "Collaborators",
+  "adminUsersTitle": "Users",
+  "adminColumnName": "Name",
+  "adminColumnLastName": "Last Name",
+  "adminColumnSerialNumber": "Serial Number",
+  "adminColumnLinked": "Linked",
+  "adminColumnStatus": "Status",
+  "adminColumnRole": "Role",
+  "adminNotLinked": "Not Linked",
+  "adminSearchPlaceholder": "Search...",
+  "adminFilterPlaceholder": "Filter by group",
+  "adminAddProfileTooltip": "Add profile",
+  "adminShowAllProfilesTooltip": "Show hidden profiles",
+  "adminHideAllProfilesTooltip": "Hide hidden profiles",
+  "adminShowProfileTooltip": "Show profile",
+  "adminHideProfileTooltip": "Hide profile",
+  "adminEditProfileTooltip": "Edit profile",
+  "adminDeleteProfileTooltip": "Delete profile",
+  "adminAddDeviceTooltip": "Add device",
+  "adminShowAllDevicesTooltip": "Show linked devices",
+  "adminHideAllDevicesTooltip": "Hide linked devices",
+  "adminDeleteDeviceTooltip": "Delete device",
+  "adminEditDeviceTooltip": "Edit device",
+  "adminAddGroupTooltip": "Add group",
+  "adminShowAllGroupsTooltip": "Show hidden groups",
+  "adminHideAllGroupsTooltip": "Hide hidden groups",
+  "adminShowGroupTooltip": "Show group",
+  "adminHideGroupTooltip": "Hide group",
+  "adminEditGroupTooltip": "Edit group",
+  "adminDeleteGroupTooltip": "Delete group",
+  "adminAddCollaboratorTooltip": "Add collaborator",
+  "adminEditCollaboratorTooltip": "Edit collaborator",
+  "adminDeleteCollaboratorTooltip": "Delete collaborator",
+  "adminAddUserTooltip": "Add user",
+  "adminEditUserTooltip": "Edit user",
+  "adminDeleteUserTooltip": "Delete user",
+  "adminModalAddProfileName": "Name",
+  "adminModalAddProfileLastname": "Last Name",
+  "adminModalAddProfileBirthDate": "Birth Date",
+  "adminModalAddProfileGender": "Gender",
+  "adminModalAddProfileBirthplace": "Place of Birth",
+  "adminModalAddProfileUser": "Select User",
+  "adminModalAddProfileGroup": "Select Group",
+  "adminModalAddDeviceSerialNumber": "Serial Number",
+  "adminModalAddDeviceCode": "Verification Code",
+  "adminModalAddDeviceUser": "Select User",
+  "adminModalAddDeviceProfile": "Select profile",
+  "adminModalAddGroupName": "Name",
+  "adminModalAddGroupGMT": "GMT",
+  "adminModalAddGroupUser": "Select User",
+  "adminModalAddCollaboratorEmail": "Email",
+  "adminModalAddCollaboratorPassword": "Password",
+  "adminModalAddCollaboratorConfirmPassword": "Confirm Password",
+  "adminModalAddCollaboratorAlias": "Alias",
+  "adminModalAddCollaboratorRole": "Select Role",
+  "adminModalAddCollaboratorUser": "Select User",
+  "adminModalAddUserEmail": "Email",
+  "adminModalAddUserAlias": "Alias",
+  "adminModalAddUserRole": "Select Role",
+  "adminModalSave": "Save",
+  "adminModalCancel": "Cancel",
+  "adminModalGenderItems": [
+    {
+      "label": "Male",
+      "value": "Male"
+    },
+    {
+      "label": "Female",
+      "value": "Female"
+    },
+    {
+      "label": "Other",
+      "value": "Other"
+    }
+  ],
+  "adminModalRoleCollaboratorItems": [
+    {
+      "label": "Collaborator",
+      "value": "collaborator"
+    },
+    {
+      "label": "viewer",
+      "value": "viewer"
+    }
+  ],
+  "adminModalRoleUserItems": [
+    {
+      "label": "User",
+      "value": "user"
+    },
+    {
+      "label": "Super admin",
+      "value": "superAdmin"
+    }
+  ],
+  "adminAddProfileSuccess": "Profile added successfully",
+  "adminAddProfileError": "Error adding profile",
+  "adminEditProfileSuccess": "Profile edited successfully",
+  "adminEditProfileError": "Error editing profile",
+  "adminDeleteProfileSuccess": "Profile deleted successfully",
+  "adminDeleteProfileError": "Error deleting profile",
+  "adminHideProfileSuccess": "Profile hidden successfully",
+  "adminHideProfileError": "Error hiding profile",
+  "adminShowProfileSuccess": "Profile shown successfully",
+  "adminShowProfileError": "Error showing profile",
+  "adminAddDeviceSuccess": "Device added successfully",
+  "adminAddDeviceError": "Error adding device",
+  "adminEditDeviceSuccess": "Device edited successfully",
+  "adminEditDeviceError": "Error editing device",
+  "adminDeleteDeviceSuccess": "Device deleted successfully",
+  "adminDeleteDeviceError": "Error deleting device",
+  "adminAddGroupSuccess": "Group added successfully",
+  "adminAddGroupError": "Error adding group",
+  "adminEditGroupSuccess": "Group edited successfully",
+  "adminEditGroupError": "Error editing group",
+  "adminDeleteGroupSuccess": "Group deleted successfully",
+  "adminDeleteGroupError": "Error deleting group",
+  "adminHideGroupSuccess": "Group hidden successfully",
+  "adminHideGroupError": "Error hiding group",
+  "adminShowGroupSuccess": "Group shown successfully",
+  "adminShowGroupError": "Error showing group",
+  "adminAddCollaboratorSuccess": "Collaborator added successfully",
+  "adminAddCollaboratorError": "Error adding collaborator",
+  "adminEditCollaboratorSuccess": "Collaborator edited successfully",
+  "adminEditCollaboratorError": "Error editing collaborator",
+  "adminDeleteCollaboratorSuccess": "Collaborator deleted successfully",
+  "adminDeleteCollaboratorError": "Error deleting collaborator",
+  "adminAddUserSuccess": "User added successfully",
+  "adminAddUserError": "Error adding user",
+  "adminEditUserSuccess": "User edited successfully",
+  "adminEditUserError": "Error editing user",
+  "adminDeleteUserSuccess": "User deleted successfully",
+  "adminDeleteUserError": "Error deleting user",
+  "adminExistDeviceError": "The device already exists",
+  "adminExistNameError": "The name already exists",
+  "adminExistEmailError": "The email already exists",
+  "adminLength5Characters": "It must have 5 characters",
+  "adminLength6Characters": "It must have 6 characters",
+  "adminLengthInfo5Characters": "It has 5 digits, example 01234",
+  "adminLengthInfo6Characters": "It has 6 digits or letters, example 00AA21",
+  "adminNoEqualPasswords": "Passwords must be equal",
+  "adminDeleteProfilesByGroup": "Delete all linked profiles",
+  "adminDeleteDevicesByGroup": "Delete all linked devices",
+  "settingsHelpCardTitle": "Tutorials and FAQs",
+  "settingsContactCardTitle": "Contact",
+  "settingsPasswordCardTitle": "Password Change",
+  "settingsVideoCorrectUse": "Proper Use of the Device",
+  "settingsVideoRoute": "Platform Walkthrough",
+  "settingsPdfInstructions": "Installation and Usage Instructions",
+  "settingsPdfGuide": "Quick Guide",
+  "settingsPdfTooltip": "Download PDF",
+  "settingsFAQ1Title": "How do I know if my device is connected to the internet?",
+  "settingsFAQ1Desc": "Check that the green LED on the front of the device is lit. If not, check the status of your internet network.",
+  "settingsFAQ2Title": "The profile does not appear in the group panel.",
+  "settingsFAQ2Desc": "Check in the administration panel that the profile is not 'hidden'.",
+  "settingsFAQ3Title": "When connecting the device to the internet, I get an error of 'incorrect password' when entering its password.",
+  "settingsFAQ3Desc": "Remember that when entering the device password, you must also include the hyphens, i.e., enter the password exactly as written. Here's an example: 'xxxx-xxxx-xxx'.",
+  "settingsFAQ4Title": "Where should the sensor be placed?",
+  "settingsFAQ4Desc": "The sensor should be installed exclusively under the mattress or mattress cover. To capture a stronger signal, the central part of the sensor (the plastic band) should be positioned directly under or at the height of the user's heart when lying down.\n\nIf you have a double bed and two people sleeping, place the sensor as close as possible to the edge of the bed with the cable to one side, parallel to your body, always with the majority of the band at heart level. If using a double bed but only one person sleeps, it is recommended to position the sensor perpendicular to the user, always at heart level, but placing the device on one side or the other of the bed or more in the center, according to the user's sleeping preferences.\n\nAvoid having the cable pass through the middle of the bed, as it can cause misleading signals.",
+  "settingsFAQ5Title": "Does the device always have to be connected to the power?",
+  "settingsFAQ5Desc": "The device uses an insignificant amount of energy, so it is not necessary to disconnect it to save electricity.\n\nIf you want to disconnect it when not in use, do so only 10 minutes after getting out of bed, so the device has enough time to send the bed exit event to our servers. Otherwise, excessively long presence periods can occur. Similarly, when reconnecting before going to sleep, it should be done 10 minutes before being in bed.",
+  "settingsFAQ6Title": "If I turn off the device and turn it back on, does it automatically reconnect to the wifi it was previously connected to?",
+  "settingsFAQ6Desc": "If the wifi network is the same as the last one the device connected to, there is no need to reconfigure the device.",
+  "settingsFAQ7Title": "How can I view results from previous nights?",
+  "settingsFAQ7Desc": "All information about your nights will be available on the Nyx-Sys platform by clicking on the -X- icon on the individual panel.",
+  "settingsFAQ8Title": "What does the error message with the -X- icon indicating that some night data could not be processed mean?",
+  "settingsFAQ8Desc": "Data loss during a sleep period can be due to multiple factors. Usually, the most common ones are:\n\n\t- Low signal from the device. To fix it, reposition the device under your bed according to the recommendations given in point X.\n\n\t- In the case of sharing a double bed with a second person, the device recorded data from both people, generating inaccurate or overlapping data.\n\n\t- There was a power outage during the recording.",
+  "settingsFAQ9Title": "What does the flashing red light on the device mean?",
+  "settingsFAQ9Desc": "Generally, red flashes indicate network connection issues. If these interruptions are brief, you shouldn't worry.",
+  "settingsFAQ10Title": "What happens if the internet is cut off?",
+  "settingsFAQ10Desc": "If the internet connection is temporarily lost, the internal memory will record up to 12 hours of data. When the connection is restored, the data is sent to the cloud for processing.",
+  "settingsFAQ11Title": "Can I use the sensor on a double bed?",
+  "settingsFAQ11Desc": "Yes, you can use the device on a double bed. However, the end of the sensor cable should be installed as close as possible to the edge, as your partner's movements may result in a longer presence record after you get out of bed.",
+  "settingsPlaceholderEmail": "Email",
+  "settingsPlaceholderSubject": "Subject",
+  "settingsPlaceholderMessage": "Message",
+  "settingsPlaceholderActualPassword": "Current Password",
+  "settingsPlaceholderNewPassword": "New Password",
+  "settingsPlaceholderConfirmPassword": "Confirm Password",
+  "settingsButtonSend": "Send",
+  "settingsButtonSave": "Save",
+  "settingsVisitWeb": "Visit our website",
+  "settingsSocialAccounts": "Also find us on social media",
+  "settingsDeleteAccountTitle": "Delete My Account",
+  "settingsDeleteAccountDesc": "Do you want to permanently delete your account? Keep in mind that all related information will be lost. You won't be able to reactivate it or recover its content.\n\nThe action will take effect after 48 hours. If it was a mistake, please contact our support team.",
+  "settingsDeleteAccountButton": "Delete Account",
+  "settingsMandatoryFieldError": "The field is mandatory",
+  "settingsValidEmailError": "Enter a valid email",
+  "settingsMandatoryPassword": "The password is mandatory",
+  "settingsPatternPassword": "The password must contain at least one uppercase letter, one lowercase letter, and be 8 characters long.",
+  "settingsConfirmLogout": "Are you sure you want to log out?",
+  "settingsConfirmModalTitle": "Are you sure?",
+  "settingsConfirmModalContent": "Do you want to permanently delete your account? Please note that all related information will be lost. You won't be able to reactivate it or retrieve its content. The action will take effect in 48 hours; if this was a mistake, please contact our support team.",
+  "settingsConfirmModalAccept": "Accept",
+  "settingsConfirmModalCancel": "Cancel",
+  "profileViewSelectProfileTooltip": "Select profile",
+  "profileViewAddPeriodTooltip": "Add period manually",
+  "profileViewEditProfileTooltip": "Edit profile",
+  "profileViewDeletePeriod": "Delete period",
+  "profileViewSelectGMT": "Select GMT",
+  "profileViewSleepScoreTitle": "Sleep Score",
+  "profileViewSleepScoreDescription": "It's fantastic to see that you've been paying attention to your sleep lately. Keep it up!",
+  "profileViewRecoveryTitle": "Recovery",
+  "profileViewTotalRecovery": "Total recovery",
+  "profileViewIntegratedRecovery": "Integrated recovery",
+  "profileViewUnities": " units",
+  "profileViewHrvAlert": "Your HRV is higher than usual. A high HRV indicates that your nervous system is ready to handle stress and your body is in balance.",
+  "profileViewAnsTitle": "Autonomic Nervous System Balance",
+  "profileViewParasympathetic": "Parasympathetic (Relaxation)",
+  "profileViewSympathetic": "Sympathetic (Stress)",
+  "profileViewAnsAlert": "Your Ans leans towards the Sympathetic side, meaning your body is prepared for active situations.",
+  "profileViewAnsHrVariabilityTitle": "Heart Rate Variability",
+  "profileViewNight": "Night",
+  "profileViewMorning": "Morning",
+  "profileViewAverage": "Average",
+  "profileViewHeartRateTitle": "Heart Rate",
+  "profileViewBPMMax": "BPM Max",
+  "profileViewBPMRepose": "BPM at rest",
+  "profileViewBPMAverage": "Average BPM",
+  "profileViewBreathingRateTitle": "Breathing Rate",
+  "profileViewMovementTitle": "Movement",
+  "profileViewMovementsAndTurns": "Movements and turns",
+  "profileViewAverageInActivity": "Average activity",
+  "profileViewSleepTimeTitle": "Sleep Time",
+  "profileViewInBed": "In bed",
+  "profileViewSleeping": "Sleeping",
+  "profileViewAwake": "Awake",
+  "profileViewSleepArcTitle": "Sleep Architecture",
+  "profileViewSoft": "Light",
+  "profileViewDeep": "Deep",
+  "profileViewREM": "REM",
+  "profileViewYearsDropdown": " years",
+  "profileSleepScoreMessage1+": [
+    "Congratulations on your sleep score! Your dedication to rest reflects in your well-being. Keep it up!",
+    "Incredible! You achieved an optimal sleep score today. Your body and mind thank you. Sleep well and wake up refreshed!",
+    "Today, you demonstrated that prioritizing sleep is key to your performance. Bravo for reaching a *sleep_score* score! Keep taking care of your rest.",
+    "Excellent start! Your sleep score has been outstanding today. Keep it up and make sure to maintain this momentum!",
+    "Fantastic start! Achieving a high sleep score in just one day is a worthy achievement to celebrate. Keep it up, and you'll see great improvements in your well-being!",
+    "A full day of optimal sleep is an excellent beginning. Keep it up and build on this success for a better quality of life!"
+  ],
+  "profileSleepScoreMessage1-": [
+    "Don't be discouraged by a low score today. Every day is a new opportunity to improve. Reflect on what might have affected your sleep and take a step towards a more restful sleep tomorrow. You can do it!",
+    "We know today wasn't the best day for sleep, but every day is a new opportunity to improve. Consider small changes in your nighttime routine and get ready for a better night. Hang in there!",
+    "Today's score wasn't ideal, but don't worry. Learn from today and work towards a more restful sleep tomorrow. Small changes can make a difference!",
+    "A low score doesn't define your ability to rest well. Learn from this experience and seek ways to improve your sleep quality.",
+    "Sleep quality can vary from day to day. Take this result as a sign that there's still room to improve your rest habits.",
+    "Don't let a low sleep score discourage you. Use this opportunity to explore new strategies to help you sleep better in the future."
+  ],
+  "profileSleepScoreMessage2+": [
+    "Double victory! Two consecutive days with good sleep scores show your commitment to healthy rest. Keep it up and maintain this excellent streak!",
+    "Two flawless days! Your persistence in maintaining good rest is admirable. Keep it up and enjoy the continuous benefits of restorative sleep!",
+    "Double achievement! Maintaining two consecutive days of quality sleep is a big step towards a more balanced life. Keep it up and prioritize your well-being!",
+    "Two phenomenal days! Your dedication to good sleep is evident. Keep it up and continue taking good care of yourself to maintain this positive streak!",
+    "Fantastic job! Two consecutive days with good sleep scores are a worthy achievement to celebrate. Keep it up and experience the difference in your overall well-being!",
+    "Excellent streak! Maintaining two consecutive days of optimal sleep is a great achievement. Keep it up and continue prioritizing your health and well-being!"
+  ],
+  "profileSleepScoreMessage2-": [
+    "Don't be discouraged by this negative streak. Use these results as motivation to identify areas for improvement in your rest routine.",
+    "Two consecutive days with low sleep scores can be challenging, but remember that each day is a new opportunity to improve.",
+    "Sometimes, bad nights of sleep are temporary. Use these results as an opportunity to adjust your routine and seek ways to rest better.",
+    "Two consecutive days with low sleep scores can be tough, but don't let them discourage you. Look for new strategies to improve your sleep quality.",
+    "Sleep quality can vary day by day. Take these results as a sign that it's important to prioritize your rest and well-being.",
+    "Don't let a streak of poor sleep scores demotivate you. Use this experience as an opportunity to explore new ways to enhance your rest."
+  ],
+  "profileSleepScoreMessage3+": [
+    "Triple streak! You've maintained a sleep score of 80 or higher for 3 days. You're building healthy habits! Keep it up, your body will thank you!",
+    "Incredible consistency! Three consecutive days with optimal sleep. You're on the right path to lasting well-being. Keep sleeping well!",
+    "Congratulations, three consecutive days with an excellent sleep score! You're a sleep champion. Keep it up and you'll notice the difference!",
+    "Three phenomenal days! Your persistence in maintaining good rest is impressive. Keep it up and continue prioritizing your health and well-being!",
+    "Triple victory! Three consecutive days with good sleep scores show your commitment to a healthy rest routine. Keep it up and enjoy the continuous benefits!",
+    "Excellent streak! Maintaining three consecutive days of quality sleep is a notable achievement. Keep it up and continue taking good care of yourself to maintain this positive trend!"
+  ],
+  "profileSleepScoreMessage3-": [
+    "Three days with low scores can be challenging, but each day is an opportunity for change. Reflect on your nighttime routine and make small adjustments for better rest. You're on the path to improvement!",
+    "It's normal to have tough streaks. Three consecutive days with low scores can be a call to action. Consider adjustments in your routine and take steps to improve your sleep quality. You can do it!",
+    "Keeping scores low for three consecutive days is a signal to make changes. Analyze what could be affecting your sleep and take steps to improve. You're in control of your habits!",
+    "Three consecutive days with low sleep scores can be tough, but don't lose hope. Look for new strategies and habits that can improve your sleep quality.",
+    "Sleep quality can fluctuate day by day. Take these results as a sign that it's important to pay attention to your well-being and seek ways to improve your rest.",
+    "Don't let a streak of poor sleep scores discourage you. Use this experience as an opportunity to learn and explore new ways to prioritize your rest and health."
+  ],
+  "profileSleepScoreMessage4+": [
+    "Quadruple achievement! Four consecutive days with good sleep scores show your commitment to healthy rest. Keep it up and maintain this excellent streak!",
+    "Four impeccable days! Your dedication to good sleep is admirable. Keep it up and enjoy the continuous benefits of restful sleep!",
+    "Four phenomenal days! Maintaining this streak of good sleep is a great step towards a more balanced life. Keep it up and prioritize your well-being!",
+    "Quadruple victory! Four consecutive days with good sleep scores are a testament to your commitment to proper rest. Keep it up and maintain this incredible trend!",
+    "Fantastic work! Four consecutive days with good sleep scores are a worthy achievement. Keep it up and experience the difference in your overall well-being!",
+    "Four exceptional days! Your consistency in maintaining good rest is impressive. Keep it up and continue taking good care of yourself to maintain this positive streak!"
+  ],
+  "profileSleepScoreMessage4-": [
+    "Maintaining a streak of four days with low sleep scores can be challenging, but remember there are always opportunities to improve your rest.",
+    "Don't be discouraged by this negative streak. Use these results as motivation to identify areas for improvement in your sleep and well-being routine.",
+    "Sometimes, going through a period of low sleep scores is temporary. Take these results as an opportunity to adjust your routine and find ways to rest better.",
+    "Four consecutive days with low sleep scores can be tough, but don't lose hope. Look for new strategies and habits that can improve your sleep quality.",
+    "Sleep quality can fluctuate day by day. Take these results as a sign that it's important to pay attention to your well-being and seek ways to improve your rest.",
+    "Don't let a streak of poor sleep scores discourage you. Use this experience as an opportunity to learn and explore new ways to prioritize your rest and health."
+  ],
+  "profileSleepScoreMessage5+": [
+    "Congratulations! You've achieved an excellent sleep score for five consecutive days. Your commitment to rest is yielding tangible results. Keep it up and you'll notice the difference in your overall well-being!",
+    "Five consecutive days with enviable sleep scores. You're building a solid foundation for your health and energy. Keep prioritizing your sleep and you'll reap long-term benefits!",
+    "Incredible streak! For five days, your sleep has been consistent and restorative. Your body and mind thank you. Keep taking care of yourself and enjoy revitalizing nights!",
+    "Five days of quality sleep! You've created a pattern worth celebrating. Keep it up and watch as your energy and focus increase.",
+    "Five days of rejuvenating rest. Your consistency is key to a balanced lifestyle. Keep it up and enjoy your well-deserved wellness!",
+    "Incredible! Five days of restful sleep are an achievement to be proud of. Keep it up and continue prioritizing your health and happiness!"
+  ],
+  "profileSleepScoreMessage5-": [
+    "Maintaining low scores for five consecutive days is a warning sign. Reflect on factors that may be affecting your sleep and consider making adjustments to your nighttime routine.",
+    "Five days with low sleep scores are a reminder of the importance of prioritizing rest. Evaluate potential changes in your environment and habits to improve sleep quality.",
+    "Maintaining a streak of low scores for five days can impact your well-being. Consider exploring new strategies to ensure more restful sleep.",
+    "Five days of unsatisfactory sleep can be draining, but don't lose hope. Look for new strategies to improve your sleep quality.",
+    "Sleep quality may vary, but your commitment to your well-being should not waver. Use this experience as an opportunity to reflect and improve.",
+    "Don't let a streak of poor sleep scores discourage you. Use these days as motivation to prioritize your rest and well-being. You can improve your sleep quality!"
+  ],
+  "profileSleepScoreMessage6+": [
+    "Six days of restorative rest. Your commitment to your well-being is admirable. Keep it up and maintain this vibrant energy!",
+    "Maintaining a streak of six days of rejuvenating sleep. Your dedication to your health deserves applause. Keep it up and enjoy a revitalized body and mind!",
+    "Six consecutive days of sweet dreams. Your consistency is the key to your well-being. Keep it up and experience the difference in your quality of life!",
+    "Six days of consistent sleep! You've established a routine worth celebrating. Keep it up and watch as your overall well-being improves.",
+    "Six days of renewing rest. Your dedication to your rest is commendable. Keep it up and maintain your commitment to healthy sleep!",
+    "Incredible! Six days of restful sleep are an achievement to celebrate. Keep it up and prioritize your health and daily happiness!"
+  ],
+  "profileSleepScoreMessage6-": [
+    "Six challenging days. Use this streak as motivation to implement positive changes in your sleep routine. Every day is a new opportunity for improvement!",
+    "Maintaining a streak of six challenging days can be exhausting, but remember that every challenge is an opportunity for growth and change.",
+    "Six consecutive days with low sleep scores can be disheartening, but don't lose hope. Seek new strategies to improve your sleep quality.",
+    "Consistency is key, even in tough times. Use this experience as an opportunity to reflect and make positive adjustments to your sleep routine.",
+    "Six days of unsatisfactory sleep can be tough, but remember you have the power to change your habits and improve your well-being.",
+    "Don't let a streak of poor sleep scores discourage you. Use these days as a reminder of the importance of prioritizing your rest and well-being. You can overcome this challenge!"
+  ],
+  "profileSleepScoreMessage7+": [
+    "Complete week of quality sleep! Achieving a score of 80 or more for 7 consecutive days is an impressive achievement. Your body and mind are in optimal mode. Keep taking care of yourself!",
+    "Incredible milestone! You've maintained a sleep score of 80 or more for an entire week. This is a testament to your commitment to your well-being. Keep it up and conquer each day!",
+    "You've reached a complete week of optimal sleep! Your dedication to rest is paying off. Keep taking care of your sleep and enjoy the continuous benefits. You're a sleep champion!",
+    "A complete week of quality sleep! You've shown that you can maintain a healthy routine. Keep it up and watch as your overall well-being improves!",
+    "Seven days of rejuvenating rest. Your dedication to your rest is admirable. Keep it up and enjoy a revitalized body and mind!",
+    "Splendid! Seven days of restorative sleep are a remarkable achievement. Keep it up and continue taking good care of yourself to maintain this positive trend!"
+  ],
+  "profileSleepScoreMessage7-": [
+    "A week of low scores can be challenging, but it's also an opportunity to make significant changes. Evaluate your nighttime routine and look for ways to prioritize your rest. Start today!",
+    "Seven days with low scores are a sign that your body needs more attention. Consider making significant adjustments to your nighttime routine to improve your sleep. Your well-being will thank you!",
+    "Maintaining low scores for a week is a call to action. Make lifestyle changes and prioritize your sleep to get back on the path to quality rest. We're here to support you in this positive change!",
+    "Consistency is key, even in tough times. Use this experience as an opportunity to reflect and make positive adjustments to your sleep routine.",
+    "Seven days of unsatisfactory sleep can be tough, but remember that you have the power to change your habits and improve your well-being.",
+    "Don't let a streak of poor sleep scores discourage you. Use these days as a reminder of the importance of prioritizing your rest and well-being. You can overcome this challenge!"
+  ],
+  "profileSleepScoreMessage8+": [
+    "Eight days of rejuvenating rest. Each night of deep sleep brings you closer to your best self. Continue this journey towards full well-being!",
+    "You've woven a blanket of restful dreams for a whole week. Each thread is a reminder of the transformative power of rest. Keep weaving for a brighter tomorrow!",
+    "Congratulations on eight days of restorative sleep. Each awakening is an opportunity to embrace renewed energy and mental clarity. Keep reaping the rewards of well-deserved rest!",
+    "Eight days of sleep like a gentle embrace for your weary soul. Each night is a promise of renewal and strength to face new challenges. May this positive streak continue to guide you towards fulfillment!",
+    "You're writing a story of rest and renewal worth telling. Each chapter of deep sleep is a tribute to your commitment to well-being. Keep writing towards a future full of vitality and joy!",
+    "Eight days of restful sleep are a testament to your dedication to self-care. Each well-slept night is an investment in your physical and mental health. Keep being the architect of your well-being!"
+  ],
+  "profileSleepScoreMessage8-": [
+    "Eight days of challenges in the realm of sleep. Each night is an opportunity to learn, adjust, and commit to healthier rest. Transformation begins with a choice!",
+    "You've sailed through eight days of turbulent waters in the ocean of sleep. Each awakening is an invitation to reflect on your habits and priorities. Trust that you can find calm amidst the storm!",
+    "Eight days of unsatisfactory sleep may seem like an insurmountable mountain, but each step is a step closer to the summit. Remember, persistence is the key that unlocks the doors of change!",
+    "Each restless night of sleep over eight days is a wake-up call from the body and mind. Listen with compassion and open your heart to self-care and exploration of new rest practices. Your well-being deserves your attention!",
+    "Eight days of challenges on the sleep front can be exhausting, but they're also a reminder of your resilience and inner strength. Keep moving forward with courage and confidence in yourself!",
+    "Each difficult night of sleep over eight days is an opportunity to cultivate compassion and understanding towards yourself. Embrace your humanity and let each experience guide you towards more restful sleep and a fuller life."
+  ],
+  "profileSleepScoreMessage9+": [
+    "Nine days of restful sleep are like the bricks of a peaceful and serene home. Each well-slept night is a pillar for your well-being.",
+    "For nine days, your pillow has witnessed your sweetest and most restorative dreams. Keep it up and build a haven of rest and rejuvenation.",
+    "Each dawn after nine nights of deep sleep is an invitation to embrace renewed energy and mental clarity. Maintain this streak and reach new heights.",
+    "Nine days of rest have taken you through a journey of self-discovery and renewal. Follow this path and discover the magic of restorative sleep.",
+    "Congratulations on nine days of restful sleep. Each well-slept night is a tribute to your commitment to health and wellness.",
+    "For nine days, you have honored rest as an essential part of your life. Keep it up and reap the rewards of a revitalized mind and body."
+  ],
+  "profileSleepScoreMessage9-": [
+    "Nine challenging days of sleep may seem overwhelming, but each night is a new opportunity to learn and grow.",
+    "Maintaining a streak of nine challenging days can be exhausting, but remember that every obstacle is an opportunity to strengthen yourself.",
+    "For nine days, you have faced challenges in your rest, but each night is also an opportunity to recalibrate and improve.",
+    "Nine days of unsatisfactory sleep can be discouraging, but each dawn brings the promise of a fresh start.",
+    "Facing nine days of sleep challenges is a testament to your resilience and inner strength. Keep moving forward with determination and confidence in yourself.",
+    "Don't give up, keep seeking new ways to improve your rest!"
+  ],
+  "profileSleepScoreMessage10+": [
+    "Ten days of restful sleep are a testament to your dedication to wellness. Keep it up and continue prioritizing your rest and your health.",
+    "For ten days, you have maintained a streak of restorative sleep. Each well-slept night is a gift that brings you closer to a balanced life.",
+    "Ten days of restful sleep are like a gentle whisper from nature, reminding you of the importance of taking good care of yourself. Keep it up and find harmony in each night.",
+    "Congratulations on ten days of restful sleep. Each night is a reminder of your commitment to a life full of energy and vitality.",
+    "Ten days of deep and restful sleep are like a comforting embrace for your body and mind. Keep it up and experience the fullness of each day.",
+    "For ten days, you have nourished your body and mind with restorative sleep. Follow this path and find peace and serenity in each night."
+  ],
+  "profileSleepScoreMessage10-": [
+    "Ten days of poor sleep can be challenging, but each night is an opportunity to find new ways to improve your rest.",
+    "Maintaining a streak of ten challenging days can be exhausting, but remember that each day is an opportunity to learn and grow.",
+    "For ten days, you have faced challenges in your rest, but each night is also an opportunity to recalibrate and improve.",
+    "Ten days of unsatisfactory sleep can be discouraging, but each dawn brings the promise of a new beginning.",
+    "Facing ten days of sleep challenges is a testament to your resilience and inner strength. Keep moving forward with determination and confidence in yourself.",
+    "Don't let a bad streak discourage you. Use these days as a reminder of the importance of prioritizing your rest and well-being. You can overcome this challenge!"
+  ],
+  "profileSleepScoreMessageTwoWeeks+": [
+    "Two weeks of restful sleep are like a journey towards total renewal. Each well-slept night is a step closer to complete well-being.",
+    "Over two weeks, you've built a bridge to restful sleep. Keep walking with determination and you'll find serenity with every step.",
+    "Each dawn after two weeks of deep sleep is an invitation to embrace renewed energy and mental clarity. Maintain this streak and reach new heights.",
+    "Two weeks of rest have taken you through a journey of self-discovery and renewal. Follow this path and discover the magic of restorative sleep.",
+    "Congratulations on two weeks of restful sleep. Each well-slept night is a tribute to your commitment to health and well-being.",
+    "For two weeks, you've honored rest as an essential part of your life. Keep it up and reap the rewards of a revitalized mind and body."
+  ],
+  "profileSleepScoreMessageTwoWeeks-": [
+    "Over two weeks, you've faced challenges in finding proper rest. It's time to reflect on your habits and make small changes that bring you closer to more restful sleep.",
+    "Maintaining a streak of two challenging weeks can be exhausting, but each day offers you the opportunity to make healthier choices for your rest. Let's focus on finding solutions!",
+    "For two weeks, you've struggled to sleep well, but each night gives you a fresh chance to improve. It's time to explore new strategies and habits to help you rest better.",
+    "Facing two weeks of sleep challenges is a reminder of the importance of caring for your health and well-being. Commit to making positive changes in your routine to enhance the quality of your rest.",
+    "For two weeks, you've grappled with finding restful sleep, but each day brings you closer to discovering what works best for you. Let's continue seeking solutions and maintain a positive attitude towards change.",
+    "For two weeks, you've experienced difficulties sleeping, but each challenge provides an opportunity to learn and grow. Let's stay focused on finding effective ways to improve our rest."
+  ],
+  "profileSleepScoreMessageThreeWeeks+": [
+    "Three weeks of restful sleep are like an anthem to your well-being. Each well-slept night is a melody leading you towards inner harmony.",
+    "Over three weeks, you've built a sanctuary of restorative dreams. Keep nurturing this sacred space and find peace in every breath.",
+    "Each awakening after three weeks of deep sleep is a celebration of life and vitality. Maintain this streak and let your inner light shine even brighter.",
+    "Three weeks of rest have taken you through an oasis of self-discovery and renewal. Keep exploring this territory and discover the magic of self-care.",
+    "Congratulations on three weeks of restful sleep. Each well-slept night is a tribute to your commitment to a balanced and energized life.",
+    "For three weeks, you've cultivated a garden of rest and rejuvenation. Keep watering these seeds and watch them bloom into a fuller life."
+  ],
+  "profileSleepScoreMessageThreeWeeks-": [
+    "Three weeks of sleep difficulties are a reminder of the importance of taking care of your mental and physical health. It's time to take concrete steps to improve your rest and overall well-being.",
+    "Maintaining a streak of three challenging weeks can be tough, but each day offers you the opportunity to make positive choices for your rest. Commit to implementing changes that enhance your sleep quality.",
+    "For three weeks, you've experienced difficulties falling asleep and resting well, but each night gives you the chance to try again. Let's continue exploring new strategies and habits to help you sleep better.",
+    "Facing three weeks of sleep challenges is a reminder that you need to prioritize your health and well-being. Take the time to identify what's affecting your rest and work on effective solutions.",
+    "For three weeks, you've struggled to find restful sleep, but each day brings you closer to finding solutions that work for you. Let's maintain a positive attitude and commit to making changes that improve our quality of life.",
+    "For three weeks, you've battled to find restorative sleep, but each challenge provides an opportunity to learn and grow. Let's move forward with determination and actively seek ways to improve our rest."
+  ],
+  "profileSleepScoreMessageOneMonth+": [
+    "Congratulations! A full month of restorative sleep is a remarkable achievement. Each well-slept night is a gift to your health and well-being. Keep it up!",
+    "A month of consistently good sleep habits deserves celebration. Your dedication to rest is bearing fruit, and your body and mind thank you for it. Keep taking care!",
+    "For an entire month, you've demonstrated admirable commitment to your rest. Each night of restful sleep is a step towards a more balanced and fulfilling life. Keep it up, sleep champion!",
+    "A whole month of good rest is a testament to your determination and self-care. Each night of restorative sleep is an investment in your long-term health and happiness. Keep going strong!",
+    "A full month of quality sleep deserves applause! Your dedication to your well-being is reflected in every night of rest. Keep taking care of yourself and prioritizing your health.",
+    "For a month, you've shown that good rest is a priority. Each well-slept night is a step towards a healthier and vibrant life. Keep it up, keep up the good work!"
+  ],
+  "profileSleepScoreMessageOneMonth-": [
+    "A month of sleep difficulties can be challenging, but each day gives us the opportunity to reflect and improve our sleep habits. It's time to take steps to care for your well-being!",
+    "For a whole month, you've faced obstacles in your rest, but each night is also an opportunity to learn and adjust your approach. You're on the path to better sleep!",
+    "A month of negative sleep outcomes is a sign that it's time to pay attention to your well-being. With determination and commitment, you can implement changes to help you rest better.",
+    "For a month, you've faced challenges in your rest, but each night is also an opportunity to renew and recharge. Don't be discouraged, you're on the path to more restorative sleep!",
+    "A month of sleep difficulties can be exhausting, but it's also an opportunity to explore new strategies and habits to help you rest better. Keep going strong!",
+    "For a month, you've faced obstacles in your sleep, but each night is also an opportunity to renew and recharge. Don't give up, you're on the path to better rest!"
+  ],
+  "profileSleepScoreMessageDefault+": [
+    "You continue to shine with your commitment to healthy sleep! Each well-rested night is a step towards a more balanced and fulfilling life. Keep it up!",
+    "Your dedication to rest is paying off, and your well-being reflects it. Each night of restful sleep is an investment in your long-term health and happiness. Keep taking care of yourself!",
+    "Continuing a positive streak in sleep demonstrates your commitment to your well-being. Each night of proper rest is a reminder of your dedication to self-care. Keep going strong!",
+    "Maintaining a positive streak in sleep is a testament to your determination and discipline. Each well-slept night is a step towards a healthier and more balanced life. Keep it up, sleep champion!",
+    "We celebrate your persistence in maintaining a positive streak in sleep. Each night of restorative rest is an achievement that brings you closer to a better quality of life. Keep prioritizing your well-being!",
+    "Your commitment to quality sleep is admirable and worthy of celebration. Each night of good rest is a step towards a healthier and happier version of yourself. Keep it up, there are no limits to your well-being!"
+  ],
+  "profileSleepScoreMessageDefault-": [
+    "Even as you face challenges in your sleep, your determination to improve is inspiring. Each night is an opportunity to learn and adjust your focus towards more restful sleep. Don't get discouraged!",
+    "Continuing a negative streak in sleep can be challenging, but each day offers us the chance to reflect and improve our habits. You're on the path to a healthier sleep!",
+    "Despite obstacles in your rest, your determination to find solutions is admirable. With each night, you're getting closer to discovering what works best for you. Don't give up!",
+    "Your persistence amidst a negative streak in sleep shows your commitment to your well-being. Each night is an opportunity to renew and recharge. Keep going with determination!",
+    "Even as you face difficulties sleeping, each night is also an opportunity to explore new strategies and habits. Your determination to improve your rest is the first step towards a better quality of life. Keep going!",
+    "We celebrate your courage and determination to face challenges in your sleep. Each night is an opportunity to learn and grow, and each step brings you closer to restful sleep. Don't lose hope!"
+  ],
+  "profileRecoveryMessage1+": [
+    "Incredible start! Your recovery today is positive, indicating that your body is well-prepared to face the day. Ready to make the most of your activities and training!",
+    "Today, your body shows excellent adaptation and recovery. You're in tune with yourself! Use this energy to perform at your best and enjoy an active and productive day.",
+    "Your recovery today is like a green light for an energetic and efficient day. Keep taking care of yourself, you're building a solid foundation for your well-being!",
+    "A day of good rest is a great achievement! Each well-slept night brings you closer to your wellness goals. Keep building healthy sleep habits!",
+    "Your ability to sleep well is an invaluable asset. Celebrate each day of good rest as a step towards a more balanced and happy life.",
+    "A day of restorative sleep is a gift you give to yourself. Make the most of this renewed energy to face the day with optimism and vitality!"
+  ],
+  "profileRecoveryMessage1-": [
+    "Today's recovery is a bit challenging, but every day is an opportunity to adjust and improve. Remember to take care of yourself to avoid risks and maximize your energy.",
+    "Today's recovery may be a reminder of the importance of listening to your body. Consider adjusting your daily activity to minimize the risk of fatigue and injuries.",
+    "Although today's recovery is zero, don't be discouraged. Take steps to improve the quality of your sleep and prepare your body for a more optimal day tomorrow.",
+    "Every challenging day is an opportunity to learn and grow. Use this tough day as motivation to improve your sleep habits and personal care.",
+    "Don't let a day of insufficient rest discourage you. Maintain the determination to prioritize your well-being and seek solutions to improve your sleep quality.",
+    "Although today was tough, tomorrow is a new opportunity to sleep better. Remember that every poorly slept night is an opportunity to adjust and improve your sleep habits. Keep moving forward with hope and determination!"
+  ],
+  "profileRecoveryMessage2+": [
+    "Two days of good rest show your commitment to taking care of your body and mind. Each night of restful sleep is a step towards a more balanced and fulfilling life.",
+    "Maintaining a streak of two days of quality sleep is a significant achievement. It's time to celebrate your efforts to find a healthy balance and pay attention to your body's needs.",
+    "Congratulations on two consecutive days of good sleep. Your consistency in caring for your rest is admirable and demonstrates your commitment to your overall well-being.",
+    "Two consecutive days of good rest are a sign that you are finding a healthy balance in your life. Keep listening to your body, reducing stress, and maintaining positive sleep habits.",
+    "Celebrate your two days of restful sleep as a victory in your journey towards better health and well-being. Keep seeking ways to improve your nighttime habits and listening to your body's signals.",
+    "Your consistency in maintaining good rest for two days is inspiring. Continue paying attention to your body, practicing relaxation, and maintaining a consistent sleep routine to maximize your well-being."
+  ],
+  "profileRecoveryMessage2-": [
+    "Two consecutive days of poor sleep can be a reminder of the importance of caring for your nighttime well-being. Take note of your experiences and seek to adjust your habits to improve your sleep quality.",
+    "Acknowledging two consecutive days of poor rest is the first step in making positive changes. Pay attention to your body's signals, reduce stress, and create an environment conducive to restorative sleep.",
+    "Despite the challenges of the past two days, remember that each night is a new opportunity for improvement. Maintain the determination to find a healthy balance and improve your sleep habits.",
+    "Maintaining a streak of two days of poor sleep is a sign that it's time to review your nighttime routines. Look for ways to reduce stress, establish clear boundaries, and create an environment conducive to rest.",
+    "Two consecutive days of poor rest can be challenging, but they are also an opportunity to learn and grow. Take steps to improve your nighttime well-being and seek support if needed.",
+    "Don't let two days of poor sleep discourage you. Commit to finding solutions to improve your sleep quality and pay attention to your body's needs."
+  ],
+  "profileRecoveryMessage3+": [
+    "Three consecutive days of positive recovery indicate you're on the right track. Your body is well-prepared for the challenge. Keep it up and enjoy consistent performance!",
+    "A streak of three positive days! Your body appreciates your attention to rest. You're reducing the risk of injuries and maximizing your potential in every activity.",
+    "Maintaining positive recovery for three consecutive days is a significant achievement. You're building a solid foundation for endurance and efficiency in your daily activities.",
+    "Three consecutive days of good rest are a sign that you're in tune with your body's needs. Keep paying attention to the signals it provides and maintain your positive sleep habits.",
+    "Celebrating three days of restful sleep acknowledges your commitment to a balanced life. Keep nurturing an environment conducive to rest, and you'll see improvements in your physical and mental well-being.",
+    "Your consistency in maintaining good sleep for three days is admirable. Keep nurturing your physical and mental well-being with healthy nightly habits and mindfulness."
+  ],
+  "profileRecoveryMessage3-": [
+    "Three consecutive days with challenging recovery results indicate the need for adjustments. Reflect on your routine and make changes to avoid unnecessary risks.",
+    "Maintaining a low level of recovery for three days can impact your performance. Evaluate your sleep habits and daily routine to minimize risks and maximize well-being.",
+    "Three days of challenging recovery may be a sign that your body needs more attention. Take time to rest and make changes to your routine to avoid fatigue and injuries.",
+    "Maintaining a streak of three days of poor sleep is a sign that it's time to review your sleep habits. Listen to your body's signals and seek support if necessary to improve your rest.",
+    "Three consecutive days of poor rest can be tough, but they're also an opportunity to learn and grow. Commit to finding solutions to improve the quality of your sleep and revitalize your well-being.",
+    "Don't let three days of poor sleep discourage you. Use this experience as motivation to adjust your sleep habits and seek the necessary balance for your health and vitality."
+  ],
+  "profileRecoveryMessage4+": [
+    "Four consecutive days of solid recovery demonstrate your commitment to comprehensive care for your body and mind. Keep honoring your rest needs to maintain your vitality and emotional balance.",
+    "Maintaining a streak of four days of adequate recovery is a sign of your attention to overall well-being. Your consistency in rest reflects your commitment to a balanced and healthy life.",
+    "Congratulations on prioritizing your recovery for four consecutive days. This achievement shows your dedication to optimizing your performance and well-being in all areas of your life.",
+    "Four consecutive days of good rest and recovery are a testament to your commitment to a balanced lifestyle. Keep listening to the needs of your body and mind to maximize your well-being.",
+    "Celebrating four days of solid recovery is celebrating your dedication to self-care and holistic health. Keep nourishing your body with proper rest and watch your physical and mental well-being flourish.",
+    "Your persistence in maintaining good recovery for four days is worthy of recognition. Keep cultivating healthy sleep habits and enjoy the benefits they bring to your performance and overall well-being."
+  ],
+  "profileRecoveryMessage4-": [
+    "Four consecutive days of poor recovery can be a reminder of the importance of caring for your overall well-being. Take note of your experiences and seek to adjust your habits to improve your quality of rest and recovery.",
+    "Recognizing four consecutive days of poor recovery is the first step to making positive changes. Take steps to reduce stress, establish relaxation routines, and prioritize your rest to revitalize your well-being.",
+    "Despite the challenges of the past four days, remember that each night is a new opportunity to restore your energy and vitality. Maintain the determination to find a healthy balance for your body and mind.",
+    "Maintaining a streak of four days of poor recovery is a sign that it's time to review your habits and priorities. Listen to your body's signals and seek support if necessary to improve your overall well-being.",
+    "Four consecutive days of poor recovery can be challenging, but they're also an opportunity to learn and grow. Commit to finding solutions to improve your sleep quality and revitalize your health and performance.",
+    "Don't let four days of poor recovery discourage you. Use this experience as motivation to adjust your habits and find the balance needed to optimize your physical and mental well-being."
+  ],
+  "profileRecoveryMessage5+": [
+    "Five days of positive recovery are a testament to your commitment to health and performance. Your body is in its best shape to tackle physical challenges. Keep it up and continue surpassing your goals!",
+    "Quintuple victory! Your recovery over five consecutive days is exceptional. Your body is strong and ready for any challenge that comes its way. Congratulations!",
+    "Maintaining positive recovery for five days is a sign of consistency and well-being. You are cultivating a solid foundation for your long-term performance.",
+    "Impressive! You have maintained optimal recovery for five consecutive days. Your body is efficiently regenerating. Keep taking care of yourself and enjoy that renewed vitality!",
+    "Five consecutive days of adequate recovery reflect your attention to holistic well-being. Your commitment to restful sleep strengthens you physically and mentally, providing the strength and endurance needed for your daily activities.",
+    "Celebrating five days of solid nightly recovery is celebrating your focus on comprehensive health. Your body and mind benefit from your healthy sleep habits, allowing you to approach each day with confidence and determination.",
+    "Your persistence in maintaining good recovery for five consecutive days is admirable. Keep cultivating an environment conducive to rest and renewal, and you will see your overall well-being soar to new heights."
+  ],
+  "profileRecoveryMessage5-": [
+    "Five consecutive days of challenging recovery are a sign that it's time to pay more attention to your well-being. Consider making significant changes to protect your long-term health.",
+    "Maintaining low recovery for five days indicates the need for a pause and reflection. Make adjustments to your lifestyle to improve the quality of your sleep and better prepare for your daily activities.",
+    "Although the past five days have been challenging in terms of recovery, each day is a new opportunity to make positive changes. Listen to your body and adjust your routine to maximize your performance.",
+    "Five consecutive days of challenging recovery might be a sign that your body needs additional rest. Remember to listen to the signals it sends and consider reducing the intensity of your physical or mental activity to allow for adequate recovery.",
+    "Recognizing five consecutive days of insufficient recovery is an invitation to review your daily routines. Perhaps you are pushing your body and mind too hard. Consider practicing relaxation activities and adjusting your workload to foster restful sleep.",
+    "Despite the challenges of the past five days, it's important to remember that adequate rest is essential for your overall well-being. Take a moment to evaluate your habits and find a balance that allows you to fully recover each night."
+  ],
+  "profileRecoveryMessage6+": [
+    "Six consecutive days of solid recovery show your commitment to overall well-being. Listening to the needs of your body and mind leads you to a state of balance and vitality. Keep it up!",
+    "Maintaining a streak of six days of optimal recovery is essential for consistent performance. Your dedication to rest reflects your commitment to a fulfilling and balanced life in all aspects.",
+    "Congratulations on maintaining an effective recovery routine for six consecutive days. Your consistency in rest strengthens both your body and mind, preparing you to face any challenge with clarity and energy.",
+    "Six consecutive days of good rest and recovery demonstrate your commitment to a balanced lifestyle. Keep prioritizing your well-being and watch all areas of your life thrive.",
+    "Celebrating six days of solid recovery is celebrating your focus on health and self-care. Your commitment to adequate rest allows you to shine brightly in all your daily activities.",
+    "Your persistence in maintaining good recovery for six consecutive days deserves recognition. Keep cultivating healthy sleep habits and enjoy the benefits they bring to your physical and mental well-being."
+  ],
+  "profileRecoveryMessage6-": [
+    "Six consecutive days of challenging recovery may signal that you need to adjust your habits and priorities. Listen to the signals your body sends you and take steps to reduce stress and improve your sleep quality.",
+    "Recognizing six consecutive days of insufficient recovery is the first step to positive change. Consider reviewing your daily routines and finding ways to integrate more rest and relaxation time.",
+    "Despite the challenges of the past six days, remember that each night is an opportunity to rejuvenate your body and mind. Prioritize self-care and recovery to restore your energy and mental clarity.",
+    "Maintaining a streak of six days of poor recovery may indicate that you are overloading your body and mind. Take a moment to assess your commitments and find a balance that allows you to rest and recharge.",
+    "Six consecutive days of challenging recovery may signal that it's time to make significant changes in your daily habits. Consider seeking professional support and taking concrete steps to improve your overall well-being.",
+    "Don't let six days of challenging recovery discourage you. Use this experience as motivation to make positive adjustments in your lifestyle and prioritize your health and well-being. Listen to your body's needs and make changes that promote effective recovery."
+  ],
+  "profileRecoveryMessage7+": [
+    "A full week of positive recovery is an extraordinary achievement. Your body is in optimal condition, minimizing risks and maximizing benefits. Keep it up and enjoy your continuous well-being!",
+    "Seven days of positive recovery! Your body is thankful for your attention and care. You're on the right path for exceptional performance. Congratulations!",
+    "Maintaining positive recovery for a full week is a testament to your dedication to wellness. Your body is in its best shape. Keep taking care of yourself!",
+    "Seven consecutive days of restorative sleep demonstrate your commitment to self-care. Your dedication to rest prepares you to shine in all your daily activities.",
+    "Maintaining a week of consistent sleep is key to your overall health. Take a moment to celebrate your efforts in caring for your rest.",
+    "A week of good rest is like a recharge for your body and mind. You're ready to face challenges with renewed energy and determination."
+  ],
+  "profileRecoveryMessage7-": [
+    "A full week with low recovery results is a call to action. Take time to rest and adjust your routine to avoid long-term risks.",
+    "Maintaining low recovery for seven consecutive days indicates the need for a careful review of your lifestyle. Make significant changes to protect your long-term well-being.",
+    "Despite the challenging week, each day is a new opportunity for improvement. Make adjustments to your routine and prioritize your well-being to build a solid foundation for future performance.",
+    "Maintaining a week of difficult sleep is a sign that it's time to make changes. Reflect on your daily activities and commitments to find a balance that promotes better rest.",
+    "Recognizing a week of challenging rest is the first step towards self-care. Take the necessary time to rest and recover properly.",
+    "A week of irregular sleep is an opportunity to reassess your approach to rest. Prioritize your well-being and look for ways to improve the quality of your sleep."
+  ],
+  "profileRecoveryMessage8+": [
+    "Eight consecutive days of restful sleep are a great sign that you are taking care of your well-being! Keep it up, you are on the right path towards a more balanced and healthy life!",
+    "Maintaining a streak of eight days of good rest is evidence of your commitment to your physical and mental health. You are laying the foundations for a healthier and more energized lifestyle.",
+    "Congratulations on achieving a full week of restorative sleep. Your body and mind thank you for it, keep it up and you will notice the difference in your quality of life!",
+    "Eight consecutive days of restful sleep are a sign that you are prioritizing your health and well-being. Keep listening to your body's needs and keep taking care of yourself.",
+    "With eight days of restful sleep, you are demonstrating that quality rest is an essential part of your daily routine. Stick with your positive habits and enjoy the benefits that good rest brings you.",
+    "Maintaining a streak of eight days of restful sleep is a reason to celebrate your efforts in taking care of your well-being. Keep it up and you will achieve your health and happiness goals."
+  ],
+  "profileRecoveryMessage8-": [
+    "Recognizing eight days of challenging sleep is the first step to making positive changes in your routine. Take a moment to reflect on what adjustments you can make to improve your rest.",
+    "Eight days of irregular sleep may indicate that it's time to reassess your habits and priorities. Listen to the signals your body is sending you and look for ways to take better care of yourself.",
+    "Maintaining a streak of eight days of difficult sleep is an invitation to pay more attention to your well-being. Consider what changes you can make in your lifestyle to promote more restorative and revitalizing rest.",
+    "Recognizing eight days of challenging sleep is the first step towards self-care. Take the necessary time to rest and recover properly, and seek support if needed.",
+    "Eight days of irregular sleep may be a sign that you need to review your daily habits to promote better rest. Consider what adjustments you can make to encourage more restful and satisfying sleep.",
+    "Eight consecutive days of difficult sleep are an opportunity to reassess your approach to rest. Prioritize your well-being and look for ways to improve the quality of your sleep to feel better and more refreshed."
+  ],
+  "profileRecoveryMessage9+": [
+    "Nine days of restful sleep are like the bricks of a tranquil and serene home. Each well-slept night is a pillar for your well-being.",
+    "For nine days, your pillow has witnessed your sweetest and most restorative dreams. Keep it up and build a refuge of rest and rejuvenation.",
+    "Every dawn after nine nights of deep sleep is an invitation to embrace renewed energy and mental clarity. Keep this streak up and reach new heights.",
+    "Nine days of rest have taken you through a journey of self-discovery and renewal. Follow this path and discover the magic of restful sleep.",
+    "Congratulations on nine days of restful sleep. Each well-slept night is a tribute to your commitment to health and well-being.",
+    "For nine days, you have honored rest as an essential part of your life. Keep it up and reap the rewards of a revitalized mind and body."
+  ],
+  "profileRecoveryMessage9-": [
+    "Recognizing nine days of challenging sleep is the first step towards change. Take a moment to evaluate your routines and look for ways to improve your rest.",
+    "Nine days of irregular sleep may indicate that it's time to make adjustments in your lifestyle. Listen to the signals your body is sending you and look for ways to take better care of yourself.",
+    "Maintaining a streak of nine days of difficult sleep is an invitation to reflect on your well-being. Consider what changes you can make to promote more restorative and revitalizing rest.",
+    "Recognizing nine days of challenging sleep is an opportunity to prioritize your health and well-being. Dedicate time to self-care and seek support if needed.",
+    "Nine days of irregular sleep may indicate that you need to review your habits and daily routines. Consider what adjustments you can make to foster more restful and satisfying sleep.",
+    "Nine consecutive days of difficult sleep are a wake-up call to pay more attention to your well-being. Seek resources and support to improve the quality of your sleep and revitalize your body and mind."
+  ],
+  "profileRecoveryMessage10+": [
+    "Ten consecutive days of restful sleep are an incredible achievement! Your commitment to rest shows your dedication to a balanced and healthy life. Keep it up!",
+    "Maintaining a streak of ten days of good rest is proof of your determination to take care of your health and well-being. You are laying the foundation for a life full of energy and vitality!",
+    "Congratulations on reaching over a week of restorative sleep. Your body and mind thank you for it, keep it up and you'll notice a remarkable improvement in your overall well-being!",
+    "Ten consecutive days of restful sleep are a clear sign that you are listening to the needs of your body and mind. Keep prioritizing your well-being and enjoy the benefits that good rest offers you.",
+    "With ten days of restful sleep, you are building a solid foundation for a balanced and healthy life. Keep up with your positive habits and maintain your commitment to daily self-care.",
+    "Maintaining a streak of ten days of restful sleep is a testament to your dedication to your health and happiness. Keep taking care of yourself and enjoy the feeling of renewal and revitalization that good rest brings you."
+  ],
+  "profileRecoveryMessage10-": [
+    "Recognizing ten days of challenging sleep is the first step towards positive change. Take a moment to reflect on your habits and look for ways to improve your rest.",
+    "Ten days of irregular sleep may indicate that it's time to make adjustments in your lifestyle. Listen to the signals your body is sending you and look for ways to take better care of yourself.",
+    "Maintaining a streak of ten days of difficult sleep is an invitation to reflect on your well-being. Consider what changes you can make to promote more restful and revitalizing rest.",
+    "Recognizing ten days of challenging sleep is an opportunity to prioritize your health and well-being. Dedicate time to self-care and seek support if necessary.",
+    "Ten days of irregular sleep may indicate that you need to review your habits and daily routines. Consider what adjustments you can make to foster more restful and satisfying sleep.",
+    "Ten consecutive days of difficult sleep are a wake-up call to pay more attention to your well-being. Seek resources and support to improve the quality of your sleep and revitalize your body and mind."
+  ],
+  "profileRecoveryMessageTwoWeeks+": [
+    "Two consecutive weeks of restful sleep are an impressive achievement. Your dedication to rest reflects your commitment to your health and well-being.",
+    "Maintaining a streak of fourteen days of good rest demonstrates your determination to prioritize your well-being. Keep it up, you're on the right track!",
+    "Congratulations on two weeks of restorative sleep. Your body and mind are experiencing the benefits of quality rest.",
+    "Fourteen consecutive days of restful sleep are evidence of your commitment to your mental and physical health. Keep taking care of yourself and listening to your body's needs.",
+    "Two weeks of consistent sleep are the foundation of a balanced and healthy lifestyle. Continue with your positive habits, and you'll notice how your overall well-being improves.",
+    "With two weeks of restful sleep, you're establishing a routine that nourishes your body and mind. Keep moving forward with this investment in your long-term health."
+  ],
+  "profileRecoveryMessageTwoWeeks-": [
+    "Recognizing two weeks of challenging sleep is a crucial first step towards change. Take a moment to evaluate your routines and find ways to improve your rest.",
+    "Two weeks of irregular sleep may be a sign that it's time to make adjustments in your lifestyle. Listen to the signals your body is sending and take steps to take better care of yourself.",
+    "Maintaining a streak of fourteen days of difficult sleep is an invitation to reflect on your well-being. Consider what changes you can make to promote more restful and revitalizing rest.",
+    "Recognizing two weeks of challenging sleep is an opportunity to prioritize your health and well-being. Take the time to rest and recover properly.",
+    "Two weeks of irregular sleep may indicate that you need to review your daily habits and routines. Consider how you can adjust your lifestyle to encourage more restful sleep.",
+    "Two consecutive weeks of difficult sleep are a wake-up call to pay more attention to your well-being. Seek support and resources to improve the quality of your sleep and take care of your mental and physical health."
+  ],
+  "profileRecoveryMessageThreeWeeks+": [
+    "Three consecutive weeks of restful sleep are a notable milestone in your journey towards better well-being! Your commitment to rest is paying off.",
+    "Maintaining a streak of twenty-one days of good rest is evidence of your dedication to taking care of your physical and mental health. Keep it up, you're doing great!",
+    "Congratulations on reaching three weeks of restorative sleep. Your body and mind are experiencing the benefits of consistent quality rest.",
+    "Twenty-one consecutive days of restful sleep are a testimony to your commitment to your well-being. Keep listening to your body's needs and taking care of yourself.",
+    "Three weeks of consistent sleep are the foundation of a balanced and healthy lifestyle. You're laying the groundwork for a fuller and more energized life.",
+    "With three weeks of restful sleep, you're demonstrating that quality rest is a priority in your life. Keep taking care of yourself and enjoying the benefits of restful sleep."
+  ],
+  "profileRecoveryMessageThreeWeeks-": [
+    "Recognizing three weeks of challenging sleep is an important step towards change. Take a moment to reflect on your habits and find ways to improve your rest.",
+    "Three weeks of irregular sleep may be a sign that you need to make adjustments in your lifestyle. Listen to the signals your body is sending and find ways to take better care of yourself.",
+    "Maintaining a streak of twenty-one days of difficult sleep is an invitation to reassess your well-being. Consider what changes you can make to promote more restful and revitalizing rest.",
+    "Recognizing three weeks of challenging sleep is an opportunity to prioritize your health and well-being. Dedicate time to taking care of yourself and seek support if needed.",
+    "Three weeks of irregular sleep may indicate that you need to review your daily habits and routines. Consider what adjustments you can make to encourage more restful and satisfying sleep.",
+    "Three consecutive weeks of difficult sleep are a reminder of the importance of taking care of your well-being. Seek resources and support to improve the quality of your sleep and revitalize your body and mind."
+  ],
+  "profileRecoveryMessageOneMonth+": [
+    "A full month of restorative sleep is quite an achievement! You've demonstrated exceptional commitment to your well-being. Keep taking care of yourself and enjoying the benefits of quality rest.",
+    "Maintaining a streak of one month of good sleep is a testament to your dedication to your health and happiness. You're laying the groundwork for a more balanced and energetic life.",
+    "Congratulations on reaching a whole month of restorative sleep. Your persistence in prioritizing your rest has been commendable, and your body and mind thank you for it. Keep it up!",
+    "A consecutive month of restorative sleep is a significant milestone in your journey to a healthier life. Your commitment to self-care is admirable and is leading you down the right path.",
+    "With one month of restorative sleep, you're experiencing the benefits of quality rest in all aspects of your life. Keep up your positive habits and continue taking care of yourself.",
+    "Maintaining a streak of one month of restorative sleep is a testament to your discipline and commitment to your well-being. Keep listening to your body's needs and enjoy the feeling of renewal that quality rest brings."
+  ],
+  "profileRecoveryMessageOneMonth-": [
+    "Acknowledging a month of challenging sleep is a call to action. Take a moment to evaluate your habits and consider what changes you can make to improve your rest.",
+    "A month of irregular sleep may indicate the need to review your daily routines. Listen to the signals your body is sending you and find ways to take better care of yourself.",
+    "Maintaining a streak of one month of difficult sleep is a sign that it's time to make changes in your lifestyle. Consider what adjustments you can make to promote more restful and revitalizing sleep.",
+    "Acknowledging a month of challenging sleep is the first step towards self-care. Take the time to rest and recover properly, and seek support if needed.",
+    "A month of irregular sleep may indicate that you need to pay more attention to your well-being. Consider what adjustments you can make to encourage more restful and satisfying sleep.",
+    "A consecutive month of challenging sleep is a sign that you need to take better care of yourself. Prioritize your health and look for ways to improve the quality of your sleep to feel better and more rejuvenated."
+  ],
+  "profileRecoveryMessageDefault+": [
+    "Your commitment to restful sleep is yielding results! Keep cultivating these healthy habits and you'll see how they reflect on your overall well-being.",
+    "Each night of restful sleep is a step towards a more balanced and fulfilling life. Keep up your positive streak and enjoy the benefits it brings.",
+    "Maintaining a positive streak in your rest is a testament to your dedication to self-care. Keep listening to your body's needs and move forward with confidence.",
+    "Your efforts to improve your sleep are paying off. Keep up your positive streak and celebrate each night of restful sleep as an achievement on your journey to better health.",
+    "Each night of restful sleep is an investment in your long-term well-being. Keep it up and you'll notice how your energy and vitality increase day by day.",
+    "Your commitment to quality rest deserves recognition. Keep up your positive streak and remember that each night of restful sleep is an opportunity to renew and revitalize yourself."
+  ],
+  "profileRecoveryMessageDefault-": [
+    "Recognizing a negative streak is the first step towards positive change. Take a moment to reflect on your habits and consider what adjustments you can make to improve your rest.",
+    "Every night is an opportunity to improve your sleep quality. If you've experienced a negative streak, consider what changes you can make to promote more restful sleep.",
+    "Maintaining a negative streak in your sleep is a sign that it's time to pay more attention to your well-being. Look for ways to reduce stress and promote a conducive sleeping environment.",
+    "Recognizing a negative streak in your rest is an invitation to take better care of yourself. Prioritize your health and consider what steps you can take to improve the quality of your sleep.",
+    "Every night is a new opportunity to improve your rest. If you've experienced a negative streak, look for ways to relax before bedtime and create a conducive sleeping environment.",
+    "Your well-being is a priority, and every night of sleep is an opportunity to take better care of yourself. If you've experienced a negative streak, take the necessary time to recover and seek support if needed."
+  ],
+  "profileANSMessage1+": [
+    "Your autonomic balance was positive today, keep it up! Celebrate your achievements and continue practicing healthy habits to maintain harmony.",
+    "Excellent! The balance of your autonomic nervous system suggests a day of calm and balance. Keep cultivating healthy habits and enjoy the ongoing benefits.",
+    "Excellent start! Your nervous system shows a healthy balance today. Keep taking care of yourself to maintain this harmony and enjoy more days full of vitality.",
+    "Today your body and mind are in sync. It's a good reminder that your positive habits are paying off. Keep it up and see how it reflects in your overall well-being.",
+    "A day of balance in your nervous system is a step in the right direction. Take advantage of this momentum to continue nurturing your health and promoting lasting well-being."
+  ],
+  "profileANSMessage1-": [
+    "Today, the balance of your autonomic nervous system suggests higher stress. Reflect on what might have contributed to this and consider relaxation techniques to improve your well-being.",
+    "Although today's autonomic balance was not ideal, remember it's just one day. Identify sources of stress and seek ways to incorporate relaxation into your routine to improve your stress response.",
+    "Today you have experienced an imbalance in your nervous system. Take this moment as an opportunity to reflect on your habits and find ways to restore harmony in your body and mind.",
+    "Recognizing a day of imbalance is the first step to regaining harmony. Reflect on what could have caused this discrepancy and take steps to better take care of yourself in the future.",
+    "A day of imbalance in your nervous system is a sign that you need to pay more attention to your well-being. Use this experience as motivation to seek ways to promote calmness and stability in your daily life."
+  ],
+  "profileANSMessage2+": [
+    "Double dose of balance! Two consecutive days with your nervous system in harmony are a sign that you are taking good care of yourself. Keep it up!",
+    "Two consecutive days of balance show your commitment to well-being. Continue nurturing that balance with healthy and positive habits.",
+    "Bravo for maintaining balance! Two consecutive days with your nervous system in sync are a reason to celebrate your efforts towards greater well-being.",
+    "Your body and mind are dancing in harmony for two consecutive days. Keep nurturing this connection with practices that make you feel good.",
+    "Two days of balance are like a comforting hug for your nervous system. Keep it up and you'll notice how your overall well-being benefits.",
+    "Two days, a great achievement! Your commitment to balance is taking you far. Keep going with that same dedication."
+  ],
+  "profileANSMessage2-": [
+    "Two days of imbalance can be a sign that you need to pay more attention to your well-being. Take a moment to reflect and find ways to restore harmony.",
+    "Recognizing two days of imbalance is the first step towards positive change. Consider what adjustments you can make to promote a state of calm and balance in your daily life.",
+    "Two days of imbalance are a wake-up call to take better care of yourself. Use this experience as motivation to seek ways to reduce stress and promote calmness in your daily routine.",
+    "Sometimes, two days of imbalance are just a reminder that you need to listen to your body's signals. Find time to relax and restore your inner balance.",
+    "Two days of imbalance can be a challenge, but they're also an opportunity to learn and grow. Reflect on what you can do to better support your mental and emotional well-being.",
+    "Recognizing two days of imbalance allows you to take proactive steps to regain your balance. Keep moving forward with determination and seek ways to promote calmness and well-being in your daily life."
+  ],
+  "profileANSMessage3+": [
+    "Three consecutive days with a positive autonomic balance are a significant achievement. Make sure to maintain these habits and effectively deal with stress.",
+    "Triple streak of autonomic balance. You're building a solid foundation for your well-being. Keep up with your healthy practices to maintain harmony.",
+    "Three days of consistent balance! Your nervous system is in sync and your well-being is elevated. Keep nurturing this positive flow with your healthy habits.",
+    "Three consecutive days of harmony demonstrate your commitment to comprehensive well-being. Keep doing what you're doing, you're on the right track!",
+    "Your body and mind are synchronized for three consecutive days. This is a significant achievement worth celebrating. Keep taking care of yourself and maintain this positive flow.",
+    "Three days of balance are like a gift to your nervous system. Keep nurturing this connection with practices that nourish you and make you feel good."
+  ],
+  "profileANSMessage3-": [
+    "Three consecutive days with an autonomic imbalance suggest a pattern. It's time to prioritize relaxation and reduce stress in your daily life. Small changes can make a big difference.",
+    "Although the autonomic balance has not been ideal for three days, each day is a new opportunity to restore harmony. Introduce relaxation and self-care practices to improve your well-being.",
+    "Three days of imbalance may signal that you need to take a moment to take better care of yourself. Reflect on what is causing this imbalance and take steps to restore harmony.",
+    "Recognizing three days of imbalance is the first step towards positive change. Consider what adjustments you can make in your lifestyle to promote a state of calm and balance.",
+    "Three days of imbalance are a wake-up call to pay more attention to your well-being. Use this experience as motivation to seek ways to reduce stress and promote tranquility in your daily life.",
+    "Sometimes, three days of imbalance are a reminder that you need to listen to your body's needs. Take some time to rest and restore your inner balance."
+  ],
+  "profileANSMessage4+": [
+    "Four consecutive days of continuous balance are a remarkable achievement. Your body and mind are in sync, keep it up and you'll reach new heights of well-being!",
+    "Four consecutive days of balance! It's evident that you're making healthy choices that benefit your nervous system. Keep moving forward with that positive momentum!",
+    "Your nervous system has been in harmony for four consecutive days. This is an achievement worth celebrating. Keep taking care of yourself and appreciate the power of your healthy habits.",
+    "Four days of consistent balance are a testament to your dedication to well-being. Keep nurturing that mind-body connection and you'll reap the rewards of a balanced life.",
+    "Wonderful! Four consecutive days of harmony demonstrate your commitment to your overall health. Keep cultivating this positive flow and watch how it transforms your well-being.",
+    "Your nervous system has been in a state of balance for four consecutive days. This is a significant milestone reflecting your commitment to a healthy and balanced life."
+  ],
+  "profileANSMessage4-": [
+    "Four days of imbalance may be a sign that you need to pay more attention to your well-being. Take a moment to reflect and seek ways to restore harmony in your daily life.",
+    "Recognizing four days of imbalance is the first step towards positive change. Consider what adjustments you can make in your lifestyle to promote a state of calm and balance.",
+    "Four days of imbalance are a wake-up call to take better care of yourself. Use this experience as motivation to seek ways to reduce stress and promote tranquility in your daily routine.",
+    "Sometimes, four days of imbalance are a reminder that you need to listen to your body's needs. Take some time to rest and restore your inner balance.",
+    "Four days of imbalance can be a challenge, but they're also an opportunity to learn and grow. Reflect on what you can do to better support your mental and emotional well-being.",
+    "Recognizing four days of imbalance allows you to take proactive steps to regain your balance. Keep moving forward with determination and seek ways to promote calmness and well-being in your daily life."
+  ],
+  "profileANSMessage5+": [
+    "Fantastic! Your autonomic nervous system balance has been positive for five consecutive days. This indicates remarkable harmony between the sympathetic and parasympathetic systems, providing stability and well-being to your body. You're creating an environment conducive to health and optimal performance!",
+    "Five days of positive balance in the ANS is a sign that your body is in equilibrium. This coherence between the sympathetic and parasympathetic nervous systems promotes recovery, stress resilience, and overall health. Keep taking care of yourself, and you'll reap long-term benefits!",
+    "Maintaining a positive balance in the autonomic nervous system for five days is a significant achievement. Your body appreciates the attention you've given it. Enjoy the sense of well-being you've created and continue with your healthy practices.",
+    "Five days of harmonious balance! Your body and mind have been in sync, indicating good regulation between the sympathetic and parasympathetic nervous systems. Keep it up and nurture that balance!",
+    "For five consecutive days, you've maintained a state of balance that reflects harmony between your sympathetic and parasympathetic systems. This is an admirable achievement worthy of celebration!",
+    "Five days of constant balance are a clear indication that you're taking good care of yourself. Your nervous system is functioning in harmony, allowing you to face daily challenges with calmness and clarity.",
+    "Your body has been in a state of balance for five consecutive days, demonstrating healthy regulation between the sympathetic and parasympathetic systems. Keep nurturing this positive flow, and you'll see improvements in your overall well-being."
+  ],
+  "profileANSMessage5-": [
+    "Five consecutive days of imbalance in the autonomic nervous system indicate an area that requires attention. This imbalance can affect stress response and recovery capacity. Consider strategies to restore harmony and improve your overall well-being.",
+    "Maintaining a negative balance in the ANS for five days can have repercussions on your physical and mental health. It's a reminder of the importance of caring for your nervous system to prevent fatigue and burnout. Take the necessary time to relax and recover.",
+    "Despite the challenging last five days in terms of autonomic nervous system balance, each day is a new opportunity for positive adjustments. Listen to your body, implement relaxing practices, and work on restoring balance. Your well-being is in your hands.",
+    "Five days of imbalance may indicate an overload in your sympathetic nervous system, leading to feelings of anxiety or agitation. It's important to take time to relax and restore calm.",
+    "Recognizing five days of imbalance is the first step in restoring harmony between your sympathetic and parasympathetic systems. Consider incorporating relaxation and self-care practices into your daily routine.",
+    "Five days of imbalance signal that you need to pay attention to your emotional and physical well-being. Look for ways to reduce stress and promote relaxation to restore balance in your daily life.",
+    "Sometimes, five days of imbalance serve as a reminder of the importance of listening to your body's signals. Take time to reconnect with yourself and find ways to support your overall well-being."
+  ],
+  "profileANSMessage6+": [
+    "Six days of constant balance are a testament to your commitment to your well-being. Your nervous system has been in harmony, indicating good regulation between the sympathetic and parasympathetic systems.",
+    "For six consecutive days, you've maintained a state of balance that reflects harmony between your sympathetic and parasympathetic systems. Keep nurturing this positive flow, and you'll see improvements in your overall well-being.",
+    "Your body and mind have been in sync for six consecutive days, demonstrating healthy regulation between the sympathetic and parasympathetic systems. Continue nurturing this balance with your healthy habits.",
+    "Six consecutive days of balance! This achievement is proof of your ability to take good care of yourself. Keep going with this positive momentum and keep your well-being at the center of your priorities.",
+    "Your body has been in balance for six consecutive days, demonstrating a deep connection between your mind and your physical well-being. Continue cultivating this balance, and you'll see how it reflects in your daily life.",
+    "For six consecutive days, you've maintained notable synchronization between your body and your mind. This achievement is a reminder of your ability to take care of yourself and support your overall health."
+  ],
+  "profileANSMessage6-": [
+    "Six days of imbalance may indicate that you need to take a moment to take better care of yourself. It's important to pay attention to the signals your body is sending you and find ways to restore harmony.",
+    "Recognizing six days of imbalance is the first step to initiating positive changes in your life. Consider adjustments you can make to your daily routine to promote a state of calm and balance.",
+    "Six days of imbalance signal that you need to make changes in your life to support your physical and emotional well-being. Take time to reflect on what's causing you stress and look for ways to reduce it.",
+    "Sometimes, six days of imbalance serve as a reminder that you need to listen to your body's needs. Take a break and look for activities that will help you recharge and restore your internal balance.",
+    "Recognizing six days of imbalance allows you to take proactive steps to regain your well-being. Keep moving forward with determination and look for ways to promote calmness and balance in your daily life.",
+    "Six days of imbalance can be a challenge, but they're also an opportunity to learn and grow. Reflect on what you can do to better support your mental and emotional health and take steps to improve your quality of life."
+  ],
+  "profileANSMessage7+": [
+    "Despite a week of positive autonomic balance, don't let your guard down. Keep taking care of your well-being and effectively manage stress.",
+    "Full week of autonomic balance! You're demonstrating significant commitment to your mental health. Keep it up and enjoy a more balanced life.",
+    "A whole week of balance and harmony! Your sleep and wellness habits are in sync, allowing you to wake up refreshed every day.",
+    "Seven consecutive days of balance show your commitment to a healthy life. Your body and mind are in sync, ready to face daily challenges with calmness and clarity.",
+    "For seven consecutive days, you've maintained notable stability, reflecting a state of overall well-being. It's an achievement worthy of celebration!",
+    "A complete week of balance is evidence of your dedication to self-care. Keep nurturing that balance, and you'll see how it reflects in all aspects of your life."
+  ],
+  "profileANSMessage7-": [
+    "Maintaining autonomic imbalance for a week is a warning sign. It's crucial to address sources of stress and prioritize relaxation to restore harmony in your nervous system.",
+    "Despite a challenging week in terms of autonomic balance, you're in control of your well-being. Implement significant lifestyle changes to promote calmness and relaxation.",
+    "Seven days of imbalance can be an important reminder to listen to your body's needs. Consider what changes you can make to improve your overall well-being.",
+    "Recognizing seven days of imbalance is the first step towards positive change. Take time to evaluate your routine and find ways to promote relaxation and restorative rest.",
+    "Seven days of imbalance can be challenging, but they're also an opportunity to reflect and adjust your approach to a more balanced lifestyle.",
+    "If you've experienced seven days of imbalance, it's time to prioritize your well-being. Make small changes in your daily routine to encourage restful sleep and restore harmony in your life."
+  ],
+  "profileANSMessage8+": [
+    "Eight days of constant balance are a testament to your commitment to your well-being. Your nervous system has been in harmony, indicating good regulation between the sympathetic and parasympathetic systems.",
+    "For eight consecutive days, you've maintained a state of balance that reflects harmony between your sympathetic and parasympathetic systems. Keep nurturing this positive flow, and you'll see improvements in your overall well-being.",
+    "Your body and mind have been in sync for eight consecutive days, demonstrating healthy regulation between the sympathetic and parasympathetic systems. Continue nurturing this balance with your healthy habits.",
+    "Eight consecutive days of balance! This achievement is proof of your ability to take good care of yourself. Keep going with this positive momentum and keep your well-being at the center of your priorities.",
+    "Your body has been in balance for eight consecutive days, demonstrating a deep connection between your mind and your physical well-being. Continue cultivating this balance, and you'll see how it reflects in your daily life.",
+    "For eight consecutive days, you've maintained notable synchronization between your body and your mind. This achievement is a reminder of your ability to take care of yourself and support your integral health."
+  ],
+  "profileANSMessage8-": [
+    "Eight days of imbalance can be an indicator that you need to take some time to take better care of yourself. It's important to pay attention to the signals your body is sending you and find ways to restore harmony.",
+    "Recognizing eight days of imbalance is the first step towards initiating positive changes in your life. Consider adjustments you can make to your daily routine to promote a state of calm and balance.",
+    "Eight days of imbalance signal that you need to make changes in your life to support your physical and emotional well-being. Take time to reflect on what's causing you stress and look for ways to reduce it.",
+    "Sometimes, eight days of imbalance serve as a reminder that you need to listen to your body's needs. Take a break and look for activities that will help you recharge and restore your internal balance.",
+    "Recognizing eight days of imbalance allows you to take proactive steps to regain your well-being. Keep moving forward with determination and look for ways to promote calmness and balance in your daily life.",
+    "Eight days of imbalance can be a challenge, but they're also an opportunity to learn and grow. Reflect on what you can do to better support your mental and emotional health and take steps to improve your quality of life."
+  ],
+  "profileANSMessage9+": [
+    "Nine days of continuous balance are an admirable feat! Your commitment to well-being reflects your dedication to self-care.",
+    "You have demonstrated notable consistency for nine consecutive days. Maintain this positive momentum and continue nurturing your physical and mental well-being.",
+    "Your determination shines through nine days of constant balance. Keep cultivating that inner harmony and you will see how it positively impacts your daily life.",
+    "Nine days of balance show your ability to adapt and prioritize your well-being. Celebrate every achievement in this journey towards a more balanced and fulfilling life!",
+    "Each of those nine days reflects your commitment to a full and healthy life. Keep finding joy in the little moments and take care of your body and mind with love and attention.",
+    "Your persistence during nine days of balance is a testament to your inner strength and determination. Keep moving forward with confidence, knowing that you are building a healthier and more balanced future."
+  ],
+  "profileANSMessage9-": [
+    "Nine days of imbalance can be challenging, but they are also an opportunity to reflect and adjust your approach towards a more balanced lifestyle.",
+    "Recognizing nine days of imbalance is the first step towards positive change. Take the time to assess your routine and find ways to promote relaxation and restorative rest.",
+    "Nine days of imbalance signal that it's time to pay attention to your well-being. Dedicate time to take care of yourself and seek activities that help you recharge and restore inner balance.",
+    "It's normal to face nine days of imbalance occasionally, but it's also an opportunity to learn and grow. Reflect on what you can do to better support your well-being and take steps to improve your quality of life.",
+    "During nine days of imbalance, it's important to remember that each day is an opportunity to start anew. Maintain a positive perspective and seek ways to cultivate harmony in your daily life.",
+    "Despite nine days of challenges, remember that you have the power to change your situation. With small steps and conscious decisions, you can restore balance and move towards a more fulfilling and satisfying life."
+  ],
+  "profileANSMessage10+": [
+    "Ten days of consistent balance are an impressive achievement! Your dedication to well-being has created a solid foundation for a more fulfilling and satisfying life.",
+    "Maintaining balance for ten consecutive days is a demonstration of your commitment and determination. Keep taking care of your body and mind with love and attention.",
+    "Ten days of balance show your ability to adapt and thrive even in the most challenging times. Keep cultivating that sense of harmony and well-being in your daily life.",
+    "Your consistency for ten consecutive days reflects your dedication to self-care and overall well-being. Celebrate every small step towards a more balanced and meaningful life!",
+    "Each of those ten days highlights your commitment to a healthy and balanced lifestyle. Keep finding joy in the little things and nurturing your body and mind with positive habits.",
+    "Ten days of balance are a testament to your inner strength and perseverance. Keep moving forward with confidence, knowing that you are building a healthier and happier future."
+  ],
+  "profileANSMessage10-": [
+    "Ten days of imbalance can be challenging, but they are also an opportunity to reflect and adjust your approach towards a more balanced lifestyle.",
+    "Recognizing ten days of imbalance is the first step towards positive change. Take the time to assess your routine and find ways to promote relaxation and restorative rest.",
+    "Ten days of imbalance signal that it's time to pay attention to your well-being. Dedicate time to take care of yourself and seek activities that help you recharge and restore inner balance.",
+    "It's normal to face ten days of imbalance occasionally, but it's also an opportunity to learn and grow. Reflect on what you can do to better support your well-being and take steps to improve your quality of life.",
+    "During ten days of imbalance, it's important to remember that each day is an opportunity to start anew. Maintain a positive perspective and seek ways to cultivate harmony in your daily life.",
+    "Despite ten days of challenges, remember that you have the power to change your situation. With small steps and conscious decisions, you can restore balance and move towards a more fulfilling and satisfying life."
+  ],
+  "profileANSMessageTwoWeeks+": [
+    "Two weeks of continuous balance are an impressive achievement! Your dedication to wellness has created a solid foundation for a fuller and more satisfying life.",
+    "Maintaining balance for two consecutive weeks is a demonstration of your commitment and determination. Keep caring for your body and mind with love and attention.",
+    "Two weeks of balance show your ability to adapt and thrive even in the most challenging times. Keep cultivating that sense of harmony and well-being in your daily life.",
+    "Your consistency over two consecutive weeks reflects your dedication to self-care and overall well-being. Celebrate every small step toward a more balanced and meaningful life!",
+    "Each day of those two weeks highlights your commitment to a healthy and balanced lifestyle. Keep finding joy in the little things and nurturing your body and mind with positive habits.",
+    "Two weeks of balance are a testament to your inner strength and perseverance. Move forward with confidence, knowing that you are building a healthier and happier future."
+  ],
+  "profileANSMessageTwoWeeks-": [
+    "Two weeks of imbalance can be challenging, but they are also an opportunity to reflect and adjust your approach to a more balanced lifestyle.",
+    "Recognizing two weeks of imbalance is the first step toward positive change. Take time to evaluate your routine and find ways to promote relaxation and restorative rest.",
+    "Two weeks of imbalance are a sign that it's time to pay attention to your well-being. Dedicate time to taking care of yourself and seek out activities that help you recharge and restore inner balance.",
+    "Facing two weeks of imbalance is normal at times, but it's also an opportunity to learn and grow. Reflect on what you can do to better support your well-being and take steps to improve your quality of life.",
+    "During two weeks of imbalance, it's important to remember that each day is a chance to start anew. Maintain a positive outlook and look for ways to cultivate harmony in your daily life.",
+    "Despite two weeks of challenges, remember that you have the power to change your situation. With small steps and conscious decisions, you can restore balance and move toward a fuller and more satisfying life."
+  ],
+  "profileANSMessageThreeWeeks+": [
+    "Three weeks of continuous balance are a remarkable achievement! Your commitment to wellness is leading you on a path of harmony and vitality.",
+    "Maintaining balance for three consecutive weeks demonstrates your determination and dedication. Keep nurturing your body and mind with positive habits that enhance your overall well-being.",
+    "Three weeks of balance reflect your ability to adapt and thrive in all circumstances. Continue cultivating a life full of wellness and gratitude.",
+    "Your perseverance over three consecutive weeks shows a deep commitment to your health and happiness. Celebrate every small progress and continue your journey toward lasting well-being.",
+    "Each day of these three weeks underscores your commitment to a balanced and mindful lifestyle. Keep seeking beauty in the little things and nurturing your body and soul with love and care.",
+    "Three weeks of balance are a testament to your inner strength and determination. Move forward with confidence and optimism, knowing that you are building a solid foundation for a fulfilling and healthy life."
+  ],
+  "profileANSMessageThreeWeeks-": [
+    "Three weeks of imbalance can be challenging, but they also represent an opportunity to reflect and adjust your approach to a more balanced lifestyle.",
+    "Recognizing three weeks of imbalance is the first step toward positive change. Take a moment to evaluate your habits and seek ways to promote relaxation and restorative rest.",
+    "Three weeks of imbalance are a sign that it's important to prioritize your well-being. Dedicate time to taking care of yourself and seek out activities that help you recharge and restore inner balance.",
+    "While facing three weeks of imbalance may be challenging, it's also an opportunity to learn and grow. Reflect on how you can better support your well-being and take positive steps toward a more balanced life.",
+    "During three weeks of imbalance, remember that each day is a new opportunity to start afresh. Maintain a positive attitude and look for ways to cultivate calm and serenity in your daily life.",
+    "Despite the challenges of three weeks of trials, remember that you have the strength and ability to change your situation. With determination and focus, you can restore balance and move toward a fuller and more satisfying life."
+  ],
+  "profileANSMessageOneMonth+": [
+    "One month of continuous balance is an outstanding achievement! Each day, you've demonstrated your commitment to a healthy and balanced life.",
+    "Maintaining balance for a whole month is a sign of your inner strength and determination to prioritize your well-being. Keep it up!",
+    "Celebrating one month of healthy habits. Every small step adds up to big results. You're on the right track!",
+    "A month of balance reflects your dedication and commitment to your health and happiness. Keep finding harmony in each day.",
+    "Every day of this month has been an opportunity to grow and take care of yourself. Congratulations on a month of healthy habits that help you thrive.",
+    "Your commitment for a month is a reminder of your ability to make significant changes in your life. Keep moving forward with determination and gratitude!"
+  ],
+  "profileANSMessageOneMonth-": [
+    "Recognizing a month of imbalance is the first step toward positive change. It's time to reflect and find new strategies to improve your well-being.",
+    "Despite the challenges of this month, remember that each day is an opportunity to start anew. Don't get discouraged and seek support to make improvements.",
+    "Throughout this month, every difficulty has been an opportunity to learn and grow. Use this experience to strengthen yourself and move towards a more balanced future.",
+    "Although this month has been tough, remember that you have the power to change your situation. With patience and perseverance, you can find the balance you need.",
+    "A month of imbalance is a wake-up call to pay more attention to your well-being. Take time to take care of yourself and find ways to restore your inner balance.",
+    "Despite the challenges of this month, remember that you have control over your habits and your health. With each new day, you have the opportunity to make choices that bring you closer to a balanced life."
+  ],
+  "profileANSMessageDefault+": [
+    "Keep shining with your positive streak! Every day is an opportunity to keep achieving success and progressing towards your goals.",
+    "Your consistency in the positive streak is inspiring. Keep moving forward with confidence and determination, knowing that you're on the right path.",
+    "Every step you take strengthens your positive streak. Celebrate your achievements and maintain the positive energy as you move towards a bright future.",
+    "Your commitment to excellence is evident in your positive streak. Stay focused on your goals and let your success be your best motivation.",
+    "With each day of this positive streak, you're building a path to a future full of possibilities. Keep moving forward with enthusiasm and determination!",
+    "Your persistence in the positive streak is a testament to your strength and resilience. Keep the flame alive and continue to light the way towards your dreams."
+  ],
+  "profileANSMessageDefault-": [
+    "Recognizing the negative streak is the first step towards positive change. Embrace the challenge and use your determination to overcome it.",
+    "Although the negative streak may be tough, each day is a new opportunity to change course. Keep hope alive and seek solutions for improvement.",
+    "The negative streak doesn't define your destiny, but your response to it does. With every challenge, you have the opportunity to learn and grow stronger.",
+    "Despite the obstacles of the negative streak, remember that you're capable of overcoming them. Trust in your ability to find the path to light.",
+    "Every day of the negative streak is an opportunity to strengthen yourself and demonstrate your resilience. Don't give up; keep moving forward with determination and courage.",
+    "The negative streak is just a part of your story; your ability to overcome it is what defines your future. Keep the faith and continue moving bravely towards a better tomorrow."
+  ],
+  "profileCardSleepArcTooltip": "Sleep occurs in cycles lasting 90 to 110 minutes, crucial for healthy rest. A normal sleep includes four to six complete cycles, each with stages of light, deep, and REM sleep. Light sleep is the transition from wakefulness to deep sleep, while REM is when dreaming occurs. Interrupting sleep affects its quality.",
+  "profileModalSleepArcDesc": "The sleep period unfolds in cycles lasting between 90 and 110 minutes and is an essential part of a healthy sleep pattern. In a typical rest, four to six complete cycles usually occur. Each cycle consists of three stages: light sleep, deep sleep, and REM sleep.\n\nLIGHT sleep is the transitional moment from wakefulness to DEEP sleep. The eyes do not move, and muscle tone decreases.\n\nDuring DEEP sleep, physical movement and muscle tone are nearly nonexistent. It is crucial for physical recovery and most physiological systems.\n\nDuring REM sleep is when we dream, characterized by rapid eye movements, paralyzed muscles, variable blood pressure, and heart rate. REM sleep is necessary for mental recovery.\n\nThe duration of sleep is as important as ensuring it is not interrupted, as all the benefits of continuous and restorative rest will not be achieved.",
+  "profileModalSleepArcDaily": "For complete recovery of your body and mind, you need to sleep enough overall; this also means having sufficient REM and DEEP sleep. REM sleep should constitute 20% to 25% of your total sleep, DEEP sleep 10% to 20%, and LIGHT sleep between 50% and 60%.",
+  "profileModalSleepArcWeekly": "You can use this chart to understand trends in your sleep cycles and their phases throughout the week and thus establish a routine for the times you go to sleep and wake up. Practice habits that induce sleep and avoid nighttime interruptions, as all the benefits of continuous and restorative rest will not be achieved, even if you have slept the recommended 8 hours.",
+  "profileCardSleepScoreTooltip": "Sleep quality is determined by duration and amount of REM and deep sleep. More hours and quality sleep mean a better score. Most adults need 7 to 8 hours of sleep for good health. A weekly graph can help understand trends and improve sleep habits if needed.",
+  "profileModalSleepScoreDesc": "Sleep score is determined based on the number of hours you have slept and, during those hours, the amount of REM and DEEP sleep you have had. The more hours you sleep, the more REM and DEEP sleep you will have, therefore, the better your sleep score will be. Conversely, the more awake you stay and/or the more interruptions during your sleep period, the lower the score will be.\n\nMost adults need between 7 and 8 hours of sleep each night. During sleep, multiple biological and hormonal processes occur that promote good health and allow the body to function optimally.",
+  "profileModalSleepScoreWeekly": "You can use this chart to understand your sleep score trends over the days, and if your score is below average, create or reinforce habits that guide you towards the recommended 8 hours of sleep.",
+  "profileCardRecoveryTooltip": "Recovery points show how the body bounces back from daily strain. They're calculated by the difference in heart rate variability between morning and the previous night. A weekly graph helps balance the routine and prevent injuries.",
+  "profileModalRecoveryDesc": "Recovery points represent the adaptation and physical recovery during rest in relation to your daily routine, and are calculated by the difference between the values of Morning Heart Rate Variability (HRV) and the previous night.\n\nIt is crucial to consider activities that generate physical and/or mental stress from the previous day, such as workouts, workday, etc. Recovery levels will reflect how your body recovered during sleep from the physical strain of the previous day.",
+  "profileModalRecoveryAnnotation": "*Note that if the load from the previous day was low, the recovery will not necessarily be high the next day, as the body does not have a load to recover from.",
+  "profileModalRecoveryWeekly": "You can use this chart to optimize and balance your activity routine throughout the week, understanding your recovery trends and thus avoiding potential physical overload or injury.",
+  "profileCardANSTooltip": "The autonomic nervous system controls body functions, divided into sympathetic and parasympathetic. The parasympathetic regulates rest and digestion, lowering heart rate. The sympathetic responds to stress or activity, increasing blood pressure and heart rate.",
+  "profileModalANSDesc": "The autonomic nervous system controls the functions of your body; it is divided into sympathetic and parasympathetic. During the day, you have moments of relaxation, where the parasympathetic system is more dominant, and moments of excitement or activity, in which the sympathetic system takes control. These systems function like an accelerator and brake that alternate to maintain balance.\n\nThe parasympathetic system, associated with \"rest and digest\" mechanisms, regulates rest and metabolism, managing internal systems like digestion, breathing, and nail growth. This system causes a decrease in heart rate.\n\nThe sympathetic system, associated with \"fight or flight\" mechanisms, controls your active physical response, reacting to external variables such as stress and exercise. It generates an increase in blood pressure and heart rate.",
+  "profileModalANSDaily": "During sleep, you will find alternations in the activity of the autonomic nervous system that reflect the different phases of sleep and the activation or relaxation states of your body.",
+  "profileModalANSWeekly": "You can use this chart to understand trends in the balance of the autonomic nervous system (ANS). If values remain at 50/50, with a correction of +/- 10, you are within standard parameters, indicating a good homeostatic functioning of your autonomic nervous system, associated with good physical condition and lower organism stress.\n\nIf trends indicate an imbalance, it may be due to accumulated fatigue from poor rest and/or insufficient hours of sleep, and if the trend continues in the medium or long term, it could be an indicator of chronic stress.",
+  "profileCardHRVTooltip": "HRV measures the variation between heartbeats and reflects health and fitness. Higher levels indicate better physical condition and lower stress. It's influenced by the interaction between the Sympathetic and Parasympathetic branches of the Autonomic Nervous System.",
+  "profileModalHRVDesc": "Heart Rate Variability (HRV) is the variation in time between heartbeats. Used as an indicator of health and overall physical fitness, it allows determining your psychophysiological state. Short-term analyzed HRV indicates your body's readiness to face the daily routine.\n\nGenerally, higher HRV values indicate better physical fitness and lower organism stress. Low HRV may be associated with a lack of physical exercise and the risk of injury.\n\nHRV is determined by the result of the interaction between the Sympathetic System, responsible for your body's fight or flight reactions, and the Parasympathetic System, responsible for rest and digest reactions; both make up the Autonomic Nervous System and, in a proper balance, send signals to your heart to beat faster (Sympathetic) or slower (Parasympathetic); this fluctuation between beats is precisely Heart Rate Variability (HRV).",
+  "profileModalHRVDaily": "Higher HRV indicates greater recovery and lower organism stress. Medium and long-term training tends to increase HRV values. Conversely, a low HRV level is associated with a potential risk of injury and, in the long term, with associated diseases.",
+  "profileModalHRVWeekly": "You can base yourself on this chart to understand your HRV trends. When values are above the average of your last 7 days, you can engage in intense training. If they are intermediate, moderate or light training is recommended, and if they are lower, it is better to rest or engage in very light training to avoid overtraining or possible injury.",
+  "profileModalHRVWeeklyAnnotation": "*A long-term decrease in RMSSD may be an indication that overtraining is approaching.",
+  "profileCardHeartRateTooltip": "The resting heart rate for adults ranges between 60 and 100 beats per minute. A lower rate implies better heart function and cardiovascular health. It's calculated by taking the lowest average beats per minute value in three-minute intervals throughout the night.",
+  "profileModalHeartRateDesc": "The normal resting heart rate for adults ranges between 60 and 100 beats per minute. Generally, a lower resting heart rate implies more efficient heart function and better cardiovascular fitness.\n\nYour resting heart rate is calculated based on your average beats per minute for each three-minute interval throughout the night, taking the lowest value in each interval.",
+  "profileModalHeartRateDaily": "Resting beats per minute can be used as a mild indicator of stress or overtraining.",
+  "profileCardBreathingRateTooltip": "The normal resting respiratory rate for adults is 12 to 18 breaths per minute. A rate below 12 or above 25 breaths per minute at rest may indicate an underlying health issue.",
+  "profileModalHeartRateWeekly": "You can use this chart to reference your resting heart rate on a weekly basis, also checking for notable deviations from the baseline level.\n\nPhysical exercise tends to decrease resting heart rate in the medium and long term, indicating that you are getting fitter!",
+  "profileModalBreathingRateDesc": "The normal respiratory rate for a resting adult is 12 to 18 breaths per minute. A respiratory rate below 12 or above 25 breaths per minute at rest may be a sign of an underlying health issue.",
+  "profileModalBreathingRateDaily": "The normal respiratory rate for a resting adult is 12 to 18 breaths per minute. Note that respiratory rates may increase with medical conditions such as fever or illness.",
+  "profileModalBreathingRateWeekly": "You can use this chart to understand trends in your resting respiratory rate throughout the week and obtain your reference values.",
+  "profileCardMovementsTooltip": "Average activity measures larger movements than those caused by heartbeats and breathing, such as moving a leg or an arm. Turns indicate larger body movements. ",
+  "profileModalMovementsDesc": "Average activity measures larger movements than those caused by heartbeats and breathing, such as moving a leg or an arm or changing position slightly. The larger movements of your body are indicated by the number of turns.",
+  "profileModalMovementsDaily": "A higher-than-normal value in both average activity and the number of turns can indicate a restless night. Keep in mind that you should compare them to your own reference values.",
+  "profileModalMovementsWeekly": "You can use this chart to understand reference values in your average activity and number of turns during your nights. A long-term increase in these numbers may be an indication that you are approaching a condition of overtraining.",
+  "profileCardSleepTimeTooltip": "Here you can see how long you've been in bed and how much you've slept. For adults, 7-8 hours of sleep is ideal. Time in bed excludes time outside of it. Leaving for more than 10 minutes will end the sleep period.",
+  "profileModalSleepTimeDesc": "Here you will see the total time you have been in bed and how much of that time you have been sleeping. For adults, sleeping between 7 and 8 hours is considered optimal.\n\nThe bed duration excludes the total duration of bed exits. Keep in mind that if you leave the bed for more than 10 minutes, this will end the presence period and create the night record with the information collected up to that point.",
+  "IrreversibleAction": "This action is irreversible",
+  "sleepScoreChartTotalRecovery": "Total Recovery",
+  "ansChartAbsent": "Absent",
+  "hrvChartHeartRate": "Heart rate",
+  "hrvChartAdjustmentLine": "Adjustment line of RMSSD",
+  "brChartBreathingRate": "Breathing Rate",
+  "movementsChartMovement": "Amount of big movements",
+  "movementsChartTurns": "Turns/Night",
+  "sleepTimeChartAwake": "Awake",
+  "sleepTimeChartAwakeHS": "Awake (hs)",
+  "sleepTimeChartSleep": "Sleeping",
+  "sleepTimeChartSleepHS": "Sleeping (hs)",
+  "sleepArcChartAbsent": "Absent",
+  "sleepArcChartAbsentHS": "Absent (hs)",
+  "sleepArcChartAwake": "Awake",
+  "sleepArcChartAwakeHS": "Awake (hs)",
+  "sleepArcChartLight": "Light",
+  "sleepArcChartLightHS": "Light (hs)",
+  "sleepArcChartDeep": "Deep",
+  "sleepArcChartDeepHS": "Deep (hs)",
+  "sleepArcChartRem": "REM",
+  "sleepArcChartRemHS": "REM (hs)",
+  "sleepArcChartTitle": "Sleep Architecture"
+}

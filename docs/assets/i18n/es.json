@@ -1,0 +1,1101 @@
+{
+  "sidebarMenuButton": "Desplegar",
+  "sidebarItems": [
+    {
+      "label": "Vista de grupo",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    },
+    {
+      "label": "Panel de administración",
+      "icon": "settings-gear-combination.svg",
+      "path": "/dashboard/admin"
+    }
+  ],
+  "sidebarItemsGroupView": [
+    {
+      "label": "Panel de administración",
+      "icon": "settings-gear-combination.svg",
+      "path": "/dashboard/admin"
+    }
+  ],
+  "sidebarItemsAdmin": [
+    {
+      "label": "Vista de grupo",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    }
+  ],
+  "sidebarSettings": "Configuración",
+  "sidebarLanguage": "Idioma",
+  "languagesDropdown": [
+    {
+      "name": "Español",
+      "code": "es"
+    },
+    {
+      "name": "Inglés",
+      "code": "en"
+    },
+    {
+      "name": "Italiano",
+      "code": "it"
+    },
+    {
+      "name": "Alemán",
+      "code": "de"
+    },
+    {
+      "name": "Francés",
+      "code": "fr"
+    }
+  ],
+  "sidebarSignOut": "Cerrar sesión",
+  "loginWelcome": "Bienvenido/a",
+  "loginForget": "Restablecer contraseña",
+  "loginPlaceholderEmail": "Email",
+  "loginPlaceholderPassword": "Contraseña",
+  "loginButtonSignIn": "Iniciar sesión",
+  "loginButtonSend": "Enviar",
+  "loginForgetPassword": "¿Olvidaste tu contraseña?",
+  "loginLangES": "Español",
+  "loginLangEN": "Inglés",
+  "loginLangIT": "Italiano",
+  "loginLangDE": "Alemán",
+  "loginLangFR": "Francés",
+  "loginTooltipBack": "Atrás",
+  "loginInvalidEmail": "Debe ingresar un correo electrónico válido",
+  "loginInvalidPassword": "Debe ingresar una contraseña",
+  "loginToastErrorLogin": "Usuario y/o contraseña incorrectos",
+  "loginToastSendEmail": "Email enviado correctamente",
+  "loginToastErrorSendEmail": "Hubo un error al enviar el email",
+  "ToastTitleCorrect": "Correcto",
+  "ToastTitleError": "Error",
+  "groupFormatDownloadItems": [
+    "PDF",
+    "Excel"
+  ],
+  "groupRangeDownloadItems": [
+    { "label": "Periodo actual", "value": 0},
+    { "label": "7 días", "value": 7},
+    { "label": "15 días", "value": 15},
+    { "label": "30 días", "value": 30},
+    { "label": "Histórico", "value": null}
+  ],
+  "groupOrderByItems": [
+    {
+      "label": "Puntaje de sueño: mayor a menor",
+      "value": true
+    },
+    {
+      "label": "Puntaje de sueño: menor a mayor",
+      "value": false
+    }
+  ],
+  "groupPeriodSelect": "Seleccionar periodo",
+  "groupForwardTooltip": "Ir al grupo anterior",
+  "groupNextTooltip": "Ir al grupo siguiente",
+  "groupAllTooltip": "Ver todos los grupos",
+  "groupDownloadReportLabel": "Descargar reporte",
+  "groupDownloadLabel": "Descargar",
+  "groupSelectFormatPlaceholder": "Seleccionar formato",
+  "groupSelectRangePlaceholder": "Seleccionar rango",
+  "groupFilterTooltip": "Filtros",
+  "groupSearchByName": "Buscar por nombre...",
+  "groupOrderBy": "Ordenar por...",
+  "groupShowAll": "Mostrar todos",
+  "groupShowCurrentPeriod": "Mostrar solo perfiles con un periodo actual",
+  "groupDeleteFilters": "Borrar filtros",
+  "groupApplyFilters": "Aplicar filtros",
+  "profileCardDeviceName": "Dispositivo NS: ",
+  "profileCardAnyDevice": "Ningún dispositivo asociado",
+  "profileCardRecoveryDescription": "Recuperación",
+  "profileCardRecoveryDescriptionTooltip": "Representa la adaptación y recuperación física durante el descanso respecto a tu rutina diaria",
+  "profileCardRecoveryAscArrow": "Has tenido una mayor recuperación respecto del último período",
+  "profileCardRecoveryDescArrow": "Has tenido una menor recuperación respecto del último período",
+  "profileCardSNADescription": "SNA",
+  "profileCardSNADescriptionTooltip": "El sistema nervioso autónomo controla las funciones de tu cuerpo; se divide en simpático y el parasimpático",
+  "profileCardSNASTooltip": "Sistema Simpático, controla tu respuesta física activa",
+  "profileCardSNAPTooltip": "Sistema parasimpático, regula el descanso y el metabolismo",
+  "profileWarnProfiles": "Este grupo no tiene perfiles creados aún, diríjase al panel de administración para añadir perfiles al grupo.",
+  "sleepScoreTooltip": "Puntaje basado en la cantidad de horas de sueño y sus fases Ligero, Profundo y REM",
+  "sleepScoreTooltipDiamond": "Puntaje de sueño óptimo",
+  "adminAddProfileTitle": "Añadir perfil",
+  "adminEditProfileTitle": "Editar perfil",
+  "adminAddDeviceTitle": "Añadir dispositivo",
+  "adminEditDeviceTitle": "Editar dispositivo",
+  "adminAddGroupTitle": "Añadir grupo",
+  "adminEditGroupTitle": "Editar grupo",
+  "adminAddCollaboratorTitle": "Añadir colaborador",
+  "adminEditCollaboratorTitle": "Editar colaborador",
+  "adminAddUserTitle": "Añadir usuario",
+  "adminEditUserTitle": "Editar usuario",
+  "adminExplanationDevice": "*Localice el número de serie y el código de verificación (PIN) de su dispositivo en la etiqueta de la parte posterior del mismo.",
+  "adminExplanationCollaborator": "*Al añadir un colaborador, se creará un nuevo usuario que tendrá acceso a todos los equipos, jugadores y dispositivos de su cuenta. Hay dos tipos de colaborador:\n\nColaborador: este usuario tendrá acceso tanto a visualizar los equipos, jugadores/as y dispositivos, como así también a modificarlos/las y descargar reportes.\n\nVisualizador: este usuario sólo podrá visualizar equipos, jugadores y dispositivos pero no modificarlos; también podrá descargar los reportes.",
+  "adminUsersFilterPlaceholder": "Filtrar por usuario",
+  "adminProfilesTitle": "Perfiles",
+  "adminDevicesTitle": "Dispositivos",
+  "adminGroupsTitle": "Grupos",
+  "adminCollaboratorsTitle": "Colaboradores",
+  "adminUsersTitle": "Usuarios",
+  "adminColumnName": "Nombre",
+  "adminColumnLastName": "Apellido",
+  "adminColumnSerialNumber": "Número de serie",
+  "adminColumnLinked": "Vinculado/a",
+  "adminColumnStatus": "Estado",
+  "adminColumnRole": "Rol",
+  "adminNotLinked": "No vinculado",
+  "adminSearchPlaceholder": "Buscar...",
+  "adminFilterPlaceholder": "Filtrar por grupo",
+  "adminAddProfileTooltip": "Añadir perfil",
+  "adminShowAllProfilesTooltip": "Mostrar perfiles ocultos",
+  "adminHideAllProfilesTooltip": "No mostrar perfiles ocultos",
+  "adminShowProfileTooltip": "Mostrar perfil",
+  "adminHideProfileTooltip": "Ocultar perfil",
+  "adminEditProfileTooltip": "Editar perfil",
+  "adminDeleteProfileTooltip": "Eliminar perfil",
+  "adminAddDeviceTooltip": "Añadir dispositivo",
+  "adminShowAllDevicesTooltip": "Mostrar dispositivos vinculados",
+  "adminHideAllDevicesTooltip": "No mostrar dispositivos vinculados",
+  "adminDeleteDeviceTooltip": "Eliminar dispositivo",
+  "adminEditDeviceTooltip": "Editar dispositivo",
+  "adminAddGroupTooltip": "Añadir grupo",
+  "adminShowAllGroupsTooltip": "Mostrar grupos ocultos",
+  "adminHideAllGroupsTooltip": "No mostrar grupos ocultos",
+  "adminShowGroupTooltip": "Mostrar grupo",
+  "adminHideGroupTooltip": "Ocultar grupo",
+  "adminEditGroupTooltip": "Editar grupo",
+  "adminDeleteGroupTooltip": "Eliminar grupo",
+  "adminAddCollaboratorTooltip": "Añadir colaborador",
+  "adminEditCollaboratorTooltip": "Editar colaborador",
+  "adminDeleteCollaboratorTooltip": "Eliminar colaborador",
+  "adminAddUserTooltip": "Añadir usuario",
+  "adminEditUserTooltip": "Editar usuario",
+  "adminDeleteUserTooltip": "Eliminar usuario",
+  "adminModalAddProfileName": "Nombre",
+  "adminModalAddProfileLastname": "Apellido",
+  "adminModalAddProfileBirthDate": "Fecha de nacimiento",
+  "adminModalAddProfileGender": "Género",
+  "adminModalAddProfileBirthplace": "Lugar de nacimiento",
+  "adminModalAddProfileUser": "Seleccionar usuario",
+  "adminModalAddProfileGroup": "Seleccionar grupo",
+  "adminModalAddDeviceSerialNumber": "Número de serie",
+  "adminModalAddDeviceCode": "Código de verificación",
+  "adminModalAddDeviceUser": "Seleccionar usuario",
+  "adminModalAddDeviceProfile": "Seleccionar perfil",
+  "adminModalAddGroupName": "Nombre",
+  "adminModalAddGroupGMT": "GMT",
+  "adminModalAddGroupUser": "Seleccionar usuario",
+  "adminModalAddCollaboratorEmail": "Email",
+  "adminModalAddCollaboratorPassword": "Contraseña",
+  "adminModalAddCollaboratorConfirmPassword": "Confirmar contraseña",
+  "adminModalAddCollaboratorAlias": "Alias",
+  "adminModalAddCollaboratorRole": "Seleccionar rol",
+  "adminModalAddCollaboratorUser": "Seleccionar usuario",
+  "adminModalAddUserEmail": "Email",
+  "adminModalAddUserAlias": "Alias",
+  "adminModalAddUserRole": "Seleccionar rol",
+  "adminModalSave": "Guardar",
+  "adminModalCancel": "Cancelar",
+  "adminModalGenderItems": [
+    {
+      "label": "Masculino",
+      "value": "Male"
+    },
+    {
+      "label": "Femenino",
+      "value": "Female"
+    },
+    {
+      "label": "Otro",
+      "value": "Other"
+    }
+  ],
+  "adminModalRoleCollaboratorItems": [
+    {
+      "label": "Colaborador",
+      "value": "collaborator"
+    },
+    {
+      "label": "Visualizador",
+      "value": "viewer"
+    }
+  ],
+  "adminModalRoleUserItems": [
+    {
+      "label": "User",
+      "value": "user"
+    },
+    {
+      "label": "Super admin",
+      "value": "superAdmin"
+    }
+  ],
+  "adminAddProfileSuccess": "Perfil añadido correctamente",
+  "adminAddProfileError": "Error al añadir perfil",
+  "adminEditProfileSuccess": "Perfil editado correctamente",
+  "adminEditProfileError": "Error al editar perfil",
+  "adminDeleteProfileSuccess": "Perfil eliminado correctamente",
+  "adminDeleteProfileError": "Error al eliminar perfil",
+  "adminHideProfileSuccess": "Perfil oculto correctamente",
+  "adminHideProfileError": "Error al ocultar perfil",
+  "adminShowProfileSuccess": "Perfil mostrado correctamente",
+  "adminShowProfileError": "Error al mostrar perfil",
+  "adminAddDeviceSuccess": "Dispositivo añadido correctamente",
+  "adminAddDeviceError": "Error al añadir dispositivo",
+  "adminEditDeviceSuccess": "Dispositivo editado correctamente",
+  "adminEditDeviceError": "Error al editar dispositivo",
+  "adminDeleteDeviceSuccess": "Dispositivo eliminado correctamente",
+  "adminDeleteDeviceError": "Error al eliminar dispositivo",
+  "adminAddGroupSuccess": "Grupo añadido correctamente",
+  "adminAddGroupError": "Error al añadir grupo",
+  "adminEditGroupSuccess": "Grupo editado correctamente",
+  "adminEditGroupError": "Error al editar grupo",
+  "adminDeleteGroupSuccess": "Grupo eliminado correctamente",
+  "adminDeleteGroupError": "Error al eliminar grupo",
+  "adminHideGroupSuccess": "Grupo oculto correctamente",
+  "adminHideGroupError": "Error al ocultar grupo",
+  "adminShowGroupSuccess": "Grupo mostrado correctamente",
+  "adminShowGroupError": "Error al mostrar grupo",
+  "adminAddCollaboratorSuccess": "Colaborador añadido correctamente",
+  "adminAddCollaboratorError": "Error al añadir colaborador",
+  "adminEditCollaboratorSuccess": "Colaborador editado correctamente",
+  "adminEditCollaboratorError": "Error al editar colaborador",
+  "adminDeleteCollaboratorSuccess": "Colaborador eliminado correctamente",
+  "adminDeleteCollaboratorError": "Error al eliminar colaborador",
+  "adminAddUserSuccess": "Usuario añadido correctamente",
+  "adminAddUserError": "Error al añadir usuario",
+  "adminEditUserSuccess": "Usuario editado correctamente",
+  "adminEditUserError": "Error al editar usuario",
+  "adminDeleteUserSuccess": "Usuario eliminado correctamente",
+  "adminDeleteUserError": "Error al eliminar usuario",
+  "adminExistDeviceError": "El dispositivo ya existe",
+  "adminExistNameError": "El nombre ya existe",
+  "adminExistEmailError": "El email ya existe",
+  "adminLength5Characters": "Debe tener 5 caracteres",
+  "adminLength6Characters": "Debe tener 6 caracteres",
+  "adminLengthInfo5Characters": "Tiene 5 dígitos, ejemplo 01234",
+  "adminLengthInfo6Characters": "Tiene 6 dígitos o letras, ejemplo 00AA21",
+  "adminNoEqualPasswords": "Las contraseñas deben ser iguales",
+  "adminDeleteProfilesByGroup": "Eliminar todos los perfiles vinculados",
+  "adminDeleteDevicesByGroup": "Eliminar todos los dispositivos vinculados",
+  "settingsHelpCardTitle": "Tutoriales y FAQs",
+  "settingsContactCardTitle": "Contacto",
+  "settingsPasswordCardTitle": "Cambio de contraseña",
+  "settingsVideoCorrectUse": "Uso correcto del dispositivo",
+  "settingsVideoRoute": "Recorrido por la plataforma",
+  "settingsPdfInstructions": "Instrucciones de instalación y uso",
+  "settingsPdfGuide": "Guía rápida",
+  "settingsPdfTooltip": "Descargar PDF",
+  "settingsFAQ1Title": "¿Cómo sé si mi dispositivo está conectado a internet?",
+  "settingsFAQ1Desc": "Comprueba que el led verde ubicado en el frente del dispositivo esté encendido, si no, comprueba el estado de tu red de internet. ",
+  "settingsFAQ2Title": "El perfil no aparece en el panel grupal.",
+  "settingsFAQ2Desc": "Comprueba en el panel de administración que el perfil no esté “oculto”.",
+  "settingsFAQ3Title": "Cuando estoy conectando el dispositivo a internet, al ingresar la contraseña del mismo, obtengo un error de “contraseña incorrecta”.",
+  "settingsFAQ3Desc": "Recuerda que al ingresar la contraseña del dispositivo, también debes incluir los guiones medios, es decir, debes introducir la contraseña exactamente como está escrita, aquí un ejemplo: “xxxx-xxxx-xxx”.",
+  "settingsFAQ4Title": "¿Dónde debe colocarse el sensor?",
+  "settingsFAQ4Desc": "El sensor debe instalarse exclusivamente debajo del colchón o cubrecolchón. Para captar una señal más fuerte, la parte central del sensor (la banda plástica) debe ubicarse directamente debajo o a la altura del corazón del usuario cuando está acostado.\n\nSi tiene una cama doble y son dos personas durmiendo, debe colocar el sensor lo más cerca posible del borde de la cama con el cable hacia un lado, de forma paralela a su cuerpo, siempre con la mayor parte de la banda ubicada a la altura del corazón. En caso que se utilice una cama doble pero sólo duerma el usuario, se recomienda ubicar el sensor en forma perpendicular al usuario, siempre a la altura del corazón, pero posicionando el dispositivo de un lado u otro de la cama o más en el centro, de acuerdo a las preferencias de posición del usuario en la cama.\n\nEvite que el cable pase por el medio de la cama, ya que puede provocar señales equívocas.",
+  "settingsFAQ5Title": "¿El dispositivo tiene que estar siempre conectado a la corriente?",
+  "settingsFAQ5Desc": "El dispositivo utiliza una cantidad insignificante de energía, por lo que no es necesario desconectarlo para ahorrar electricidad.\n\nSi desea desconectarlo mientras no lo utiliza, hágalo solo 10 minutos después de salir de la cama, para que el dispositivo tenga tiempo suficiente para enviar el evento de salida de la cama a nuestros servidores. De lo contrario, pueden producirse periodos de presencia excesivamente largos. De igual manera cuando vuelve a conectarse al momento de ir a dormir, debe hacerse 10 minutos antes de su presencia en la cama.",
+  "settingsFAQ6Title": "Si apago el dispositivo y vuelvo a encenderlo ¿se reconecta automáticamente a la red wifi a la que estaba previamente conectado?",
+  "settingsFAQ6Desc": "Si la red wifi es la misma que la última a la que se conectó el dispositivo, no hay necesidad de volver a configurar el dispositivo.",
+  "settingsFAQ7Title": "¿Cómo puedo ver resultados de noches anteriores?",
+  "settingsFAQ7Desc": "Toda la información de sus noches la encontrará disponible en la plataforma Nyx-Sys, clickeando en el ícono -X- del panel individual.",
+  "settingsFAQ8Title": "¿Qué significa el mensaje de error con el ícono -X- que indica que algunos datos de la noche no han podido ser procesados?",
+  "settingsFAQ8Desc": "La pérdida de datos durante un período de sueño, puede deberse a múltiples factores, usualmente los más comunes son:\n\n\t- Una baja señal del dispositivo. Para solucionarlo debe volver a posicionar el dispositivo debajo de su cama de acuerdo a las recomendaciones dadas en el punto X.\n\n\t- En caso de compartir una cama doble con una segunda persona, el dispositivo registró datos de ambas personas y generó datos equívocos o superpuestos.\n\n\t- Hubo un corte en el suministro eléctrico durante el registro.",
+  "settingsFAQ9Title": "¿Qué significa la luz roja parpadeante en el dispositivo?",
+  "settingsFAQ9Desc": "Generalmente los destellos rojos son una indicación de problemas de conexión a la red. Si esas interrupciones son de corta duración, no debería preocuparse.",
+  "settingsFAQ10Title": "¿Qué sucede si se corta internet?",
+  "settingsFAQ10Desc": "Si la conexión a Internet se pierde temporalmente, la memoria interna registrará hasta 12 horas de datos, cuando se restablezca la conexión, los datos se envían a la nube para ser procesados.",
+  "settingsFAQ11Title": "¿Puedo utilizar el sensor en una cama doble?",
+  "settingsFAQ11Desc": "Sí, puedes utilizar el dispositivo en una cama doble. Sin embargo, el extremo del cable del sensor debe instalarse lo más cerca posible del borde, ya que es posible que los movimientos de su cónyuge provoquen un registro de presencia más prolongado después de que usted se levanta de la cama.",
+  "settingsPlaceholderEmail": "Email",
+  "settingsPlaceholderSubject": "Asunto",
+  "settingsPlaceholderMessage": "Mensaje",
+  "settingsPlaceholderActualPassword": "Contraseña actual",
+  "settingsPlaceholderNewPassword": "Contraseña nueva",
+  "settingsPlaceholderConfirmPassword": "Confirmar contraseña",
+  "settingsButtonSend": "Enviar",
+  "settingsButtonSave": "Guardar",
+  "settingsVisitWeb": "Visita nuestra web",
+  "settingsSocialAccounts": "También encuéntranos en redes sociales",
+  "settingsDeleteAccountTitle": "Dar de baja mi cuenta",
+  "settingsDeleteAccountDesc": "¿Deseas eliminar tu cuenta de forma permanente? Ten en cuenta que se perderá toda la información relacionada con la misma. No podrás re-activarla ni recuperar su contenido.\n\nLa acción se hará efectiva a las 48hs, en caso de haber sido un error, por favor comunícate con nuestro equipo de soporte.",
+  "settingsDeleteAccountButton": "Eliminar cuenta",
+  "settingsMandatoryFieldError": "El campo es obligatorio",
+  "settingsValidEmailError": "Ingrese un email válido",
+  "settingsMandatoryPassword": "La contraseña es obligatoria",
+  "settingsPatternPassword": "La contraseña debe contener al menos una letra mayúscula, una letra minúscula y 8 caracteres.",
+  "settingsConfirmLogout": "¿Está seguro que desea cerrar sesión?",
+  "settingsConfirmModalTitle": "¿Está seguro?",
+  "settingsConfirmModalContent": "¿Deseas eliminar tu cuenta de forma permanente? Ten en cuenta que se perderá toda la información relacionada con la misma. No podrás re-activarla ni recuperar su contenido. La acción se hará efectiva a las 48hs, en caso de haber sido un error, por favor comunícate con nuestro equipo de soporte.",
+  "settingsConfirmModalAccept": "Aceptar",
+  "settingsConfirmModalCancel": "Cancelar",
+  "profileViewSelectProfileTooltip": "Seleccionar perfil",
+  "profileViewAddPeriodTooltip": "Añadir período manualmente",
+  "profileViewEditProfileTooltip": "Editar perfil",
+  "profileViewDeletePeriod": "Eliminar periodo",
+  "profileViewSelectGMT": "Seleccionar GMT",
+  "profileViewSleepScoreTitle": "Puntuación del sueño",
+  "profileViewSleepScoreDescription": "Es fantástico ver que últimamente has prestado atención a tu sueño ¡Sigue así!",
+  "profileViewRecoveryTitle": "Recuperación",
+  "profileViewTotalRecovery": "Recuperación total",
+  "profileViewIntegratedRecovery": "Recuperación integrada",
+  "profileViewUnities": " unidades",
+  "profileViewHrvAlert": "Tu HRV es mas alto de lo usual. Un Hrv alto indica que tu sistema nervioso esta listo para manejar estrés y que tu cuerpo esta en balance",
+  "profileViewAnsTitle": "Balance del Sistema Nervioso Aut.",
+  "profileViewParasympathetic": "Parasimpático (Relajación)",
+  "profileViewSympathetic": "Simpático (Estrés)",
+  "profileViewAnsAlert": "Tu Ans tiene una inclinación hacia el lado Simpático es decir que tu organismo esta preparado para situación de actividad",
+  "profileViewAnsHrVariabilityTitle": "Variabilidad del ritmo cardíaco",
+  "profileViewNight": "Noche",
+  "profileViewMorning": "Mañana",
+  "profileViewAverage": "Promedio",
+  "profileViewHeartRateTitle": "Ritmo cardíaco",
+  "profileViewBPMMax": "Bmp máx.",
+  "profileViewBPMRepose": "Bmp en reposo",
+  "profileViewBPMAverage": "Bmp promedio",
+  "profileViewBreathingRateTitle": "Ritmo respiratorio",
+  "profileViewMovementTitle": "Movimiento",
+  "profileViewMovementsAndTurns": "Movimientos y giros",
+  "profileViewAverageInActivity": "Promedio de actividad",
+  "profileViewSleepTimeTitle": "Tiempo de sueño",
+  "profileViewInBed": "En la cama",
+  "profileViewSleeping": "Durmiendo",
+  "profileViewAwake": "Despierto",
+  "profileViewSleepArcTitle": "Arquitectura del sueño",
+  "profileViewSoft": "Ligero",
+  "profileViewDeep": "Profundo",
+  "profileViewREM": "REM",
+  "profileViewYearsDropdown": " años",
+  "profileSleepScoreMessage1+": [
+    "¡Felicidades por tu puntuación de sueño! Tu dedicación al descanso se refleja en tu bienestar. ¡Sigue así!",
+    "¡Increíble! Lograste una puntuación de sueño óptima hoy. Tu cuerpo y mente te agradecen. ¡Duerme bien y despierta recargado!",
+    "Hoy demostraste que priorizar el sueño es clave para tu rendimiento. ¡Bravo por alcanzar una puntuación de *sleep_score*! Continúa cuidando tu descanso.",
+    "¡Excelente inicio! Tu puntaje de sueño ha sido sobresaliente hoy. ¡Sigue así y asegúrate de mantener este impulso!",
+    "¡Fantástico comienzo! Lograr un alto puntaje de sueño en sólo un día es un logro digno de celebración. ¡Continúa así y verás grandes mejoras en tu bienestar!",
+    "Un día completo de sueño óptimo es un excelente comienzo. ¡Sigue así y construye sobre este éxito para una mejor calidad de vida!"
+  ],
+  "profileSleepScoreMessage1-": [
+    "No te desanimes por un puntaje bajo hoy. Cada día es una nueva oportunidad para mejorar. Reflexiona sobre lo que podría haber afectado tu sueño y da un paso hacia un descanso más reparador mañana. ¡Tú puedes hacerlo!",
+    "Sabemos que hoy no fue el mejor día en cuanto a sueño, pero cada día es una nueva oportunidad para mejorar. Considera pequeños cambios en tu rutina nocturna y prepárate para una mejor noche. ¡Ánimo!",
+    "El puntaje de hoy no fue el ideal, pero no te preocupes. Aprende de hoy y trabaja hacia un sueño más reparador mañana. ¡Pequeños cambios pueden marcar la diferencia!",
+    "Un resultado bajo no define tu capacidad para descansar bien. Aprende de esta experiencia y busca formas de mejorar tu calidad de sueño.",
+    "La calidad del sueño puede variar día a día. Toma este resultado como una señal de que aún hay espacio para mejorar tus hábitos de descanso.",
+    "No dejes que un puntaje bajo de sueño te desanime. Utiliza esta oportunidad para explorar nuevas estrategias que te ayuden a dormir mejor en el futuro."
+  ],
+  "profileSleepScoreMessage2+": [
+    "¡Doble victoria! Dos días seguidos con buen puntaje de sueño muestran tu compromiso con un descanso saludable. ¡Sigue así y mantén esta excelente racha!",
+    "¡Dos días impecables! Tu persistencia en mantener un buen descanso es admirable. ¡Sigue así y disfruta de los beneficios continuos del sueño reparador!",
+    "¡Doble logro! Mantener dos días consecutivos de sueño de calidad es un gran paso hacia una vida más equilibrada. ¡Sigue así y prioriza tu bienestar!",
+    "¡Dos días fenomenales! Tu dedicación al buen sueño es evidente. ¡Sigue así y continúa cuidándote bien para mantener esta racha positiva!",
+    "¡Fantástico trabajo! Dos días seguidos con buen puntaje de sueño son un logro digno de celebración. ¡Sigue así y experimenta la diferencia en tu bienestar general!",
+    "¡Excelente racha! Mantener dos días seguidos de sueño óptimo es un gran logro. ¡Sigue así y continúa priorizando tu salud y bienestar!"
+  ],
+  "profileSleepScoreMessage2-": [
+    "No te desanimes por esta racha negativa. Usa estos resultados como motivación para identificar áreas de mejora en tu rutina de descanso.",
+    "Dos días consecutivos con bajos puntajes de sueño pueden ser desafiantes, pero recuerda que cada día es una nueva oportunidad para mejorar.",
+    "A veces, las malas noches de sueño son temporales. Utiliza estos resultados como una oportunidad para ajustar tu rutina y buscar formas de descansar mejor.",
+    "Dos días seguidos con puntajes de sueño bajos pueden ser difíciles, pero no permitas que te desanimen. Busca nuevas estrategias para mejorar tu calidad de sueño.",
+    "La calidad del sueño puede variar día a día. Toma estos resultados como una señal de que es importante priorizar tu descanso y bienestar.",
+    "No dejes que una racha de malos puntajes de sueño te desmotive. Utiliza esta experiencia como una oportunidad para explorar nuevas formas de mejorar tu descanso."
+  ],
+  "profileSleepScoreMessage3+": [
+    "¡Triple racha! Has mantenido una puntuación de sueño de 80 o más durante 3 días. ¡Estás construyendo hábitos saludables! Sigue así, ¡tu cuerpo te lo agradecerá!",
+    "¡Increíble consistencia! Tres días seguidos con un sueño óptimo. Estás en el camino correcto para un bienestar duradero. ¡Sigue durmiendo bien!",
+    "¡Felicidades, tres días consecutivos con una puntuación de sueño excelente! Eres un campeón del descanso. ¡Sigue así y notarás la diferencia!",
+    "¡Tres días fenomenales! Tu persistencia en mantener un buen descanso es impresionante. ¡Sigue así y continúa priorizando tu salud y bienestar!",
+    "¡Triple victoria! Tres días seguidos con buen puntaje de sueño muestran tu compromiso con una rutina de descanso saludable. ¡Sigue así y disfruta de los beneficios continuos!",
+    "¡Excelente racha! Mantener tres días seguidos de sueño de calidad es un logro notable. ¡Sigue así y continúa cuidándote bien para mantener esta positiva tendencia!"
+  ],
+  "profileSleepScoreMessage3-": [
+    "Tres días con puntajes bajos pueden ser desafiantes, pero cada día es una oportunidad para cambiar. Reflexiona sobre tu rutina nocturna y haz pequeños ajustes para un mejor descanso. ¡Estás en el camino hacia la mejora!",
+    "Es normal tener rachas difíciles. Tres días seguidos con puntajes bajos pueden ser un llamado a la acción. Considera ajustes en tu rutina y toma medidas para mejorar tu calidad de sueño. ¡Tú puedes hacerlo!",
+    "Mantener bajos los puntajes durante tres días seguidos es una señal para hacer cambios. Analiza qué podría estar afectando tu sueño y toma medidas para mejorar. ¡Estás en control de tus hábitos!",
+    "Tres días seguidos con bajos puntajes de sueño pueden ser difíciles, pero no pierdas la esperanza. Busca nuevas estrategias y hábitos que puedan mejorar tu calidad de sueño.",
+    "La calidad del sueño puede fluctuar día a día. Toma estos resultados como una señal de que es importante prestar atención a tu bienestar y buscar formas de mejorar tu descanso.",
+    "No permitas que una racha de malos puntajes de sueño te desanime. Utiliza esta experiencia como una oportunidad para aprender y explorar nuevas formas de priorizar tu descanso y salud."
+  ],
+  "profileSleepScoreMessage4+": [
+    "¡Cuádruple logro! Cuatro días seguidos con buen puntaje de sueño muestran tu compromiso con un descanso saludable. ¡Sigue así y mantén esta excelente racha!",
+    "¡Cuatro días impecables! Tu dedicación al buen sueño es digna de admiración. ¡Sigue así y disfruta de los beneficios continuos del sueño reparador!",
+    "¡Cuatro días fenomenales! Mantener esta racha de buen sueño es un gran paso hacia una vida más equilibrada. ¡Sigue así y prioriza tu bienestar!",
+    "¡Cuádruple victoria! Cuatro días seguidos con buen puntaje de sueño son una muestra de tu compromiso con un descanso adecuado. ¡Sigue así y mantén esta increíble tendencia!",
+    "¡Fantástico trabajo! Cuatro días seguidos con buen puntaje de sueño son un logro digno de celebración. ¡Sigue así y experimenta la diferencia en tu bienestar general!",
+    "¡Cuatro días excepcionales! Tu consistencia en mantener un buen descanso es impresionante. ¡Sigue así y continúa cuidándote bien para mantener esta racha positiva!"
+  ],
+  "profileSleepScoreMessage4-": [
+    "Mantener una racha de cuatro días con bajos puntajes de sueño puede ser desafiante, pero recuerda que siempre hay oportunidades para mejorar tu descanso.",
+    "No te desanimes por esta racha negativa. Utiliza estos resultados como una motivación para identificar áreas de mejora en tu rutina de sueño y bienestar.",
+    "A veces, atravesar un período de malos puntajes de sueño es temporal. Toma estos resultados como una oportunidad para ajustar tu rutina y encontrar formas de descansar mejor.",
+    "Cuatro días seguidos con bajos puntajes de sueño pueden ser difíciles, pero no pierdas la esperanza. Busca nuevas estrategias y hábitos que puedan mejorar tu calidad de sueño.",
+    "La calidad del sueño puede fluctuar día a día. Toma estos resultados como una señal de que es importante prestar atención a tu bienestar y buscar formas de mejorar tu descanso.",
+    "No permitas que una racha de malos puntajes de sueño te desanime. Utiliza esta experiencia como una oportunidad para aprender y explorar nuevas formas de priorizar tu descanso y salud."
+  ],
+  "profileSleepScoreMessage5+": [
+    "¡Bravo! Has alcanzado un puntaje de sueño excelente durante cinco días seguidos. Tu compromiso con el descanso está dando resultados tangibles. ¡Sigue así y notarás la diferencia en tu bienestar general!",
+    "Cinco días consecutivos con puntajes de sueño envidiables. Estás construyendo un sólido fundamento para tu salud y energía. ¡Continúa priorizando tu sueño y cosecharás los beneficios a largo plazo!",
+    "¡Increíble racha! Durante cinco días, tu sueño ha sido consistente y reparador. Tu cuerpo y mente te agradecen. ¡Sigue cuidándote y disfrutando de noches revitalizantes!",
+    "¡Cinco días de sueño de calidad! Has creado un patrón que merece celebración. Continúa así y observa cómo tu energía y enfoque aumentan.",
+    "Cinco días de descanso rejuvenecedor. Tu consistencia es clave para un estilo de vida equilibrado. ¡Sigue así y disfruta de tu bienestar merecido!",
+    "¡Increíble! Cinco días de sueño reparador son un logro para estar orgulloso. ¡Sigue así y continúa priorizando tu salud y felicidad!"
+  ],
+  "profileSleepScoreMessage5-": [
+    "Mantener bajos los puntajes durante cinco días seguidos es una señal de alerta. Reflexiona sobre los factores que podrían estar afectando tu sueño y considera hacer ajustes en tu rutina nocturna.",
+    "Cinco días con puntajes de sueño bajos son un recordatorio de la importancia de priorizar el descanso. Evalúa posibles cambios en tu entorno y hábitos para mejorar la calidad del sueño.",
+    "Mantener una racha de puntajes bajos durante cinco días puede afectar tu bienestar. Considera explorar nuevas estrategias para garantizar un sueño más reparador.",
+    "Cinco días de sueño insatisfactorio pueden ser agotadores, pero no pierdas la esperanza. Busca nuevas estrategias para mejorar tu calidad de sueño.",
+    "La calidad del sueño puede variar, pero tu compromiso con tu bienestar no debe vacilar. Utiliza esta experiencia como una oportunidad para reflexionar y mejorar.",
+    "No permitas que una racha de malos puntajes de sueño te desanime. Utiliza estos días como motivación para priorizar tu descanso y bienestar. ¡Tú puedes mejorar tu calidad de sueño!"
+  ],
+  "profileSleepScoreMessage6+": [
+    "Seis días de descanso reparador. Tu compromiso con tu bienestar es admirable. ¡Sigue así y mantén esta vibrante energía!",
+    "Manteniendo una racha de seis días de sueño rejuvenecedor. Tu dedicación a tu salud merece aplausos. ¡Sigue así y disfruta de un cuerpo y mente revitalizados!",
+    "Seis días consecutivos de sueños dulces. Tu consistencia es la clave de tu bienestar. ¡Sigue así y experimenta la diferencia en tu calidad de vida!",
+    "¡Seis días de sueño consistente! Has establecido una rutina que merece celebración. Continúa así y observa cómo tu bienestar general mejora.",
+    "Seis días de descanso renovador. Tu dedicación a tu descanso es digna de elogio. ¡Sigue así y mantén tu compromiso con un sueño saludable!",
+    "¡Increíble! Seis días de sueño reparador son un logro para celebrar. ¡Sigue así y prioriza tu salud y felicidad diaria!"
+  ],
+  "profileSleepScoreMessage6-": [
+    "Seis días desafiantes. Utiliza esta racha como motivación para implementar cambios positivos en tu rutina de sueño. ¡Cada día es una nueva oportunidad para mejorar!",
+    "Mantener una racha de seis días difíciles puede ser agotador, pero recuerda que cada desafío es una oportunidad de crecimiento y cambio.",
+    "Seis días seguidos con bajos puntajes de sueño pueden ser desalentadores, pero no pierdas la esperanza. Busca nuevas estrategias para mejorar tu calidad de sueño.",
+    "La consistencia es clave, incluso en los momentos difíciles. Utiliza esta experiencia como una oportunidad para reflexionar y hacer ajustes positivos en tu rutina de sueño.",
+    "Seis días de sueño insatisfactorio pueden ser difíciles, pero recuerda que tienes el poder de cambiar tus hábitos y mejorar tu bienestar.",
+    "No permitas que una racha de malos puntajes de sueño te desanime. Utiliza estos días como un recordatorio de la importancia de priorizar tu descanso y bienestar. ¡Tú puedes superar este desafío!"
+  ],
+  "profileSleepScoreMessage7+": [
+    "¡Semana completa de sueño de calidad! Alcanzar una puntuación de 80 o más durante 7 días seguidos es un logro impresionante. Tu cuerpo y mente están en modo óptimo. ¡Continúa cuidándote!",
+    "¡Increíble hito! Has mantenido una puntuación de sueño de 80 o más durante toda una semana. Esto es un testimonio de tu compromiso con tu bienestar. ¡Sigue así y conquista cada día!",
+    "¡Has alcanzado una semana completa de sueño óptimo! Tu dedicación al descanso está dando frutos. Sigue cuidando tu sueño y disfruta de los beneficios continuos. ¡Eres un campeón del sueño!",
+    "¡Una semana completa de sueño de calidad! Has demostrado que puedes mantener una rutina saludable. ¡Sigue así y observa cómo tu bienestar general mejora!",
+    "Siete días de descanso renovador. Tu dedicación a tu descanso es digna de admiración. ¡Sigue así y disfruta de un cuerpo y mente revitalizados!",
+    "¡Espléndido! Siete días de sueño reparador son un logro notable. ¡Sigue así y continúa cuidándote bien para mantener esta positiva tendencia!"
+  ],
+  "profileSleepScoreMessage7-": [
+    "Una semana de bajos puntajes puede ser un desafío, pero también es una oportunidad para hacer cambios significativos. Evalúa tu rutina nocturna y busca maneras de priorizar tu descanso. ¡Empieza hoy mismo!",
+    "Siete días con puntajes bajos son una señal de que tu cuerpo necesita más atención. Considera hacer ajustes significativos en tu rutina nocturna para mejorar tu sueño. ¡Tu bienestar lo agradecerá!",
+    "Mantener bajos los puntajes durante una semana es una llamada a la acción. Haz cambios en tu estilo de vida y prioriza tu sueño para volver al camino de la calidad de descanso. ¡Estamos aquí para apoyarte en este cambio positivo!",
+    "La consistencia es clave, incluso en los momentos difíciles. Utiliza esta experiencia como una oportunidad para reflexionar y hacer ajustes positivos en tu rutina de sueño.",
+    "Siete días de sueño insatisfactorio pueden ser difíciles, pero recuerda que tienes el poder de cambiar tus hábitos y mejorar tu bienestar.",
+    "No permitas que una racha de malos puntajes de sueño te desanime. Utiliza estos días como un recordatorio de la importancia de priorizar tu descanso y bienestar. ¡Tú puedes superar este desafío!"
+  ],
+  "profileSleepScoreMessage8+": [
+    "Ocho días de descanso regenerador. Cada noche de sueño profundo te lleva más cerca de tu mejor versión. ¡Continúa este viaje hacia el bienestar pleno!",
+    "Has tejido una manta de sueños reparadores durante toda una semana. Cada hilo es un recordatorio del poder transformador del descanso. ¡Sigue tejiendo para un mañana más brillante!",
+    "Enhorabuena por ocho días de sueño restaurador. Cada despertar es una oportunidad para abrazar la energía renovada y la claridad mental. ¡Sigue cosechando los frutos de un descanso bien merecido!",
+    "Ocho días de sueño como un suave abrazo para tu alma fatigada. Cada noche es una promesa de renovación y fuerza para enfrentar nuevos desafíos. ¡Que esta racha positiva siga guiándote hacia la plenitud!",
+    "Estás escribiendo una historia de descanso y renovación que merece ser contada. Cada capítulo de sueño profundo es un tributo a tu compromiso con el bienestar. ¡Sigue escribiendo hacia un futuro lleno de vitalidad y alegría!",
+    "Ocho días de sueño reparador son un testimonio de tu dedicación al cuidado propio. Cada noche bien dormida es una inversión en tu salud física y mental. ¡Sigue siendo el arquitecto de tu bienestar!"
+  ],
+  "profileSleepScoreMessage8-": [
+    "Ocho días de desafíos en el reino del sueño. Cada noche es una oportunidad para aprender, ajustar y comprometerse con un descanso más saludable. ¡La transformación comienza con una elección!",
+    "Has navegado por ocho días de aguas turbulentas en el océano del sueño. Cada despertar es una invitación a reflexionar sobre tus hábitos y prioridades. ¡Confía en que puedes encontrar la calma en medio de la tormenta!",
+    "Ocho días de sueño insatisfactorio pueden parecer una montaña insuperable, pero cada paso es un paso más cerca de la cima. ¡Recuerda que la persistencia es la llave que abre las puertas del cambio!",
+    "Cada noche de sueño inquieto durante ocho días es una llamada de atención del cuerpo y la mente. Escucha con compasión y abre tu corazón al autocuidado y la exploración de nuevas prácticas de descanso. ¡Tu bienestar merece tu atención!",
+    "Ocho días de desafíos en el frente del sueño pueden ser agotadores, pero también son un recordatorio de tu resiliencia y fuerza interior. ¡Sigue adelante con valentía y confianza en ti mismo!",
+    "Cada noche de sueño difícil durante ocho días es una oportunidad para cultivar la compasión y la comprensión hacia ti mismo. Abraza tu humanidad y permite que cada experiencia te guíe hacia un sueño más reparador y una vida más plena."
+  ],
+  "profileSleepScoreMessage9+": [
+    "Nueve días de sueño reparador son como los ladrillos de un hogar tranquilo y sereno. Cada noche bien dormida es un pilar para tu bienestar.",
+    "Durante nueve días, tu almohada ha sido testigo de tus sueños más dulces y reparadores. Sigue así y construye un refugio de descanso y rejuvenecimiento.",
+    "Cada amanecer después de nueve noches de sueño profundo es una invitación a abrazar la energía renovada y la claridad mental. Mantén esta racha y alcanza nuevas alturas.",
+    "Nueve días de descanso te han llevado a través de un viaje de autodescubrimiento y renovación. Sigue este camino y descubre la magia del sueño reparador.",
+    "Enhorabuena por nueve días de sueño reparador. Cada noche bien dormida es un tributo a tu compromiso con la salud y el bienestar.",
+    "Durante nueve días, has honrado el descanso como una parte esencial de tu vida. Sigue así y cosecha los frutos de una mente y un cuerpo revitalizados."
+  ],
+  "profileSleepScoreMessage9-": [
+    "Nueve días desafiantes de sueño pueden parecer abrumadores, pero cada noche es una nueva oportunidad para aprender y crecer.",
+    "Mantener una racha de nueve días difíciles puede ser agotador, pero recuerda que cada obstáculo es una oportunidad para fortalecerte.",
+    "Durante nueve días, has enfrentado desafíos en tu descanso, pero cada noche también es una oportunidad para recalibrar y mejorar.",
+    "Nueve días de sueño insatisfactorio pueden ser desalentadores, pero cada amanecer trae consigo la promesa de un nuevo comienzo.",
+    "Enfrentar nueve días de desafíos en el sueño es un testimonio de tu resiliencia y fuerza interior. Sigue adelante con determinación y confianza en ti mismo.",
+    "No decaigas, sigue buscando nuevas formas de mejorar tu descanso!"
+  ],
+  "profileSleepScoreMessage10+": [
+    "Diez días de sueño reparador son un testimonio de tu dedicación al bienestar. Sigue así y continúa priorizando tu descanso y tu salud.",
+    "Durante diez días, has mantenido una racha de sueño restaurador. Cada noche bien dormida es un regalo que te acerca más a una vida equilibrada.",
+    "Diez días de sueño reparador son como un suave susurro de la naturaleza, recordándote la importancia de cuidarte bien. Sigue así y encuentra la armonía en cada noche.",
+    "Enhorabuena por diez días de sueño reparador. Cada noche es un recordatorio de tu compromiso con una vida llena de energía y vitalidad.",
+    "Diez días de sueño profundo y reparador son como un abrazo reconfortante para tu cuerpo y tu mente. Sigue así y experimenta la plenitud de cada día.",
+    "Durante diez días, has nutrido tu cuerpo y tu mente con un sueño reparador. Sigue este camino y encuentra la paz y la serenidad en cada noche."
+  ],
+  "profileSleepScoreMessage10-": [
+    "Diez días durmiendo mal pueden ser difíciles, pero cada noche es una oportunidad para encontrar nuevas formas de mejorar tu descanso.",
+    "Mantener una racha de diez días difíciles puede ser agotador, pero recuerda que cada día es una oportunidad para aprender y crecer.",
+    "Durante diez días, has enfrentado desafíos en tu descanso, pero cada noche también es una oportunidad para recalibrar y mejorar.",
+    "Diez días de sueño insatisfactorio pueden ser desalentadores, pero cada amanecer trae consigo la promesa de un nuevo comienzo.",
+    "Enfrentar diez días de desafíos en el sueño es un testimonio de tu resiliencia y fuerza interior. Sigue adelante con determinación y confianza en ti mismo.",
+    "No permitas que una mala racha te desanime. Utiliza estos días como un recordatorio de la importancia de priorizar tu descanso y bienestar. ¡Tú puedes superar este desafío!"
+  ],
+  "profileSleepScoreMessageTwoWeeks+": [
+    "Dos semanas de sueño reparador son como un viaje hacia la renovación total. Cada noche bien dormida es un paso más hacia un bienestar completo.",
+    "Durante dos semanas, has construido un puente hacia el descanso reparador. Sigue caminando con determinación y encontrarás la serenidad en cada paso.",
+    "Cada amanecer después de dos semanas de sueño profundo es una invitación a abrazar la energía renovada y la claridad mental. Mantén esta racha y alcanza nuevas alturas.",
+    "Dos semanas de descanso te han llevado a través de un viaje de autodescubrimiento y renovación. Sigue este camino y descubre la magia del sueño reparador.",
+    "Enhorabuena por dos semanas de sueño reparador. Cada noche bien dormida es un tributo a tu compromiso con la salud y el bienestar.",
+    "Durante dos semanas, has honrado el descanso como una parte esencial de tu vida. Sigue así y cosecha los frutos de una mente y un cuerpo revitalizados."
+  ],
+  "profileSleepScoreMessageTwoWeeks-": [
+    "Durante dos semanas, has enfrentado desafíos para encontrar el descanso adecuado. Es momento de reflexionar sobre tus hábitos y hacer pequeños cambios que te acerquen a un sueño más reparador.",
+    "Mantener una racha de dos semanas difíciles puede ser agotador, pero cada día te ofrece la oportunidad de tomar decisiones más saludables para tu descanso. ¡Vamos a enfocarnos en encontrar soluciones!",
+    "Durante dos semanas, has tenido dificultades para dormir bien, pero cada noche te brinda una nueva oportunidad para mejorar. Es hora de explorar nuevas estrategias y hábitos que te ayuden a descansar mejor.",
+    "Enfrentar dos semanas de desafíos en el sueño es un recordatorio de la importancia de cuidar tu salud y bienestar. Comprométete a hacer cambios positivos en tu rutina para mejorar la calidad de tu descanso.",
+    "Durante dos semanas, has luchado por encontrar un sueño reparador, pero cada día te acerca más a descubrir qué funciona mejor para ti. Sigamos buscando soluciones y mantengamos una actitud positiva hacia el cambio.",
+    "Durante dos semanas, has experimentado dificultades para dormir, pero cada desafío te brinda la oportunidad de aprender y crecer. Mantengámonos enfocados en encontrar formas efectivas de mejorar nuestro descanso."
+  ],
+  "profileSleepScoreMessageThreeWeeks+": [
+    "Tres semanas de sueño reparador son como un himno a tu bienestar. Cada noche bien dormida es una melodía que te lleva hacia la armonía interior.",
+    "Durante tres semanas, has construido un santuario de sueños reparadores. Sigue nutriendo este espacio sagrado y encuentra la paz en cada respiración.",
+    "Cada despertar después de tres semanas de sueño profundo es una celebración de la vida y la vitalidad. Mantén esta racha y deja que tu luz interior brille aún más.",
+    "Tres semanas de descanso te han llevado a través de un oasis de autodescubrimiento y renovación. Sigue explorando este territorio y descubre la magia del autocuidado.",
+    "Enhorabuena por tres semanas de sueño reparador. Cada noche bien dormida es un tributo a tu compromiso con una vida equilibrada y llena de energía.",
+    "Durante tres semanas, has cultivado un jardín de descanso y rejuvenecimiento. Sigue regando estas semillas y observa cómo florecen en una vida más plena."
+  ],
+  "profileSleepScoreMessageThreeWeeks-": [
+    "Tres semanas de dificultades para dormir son un recordatorio de la importancia de cuidar tu salud mental y física. Es momento de tomar medidas concretas para mejorar tu descanso y bienestar general.",
+    "Mantener una racha de tres semanas difíciles puede ser desafiante, pero cada día te ofrece la oportunidad de tomar decisiones positivas para tu descanso. Comprométete a implementar cambios que mejoren tu calidad de sueño.",
+    "Durante tres semanas, has experimentado dificultades para conciliar el sueño y descansar bien, pero cada noche te brinda la oportunidad de intentarlo de nuevo. Sigamos explorando nuevas estrategias y hábitos que te ayuden a dormir mejor.",
+    "Enfrentar tres semanas de desafíos en el sueño es un recordatorio de que debes priorizar tu salud y bienestar. Tómate el tiempo para identificar qué está afectando tu descanso y trabaja en soluciones efectivas.",
+    "Durante tres semanas, has enfrentado dificultades para dormir, pero cada día te acerca más a encontrar soluciones que funcionen para ti. Mantengamos una actitud positiva y comprometámonos a hacer cambios que mejoren nuestra calidad de vida.",
+    "Durante tres semanas, has luchado por encontrar un sueño reparador, pero cada desafío te brinda la oportunidad de aprender y crecer. Sigamos adelante con determinación y busquemos activamente formas de mejorar nuestro descanso."
+  ],
+  "profileSleepScoreMessageOneMonth+": [
+    "¡Felicidades! Un mes completo de sueño reparador es un logro notable. Cada noche bien dormida es un regalo para tu salud y bienestar. ¡Sigue así!",
+    "Un mes de hábitos de sueño consistentemente buenos merece ser celebrado. Tu dedicación al descanso está dando frutos, y tu cuerpo y mente te lo agradecen. ¡Continúa cuidándote!",
+    "Durante todo un mes, has demostrado un compromiso admirable con tu descanso. Cada noche de sueño reparador es un paso hacia una vida más equilibrada y plena. ¡Sigue así, campeón del sueño!",
+    "Un mes entero de buen descanso es un testimonio de tu determinación y autocuidado. Cada noche de sueño reparador es una inversión en tu salud y felicidad a largo plazo. ¡Sigue adelante con fuerza!",
+    "¡Un mes completo de sueño de calidad merece un aplauso! Tu dedicación a tu bienestar se refleja en cada noche de descanso. Sigue cuidando de ti mismo y priorizando tu salud.",
+    "Durante un mes, has demostrado que el buen descanso es una prioridad. Cada noche bien dormida es un paso hacia una vida más saludable y vibrante. ¡Sigue así, mantén el buen trabajo!"
+  ],
+  "profileSleepScoreMessageOneMonth-": [
+    "Un mes de dificultades para dormir puede ser desafiante, pero cada día nos brinda la oportunidad de reflexionar y mejorar nuestros hábitos de sueño. ¡Es hora de tomar medidas para cuidar tu bienestar!",
+    "Durante todo un mes, has enfrentado obstáculos en tu descanso, pero cada noche también es una oportunidad para aprender y ajustar tu enfoque. ¡Estás en el camino hacia un mejor sueño!",
+    "Un mes de resultados negativos en el sueño es una señal de que es momento de prestar atención a tu bienestar. Con determinación y compromiso, puedes implementar cambios que te ayuden a descansar mejor.",
+    "Durante un mes, has enfrentado desafíos en tu descanso, pero cada noche también es una oportunidad para renovarte y recargar energías. ¡No te desanimes, estás en el camino hacia un sueño más reparador!",
+    "Un mes de dificultades para dormir puede ser agotador, pero también es una oportunidad para explorar nuevas estrategias y hábitos que te ayuden a descansar mejor. ¡Sigue adelante con determinación!",
+    "Durante un mes, has enfrentado obstáculos en tu sueño, pero cada noche también es una oportunidad para renovarte y recargar energías. ¡No te rindas, estás en el camino hacia un mejor descanso!"
+  ],
+  "profileSleepScoreMessageDefault+": [
+    "¡Sigues brillando con tu compromiso hacia un sueño saludable! Cada noche bien dormida es un paso hacia una vida más equilibrada y plena. ¡Sigue así!",
+    "Tu dedicación al descanso está dando frutos y tu bienestar lo refleja. Cada noche de sueño reparador es una inversión en tu salud y felicidad a largo plazo. ¡Sigue cuidando de ti mismo!",
+    "Continuar con una racha positiva en el sueño demuestra tu compromiso con tu bienestar. Cada noche de descanso adecuado es un recordatorio de tu dedicación al autocuidado. ¡Sigue adelante con fuerza!",
+    "Mantener una racha positiva en el sueño es una prueba de tu determinación y disciplina. Cada noche bien dormida es un paso hacia una vida más saludable y equilibrada. ¡Sigue así, campeón del sueño!",
+    "Celebramos tu persistencia en mantener una racha positiva en el sueño. Cada noche de descanso reparador es un logro que te acerca a una mejor calidad de vida. ¡Sigue priorizando tu bienestar!",
+    "Tu compromiso con un sueño de calidad es admirable y digno de celebración. Cada noche de buen descanso es un paso hacia una versión más saludable y feliz de ti mismo. ¡Sigue así, no hay límites para tu bienestar!"
+  ],
+  "profileSleepScoreMessageDefault-": [
+    "Aunque enfrentes desafíos en tu sueño, tu determinación para mejorar es inspiradora. Cada noche es una oportunidad para aprender y ajustar tu enfoque hacia un descanso más reparador. ¡No te desanimes!",
+    "Continuar con una racha negativa en el sueño puede ser desafiante, pero cada día nos ofrece la oportunidad de reflexionar y mejorar nuestros hábitos. ¡Estás en el camino hacia un sueño más saludable!",
+    "A pesar de los obstáculos en tu descanso, tu determinación para encontrar soluciones es admirable. Con cada noche, te acercas más a descubrir qué funciona mejor para ti. ¡No te rindas!",
+    "Tu persistencia en medio de una racha negativa en el sueño muestra tu compromiso con tu bienestar. Cada noche es una oportunidad para renovarte y recargar energías. ¡Sigue adelante con determinación!",
+    "Aunque enfrentes dificultades para dormir, cada noche también es una oportunidad para explorar nuevas estrategias y hábitos. Tu determinación por mejorar tu descanso es el primer paso hacia una mejor calidad de vida. ¡Sigue adelante!",
+    "Celebramos tu valentía y determinación para enfrentar los desafíos en tu sueño. Cada noche es una oportunidad para aprender y crecer, y cada paso te acerca más a un descanso reparador. ¡No pierdas la esperanza!"
+  ],
+  "profileRecoveryMessage1+": [
+    "¡Increíble comienzo! Tu recuperación hoy es positiva, indicando que tu cuerpo está bien preparado para enfrentar el día. ¡Listo para aprovechar al máximo tus actividades y entrenamiento!",
+    "Hoy, tu cuerpo muestra una excelente adaptación y recuperación. ¡Estás en sintonía contigo mismo! Utiliza esta energía para rendir al máximo y disfrutar de un día activo y productivo.",
+    "Tu recuperación hoy es como una luz verde para un día enérgico y eficiente. Sigue cuidando de ti mismo, ¡estás construyendo una base sólida para tu bienestar!",
+    "¡Un día de buen descanso es un gran logro! Cada noche bien dormida te acerca más a tus metas de bienestar. ¡Sigue así, construyendo hábitos saludables de sueño!",
+    "Tu capacidad para dormir bien es un activo invaluable. Celebra cada día de buen descanso como un paso hacia una vida más equilibrada y feliz.",
+    "Un día de sueño reparador es un regalo que te brindas a ti mismo. ¡Aprovecha esta energía renovada para enfrentar el día con optimismo y vitalidad!"
+  ],
+  "profileRecoveryMessage1-": [
+    "Hoy la recuperación es un poco desafiante, pero cada día es una oportunidad para ajustar y mejorar. Recuerda cuidar de ti mismo para evitar riesgos y maximizar tu energía.",
+    "La recuperación de hoy puede ser un recordatorio de la importancia de escuchar a tu cuerpo. Considera ajustar tu actividad diaria para minimizar el riesgo de fatiga y lesiones.",
+    "Aunque hoy la recuperación es cero, no te desanimes. Toma medidas para mejorar la calidad de tu sueño y prepara tu cuerpo para un día más óptimo mañana.",
+    "Cada día de desafío es una oportunidad para aprender y crecer. Utiliza este día difícil como motivación para mejorar tus hábitos de sueño y cuidado personal.",
+    "No permitas que un día de descanso insuficiente te desanime. Mantén la determinación de priorizar tu bienestar y buscar soluciones para mejorar tu calidad de sueño.",
+    "Aunque hoy fue difícil, mañana es una nueva oportunidad para dormir mejor. Recuerda que cada noche mal dormida es una oportunidad para ajustar y mejorar tus hábitos de sueño. ¡Sigue adelante con esperanza y determinación!"
+  ],
+  "profileRecoveryMessage2+": [
+    "Dos días de buen descanso muestran tu compromiso con el cuidado de tu cuerpo y mente. Cada noche de sueño reparador es un paso hacia una vida más equilibrada y plena.",
+    "Mantener una racha de dos días de sueño de calidad es un logro significativo. Es hora de celebrar tus esfuerzos para encontrar un equilibrio saludable y prestar atención a las necesidades de tu cuerpo.",
+    "Felicidades por dos días consecutivos de buen sueño. Tu consistencia en cuidar tu descanso es admirable y demuestra tu compromiso con tu bienestar general.",
+    "Dos días seguidos de buen descanso son una señal de que estás encontrando un balance saludable en tu vida. Sigue escuchando a tu cuerpo, reduciendo el estrés y manteniendo hábitos de sueño positivos.",
+    "Celebra tus dos días de sueño reparador como una victoria en tu viaje hacia una mejor salud y bienestar. Sigue buscando formas de mejorar tus hábitos nocturnos y escuchando las señales de tu cuerpo.",
+    "Tu consistencia en mantener un buen descanso durante dos días es inspiradora. Continúa prestando atención a tu cuerpo, practicando la relajación y manteniendo una rutina de sueño constante para maximizar tu bienestar."
+  ],
+  "profileRecoveryMessage2-": [
+    "Dos días seguidos de mal sueño pueden ser un recordatorio de la importancia de cuidar tu bienestar nocturno. Toma nota de tus experiencias y busca ajustar tus hábitos para mejorar tu calidad de sueño.",
+    "Reconocer dos días consecutivos de mal descanso es el primer paso para hacer cambios positivos. Presta atención a las señales de tu cuerpo, reduce el estrés y crea un entorno propicio para un sueño reparador.",
+    "A pesar de los desafíos de los últimos dos días, recuerda que cada noche es una nueva oportunidad para mejorar. Mantén la determinación de encontrar un equilibrio saludable y mejorar tus hábitos de sueño.",
+    "Mantener una racha de dos días de mal sueño es una señal de que es hora de revisar tus rutinas nocturnas. Busca formas de reducir el estrés, establecer límites claros y crear un ambiente propicio para el descanso.",
+    "Dos días seguidos de mal descanso pueden ser difíciles, pero también son una oportunidad para aprender y crecer. Toma medidas para mejorar tu bienestar nocturno y busca apoyo si es necesario.",
+    "No permitas que dos días de mal sueño te desanimen. Comprométete a encontrar soluciones para mejorar tu calidad de sueño y prestar atención a las necesidades de tu cuerpo."
+  ],
+  "profileRecoveryMessage3+": [
+    "Tres días consecutivos de recuperación positiva indican que estás en un buen camino. Tu cuerpo está bien preparado para el desafío. ¡Sigue así y disfruta de un rendimiento consistente!",
+    "¡Racha de tres días positivos! Tu cuerpo está agradecido por tu atención al descanso. Estás reduciendo el riesgo de lesiones y maximizando tu potencial en cada actividad.",
+    "Mantener una recuperación positiva durante tres días seguidos es un logro. Estás construyendo una base sólida para la resistencia y la eficiencia en tus actividades diarias.",
+    "Tres días seguidos de buen descanso son una señal de que estás en sintonía con las necesidades de tu cuerpo. Continúa prestando atención a los signos que te brinda y mantén tus hábitos de sueño positivos.",
+    "Celebrar tres días de sueño reparador es reconocer tu compromiso con una vida equilibrada. Sigue cultivando un entorno propicio para el descanso y verás cómo mejora tu bienestar físico y mental.",
+    "Tu consistencia en mantener un buen sueño durante tres días es admirable. Sigue nutriendo tu bienestar físico y mental con hábitos nocturnos saludables y atención plena."
+  ],
+  "profileRecoveryMessage3-": [
+    "Tres días consecutivos con resultados de recuperación desafiantes indican la necesidad de hacer ajustes. Reflexiona sobre tu rutina y haz cambios para evitar riesgos innecesarios.",
+    "Mantener una recuperación baja durante tres días puede tener impactos en tu rendimiento. Evalúa tus hábitos de sueño y rutina diaria para minimizar riesgos y maximizar el bienestar.",
+    "Tres días de recuperación desafiante pueden ser una señal de que tu cuerpo necesita más atención. Tómate el tiempo para descansar y hacer ajustes en tu rutina para evitar fatiga y lesiones.",
+    "Mantener una racha de tres días de mal sueño es una señal de que es hora de revisar tus hábitos de sueño. Escucha las señales de tu cuerpo y busca apoyo si es necesario para mejorar tu descanso.",
+    "Tres días seguidos de mal descanso pueden ser difíciles, pero también son una oportunidad para aprender y crecer. Comprométete a encontrar soluciones para mejorar tu calidad de sueño y revitalizar tu bienestar.",
+    "No permitas que tres días de mal sueño te desanimen. Utiliza esta experiencia como motivación para ajustar tus hábitos de sueño y buscar el equilibrio necesario para tu salud y vitalidad."
+  ],
+  "profileRecoveryMessage4+": [
+    "Cuatro días seguidos de recuperación sólida muestran tu compromiso con el cuidado integral de tu cuerpo y mente. Continúa honrando tus necesidades de descanso para mantener tu vitalidad y equilibrio emocional.",
+    "Mantener una racha de cuatro días de recuperación adecuada es una señal de tu atención al bienestar general. Tu consistencia en el descanso refleja tu compromiso con una vida equilibrada y saludable.",
+    "Felicidades por priorizar tu recuperación durante cuatro días consecutivos. Este logro demuestra tu dedicación a optimizar tu rendimiento y bienestar en todas las áreas de tu vida.",
+    "Cuatro días seguidos de buen descanso y recuperación son un testimonio de tu compromiso con un estilo de vida equilibrado. Sigue escuchando las necesidades de tu cuerpo y mente para maximizar tu bienestar.",
+    "Celebrar cuatro días de recuperación sólida es celebrar tu dedicación al autocuidado y la salud integral. Sigue nutriendo tu cuerpo con descanso adecuado y observa cómo florece tu bienestar físico y mental.",
+    "Tu persistencia en mantener una buena recuperación durante cuatro días es digna de reconocimiento. Continúa cultivando hábitos de sueño saludables y disfruta de los beneficios que aportan a tu rendimiento y bienestar global."
+  ],
+  "profileRecoveryMessage4-": [
+    "Cuatro días seguidos de mala recuperación pueden ser un recordatorio de la importancia de cuidar tu bienestar integral. Toma nota de tus experiencias y busca ajustar tus hábitos para mejorar tu calidad de descanso y recuperación.",
+    "Reconocer cuatro días consecutivos de mala recuperación es el primer paso para hacer cambios positivos. Toma medidas para reducir el estrés, establecer rutinas de relajación y priorizar tu descanso para revitalizar tu bienestar.",
+    "A pesar de los desafíos de los últimos cuatro días, recuerda que cada noche es una nueva oportunidad para restaurar tu energía y vitalidad. Mantén la determinación de encontrar un equilibrio saludable para tu cuerpo y mente.",
+    "Mantener una racha de cuatro días de mala recuperación es una señal de que es hora de revisar tus hábitos y prioridades. Escucha las señales de tu cuerpo y busca apoyo si es necesario para mejorar tu bienestar integral.",
+    "Cuatro días seguidos de mala recuperación pueden ser desafiantes, pero también son una oportunidad para aprender y crecer. Comprométete a encontrar soluciones para mejorar tu calidad de sueño y revitalizar tu salud y rendimiento.",
+    "No permitas que cuatro días de mala recuperación te desanimen. Utiliza esta experiencia como motivación para ajustar tus hábitos y encontrar el equilibrio necesario para optimizar tu bienestar físico y mental."
+  ],
+  "profileRecoveryMessage5+": [
+    "Cinco días de recuperación positiva son un testimonio de tu compromiso con la salud y el rendimiento. Tu cuerpo está en su mejor forma para enfrentar desafíos físicos. ¡Sigue así y continúa superando tus metas!",
+    "¡Quintuple victoria! Tu recuperación durante cinco días consecutivos es excepcional. Tu cuerpo está fuerte y listo para cualquier desafío que se presente. ¡Enhorabuena!",
+    "Mantener una recuperación positiva durante cinco días es una señal de consistencia y bienestar. Estás cultivando una base sólida para tu rendimiento a largo plazo.",
+    "¡Impresionante! Has mantenido una recuperación óptima durante cinco días consecutivos. Tu cuerpo está regenerándose eficazmente. ¡Sigue cuidándote y disfruta de esa vitalidad renovada!",
+    "Cinco días seguidos de recuperación adecuada reflejan tu atención al bienestar holístico. Tu compromiso con un sueño reparador te fortalece física y mentalmente, brindándote la fuerza y resistencia necesarias para tus actividades diarias.",
+    "Celebrar cinco días de sólida recuperación nocturna es celebrar tu enfoque en la salud integral. Tu cuerpo y mente se benefician de tus hábitos de sueño saludables, permitiéndote abordar cada día con confianza y determinación.",
+    "Tu persistencia en mantener una buena recuperación durante cinco días consecutivos es admirable. Sigue cultivando un entorno propicio para el descanso y la renovación, y verás cómo tu bienestar general se eleva a nuevas alturas."
+  ],
+  "profileRecoveryMessage5-": [
+    "Cinco días consecutivos de recuperación desafiante son una señal de que es momento de prestar más atención a tu bienestar. Considera realizar cambios significativos para proteger tu salud a largo plazo.",
+    "Mantener una recuperación baja durante cinco días indica la necesidad de una pausa y reflexión. Haz ajustes en tu estilo de vida para mejorar la calidad de tu sueño y prepararte mejor para tus actividades diarias.",
+    "Aunque los últimos cinco días han sido desafiantes en términos de recuperación, cada día es una nueva oportunidad para hacer cambios positivos. Escucha a tu cuerpo y ajusta tu rutina para maximizar tu rendimiento.",
+    "Cinco días seguidos de recuperación desafiante podrían ser una señal de que tu cuerpo necesita un descanso adicional. Recuerda escuchar las señales que te envía y considera reducir la intensidad de tu actividad física o mental para permitir una recuperación adecuada.",
+    "Reconocer cinco días consecutivos de recuperación insuficiente es una invitación a revisar tus rutinas diarias. Tal vez estás exigiendo demasiado a tu cuerpo y mente. Considera practicar actividades de relajación y ajustar tu carga de trabajo para fomentar un descanso reparador.",
+    "A pesar de los desafíos de los últimos cinco días, es importante recordar que el descanso adecuado es esencial para tu bienestar general. Tómate un momento para evaluar tus hábitos y encontrar un equilibrio que te permita recuperarte plenamente cada noche."
+  ],
+  "profileRecoveryMessage6+": [
+    "Seis días seguidos de sólida recuperación muestran tu compromiso con el bienestar total. Escuchar las necesidades de tu cuerpo y mente te lleva a un estado de equilibrio y vitalidad. ¡Sigue así!",
+    "Mantener una racha de seis días de recuperación óptima es esencial para un rendimiento constante. Tu dedicación al descanso refleja tu compromiso con una vida plena y equilibrada en todos los aspectos.",
+    "Felicidades por mantener una rutina de recuperación efectiva durante seis días consecutivos. Tu consistencia en el descanso fortalece tanto tu cuerpo como tu mente, preparándote para enfrentar cualquier desafío con claridad y energía.",
+    "Seis días seguidos de buen descanso y recuperación son una demostración de tu compromiso con un estilo de vida equilibrado. Sigue priorizando tu bienestar y observa cómo prosperan todas las áreas de tu vida.",
+    "Celebrar seis días de recuperación sólida es celebrar tu enfoque en la salud y el autocuidado. Tu compromiso con el descanso adecuado te permite brillar con fuerza en todas tus actividades diarias.",
+    "Tu persistencia en mantener una buena recuperación durante seis días consecutivos merece reconocimiento. Continúa cultivando hábitos de sueño saludables y disfruta de los beneficios que aportan a tu bienestar físico y mental."
+  ],
+  "profileRecoveryMessage6-": [
+    "Seis días seguidos de recuperación desafiante pueden ser una señal de que necesitas ajustar tus hábitos y prioridades. Escucha las señales que te envía tu cuerpo y toma medidas para reducir el estrés y mejorar tu calidad de sueño.",
+    "Reconocer seis días consecutivos de recuperación insuficiente es el primer paso para el cambio positivo. Considera revisar tus rutinas diarias y buscar formas de integrar más tiempo de descanso y relajación.",
+    "A pesar de los desafíos de los últimos seis días, recuerda que cada noche es una oportunidad para revitalizar tu cuerpo y mente. Prioriza el autocuidado y la recuperación para restaurar tu energía y claridad mental.",
+    "Mantener una racha de seis días de mala recuperación puede indicar que estás sobrecargando tu cuerpo y mente. Tómate un momento para evaluar tus compromisos y encontrar un equilibrio que te permita descansar y recargar energías.",
+    "Seis días seguidos de recuperación desafiante pueden ser una señal de que es hora de hacer cambios significativos en tus hábitos diarios. Considera buscar apoyo profesional y tomar medidas concretas para mejorar tu bienestar integral.",
+    "No permitas que seis días de recuperación desafiante te desalienten. Utiliza esta experiencia como motivación para hacer ajustes positivos en tu estilo de vida y priorizar tu salud y bienestar. Escucha las necesidades de tu cuerpo y haz cambios que promuevan una recuperación efectiva."
+  ],
+  "profileRecoveryMessage7+": [
+    "Una semana completa de recuperación positiva es un logro extraordinario. Tu cuerpo está en un estado óptimo, minimizando riesgos y maximizando beneficios. ¡Sigue así y disfruta de tu bienestar continuo!",
+    "¡Siete días de recuperación positiva! Tu cuerpo está agradecido por tu atención y cuidado. Estás en el camino correcto para un rendimiento excepcional. ¡Felicidades!",
+    "Mantener una recuperación positiva durante una semana completa es un testimonio de tu dedicación al bienestar. Tu cuerpo está en su mejor forma. ¡Sigue cuidándote!",
+    "Siete días seguidos de sueño reparador demuestran tu dedicación al cuidado personal. Tu compromiso con el descanso te prepara para brillar en todas tus actividades diarias.",
+    "Mantener una semana de sueño consistente es clave para tu salud general. Tómate un momento para celebrar tus esfuerzos en cuidar tu descanso.",
+    "Una semana de buen descanso es como una recarga para tu cuerpo y mente. Estás listo para enfrentar los desafíos con renovada energía y determinación."
+  ],
+  "profileRecoveryMessage7-": [
+    "Una semana completa con resultados de recuperación bajos es una llamada a la acción. Tómate el tiempo para descansar y ajusta tu rutina para evitar riesgos a largo plazo.",
+    "Mantener una recuperación baja durante siete días consecutivos indica la necesidad de una revisión cuidadosa de tu estilo de vida. Haz cambios significativos para proteger tu bienestar a largo plazo.",
+    "A pesar de la semana desafiante, cada día es una nueva oportunidad para mejorar. Haz ajustes en tu rutina y prioriza tu bienestar para construir una base sólida para el rendimiento en el futuro.",
+    "Mantener una semana de sueño difícil es una señal de que es hora de hacer cambios. Reflexiona sobre tus actividades y compromisos diarios para encontrar un equilibrio que promueva un mejor descanso.",
+    "Reconocer una semana de descanso desafiante es el primer paso hacia el autocuidado. Tómate el tiempo necesario para descansar y recuperarte adecuadamente.",
+    "Una semana de sueño irregular es una oportunidad para reevaluar tu enfoque en el descanso. Prioriza tu bienestar y busca formas de mejorar la calidad de tu sueño."
+  ],
+  "profileRecoveryMessage8+": [
+    "¡Ocho días seguidos de sueño reparador son una gran señal de que estás cuidando tu bienestar! Sigue así, ¡estás en el camino correcto hacia una vida más equilibrada y saludable!",
+    "Mantener una racha de ocho días de buen descanso es una prueba de tu compromiso con tu salud física y mental. Estás sentando las bases para un estilo de vida más saludable y energizado.",
+    "Felicidades por alcanzar una semana completa de sueño restaurador. Tu cuerpo y mente te lo agradecen, ¡sigue así y notarás la diferencia en tu calidad de vida!",
+    "Ocho días consecutivos de sueño reparador son una señal de que estás priorizando tu salud y bienestar. Sigue escuchando las necesidades de tu cuerpo y sigue cuidándote.",
+    "Con ocho días de sueño reparador, estás demostrando que el descanso de calidad es una parte esencial de tu rutina diaria. Sigue con tus hábitos positivos y disfruta de los beneficios que te brinda el buen descanso.",
+    "Mantener una racha de ocho días de sueño reparador es una razón para celebrar tus esfuerzos en cuidar tu bienestar. ¡Sigue así y alcanzarás tus metas de salud y felicidad."
+  ],
+  "profileRecoveryMessage8-": [
+    "Reconocer ocho días de sueño desafiante es el primer paso para hacer cambios positivos en tu rutina. Tómate un momento para reflexionar sobre qué ajustes puedes hacer para mejorar tu descanso.",
+    "Ocho días de sueño irregular pueden indicar que es hora de reevaluar tus hábitos y prioridades. Escucha las señales que tu cuerpo te está enviando y busca maneras de cuidarte mejor.",
+    "Mantener una racha de ocho días de sueño difícil es una invitación a prestar más atención a tu bienestar. Considera qué cambios puedes hacer en tu estilo de vida para promover un descanso más reparador y revitalizante.",
+    "Reconocer ocho días de sueño desafiante es el primer paso hacia el autocuidado. Tómate el tiempo necesario para descansar y recuperarte adecuadamente, y busca apoyo si es necesario.",
+    "Ocho días de sueño irregular pueden ser una señal de que necesitas revisar tus hábitos diarios para promover un mejor descanso. Considera qué ajustes puedes hacer para fomentar un sueño más reparador y satisfactorio.",
+    "Ocho días consecutivos de sueño difícil son una oportunidad para reevaluar tu enfoque en el descanso. Prioriza tu bienestar y busca formas de mejorar la calidad de tu sueño para sentirte mejor y más renovado."
+  ],
+  "profileRecoveryMessage9+": [
+    "Nueve días de sueño reparador son como los ladrillos de un hogar tranquilo y sereno. Cada noche bien dormida es un pilar para tu bienestar.",
+    "Durante nueve días, tu almohada ha sido testigo de tus sueños más dulces y reparadores. Sigue así y construye un refugio de descanso y rejuvenecimiento.",
+    "Cada amanecer después de nueve noches de sueño profundo es una invitación a abrazar la energía renovada y la claridad mental. Mantén esta racha y alcanza nuevas alturas.",
+    "Nueve días de descanso te han llevado a través de un viaje de autodescubrimiento y renovación. Sigue este camino y descubre la magia del sueño reparador.",
+    "Enhorabuena por nueve días de sueño reparador. Cada noche bien dormida es un tributo a tu compromiso con la salud y el bienestar.",
+    "Durante nueve días, has honrado el descanso como una parte esencial de tu vida. Sigue así y cosecha los frutos de una mente y un cuerpo revitalizados."
+  ],
+  "profileRecoveryMessage9-": [
+    "Reconocer nueve días de sueño desafiante es el primer paso hacia el cambio. Tómate un momento para evaluar tus rutinas y buscar formas de mejorar tu descanso.",
+    "Nueve días de sueño irregular pueden indicar que es hora de hacer ajustes en tu estilo de vida. Escucha las señales que tu cuerpo te está enviando y busca maneras de cuidarte mejor.",
+    "Mantener una racha de nueve días de sueño difícil es una invitación a reflexionar sobre tu bienestar. Considera qué cambios puedes hacer para promover un descanso más reparador y revitalizante.",
+    "Reconocer nueve días de sueño desafiante es una oportunidad para priorizar tu salud y bienestar. Dedica tiempo a cuidarte y busca apoyo si es necesario.",
+    "Nueve días de sueño irregular pueden indicar que necesitas revisar tus hábitos y rutinas diarias. Considera qué ajustes puedes hacer para fomentar un sueño más reparador y satisfactorio.",
+    "Nueve días consecutivos de sueño difícil son una llamada de atención para prestar más atención a tu bienestar. Busca recursos y apoyo para mejorar la calidad de tu sueño y revitalizar tu cuerpo y mente."
+  ],
+  "profileRecoveryMessage10+": [
+    "¡Diez días seguidos de sueño reparador son un logro increíble! Tu compromiso con el descanso muestra tu dedicación a una vida equilibrada y saludable. ¡Sigue así!",
+    "Mantener una racha de diez días de buen descanso es una prueba de tu determinación para cuidar tu salud y bienestar. ¡Estás sentando las bases para una vida llena de energía y vitalidad!",
+    "Felicidades por alcanzar más de una semana de sueño restaurador. Tu cuerpo y mente te lo agradecen, ¡sigue así y notarás una mejora notable en tu bienestar general!",
+    "Diez días consecutivos de sueño reparador son una clara señal de que estás escuchando las necesidades de tu cuerpo y mente. Sigue priorizando tu bienestar y disfruta de los beneficios que el buen descanso te ofrece.",
+    "Con diez días de sueño reparador, estás construyendo una base sólida para una vida equilibrada y saludable. Continúa con tus hábitos positivos y mantén tu compromiso con el autocuidado diario.",
+    "Mantener una racha de diez días de sueño reparador es un testimonio de tu dedicación a tu salud y felicidad. Sigue cuidándote y disfruta de la sensación de renovación y revitalización que te brinda el buen descanso."
+  ],
+  "profileRecoveryMessage10-": [
+    "Reconocer diez días de sueño desafiante es el primer paso hacia el cambio positivo. Tómate un momento para reflexionar sobre tus hábitos y buscar formas de mejorar tu descanso.",
+    "Diez días de sueño irregular pueden indicar que es hora de hacer ajustes en tu estilo de vida. Escucha las señales que tu cuerpo te está enviando y busca maneras de cuidarte mejor.",
+    "Mantener una racha de diez días de sueño difícil es una invitación a reflexionar sobre tu bienestar. Considera qué cambios puedes hacer para promover un descanso más reparador y revitalizante.",
+    "Reconocer diez días de sueño desafiante es una oportunidad para priorizar tu salud y bienestar. Dedica tiempo a cuidarte y busca apoyo si es necesario.",
+    "Diez días de sueño irregular pueden indicar que necesitas revisar tus hábitos y rutinas diarias. Considera qué ajustes puedes hacer para fomentar un sueño más reparador y satisfactorio.",
+    "Diez días consecutivos de sueño difícil son una llamada de atención para prestar más atención a tu bienestar. Busca recursos y apoyo para mejorar la calidad de tu sueño y revitalizar tu cuerpo y mente."
+  ],
+  "profileRecoveryMessageTwoWeeks+": [
+    "Dos semanas seguidas de sueño reparador son un logro impresionante. Tu dedicación al descanso refleja tu compromiso con tu salud y bienestar.",
+    "Mantener una racha de catorce días de buen descanso demuestra tu determinación para priorizar tu bienestar. Sigue así, ¡estás en el camino correcto!",
+    "Felicidades por dos semanas de sueño restaurador. Tu cuerpo y mente están experimentando los beneficios de un descanso de calidad.",
+    "Catorce días consecutivos de sueño reparador son una prueba de tu compromiso con tu salud mental y física. Sigue cuidándote y escuchando las necesidades de tu cuerpo.",
+    "Dos semanas de sueño consistente son la base de un estilo de vida equilibrado y saludable. Continúa con tus hábitos positivos y notarás cómo tu bienestar general mejora.",
+    "Con dos semanas de sueño reparador, estás estableciendo una rutina que nutre tu cuerpo y mente. Sigue adelante con esta inversión en tu salud a largo plazo."
+  ],
+  "profileRecoveryMessageTwoWeeks-": [
+    "Reconocer dos semanas de sueño desafiante es un primer paso crucial hacia el cambio. Tómate un momento para evaluar tus rutinas y buscar formas de mejorar tu descanso.",
+    "Dos semanas de sueño irregular pueden ser una señal de que es hora de hacer ajustes en tu estilo de vida. Escucha las señales que tu cuerpo te está enviando y toma medidas para cuidarte mejor.",
+    "Mantener una racha de catorce días de sueño difícil es una invitación a reflexionar sobre tu bienestar. Considera qué cambios puedes hacer para promover un descanso más reparador y revitalizante.",
+    "Reconocer dos semanas de sueño desafiante es una oportunidad para priorizar tu salud y bienestar. Tómate el tiempo necesario para descansar y recuperarte adecuadamente.",
+    "Dos semanas de sueño irregular pueden indicar que necesitas revisar tus hábitos y rutinas diarias. Considera cómo puedes ajustar tu estilo de vida para fomentar un descanso más reparador.",
+    "Dos semanas consecutivas de sueño difícil son una llamada de atención para prestar más atención a tu bienestar. Busca apoyo y recursos para mejorar la calidad de tu sueño y cuidar tu salud mental y física."
+  ],
+  "profileRecoveryMessageThreeWeeks+": [
+    "¡Tres semanas seguidas de sueño reparador son un hito notable en tu viaje hacia un mejor bienestar! Tu compromiso con el descanso está dando sus frutos.",
+    "Mantener una racha de veintiún días de buen descanso es una prueba de tu dedicación para cuidar tu salud física y mental. ¡Sigue así, estás haciendo un gran trabajo!",
+    "Felicidades por alcanzar tres semanas de sueño restaurador. Tu cuerpo y mente están experimentando los beneficios de un descanso de calidad de manera consistente.",
+    "Veintiún días consecutivos de sueño reparador son un testimonio de tu compromiso con tu bienestar. Sigue escuchando las necesidades de tu cuerpo y cuidándote.",
+    "Tres semanas de sueño consistente son la base de un estilo de vida equilibrado y saludable. Estás sentando las bases para una vida más plena y energizada.",
+    "Con tres semanas de sueño reparador, estás demostrando que el descanso de calidad es una prioridad en tu vida. Sigue cuidándote y disfrutando de los beneficios de un sueño reparador."
+  ],
+  "profileRecoveryMessageThreeWeeks-": [
+    "Reconocer tres semanas de sueño desafiante es un paso importante hacia el cambio. Tómate un momento para reflexionar sobre tus hábitos y buscar maneras de mejorar tu descanso.",
+    "Tres semanas de sueño irregular pueden ser una señal de que necesitas hacer ajustes en tu estilo de vida. Escucha las señales que tu cuerpo te está enviando y busca formas de cuidarte mejor.",
+    "Mantener una racha de veintiún días de sueño difícil es una invitación a reevaluar tu bienestar. Considera qué cambios puedes hacer para promover un descanso más reparador y revitalizante.",
+    "Reconocer tres semanas de sueño desafiante es una oportunidad para priorizar tu salud y bienestar. Dedica tiempo a cuidarte y busca apoyo si es necesario.",
+    "Tres semanas de sueño irregular pueden indicar que necesitas revisar tus hábitos y rutinas diarias. Considera qué ajustes puedes hacer para fomentar un sueño más reparador y satisfactorio.",
+    "Tres semanas consecutivas de sueño difícil son un recordatorio de la importancia de cuidar tu bienestar. Busca recursos y apoyo para mejorar la calidad de tu sueño y revitalizar tu cuerpo y mente."
+  ],
+  "profileRecoveryMessageOneMonth+": [
+    "¡Un mes completo de sueño reparador es todo un logro! Has demostrado un compromiso excepcional con tu bienestar. Continúa cuidándote y disfrutando de los beneficios de un descanso de calidad.",
+    "Mantener una racha de un mes de buen descanso es un testimonio de tu dedicación a tu salud y felicidad. Estás sentando las bases para una vida más equilibrada y llena de energía.",
+    "Felicidades por alcanzar un mes entero de sueño restaurador. Tu persistencia en priorizar tu descanso ha sido notable y tu cuerpo y mente te lo agradecen. ¡Sigue así!",
+    "Un mes consecutivo de sueño reparador es un hito significativo en tu viaje hacia una vida más saludable. Tu compromiso con el autocuidado es admirable y te está llevando por el camino correcto.",
+    "Con un mes de sueño reparador, estás experimentando los beneficios de un descanso de calidad en todos los aspectos de tu vida. Continúa con tus hábitos positivos y sigue cuidándote a ti mismo.",
+    "Mantener una racha de un mes de sueño reparador es una prueba de tu disciplina y compromiso con tu bienestar. Sigue escuchando las necesidades de tu cuerpo y disfruta de la sensación de renovación que te brinda el buen descanso."
+  ],
+  "profileRecoveryMessageOneMonth-": [
+    "Reconocer un mes de sueño desafiante es un llamado a la acción. Tómate un momento para evaluar tus hábitos y considera qué cambios puedes hacer para mejorar tu descanso.",
+    "Un mes de sueño irregular puede indicar la necesidad de revisar tus rutinas diarias. Escucha las señales que tu cuerpo te está enviando y busca maneras de cuidarte mejor.",
+    "Mantener una racha de un mes de sueño difícil es una señal de que es hora de hacer cambios en tu estilo de vida. Considera qué ajustes puedes hacer para promover un sueño más reparador y revitalizante.",
+    "Reconocer un mes de sueño desafiante es el primer paso hacia el autocuidado. Tómate el tiempo necesario para descansar y recuperarte adecuadamente, y busca apoyo si es necesario.",
+    "Un mes de sueño irregular puede indicar que necesitas prestar más atención a tu bienestar. Considera qué ajustes puedes hacer para fomentar un descanso más reparador y satisfactorio.",
+    "Un mes consecutivo de sueño difícil es una señal de que necesitas cuidarte mejor. Prioriza tu salud y busca formas de mejorar la calidad de tu sueño para sentirte mejor y más renovado."
+  ],
+  "profileRecoveryMessageDefault+": [
+    "¡Tu compromiso con un sueño reparador está dando resultados! Continúa cultivando estos hábitos saludables y verás cómo se reflejan en tu bienestar general.",
+    "Cada noche de descanso reparador es un paso hacia una vida más equilibrada y plena. Sigue con tu racha positiva y disfruta de los beneficios que trae consigo.",
+    "Mantener una racha positiva en tu descanso es un testimonio de tu dedicación al autocuidado. Sigue escuchando las necesidades de tu cuerpo y sigue adelante con confianza.",
+    "Tus esfuerzos por mejorar tu sueño están dando sus frutos. Continúa con tu racha positiva y celebra cada noche de sueño reparador como un logro en tu viaje hacia una mejor salud.",
+    "Cada noche de sueño reparador es una inversión en tu bienestar a largo plazo. Sigue así y notarás cómo tu energía y vitalidad aumentan día a día.",
+    "Tu compromiso con un descanso de calidad merece reconocimiento. Sigue con tu racha positiva y recuerda que cada noche de sueño reparador es una oportunidad para renovarte y revitalizarte."
+  ],
+  "profileRecoveryMessageDefault-": [
+    "Reconocer una racha negativa es el primer paso hacia el cambio positivo. Tómate un momento para reflexionar sobre tus hábitos y considera qué ajustes puedes hacer para mejorar tu descanso.",
+    "Cada noche es una oportunidad para mejorar tu calidad de sueño. Si has experimentado una racha negativa, considera qué cambios puedes hacer para promover un descanso más reparador.",
+    "Mantener una racha negativa en tu sueño es una señal de que es hora de prestar más atención a tu bienestar. Busca formas de reducir el estrés y promover un ambiente propicio para dormir.",
+    "Reconocer una racha negativa en tu descanso es una invitación a cuidarte mejor. Prioriza tu salud y considera qué pasos puedes tomar para mejorar la calidad de tu sueño.",
+    "Cada noche es una nueva oportunidad para mejorar tu descanso. Si has experimentado una racha negativa, busca formas de relajarte antes de acostarte y crea un ambiente propicio para dormir.",
+    "Tu bienestar es una prioridad y cada noche de sueño es una oportunidad para cuidarte mejor. Si has experimentado una racha negativa, tómate el tiempo necesario para recuperarte y busca apoyo si es necesario."
+  ],
+  "profileANSMessage1+": [
+    "Tu balance autonómico fue positivo hoy, ¡sigue así! Celebra tus logros y continúa practicando hábitos saludables para mantener la armonía.",
+    "¡Excelente! El balance de tu sistema nervioso autónomo sugiere un día de calma y equilibrio. Sigue cultivando hábitos saludables y disfruta de los beneficios continuos.",
+    "¡Excelente comienzo! Tu sistema nervioso muestra un balance saludable hoy. Sigue cuidándote para mantener esta armonía y disfrutar de más días llenos de vitalidad.",
+    "Hoy tu cuerpo y mente están en sintonía. Es un buen recordatorio de que tus hábitos positivos están dando sus frutos. Continúa así y verás cómo se refleja en tu bienestar general.",
+    "Un día de equilibrio en tu sistema nervioso es un paso en la dirección correcta. Aprovecha este impulso para seguir nutriendo tu salud y promover un bienestar duradero."
+  ],
+  "profileANSMessage1-": [
+    "Hoy, el balance de tu sistema nervioso autónomo sugiere un estrés mayor. Reflexiona sobre lo que podría haber contribuido a esto y considera técnicas de relajación para mejorar tu bienestar.",
+    "Aunque hoy el balance autonómico no fue ideal, recuerda que es sólo un día. Identifica las fuentes de estrés y busca maneras de incorporar la relajación en tu rutina para mejorar tu respuesta al estrés.",
+    "Hoy has experimentado un desequilibrio en tu sistema nervioso. Tómate este momento como una oportunidad para reflexionar sobre tus hábitos y buscar formas de restaurar la armonía en tu cuerpo y mente.",
+    "Reconocer un día de desequilibrio es el primer paso para recuperar la armonía. Reflexiona sobre lo que pudo haber causado esta discrepancia y toma medidas para cuidarte mejor en el futuro.",
+    "Un día de desequilibrio en tu sistema nervioso es una señal de que necesitas prestar más atención a tu bienestar. Utiliza esta experiencia como motivación para buscar formas de promover la calma y la estabilidad en tu vida diaria."
+  ],
+  "profileANSMessage2+": [
+    "¡Doble ración de equilibrio! Dos días seguidos con tu sistema nervioso en armonía son una señal de que estás cuidando bien de ti mismo. ¡Sigue así!",
+    "Dos días seguidos de equilibrio muestran tu compromiso con el bienestar. Continúa alimentando ese equilibrio con hábitos saludables y positivos.",
+    "¡Bravo por mantener la balanza! Dos días consecutivos con tu sistema nervioso en sintonía son una razón para celebrar tus esfuerzos hacia un mayor bienestar.",
+    "Tu cuerpo y mente están bailando en armonía durante dos días seguidos. Sigue nutriendo esta conexión con prácticas que te hacen sentir bien.",
+    "Dos días de equilibrio son como un abrazo reconfortante para tu sistema nervioso. Sigue así y notarás cómo tu bienestar general se beneficia.",
+    "¡Dos días, un gran logro! Tu compromiso con el equilibrio te está llevando lejos. Sigue adelante con esa misma dedicación."
+  ],
+  "profileANSMessage2-": [
+    "Dos días de desequilibrio pueden ser una señal de que necesitas prestar más atención a tu bienestar. Tómate un momento para reflexionar y encontrar formas de restaurar la armonía.",
+    "Reconocer dos días de desequilibrio es el primer paso hacia el cambio positivo. Considera qué ajustes puedes hacer para promover un estado de calma y equilibrio en tu vida diaria.",
+    "Dos días de desequilibrio son una llamada de atención para cuidarte mejor. Utiliza esta experiencia como motivación para buscar formas de reducir el estrés y promover la calma en tu rutina diaria.",
+    "A veces, dos días de desequilibrio son solo un recordatorio de que necesitas escuchar las señales de tu cuerpo. Encuentra tiempo para relajarte y restaurar tu equilibrio interior.",
+    "Dos días de desequilibrio pueden ser un desafío, pero también son una oportunidad para aprender y crecer. Reflexiona sobre lo que puedes hacer para apoyar mejor tu bienestar mental y emocional.",
+    "Reconocer dos días de desequilibrio te permite tomar medidas proactivas para recuperar tu equilibrio. Sigue adelante con determinación y busca formas de promover la calma y el bienestar en tu vida diaria."
+  ],
+  "profileANSMessage3+": [
+    "Tres días seguidos con un balance autonómico positivo son un logro significativo. Asegúrate de mantener estos hábitos y enfrentar el estrés de manera efectiva.",
+    "Triple racha de equilibrio autonómico. Estás construyendo una base sólida para tu bienestar. Continúa con tus prácticas saludables para mantener la armonía.",
+    "¡Tres días de equilibrio constante! Tu sistema nervioso está en sintonía y tu bienestar se eleva. Sigue nutriendo este flujo positivo con tus hábitos saludables.",
+    "Tres días seguidos de armonía muestran tu compromiso con el bienestar integral. Sigue haciendo lo que estás haciendo, ¡estás en el camino correcto!",
+    "Tu cuerpo y mente están sincronizados durante tres días seguidos. Este es un logro significativo que merece ser celebrado. Continúa cuidándote y mantén este flujo positivo.",
+    "Tres días de equilibrio son como un regalo para tu sistema nervioso. Sigue alimentando esta conexión con prácticas que te nutren y te hacen sentir bien."
+  ],
+  "profileANSMessage3-": [
+    "Tres días seguidos con un desequilibrio autonómico sugieren un patrón. Es el momento de priorizar la relajación y reducir el estrés en tu vida diaria. Pequeños cambios pueden marcar una gran diferencia.",
+    "Aunque el balance autonómico no ha sido ideal durante tres días, cada día es una nueva oportunidad para restaurar la armonía. Introduce prácticas de relajación y cuidado personal para mejorar tu bienestar.",
+    "Tres días de desequilibrio pueden ser una señal de que necesitas tomarte un momento para cuidarte mejor. Reflexiona sobre lo que está causando este desequilibrio y toma medidas para restaurar la armonía.",
+    "Reconocer tres días de desequilibrio es el primer paso hacia el cambio positivo. Considera qué ajustes puedes hacer en tu estilo de vida para promover un estado de calma y equilibrio.",
+    "Tres días de desequilibrio son una llamada de atención para prestar más atención a tu bienestar. Utiliza esta experiencia como motivación para buscar formas de reducir el estrés y promover la tranquilidad en tu vida diaria.",
+    "A veces, tres días de desequilibrio son un recordatorio de que debes escuchar las necesidades de tu cuerpo. Tómate un tiempo para descansar y restaurar tu equilibrio interno."
+  ],
+  "profileANSMessage4+": [
+    "Cuatro días de equilibrio continuo son un logro notable. Tu cuerpo y mente están en sincronía, ¡sigue así y alcanzarás nuevas alturas de bienestar!",
+    "¡Cuatro días seguidos de equilibrio! Es evidente que estás haciendo elecciones saludables que benefician tu sistema nervioso. ¡Sigue adelante con ese impulso positivo!",
+    "Tu sistema nervioso ha estado en armonía durante cuatro días seguidos. Este es un logro que merece ser celebrado. Sigue cuidándote y aprecia el poder de tus hábitos saludables.",
+    "Cuatro días de equilibrio constante son un testimonio de tu dedicación al bienestar. Continúa nutriendo esa conexión mente-cuerpo y cosecharás los frutos de una vida equilibrada.",
+    "¡Qué maravilla! Cuatro días consecutivos de armonía muestran tu compromiso con tu salud integral. Sigue cultivando este flujo positivo y observa cómo transforma tu bienestar.",
+    "Tu sistema nervioso ha estado en un estado de equilibrio durante cuatro días consecutivos. Este es un hito importante que refleja tu compromiso con una vida saludable y equilibrada."
+  ],
+  "profileANSMessage4-": [
+    "Cuatro días de desequilibrio pueden ser una señal de que necesitas prestar más atención a tu bienestar. Tómate un momento para reflexionar y buscar formas de restaurar la armonía en tu vida diaria.",
+    "Reconocer cuatro días de desequilibrio es el primer paso hacia el cambio positivo. Considera qué ajustes puedes hacer en tu estilo de vida para promover un estado de calma y equilibrio.",
+    "Cuatro días de desequilibrio son una llamada de atención para cuidarte mejor. Utiliza esta experiencia como motivación para buscar formas de reducir el estrés y promover la tranquilidad en tu vida diaria.",
+    "A veces, cuatro días de desequilibrio son un recordatorio de que debes escuchar las necesidades de tu cuerpo. Tómate un tiempo para descansar y restaurar tu equilibrio interno.",
+    "Cuatro días de desequilibrio pueden ser un desafío, pero también son una oportunidad para aprender y crecer. Reflexiona sobre lo que puedes hacer para apoyar mejor tu bienestar mental y emocional.",
+    "Reconocer cuatro días de desequilibrio te permite tomar medidas proactivas para recuperar tu equilibrio. Sigue adelante con determinación y busca formas de promover la calma y el bienestar en tu vida diaria."
+  ],
+  "profileANSMessage5+": [
+    "¡Fantástico! Tu balance del sistema nervioso autónomo ha sido positivo durante cinco días consecutivos. Esto indica una armonía notable entre el sistema simpático y parasimpático, proporcionando estabilidad y bienestar a tu cuerpo. ¡Estás cultivando un ambiente propicio para la salud y el rendimiento óptimo!",
+    "Cinco días de balance positivo en el SNA son una señal de que tu cuerpo está en un estado de equilibrio. Esta coherencia entre los sistemas nerviosos simpático y parasimpático favorece la recuperación, la resistencia al estrés y la salud en general. ¡Sigue cuidándote y cosecharás los beneficios a largo plazo!",
+    "Mantener un balance positivo en el sistema nervioso autónomo durante cinco días es un logro significativo. Tu cuerpo agradece la atención que le has dado. Disfruta de la sensación de bienestar que has creado y continúa con tus prácticas saludables.",
+    "¡Cinco días de equilibrio armonioso! Tu cuerpo y mente han estado en sintonía, lo que indica una buena regulación entre el sistema nervioso simpático y parasimpático. ¡Sigue así y nutre esa balanza!",
+    "Durante cinco días seguidos, has mantenido un estado de equilibrio que refleja la armonía entre tu sistema simpático y parasimpático. ¡Es un logro admirable que merece ser celebrado!",
+    "Cinco días de equilibrio constante son un claro indicador de que estás cuidando bien de ti mismo. Tu sistema nervioso está funcionando en armonía, lo que te permite enfrentar los desafíos diarios con calma y claridad.",
+    "Tu cuerpo ha estado en un estado de equilibrio durante cinco días consecutivos, lo que demuestra una regulación saludable entre el sistema simpático y parasimpático. Sigue cultivando este flujo positivo y verás cómo mejora tu bienestar general."
+  ],
+  "profileANSMessage5-": [
+    "Cinco días consecutivos de desbalance en el sistema nervioso autónomo indican un área que requiere atención. Este desequilibrio puede afectar la respuesta al estrés y la capacidad de recuperación. Considera estrategias para restaurar la armonía y mejorar tu bienestar general.",
+    "Mantener un balance negativo en el SNA durante cinco días puede tener repercusiones en tu salud física y mental. Es un recordatorio de la importancia de cuidar tu sistema nervioso para prevenir la fatiga y el agotamiento. Tómate el tiempo necesario para relajarte y recuperarte.",
+    "A pesar de los últimos cinco días desafiantes en el balance del sistema nervioso autónomo, cada día es una nueva oportunidad para hacer ajustes positivos. Escucha a tu cuerpo, implementa prácticas relajantes y trabaja hacia el restablecimiento del equilibrio. Tu bienestar está en tus manos.",
+    "Cinco días de desequilibrio pueden indicar una sobrecarga en tu sistema nervioso simpático, lo que puede llevar a sentimientos de ansiedad o agitación. Es importante tomarse un tiempo para relajarse y restaurar la calma.",
+    "Reconocer cinco días de desequilibrio es el primer paso para restablecer la armonía entre tu sistema simpático y parasimpático. Considera incorporar prácticas de relajación y autocuidado en tu rutina diaria.",
+    "Cinco días de desequilibrio son una señal de que necesitas prestar atención a tu bienestar emocional y físico. Busca formas de reducir el estrés y promover la relajación para restaurar el equilibrio en tu vida diaria.",
+    "A veces, cinco días de desequilibrio son un recordatorio de la importancia de escuchar las señales de tu cuerpo. Tómate un tiempo para reconectar contigo mismo y encontrar formas de apoyar tu bienestar integral."
+  ],
+  "profileANSMessage6+": [
+    "Seis días de equilibrio constante son un testimonio de tu compromiso con tu bienestar. Tu sistema nervioso ha estado en armonía, lo que indica una buena regulación entre el sistema simpático y parasimpático.",
+    "Durante seis días seguidos, has mantenido un estado de equilibrio que refleja la armonía entre tu sistema simpático y parasimpático. Sigue cultivando este flujo positivo y verás cómo mejora tu bienestar general.",
+    "Tu cuerpo y mente han estado en sincronía durante seis días consecutivos, lo que demuestra una regulación saludable entre el sistema simpático y parasimpático. Continúa nutriendo esta balanza con tus hábitos saludables.",
+    "¡Seis días seguidos de equilibrio! Este logro es una prueba de tu capacidad para cuidar bien de ti mismo. Sigue adelante con ese impulso positivo y mantén tu bienestar en el centro de tus prioridades.",
+    "Tu cuerpo ha estado en un estado de equilibrio durante seis días consecutivos, lo que demuestra una conexión profunda entre tu mente y tu bienestar físico. Sigue cultivando este equilibrio y verás cómo se refleja en tu vida diaria.",
+    "Durante seis días consecutivos, has mantenido una sincronización notable entre tu cuerpo y tu mente. Este logro es un recordatorio de tu capacidad para cuidarte y apoyar tu salud integral."
+  ],
+  "profileANSMessage6-": [
+    "Seis días de desequilibrio pueden ser un indicador de que necesitas tomarte un tiempo para cuidarte mejor. Es importante prestar atención a las señales que tu cuerpo te está enviando y buscar formas de restaurar la armonía.",
+    "Reconocer seis días de desequilibrio es el primer paso para iniciar cambios positivos en tu vida. Considera qué ajustes puedes hacer en tu rutina diaria para promover un estado de calma y equilibrio.",
+    "Seis días de desequilibrio son una señal de que necesitas hacer cambios en tu vida para apoyar tu bienestar físico y emocional. Tómate un tiempo para reflexionar sobre lo que te está causando estrés y busca formas de reducirlo.",
+    "A veces, seis días de desequilibrio son un recordatorio de que debes escuchar las necesidades de tu cuerpo. Tómate un descanso y busca actividades que te ayuden a recargar energías y restaurar tu equilibrio interno.",
+    "Reconocer seis días de desequilibrio te permite tomar medidas proactivas para recuperar tu bienestar. Sigue adelante con determinación y busca formas de promover la calma y el equilibrio en tu vida diaria.",
+    "Seis días de desequilibrio pueden ser un desafío, pero también son una oportunidad para aprender y crecer. Reflexiona sobre lo que puedes hacer para apoyar mejor tu bienestar mental y emocional y toma medidas para mejorar tu calidad de vida."
+  ],
+  "profileANSMessage7+": [
+    "A pesar de una semana de equilibrio autonómico positivo, no bajes la guardia. Sigue cuidando tu bienestar y enfrenta el estrés de manera efectiva.",
+    "Semana completa de equilibrio autonómico! Estás demostrando un compromiso significativo con tu salud mental. Sigue así y disfruta de una vida más equilibrada.",
+    "¡Una semana entera de equilibrio y armonía! Tus hábitos de sueño y bienestar están en sintonía, permitiéndote despertar renovado cada día.",
+    "Siete días seguidos de equilibrio muestran tu compromiso con una vida saludable. Tu cuerpo y mente están en sincronía, listos para enfrentar los desafíos diarios con calma y claridad.",
+    "Durante siete días consecutivos, has mantenido una estabilidad notable, reflejando un estado de bienestar integral. ¡Es un logro que merece ser celebrado!",
+    "Una semana completa de equilibrio es una prueba de tu dedicación al cuidado personal. Sigue nutriendo ese equilibrio y verás cómo se refleja en todos los aspectos de tu vida."
+  ],
+  "profileANSMessage7-": [
+    "Mantener un desequilibrio autonómico durante una semana es una señal de alerta. Es crucial abordar las fuentes de estrés y priorizar la relajación para restablecer la armonía en tu sistema nervioso.",
+    "A pesar de una semana desafiante en términos de balance autonómico, estás en control de tu bienestar. Implementa cambios significativos en tu estilo de vida para promover la calma y la relajación.",
+    "Siete días de desequilibrio pueden ser un recordatorio importante para escuchar las necesidades de tu cuerpo. Considera qué cambios puedes hacer para mejorar tu bienestar general.",
+    "Reconocer siete días de desequilibrio es el primer paso hacia el cambio positivo. Tómate un tiempo para evaluar tu rutina y encontrar formas de promover la relajación y el descanso reparador.",
+    "Siete días de desequilibrio pueden ser desafiantes, pero también son una oportunidad para reflexionar y ajustar tu enfoque hacia un estilo de vida más equilibrado.",
+    "Si has experimentado siete días de desequilibrio, es momento de priorizar tu bienestar. Haz pequeños cambios en tu rutina diaria para fomentar un sueño reparador y restaurar la armonía en tu vida."
+  ],
+  "profileANSMessage8+": [
+    "Ocho días de equilibrio constante son un testimonio de tu compromiso con tu bienestar. Tu sistema nervioso ha estado en armonía, lo que indica una buena regulación entre el sistema simpático y parasimpático.",
+    "Durante ocho días seguidos, has mantenido un estado de equilibrio que refleja la armonía entre tu sistema simpático y parasimpático. Sigue cultivando este flujo positivo y verás cómo mejora tu bienestar general.",
+    "Tu cuerpo y mente han estado en sincronía durante ocho días consecutivos, lo que demuestra una regulación saludable entre el sistema simpático y parasimpático. Continúa nutriendo esta balanza con tus hábitos saludables.",
+    "¡Ocho días seguidos de equilibrio! Este logro es una prueba de tu capacidad para cuidar bien de ti mismo. Sigue adelante con ese impulso positivo y mantén tu bienestar en el centro de tus prioridades.",
+    "Tu cuerpo ha estado en un estado de equilibrio durante ocho días consecutivos, lo que demuestra una conexión profunda entre tu mente y tu bienestar físico. Sigue cultivando este equilibrio y verás cómo se refleja en tu vida diaria.",
+    "Durante ocho días consecutivos, has mantenido una sincronización notable entre tu cuerpo y tu mente. Este logro es un recordatorio de tu capacidad para cuidarte y apoyar tu salud integral."
+  ],
+  "profileANSMessage8-": [
+    "Ocho días de desequilibrio pueden ser un indicador de que necesitas tomarte un tiempo para cuidarte mejor. Es importante prestar atención a las señales que tu cuerpo te está enviando y buscar formas de restaurar la armonía.",
+    "Reconocer ocho días de desequilibrio es el primer paso para iniciar cambios positivos en tu vida. Considera qué ajustes puedes hacer en tu rutina diaria para promover un estado de calma y equilibrio.",
+    "Ocho días de desequilibrio son una señal de que necesitas hacer cambios en tu vida para apoyar tu bienestar físico y emocional. Tómate un tiempo para reflexionar sobre lo que te está causando estrés y busca formas de reducirlo.",
+    "A veces, ocho días de desequilibrio son un recordatorio de que debes escuchar las necesidades de tu cuerpo. Tómate un descanso y busca actividades que te ayuden a recargar energías y restaurar tu equilibrio interno.",
+    "Reconocer ocho días de desequilibrio te permite tomar medidas proactivas para recuperar tu bienestar. Sigue adelante con determinación y busca formas de promover la calma y el equilibrio en tu vida diaria.",
+    "Ocho días de desequilibrio pueden ser un desafío, pero también son una oportunidad para aprender y crecer. Reflexiona sobre lo que puedes hacer para apoyar mejor tu bienestar mental y emocional y toma medidas para mejorar tu calidad de vida."
+  ],
+  "profileANSMessage9+": [
+    "¡Nueve días de equilibrio continuo son una hazaña admirable! Tu compromiso con el bienestar refleja tu dedicación al cuidado de ti mismo.",
+    "Has demostrado una notable consistencia durante nueve días seguidos. Mantén este impulso positivo y sigue nutriendo tu bienestar físico y mental.",
+    "Tu determinación brilla a través de nueve días de equilibrio constante. Sigue cultivando esa armonía interior y verás cómo impacta positivamente en tu vida diaria.",
+    "Nueve días de equilibrio muestran tu capacidad para adaptarte y priorizar tu bienestar. ¡Celebra cada logro en este viaje hacia una vida más equilibrada y satisfactoria!",
+    "Cada día de esos nueve refleja tu compromiso con una vida plena y saludable. Sigue encontrando alegría en los pequeños momentos y cuida tu cuerpo y mente con amor y atención.",
+    "Tu persistencia durante nueve días de equilibrio es un testimonio de tu fuerza interior y determinación. Sigue adelante con confianza, sabiendo que estás construyendo un futuro más saludable y equilibrado."
+  ],
+  "profileANSMessage9-": [
+    "Nueve días de desequilibrio pueden ser desafiantes, pero también son una oportunidad para reflexionar y ajustar tu enfoque hacia un estilo de vida más equilibrado.",
+    "Reconocer nueve días de desequilibrio es el primer paso hacia el cambio positivo. Tómate un tiempo para evaluar tu rutina y encuentra formas de promover la relajación y el descanso reparador.",
+    "Nueve días de desequilibrio son una señal de que es hora de prestar atención a tu bienestar. Dedica tiempo para cuidarte y busca actividades que te ayuden a recargar energías y restaurar el equilibrio interior.",
+    "Es normal enfrentar nueve días de desequilibrio en ocasiones, pero también es una oportunidad para aprender y crecer. Reflexiona sobre lo que puedes hacer para apoyar mejor tu bienestar y toma medidas para mejorar tu calidad de vida.",
+    "Durante nueve días de desequilibrio, es importante recordar que cada día es una oportunidad para comenzar de nuevo. Mantén una perspectiva positiva y busca maneras de cultivar la armonía en tu vida diaria.",
+    "A pesar de nueve días de desafíos, recuerda que tienes el poder de cambiar tu situación. Con pequeños pasos y decisiones conscientes, puedes restaurar el equilibrio y avanzar hacia una vida más plena y satisfactoria."
+  ],
+  "profileANSMessage10+": [
+    "¡Diez días de equilibrio constante son un logro impresionante! Tu dedicación al bienestar ha creado un sólido fundamento para una vida más plena y satisfactoria.",
+    "Mantener el equilibrio durante diez días seguidos es una demostración de tu compromiso y determinación. Continúa cuidando tu cuerpo y mente con amor y atención.",
+    "Diez días de equilibrio muestran tu capacidad para adaptarte y prosperar incluso en los momentos más desafiantes. Sigue cultivando ese sentido de armonía y bienestar en tu vida diaria.",
+    "Tu consistencia durante diez días consecutivos refleja tu dedicación al cuidado personal y al bienestar general. ¡Celebra cada pequeño paso hacia una vida más equilibrada y significativa!",
+    "Cada día de esos diez resalta tu compromiso con un estilo de vida saludable y equilibrado. Sigue encontrando alegría en las pequeñas cosas y nutriendo tu cuerpo y mente con hábitos positivos.",
+    "Diez días de equilibrio son un testimonio de tu fuerza interior y perseverancia. Sigue adelante con confianza, sabiendo que estás construyendo un futuro más saludable y feliz."
+  ],
+  "profileANSMessage10-": [
+    "Diez días de desequilibrio pueden ser desafiantes, pero también son una oportunidad para reflexionar y ajustar tu enfoque hacia un estilo de vida más equilibrado.",
+    "Reconocer diez días de desequilibrio es el primer paso hacia el cambio positivo. Tómate un tiempo para evaluar tu rutina y encuentra formas de promover la relajación y el descanso reparador.",
+    "Diez días de desequilibrio son una señal de que es hora de prestar atención a tu bienestar. Dedica tiempo para cuidarte y busca actividades que te ayuden a recargar energías y restaurar el equilibrio interior.",
+    "Es normal enfrentar diez días de desequilibrio en ocasiones, pero también es una oportunidad para aprender y crecer. Reflexiona sobre lo que puedes hacer para apoyar mejor tu bienestar y toma medidas para mejorar tu calidad de vida.",
+    "Durante diez días de desequilibrio, es importante recordar que cada día es una oportunidad para comenzar de nuevo. Mantén una perspectiva positiva y busca maneras de cultivar la armonía en tu vida diaria.",
+    "A pesar de diez días de desafíos, recuerda que tienes el poder de cambiar tu situación. Con pequeños pasos y decisiones conscientes, puedes restaurar el equilibrio y avanzar hacia una vida más plena y satisfactoria."
+  ],
+  "profileANSMessageTwoWeeks+": [
+    "¡Dos semanas de equilibrio continuo son un logro impresionante! Tu dedicación al bienestar ha creado un sólido fundamento para una vida más plena y satisfactoria.",
+    "Mantener el equilibrio durante dos semanas seguidas es una demostración de tu compromiso y determinación. Continúa cuidando tu cuerpo y mente con amor y atención.",
+    "Dos semanas de equilibrio muestran tu capacidad para adaptarte y prosperar incluso en los momentos más desafiantes. Sigue cultivando ese sentido de armonía y bienestar en tu vida diaria.",
+    "Tu consistencia durante dos semanas consecutivas refleja tu dedicación al cuidado personal y al bienestar general. ¡Celebra cada pequeño paso hacia una vida más equilibrada y significativa!",
+    "Cada día de esas dos semanas resalta tu compromiso con un estilo de vida saludable y equilibrado. Sigue encontrando alegría en las pequeñas cosas y nutriendo tu cuerpo y mente con hábitos positivos.",
+    "Dos semanas de equilibrio son un testimonio de tu fuerza interior y perseverancia. Sigue adelante con confianza, sabiendo que estás construyendo un futuro más saludable y feliz."
+  ],
+  "profileANSMessageTwoWeeks-": [
+    "Dos semanas de desequilibrio pueden ser desafiantes, pero también son una oportunidad para reflexionar y ajustar tu enfoque hacia un estilo de vida más equilibrado.",
+    "Reconocer dos semanas de desequilibrio es el primer paso hacia el cambio positivo. Tómate un tiempo para evaluar tu rutina y encuentra formas de promover la relajación y el descanso reparador.",
+    "Dos semanas de desequilibrio son una señal de que es hora de prestar atención a tu bienestar. Dedica tiempo para cuidarte y busca actividades que te ayuden a recargar energías y restaurar el equilibrio interior.",
+    "Es normal enfrentar dos semanas de desequilibrio en ocasiones, pero también es una oportunidad para aprender y crecer. Reflexiona sobre lo que puedes hacer para apoyar mejor tu bienestar y toma medidas para mejorar tu calidad de vida.",
+    "Durante dos semanas de desequilibrio, es importante recordar que cada día es una oportunidad para comenzar de nuevo. Mantén una perspectiva positiva y busca maneras de cultivar la armonía en tu vida diaria.",
+    "A pesar de dos semanas de desafíos, recuerda que tienes el poder de cambiar tu situación. Con pequeños pasos y decisiones conscientes, puedes restaurar el equilibrio y avanzar hacia una vida más plena y satisfactoria."
+  ],
+  "profileANSMessageThreeWeeks+": [
+    "¡Tres semanas de equilibrio continuo son un logro notable! Tu compromiso con el bienestar te está llevando por un camino de armonía y vitalidad.",
+    "Mantener el equilibrio durante tres semanas seguidas demuestra tu determinación y dedicación. Sigue nutriendo tu cuerpo y mente con hábitos positivos que fortalecen tu bienestar general.",
+    "Tres semanas de equilibrio reflejan tu capacidad para adaptarte y prosperar en todas las circunstancias. Continúa cultivando una vida llena de bienestar y gratitud.",
+    "Tu perseverancia durante tres semanas consecutivas muestra un profundo compromiso con tu salud y felicidad. Celebra cada pequeño progreso y continúa tu viaje hacia un bienestar duradero.",
+    "Cada día de estas tres semanas resalta tu compromiso con un estilo de vida equilibrado y consciente. Sigue buscando la belleza en las pequeñas cosas y nutriendo tu cuerpo y alma con amor y cuidado.",
+    "Tres semanas de equilibrio son una prueba de tu fuerza interior y determinación. Avanza con confianza y optimismo, sabiendo que estás construyendo una base sólida para una vida plena y saludable."
+  ],
+  "profileANSMessageThreeWeeks-": [
+    "Tres semanas de desequilibrio pueden ser un desafío, pero también representan una oportunidad para reflexionar y ajustar tu enfoque hacia un estilo de vida más equilibrado.",
+    "Reconocer tres semanas de desequilibrio es el primer paso para el cambio positivo. Tómate un momento para evaluar tus hábitos y buscar formas de promover la relajación y el descanso reparador.",
+    "Tres semanas de desequilibrio son una señal de que es importante priorizar tu bienestar. Dedica tiempo para cuidarte y busca actividades que te ayuden a recargar energías y restaurar el equilibrio interior.",
+    "Aunque enfrentar tres semanas de desequilibrio puede ser desafiante, también es una oportunidad para aprender y crecer. Reflexiona sobre cómo puedes apoyar mejor tu bienestar y toma medidas positivas hacia una vida más equilibrada.",
+    "Durante tres semanas de desequilibrio, recuerda que cada día es una nueva oportunidad para comenzar de nuevo. Mantén una actitud positiva y busca formas de cultivar la calma y la serenidad en tu vida diaria.",
+    "A pesar de las dificultades de tres semanas de desafíos, recuerda que tienes la fuerza y la capacidad para cambiar tu situación. Con determinación y enfoque, puedes restaurar el equilibrio y avanzar hacia una vida más plena y satisfactoria."
+  ],
+  "profileANSMessageOneMonth+": [
+    "¡Un mes de equilibrio continuo es un logro sobresaliente! Cada día has demostrado tu compromiso con una vida saludable y equilibrada.",
+    "Mantener el equilibrio durante un mes entero es una señal de tu fuerza interior y tu determinación para priorizar tu bienestar. ¡Sigue así!",
+    "Celebrando un mes de hábitos saludables. Cada pequeño paso suma grandes resultados. ¡Estás en el camino correcto!",
+    "Un mes de equilibrio refleja tu dedicación y compromiso con tu salud y felicidad. Sigue encontrando la armonía en cada día.",
+    "Cada día de este mes ha sido una oportunidad para crecer y cuidarte. Felicidades por un mes de hábitos saludables que te ayudan a prosperar.",
+    "Tu compromiso durante un mes es un recordatorio de tu capacidad para crear cambios significativos en tu vida. ¡Sigue adelante con determinación y gratitud!"
+  ],
+  "profileANSMessageOneMonth-": [
+    "Reconocer un mes de desequilibrio es el primer paso hacia el cambio positivo. Es momento de reflexionar y encontrar nuevas estrategias para mejorar tu bienestar.",
+    "A pesar de los desafíos de este mes, recuerda que cada día es una oportunidad para comenzar de nuevo. No te desanimes y busca apoyo para mejorar.",
+    "Durante este mes, cada dificultad ha sido una oportunidad para aprender y crecer. Utiliza esta experiencia para fortalecerte y avanzar hacia un futuro más equilibrado.",
+    "Aunque este mes ha sido difícil, recuerda que tienes el poder de cambiar tu situación. Con paciencia y perseverancia, puedes encontrar el equilibrio que necesitas.",
+    "Un mes de desequilibrio es una llamada de atención para prestar más atención a tu bienestar. Tómate un tiempo para cuidarte y buscar formas de restaurar tu equilibrio interior.",
+    "A pesar de los desafíos de este mes, recuerda que tienes el control sobre tus hábitos y tu salud. Con cada nuevo día, tienes la oportunidad de tomar decisiones que te acerquen a una vida más equilibrada."
+  ],
+  "profileANSMessageDefault+": [
+    "¡Continúa brillando con tu racha positiva! Cada día es una oportunidad para seguir cosechando éxitos y progresando hacia tus metas.",
+    "Tu consistencia en la racha positiva es inspiradora. Sigue adelante con confianza y determinación, sabiendo que estás en el camino correcto.",
+    "Cada paso que das fortalece tu racha positiva. Celebra tus logros y mantén la energía positiva mientras avanzas hacia un futuro brillante.",
+    "Tu compromiso con la excelencia es evidente en tu racha positiva. Sigue enfocado en tus objetivos y deja que tu éxito sea tu mejor motivación.",
+    "Con cada día de esta racha positiva, estás construyendo un camino hacia un futuro lleno de posibilidades. ¡Sigue adelante con entusiasmo y determinación!",
+    "Tu persistencia en la racha positiva es un testimonio de tu fuerza y ​​resiliencia. Mantén la llama encendida y continúa iluminando el camino hacia tus sueños."
+  ],
+  "profileANSMessageDefault-": [
+    "Reconocer la racha negativa es el primer paso para el cambio positivo. Acepta el desafío y utiliza tu determinación para superarlo.",
+    "Aunque la racha negativa puede ser difícil, cada día es una nueva oportunidad para cambiar el rumbo. Mantén la esperanza y busca soluciones para mejorar.",
+    "La racha negativa no define tu destino, sino tu respuesta ante ella. Con cada desafío, tienes la oportunidad de aprender y crecer más fuerte.",
+    "A pesar de los obstáculos de la racha negativa, recuerda que eres capaz de superarlos. Confía en tu capacidad para encontrar el camino hacia la luz.",
+    "Cada día de la racha negativa es una oportunidad para fortalecerte y demostrar tu resiliencia. No te rindas; sigue adelante con determinación y coraje.",
+    "La racha negativa es solo una parte de tu historia; tu capacidad para superarla es lo que define tu futuro. Mantén la fe y continúa avanzando con valentía hacia un mañana mejor."
+  ],
+  "profileCardSleepArcTooltip": "El sueño se divide en ciclos de 90 a 110 minutos, esencial para un descanso saludable. Un descanso normal incluye de cuatro a seis ciclos completos, cada uno con etapas de sueño ligero, profundo y REM. El sueño ligero es la transición entre la vigilia y el sueño profundo, mientras que el REM es cuando soñamos. Interrumpir el sueño afecta la calidad del descanso.",
+  "profileModalSleepArcDesc": "El período de sueño se desarrolla en ciclos que duran entre 90 y 110 minutos y son una parte esencial de un patrón de sueño saludable.\n\nEn un descanso normal suelen producirse de cuatro a seis ciclos completos, A su vez, en cada ciclo, el cuerpo pasa por tres etapas: sueño ligero, sueño y sueño REM.\n\nEl sueño LIGERO es el momento de transición del estado de vigilia al sueño PROFUNDO. Los ojos no se mueven y el tono muscular disminuye.\n\nDurante el sueño PROFUNDO el movimiento físico y el tono muscular son casi inexistentes. Es esencial para la recuperación física y la mayoría de los sistemas fisiológicos.\n\nDurante sueño REM es cuando soñamos, caracterizada por movimientos oculares rápidos, músculos paralizados, presión arterial y frecuencia cardíaca variables. El sueño REM es necesario para la recuperación mental.\n\nLa duración del sueño es tan importante como que éste no sea interrumpido, ya que  no se lograrán todos los beneficios de un descanso continuado y reparador.",
+  "profileModalSleepArcDaily": "Para una recuperación completa de tu cuerpo y mente, necesitas dormir lo suficiente en general, eso también significa contar con suficiente sueño REM y PROFUNDO. El sueño REM debe constituir del 20% al 25 % de tu sueño total, el sueño PROFUNDO del 10% al 20% y entre un 50% y 60 % de sueño LIGERO.",
+  "profileModalSleepArcWeekly": "Puedes basarte en este gráfico para comprender las tendencias en tus ciclos de sueño y sus fases a lo largo de la semana y así consolidar una rutina en los horarios en los que te duermas y te despiertas. Practica hábitos que induzcan al sueño y eviten las interrupciones nocturnas del mismo, ya que no se lograrán todos los beneficios de un descanso continuado y reparador, incluso si has dormido las 8 hs recomendadas.",
+  "profileCardSleepScoreTooltip": "La calidad del sueño se determina por la duración y la cantidad de sueño REM y profundo. Más horas y sueño de calidad significan una mejor puntuación. La mayoría de los adultos necesitan de 7 a 8 horas de sueño para una buena salud. Un gráfico semanal puede ayudar a comprender las tendencias y mejorar los hábitos de sueño si es necesario.",
+  "profileModalSleepScoreDesc": "La puntuación del sueño se determina de acuerdo a la cantidad de horas que has dormido y, durante esas horas, la cantidad de sueño REM y PROFUNDO que hayas tenido. A mayor cantidad de horas, más sueño REM y PROFUNDO tendrás, por lo tanto, mejor será tu puntuación del sueño. Por el contrario, cuanto más despierto permanezcas y/o más interrupciones durante tu período de sueño tengas, la puntuación se verá disminuida.\n\nLa mayoría de los adultos necesitan entre 7 y 8 horas de sueño cada noche. Durante el sueño, suceden múltiples procesos biológicos y hormonales que propician un buen estado de salud y permiten que el cuerpo funcione de manera óptima.",
+  "profileModalSleepScoreWeekly": "Puedes basarte en este gráfico para comprender tus tendencias en la puntuación del sueño a lo largo de los días y, si tu puntaje está por debajo de la media, crear o reforzar hábitos* que te guíen hacia las 8 hs de sueño recomendadas.",
+  "profileCardRecoveryTooltip": "Los puntos de recuperación reflejan cómo el cuerpo se recupera del esfuerzo diario. Se calculan por la diferencia en la variabilidad del ritmo cardíaco entre la mañana y la noche anterior. Un gráfico semanal ayuda a equilibrar la rutina y prevenir lesiones.",
+  "profileModalRecoveryDesc": "Los puntos de recuperación representan la adaptación y recuperación física durante el descanso respecto a tu rutina diaria, y se calcula por la diferencia entre los valores de la Variabilidad del Ritmo Cardíaco (HRV) de la mañana y de la noche anterior.\n\nEs muy importante tener en cuenta las actividades que generan estrés físico y/o mental realizadas el día anterior, entrenamientos, jornada laboral, etc. Los niveles de recuperación reflejarán cómo tu cuerpo se repuso durante el sueño del desgaste físico de la jornada previa.",
+  "profileModalRecoveryAnnotation": "*Ten en cuenta que si la carga del día anterior fue baja, no necesariamente la recuperación será alta al día siguiente, ya que el cuerpo no tiene carga de la cual recuperarse.",
+  "profileModalRecoveryWeekly": "Puedes basarte en este gráfico para optimizar y balancear tu rutina de actividades a lo largo de la semana, comprendiendo tus tendencias de recuperación y evitando así una posible sobrecarga física o lesión.",
+  "profileCardANSTooltip": "El sistema nervioso autónomo controla las funciones corporales, dividido en simpático y parasimpático. El parasimpático regula el descanso y la digestión, reduciendo el ritmo cardíaco. El simpático responde a situaciones de estrés o actividad, aumentando la presión arterial y el ritmo cardíaco.",
+  "profileModalANSDesc": "El sistema nervioso autónomo es quien controla las funciones de tu cuerpo; se divide en simpático y el parasimpático. Durante el día, tienes momentos de relajación, donde el sistema parasimpático tiene mayor presencia, y momentos de excitación o actividad, en los que el sistema simpático tiene el control. Estos sistemas funcionan como una especie de acelerador y freno que se van alternando para mantener un equilibrio.\n\nEl sistema parasimpático, asociado con los mecanismos de “descanso y digestión” (rest and digest), regula el descanso y metabolismo, maneja los sistemas internos como la digestión, respiración y el crecimiento de uñas. Este sistema causa un decremento en el ritmo cardíaco.\n\nEl sistema simpático, asociado con los mecanismos de “pelea o huida” (fight or flight), es el que controla tu respuesta física activa, reacciona a variables externas como el estrés y el ejercicio. Genera un incremento en la presión arterial y el ritmo cardíaco.",
+  "profileModalANSDaily": "Durante el sueño encontrarás alternancias en la actividad del sistema nervioso autónomo que reflejan las diferentes fases del sueño y los estados de activación o relajación de tu cuerpo.",
+  "profileModalANSWeekly": "Puedes basarte en este gráfico para comprender tus tendencias en el balance del SNA. Si los valores se mantienen en el 50/50, con una corrección de +/- 10, te encuentras dentro de los parámetros estándar, indicador de un buen funcionamiento homeostático de tu sistema nervioso autónomo, asociado a un buen estado físico y menor estrés del organismo.\n\nSi las tendencias marcan un desbalance, puede deberse a fatiga acumulada por mal descanso y/o pocas horas de sueño y, si la tendencia es contínua a mediano o largo plazo, puede ser un indicador de estrés crónico.",
+  "profileCardHRVTooltip": "La HRV mide la variación entre latidos del corazón y refleja la salud y el estado físico. Niveles altos indican mejor condición física y menor estrés. Es afectada por la interacción entre los sistemas Simpático y Parasimpático del Sistema Nervioso Autónomo.",
+  "profileModalHRVDesc": "La Variabilidad del Ritmo Cardíaco (HRV) es la variación del tiempo entre latido y latido del corazón. Utilizado como indicador de la salud y estado físico general, permite determinar tu estado psicofisiológico. La HRV analizada a corto plazo indica la preparación de tu cuerpo para afrontar la rutina diaria.\n\nGeneralmente, los valores más altos de HRV indican un mejor estado físico y menor estrés del organismo. Una HRV baja puede asociarse a la falta de ejercicio físico y riesgo de lesión.\n\nLa HRV se determina por el resultado de la interacción entre el Sistema Simpático, responsable de las reacciones de tu cuerpo para luchar o huir, y el Sistema Parasimpático, responsable de las reacciones para descansar y digerir; ambos componen al Sistema Nervioso Autónomo y, en un balance adecuado, envían señales a tu corazón ya sea para latir más rápido (Simpático) o más lento (Parasimpático); esta fluctuación entre latidos es justamente la Variabilidad del Ritmo Cardíaco (HRV).",
+  "profileModalHRVDaily": "A más HRV, mayor es la recuperación y menor el estrés del organismo. El entrenamiento a mediano y largo plazo tiende a incrementar los valores de HRV. Por el contrario, un nivel de HRV bajo está asociado a un potencial riesgo de lesión y a largo plazo, a enfermedades asociadas.",
+  "profileModalHRVWeekly": "Puedes basarte en este gráfico para comprender tus tendencias de HRV. Cuando los valores son superiores a la media de tus últimos 7 días, puedes realizar un entrenamiento intenso, si te da valores intermedios, se recomienda un entrenamiento moderado o suave, y si te da valores inferiores, es mejor descansar o un entrenamiento muy suave para evitar el sobreentrenamiento o una posible lesión.",
+  "profileModalHRVWeeklyAnnotation": "*La disminución a largo plazo en RMSSD puede ser una indicación de que se está acercando a una condición de sobreentrenamiento.",
+  "profileCardHeartRateTooltip": "La frecuencia cardíaca en reposo para adultos está entre 60 y 100 latidos por minuto. Una frecuencia más baja implica una mejor función cardíaca y condición cardiovascular. Se calcula tomando el valor más bajo de los latidos por minuto promedio en intervalos de tres minutos durante toda la noche.",
+  "profileModalHeartRateDesc": "La frecuencia cardíaca normal en reposo para los adultos oscila entre 60 y 100 latidos por minuto. Generalmente, una frecuencia cardíaca más baja en reposo implica una función cardíaca más eficiente y una mejor condición cardiovascular.\n\nTu frecuencia cardíaca en reposo se calcula sobre tus BPM promedio para cada intervalo de tres minutos durante toda la noche, tomando el valor más bajo en cada intervalo.",
+  "profileModalHeartRateDaily": "Las pulsaciones por minuto en reposo pueden utilizarse como indicador leve de estrés o sobreentrenamiento.",
+  "profileModalHeartRateWeekly": "Puedes basarte en este gráfico para obtener la referencia de tu frecuencia cardíaca en reposo en períodos semanales, también puedes comprobar si existen desviaciones notables con respecto al nivel de referencia.\n\nEl ejercicio físico tiende a disminuir la frecuencia cardíaca en reposo a mediano y largo plazo, y esto significa que te estás poniendo más en forma!",
+  "profileCardBreathingRateTooltip": "La frecuencia respiratoria normal de un adulto en reposo es de 12 a 18 respiraciones por minuto. Una frecuencia inferior a 12 o superior a 25 respiraciones por minuto en reposo puede indicar un problema de salud subyacente.",
+  "profileModalBreathingRateDesc": "La frecuencia respiratoria normal de un adulto en reposo es de 12 a 18 respiraciones por minuto. Una frecuencia respiratoria inferior a 12 o superior a 25 respiraciones por minuto en reposo puede ser un signo de un problema de salud subyacente.",
+  "profileModalBreathingRateDaily": "La frecuencia respiratoria normal de un adulto en reposo es de 12 a 18 respiraciones por minuto. Ten en cuenta que las tasas de respiración pueden aumentar con condiciones médicas, como fiebre o enfermedad.",
+  "profileModalBreathingRateWeekly": "Puedes basarte en este gráfico para comprender las tendencias de tu frecuencia respiratoria en reposo a lo largo de la semana y obtener tus valores de referencia.",
+  "profileCardMovementsTooltip": "La actividad promedio se refiere a movimientos más grandes que los causados por el corazón y la respiración, como mover una pierna o un brazo. Los giros indican movimientos más amplios del cuerpo.",
+  "profileModalMovementsDesc": "La actividad promedio mide movimientos más grandes que los causados por los latidos del corazón y la respiración, como mover una pierna o un brazo o cambiar ligeramente posición. Los movimientos más grandes de tu cuerpo están indicados por el número de giros.",
+  "profileModalMovementsDaily": "Un valor más alto de lo normal tanto en la actividad promedio como en el número de giros puede indicar una noche inquieta. Ten en cuenta que debes compararlos con tus propios valores de referencia.",
+  "profileModalMovementsWeekly": "Puedes basarte en este gráfico para comprender los valores de referencia en tu actividad y número de giros promedio durante tus noches. El aumento a largo plazo en estos números puede ser una indicación de que se está acercando a una condición de sobreentrenamiento.",
+  "profileCardSleepTimeTooltip": "Aquí puedes ver cuánto tiempo has estado en la cama y cuánto has dormido. Para adultos, 7-8 horas de sueño se consideran ideales. La duración en la cama excluye el tiempo fuera de ella. Si sales por más de 10 minutos, se considerará el fin del período de sueño.",
+  "profileModalSleepTimeDesc": "Aquí verás el tiempo total que has estado en la cama y cuánto de ese tiempo has estado durmiendo. Para los adultos, dormir entre 7 y 8 horas se considera óptimo.\n\nLa duración en la cama excluye la duración total de las salidas de la cama. Ten en cuenta que si sales de la cama por más de 10 minutos, esto finalizará el período de presencia y creará el registro de noche con la información recolectada hasta ese momento",
+  "IrreversibleAction": "Esta acción es permanente",
+  "sleepScoreChartTotalRecovery": "Total de Recuperación",
+  "ansChartAbsent": "Ausente",
+  "hrvChartHeartRate": "Ritmo cardíaco",
+  "hrvChartAdjustmentLine": "Línea de ajuste de RMSSD",
+  "brChartBreathingRate": "Ritmo respiratorio",
+  "movementsChartMovement": "Cantidad de grandes movimientos",
+  "movementsChartTurns": "Vueltas/Noche",
+  "sleepTimeChartAwake": "Despierto",
+  "sleepTimeChartAwakeHS": "Despierto (hs)",
+  "sleepTimeChartSleep": "Durmiendo",
+  "sleepTimeChartSleepHS": "Durmiendo (hs)",
+  "sleepArcChartAbsent": "Ausente",
+  "sleepArcChartAbsentHS": "Ausente (hs)",
+  "sleepArcChartAwake": "Despierto",
+  "sleepArcChartAwakeHS": "Despierto (hs)",
+  "sleepArcChartLight": "Liviano",
+  "sleepArcChartLightHS": "Liviano (hs)",
+  "sleepArcChartDeep": "Profundo",
+  "sleepArcChartDeepHS": "Profundo (hs)",
+  "sleepArcChartRem": "REM",
+  "sleepArcChartRemHS": "REM (hs)",
+  "sleepArcChartTitle": "Arquitectura del sueño"
+}

@@ -1,0 +1,1101 @@
+{
+  "sidebarMenuButton": "Aufklappen",
+  "sidebarItems": [
+    {
+      "label": "Gruppenansicht",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    },
+    {
+      "label": "Administrationspanel",
+      "icon": "settings-gear-combination.svg",
+      "path": "/dashboard/admin"
+    }
+  ],
+  "sidebarItemsGroupView": [
+    {
+      "label": "Administrationspanel",
+      "icon": "settings-gear-combination.svg",
+      "path": "/dashboard/admin"
+    }
+  ],
+  "sidebarItemsAdmin": [
+    {
+      "label": "Gruppenansicht",
+      "icon": "grid-icon.svg",
+      "path": "/dashboard/groups"
+    }
+  ],
+  "sidebarSettings": "Einstellungen",
+  "sidebarLanguage": "Sprache",
+  "languagesDropdown": [
+    {
+      "name": "Spanisch",
+      "code": "es"
+    },
+    {
+      "name": "Englisch",
+      "code": "en"
+    },
+    {
+      "name": "Italienisch",
+      "code": "it"
+    },
+    {
+      "name": "Deutsch",
+      "code": "de"
+    },
+    {
+      "name": "Französisch",
+      "code": "fr"
+    }
+  ],
+  "sidebarSignOut": "Abmelden",
+  "loginWelcome": "Willkommen",
+  "loginForget": "Passwort zurücksetzen",
+  "loginPlaceholderEmail": "E-Mail",
+  "loginPlaceholderPassword": "Passwort",
+  "loginButtonSignIn": "Anmelden",
+  "loginButtonSend": "Senden",
+  "loginForgetPassword": "Passwort vergessen?",
+  "loginLangES": "Spanisch",
+  "loginLangEN": "Englisch",
+  "loginLangIT": "Italienisch",
+  "loginLangDE": "Deutsch",
+  "loginLangFR": "Französisch",
+  "loginTooltipBack": "Zurück",
+  "loginInvalidEmail": "Sie müssen eine gültige E-Mail-Adresse eingeben",
+  "loginInvalidPassword": "Sie müssen ein Passwort eingeben",
+  "loginToastErrorLogin": "Falscher Benutzername und/oder falsches Passwort",
+  "loginToastSendEmail": "E-Mail erfolgreich gesendet",
+  "loginToastErrorSendEmail": "Es gab einen Fehler beim Senden der E-Mail",
+  "ToastTitleCorrect": "Korrekt",
+  "ToastTitleError": "Fehler",
+  "groupFormatDownloadItems": [
+    "PDF",
+    "Excel"
+  ],
+  "groupRangeDownloadItems": [
+    { "label": "Aktueller Zeitraum", "value": 0},
+    { "label": "7 Tage", "value": 7},
+    { "label": "15 Tage", "value": 15},
+    { "label": "30 Tage", "value": 30},
+    { "label": "Historisch", "value": null}
+  ],
+  "groupOrderByItems": [
+    {
+      "label": "Schlafbewertung: Hoch bis Niedrig",
+      "value": true
+    },
+    {
+      "label": "Schlafbewertung: Niedrig bis Hoch",
+      "value": false
+    }
+  ],
+  "groupPeriodSelect": "Zeitraum auswählen",
+  "groupForwardTooltip": "Zur vorherigen Gruppe gehen",
+  "groupNextTooltip": "Zur nächsten Gruppe gehen",
+  "groupAllTooltip": "Alle Gruppen anzeigen",
+  "groupDownloadReportLabel": "Bericht herunterladen",
+  "groupDownloadLabel": "Herunterladen",
+  "groupSelectFormatPlaceholder": "Format auswählen",
+  "groupSelectRangePlaceholder": "Bereich auswählen",
+  "groupFilterTooltip": "Filter",
+  "groupSearchByName": "Nach Namen suchen...",
+  "groupOrderBy": "Sortieren nach...",
+  "groupShowAll": "Alle anzeigen",
+  "groupShowCurrentPeriod": "Nur Profile mit aktuellem Zeitraum anzeigen",
+  "groupDeleteFilters": "Filter löschen",
+  "groupApplyFilters": "Filter anwenden",
+  "profileCardDeviceName": "NS-Gerät: ",
+  "profileCardAnyDevice": "Kein zugeordnetes Gerät",
+  "profileCardRecoveryDescription": "Erholung",
+  "profileCardRecoveryDescriptionTooltip": "Stellt die Anpassung und physische Erholung während der Ruhe im Vergleich zu Ihrer täglichen Routine dar",
+  "profileCardRecoveryAscArrow": "Sie hatten eine höhere Erholung im Vergleich zum letzten Zeitraum",
+  "profileCardRecoveryDescArrow": "Sie hatten eine geringere Erholung im Vergleich zum letzten Zeitraum",
+  "profileCardSNADescription": "SNA",
+  "profileCardSNADescriptionTooltip": "Das autonome Nervensystem steuert die Funktionen Ihres Körpers; es teilt sich in das sympathische und das parasympathische System auf",
+  "profileCardSNASTooltip": "Sympathisches Nervensystem, steuert Ihre aktive körperliche Reaktion",
+  "profileCardSNAPTooltip": "Parasympathisches Nervensystem, reguliert Ruhe und Stoffwechsel",
+  "profileWarnProfiles": "Diese Gruppe hat noch keine Profile erstellt, bitte gehen Sie zum Administrationspanel, um Profile zur Gruppe hinzuzufügen.",
+  "sleepScoreTooltip": "Bewertung basierend auf der Menge an Schlafstunden und den Phasen Leicht, Tief und REM",
+  "sleepScoreTooltipDiamond": "Optimale Schlafbewertung",
+  "adminAddProfileTitle": "Profil hinzufügen",
+  "adminEditProfileTitle": "Profil bearbeiten",
+  "adminAddDeviceTitle": "Gerät hinzufügen",
+  "adminEditDeviceTitle": "Gerät bearbeiten",
+  "adminAddGroupTitle": "Gruppe hinzufügen",
+  "adminEditGroupTitle": "Gruppe bearbeiten",
+  "adminAddCollaboratorTitle": "Mitarbeiter hinzufügen",
+  "adminEditCollaboratorTitle": "Mitarbeiter bearbeiten",
+  "adminAddUserTitle": "Benutzer hinzufügen",
+  "adminEditUserTitle": "Benutzer bearbeiten",
+  "adminExplanationDevice": "*Suchen Sie die Seriennummer und die Verifizierungscode (PIN) Ihres Geräts auf dem Etikett auf der Rückseite.",
+  "adminExplanationCollaborator": "*Beim Hinzufügen eines Mitarbeiters wird ein neuer Benutzer erstellt, der Zugriff auf alle Teams, Spieler und Geräte in Ihrem Konto hat. Es gibt zwei Arten von Mitarbeitern:\n\nMitarbeiter: Dieser Benutzer hat Zugriff auf die Anzeige und Bearbeitung von Teams, Spielern und Geräten sowie auf den Download von Berichten.\n\nViewer: Dieser Benutzer kann nur Teams, Spieler und Geräte anzeigen, aber nicht bearbeiten; er kann auch Berichte herunterladen.",
+  "adminUsersFilterPlaceholder": "Filtern nach Benutzer",
+  "adminProfilesTitle": "Profile",
+  "adminDevicesTitle": "Geräte",
+  "adminGroupsTitle": "Gruppen",
+  "adminCollaboratorsTitle": "Mitarbeiter",
+  "adminUsersTitle": "Benutzer",
+  "adminColumnName": "Name",
+  "adminColumnLastName": "Nachname",
+  "adminColumnSerialNumber": "Seriennummer",
+  "adminColumnLinked": "Verknüpft",
+  "adminColumnStatus": "Status",
+  "adminColumnRole": "Rolle",
+  "adminNotLinked": "Nicht verknüpft",
+  "adminSearchPlaceholder": "Suchen...",
+  "adminFilterPlaceholder": "Nach Gruppe filtern",
+  "adminAddProfileTooltip": "Profil hinzufügen",
+  "adminShowAllProfilesTooltip": "Alle versteckten Profile anzeigen",
+  "adminHideAllProfilesTooltip": "Versteckte Profile nicht anzeigen",
+  "adminShowProfileTooltip": "Profil anzeigen",
+  "adminHideProfileTooltip": "Profil ausblenden",
+  "adminEditProfileTooltip": "Profil bearbeiten",
+  "adminDeleteProfileTooltip": "Profil löschen",
+  "adminAddDeviceTooltip": "Gerät hinzufügen",
+  "adminShowAllDevicesTooltip": "Alle verknüpften Geräte anzeigen",
+  "adminHideAllDevicesTooltip": "Verknüpfte Geräte ausblenden",
+  "adminDeleteDeviceTooltip": "Gerät löschen",
+  "adminEditDeviceTooltip": "Gerät bearbeiten",
+  "adminAddGroupTooltip": "Gruppe hinzufügen",
+  "adminShowAllGroupsTooltip": "Alle versteckten Gruppen anzeigen",
+  "adminHideAllGroupsTooltip": "Versteckte Gruppen nicht anzeigen",
+  "adminShowGroupTooltip": "Gruppe anzeigen",
+  "adminHideGroupTooltip": "Gruppe ausblenden",
+  "adminEditGroupTooltip": "Gruppe bearbeiten",
+  "adminDeleteGroupTooltip": "Gruppe löschen",
+  "adminAddCollaboratorTooltip": "Mitarbeiter hinzufügen",
+  "adminEditCollaboratorTooltip": "Mitarbeiter bearbeiten",
+  "adminDeleteCollaboratorTooltip": "Mitarbeiter löschen",
+  "adminAddUserTooltip": "Benutzer hinzufügen",
+  "adminEditUserTooltip": "Benutzer bearbeiten",
+  "adminDeleteUserTooltip": "Benutzer löschen",
+  "adminModalAddProfileName": "Name",
+  "adminModalAddProfileLastname": "Nachname",
+  "adminModalAddProfileBirthDate": "Geburtsdatum",
+  "adminModalAddProfileGender": "Geschlecht",
+  "adminModalAddProfileBirthplace": "Geburtsort",
+  "adminModalAddProfileUser": "Benutzer auswählen",
+  "adminModalAddProfileGroup": "Gruppe auswählen",
+  "adminModalAddDeviceSerialNumber": "Seriennummer",
+  "adminModalAddDeviceCode": "Verifizierungscode",
+  "adminModalAddDeviceUser": "Benutzer auswählen",
+  "adminModalAddDeviceProfile": "Profil auswählen",
+  "adminModalAddGroupName": "Name",
+  "adminModalAddGroupGMT": "GMT",
+  "adminModalAddGroupUser": "Benutzer auswählen",
+  "adminModalAddCollaboratorEmail": "E-Mail",
+  "adminModalAddCollaboratorPassword": "Passwort",
+  "adminModalAddCollaboratorConfirmPassword": "Passwort bestätigen",
+  "adminModalAddCollaboratorAlias": "Alias",
+  "adminModalAddCollaboratorRole": "Rolle auswählen",
+  "adminModalAddCollaboratorUser": "Benutzer auswählen",
+  "adminModalAddUserEmail": "E-Mail",
+  "adminModalAddUserAlias": "Alias",
+  "adminModalAddUserRole": "Rolle auswählen",
+  "adminModalSave": "Speichern",
+  "adminModalCancel": "Abbrechen",
+  "adminModalGenderItems": [
+    {
+      "label": "Männlich",
+      "value": "Male"
+    },
+    {
+      "label": "Weiblich",
+      "value": "Female"
+    },
+    {
+      "label": "Andere",
+      "value": "Other"
+    }
+  ],
+  "adminModalRoleCollaboratorItems": [
+    {
+      "label": "Mitarbeiter",
+      "value": "collaborator"
+    },
+    {
+      "label": "Zuschauer",
+      "value": "viewer"
+    }
+  ],
+  "adminModalRoleUserItems": [
+    {
+      "label": "User",
+      "value": "user"
+    },
+    {
+      "label": "Super admin",
+      "value": "superAdmin"
+    }
+  ],
+  "adminAddProfileSuccess": "Profil erfolgreich hinzugefügt",
+  "adminAddProfileError": "Fehler beim Hinzufügen des Profils",
+  "adminEditProfileSuccess": "Profil erfolgreich bearbeitet",
+  "adminEditProfileError": "Fehler beim Bearbeiten des Profils",
+  "adminDeleteProfileSuccess": "Profil erfolgreich gelöscht",
+  "adminDeleteProfileError": "Fehler beim Löschen des Profils",
+  "adminHideProfileSuccess": "Profil erfolgreich versteckt",
+  "adminHideProfileError": "Fehler beim Verstecken des Profils",
+  "adminShowProfileSuccess": "Profil erfolgreich angezeigt",
+  "adminShowProfileError": "Fehler beim Anzeigen des Profils",
+  "adminAddDeviceSuccess": "Gerät erfolgreich hinzugefügt",
+  "adminAddDeviceError": "Fehler beim Hinzufügen des Geräts",
+  "adminEditDeviceSuccess": "Gerät erfolgreich bearbeitet",
+  "adminEditDeviceError": "Fehler beim Bearbeiten des Geräts",
+  "adminDeleteDeviceSuccess": "Gerät erfolgreich gelöscht",
+  "adminDeleteDeviceError": "Fehler beim Löschen des Geräts",
+  "adminAddGroupSuccess": "Gruppe erfolgreich hinzugefügt",
+  "adminAddGroupError": "Fehler beim Hinzufügen der Gruppe",
+  "adminEditGroupSuccess": "Gruppe erfolgreich bearbeitet",
+  "adminEditGroupError": "Fehler beim Bearbeiten der Gruppe",
+  "adminDeleteGroupSuccess": "Gruppe erfolgreich gelöscht",
+  "adminDeleteGroupError": "Fehler beim Löschen der Gruppe",
+  "adminHideGroupSuccess": "Gruppe erfolgreich versteckt",
+  "adminHideGroupError": "Fehler beim Verstecken der Gruppe",
+  "adminShowGroupSuccess": "Gruppe erfolgreich angezeigt",
+  "adminShowGroupError": "Fehler beim Anzeigen der Gruppe",
+  "adminAddCollaboratorSuccess": "Mitarbeiter erfolgreich hinzugefügt",
+  "adminAddCollaboratorError": "Fehler beim Hinzufügen des Mitarbeiters",
+  "adminEditCollaboratorSuccess": "Mitarbeiter erfolgreich bearbeitet",
+  "adminEditCollaboratorError": "Fehler beim Bearbeiten des Mitarbeiters",
+  "adminDeleteCollaboratorSuccess": "Mitarbeiter erfolgreich gelöscht",
+  "adminDeleteCollaboratorError": "Fehler beim Löschen des Mitarbeiters",
+  "adminAddUserSuccess": "Benutzer erfolgreich hinzugefügt",
+  "adminAddUserError": "Fehler beim Hinzufügen des Benutzers",
+  "adminEditUserSuccess": "Benutzer erfolgreich bearbeitet",
+  "adminEditUserError": "Fehler beim Bearbeiten des Benutzers",
+  "adminDeleteUserSuccess": "Benutzer erfolgreich gelöscht",
+  "adminDeleteUserError": "Fehler beim Löschen des Benutzers",
+  "adminExistDeviceError": "Das Gerät existiert bereits",
+  "adminExistNameError": "Der Name existiert bereits",
+  "adminExistEmailError": "Die E-Mail existiert bereits",
+  "adminLength5Characters": "Es muss 5 Zeichen haben",
+  "adminLength6Characters": "Es muss 6 Zeichen haben",
+  "adminLengthInfo5Characters": "Es hat 5 Ziffern, Beispiel 01234",
+  "adminLengthInfo6Characters": "Es hat 6 Ziffern oder Buchstaben, Beispiel 00AA21",
+  "adminNoEqualPasswords": "Passwörter müssen übereinstimmen",
+  "adminDeleteProfilesByGroup": "Alle verknüpften Profile löschen",
+  "adminDeleteDevicesByGroup": "Alle verknüpften Geräte löschen",
+  "settingsHelpCardTitle": "Tutorials und FAQs",
+  "settingsContactCardTitle": "Kontakt",
+  "settingsPasswordCardTitle": "Passwort ändern",
+  "settingsVideoCorrectUse": "Richtige Verwendung des Geräts",
+  "settingsVideoRoute": "Rundgang durch die Plattform",
+  "settingsPdfInstructions": "Installations- und Verwendungsanweisungen",
+  "settingsPdfGuide": "Schnellstartanleitung",
+  "settingsPdfTooltip": "PDF herunterladen",
+  "settingsFAQ1Title": "Wie weiß ich, ob mein Gerät mit dem Internet verbunden ist?",
+  "settingsFAQ1Desc": "Überprüfen Sie, ob die grüne LED an der Vorderseite des Geräts leuchtet. Andernfalls überprüfen Sie den Status Ihres Internetnetzwerks.",
+  "settingsFAQ2Title": "Das Profil wird nicht im Gruppenpanel angezeigt.",
+  "settingsFAQ2Desc": "Überprüfen Sie im Administrationspanel, ob das Profil nicht 'versteckt' ist.",
+  "settingsFAQ3Title": "Wenn ich das Gerät mit dem Internet verbinde und das Passwort eingebe, erhalte ich einen 'falsches Passwort'-Fehler.",
+  "settingsFAQ3Desc": "Denken Sie daran, dass Sie bei der Eingabe des Gerätepassworts auch die Bindestriche eingeben müssen, dh Sie müssen das Passwort genau so eingeben, wie es geschrieben steht. Hier ist ein Beispiel: 'xxxx-xxxx-xxx'.",
+  "settingsFAQ4Title": "Wo sollte der Sensor platziert werden?",
+  "settingsFAQ4Desc": "Der Sensor sollte ausschließlich unter der Matratze oder dem Matratzenbezug installiert werden. Um ein stärkeres Signal zu erfassen, sollte der mittlere Teil des Sensors (der Kunststoffstreifen) direkt unterhalb oder auf Höhe des Herzens des Benutzers liegen, wenn er liegt.\n\nWenn Sie ein Doppelbett haben und zwei Personen schlafen, sollten Sie den Sensor so nah wie möglich am Bettrand platzieren, mit dem Kabel zur Seite, parallel zum Körper und immer mit dem Großteil des Bandes auf Herzhöhe. Wenn Sie ein Doppelbett haben, aber nur eine Person schläft, wird empfohlen, den Sensor senkrecht zum Benutzer zu platzieren, immer auf Herzhöhe, aber den Sensor auf einer Seite oder in der Mitte zu positionieren, je nach den Schlafpositionsvorlieben des Benutzers.\n\nVermeiden Sie, dass das Kabel durch die Mitte des Bettes verläuft, da dies zu fehlerhaften Signalen führen kann.",
+  "settingsFAQ5Title": "Muss das Gerät immer an die Stromversorgung angeschlossen sein?",
+  "settingsFAQ5Desc": "Das Gerät verbraucht eine vernachlässigbare Menge Energie, daher ist es nicht notwendig, es zu trennen, um Strom zu sparen.\n\nWenn Sie es jedoch trennen möchten, tun Sie dies erst 10 Minuten nach dem Verlassen des Bettes, damit das Gerät genügend Zeit hat, das Ausstiegsereignis aus dem Bett an unsere Server zu senden. Andernfalls können unnötig lange Anwesenheitszeiten auftreten. Gleiches gilt, wenn Sie es beim Zubettgehen wieder anschließen. Es sollte 10 Minuten vor Ihrer Anwesenheit im Bett erfolgen.",
+  "settingsFAQ6Title": "Wenn ich das Gerät ausschalte und wieder einschalte, verbindet es sich automatisch mit dem zuvor verwendeten WLAN?",
+  "settingsFAQ6Desc": "Wenn das WLAN dasselbe ist wie das letzte, mit dem das Gerät verbunden war, ist keine erneute Konfiguration erforderlich.",
+  "settingsFAQ7Title": "Wie kann ich Ergebnisse aus früheren Nächten sehen?",
+  "settingsFAQ7Desc": "Alle Informationen zu Ihren Nächten finden Sie auf der Nyx-Sys-Plattform, indem Sie auf das Symbol -X- im Einzelpersonenpanel klicken.",
+  "settingsFAQ8Title": "Was bedeutet die Fehlermeldung mit dem -X- Symbol, das darauf hinweist, dass einige Daten der Nacht nicht verarbeitet werden konnten?",
+  "settingsFAQ8Desc": "Der Datenverlust während eines Schlafzyklus kann auf verschiedene Faktoren zurückzuführen sein. Die häufigsten sind normalerweise:\n\n\t- Ein schwaches Signal vom Gerät. Um dies zu beheben, müssen Sie das Gerät entsprechend den Empfehlungen im Punkt X neu positionieren.\n\n\t- Wenn Sie ein Doppelbett mit einer zweiten Person teilen, hat das Gerät Daten beider Personen erfasst und falsche oder überlappende Daten generiert.\n\n\t- Es gab einen Stromausfall während der Aufzeichnung.",
+  "settingsFAQ9Title": "Was bedeutet das blinkende rote Licht am Gerät?",
+  "settingsFAQ9Desc": "Rote Blinklichter deuten in der Regel auf Verbindungsprobleme hin. Wenn diese Unterbrechungen kurz sind, sollten Sie sich keine Sorgen machen.",
+  "settingsFAQ10Title": "Was passiert, wenn das Internet ausfällt?",
+  "settingsFAQ10Desc": "Wenn die Internetverbindung vorübergehend unterbrochen wird, zeichnet der interne Speicher bis zu 12 Stunden Daten auf. Bei Wiederherstellung der Verbindung werden die Daten zur Verarbeitung in die Cloud gesendet.",
+  "settingsFAQ11Title": "Kann ich den Sensor in einem Doppelbett verwenden?",
+  "settingsFAQ11Desc": "Ja, Sie können das Gerät in einem Doppelbett verwenden. Das Kabelende des Sensors sollte jedoch so nah wie möglich am Rand installiert werden, da die Bewegungen Ihres Partners dazu führen können, dass die Anwesenheit länger registriert wird, nachdem Sie das Bett verlassen haben.",
+  "settingsPlaceholderEmail": "E-Mail",
+  "settingsPlaceholderSubject": "Betreff",
+  "settingsPlaceholderMessage": "Nachricht",
+  "settingsPlaceholderActualPassword": "Aktuelles Passwort",
+  "settingsPlaceholderNewPassword": "Neues Passwort",
+  "settingsPlaceholderConfirmPassword": "Passwort bestätigen",
+  "settingsButtonSend": "Senden",
+  "settingsButtonSave": "Speichern",
+  "settingsVisitWeb": "Besuche unsere Website",
+  "settingsSocialAccounts": "Finde uns auch in sozialen Netzwerken",
+  "settingsDeleteAccountTitle": "Mein Konto löschen",
+  "settingsDeleteAccountDesc": "Möchten Sie Ihr Konto dauerhaft löschen? Beachten Sie, dass alle damit verbundenen Informationen verloren gehen. Sie können es nicht reaktivieren oder den Inhalt wiederherstellen.\n\nDie Aktion wird in 48 Stunden wirksam sein. Wenn es sich um einen Fehler handelt, kontaktieren Sie bitte unser Support-Team.",
+  "settingsDeleteAccountButton": "Konto löschen",
+  "settingsMandatoryFieldError": "Das Feld ist obligatorisch",
+  "settingsValidEmailError": "Geben Sie eine gültige E-Mail-Adresse ein",
+  "settingsMandatoryPassword": "Das Passwort ist obligatorisch",
+  "settingsPatternPassword": "Das Passwort muss mindestens einen Großbuchstaben, einen Kleinbuchstaben und 8 Zeichen enthalten.",
+  "settingsConfirmLogout": "Sind Sie sicher, dass Sie sich abmelden möchten?",
+  "settingsConfirmModalTitle": "Sind Sie sicher?",
+  "settingsConfirmModalContent": "Möchten Sie Ihr Konto dauerhaft löschen? Beachten Sie, dass alle damit verbundenen Informationen verloren gehen. Sie können es nicht reaktivieren oder seinen Inhalt wiederherstellen. Die Aktion wird in 48 Stunden wirksam; wenn dies ein Fehler war, kontaktieren Sie bitte unser Support-Team.",
+  "settingsConfirmModalAccept": "Akzeptieren",
+  "settingsConfirmModalCancel": "Abbrechen",
+  "profileViewSelectProfileTooltip": "Profil auswählen",
+  "profileViewAddPeriodTooltip": "Zeitraum manuell hinzufügen",
+  "profileViewEditProfileTooltip": "Profil bearbeiten",
+  "profileViewDeletePeriod": "Zeitraum löschen",
+  "profileViewSelectGMT": "GMT auswählen",
+  "profileViewSleepScoreTitle": "Schlafscore",
+  "profileViewSleepScoreDescription": "Es ist fantastisch zu sehen, dass du in letzter Zeit auf deinen Schlaf geachtet hast. Mach weiter so!",
+  "profileViewRecoveryTitle": "Erholung",
+  "profileViewTotalRecovery": "Gesamterholung",
+  "profileViewIntegratedRecovery": "Integrierte Erholung",
+  "profileViewUnities": " Einheiten",
+  "profileViewHrvAlert": "Dein HRV ist höher als üblich. Ein hoher HRV zeigt an, dass dein Nervensystem bereit ist, mit Stress umzugehen und dein Körper im Gleichgewicht ist.",
+  "profileViewAnsTitle": "Balance des autonomen Nervensystems",
+  "profileViewParasympathetic": "Parasympathisch (Entspannung)",
+  "profileViewSympathetic": "Sympathisch (Stress)",
+  "profileViewAnsAlert": "Dein Ans neigt zur sympathischen Seite, was bedeutet, dass dein Körper auf aktive Situationen vorbereitet ist.",
+  "profileViewAnsHrVariabilityTitle": "Variabilität der Herzfrequenz",
+  "profileViewNight": "Nacht",
+  "profileViewMorning": "Morgen",
+  "profileViewAverage": "Durchschnitt",
+  "profileViewHeartRateTitle": "Herzfrequenz",
+  "profileViewBPMMax": "BPM Max",
+  "profileViewBPMRepose": "BPM im Ruhezustand",
+  "profileViewBPMAverage": "Durchschnittliche BPM",
+  "profileViewBreathingRateTitle": "Atemfrequenz",
+  "profileViewMovementTitle": "Bewegung",
+  "profileViewMovementsAndTurns": "Bewegungen und Drehungen",
+  "profileViewAverageInActivity": "Durchschnittliche Aktivität",
+  "profileViewSleepTimeTitle": "Schlafzeit",
+  "profileViewInBed": "Im Bett",
+  "profileViewSleeping": "Schlafend",
+  "profileViewAwake": "Wach",
+  "profileViewSleepArcTitle": "Schlafarchitektur",
+  "profileViewSoft": "Leicht",
+  "profileViewDeep": "Tief",
+  "profileViewREM": "REM",
+  "profileViewYearsDropdown": " Jahre",
+  "profileSleepScoreMessage1+": [
+    "Herzlichen Glückwunsch zu deinem Schlafscore! Deine Hingabe an die Erholung spiegelt sich in deinem Wohlbefinden wider. Mach weiter so!",
+    "Unglaublich! Du hast heute einen optimalen Schlafscore erreicht. Dein Körper und Geist danken es dir. Schlaf gut und wache erfrischt auf!",
+    "Heute hast du gezeigt, dass Priorität auf Schlaf für deine Leistungsfähigkeit entscheidend ist. Bravo, dass du einen *sleep_score* erreicht hast! Mach weiterhin auf deinen Schlaf aufmerksam.",
+    "Hervorragender Start! Dein Schlafscore war heute herausragend. Mach weiter so und sorge dafür, dass dieser Schwung erhalten bleibt!",
+    "Fantastischer Start! Ein hoher Schlafscore an nur einem Tag zu erreichen, ist eine würdige Leistung, die es zu feiern gilt. Mach weiter so, und du wirst große Verbesserungen in deinem Wohlbefinden sehen!",
+    "Ein ganzer Tag optimalen Schlafs ist ein ausgezeichneter Anfang. Mach weiter so und baue auf diesem Erfolg für eine bessere Lebensqualität auf!"
+  ],
+  "profileSleepScoreMessage1-": [
+    "Lass dich nicht von einem niedrigen Score heute entmutigen. Jeder Tag ist eine neue Gelegenheit, sich zu verbessern. Überlege, was deinen Schlaf beeinflusst haben könnte, und mach einen Schritt zu einem erholsameren Schlaf morgen. Du schaffst das!",
+    "Wir wissen, dass heute kein besonders guter Tag für den Schlaf war, aber jeder Tag ist eine neue Gelegenheit, sich zu verbessern. Überlege dir kleine Veränderungen in deiner nächtlichen Routine und bereite dich auf eine bessere Nacht vor. Kopf hoch!",
+    "Der heutige Score war nicht ideal, aber keine Sorge. Lerne aus heute und arbeite auf einen erholsameren Schlaf morgen hin. Kleine Veränderungen können einen Unterschied machen!",
+    "Ein niedriger Score definiert nicht deine Fähigkeit, gut zu schlafen. Lerne aus dieser Erfahrung und suche nach Möglichkeiten, die Qualität deines Schlafs zu verbessern.",
+    "Die Schlafqualität kann von Tag zu Tag variieren. Nimm dieses Ergebnis als Zeichen, dass es immer noch Raum gibt, deine Schlafgewohnheiten zu verbessern.",
+    "Lass dich von einem niedrigen Schlafscore nicht entmutigen. Nutze diese Gelegenheit, um neue Strategien zu erkunden, die dir helfen, in Zukunft besser zu schlafen."
+  ],
+  "profileSleepScoreMessage2+": [
+    "Doppelter Sieg! Zwei aufeinanderfolgende Tage mit guten Schlafscores zeigen dein Engagement für gesunde Erholung. Mach weiter so und halte diese ausgezeichnete Serie aufrecht!",
+    "Zwei makellose Tage! Deine Beharrlichkeit bei der Aufrechterhaltung eines guten Ruhezustands ist bewundernswert. Mach weiter so und genieße die kontinuierlichen Vorteile erholsamen Schlafs!",
+    "Doppelter Erfolg! Zwei aufeinanderfolgende Tage mit qualitativ hochwertigem Schlaf sind ein großer Schritt hin zu einem ausgeglicheneren Leben. Mach weiter so und setze deine Gesundheit an erste Stelle!",
+    "Zwei phänomenale Tage! Deine Hingabe an guten Schlaf ist offensichtlich. Mach weiter so und kümmere dich weiterhin gut um dich, um diese positive Serie aufrechtzuerhalten!",
+    "Fantastische Arbeit! Zwei aufeinanderfolgende Tage mit guten Schlafscores sind eine würdige Leistung, die es zu feiern gilt. Mach weiter so und erlebe den Unterschied in deinem allgemeinen Wohlbefinden!",
+    "Ausgezeichnete Serie! Zwei aufeinanderfolgende Tage mit optimalem Schlaf sind eine großartige Leistung. Mach weiter so und setze deine Gesundheit und dein Wohlbefinden weiterhin an erste Stelle!"
+  ],
+  "profileSleepScoreMessage2-": [
+    "Lass dich von dieser negativen Serie nicht entmutigen. Nutze diese Ergebnisse als Motivation, um Bereiche für Verbesserungen in deiner Ruheroutine zu identifizieren.",
+    "Zwei aufeinanderfolgende Tage mit niedrigen Schlafscores können herausfordernd sein, aber denke daran, dass jeder Tag eine neue Gelegenheit zur Verbesserung ist.",
+    "Manchmal sind schlechte Nächte des Schlafes vorübergehend. Nutze diese Ergebnisse als Gelegenheit, deine Routine anzupassen und nach Möglichkeiten zu suchen, besser zu ruhen.",
+    "Zwei aufeinanderfolgende Tage mit niedrigen Schlafscores können schwer sein, aber lass dich nicht entmutigen. Suche nach neuen Strategien, um die Qualität deines Schlafes zu verbessern.",
+    "Die Schlafqualität kann von Tag zu Tag variieren. Nimm diese Ergebnisse als Zeichen, dass es wichtig ist, deinen Ruhe- und Wohlfühlbedürfnissen Priorität einzuräumen.",
+    "Lass dich von einer Serie von schlechten Schlafscores nicht entmutigen. Nutze diese Erfahrung als Gelegenheit, neue Möglichkeiten zu erkunden, um deine Ruhe zu verbessern."
+  ],
+  "profileSleepScoreMessage3+": [
+    "Dreifache Serie! Du hast für 3 Tage einen Schlafscore von 80 oder höher gehalten. Du baust gesunde Gewohnheiten auf! Mach weiter so, dein Körper wird es dir danken!",
+    "Incredible Kontinuität! Drei aufeinanderfolgende Tage mit optimalem Schlaf. Du bist auf dem richtigen Weg zu dauerhaftem Wohlbefinden. Schlaf weiter gut!",
+    "Herzlichen Glückwunsch, drei aufeinanderfolgende Tage mit einer ausgezeichneten Schlafwertung! Du bist ein Schlafchampion. Mach weiter so und du wirst den Unterschied bemerken!",
+    "Drei phänomenale Tage! Deine Ausdauer bei der Aufrechterhaltung eines guten Ruhezustands ist beeindruckend. Mach weiter so und setze weiterhin deine Gesundheit und dein Wohlbefinden an erste Stelle!",
+    "Dreifacher Sieg! Drei aufeinanderfolgende Tage mit guten Schlafwerten zeigen dein Engagement für eine gesunde Ruhe-Routine. Mach weiter so und genieße die kontinuierlichen Vorteile!",
+    "Ausgezeichnete Serie! Drei aufeinanderfolgende Tage mit qualitativ hochwertigem Schlaf sind eine bemerkenswerte Leistung. Mach weiter so und kümmere dich weiterhin gut um dich, um diesen positiven Trend aufrechtzuerhalten!"
+  ],
+  "profileSleepScoreMessage3-": [
+    "Drei Tage mit niedrigen Werten können herausfordernd sein, aber jeder Tag ist eine Gelegenheit für Veränderungen. Reflektiere über deine nächtliche Routine und mache kleine Anpassungen für bessere Erholung. Du bist auf dem Weg zur Verbesserung!",
+    "Es ist normal, schwierige Serien zu haben. Drei aufeinanderfolgende Tage mit niedrigen Werten können ein Aufruf zum Handeln sein. Berücksichtige Anpassungen in deiner Routine und ergreife Maßnahmen, um die Qualität deines Schlafes zu verbessern. Du kannst es schaffen!",
+    "Das Halten niedriger Werte für drei aufeinanderfolgende Tage ist ein Signal für Veränderungen. Analysiere, was deinen Schlaf beeinflussen könnte, und ergreife Maßnahmen zur Verbesserung. Du kontrollierst deine Gewohnheiten!",
+    "Drei aufeinanderfolgende Tage mit niedrigen Schlafwerten können schwer sein, aber verliere nicht die Hoffnung. Suche nach neuen Strategien und Gewohnheiten, die deine Schlafqualität verbessern können.",
+    "Die Schlafqualität kann von Tag zu Tag variieren. Nimm diese Ergebnisse als Zeichen, dass es wichtig ist, auf dein Wohlbefinden zu achten und Wege zu finden, um deine Ruhe zu verbessern.",
+    "Lass dich nicht von einer Serie schlechter Schlafwerte entmutigen. Nutze diese Erfahrung als Gelegenheit zum Lernen und erkunde neue Möglichkeiten, um deine Ruhe und Gesundheit zu priorisieren."
+  ],
+  "profileSleepScoreMessage4+": [
+    "Vierfacher Erfolg! Vier aufeinanderfolgende Tage mit guter Schlafbewertung zeigen Ihr Engagement für gesunden Schlaf. Machen Sie weiter so und halten Sie diese ausgezeichnete Serie aufrecht!",
+    "Vier makellose Tage! Ihr Engagement für guten Schlaf ist bewundernswert. Machen Sie weiter so und genießen Sie die kontinuierlichen Vorteile erholsamen Schlafs!",
+    "Vier phänomenale Tage! Die Aufrechterhaltung dieser Serie von gutem Schlaf ist ein großer Schritt zu einem ausgewogeneren Leben. Machen Sie weiter so und priorisieren Sie Ihr Wohlbefinden!",
+    "Vierfacher Sieg! Vier aufeinanderfolgende Tage mit guter Schlafbewertung sind ein Zeichen für Ihr Engagement für angemessene Erholung. Machen Sie weiter so und halten Sie diesen unglaublichen Trend aufrecht!",
+    "Fantastische Arbeit! Vier aufeinanderfolgende Tage mit guter Schlafbewertung sind eine würdige Leistung. Machen Sie weiter so und erleben Sie den Unterschied in Ihrem allgemeinen Wohlbefinden!",
+    "Vier außergewöhnliche Tage! Ihre Beständigkeit im Erhalten guten Schlafs ist beeindruckend. Machen Sie weiter so und kümmern Sie sich weiterhin gut um sich, um diese positive Serie aufrechtzuerhalten!"
+  ],
+  "profileSleepScoreMessage4-": [
+    "Eine Serie von vier Tagen mit niedrigen Schlafbewertungen aufrechtzuerhalten, kann herausfordernd sein, aber denken Sie daran, dass es immer Möglichkeiten gibt, Ihren Schlaf zu verbessern.",
+    "Lassen Sie sich nicht von dieser negativen Serie entmutigen. Verwenden Sie diese Ergebnisse als Motivation, um Bereiche zur Verbesserung Ihrer Schlaf- und Wohlfühlroutine zu identifizieren.",
+    "Manchmal ist es vorübergehend, eine Phase mit niedrigen Schlafbewertungen durchzumachen. Nutzen Sie diese Ergebnisse als Gelegenheit, Ihre Routine anzupassen und Wege zu finden, sich besser auszuruhen.",
+    "Vier aufeinanderfolgende Tage mit niedrigen Schlafbewertungen können hart sein, aber verlieren Sie nicht die Hoffnung. Suchen Sie nach neuen Strategien und Gewohnheiten, die Ihre Schlafqualität verbessern können.",
+    "Die Schlafqualität kann von Tag zu Tag schwanken. Nehmen Sie diese Ergebnisse als ein Zeichen dafür, dass es wichtig ist, auf Ihr Wohlbefinden zu achten und Wege zu finden, Ihren Schlaf zu verbessern.",
+    "Lassen Sie sich von einer Serie von schlechten Schlafbewertungen nicht entmutigen. Nutzen Sie diese Erfahrung als Gelegenheit, zu lernen und neue Möglichkeiten zu erkunden, Ihren Schlaf und Ihre Gesundheit zu priorisieren."
+  ],
+  "profileSleepScoreMessage5+": [
+    "Herzlichen Glückwunsch! Du hast fünf Tage hintereinander einen ausgezeichneten Schlafscore erreicht. Dein Engagement für Erholung zeigt konkrete Ergebnisse. Mach weiter so und du wirst den Unterschied in deinem allgemeinen Wohlbefinden bemerken!",
+    "Fünf aufeinanderfolgende Tage mit beneidenswerten Schlafscores. Du baust ein solides Fundament für deine Gesundheit und Energie auf. Setze weiterhin Priorität auf deinen Schlaf und du wirst langfristige Vorteile ernten!",
+    "Unglaubliche Serie! Seit fünf Tagen ist dein Schlaf konstant und erholsam. Dein Körper und Geist danken es dir. Kümmere dich weiterhin gut um dich und genieße revitalisierende Nächte!",
+    "Fünf Tage mit qualitativ hochwertigem Schlaf! Du hast ein Muster geschaffen, das es wert ist, gefeiert zu werden. Mach weiter so und beobachte, wie deine Energie und Konzentration zunehmen.",
+    "Fünf Tage der erneuernden Erholung. Deine Beständigkeit ist der Schlüssel zu einem ausgewogenen Lebensstil. Mach weiter so und genieße dein verdientes Wohlbefinden!",
+    "Unglaublich! Fünf Tage erholsamer Schlaf sind eine Leistung, auf die du stolz sein kannst. Mach weiter so und setze deine Gesundheit und Glück weiterhin an oberste Stelle!"
+  ],
+  "profileSleepScoreMessage5-": [
+    "Fünf aufeinanderfolgende Tage mit niedrigen Scores sind ein Warnsignal. Überlege, welche Faktoren deinen Schlaf beeinflussen könnten, und ziehe in Betracht, Anpassungen an deiner nächtlichen Routine vorzunehmen.",
+    "Fünf Tage mit niedrigen Schlafscores sind eine Erinnerung an die Bedeutung der Priorisierung von Ruhe. Überprüfe potenzielle Änderungen in deiner Umgebung und deinen Gewohnheiten, um die Schlafqualität zu verbessern.",
+    "Eine Serie von fünf Tagen mit niedrigen Scores kann sich auf dein Wohlbefinden auswirken. Denke darüber nach, neue Strategien zu erkunden, um einen erholsameren Schlaf zu gewährleisten.",
+    "Fünf Tage mit unzureichendem Schlaf können ermüdend sein, aber verliere nicht die Hoffnung. Suche nach neuen Strategien, um die Qualität deines Schlafs zu verbessern.",
+    "Die Schlafqualität kann variieren, aber dein Engagement für dein Wohlbefinden sollte nicht schwanken. Nutze diese Erfahrung als Gelegenheit zum Nachdenken und zur Verbesserung.",
+    "Lass dich nicht von einer Serie von schlechten Schlafscores entmutigen. Nutze diese Tage als Motivation, um Ruhe und Wohlbefinden Priorität einzuräumen. Du kannst die Qualität deines Schlafs verbessern!"
+  ],
+  "profileSleepScoreMessage6+": [
+    "Sechs Tage erholsamer Schlaf. Dein Engagement für dein Wohlbefinden ist bewundernswert. Mach weiter so und halte diese lebhafte Energie aufrecht!",
+    "Eine Serie von sechs Tagen mit verjüngendem Schlaf. Deine Hingabe an deine Gesundheit verdient Applaus. Mach weiter so und genieße einen revitalisierten Körper und Geist!",
+    "Sechs aufeinanderfolgende Tage süßer Träume. Deine Beständigkeit ist der Schlüssel zu deinem Wohlbefinden. Mach weiter so und erlebe den Unterschied in deiner Lebensqualität!",
+    "Sechs Tage mit konstantem Schlaf! Du hast eine Routine etabliert, die es wert ist, gefeiert zu werden. Mach weiter so und beobachte, wie sich dein allgemeines Wohlbefinden verbessert.",
+    "Sechs Tage erneuernder Ruhe. Deine Hingabe an deine Erholung ist lobenswert. Mach weiter so und halte dein Engagement für gesunden Schlaf aufrecht!",
+    "Unglaublich! Sechs Tage erholsamer Schlaf sind ein Erfolg, den es zu feiern gilt. Mach weiter so und priorisiere deine Gesundheit und tägliche Glückseligkeit!"
+  ],
+  "profileSleepScoreMessage6-": [
+    "Sechs herausfordernde Tage. Nutze diese Serie als Motivation, um positive Veränderungen in deiner Schlafroutine umzusetzen. Jeder Tag ist eine neue Gelegenheit zur Verbesserung!",
+    "Eine Serie von sechs herausfordernden Tagen kann anstrengend sein, aber denke daran, dass jede Herausforderung eine Gelegenheit für Wachstum und Veränderung ist.",
+    "Sechs aufeinanderfolgende Tage mit niedrigen Schlafpunkten können entmutigend sein, aber verliere nicht die Hoffnung. Suche nach neuen Strategien, um die Qualität deines Schlafs zu verbessern.",
+    "Kontinuität ist auch in schwierigen Zeiten entscheidend. Nutze diese Erfahrung als Gelegenheit zur Reflexion und mache positive Anpassungen in deiner Schlafroutine.",
+    "Sechs Tage mit unbefriedigendem Schlaf können schwer sein, aber denke daran, dass du die Kraft hast, deine Gewohnheiten zu ändern und dein Wohlbefinden zu verbessern.",
+    "Lass dich nicht von einer Serie von schlechten Schlafpunkten entmutigen. Nutze diese Tage als Erinnerung an die Wichtigkeit der Priorisierung deiner Ruhe und deines Wohlbefindens. Du kannst diese Herausforderung meistern!"
+  ],
+  "profileSleepScoreMessage7+": [
+    "Komplette Woche mit qualitativem Schlaf! Es ist eine beeindruckende Leistung, für 7 aufeinanderfolgende Tage eine Punktzahl von 80 oder mehr zu erreichen. Dein Körper und Geist sind im optimalen Modus. Kümmere dich weiterhin um dich selbst!",
+    "Unglaublicher Meilenstein! Du hast eine Schlafpunktzahl von 80 oder mehr für eine ganze Woche aufrechterhalten. Dies ist ein Beweis für dein Engagement für dein Wohlbefinden. Mach weiter so und erobere jeden Tag!",
+    "Du hast eine komplette Woche mit optimalen Schlaf erreicht! Deine Hingabe an die Erholung zahlt sich aus. Kümmere dich weiterhin um deinen Schlaf und genieße die kontinuierlichen Vorteile. Du bist ein Schlaf-Champion!",
+    "Eine komplette Woche mit qualitativ hochwertigem Schlaf! Du hast gezeigt, dass du eine gesunde Routine aufrechterhalten kannst. Mach weiter so und beobachte, wie sich dein allgemeines Wohlbefinden verbessert!",
+    "Sieben Tage erholsamer Ruhe. Deine Hingabe an deine Erholung ist bewundernswert. Mach weiter so und genieße einen revitalisierten Körper und Geist!",
+    "Prächtig! Sieben Tage erholsamer Schlaf sind eine bemerkenswerte Leistung. Mach weiter so und kümmere dich weiterhin gut um dich, um diesen positiven Trend aufrechtzuerhalten!"
+  ],
+  "profileSleepScoreMessage7-": [
+    "Eine Woche mit niedrigen Punkten kann eine Herausforderung sein, bietet aber auch die Möglichkeit, bedeutende Veränderungen vorzunehmen. Überprüfe deine nächtliche Routine und suche nach Möglichkeiten, deine Erholung zu priorisieren. Fang heute damit an!",
+    "Sieben Tage mit niedrigen Punkten sind ein Zeichen dafür, dass dein Körper mehr Aufmerksamkeit benötigt. Erwäge, bedeutende Anpassungen an deiner nächtlichen Routine vorzunehmen, um deinen Schlaf zu verbessern. Dein Wohlbefinden wird es dir danken!",
+    "Das Aufrechterhalten niedriger Punktzahlen für eine Woche ist ein Aufruf zum Handeln. Ändere deinen Lebensstil und priorisiere deinen Schlaf, um zurück auf den Weg zur qualitativ hochwertigen Erholung zu gelangen. Wir unterstützen dich bei diesem positiven Wandel!",
+    "Kontinuität ist der Schlüssel, auch in schwierigen Zeiten. Nutze diese Erfahrung als Gelegenheit zur Reflexion und mache positive Anpassungen an deiner Schlafroutine.",
+    "Sieben Tage unzureichenden Schlafs können herausfordernd sein, aber denke daran, dass du die Kraft hast, deine Gewohnheiten zu ändern und dein Wohlbefinden zu verbessern.",
+    "Lass dich nicht von einer Serie von schlechten Schlafpunkten entmutigen. Nutze diese Tage als Erinnerung an die Bedeutung der Priorisierung deiner Erholung und deines Wohlbefindens. Du kannst diese Herausforderung bewältigen!"
+  ],
+  "profileSleepScoreMessage8+": [
+    "Acht Tage erholsamer Ruhe. Jede Nacht tiefen Schlafs bringt dich näher an dein bestes Selbst. Fahre mit dieser Reise zum vollen Wohlbefinden fort!",
+    "Du hast eine Decke aus erholsamen Träumen für eine ganze Woche gewebt. Jeder Faden erinnert an die transformative Kraft der Ruhe. Mach weiter für eine hellere Zukunft!",
+    "Herzlichen Glückwunsch zu acht Tagen erholsamen Schlafs. Jedes Erwachen ist eine Gelegenheit, erneuerte Energie und geistige Klarheit zu umarmen. Ernte weiter die Belohnungen wohlverdienten Ruhe!",
+    "Acht Tage Schlaf wie eine sanfte Umarmung für deine müde Seele. Jede Nacht ist ein Versprechen auf Erneuerung und Kraft, um neuen Herausforderungen zu begegnen. Möge diese positive Streifen weiterhin zu deiner Erfüllung führen!",
+    "Du schreibst eine Geschichte von Ruhe und Erneuerung, die es wert ist, erzählt zu werden. Jedes Kapitel tiefen Schlafs ist eine Hommage an dein Engagement für Wohlbefinden. Schreibe weiter für eine Zukunft voller Vitalität und Freude!",
+    "Acht Tage erholsamen Schlafs sind ein Zeugnis deiner Hingabe zur Selbstpflege. Jede gut geschlafene Nacht ist eine Investition in deine körperliche und geistige Gesundheit. Bleibe weiterhin der Architekt deines Wohlbefindens!"
+  ],
+  "profileSleepScoreMessage8-": [
+    "Acht Tage Herausforderungen im Reich des Schlafs. Jede Nacht ist eine Gelegenheit zu lernen, anzupassen und sich für gesünderen Schlaf zu engagieren. Transformation beginnt mit einer Wahl!",
+    "Du hast dich durch acht Tage turbulentes Wasser im Ozean des Schlafs gekämpft. Jedes Erwachen ist eine Einladung, über deine Gewohnheiten und Prioritäten nachzudenken. Vertraue darauf, dass du Ruhe inmitten des Sturms finden kannst!",
+    "Acht Tage unzufriedener Schlaf mögen wie ein unüberwindlicher Berg erscheinen, aber jeder Schritt ist ein Schritt näher am Gipfel. Denke daran, Ausdauer ist der Schlüssel, der die Türen des Wandels öffnet!",
+    "Jede unruhige Nacht des Schlafs über acht Tage hinweg ist ein Weckruf vom Körper und Geist. Höre mit Mitgefühl zu und öffne dein Herz für Selbstfürsorge und Erkundung neuer Ruhepraktiken. Dein Wohlbefinden verdient deine Aufmerksamkeit!",
+    "Acht Tage Herausforderungen auf der Schlaffront können erschöpfend sein, aber sie sind auch eine Erinnerung an deine Widerstandsfähigkeit und innere Stärke. Gehe weiter mutig und selbstbewusst voran!",
+    "Jede schwierige Nacht des Schlafs über acht Tage hinweg ist eine Gelegenheit, Mitgefühl und Verständnis für dich selbst zu entwickeln. Umarme deine Menschlichkeit und lass jede Erfahrung dich zu einem erholsameren Schlaf und einem erfüllteren Leben führen."
+  ],
+  "profileSleepScoreMessage9+": [
+    "Neun Tage erholsamer Schlaf sind wie die Ziegelsteine eines ruhigen und friedlichen Zuhauses. Jede gut geschlafene Nacht ist eine Säule für dein Wohlbefinden.",
+    "Für neun Tage hat dein Kissen deine süßesten und erholsamsten Träume erlebt. Mach weiter so und baue eine Oase der Ruhe und Verjüngung.",
+    "Jeder Morgendämmerung nach neun Nächten tiefen Schlafs ist eine Einladung, erneuerte Energie und geistige Klarheit zu umarmen. Halte diese Strähne aufrecht und erreiche neue Höhen.",
+    "Neun Tage Erholung haben dich auf eine Reise der Selbstentdeckung und Erneuerung geführt. Folge diesem Weg und entdecke die Magie des erholsamen Schlafs.",
+    "Herzlichen Glückwunsch zu neun Tagen erholsamen Schlafs. Jede gut geschlafene Nacht ist eine Hommage an dein Engagement für Gesundheit und Wohlbefinden.",
+    "Für neun Tage hast du dem Schlaf als einen wesentlichen Teil deines Lebens gehuldigt. Mach weiter so und ernte die Früchte eines revitalisierten Geistes und Körpers."
+  ],
+  "profileSleepScoreMessage9-": [
+    "Neun herausfordernde Tage des Schlafs können überwältigend erscheinen, aber jede Nacht ist eine neue Gelegenheit zum Lernen und Wachsen.",
+    "Eine Serie von neun herausfordernden Tagen aufrechtzuerhalten kann erschöpfend sein, aber denke daran, dass jede Hürde eine Gelegenheit ist, sich zu stärken.",
+    "Für neun Tage hast du Herausforderungen in deinem Schlaf gemeistert, aber jede Nacht ist auch eine Gelegenheit, sich neu zu kalibrieren und zu verbessern.",
+    "Neun Tage unzufriedenstellenden Schlafs können entmutigend sein, aber jede Morgendämmerung bringt das Versprechen eines Neuanfangs mit sich.",
+    "Neun Tage Schlafherausforderungen zu bewältigen ist ein Zeugnis deiner Widerstandsfähigkeit und inneren Stärke. Geh weiter mit Entschlossenheit und Vertrauen in dich selbst.",
+    "Gib nicht auf, suche weiterhin nach neuen Möglichkeiten, deinen Schlaf zu verbessern!"
+  ],
+  "profileSleepScoreMessage10+": [
+    "Zehn Tage erholsamer Schlaf sind ein Zeugnis deines Engagements für Wohlbefinden. Mach weiter so und setze deine Erholung und deine Gesundheit weiterhin an erste Stelle.",
+    "Für zehn Tage hast du eine Serie von erholsamem Schlaf beibehalten. Jede gut geschlafene Nacht ist ein Geschenk, das dich einem ausgewogenen Leben näher bringt.",
+    "Zehn Tage erholsamer Schlaf sind wie ein sanftes Flüstern der Natur, das dich daran erinnert, wie wichtig es ist, gut auf dich aufzupassen. Mach weiter so und finde Harmonie in jeder Nacht.",
+    "Herzlichen Glückwunsch zu zehn Tagen erholsamem Schlaf. Jede Nacht erinnert an dein Engagement für ein Leben voller Energie und Vitalität.",
+    "Zehn Tage tiefen und erholsamen Schlafs sind wie eine tröstliche Umarmung für deinen Körper und Geist. Mach weiter so und erlebe die Fülle jeden Tages.",
+    "Für zehn Tage hast du deinen Körper und Geist mit erholsamem Schlaf genährt. Folge diesem Weg und finde Frieden und Gelassenheit in jeder Nacht."
+  ],
+  "profileSleepScoreMessage10-": [
+    "Zehn Tage schlechten Schlafs können herausfordernd sein, aber jede Nacht ist eine Gelegenheit, neue Möglichkeiten zur Verbesserung deines Schlafs zu finden.",
+    "Eine Serie von zehn herausfordernden Tagen aufrechtzuerhalten kann ermüdend sein, aber denke daran, dass jeder Tag eine Gelegenheit zum Lernen und Wachsen ist.",
+    "Für zehn Tage hast du Herausforderungen in deinem Schlaf gemeistert, aber jede Nacht ist auch eine Gelegenheit zum Neukalibrieren und Verbessern.",
+    "Zehn Tage unzufriedenstellenden Schlafs können entmutigend sein, aber jede Morgendämmerung bringt das Versprechen eines neuen Anfangs mit sich.",
+    "Zehn Tage Schlafherausforderungen zu bewältigen ist ein Zeugnis deiner Widerstandsfähigkeit und inneren Stärke. Gehe weiter mit Entschlossenheit und Selbstvertrauen.",
+    "Lass dich nicht von einer schlechten Serie entmutigen. Nutze diese Tage als Erinnerung an die Bedeutung, deine Erholung und dein Wohlbefinden zu priorisieren. Du kannst diese Herausforderung meistern!"
+  ],
+  "profileSleepScoreMessageTwoWeeks+": [
+    "Zwei Wochen erholsamer Schlaf sind wie eine Reise zur totalen Erneuerung. Jede gut geschlafene Nacht ist ein Schritt näher zum vollständigen Wohlbefinden.",
+    "Über zwei Wochen hast du eine Brücke zum erholsamen Schlaf gebaut. Geh weiter mit Entschlossenheit und du wirst bei jedem Schritt Ruhe finden.",
+    "Jeder Morgen nach zwei Wochen tiefen Schlafs lädt ein, erneuerte Energie und geistige Klarheit zu umarmen. Halte diese Serie aufrecht und erreiche neue Höhen.",
+    "Zwei Wochen Erholung haben dich auf eine Reise der Selbstentdeckung und Erneuerung geführt. Folge diesem Weg und entdecke die Magie des erholsamen Schlafs.",
+    "Herzlichen Glückwunsch zu zwei Wochen erholsamem Schlaf. Jede gut geschlafene Nacht ist eine Hommage an dein Engagement für Gesundheit und Wohlbefinden.",
+    "Für zwei Wochen hast du den Schlaf als wesentlichen Teil deines Lebens geehrt. Mach weiter so und ernte die Früchte eines revitalisierten Geistes und Körpers."
+  ],
+  "profileSleepScoreMessageTwoWeeks-": [
+    "Über zwei Wochen hast du Herausforderungen im Finden angemessener Erholung bewältigt. Es ist Zeit, über deine Gewohnheiten nachzudenken und kleine Änderungen vorzunehmen, die dich näher an einen erholsameren Schlaf bringen.",
+    "Eine Serie von zwei herausfordernden Wochen aufrechtzuerhalten kann erschöpfend sein, aber jeder Tag bietet dir die Möglichkeit, gesündere Entscheidungen für deine Erholung zu treffen. Lass uns darauf konzentrieren, Lösungen zu finden!",
+    "Für zwei Wochen hast du Schwierigkeiten gehabt, gut zu schlafen, aber jede Nacht bietet dir eine neue Chance, dich zu verbessern. Es ist Zeit, neue Strategien und Gewohnheiten zu erkunden, die dir helfen, besser zu schlafen.",
+    "Zwei Wochen lang mit Schlafproblemen zu kämpfen, erinnert daran, wie wichtig es ist, auf die eigene Gesundheit und das eigene Wohlbefinden zu achten. Verpflichte dich dazu, positive Veränderungen in deiner Routine vorzunehmen, um die Qualität deiner Erholung zu verbessern.",
+    "Für zwei Wochen hast du dich damit herumgeschlagen, erholsamen Schlaf zu finden, aber jeder Tag bringt dich näher an die Entdeckung dessen, was für dich am besten funktioniert. Lass uns weiterhin nach Lösungen suchen und eine positive Einstellung zur Veränderung bewahren.",
+    "Für zwei Wochen hattest du Schwierigkeiten beim Schlafen, aber jede Herausforderung bietet die Möglichkeit zu lernen und zu wachsen. Lass uns darauf konzentrieren, wirksame Möglichkeiten zu finden, unsere Erholung zu verbessern."
+  ],
+  "profileSleepScoreMessageThreeWeeks+": [
+    "Drei Wochen erholsamer Schlaf sind wie eine Hymne auf dein Wohlbefinden. Jede gut geschlafene Nacht ist eine Melodie, die dich zu innerem Gleichgewicht führt.",
+    "Über drei Wochen hast du ein Heiligtum erholsamer Träume geschaffen. Pflege diesen heiligen Raum weiter und finde Frieden in jedem Atemzug.",
+    "Jedes Erwachen nach drei Wochen tiefen Schlafs ist eine Feier des Lebens und der Vitalität. Halte diese Serie aufrecht und lass dein inneres Licht noch heller strahlen.",
+    "Drei Wochen Ruhe haben dich durch eine Oase der Selbstentdeckung und Erneuerung geführt. Erforsche weiterhin dieses Gebiet und entdecke die Magie der Selbstfürsorge.",
+    "Herzlichen Glückwunsch zu drei Wochen erholsamem Schlaf. Jede gut geschlafene Nacht ist eine Hommage an dein Engagement für ein ausgewogenes und energiegeladenes Leben.",
+    "Für drei Wochen hast du einen Garten der Ruhe und Verjüngung kultiviert. Halte diese Samen weiterhin feucht und beobachte, wie sie in ein erfüllteres Leben aufblühen."
+  ],
+  "profileSleepScoreMessageThreeWeeks-": [
+    "Drei Wochen Schlafschwierigkeiten sind eine Erinnerung an die Wichtigkeit, sich um die eigene geistige und körperliche Gesundheit zu kümmern. Es ist Zeit, konkrete Schritte zu unternehmen, um deine Erholung und dein allgemeines Wohlbefinden zu verbessern.",
+    "Eine Serie von drei herausfordernden Wochen aufrechtzuerhalten kann schwierig sein, aber jeder Tag bietet dir die Möglichkeit, positive Entscheidungen für deinen Schlaf zu treffen. Verpflichte dich, Veränderungen umzusetzen, die deine Schlafqualität verbessern.",
+    "Für drei Wochen hattest du Schwierigkeiten beim Einschlafen und erholsamen Schlaf, aber jede Nacht bietet dir die Chance, es erneut zu versuchen. Lass uns weiterhin neue Strategien und Gewohnheiten erkunden, die dir helfen, besser zu schlafen.",
+    "Drei Wochen Schlafherausforderungen zeigen, dass du deine Gesundheit und dein Wohlbefinden priorisieren musst. Nimm dir die Zeit, um herauszufinden, was deinen Schlaf beeinträchtigt, und arbeite an effektiven Lösungen.",
+    "Für drei Wochen hast du damit gekämpft, erholsamen Schlaf zu finden, aber jeder Tag bringt dich näher an Lösungen, die für dich funktionieren. Lass uns eine positive Einstellung bewahren und uns verpflichten, Veränderungen vorzunehmen, die unsere Lebensqualität verbessern.",
+    "Für drei Wochen hast du darum gekämpft, erholsamen Schlaf zu finden, aber jede Herausforderung bietet die Möglichkeit zu lernen und zu wachsen. Lass uns mit Entschlossenheit voranschreiten und aktiv nach Möglichkeiten suchen, unseren Schlaf zu verbessern."
+  ],
+  "profileSleepScoreMessageOneMonth+": [
+    "Herzlichen Glückwunsch! Ein ganzer Monat erholsamen Schlafs ist eine bemerkenswerte Leistung. Jede gut geschlafene Nacht ist ein Geschenk für Ihre Gesundheit und Ihr Wohlbefinden. Mach weiter so!",
+    "Ein Monat mit konsequent guten Schlafgewohnheiten verdient eine Feier. Ihre Hingabe an die Erholung trägt Früchte, und Ihr Körper und Geist danken es Ihnen. Machen Sie weiterhin gut für sich selbst!",
+    "Für einen ganzen Monat haben Sie bewundernswerte Einsatzbereitschaft für Ihre Erholung gezeigt. Jede Nacht erholsamen Schlafs ist ein Schritt zu einem ausgeglicheneren und erfüllteren Leben. Machen Sie weiter so, Schlaf-Champion!",
+    "Ein ganzer Monat guter Erholung ist ein Zeugnis Ihrer Entschlossenheit und Selbstfürsorge. Jede Nacht erholsamen Schlafs ist eine Investition in Ihre langfristige Gesundheit und Glückseligkeit. Bleiben Sie stark!",
+    "Ein ganzer Monat mit qualitativ hochwertigem Schlaf verdient Applaus! Ihre Hingabe an Ihr Wohlbefinden spiegelt sich in jeder Erholungsnacht wider. Machen Sie weiterhin gut auf sich auf und priorisieren Sie Ihre Gesundheit.",
+    "Für einen Monat haben Sie gezeigt, dass guter Schlaf eine Priorität ist. Jede gut geschlafene Nacht ist ein Schritt zu einem gesünderen und lebendigeren Leben. Machen Sie weiter so, halten Sie die gute Arbeit aufrecht!"
+  ],
+  "profileSleepScoreMessageOneMonth-": [
+    "Ein Monat mit Schlafschwierigkeiten kann herausfordernd sein, aber jeder Tag gibt uns die Möglichkeit zur Reflexion und Verbesserung unserer Schlafgewohnheiten. Es ist Zeit, Maßnahmen zu ergreifen, um sich um Ihr Wohlbefinden zu kümmern!",
+    "Für einen ganzen Monat haben Sie Hindernisse in Ihrem Schlaf bewältigt, aber jede Nacht ist auch eine Gelegenheit zum Lernen und Anpassen Ihres Ansatzes. Sie sind auf dem Weg zu besserem Schlaf!",
+    "Ein Monat mit negativen Schlafresultaten ist ein Zeichen dafür, dass es Zeit ist, auf Ihr Wohlbefinden zu achten. Mit Entschlossenheit und Engagement können Sie Änderungen implementieren, die Ihnen helfen, besser zu schlafen.",
+    "Für einen Monat haben Sie Herausforderungen in Ihrem Schlaf gemeistert, aber jede Nacht ist auch eine Gelegenheit zur Erneuerung und Aufladung. Lassen Sie sich nicht entmutigen, Sie sind auf dem Weg zu erholsamerem Schlaf!",
+    "Ein Monat mit Schlafschwierigkeiten kann anstrengend sein, aber es ist auch eine Gelegenheit, neue Strategien und Gewohnheiten zu erkunden, die Ihnen helfen, besser zu schlafen. Machen Sie weiter stark!",
+    "Für einen Monat haben Sie Hindernisse in Ihrem Schlaf überwunden, aber jede Nacht ist auch eine Gelegenheit zur Erneuerung und Aufladung. Geben Sie nicht auf, Sie sind auf dem Weg zu besserem Schlaf!"
+  ],
+  "profileSleepScoreMessageDefault+": [
+    "Du glänzt weiterhin mit deinem Engagement für gesunden Schlaf! Jede gut ausgeruhte Nacht ist ein Schritt zu einem ausgewogeneren und erfüllteren Leben. Mach weiter so!",
+    "Dein Einsatz für Ruhe zahlt sich aus, und dein Wohlbefinden spiegelt das wider. Jede Nacht erholsamen Schlafs ist eine Investition in deine langfristige Gesundheit und Glückseligkeit. Kümmere dich weiterhin um dich!",
+    "Eine positive Serie im Schlaf fortzusetzen, zeigt dein Engagement für dein Wohlbefinden. Jede Nacht angemessener Ruhe ist eine Erinnerung an dein Engagement für Selbstfürsorge. Bleib stark dabei!",
+    "Eine positive Serie im Schlaf aufrechtzuerhalten, ist ein Zeugnis deiner Entschlossenheit und Disziplin. Jede gut geschlafene Nacht ist ein Schritt zu einem gesünderen und ausgewogeneren Leben. Mach weiter so, Schlafchampion!",
+    "Wir feiern deine Beharrlichkeit, eine positive Serie im Schlaf aufrechtzuerhalten. Jede Nacht erholsamen Schlafs ist ein Erfolg, der dich näher zu einer besseren Lebensqualität bringt. Setze weiterhin deine Gesundheit an erste Stelle!",
+    "Dein Engagement für qualitativ hochwertigen Schlaf ist bewundernswert und verdient Anerkennung. Jede Nacht guten Schlafs ist ein Schritt zu einer gesünderen und glücklicheren Version von dir selbst. Mach weiter so, es gibt keine Grenzen für dein Wohlbefinden!"
+  ],
+  "profileSleepScoreMessageDefault-": [
+    "Auch wenn du Herausforderungen im Schlaf gegenüberstehst, ist dein Wille zur Verbesserung inspirierend. Jede Nacht ist eine Gelegenheit zu lernen und den Fokus auf einen erholsameren Schlaf zu richten. Lass dich nicht entmutigen!",
+    "Eine negative Serie im Schlaf fortzusetzen, kann herausfordernd sein, aber jeder Tag bietet die Möglichkeit zur Reflexion und Verbesserung unserer Gewohnheiten. Du bist auf dem Weg zu einem gesünderen Schlaf!",
+    "Trotz Hindernissen im Ruhezustand ist dein Wille, Lösungen zu finden, bewundernswert. Mit jeder Nacht kommst du der Entdeckung näher, was für dich am besten funktioniert. Gib nicht auf!",
+    "Deine Ausdauer inmitten einer negativen Serie im Schlaf zeigt dein Engagement für dein Wohlbefinden. Jede Nacht ist eine Gelegenheit zur Erneuerung und Regeneration. Geh weiter mit Entschlossenheit!",
+    "Auch wenn du Schwierigkeiten beim Schlafen hast, ist jede Nacht auch eine Gelegenheit, neue Strategien und Gewohnheiten zu erkunden. Dein Wille, deinen Schlaf zu verbessern, ist der erste Schritt zu einer besseren Lebensqualität. Geh weiter!",
+    "Wir feiern deinen Mut und deine Entschlossenheit, Herausforderungen im Schlaf zu meistern. Jede Nacht ist eine Gelegenheit zum Lernen und Wachsen, und jeder Schritt bringt dich näher zu erholsamem Schlaf. Verliere nicht den Mut!"
+  ],
+  "profileRecoveryMessage1+": [
+    "Unglaublicher Start! Deine Erholung heute ist positiv, was darauf hinweist, dass dein Körper gut vorbereitet ist, um den Tag zu bewältigen. Bereit, das Beste aus deinen Aktivitäten und Trainings zu machen!",
+    "Heute zeigt dein Körper eine ausgezeichnete Anpassung und Erholung. Du bist im Einklang mit dir selbst! Nutze diese Energie, um dein Bestes zu geben und einen aktiven und produktiven Tag zu genießen.",
+    "Deine Erholung heute ist wie ein grünes Licht für einen energetischen und effizienten Tag. Kümmere dich weiter um dich, du baust eine solide Grundlage für dein Wohlbefinden!",
+    "Ein Tag guter Erholung ist eine großartige Leistung! Jede gut geschlafene Nacht bringt dich deinen Wellness-Zielen näher. Mach weiterhin gesunde Schlafgewohnheiten!",
+    "Deine Fähigkeit, gut zu schlafen, ist ein unschätzbares Gut. Feiere jeden Tag guten Schlafes als Schritt zu einem ausgewogeneren und glücklicheren Leben.",
+    "Ein Tag erholsamen Schlafes ist ein Geschenk, das du dir selbst machst. Nutze diese erneuerte Energie, um den Tag mit Optimismus und Vitalität anzugehen!"
+  ],
+  "profileRecoveryMessage1-": [
+    "Die Erholung heute ist etwas herausfordernd, aber jeder Tag ist eine Gelegenheit, sich anzupassen und zu verbessern. Denke daran, auf dich aufzupassen, um Risiken zu vermeiden und deine Energie zu maximieren.",
+    "Die heutige Erholung kann daran erinnern, wie wichtig es ist, auf deinen Körper zu hören. Überlege, deine tägliche Aktivität anzupassen, um das Risiko von Erschöpfung und Verletzungen zu minimieren.",
+    "Auch wenn die Erholung heute null ist, lass dich nicht entmutigen. Ergreife Maßnahmen, um die Qualität deines Schlafes zu verbessern und deinen Körper auf einen optimaleren Tag morgen vorzubereiten.",
+    "Jeder herausfordernde Tag ist eine Gelegenheit zum Lernen und Wachsen. Nutze diesen schwierigen Tag als Motivation, deine Schlafgewohnheiten und deine persönliche Pflege zu verbessern.",
+    "Lass dich nicht von einem Tag unzureichender Erholung entmutigen. Behalte die Entschlossenheit bei, dein Wohlbefinden zu priorisieren und nach Lösungen zur Verbesserung deiner Schlafqualität zu suchen.",
+    "Auch wenn heute schwierig war, ist morgen eine neue Gelegenheit, besser zu schlafen. Denke daran, dass jede schlecht geschlafene Nacht eine Gelegenheit ist, deine Schlafgewohnheiten anzupassen und zu verbessern. Gehe weiter mit Hoffnung und Entschlossenheit!"
+  ],
+  "profileRecoveryMessage2+": [
+    "Zwei Tage guter Erholung zeigen Ihr Engagement für die Pflege von Körper und Geist. Jede Nacht erholsamen Schlafes ist ein Schritt zu einem ausgewogeneren und erfüllteren Leben.",
+    "Die Aufrechterhaltung einer Serie von zwei Tagen qualitativen Schlafes ist eine bedeutende Leistung. Es ist an der Zeit, Ihre Bemühungen zu feiern, ein gesundes Gleichgewicht zu finden und auf die Bedürfnisse Ihres Körpers zu achten.",
+    "Herzlichen Glückwunsch zu zwei aufeinanderfolgenden Tagen guter Schlafqualität. Ihre Beständigkeit in der Pflege Ihres Schlafes ist bewundernswert und zeigt Ihr Engagement für Ihr allgemeines Wohlbefinden.",
+    "Zwei aufeinanderfolgende Tage guter Erholung sind ein Zeichen dafür, dass Sie ein gesundes Gleichgewicht in Ihrem Leben finden. Hören Sie weiter auf Ihren Körper, reduzieren Sie Stress und pflegen Sie positive Schlafgewohnheiten.",
+    "Feiern Sie Ihre zwei Tage erholsamen Schlafs als Sieg auf Ihrem Weg zu besserer Gesundheit und Wohlbefinden. Suchen Sie weiterhin nach Möglichkeiten, Ihre nächtlichen Gewohnheiten zu verbessern, und hören Sie auf die Signale Ihres Körpers.",
+    "Ihre Beständigkeit bei der Aufrechterhaltung guten Schlafs für zwei Tage ist inspirierend. Achten Sie weiterhin auf Ihren Körper, praktizieren Sie Entspannung und halten Sie eine konstante Schlafroutine ein, um Ihr Wohlbefinden zu maximieren."
+  ],
+  "profileRecoveryMessage2-": [
+    "Zwei aufeinanderfolgende Tage schlechten Schlafs können daran erinnern, wie wichtig es ist, auf Ihr nächtliches Wohlbefinden zu achten. Machen Sie sich Notizen über Ihre Erfahrungen und suchen Sie nach Möglichkeiten, Ihre Schlafqualität zu verbessern.",
+    "Die Anerkennung von zwei aufeinanderfolgenden Tagen schlechten Schlafs ist der erste Schritt, um positive Veränderungen vorzunehmen. Achten Sie auf die Signale Ihres Körpers, reduzieren Sie Stress und schaffen Sie eine Umgebung, die förderlich für erholsamen Schlaf ist.",
+    "Trotz der Herausforderungen der letzten beiden Tage sollten Sie daran denken, dass jede Nacht eine neue Gelegenheit zur Verbesserung bietet. Behalten Sie die Entschlossenheit, ein gesundes Gleichgewicht zu finden, und verbessern Sie Ihre Schlafgewohnheiten.",
+    "Die Aufrechterhaltung einer Serie von zwei Tagen schlechten Schlafs zeigt, dass es Zeit ist, Ihre nächtlichen Routinen zu überdenken. Suchen Sie nach Möglichkeiten, Stress abzubauen, klare Grenzen zu setzen und eine Umgebung zu schaffen, die förderlich für Erholung ist.",
+    "Zwei aufeinanderfolgende Tage schlechten Schlafs können herausfordernd sein, bieten aber auch die Möglichkeit zu lernen und zu wachsen. Ergreifen Sie Maßnahmen, um Ihr nächtliches Wohlbefinden zu verbessern, und suchen Sie bei Bedarf Unterstützung.",
+    "Lassen Sie sich nicht von zwei Tagen schlechten Schlafs entmutigen. Verpflichten Sie sich, Lösungen zur Verbesserung Ihrer Schlafqualität zu finden, und achten Sie auf die Bedürfnisse Ihres Körpers."
+  ],
+  "profileRecoveryMessage3+": [
+    "Drei aufeinanderfolgende Tage positiver Erholung deuten darauf hin, dass Sie auf dem richtigen Weg sind. Ihr Körper ist gut auf die Herausforderung vorbereitet. Machen Sie weiter so und genießen Sie eine gleichbleibende Leistung!",
+    "Eine Serie von drei positiven Tagen! Ihr Körper schätzt Ihre Aufmerksamkeit auf Ruhe. Sie reduzieren das Risiko von Verletzungen und maximieren Ihr Potenzial in jeder Aktivität.",
+    "Die Aufrechterhaltung einer positiven Erholung für drei aufeinanderfolgende Tage ist eine bedeutende Leistung. Sie bauen eine solide Grundlage für Ausdauer und Effizienz in Ihren täglichen Aktivitäten auf.",
+    "Drei aufeinanderfolgende Tage guter Ruhe sind ein Zeichen dafür, dass Sie im Einklang mit den Bedürfnissen Ihres Körpers sind. Achten Sie weiterhin auf die Signale, die er sendet, und pflegen Sie Ihre positiven Schlafgewohnheiten.",
+    "Die Feier von drei Tagen erholsamen Schlafs würdigt Ihr Engagement für ein ausgewogenes Leben. Pflegen Sie weiterhin eine Umgebung, die förderlich für Ruhe ist, und Sie werden Verbesserungen Ihres körperlichen und geistigen Wohlbefindens feststellen.",
+    "Ihre Konstanz darin, drei Tage lang gut zu schlafen, ist bewundernswert. Pflegen Sie Ihre körperliche und geistige Gesundheit weiterhin mit gesunden nächtlichen Gewohnheiten und Achtsamkeit."
+  ],
+  "profileRecoveryMessage3-": [
+    "Drei aufeinanderfolgende Tage mit herausfordernden Erholungsergebnissen deuten auf die Notwendigkeit von Anpassungen hin. Überdenken Sie Ihre Routine und bringen Sie Änderungen vor, um unnötige Risiken zu vermeiden.",
+    "Die Aufrechterhaltung eines niedrigen Erholungsniveaus für drei Tage kann sich auf Ihre Leistung auswirken. Überprüfen Sie Ihre Schlafgewohnheiten und Ihre tägliche Routine, um Risiken zu minimieren und das Wohlbefinden zu maximieren.",
+    "Drei Tage herausfordernde Erholung können ein Hinweis darauf sein, dass Ihr Körper mehr Aufmerksamkeit benötigt. Nehmen Sie sich Zeit zum Ausruhen und passen Sie Ihre Routine an, um Ermüdung und Verletzungen zu vermeiden.",
+    "Die Aufrechterhaltung einer Serie von drei Tagen mit schlechtem Schlaf ist ein Zeichen dafür, dass es an der Zeit ist, Ihre Schlafgewohnheiten zu überdenken. Hören Sie auf die Signale Ihres Körpers und suchen Sie bei Bedarf Unterstützung, um Ihre Erholung zu verbessern.",
+    "Drei aufeinanderfolgende Tage mit schlechtem Schlaf können schwierig sein, bieten aber auch die Möglichkeit zu lernen und zu wachsen. Verpflichten Sie sich, Lösungen zur Verbesserung der Schlafqualität zu finden, und beleben Sie Ihr Wohlbefinden wieder.",
+    "Lassen Sie sich von drei Tagen schlechten Schlafs nicht entmutigen. Nutzen Sie diese Erfahrung als Motivation, um Ihre Schlafgewohnheiten anzupassen und das notwendige Gleichgewicht für Ihre Gesundheit und Vitalität zu finden."
+  ],
+  "profileRecoveryMessage4+": [
+    "Vier aufeinanderfolgende Tage solider Erholung zeigen Ihr Engagement für eine umfassende Pflege von Körper und Geist. Ehren Sie weiterhin Ihre Ruhebedürfnisse, um Ihre Vitalität und emotionale Balance zu erhalten.",
+    "Die Aufrechterhaltung einer Serie von vier Tagen angemessener Erholung ist ein Zeichen Ihrer Aufmerksamkeit für das allgemeine Wohlbefinden. Ihre Beständigkeit im Ruhen spiegelt Ihr Engagement für ein ausgeglichenes und gesundes Leben wider.",
+    "Herzlichen Glückwunsch dazu, Ihre Erholung an vier aufeinanderfolgenden Tagen priorisiert zu haben. Diese Leistung zeigt Ihr Engagement für die Optimierung Ihrer Leistungsfähigkeit und Ihres Wohlbefindens in allen Lebensbereichen.",
+    "Vier aufeinanderfolgende Tage guter Ruhe und Erholung sind ein Zeugnis Ihres Engagements für einen ausgewogenen Lebensstil. Hören Sie weiterhin auf die Bedürfnisse Ihres Körpers und Geistes, um Ihr Wohlbefinden zu maximieren.",
+    "Das Feiern von vier Tagen solider Erholung bedeutet, Ihr Engagement für Selbstfürsorge und ganzheitliche Gesundheit zu feiern. Pflegen Sie Ihren Körper weiterhin mit angemessenem Ruhe und beobachten Sie, wie Ihr physisches und mentales Wohlbefinden gedeiht.",
+    "Ihre Beharrlichkeit bei der Aufrechterhaltung einer guten Erholung an vier Tagen verdient Anerkennung. Pflegen Sie weiterhin gesunde Schlafgewohnheiten und genießen Sie die Vorteile, die sie für Ihre Leistungsfähigkeit und Ihr Gesamtwohlsein bringen."
+  ],
+  "profileRecoveryMessage4-": [
+    "Vier aufeinanderfolgende Tage schlechter Erholung können ein Hinweis auf die Bedeutung der Pflege Ihres allgemeinen Wohlbefindens sein. Machen Sie sich Notizen über Ihre Erfahrungen und suchen Sie nach Möglichkeiten, Ihre Gewohnheiten zu verbessern, um Ihre Erholungs- und Ruhequalität zu erhöhen.",
+    "Die Anerkennung von vier aufeinanderfolgenden Tagen schlechter Erholung ist der erste Schritt zur positiven Veränderung. Ergreifen Sie Maßnahmen, um Stress abzubauen, Entspannungsrituale einzuführen und Ihrer Erholung Priorität einzuräumen, um Ihr Wohlbefinden zu revitalisieren.",
+    "Trotz der Herausforderungen der letzten vier Tage sollten Sie daran denken, dass jede Nacht eine neue Möglichkeit bietet, Ihre Energie und Vitalität wiederherzustellen. Bewahren Sie die Entschlossenheit, ein gesundes Gleichgewicht für Ihren Körper und Geist zu finden.",
+    "Die Aufrechterhaltung einer Serie von vier Tagen schlechter Erholung ist ein Zeichen dafür, dass es Zeit ist, Ihre Gewohnheiten und Prioritäten zu überdenken. Hören Sie auf die Signale Ihres Körpers und suchen Sie Unterstützung, um Ihr gesamtes Wohlbefinden zu verbessern, falls erforderlich.",
+    "Vier aufeinanderfolgende Tage schlechter Erholung können herausfordernd sein, bieten aber auch die Möglichkeit zu lernen und zu wachsen. Verpflichten Sie sich, Lösungen zu finden, um Ihre Schlafqualität zu verbessern und Ihre Gesundheit und Leistungsfähigkeit zu revitalisieren.",
+    "Lassen Sie sich von vier Tagen schlechter Erholung nicht entmutigen. Nutzen Sie diese Erfahrung als Motivation, um Ihre Gewohnheiten anzupassen und das Gleichgewicht zu finden, das erforderlich ist, um Ihr körperliches und geistiges Wohlbefinden zu optimieren."
+  ],
+  "profileRecoveryMessage5+": [
+    "Fünf Tage positiver Erholung sind ein Beweis für Ihr Engagement für Gesundheit und Leistung. Ihr Körper ist in bester Verfassung, um physische Herausforderungen anzugehen. Mach weiter so und setze weiterhin deine Ziele übertreffen!",
+    "Fünffacher Sieg! Ihre Erholung über fünf aufeinanderfolgende Tage ist außergewöhnlich. Ihr Körper ist stark und bereit für jede Herausforderung, die auf ihn zukommt. Herzlichen Glückwunsch!",
+    "Die Aufrechterhaltung einer positiven Erholung über fünf Tage hinweg ist ein Zeichen für Beständigkeit und Wohlbefinden. Sie legen eine solide Grundlage für Ihre langfristige Leistungsfähigkeit.",
+    "Beeindruckend! Sie haben über fünf aufeinanderfolgende Tage eine optimale Erholung aufrechterhalten. Ihr Körper regeneriert sich effizient. Machen Sie weiterhin gut auf sich auf und genießen Sie diese erneuerte Vitalität!",
+    "Fünf aufeinanderfolgende Tage angemessener Erholung spiegeln Ihre Aufmerksamkeit auf ganzheitliches Wohlbefinden wider. Ihr Engagement für erholsamen Schlaf stärkt Sie körperlich und geistig und liefert die erforderliche Kraft und Ausdauer für Ihre täglichen Aktivitäten.",
+    "Das Feiern von fünf Tagen solider nächtlicher Erholung bedeutet, Ihren Fokus auf umfassende Gesundheit zu feiern. Ihr Körper und Geist profitieren von Ihren gesunden Schlafgewohnheiten, sodass Sie jeden Tag mit Zuversicht und Entschlossenheit angehen können.",
+    "Ihre Beharrlichkeit, über fünf aufeinanderfolgende Tage eine gute Erholung aufrechtzuerhalten, ist bewundernswert. Fahren Sie fort, eine Umgebung zu schaffen, die förderlich für Erholung und Erneuerung ist, und Sie werden sehen, wie Ihr allgemeines Wohlbefinden neue Höhen erreicht."
+  ],
+  "profileRecoveryMessage5-": [
+    "Fünf aufeinanderfolgende Tage herausfordernde Erholung deuten darauf hin, dass es an der Zeit ist, Ihrem Wohlbefinden mehr Aufmerksamkeit zu schenken. Erwägen Sie, bedeutende Änderungen vorzunehmen, um Ihre langfristige Gesundheit zu schützen.",
+    "Eine niedrige Erholung über fünf Tage hinweg deutet auf die Notwendigkeit einer Pause und Reflexion hin. Nehmen Sie Anpassungen an Ihrem Lebensstil vor, um die Qualität Ihres Schlafes zu verbessern und sich besser auf Ihre täglichen Aktivitäten vorzubereiten.",
+    "Obwohl die letzten fünf Tage in Bezug auf die Erholung herausfordernd waren, ist jeder Tag eine neue Gelegenheit, positive Veränderungen vorzunehmen. Hören Sie auf Ihren Körper und passen Sie Ihre Routine an, um Ihre Leistung zu maximieren.",
+    "Fünf aufeinanderfolgende Tage herausfordernde Erholung könnten ein Zeichen dafür sein, dass Ihr Körper zusätzliche Ruhe braucht. Denken Sie daran, auf die Signale zu hören, die er sendet, und erwägen Sie, die Intensität Ihrer körperlichen oder geistigen Aktivität zu reduzieren, um eine angemessene Erholung zu ermöglichen.",
+    "Das Erkennen von fünf aufeinanderfolgenden Tagen unzureichender Erholung lädt dazu ein, Ihre täglichen Routinen zu überprüfen. Möglicherweise fordern Sie Ihren Körper und Geist zu stark. Erwägen Sie die Durchführung von Entspannungsaktivitäten und die Anpassung Ihrer Arbeitsbelastung, um erholsamen Schlaf zu fördern.",
+    "Trotz der Herausforderungen der letzten fünf Tage ist es wichtig zu bedenken, dass ausreichende Ruhe für Ihr allgemeines Wohlbefinden unerlässlich ist. Nehmen Sie sich einen Moment Zeit, um Ihre Gewohnheiten zu bewerten, und finden Sie ein Gleichgewicht, das es Ihnen ermöglicht, sich jede Nacht vollständig zu erholen."
+  ],
+  "profileRecoveryMessage6+": [
+    "Sechs aufeinanderfolgende Tage solider Erholung zeigen Ihr Engagement für das allgemeine Wohlbefinden. Das Zuhören der Bedürfnisse Ihres Körpers und Geistes führt Sie zu einem Zustand von Balance und Vitalität. Mach weiter so!",
+    "Die Aufrechterhaltung einer Serie von sechs Tagen optimaler Erholung ist entscheidend für eine konstante Leistung. Ihre Hingabe an Ruhe spiegelt Ihr Engagement für ein erfülltes und ausgewogenes Leben in allen Bereichen wider.",
+    "Herzlichen Glückwunsch zur Aufrechterhaltung einer effektiven Erholungsroutine für sechs aufeinanderfolgende Tage. Ihre Beständigkeit in der Ruhe stärkt sowohl Ihren Körper als auch Ihren Geist und bereitet Sie darauf vor, jede Herausforderung mit Klarheit und Energie anzunehmen.",
+    "Sechs aufeinanderfolgende Tage guter Erholung zeigen Ihr Engagement für einen ausgewogenen Lebensstil. Setzen Sie weiterhin Ihr Wohlbefinden an die erste Stelle und beobachten Sie, wie alle Bereiche Ihres Lebens gedeihen.",
+    "Das Feiern von sechs Tagen solider Erholung bedeutet, Ihren Fokus auf Gesundheit und Selbstfürsorge zu feiern. Ihr Engagement für angemessene Ruhe ermöglicht es Ihnen, in all Ihren täglichen Aktivitäten hell zu strahlen.",
+    "Ihre Beharrlichkeit in der Aufrechterhaltung einer guten Erholung für sechs aufeinanderfolgende Tage verdient Anerkennung. Setzen Sie weiterhin gesunde Schlafgewohnheiten um und genießen Sie die Vorteile, die sie für Ihr körperliches und geistiges Wohlbefinden bringen."
+  ],
+  "profileRecoveryMessage6-": [
+    "Sechs aufeinanderfolgende Tage herausfordernder Erholung können darauf hinweisen, dass Sie Ihre Gewohnheiten und Prioritäten anpassen müssen. Hören Sie auf die Signale, die Ihr Körper Ihnen sendet, und ergreifen Sie Maßnahmen, um Stress abzubauen und die Qualität Ihres Schlafes zu verbessern.",
+    "Die Anerkennung von sechs aufeinanderfolgenden Tagen unzureichender Erholung ist der erste Schritt zu einer positiven Veränderung. Überprüfen Sie Ihre täglichen Routinen und finden Sie Möglichkeiten, mehr Ruhe- und Entspannungszeit zu integrieren.",
+    "Trotz der Herausforderungen der letzten sechs Tage denken Sie daran, dass jede Nacht eine Gelegenheit ist, Ihren Körper und Geist zu regenerieren. Priorisieren Sie Selbstfürsorge und Erholung, um Ihre Energie und mentale Klarheit wiederherzustellen.",
+    "Die Aufrechterhaltung einer Serie von sechs Tagen schlechter Erholung kann darauf hindeuten, dass Sie Ihren Körper und Geist überlasten. Nehmen Sie sich einen Moment Zeit, um Ihre Verpflichtungen zu überprüfen und ein Gleichgewicht zu finden, das es Ihnen ermöglicht, sich auszuruhen und aufzuladen.",
+    "Sechs aufeinanderfolgende Tage herausfordernder Erholung können darauf hinweisen, dass es Zeit ist, signifikante Veränderungen in Ihren täglichen Gewohnheiten vorzunehmen. Erwägen Sie, professionelle Unterstützung zu suchen, und ergreifen Sie konkrete Maßnahmen, um Ihr allgemeines Wohlbefinden zu verbessern.",
+    "Lassen Sie sich von sechs Tagen herausfordernder Erholung nicht entmutigen. Nutzen Sie diese Erfahrung als Motivation, um positive Anpassungen in Ihrem Lebensstil vorzunehmen und Ihre Gesundheit und Ihr Wohlbefinden zu priorisieren. Hören Sie auf die Bedürfnisse Ihres Körpers und treffen Sie Änderungen, die eine effektive Erholung fördern."
+  ],
+  "profileRecoveryMessage7+": [
+    "Eine volle Woche positiver Erholung ist eine außergewöhnliche Leistung. Dein Körper ist in optimaler Verfassung und minimiert Risiken und maximiert Nutzen. Mach weiter so und genieße dein kontinuierliches Wohlbefinden!",
+    "Sieben Tage positive Erholung! Dein Körper dankt dir für deine Aufmerksamkeit und Pflege. Du bist auf dem richtigen Weg zu außergewöhnlichen Leistungen. Herzlichen Glückwunsch!",
+    "Eine Woche lang positive Erholung aufrechtzuerhalten ist ein Beweis für dein Engagement für das Wohlbefinden. Dein Körper ist in bester Verfassung. Mach weiterhin gut für dich!",
+    "Sieben aufeinanderfolgende Tage erholsamer Schlaf zeigen dein Engagement für Selbstfürsorge. Deine Hingabe an Ruhe bereitet dich darauf vor, in allen täglichen Aktivitäten zu glänzen.",
+    "Eine Woche lang konsistenten Schlaf zu halten, ist entscheidend für deine allgemeine Gesundheit. Nimm dir einen Moment Zeit, um deine Bemühungen um deine Ruhe zu feiern.",
+    "Eine Woche guter Ruhe ist wie eine Aufladung für deinen Körper und Geist. Du bist bereit, Herausforderungen mit erneuerter Energie und Entschlossenheit zu begegnen."
+  ],
+  "profileRecoveryMessage7-": [
+    "Eine volle Woche mit niedrigen Erholungsergebnissen ist ein Aufruf zum Handeln. Nimm dir Zeit zum Ausruhen und passe deine Routine an, um langfristige Risiken zu vermeiden.",
+    "Eine niedrige Erholung für sieben aufeinanderfolgende Tage deutet darauf hin, dass eine sorgfältige Überprüfung deines Lebensstils erforderlich ist. Mache bedeutende Änderungen, um dein langfristiges Wohlbefinden zu schützen.",
+    "Trotz der herausfordernden Woche ist jeder Tag eine neue Gelegenheit zur Verbesserung. Passe deine Routine an und priorisiere dein Wohlbefinden, um eine solide Basis für zukünftige Leistungen zu schaffen.",
+    "Eine Woche mit schwerem Schlaf zu bewältigen, ist ein Zeichen dafür, dass es Zeit für Veränderungen ist. Überdenke deine täglichen Aktivitäten und Verpflichtungen, um ein Gleichgewicht zu finden, das bessere Erholung fördert.",
+    "Die Anerkennung einer Woche mit herausforderndem Schlaf ist der erste Schritt zur Selbstfürsorge. Nimm dir die notwendige Zeit zum Ausruhen und Erholen.",
+    "Eine Woche mit unregelmäßigem Schlaf bietet die Möglichkeit, deinen Ansatz zum Ausruhen neu zu bewerten. Priorisiere dein Wohlbefinden und suche nach Möglichkeiten, die Qualität deines Schlafes zu verbessern."
+  ],
+  "profileRecoveryMessage8+": [
+    "Acht aufeinanderfolgende Tage erholsamer Schlaf sind ein großartiges Zeichen dafür, dass du auf dein Wohlbefinden achtest! Mach weiter so, du bist auf dem richtigen Weg zu einem ausgeglicheneren und gesünderen Leben!",
+    "Eine Serie von acht Tagen guten Schlafs zu halten ist ein Beweis für dein Engagement für deine körperliche und mentale Gesundheit. Du legst die Grundlagen für einen gesünderen und energiegeladenen Lebensstil.",
+    "Herzlichen Glückwunsch zum Erreichen einer ganzen Woche erholsamen Schlafs. Dein Körper und Geist danken es dir, mach weiter so und du wirst den Unterschied in deiner Lebensqualität bemerken!",
+    "Acht aufeinanderfolgende Tage erholsamer Schlaf sind ein Zeichen dafür, dass du deine Gesundheit und dein Wohlbefinden priorisierst. Höre weiter auf die Bedürfnisse deines Körpers und kümmere dich weiterhin um dich.",
+    "Mit acht Tagen erholsamem Schlaf zeigst du, dass qualitativer Schlaf ein wesentlicher Bestandteil deiner täglichen Routine ist. Halte an deinen positiven Gewohnheiten fest und genieße die Vorteile, die dir guter Schlaf bringt.",
+    "Eine Serie von acht Tagen erholsamem Schlaf aufrechtzuerhalten ist ein Grund zum Feiern deiner Bemühungen um dein Wohlbefinden. Mach weiter so und du wirst deine Ziele für Gesundheit und Glück erreichen."
+  ],
+  "profileRecoveryMessage8-": [
+    "Anerkennen von acht Tagen herausforderndem Schlaf ist der erste Schritt, um positive Veränderungen in deiner Routine zu bewirken. Nimm dir einen Moment Zeit, um darüber nachzudenken, welche Anpassungen du vornehmen kannst, um deinen Schlaf zu verbessern.",
+    "Acht Tage unregelmäßiger Schlaf können darauf hinweisen, dass es Zeit ist, deine Gewohnheiten und Prioritäten neu zu bewerten. Höre auf die Signale, die dein Körper dir sendet, und suche nach Möglichkeiten, besser auf dich aufzupassen.",
+    "Eine Serie von acht Tagen schwierigem Schlaf aufrechtzuerhalten ist eine Einladung, mehr Aufmerksamkeit auf dein Wohlbefinden zu richten. Überlege, welche Änderungen du an deinem Lebensstil vornehmen kannst, um einen erholsameren und belebenderen Schlaf zu fördern.",
+    "Das Anerkennen von acht Tagen herausforderndem Schlaf ist der erste Schritt zur Selbstfürsorge. Nimm dir die nötige Zeit zum Ausruhen und Erholen und suche bei Bedarf Unterstützung.",
+    "Acht Tage unregelmäßigen Schlafs können ein Hinweis darauf sein, dass du deine täglichen Gewohnheiten überprüfen musst, um besseren Schlaf zu fördern. Überlege, welche Anpassungen du vornehmen kannst, um einen erholsameren und zufriedenstellenderen Schlaf zu fördern.",
+    "Acht aufeinanderfolgende Tage mit schwierigem Schlaf sind eine Gelegenheit, deine Herangehensweise an Ruhe zu überdenken. Priorisiere dein Wohlbefinden und suche nach Möglichkeiten, die Qualität deines Schlafes zu verbessern, um dich besser und erfrischter zu fühlen."
+  ],
+  "profileRecoveryMessage9+": [
+    "Neun aufeinanderfolgende Tage erholsamer Schlaf sind wie die Ziegelsteine eines ruhigen und gelassenen Zuhauses. Jede gut geschlafene Nacht ist ein Pfeiler für dein Wohlbefinden.",
+    "Für neun Tage hat dein Kissen deine süßesten und erholsamsten Träume miterlebt. Mach weiter so und baue ein Refugium der Ruhe und Verjüngung auf.",
+    "Jeder Morgen nach neun Nächten tiefen Schlafs lädt dazu ein, erneuerte Energie und geistige Klarheit zu umarmen. Halte diese Serie aufrecht und erreiche neue Höhen.",
+    "Neun Tage Ruhe haben dich durch eine Reise der Selbstentdeckung und Erneuerung geführt. Folge diesem Weg und entdecke die Magie des erholsamen Schlafs.",
+    "Herzlichen Glückwunsch zu neun Tagen erholsamen Schlafs. Jede gut geschlafene Nacht ist eine Hommage an dein Engagement für Gesundheit und Wohlbefinden.",
+    "Für neun Tage hast du Ruhe als einen wesentlichen Bestandteil deines Lebens geehrt. Mach weiter so und ernte die Früchte eines revitalisierten Geistes und Körpers."
+  ],
+  "profileRecoveryMessage9-": [
+    "Die Anerkennung von neun Tagen herausforderndem Schlaf ist der erste Schritt zur Veränderung. Nimm dir einen Moment Zeit, um deine Routinen zu bewerten und nach Möglichkeiten zur Verbesserung deines Schlafs zu suchen.",
+    "Neun Tage unregelmäßigen Schlafs können darauf hinweisen, dass es Zeit ist, Anpassungen in deinem Lebensstil vorzunehmen. Höre auf die Signale, die dein Körper dir sendet, und suche nach Möglichkeiten, besser für dich zu sorgen.",
+    "Die Aufrechterhaltung einer Serie von neun Tagen schwerem Schlaf lädt dich ein, über dein Wohlbefinden nachzudenken. Überlege, welche Veränderungen du vornehmen kannst, um einen erholsameren und revitalisierenderen Schlaf zu fördern.",
+    "Die Anerkennung von neun Tagen herausforderndem Schlaf ist eine Gelegenheit, deine Gesundheit und dein Wohlbefinden zu priorisieren. Widme dich der Selbstpflege und suche bei Bedarf Unterstützung.",
+    "Neun Tage unregelmäßigen Schlafs können darauf hinweisen, dass du deine Gewohnheiten und täglichen Routinen überprüfen musst. Überlege, welche Anpassungen du vornehmen kannst, um einen erholsameren und befriedigenderen Schlaf zu fördern.",
+    "Neun aufeinanderfolgende Tage mit schwierigem Schlaf sind ein Weckruf, um deinem Wohlbefinden mehr Aufmerksamkeit zu schenken. Suche nach Ressourcen und Unterstützung, um die Qualität deines Schlafs zu verbessern und deinen Körper und Geist zu revitalisieren."
+  ],
+  "profileRecoveryMessage10+": [
+    "Zehn aufeinanderfolgende Tage erholsamen Schlafs sind eine unglaubliche Leistung! Ihr Engagement für Erholung zeigt Ihre Hingabe an ein ausgewogenes und gesundes Leben. Machen Sie weiter so!",
+    "Die Aufrechterhaltung einer Serie von zehn Tagen guter Ruhe ist ein Beweis für Ihre Entschlossenheit, sich um Ihre Gesundheit und Ihr Wohlbefinden zu kümmern. Sie legen den Grundstein für ein Leben voller Energie und Vitalität!",
+    "Herzlichen Glückwunsch zu über einer Woche erholsamen Schlafs. Ihr Körper und Geist danken es Ihnen, machen Sie weiter so und Sie werden eine bemerkenswerte Verbesserung Ihres allgemeinen Wohlbefindens feststellen!",
+    "Zehn aufeinanderfolgende Tage erholsamen Schlafs sind ein klares Zeichen dafür, dass Sie auf die Bedürfnisse Ihres Körpers und Geistes hören. Setzen Sie Ihre Priorität auf Ihr Wohlbefinden und genießen Sie die Vorteile eines guten Schlafs.",
+    "Mit zehn Tagen erholsamem Schlaf legen Sie ein solides Fundament für ein ausgewogenes und gesundes Leben. Halten Sie an Ihren positiven Gewohnheiten fest und bleiben Sie Ihrem täglichen Selbstfürsorge verpflichtet.",
+    "Die Aufrechterhaltung einer Serie von zehn Tagen erholsamen Schlafs ist ein Zeugnis Ihrer Hingabe an Ihre Gesundheit und Ihr Glück. Kümmern Sie sich weiterhin um sich selbst und genießen Sie das Gefühl der Erneuerung und Revitalisierung, das Ihnen guter Schlaf bringt."
+  ],
+  "profileRecoveryMessage10-": [
+    "Die Anerkennung von zehn Tagen herausforderndem Schlaf ist der erste Schritt zur Veränderung. Nehmen Sie sich einen Moment Zeit, um Ihre Gewohnheiten zu überdenken und nach Möglichkeiten zur Verbesserung Ihres Schlafs zu suchen.",
+    "Zehn Tage unregelmäßiger Schlaf können darauf hinweisen, dass es Zeit ist, Anpassungen in Ihrem Lebensstil vorzunehmen. Hören Sie auf die Signale, die Ihr Körper sendet, und suchen Sie nach Möglichkeiten, sich besser zu kümmern.",
+    "Die Aufrechterhaltung einer Serie von zehn Tagen schwierigem Schlaf ist eine Einladung, über Ihr Wohlbefinden nachzudenken. Überlegen Sie, welche Änderungen Sie vornehmen können, um einen erholsameren und revitalisierenderen Schlaf zu fördern.",
+    "Die Anerkennung von zehn Tagen herausforderndem Schlaf ist eine Gelegenheit, Ihre Gesundheit und Ihr Wohlbefinden zu priorisieren. Widmen Sie sich der Selbstpflege und suchen Sie bei Bedarf Unterstützung.",
+    "Zehn Tage unregelmäßigen Schlafs können darauf hinweisen, dass Sie Ihre Gewohnheiten und täglichen Routinen überprüfen müssen. Überlegen Sie, welche Anpassungen Sie vornehmen können, um einen erholsameren und befriedigenderen Schlaf zu fördern.",
+    "Zehn aufeinanderfolgende Tage schwierigen Schlafs sind ein Weckruf, um Ihrem Wohlbefinden mehr Aufmerksamkeit zu schenken. Suchen Sie nach Ressourcen und Unterstützung, um die Qualität Ihres Schlafs zu verbessern und Ihren Körper und Geist zu revitalisieren."
+  ],
+  "profileRecoveryMessageTwoWeeks+": [
+    "Zwei aufeinanderfolgende Wochen erholsamen Schlafs sind eine beeindruckende Leistung. Ihre Hingabe an Erholung spiegelt Ihr Engagement für Ihre Gesundheit und Ihr Wohlbefinden wider.",
+    "Die Aufrechterhaltung einer Serie von vierzehn Tagen guter Erholung zeigt Ihre Entschlossenheit, Ihr Wohlbefinden priorisieren. Mach weiter so, Sie sind auf dem richtigen Weg!",
+    "Herzlichen Glückwunsch zu zwei Wochen erholsamen Schlafs. Ihr Körper und Geist erfahren die Vorteile von qualitativ hochwertigem Schlaf.",
+    "Vierzehn aufeinanderfolgende Tage erholsamen Schlafs sind ein Beweis für Ihr Engagement für Ihre geistige und körperliche Gesundheit. Kümmern Sie sich weiter um sich und hören Sie auf die Bedürfnisse Ihres Körpers.",
+    "Zwei Wochen konsequenter Schlaf bilden die Grundlage für einen ausgewogenen und gesunden Lebensstil. Machen Sie weiter mit Ihren positiven Gewohnheiten, und Sie werden bemerken, wie sich Ihr allgemeines Wohlbefinden verbessert.",
+    "Mit zwei Wochen erholsamen Schlafs etablieren Sie eine Routine, die Ihren Körper und Geist nährt. Machen Sie weiter mit dieser Investition in Ihre langfristige Gesundheit."
+  ],
+  "profileRecoveryMessageTwoWeeks-": [
+    "Die Anerkennung von zwei Wochen herausforderndem Schlaf ist ein entscheidender erster Schritt zur Veränderung. Nehmen Sie sich einen Moment Zeit, um Ihre Routinen zu bewerten und Möglichkeiten zur Verbesserung Ihres Schlafs zu finden.",
+    "Zwei Wochen unregelmäßigen Schlafs können ein Zeichen dafür sein, dass es Zeit ist, Anpassungen in Ihrem Lebensstil vorzunehmen. Hören Sie auf die Signale, die Ihr Körper sendet, und ergreifen Sie Maßnahmen, um besser auf sich selbst aufzupassen.",
+    "Die Aufrechterhaltung einer Serie von vierzehn Tagen schwierigem Schlaf lädt Sie ein, über Ihr Wohlbefinden nachzudenken. Überlegen Sie, welche Änderungen Sie vornehmen können, um einen erholsameren und revitalisierenden Schlaf zu fördern.",
+    "Die Anerkennung von zwei Wochen herausforderndem Schlaf ist eine Gelegenheit, Ihre Gesundheit und Ihr Wohlbefinden zu priorisieren. Nehmen Sie sich die Zeit, sich richtig auszuruhen und zu erholen.",
+    "Zwei Wochen unregelmäßigen Schlafs können darauf hinweisen, dass Sie Ihre Gewohnheiten und täglichen Routinen überprüfen müssen. Überlegen Sie, wie Sie Ihren Lebensstil anpassen können, um einen erholsameren Schlaf zu fördern.",
+    "Zwei aufeinanderfolgende Wochen schwierigen Schlafs sind ein Weckruf, um mehr auf Ihr Wohlbefinden zu achten. Suchen Sie Unterstützung und Ressourcen, um die Qualität Ihres Schlafs zu verbessern und sich um Ihre geistige und körperliche Gesundheit zu kümmern."
+  ],
+  "profileRecoveryMessageThreeWeeks+": [
+    "Drei aufeinanderfolgende Wochen erholsamen Schlafs sind ein bemerkenswerter Meilenstein auf Ihrem Weg zu einem besseren Wohlbefinden! Ihr Engagement für Ruhe zahlt sich aus.",
+    "Die Aufrechterhaltung einer Serie von einundzwanzig Tagen guter Erholung ist ein Beweis für Ihre Hingabe, sich um Ihre körperliche und geistige Gesundheit zu kümmern. Machen Sie weiter so, Sie machen einen großartigen Job!",
+    "Herzlichen Glückwunsch zum Erreichen von drei Wochen erholsamem Schlaf. Ihr Körper und Geist erfahren die Vorteile eines konsequenten qualitativen Ruhezustands.",
+    "Einundzwanzig aufeinanderfolgende Tage erholsamen Schlafs sind ein Zeugnis Ihres Engagements für Ihr Wohlbefinden. Hören Sie weiterhin auf die Bedürfnisse Ihres Körpers und kümmern Sie sich um sich selbst.",
+    "Drei Wochen konsequenter Schlaf bilden die Grundlage für einen ausgewogenen und gesunden Lebensstil. Sie legen den Grundstein für ein erfüllteres und energiegeladeneres Leben.",
+    "Mit drei Wochen erholsamem Schlaf zeigen Sie, dass qualitativer Ruhepriorität in Ihrem Leben hat. Machen Sie weiterhin fürsorglich und genießen Sie die Vorteile erholsamen Schlafs."
+  ],
+  "profileRecoveryMessageThreeWeeks-": [
+    "Die Anerkennung von drei Wochen herausforderndem Schlaf ist ein wichtiger Schritt hin zur Veränderung. Nehmen Sie sich einen Moment Zeit, um über Ihre Gewohnheiten nachzudenken und Möglichkeiten zur Verbesserung Ihres Ruhezustands zu finden.",
+    "Drei Wochen unregelmäßigen Schlafs können ein Zeichen dafür sein, dass Sie Anpassungen in Ihrem Lebensstil vornehmen müssen. Hören Sie auf die Signale, die Ihr Körper sendet, und finden Sie Möglichkeiten, sich besser zu pflegen.",
+    "Die Aufrechterhaltung einer Serie von einundzwanzig Tagen schwierigem Schlaf lädt Sie ein, Ihr Wohlbefinden neu zu bewerten. Überlegen Sie, welche Änderungen Sie vornehmen können, um einen erholsameren und revitalisierenden Ruhezustand zu fördern.",
+    "Die Anerkennung von drei Wochen herausforderndem Schlaf ist eine Gelegenheit, Ihre Gesundheit und Ihr Wohlbefinden zu priorisieren. Nehmen Sie sich Zeit, um sich zu pflegen, und suchen Sie bei Bedarf Unterstützung.",
+    "Drei Wochen unregelmäßigen Schlafs können darauf hinweisen, dass Sie Ihre täglichen Gewohnheiten und Routinen überprüfen müssen. Überlegen Sie, welche Anpassungen Sie vornehmen können, um einen erholsameren und befriedigenderen Schlaf zu fördern.",
+    "Drei aufeinanderfolgende Wochen schwierigen Schlafs sind eine Erinnerung an die Bedeutung der Fürsorge für Ihr Wohlbefinden. Suchen Sie nach Ressourcen und Unterstützung, um die Qualität Ihres Schlafs zu verbessern und Ihren Körper und Geist zu revitalisieren."
+  ],
+  "profileRecoveryMessageOneMonth+": [
+    "Ein ganzer Monat erholsamen Schlafs ist eine beeindruckende Leistung! Du hast außergewöhnliches Engagement für dein Wohlbefinden gezeigt. Mach weiter so und genieße die Vorteile einer qualitativ hochwertigen Erholung.",
+    "Die Aufrechterhaltung eines Monats mit gutem Schlaf ist ein Zeugnis deiner Hingabe an deine Gesundheit und Glückseligkeit. Du legst den Grundstein für ein ausgewogeneres und energetischeres Leben.",
+    "Herzlichen Glückwunsch zum Erreichen eines ganzen Monats erholsamen Schlafs. Deine Beharrlichkeit bei der Priorisierung deiner Erholung war bemerkenswert, und dein Körper und Geist danken es dir. Mach weiter so!",
+    "Ein aufeinanderfolgender Monat erholsamen Schlafs ist ein bedeutender Meilenstein auf deiner Reise zu einem gesünderen Leben. Dein Engagement für Selbstfürsorge ist bewundernswert und führt dich auf den richtigen Weg.",
+    "Mit einem Monat erholsamen Schlafs erlebst du die Vorteile einer qualitativ hochwertigen Erholung in allen Lebensbereichen. Halte deine positiven Gewohnheiten aufrecht und kümmere dich weiterhin um dich selbst.",
+    "Die Aufrechterhaltung eines Monats mit erholsamem Schlaf ist ein Zeugnis deiner Disziplin und deines Engagements für dein Wohlbefinden. Höre weiter auf die Bedürfnisse deines Körpers und genieße das Gefühl der Erneuerung, das qualitativ hochwertiger Schlaf bringt."
+  ],
+  "profileRecoveryMessageOneMonth-": [
+    "Die Anerkennung eines Monats mit herausforderndem Schlaf ist ein Aufruf zum Handeln. Nimm dir Zeit, um deine Gewohnheiten zu überprüfen, und überlege, welche Änderungen du vornehmen kannst, um deine Erholung zu verbessern.",
+    "Ein Monat mit unregelmäßigem Schlaf könnte darauf hinweisen, dass du deine täglichen Routinen überdenken musst. Höre auf die Signale, die dein Körper dir sendet, und finde Wege, dich besser um dich selbst zu kümmern.",
+    "Die Aufrechterhaltung eines Monats mit schwierigem Schlaf ist ein Zeichen dafür, dass es Zeit ist, Änderungen in deinem Lebensstil vorzunehmen. Überlege, welche Anpassungen du vornehmen kannst, um einen erholsameren und belebenderen Schlaf zu fördern.",
+    "Die Anerkennung eines Monats mit herausforderndem Schlaf ist der erste Schritt zur Selbstfürsorge. Nimm dir die Zeit, dich richtig auszuruhen und zu erholen, und suche bei Bedarf Unterstützung.",
+    "Ein Monat mit unregelmäßigem Schlaf könnte darauf hindeuten, dass du mehr auf dein Wohlbefinden achten musst. Überlege, welche Anpassungen du vornehmen kannst, um einen erholsameren und zufriedenstellenderen Schlaf zu fördern.",
+    "Ein aufeinanderfolgender Monat mit herausforderndem Schlaf zeigt, dass du dich besser um dich selbst kümmern musst. Priorisiere deine Gesundheit und suche nach Möglichkeiten, die Qualität deines Schlafs zu verbessern, um dich besser und erfrischter zu fühlen."
+  ],
+  "profileRecoveryMessageDefault+": [
+    "Dein Engagement für erholsamen Schlaf zeigt Wirkung! Fahre mit diesen gesunden Gewohnheiten fort und du wirst sehen, wie sie sich auf dein allgemeines Wohlbefinden auswirken.",
+    "Jede Nacht erholsamen Schlafes ist ein Schritt zu einem ausgewogeneren und erfüllteren Leben. Halte deine positive Serie aufrecht und genieße die Vorteile, die sie mit sich bringt.",
+    "Eine positive Serie in deinem Schlaf aufrechtzuerhalten ist ein Beweis für deine Hingabe zur Selbstpflege. Höre weiterhin auf die Bedürfnisse deines Körpers und gehe mit Zuversicht voran.",
+    "Deine Bemühungen, deinen Schlaf zu verbessern, zahlen sich aus. Halte deine positive Serie aufrecht und feiere jede Nacht erholsamen Schlafes als Erfolg auf deinem Weg zu besserer Gesundheit.",
+    "Jede Nacht erholsamen Schlafes ist eine Investition in dein langfristiges Wohlbefinden. Fahre fort und du wirst bemerken, wie deine Energie und Vitalität von Tag zu Tag zunehmen.",
+    "Dein Engagement für qualitativ hochwertigen Schlaf verdient Anerkennung. Halte deine positive Serie aufrecht und denke daran, dass jede Nacht erholsamen Schlafes eine Gelegenheit ist, dich zu erneuern und zu revitalisieren."
+  ],
+  "profileRecoveryMessageDefault-": [
+    "Das Erkennen einer negativen Serie ist der erste Schritt zu positiven Veränderungen. Nimm dir einen Moment Zeit, um über deine Gewohnheiten nachzudenken, und überlege, welche Anpassungen du vornehmen kannst, um deinen Schlaf zu verbessern.",
+    "Jede Nacht ist eine Gelegenheit, die Qualität deines Schlafes zu verbessern. Wenn du eine negative Serie erlebt hast, überlege, welche Änderungen du vornehmen kannst, um einen erholsameren Schlaf zu fördern.",
+    "Das Aufrechterhalten einer negativen Serie in deinem Schlaf ist ein Zeichen dafür, dass es Zeit ist, mehr auf dein Wohlbefinden zu achten. Suche nach Möglichkeiten, Stress abzubauen und eine förderliche Schlafumgebung zu schaffen.",
+    "Das Erkennen einer negativen Serie in deinem Schlaf ist eine Einladung, dich besser um dich selbst zu kümmern. Priorisiere deine Gesundheit und überlege, welche Schritte du unternehmen kannst, um die Qualität deines Schlafes zu verbessern.",
+    "Jede Nacht ist eine neue Gelegenheit, deinen Schlaf zu verbessern. Wenn du eine negative Serie erlebt hast, suche nach Möglichkeiten, dich vor dem Schlafengehen zu entspannen und eine förderliche Schlafumgebung zu schaffen.",
+    "Dein Wohlbefinden hat Vorrang, und jede Nacht Schlaf ist eine Gelegenheit, besser auf dich selbst zu achten. Wenn du eine negative Serie erlebt hast, nimm dir die nötige Zeit, um dich zu erholen, und suche bei Bedarf Unterstützung."
+  ],
+  "profileANSMessage1+": [
+    "Dein autonomer Gleichgewicht war heute positiv, mach weiter so! Feiere deine Erfolge und bleibe dran, gesunde Gewohnheiten zu praktizieren, um die Harmonie aufrechtzuerhalten.",
+    "Ausgezeichnet! Das Gleichgewicht deines autonomen Nervensystems deutet auf einen Tag der Ruhe und des Gleichgewichts hin. Pflege gesunde Gewohnheiten und genieße die fortlaufenden Vorteile.",
+    "Ausgezeichneter Start! Dein Nervensystem zeigt heute ein gesundes Gleichgewicht. Pflege dich weiter, um diese Harmonie aufrechtzuerhalten und mehr Tage voller Vitalität zu genießen.",
+    "Heute sind Körper und Geist in Einklang. Es ist eine gute Erinnerung daran, dass sich deine positiven Gewohnheiten auszahlen. Mach weiter so und du wirst sehen, wie sich das auf dein allgemeines Wohlbefinden auswirkt.",
+    "Ein Tag des Gleichgewichts in deinem Nervensystem ist ein Schritt in die richtige Richtung. Nutze diesen Schwung, um deine Gesundheit weiter zu fördern und langanhaltendes Wohlbefinden zu unterstützen."
+  ],
+  "profileANSMessage1-": [
+    "Heute deutet das Gleichgewicht deines autonomen Nervensystems auf erhöhten Stress hin. Denke darüber nach, was dazu beigetragen haben könnte, und erwäge Entspannungstechniken, um dein Wohlbefinden zu verbessern.",
+    "Auch wenn das autonome Gleichgewicht heute nicht ideal war, denke daran, dass es nur ein Tag ist. Identifiziere Stressquellen und suche nach Möglichkeiten, Entspannung in deine Routine zu integrieren, um deine Stressreaktion zu verbessern.",
+    "Heute hast du ein Ungleichgewicht in deinem Nervensystem erlebt. Nutze diesen Moment, um über deine Gewohnheiten nachzudenken und Wege zu finden, um die Harmonie in deinem Körper und Geist wiederherzustellen.",
+    "Die Feststellung eines Ungleichgewichts an einem Tag ist der erste Schritt zur Wiederherstellung der Harmonie. Überlege, was diese Diskrepanz verursacht haben könnte, und ergreife Maßnahmen, um dich in Zukunft besser zu kümmern.",
+    "Ein Tag des Ungleichgewichts in deinem Nervensystem ist ein Zeichen, dass du mehr auf dein Wohlbefinden achten musst. Nutze diese Erfahrung als Motivation, um nach Möglichkeiten zu suchen, Ruhe und Stabilität in deinem täglichen Leben zu fördern."
+  ],
+  "profileANSMessage2+": [
+    "Doppelte Dosis Gleichgewicht! Zwei aufeinanderfolgende Tage mit deinem Nervensystem in Harmonie sind ein Zeichen dafür, dass du gut auf dich aufpasst. Mach weiter so!",
+    "Zwei aufeinanderfolgende Tage des Gleichgewichts zeigen dein Engagement für das Wohlbefinden. Pflege dieses Gleichgewicht weiterhin mit gesunden und positiven Gewohnheiten.",
+    "Bravo, dass du das Gleichgewicht gehalten hast! Zwei aufeinanderfolgende Tage mit deinem Nervensystem in Einklang sind ein Grund, deine Bemühungen für ein größeres Wohlbefinden zu feiern.",
+    "Dein Körper und Geist tanzen zwei aufeinanderfolgende Tage lang im Einklang. Pflege diese Verbindung weiter mit Praktiken, die dir guttun.",
+    "Zwei Tage des Gleichgewichts sind wie eine tröstende Umarmung für dein Nervensystem. Mach weiter so, und du wirst bemerken, wie dein allgemeines Wohlbefinden davon profitiert.",
+    "Zwei Tage, ein großer Erfolg! Dein Engagement für das Gleichgewicht bringt dich weit. Fahre mit derselben Hingabe fort."
+  ],
+  "profileANSMessage2-": [
+    "Zwei Tage des Ungleichgewichts können ein Zeichen dafür sein, dass du mehr auf dein Wohlbefinden achten musst. Nimm dir einen Moment Zeit zum Nachdenken und finde Wege, um die Harmonie wiederherzustellen.",
+    "Die Feststellung von zwei Tagen des Ungleichgewichts ist der erste Schritt zu positiven Veränderungen. Überlege, welche Anpassungen du vornehmen kannst, um einen Zustand der Ruhe und des Gleichgewichts in deinem täglichen Leben zu fördern.",
+    "Zwei Tage des Ungleichgewichts sind ein Weckruf, um besser auf dich selbst aufzupassen. Nutze diese Erfahrung als Motivation, um Möglichkeiten zu finden, Stress zu reduzieren und Ruhe in deine tägliche Routine zu bringen.",
+    "Manchmal sind zwei Tage des Ungleichgewichts nur eine Erinnerung daran, dass du auf die Signale deines Körpers achten musst. Nimm dir Zeit zum Entspannen und zur Wiederherstellung deines inneren Gleichgewichts.",
+    "Zwei Tage des Ungleichgewichts können eine Herausforderung sein, aber sie bieten auch die Möglichkeit zu lernen und zu wachsen. Überlege, was du tun kannst, um dein mentales und emotionales Wohlbefinden besser zu unterstützen.",
+    "Das Erkennen von zwei Tagen des Ungleichgewichts ermöglicht es dir, proaktive Schritte zur Wiedererlangung deines Gleichgewichts zu unternehmen. Gehe weiter mit Entschlossenheit vor und suche nach Möglichkeiten, Ruhe und Wohlbefinden in deinem täglichen Leben zu fördern."
+  ],
+  "profileANSMessage3+": [
+    "Drei aufeinanderfolgende Tage mit einem positiven autonomen Gleichgewicht sind eine bedeutende Leistung. Stellen Sie sicher, dass Sie diese Gewohnheiten beibehalten und Stress effektiv bewältigen.",
+    "Dreifache Serie des autonomen Gleichgewichts. Sie bauen eine solide Grundlage für Ihr Wohlbefinden auf. Machen Sie weiter mit Ihren gesunden Praktiken, um die Harmonie aufrechtzuerhalten.",
+    "Drei Tage konstantes Gleichgewicht! Ihr Nervensystem ist synchronisiert und Ihr Wohlbefinden ist erhöht. Pflegen Sie diesen positiven Fluss weiterhin mit Ihren gesunden Gewohnheiten.",
+    "Drei aufeinanderfolgende Tage der Harmonie zeigen Ihr Engagement für umfassendes Wohlbefinden. Machen Sie weiter, was Sie tun, Sie sind auf dem richtigen Weg!",
+    "Ihr Körper und Geist sind drei aufeinanderfolgende Tage lang synchronisiert. Dies ist eine bedeutende Leistung, die es wert ist, gefeiert zu werden. Machen Sie weiterhin Selbstfürsorge und pflegen Sie diesen positiven Fluss.",
+    "Drei Tage Gleichgewicht sind wie ein Geschenk für Ihr Nervensystem. Pflegen Sie diese Verbindung weiterhin mit Praktiken, die Sie nähren und sich gut fühlen lassen."
+  ],
+  "profileANSMessage3-": [
+    "Drei aufeinanderfolgende Tage mit einem autonomen Ungleichgewicht deuten auf ein Muster hin. Es ist Zeit, Entspannung priorisieren und Stress in Ihrem täglichen Leben reduzieren. Kleine Veränderungen können einen großen Unterschied machen.",
+    "Obwohl das autonome Gleichgewicht seit drei Tagen nicht ideal war, ist jeder Tag eine neue Gelegenheit, um die Harmonie wiederherzustellen. Einführen von Entspannungs- und Selbstpflegepraktiken zur Verbesserung Ihres Wohlbefindens.",
+    "Drei Tage des Ungleichgewichts können darauf hinweisen, dass Sie sich einen Moment Zeit nehmen müssen, um besser auf sich selbst zu achten. Überlegen Sie, was dieses Ungleichgewicht verursacht, und ergreifen Sie Maßnahmen, um die Harmonie wiederherzustellen.",
+    "Das Erkennen von drei Tagen des Ungleichgewichts ist der erste Schritt zu einer positiven Veränderung. Überlegen Sie, welche Anpassungen Sie in Ihrem Lebensstil vornehmen können, um einen Zustand von Ruhe und Ausgeglichenheit zu fördern.",
+    "Drei Tage des Ungleichgewichts sind ein Weckruf, um Ihrem Wohlbefinden mehr Aufmerksamkeit zu schenken. Verwenden Sie diese Erfahrung als Motivation, um Möglichkeiten zur Stressreduzierung und Förderung von Gelassenheit in Ihrem täglichen Leben zu suchen.",
+    "Manchmal sind drei Tage des Ungleichgewichts eine Erinnerung daran, dass Sie auf die Bedürfnisse Ihres Körpers hören müssen. Nehmen Sie sich Zeit zum Ausruhen und zur Wiederherstellung Ihres inneren Gleichgewichts."
+  ],
+  "profileANSMessage4+": [
+    "Vier aufeinanderfolgende Tage kontinuierlichen Gleichgewichts sind eine bemerkenswerte Leistung. Ihr Körper und Geist sind synchronisiert, machen Sie weiter so und Sie werden neue Höhen des Wohlbefindens erreichen!",
+    "Vier aufeinanderfolgende Tage des Gleichgewichts! Es ist offensichtlich, dass Sie gesunde Entscheidungen treffen, die Ihrem Nervensystem zugute kommen. Machen Sie weiter mit diesem positiven Schwung!",
+    "Ihr Nervensystem war vier aufeinanderfolgende Tage lang in Harmonie. Dies ist ein Erfolg, der gefeiert werden sollte. Machen Sie weiterhin Selbstfürsorge und schätzen Sie die Kraft Ihrer gesunden Gewohnheiten.",
+    "Vier Tage kontinuierlichen Gleichgewichts sind ein Zeugnis Ihrer Hingabe zum Wohlbefinden. Pflegen Sie diese Verbindung zwischen Geist und Körper und Sie werden die Vorteile eines ausgeglichenen Lebens ernten.",
+    "Fantastisch! Vier aufeinanderfolgende Tage der Harmonie zeigen Ihr Engagement für Ihre allgemeine Gesundheit. Pflegen Sie diesen positiven Fluss und beobachten Sie, wie er Ihr Wohlbefinden verändert.",
+    "Ihr Nervensystem war vier aufeinanderfolgende Tage lang im Gleichgewicht. Dies ist ein bedeutender Meilenstein, der Ihr Engagement für ein gesundes und ausgeglichenes Leben widerspiegelt."
+  ],
+  "profileANSMessage4-": [
+    "Vier Tage des Ungleichgewichts können ein Hinweis darauf sein, dass Sie Ihrem Wohlbefinden mehr Aufmerksamkeit schenken müssen. Nehmen Sie sich einen Moment Zeit zum Nachdenken und suchen Sie Möglichkeiten, um Harmonie in Ihrem täglichen Leben wiederherzustellen.",
+    "Das Erkennen von vier Tagen des Ungleichgewichts ist der erste Schritt zu einer positiven Veränderung. Überlegen Sie, welche Anpassungen Sie in Ihrem Lebensstil vornehmen können, um einen Zustand von Ruhe und Ausgeglichenheit zu fördern.",
+    "Vier Tage des Ungleichgewichts sind ein Weckruf, um besser auf sich selbst zu achten. Verwenden Sie diese Erfahrung als Motivation, um Möglichkeiten zur Stressreduzierung und Förderung von Gelassenheit in Ihrer täglichen Routine zu suchen.",
+    "Manchmal sind vier Tage des Ungleichgewichts eine Erinnerung daran, dass Sie auf die Bedürfnisse Ihres Körpers hören müssen. Nehmen Sie sich Zeit zum Ausruhen und zur Wiederherstellung Ihres inneren Gleichgewichts.",
+    "Vier Tage des Ungleichgewichts können eine Herausforderung sein, aber sie sind auch eine Gelegenheit zum Lernen und Wachsen. Überlegen Sie, was Sie tun können, um Ihr mentales und emotionales Wohlbefinden besser zu unterstützen.",
+    "Das Erkennen von vier Tagen des Ungleichgewichts ermöglicht es Ihnen, proaktive Schritte zur Wiedererlangung Ihres Gleichgewichts zu unternehmen. Machen Sie weiter mit Entschlossenheit und suchen Sie Möglichkeiten, Gelassenheit und Wohlbefinden in Ihrem täglichen Leben zu fördern."
+  ],
+  "profileANSMessage5+": [
+    "Fantastisch! Dein autonomes Nervensystem war fünf aufeinanderfolgende Tage im Gleichgewicht. Dies deutet auf eine bemerkenswerte Harmonie zwischen dem sympathischen und parasympathischen System hin, die deinem Körper Stabilität und Wohlbefinden verleiht. Du schaffst eine förderliche Umgebung für Gesundheit und optimale Leistungsfähigkeit!",
+    "Fünf Tage lang ein positives Gleichgewicht im autonomen Nervensystem sind ein Zeichen dafür, dass dein Körper im Gleichgewicht ist. Diese Kohärenz zwischen dem sympathischen und parasympathischen Nervensystem fördert die Erholung, die Stressresistenz und die allgemeine Gesundheit. Kümmere dich weiterhin um dich selbst und du wirst langfristig davon profitieren!",
+    "Die Aufrechterhaltung eines positiven Gleichgewichts im autonomen Nervensystem über fünf Tage hinweg ist eine bedeutende Leistung. Dein Körper dankt dir für die Aufmerksamkeit, die du ihm geschenkt hast. Genieße das Gefühl des Wohlbefindens, das du geschaffen hast, und mache weiter mit deinen gesunden Praktiken.",
+    "Fünf Tage harmonisches Gleichgewicht! Dein Körper und Geist waren im Einklang, was auf eine gute Regulation zwischen dem sympathischen und parasympathischen Nervensystem hinweist. Mach weiter so und pflege dieses Gleichgewicht!",
+    "Für fünf aufeinanderfolgende Tage hast du einen Zustand des Gleichgewichts aufrechterhalten, der die Harmonie zwischen deinem sympathischen und parasympathischen System widerspiegelt. Das ist eine bewundernswerte Leistung, die es wert ist, gefeiert zu werden!",
+    "Fünf Tage konstantes Gleichgewicht sind ein deutliches Zeichen dafür, dass du gut auf dich aufpasst. Dein Nervensystem funktioniert im Einklang, was es dir ermöglicht, die täglichen Herausforderungen mit Ruhe und Klarheit anzugehen.",
+    "Dein Körper war fünf aufeinanderfolgende Tage im Gleichgewicht, was auf eine gesunde Regulation zwischen dem sympathischen und parasympathischen System hinweist. Pflege weiterhin diesen positiven Fluss und du wirst sehen, wie sich dein allgemeines Wohlbefinden verbessert."
+  ],
+  "profileANSMessage5-": [
+    "Fünf aufeinanderfolgende Tage des Ungleichgewichts im autonomen Nervensystem deuten auf einen Bereich hin, der Aufmerksamkeit erfordert. Dieses Ungleichgewicht kann die Reaktion auf Stress und die Erholungsfähigkeit beeinträchtigen. Überlege dir Strategien, um die Harmonie wiederherzustellen und dein allgemeines Wohlbefinden zu verbessern.",
+    "Ein negatives Gleichgewicht im autonomen Nervensystem über fünf Tage hinweg kann Auswirkungen auf deine physische und psychische Gesundheit haben. Es ist eine Erinnerung an die Bedeutung der Pflege deines Nervensystems, um Erschöpfung und Überlastung vorzubeugen. Nimm dir die Zeit, dich zu entspannen und zu erholen.",
+    "Trotz der letzten fünf herausfordernden Tage im Gleichgewicht des autonomen Nervensystems ist jeder Tag eine neue Gelegenheit für positive Veränderungen. Höre auf deinen Körper, führe entspannende Praktiken ein und arbeite daran, das Gleichgewicht wiederherzustellen. Dein Wohlbefinden liegt in deinen Händen.",
+    "Fünf Tage des Ungleichgewichts können auf eine Überlastung deines sympathischen Nervensystems hinweisen, was zu Gefühlen von Angst oder Unruhe führen kann. Es ist wichtig, sich Zeit zu nehmen, um sich zu entspannen und Ruhe zu finden.",
+    "Das Erkennen von fünf Tagen des Ungleichgewichts ist der erste Schritt zur Wiederherstellung der Harmonie zwischen deinem sympathischen und parasympathischen System. Überlege, entspannende und selbstpflegende Praktiken in deine tägliche Routine zu integrieren.",
+    "Fünf Tage des Ungleichgewichts sind ein Zeichen dafür, dass du auf dein emotionales und physisches Wohlbefinden achten musst. Suche nach Möglichkeiten, Stress abzubauen und Entspannung zu fördern, um das Gleichgewicht in deinem täglichen Leben wiederherzustellen.",
+    "Manchmal sind fünf Tage des Ungleichgewichts eine Erinnerung daran, wie wichtig es ist, auf die Signale deines Körpers zu hören. Nimm dir Zeit, um dich wieder mit dir selbst zu verbinden, und finde Wege, deine ganzheitliche Gesundheit zu unterstützen."
+  ],
+  "profileANSMessage6+": [
+    "Sechs Tage konstantes Gleichgewicht sind ein Beweis für dein Engagement für dein Wohlbefinden. Dein Nervensystem war im Einklang, was auf eine gute Regulation zwischen dem sympathischen und parasympathischen System hinweist.",
+    "Sechs aufeinanderfolgende Tage hast du einen Zustand des Gleichgewichts aufrechterhalten, der die Harmonie zwischen deinem sympathischen und parasympathischen System widerspiegelt. Pflege weiterhin diesen positiven Fluss und du wirst sehen, wie sich dein allgemeines Wohlbefinden verbessert.",
+    "Dein Körper und Geist waren sechs aufeinanderfolgende Tage im Einklang, was auf eine gesunde Regulation zwischen dem sympathischen und parasympathischen Nervensystem hinweist. Pflege weiterhin dieses Gleichgewicht mit deinen gesunden Gewohnheiten.",
+    "Sechs aufeinanderfolgende Tage des Gleichgewichts! Dieser Erfolg ist ein Beweis für deine Fähigkeit, gut auf dich selbst aufzupassen. Fahre mit diesem positiven Schwung fort und halte dein Wohlbefinden im Mittelpunkt deiner Prioritäten.",
+    "Dein Körper war sechs aufeinanderfolgende Tage im Gleichgewicht, was eine tiefe Verbindung zwischen deinem Geist und deinem körperlichen Wohlbefinden zeigt. Pflege dieses Gleichgewicht weiterhin und du wirst sehen, wie es sich in deinem täglichen Leben widerspiegelt.",
+    "Sechs aufeinanderfolgende Tage hast du eine bemerkenswerte Synchronisation zwischen deinem Körper und deinem Geist aufrechterhalten. Dieser Erfolg erinnert daran, dass du in der Lage bist, dich selbst zu pflegen und deine allgemeine Gesundheit zu unterstützen."
+  ],
+  "profileANSMessage6-": [
+    "Sechs Tage des Ungleichgewichts können ein Anzeichen dafür sein, dass du dir Zeit nehmen musst, um besser auf dich aufzupassen. Es ist wichtig, auf die Signale zu achten, die dein Körper dir sendet, und Wege zu finden, um die Harmonie wiederherzustellen.",
+    "Das Erkennen von sechs Tagen des Ungleichgewichts ist der erste Schritt, um positive Veränderungen in deinem Leben einzuleiten. Überlege, welche Anpassungen du in deiner täglichen Routine vornehmen kannst, um einen Zustand der Ruhe und des Gleichgewichts zu fördern.",
+    "Sechs Tage des Ungleichgewichts sind ein Signal dafür, dass du Änderungen in deinem Leben vornehmen musst, um deine körperliche und emotionale Gesundheit zu unterstützen. Nimm dir Zeit, um darüber nachzudenken, was dich stresst, und suche nach Möglichkeiten, dies zu reduzieren.",
+    "Manchmal sind sechs Tage des Ungleichgewichts eine Erinnerung daran, dass du auf die Bedürfnisse deines Körpers hören musst. Mach eine Pause und suche nach Aktivitäten, die dir helfen, Energie zu tanken und dein inneres Gleichgewicht wiederherzustellen.",
+    "Das Erkennen von sechs Tagen des Ungleichgewichts ermöglicht es dir, proaktiv Maßnahmen zu ergreifen, um dein Wohlbefinden wiederherzustellen. Fahre mit Entschlossenheit fort und suche nach Möglichkeiten, Ruhe und Gleichgewicht in dein tägliches Leben zu bringen.",
+    "Sechs Tage des Ungleichgewichts können eine Herausforderung sein, aber sie sind auch eine Gelegenheit zum Lernen und Wachsen. Überlege, was du tun kannst, um deine geistige und emotionale Gesundheit besser zu unterstützen, und ergreife Maßnahmen, um deine Lebensqualität zu verbessern."
+  ],
+  "profileANSMessage7+": [
+    "Trotz einer Woche positiver autonomer Balance sollten Sie nicht nachlassen. Kümmern Sie sich weiter um Ihr Wohlbefinden und bewältigen Sie Stress effektiv.",
+    "Eine ganze Woche autonome Balance! Sie zeigen ein signifikantes Engagement für Ihre geistige Gesundheit. Machen Sie weiter so und genießen Sie ein ausgewogeneres Leben.",
+    "Eine ganze Woche Balance und Harmonie! Ihre Schlaf- und Wellnessgewohnheiten sind synchronisiert und ermöglichen es Ihnen, jeden Tag erfrischt aufzuwachen.",
+    "Sieben aufeinanderfolgende Tage des Gleichgewichts zeigen Ihr Engagement für ein gesundes Leben. Ihr Körper und Geist sind synchronisiert und bereit, tägliche Herausforderungen mit Ruhe und Klarheit zu bewältigen.",
+    "Für sieben aufeinanderfolgende Tage haben Sie eine bemerkenswerte Stabilität aufrechterhalten, die einen Zustand des allgemeinen Wohlbefindens widerspiegelt. Das ist eine Leistung, die gefeiert werden sollte!",
+    "Eine vollständige Woche des Gleichgewichts ist ein Beweis für Ihr Engagement für die Selbstpflege. Pflegen Sie dieses Gleichgewicht weiter, und Sie werden sehen, wie es sich in allen Aspekten Ihres Lebens widerspiegelt."
+  ],
+  "profileANSMessage7-": [
+    "Eine Woche lang autonomen Ungleichgewicht zu halten, ist ein Warnzeichen. Es ist entscheidend, Stressquellen anzugehen und Entspannung zu priorisieren, um das Gleichgewicht in Ihrem Nervensystem wiederherzustellen.",
+    "Trotz einer herausfordernden Woche in Bezug auf autonome Balance haben Sie die Kontrolle über Ihr Wohlbefinden. Implementieren Sie bedeutende Lebensstiländerungen, um Ruhe und Entspannung zu fördern.",
+    "Sieben Tage Ungleichgewicht können daran erinnern, auf die Bedürfnisse Ihres Körpers zu hören. Überlegen Sie, welche Änderungen Sie vornehmen können, um Ihr allgemeines Wohlbefinden zu verbessern.",
+    "Das Erkennen von sieben Tagen Ungleichgewicht ist der erste Schritt zu positiven Veränderungen. Nehmen Sie sich Zeit, um Ihre Routine zu bewerten, und finden Sie Möglichkeiten, Entspannung und erholsamen Schlaf zu fördern.",
+    "Sieben Tage Ungleichgewicht können herausfordernd sein, aber sie bieten auch die Möglichkeit zur Reflexion und Anpassung Ihres Ansatzes für einen ausgewogeneren Lebensstil.",
+    "Wenn Sie sieben Tage Ungleichgewicht erlebt haben, ist es Zeit, Ihr Wohlbefinden priorisieren. Machen Sie kleine Änderungen in Ihrer täglichen Routine, um erholsamen Schlaf zu fördern und das Gleichgewicht in Ihrem Leben wiederherzustellen."
+  ],
+  "profileANSMessage8+": [
+    "Acht Tage konstanten Gleichgewichts sind ein Beweis für Ihr Engagement für Ihr Wohlbefinden. Ihr Nervensystem war in Harmonie und deutet auf eine gute Regulation zwischen dem sympathischen und parasympathischen System hin.",
+    "Für acht aufeinanderfolgende Tage haben Sie einen Zustand des Gleichgewichts aufrechterhalten, der die Harmonie zwischen Ihrem sympathischen und parasympathischen System widerspiegelt. Pflegen Sie diesen positiven Fluss weiter, und Sie werden Verbesserungen in Ihrem allgemeinen Wohlbefinden sehen.",
+    "Ihr Körper und Geist waren acht aufeinanderfolgende Tage lang synchronisiert und zeigten eine gesunde Regulation zwischen dem sympathischen und parasympathischen System. Fahren Sie fort, dieses Gleichgewicht mit Ihren gesunden Gewohnheiten zu pflegen.",
+    "Acht aufeinanderfolgende Tage des Gleichgewichts! Diese Leistung ist ein Beweis für Ihre Fähigkeit, gut auf sich selbst aufzupassen. Machen Sie weiter mit diesem positiven Schwung und halten Sie Ihr Wohlbefinden im Mittelpunkt Ihrer Prioritäten.",
+    "Ihr Körper war acht aufeinanderfolgende Tage im Gleichgewicht und zeigt eine tiefe Verbindung zwischen Ihrem Geist und Ihrem physischen Wohlbefinden. Fahren Sie fort, dieses Gleichgewicht zu kultivieren, und Sie werden sehen, wie es sich in Ihrem täglichen Leben widerspiegelt.",
+    "Für acht aufeinanderfolgende Tage haben Sie eine bemerkenswerte Synchronisation zwischen Ihrem Körper und Ihrem Geist aufrechterhalten. Diese Leistung erinnert an Ihre Fähigkeit, sich selbst zu pflegen und Ihre ganzheitliche Gesundheit zu unterstützen."
+  ],
+  "profileANSMessage8-": [
+    "Acht Tage Ungleichgewicht können darauf hinweisen, dass Sie sich Zeit nehmen müssen, um besser auf sich selbst zu achten. Es ist wichtig, auf die Signale zu achten, die Ihr Körper Ihnen sendet, und Möglichkeiten zu finden, um Harmonie wiederherzustellen.",
+    "Das Erkennen von acht Tagen Ungleichgewicht ist der erste Schritt zur Einleitung positiver Veränderungen in Ihrem Leben. Überlegen Sie, welche Anpassungen Sie an Ihrer täglichen Routine vornehmen können, um einen Zustand der Ruhe und des Gleichgewichts zu fördern.",
+    "Acht Tage Ungleichgewicht deuten darauf hin, dass Sie Änderungen in Ihrem Leben vornehmen müssen, um Ihre körperliche und emotionale Gesundheit zu unterstützen. Nehmen Sie sich Zeit, um darüber nachzudenken, was Sie stressen könnte, und suchen Sie nach Möglichkeiten, dies zu reduzieren.",
+    "Manchmal dienen acht Tage Ungleichgewicht als Erinnerung daran, dass Sie auf die Bedürfnisse Ihres Körpers hören müssen. Machen Sie eine Pause und suchen Sie nach Aktivitäten, die Ihnen helfen, sich aufzuladen und Ihr inneres Gleichgewicht wiederherzustellen.",
+    "Das Erkennen von acht Tagen Ungleichgewicht ermöglicht es Ihnen, proaktive Maßnahmen zu ergreifen, um Ihr Wohlbefinden wiederzugewinnen. Machen Sie weiter mit Entschlossenheit und suchen Sie nach Möglichkeiten, Ruhe und Gleichgewicht in Ihrem täglichen Leben zu fördern.",
+    "Acht Tage Ungleichgewicht können eine Herausforderung sein, bieten aber auch die Möglichkeit zu lernen und zu wachsen. Überlegen Sie, was Sie tun können, um Ihre mentale und emotionale Gesundheit besser zu unterstützen, und ergreifen Sie Maßnahmen, um Ihre Lebensqualität zu verbessern."
+  ],
+  "profileANSMessage9+": [
+    "Neun Tage kontinuierlichen Gleichgewichts sind eine bewundernswerte Leistung! Ihr Engagement für das Wohlbefinden spiegelt Ihre Hingabe zur Selbstpflege wider.",
+    "Sie haben für neun aufeinanderfolgende Tage eine bemerkenswerte Beständigkeit gezeigt. Halten Sie diesen positiven Schwung aufrecht und pflegen Sie Ihr körperliches und geistiges Wohlbefinden weiterhin.",
+    "Ihre Entschlossenheit zeigt sich in neun Tagen konstanten Gleichgewichts. Pflegen Sie diese innere Harmonie weiter und Sie werden sehen, wie sich dies positiv auf Ihr tägliches Leben auswirkt.",
+    "Neun Tage des Gleichgewichts zeigen Ihre Fähigkeit, sich anzupassen und Ihr Wohlbefinden zu priorisieren. Feiern Sie jeden Erfolg auf dieser Reise zu einem ausgeglicheneren und erfüllenderen Leben!",
+    "Jeder dieser neun Tage spiegelt Ihr Engagement für ein volles und gesundes Leben wider. Finden Sie weiterhin Freude an den kleinen Momenten und kümmern Sie sich liebevoll um Ihren Körper und Geist.",
+    "Ihre Ausdauer während neun Tagen des Gleichgewichts ist ein Beweis für Ihre innere Stärke und Entschlossenheit. Machen Sie mit Zuversicht weiter und wissen Sie, dass Sie eine gesündere und ausgewogenere Zukunft aufbauen."
+  ],
+  "profileANSMessage9-": [
+    "Neun Tage des Ungleichgewichts können herausfordernd sein, bieten aber auch eine Gelegenheit zur Reflexion und Anpassung Ihres Ansatzes für einen ausgewogeneren Lebensstil.",
+    "Das Anerkennen von neun Tagen des Ungleichgewichts ist der erste Schritt zu positiven Veränderungen. Nehmen Sie sich Zeit, um Ihre Routine zu bewerten, und finden Sie Möglichkeiten zur Förderung von Entspannung und regenerativem Schlaf.",
+    "Neun Tage des Ungleichgewichts signalisieren, dass es Zeit ist, auf Ihr Wohlbefinden zu achten. Widmen Sie sich der Selbstpflege und suchen Sie nach Aktivitäten, die Ihnen helfen, sich aufzuladen und das innere Gleichgewicht wiederherzustellen.",
+    "Es ist normal, gelegentlich neun Tage des Ungleichgewichts zu erleben, aber es ist auch eine Gelegenheit zum Lernen und Wachsen. Überlegen Sie, was Sie tun können, um Ihr Wohlbefinden besser zu unterstützen, und ergreifen Sie Maßnahmen, um Ihre Lebensqualität zu verbessern.",
+    "Während neun Tagen des Ungleichgewichts ist es wichtig, sich daran zu erinnern, dass jeder Tag eine Gelegenheit ist, neu anzufangen. Bewahren Sie eine positive Perspektive und suchen Sie nach Möglichkeiten, Harmonie in Ihrem täglichen Leben zu fördern.",
+    "Trotz neun Tagen voller Herausforderungen sollten Sie daran denken, dass Sie die Kraft haben, Ihre Situation zu ändern. Mit kleinen Schritten und bewussten Entscheidungen können Sie das Gleichgewicht wiederherstellen und sich einem erfüllteren und befriedigenderen Leben nähern."
+  ],
+  "profileANSMessage10+": [
+    "Zehn Tage konstanten Gleichgewichts sind eine beeindruckende Leistung! Ihr Engagement für das Wohlbefinden hat eine solide Grundlage für ein erfüllteres und befriedigenderes Leben geschaffen.",
+    "Das Aufrechterhalten des Gleichgewichts für zehn aufeinanderfolgende Tage ist eine Demonstration Ihres Engagements und Ihrer Entschlossenheit. Kümmern Sie sich weiterhin liebevoll um Ihren Körper und Geist.",
+    "Zehn Tage des Gleichgewichts zeigen Ihre Fähigkeit, sich anzupassen und selbst in den herausforderndsten Zeiten zu gedeihen. Pflegen Sie dieses Gefühl von Harmonie und Wohlbefinden in Ihrem täglichen Leben weiterhin.",
+    "Ihre Konstanz während zehn aufeinanderfolgender Tage spiegelt Ihr Engagement für die Selbstpflege und das allgemeine Wohlbefinden wider. Feiern Sie jeden kleinen Schritt auf dem Weg zu einem ausgeglicheneren und sinnvolleren Leben!",
+    "Jeder dieser zehn Tage unterstreicht Ihr Engagement für einen gesunden und ausgewogenen Lebensstil. Finden Sie weiterhin Freude an den kleinen Dingen und pflegen Sie Ihren Körper und Geist mit positiven Gewohnheiten.",
+    "Zehn Tage des Gleichgewichts sind ein Beweis für Ihre innere Stärke und Ausdauer. Machen Sie voller Zuversicht weiter und wissen Sie, dass Sie eine gesündere und glücklichere Zukunft aufbauen."
+  ],
+  "profileANSMessage10-": [
+    "Zehn Tage des Ungleichgewichts können herausfordernd sein, bieten aber auch eine Gelegenheit zur Reflexion und Anpassung Ihres Ansatzes für einen ausgewogeneren Lebensstil.",
+    "Das Anerkennen von zehn Tagen des Ungleichgewichts ist der erste Schritt zu positiven Veränderungen. Nehmen Sie sich Zeit, um Ihre Routine zu bewerten, und finden Sie Möglichkeiten zur Förderung von Entspannung und regenerativem Schlaf.",
+    "Zehn Tage des Ungleichgewichts signalisieren, dass es Zeit ist, auf Ihr Wohlbefinden zu achten. Widmen Sie sich der Selbstpflege und suchen Sie nach Aktivitäten, die Ihnen helfen, sich aufzuladen und das innere Gleichgewicht wiederherzustellen.",
+    "Es ist normal, gelegentlich zehn Tage des Ungleichgewichts zu erleben, aber es ist auch eine Gelegenheit zum Lernen und Wachsen. Überlegen Sie, was Sie tun können, um Ihr Wohlbefinden besser zu unterstützen, und ergreifen Sie Maßnahmen, um Ihre Lebensqualität zu verbessern.",
+    "Während zehn Tagen des Ungleichgewichts ist es wichtig, sich daran zu erinnern, dass jeder Tag eine Gelegenheit ist, neu anzufangen. Bewahren Sie eine positive Perspektive und suchen Sie nach Möglichkeiten, Harmonie in Ihrem täglichen Leben zu fördern.",
+    "Trotz zehn Tagen voller Herausforderungen sollten Sie daran denken, dass Sie die Kraft haben, Ihre Situation zu ändern. Mit kleinen Schritten und bewussten Entscheidungen können Sie das Gleichgewicht wiederherstellen und sich einem erfüllteren und befriedigenderen Leben nähern."
+  ],
+  "profileANSMessageTwoWeeks+": [
+    "Zwei Wochen kontinuierlicher Balance sind eine beeindruckende Leistung! Dein Engagement für das Wohlbefinden hat eine solide Grundlage für ein erfüllteres und zufriedeneres Leben geschaffen.",
+    "Die Aufrechterhaltung des Gleichgewichts für zwei aufeinanderfolgende Wochen ist eine Demonstration deines Engagements und deiner Entschlossenheit. Fahre damit fort, deinen Körper und Geist liebevoll und aufmerksam zu pflegen.",
+    "Zwei Wochen Balance zeigen deine Fähigkeit, dich anzupassen und selbst in den herausforderndsten Zeiten zu gedeihen. Setze das Kultivieren dieses Gefühls von Harmonie und Wohlbefinden in deinem täglichen Leben fort.",
+    "Deine Konstanz über zwei aufeinanderfolgende Wochen hinweg spiegelt dein Engagement für Selbstpflege und allgemeines Wohlbefinden wider. Feiere jeden kleinen Schritt hin zu einem ausgewogeneren und bedeutungsvolleren Leben!",
+    "Jeder Tag dieser zwei Wochen unterstreicht dein Engagement für einen gesunden und ausgewogenen Lebensstil. Fahre damit fort, Freude an den kleinen Dingen zu finden und deinen Körper und Geist mit positiven Gewohnheiten zu pflegen.",
+    "Zwei Wochen Balance sind ein Zeugnis deiner inneren Stärke und Ausdauer. Gehe mit Zuversicht voran und wisse, dass du dabei bist, eine gesündere und glücklichere Zukunft aufzubauen."
+  ],
+  "profileANSMessageTwoWeeks-": [
+    "Zwei Wochen Ungleichgewicht können herausfordernd sein, bieten aber auch die Möglichkeit zur Reflexion und Anpassung deines Ansatzes für einen ausgewogeneren Lebensstil.",
+    "Das Anerkennen von zwei Wochen Ungleichgewicht ist der erste Schritt zu positiven Veränderungen. Nimm dir Zeit, deine Routine zu bewerten, und finde Möglichkeiten, Entspannung und regenerierende Ruhe zu fördern.",
+    "Zwei Wochen Ungleichgewicht sind ein Zeichen dafür, dass es an der Zeit ist, auf dein Wohlbefinden zu achten. Widme Zeit der Selbstfürsorge und suche nach Aktivitäten, die dir helfen, Energie zu tanken und inneres Gleichgewicht wiederherzustellen.",
+    "Das Bewältigen von zwei Wochen Ungleichgewicht ist manchmal normal, bietet aber auch die Möglichkeit zu lernen und zu wachsen. Reflektiere darüber, wie du dein Wohlbefinden besser unterstützen kannst, und unternehme Schritte, um deine Lebensqualität zu verbessern.",
+    "Während zwei Wochen Ungleichgewicht ist es wichtig zu bedenken, dass jeder Tag eine neue Chance bietet, neu anzufangen. Bewahre eine positive Einstellung und suche nach Möglichkeiten, Harmonie in deinem täglichen Leben zu fördern.",
+    "Trotz der Herausforderungen von zwei Wochen, denke daran, dass du die Kraft und Fähigkeit hast, deine Situation zu verändern. Mit kleinen Schritten und bewussten Entscheidungen kannst du das Gleichgewicht wiederherstellen und dich einem erfüllteren und zufriedeneren Leben nähern."
+  ],
+  "profileANSMessageThreeWeeks+": [
+    "Drei Wochen kontinuierlicher Balance sind eine bemerkenswerte Leistung! Dein Engagement für das Wohlbefinden führt dich auf einen Weg der Harmonie und Vitalität.",
+    "Die Aufrechterhaltung des Gleichgewichts für drei aufeinanderfolgende Wochen zeigt deine Entschlossenheit und Hingabe. Setze die Pflege deines Körpers und Geistes mit positiven Gewohnheiten fort, die dein allgemeines Wohlbefinden verbessern.",
+    "Drei Wochen Balance spiegeln deine Fähigkeit wider, sich anzupassen und in allen Situationen zu gedeihen. Fahre damit fort, ein Leben voller Wohlbefinden und Dankbarkeit zu kultivieren.",
+    "Deine Ausdauer über drei aufeinanderfolgende Wochen hinweg zeigt ein tiefes Engagement für deine Gesundheit und Glückseligkeit. Feiere jeden kleinen Fortschritt und setze deine Reise zu langanhaltendem Wohlbefinden fort.",
+    "Jeder Tag dieser drei Wochen unterstreicht dein Engagement für einen ausgewogenen und bewussten Lebensstil. Fahre damit fort, Schönheit in den kleinen Dingen zu suchen und deinen Körper und deine Seele mit Liebe und Fürsorge zu pflegen.",
+    "Drei Wochen Balance sind ein Zeugnis deiner inneren Stärke und Entschlossenheit. Gehe mit Zuversicht und Optimismus voran, wissend, dass du eine solide Basis für ein erfülltes und gesundes Leben aufbaust."
+  ],
+  "profileANSMessageThreeWeeks-": [
+    "Drei Wochen Ungleichgewicht können eine Herausforderung sein, bieten aber auch die Möglichkeit zur Reflexion und Anpassung deines Ansatzes für einen ausgewogeneren Lebensstil.",
+    "Das Anerkennen von drei Wochen Ungleichgewicht ist der erste Schritt zu positiven Veränderungen. Nimm dir einen Moment Zeit, um deine Gewohnheiten zu überdenken, und suche nach Möglichkeiten, Entspannung und regenerierende Ruhe zu fördern.",
+    "Drei Wochen Ungleichgewicht sind ein Zeichen dafür, dass es wichtig ist, dein Wohlbefinden priorisieren. Widme Zeit der Selbstfürsorge und suche nach Aktivitäten, die dir helfen, Energie zu tanken und inneres Gleichgewicht wiederherzustellen.",
+    "Obwohl drei Wochen Ungleichgewicht herausfordernd sein können, bieten sie auch die Möglichkeit zu lernen und zu wachsen. Reflektiere darüber, wie du dein Wohlbefinden besser unterstützen kannst, und unternehme positive Schritte für ein ausgewogeneres Leben.",
+    "Während drei Wochen Ungleichgewicht, denke daran, dass jeder Tag eine neue Chance bietet, neu anzufangen. Bewahre eine positive Einstellung und suche nach Möglichkeiten, Ruhe und Gelassenheit in deinem täglichen Leben zu fördern.",
+    "Trotz der Herausforderungen von drei Wochen, denke daran, dass du die Stärke und Fähigkeit hast, deine Situation zu verändern. Mit Entschlossenheit und Fokus kannst du das Gleichgewicht wiederherstellen und dich einem erfüllteren und zufriedeneren Leben nähern."
+  ],
+  "profileANSMessageOneMonth+": [
+    "Ein Monat kontinuierlichen Gleichgewichts ist eine herausragende Leistung! Jeden Tag hast du dein Engagement für ein gesundes und ausgewogenes Leben bewiesen.",
+    "Das Aufrechterhalten des Gleichgewichts für einen ganzen Monat ist ein Zeichen deiner inneren Stärke und Entschlossenheit, dein Wohlbefinden zu priorisieren. Mach weiter so!",
+    "Feiern eines Monats gesunder Gewohnheiten. Jeder kleine Schritt führt zu großen Ergebnissen. Du bist auf dem richtigen Weg!",
+    "Ein Monat Gleichgewicht spiegelt dein Engagement und deine Hingabe für deine Gesundheit und Glück wider. Fahre fort, Harmonie in jedem Tag zu finden.",
+    "Jeder Tag dieses Monats war eine Gelegenheit zum Wachsen und für Selbstfürsorge. Herzlichen Glückwunsch zu einem Monat gesunder Gewohnheiten, die dir helfen, zu gedeihen.",
+    "Dein Engagement für einen Monat ist eine Erinnerung an deine Fähigkeit, bedeutende Veränderungen in deinem Leben herbeizuführen. Fahre mit Entschlossenheit und Dankbarkeit fort!"
+  ],
+  "profileANSMessageOneMonth-": [
+    "Ein Monat Ungleichgewicht anzuerkennen ist der erste Schritt zu einer positiven Veränderung. Es ist Zeit zum Nachdenken und neue Strategien zu finden, um dein Wohlbefinden zu verbessern.",
+    "Trotz der Herausforderungen dieses Monats, denke daran, dass jeder Tag eine neue Gelegenheit ist, von vorne anzufangen. Lass dich nicht entmutigen und suche Unterstützung, um dich zu verbessern.",
+    "Während dieses Monats war jede Schwierigkeit eine Gelegenheit zum Lernen und Wachsen. Nutze diese Erfahrung, um dich zu stärken und auf eine ausgewogenere Zukunft hinzuarbeiten.",
+    "Auch wenn dieser Monat schwierig war, denke daran, dass du die Macht hast, deine Situation zu ändern. Mit Geduld und Ausdauer kannst du das Gleichgewicht finden, das du brauchst.",
+    "Ein Monat Ungleichgewicht ist eine Warnung, mehr auf dein Wohlbefinden zu achten. Nimm dir Zeit für Selbstfürsorge und suche nach Möglichkeiten, dein inneres Gleichgewicht wiederherzustellen.",
+    "Trotz der Herausforderungen dieses Monats, denke daran, dass du die Kontrolle über deine Gewohnheiten und deine Gesundheit hast. Mit jedem neuen Tag hast du die Möglichkeit, Entscheidungen zu treffen, die dich einem ausgewogeneren Leben näher bringen."
+  ],
+  "profileANSMessageDefault+": [
+    "Fahre fort, mit deiner positiven Serie zu glänzen! Jeder Tag ist eine Gelegenheit, weiterhin Erfolge zu erzielen und auf deine Ziele hinzuarbeiten.",
+    "Deine Beständigkeit in der positiven Serie ist inspirierend. Gehe weiter mit Zuversicht und Entschlossenheit und wisse, dass du auf dem richtigen Weg bist.",
+    "Jeder Schritt, den du machst, stärkt deine positive Serie. Feiere deine Erfolge und halte die positive Energie aufrecht, während du dich auf eine leuchtende Zukunft zubewegst.",
+    "Dein Streben nach Exzellenz zeigt sich in deiner positiven Serie. Bleibe fokussiert auf deine Ziele und lass deinen Erfolg deine beste Motivation sein.",
+    "Mit jedem Tag dieser positiven Serie baust du einen Weg zu einer Zukunft voller Möglichkeiten auf. Fahre fort mit Enthusiasmus und Entschlossenheit!",
+    "Deine Ausdauer in der positiven Serie ist ein Zeugnis deiner Stärke und Widerstandsfähigkeit. Halte die Flamme am Brennen und leuchte weiter den Weg zu deinen Träumen."
+  ],
+  "profileANSMessageDefault-": [
+    "Die negative Serie anzuerkennen ist der erste Schritt zu einer positiven Veränderung. Akzeptiere die Herausforderung und nutze deine Entschlossenheit, um sie zu überwinden.",
+    "Auch wenn die negative Serie schwierig sein kann, ist jeder Tag eine neue Chance, den Kurs zu ändern. Halte die Hoffnung hoch und suche nach Lösungen, um dich zu verbessern.",
+    "Die negative Serie definiert nicht dein Schicksal, sondern deine Reaktion darauf. Mit jeder Herausforderung hast du die Möglichkeit zu lernen und stärker zu werden.",
+    "Trotz der Hindernisse der negativen Serie, denke daran, dass du in der Lage bist, sie zu überwinden. Vertraue darauf, dass du den Weg ins Licht findest.",
+    "Jeder Tag der negativen Serie ist eine Gelegenheit, um dich zu stärken und deine Widerstandsfähigkeit zu zeigen. Gib nicht auf; gehe weiter mit Entschlossenheit und Mut.",
+    "Die negative Serie ist nur ein Teil deiner Geschichte; deine Fähigkeit, sie zu überwinden, ist das, was deine Zukunft bestimmt. Halte den Glauben aufrecht und gehe mutig weiter in eine bessere Zukunft."
+  ],
+  "profileCardSleepArcTooltip": "Der Schlaf erfolgt in Zyklen von 90 bis 110 Minuten, die für gesunden Schlaf unerlässlich sind. Ein normaler Schlaf umfasst vier bis sechs vollständige Zyklen, jeder mit Phasen von Leicht-, Tief- und REM-Schlaf. Leichtschlaf ist der Übergang von Wachzustand zu Tiefschlaf, während REM der Traumschlaf ist. Das Unterbrechen des Schlafes beeinträchtigt seine Qualität.",
+  "profileModalSleepArcDesc": "Die Schlafperiode verläuft in Zyklen von 90 bis 110 Minuten und ist ein wesentlicher Bestandteil eines gesunden Schlafmusters. In einer normalen Ruhezeit treten in der Regel vier bis sechs vollständige Zyklen auf. Jeder Zyklus besteht aus drei Phasen: Leichtschlaf, Tiefschlaf und REM-Schlaf.\n\nLeichtschlaf ist der Übergang von der Wachheit zum Tiefschlaf. Die Augen bewegen sich nicht, und die Muskelspannung nimmt ab.\n\nWährend des Tiefschlafs sind körperliche Bewegungen und Muskelspannungen nahezu nicht vorhanden. Er ist entscheidend für die körperliche Erholung und die meisten physiologischen Systeme.\n\nWährend des REM-Schlafs träumen wir, gekennzeichnet durch schnelle Augenbewegungen, gelähmte Muskeln, variable Blutdruck- und Herzfrequenz. Der REM-Schlaf ist für die mentale Erholung notwendig.\n\nDie Schlafdauer ist genauso wichtig wie die Gewährleistung, dass er nicht unterbrochen wird, da sonst alle Vorteile eines kontinuierlichen und erholsamen Schlafs nicht erreicht werden.",
+  "profileModalSleepArcDaily": "Pour une récupération complète de votre corps et de votre esprit, vous devez dormir suffisamment en général, cela signifie également disposer d'assez de sommeil REM et PROFOND. Le sommeil REM devrait représenter entre 20% et 25% de votre sommeil total, le sommeil PROFOND entre 10% et 20%, et le sommeil LÉGER entre 50% et 60%.",
+  "profileModalSleepArcWeekly": "Vous pouvez utiliser ce graphique pour comprendre les tendances de vos cycles de sommeil et de leurs phases tout au long de la semaine et ainsi établir une routine pour les moments où vous vous endormez et vous réveillez. Pratiquez des habitudes qui favorisent le sommeil et évitez les interruptions nocturnes, car tous les avantages d'un repos continu et réparateur ne seront pas atteints, même si vous avez dormi les 8 heures recommandées.",
+  "profileCardSleepScoreTooltip": "Die Schlafqualität wird durch die Dauer und die Menge an REM- und Tiefschlaf bestimmt. Mehr Stunden und qualitativer Schlaf bedeuten eine bessere Punktzahl. Die meisten Erwachsenen benötigen 7 bis 8 Stunden Schlaf für eine gute Gesundheit. Ein wöchentliches Diagramm kann helfen, Trends zu verstehen und Schlafgewohnheiten bei Bedarf zu verbessern.",
+  "profileModalSleepScoreDesc": "Die Schlafbewertung wird aufgrund der Anzahl der Stunden, die Sie geschlafen haben, und während dieser Stunden aufgrund der Menge an REM- und Tiefschlaf bestimmt. Je mehr Stunden Sie schlafen, desto mehr REM- und Tiefschlaf haben Sie, daher wird Ihre Schlafbewertung besser sein. Umgekehrt wird der Score niedriger sein, je länger Sie wach bleiben und/oder je mehr Unterbrechungen während Ihres Schlafzeitraums auftreten.\n\nDie meisten Erwachsenen benötigen zwischen 7 und 8 Stunden Schlaf pro Nacht. Während des Schlafs treten mehrere biologische und hormonelle Prozesse auf, die die Gesundheit fördern und es dem Körper ermöglichen, optimal zu funktionieren.",
+  "profileModalSleepScoreWeekly": "Sie können dieses Diagramm verwenden, um Ihre Trends im Schlafscore über die Tage hinweg zu verstehen, und wenn Ihr Score unter dem Durchschnitt liegt, Gewohnheiten schaffen oder verstärken, die Sie zu den empfohlenen 8 Stunden Schlaf führen.",
+  "profileCardRecoveryTooltip": "Die Erholungspunkte zeigen, wie sich der Körper von der täglichen Belastung erholt. Sie werden durch den Unterschied in der Herzfrequenzvariabilität zwischen Morgen und dem vorherigen Abend berechnet. Ein wöchentliches Diagramm hilft dabei, die Routine auszugleichen und Verletzungen vorzubeugen.",
+  "profileModalRecoveryDesc": "Die Erholungspunkte repräsentieren die Anpassung und physische Erholung während der Ruhe im Vergleich zu deiner täglichen Routine und werden durch die Differenz zwischen den Werten der Herzfrequenzvariabilität (HRV) vom Morgen und der vorherigen Nacht berechnet.\n\nEs ist wichtig, die Aktivitäten zu berücksichtigen, die physischen und/oder mentalen Stress am Vortag verursachen, wie Training, Arbeitstag, etc. Die Erholungsniveaus werden widerspiegeln, wie sich dein Körper während des Schlafs von der physischen Belastung des vorherigen Tages erholt hat.",
+  "profileModalRecoveryAnnotation": "*Beachte, dass, wenn die Belastung vom Vortag gering war, die Erholung nicht zwangsläufig am nächsten Tag hoch sein wird, da der Körper keine Belastung hat, von der er sich erholen muss.",
+  "profileModalRecoveryWeekly": "Du kannst dieses Diagramm verwenden, um deine Aktivitätsroutine im Laufe der Woche zu optimieren und auszugleichen, indem du deine Erholungstrends verstehst und so eine mögliche physische Überlastung oder Verletzung vermeidest.",
+  "profileCardANSTooltip": "Das autonome Nervensystem kontrolliert Körperfunktionen, aufgeteilt in sympathisch und parasympathisch. Das parasympathische System reguliert Ruhe und Verdauung, senkt die Herzfrequenz. Das sympathische System reagiert auf Stress oder Aktivität und erhöht den Blutdruck sowie die Herzfrequenz.",
+  "profileModalANSDesc": "Das autonome Nervensystem kontrolliert die Funktionen deines Körpers; es teilt sich in sympathisch und parasympathisch. Während des Tages gibt es Momente der Entspannung, in denen das parasympathische System stärker präsent ist, und Momente der Erregung oder Aktivität, in denen das sympathische System die Kontrolle übernimmt. Diese Systeme funktionieren wie Gaspedal und Bremse, die sich abwechseln, um ein Gleichgewicht zu halten.\n\nDas parasympathische System, das mit Mechanismen von \"Ruhe und Verdauung\" (rest and digest) verbunden ist, reguliert Ruhe und Stoffwechsel, steuert interne Systeme wie Verdauung, Atmung und Nagelwachstum. Dieses System führt zu einer Abnahme der Herzfrequenz.\n\nDas sympathische System, das mit Mechanismen von \"Kampf oder Flucht\" (fight or flight) verbunden ist, kontrolliert deine aktive physische Reaktion, reagiert auf externe Variablen wie Stress und körperliche Betätigung. Es erzeugt eine Erhöhung des Blutdrucks und der Herzfrequenz.",
+  "profileModalANSDaily": "Während des Schlafs gibt es Abwechselungen in der Aktivität des autonomen Nervensystems, die die verschiedenen Phasen des Schlafs und die Aktivierungs- oder Entspannungszustände deines Körpers widerspiegeln.",
+  "profileModalANSWeekly": "Du kannst dich auf dieses Diagramm stützen, um Trends im Gleichgewicht des autonomen Nervensystems (ANS) zu verstehen. Wenn die Werte bei 50/50 bleiben, mit einer Korrektur von +/- 10, liegst du innerhalb der Standardparameter, was auf eine gute homöostatische Funktion deines autonomen Nervensystems hinweist, verbunden mit guter körperlicher Verfassung und geringerem Stress des Organismus.\n\nWenn die Trends auf ein Ungleichgewicht hinweisen, könnte dies auf eine akkumulierte Ermüdung durch schlechten Schlaf und/oder zu wenige Stunden Schlaf zurückzuführen sein, und wenn der Trend mittel- oder langfristig anhält, könnte dies ein Indikator für chronischen Stress sein.",
+  "profileCardHRVTooltip": "Die HRV misst die Variation zwischen Herzschlägen und spiegelt die Gesundheit und Fitness wider. Höhere Werte deuten auf eine bessere körperliche Verfassung und weniger Stress hin. Sie wird durch die Interaktion zwischen den Sympathikus- und Parasympathikus-Zweigen des autonomen Nervensystems beeinflusst.",
+  "profileModalHRVDesc": "Die Herzfrequenzvariabilität (HRV) ist die Variation der Zeit zwischen Herzschlägen. Als Indikator für die Gesundheit und den allgemeinen Fitnesszustand verwendet, ermöglicht sie die Bestimmung deines psychophysiologischen Zustands. Kurzfristig analysierte HRV zeigt die Bereitschaft deines Körpers für den täglichen Ablauf an.\n\nGenerell deuten höhere HRV-Werte auf eine bessere körperliche Fitness und geringeren Stress des Organismus hin. Eine niedrige HRV kann mit mangelnder körperlicher Bewegung und Verletzungsrisiko in Verbindung gebracht werden.\n\nDie HRV wird durch das Ergebnis der Interaktion zwischen dem Sympathikus, verantwortlich für die Reaktionen deines Körpers, um zu kämpfen oder zu fliehen, und dem Parasympathikus, verantwortlich für Reaktionen zum Ausruhen und Verdauen, bestimmt. Beide bilden das autonome Nervensystem und senden bei angemessenem Gleichgewicht Signale an dein Herz, um schneller (sympathisch) oder langsamer (parasympathisch) zu schlagen. Diese Schwankung zwischen den Herzschlägen ist genau die Herzfrequenzvariabilität (HRV).",
+  "profileModalHRVDaily": "Eine höhere HRV deutet auf eine bessere Erholung und geringeren Organismusstress hin. Das mittel- und langfristige Training neigt dazu, die HRV-Werte zu erhöhen. Umgekehrt ist ein niedriger HRV-Wert mit einem potenziellen Verletzungsrisiko und langfristig mit assoziierten Krankheiten verbunden.",
+  "profileModalHRVWeekly": "Du kannst dich auf dieses Diagramm stützen, um deine HRV-Trends zu verstehen. Wenn die Werte über dem Durchschnitt deiner letzten 7 Tage liegen, kannst du intensives Training durchführen. Wenn sie mittel sind, wird ein moderates oder leichtes Training empfohlen, und wenn sie niedrig sind, ist es besser zu ruhen oder ein sehr leichtes Training zu machen, um Übertraining oder mögliche Verletzungen zu vermeiden.",
+  "profileModalHRVWeeklyAnnotation": "*Ein langfristiger Rückgang des RMSSD kann ein Hinweis darauf sein, dass Übertraining bevorsteht.",
+  "profileCardHeartRateTooltip": "Die Ruheherzfrequenz für Erwachsene liegt zwischen 60 und 100 Schlägen pro Minute. Eine niedrigere Rate impliziert eine bessere Herzfunktion und kardiovaskuläre Gesundheit. Sie wird berechnet, indem der niedrigste Durchschnittswert der Schläge pro Minute in Dreiminutenintervallen während der gesamten Nacht genommen wird.",
+  "profileModalHeartRateDesc": "Die normale Ruheherzfrequenz für Erwachsene liegt zwischen 60 und 100 Schlägen pro Minute. Im Allgemeinen deutet eine niedrigere Ruheherzfrequenz auf eine effizientere Herzfunktion und bessere Herz-Kreislauf-Fitness hin.\n\nIhre Ruheherzfrequenz wird auf der Grundlage Ihres durchschnittlichen Herzschlags pro Minute für jeden dreiminütigen Intervall während der gesamten Nacht berechnet, wobei der niedrigste Wert in jedem Intervall berücksichtigt wird.",
+  "profileModalHeartRateDaily": "Die Ruheherzfrequenz kann als mildes Anzeichen für Stress oder Übertraining verwendet werden.",
+  "profileModalHeartRateWeekly": "Sie können dieses Diagramm verwenden, um Ihre Ruheherzfrequenz wöchentlich als Referenz zu nehmen und auch nach bemerkenswerten Abweichungen vom Baseline-Niveau zu suchen.\n\nKörperliche Bewegung neigt dazu, die Ruheherzfrequenz auf mittlere und lange Sicht zu verringern, was darauf hinweist, dass Sie fitter werden!",
+  "profileCardBreathingRateTooltip": "Die normale Atemfrequenz für Erwachsene im Ruhezustand liegt bei 12 bis 18 Atemzügen pro Minute. Eine Frequenz unter 12 oder über 25 Atemzügen pro Minute im Ruhezustand kann auf ein zugrunde liegendes Gesundheitsproblem hinweisen.",
+  "profileModalBreathingRateDesc": "Die normale Atemfrequenz für einen ruhenden Erwachsenen liegt bei 12 bis 18 Atemzügen pro Minute. Eine Atemfrequenz unter 12 oder über 25 Atemzügen pro Minute im Ruhezustand kann ein Zeichen für ein zugrunde liegendes Gesundheitsproblem sein.",
+  "profileModalBreathingRateDaily": "Die normale Atemfrequenz für einen ruhenden Erwachsenen beträgt 12 bis 18 Atemzüge pro Minute. Beachte, dass Atemfrequenzen bei medizinischen Bedingungen wie Fieber oder Krankheit ansteigen können.",
+  "profileModalBreathingRateWeekly": "Sie können dieses Diagramm verwenden, um Trends in Ihrer Atemfrequenz im Ruhezustand im Laufe der Woche zu verstehen und Ihre Referenzwerte zu erhalten.",
+  "profileCardMovementsTooltip": "Die durchschnittliche Aktivität misst größere Bewegungen als die durch Herzschläge und Atmung verursachten, wie das Bewegen eines Beins oder Arms. Drehungen zeigen größere Körperbewegungen an.",
+  "profileModalMovementsDesc": "Die durchschnittliche Aktivität misst größere Bewegungen als die durch Herzschläge und Atmung verursachten, wie das Bewegen eines Beins oder Arms oder das leicht veränderte Liegen. Die größeren Bewegungen deines Körpers werden durch die Anzahl der Drehungen angezeigt.",
+  "profileModalMovementsDaily": "Ein höherer als normaler Wert sowohl in der durchschnittlichen Aktivität als auch in der Anzahl der Drehungen kann auf eine unruhige Nacht hinweisen. Beachte, dass du sie mit deinen eigenen Referenzwerten vergleichen solltest.",
+  "profileModalMovementsWeekly": "Du kannst dieses Diagramm verwenden, um die Referenzwerte in deiner durchschnittlichen Aktivität und Anzahl der Drehungen während deiner Nächte zu verstehen. Ein langfristiger Anstieg dieser Zahlen könnte ein Hinweis darauf sein, dass du dich einer Übertrainingsbedingung näherst.",
+  "profileCardSleepTimeTooltip": "Hier können Sie sehen, wie lange Sie im Bett waren und wie viel Sie geschlafen haben. Für Erwachsene sind 7-8 Stunden Schlaf ideal. Die Zeit im Bett schließt die Zeit außerhalb des Bettes aus. Verlassen Sie das Bett für mehr als 10 Minuten, wird der Schlafzeitraum beendet.",
+  "profileModalSleepTimeDesc": "Hier siehst du die Gesamtzeit, die du im Bett verbracht hast, und wie viel davon du geschlafen hast. Für Erwachsene gilt ein Schlaf von 7 bis 8 Stunden als optimal.\n\nDie Bettzeit schließt die Gesamtdauer der Bettaustritte aus. Beachte, dass, wenn du das Bett für mehr als 10 Minuten verlässt, dies die Anwesenheitsperiode beendet und den Nachtbericht mit den bis dahin gesammelten Informationen erstellt.",
+  "IrreversibleAction": "Diese Aktion ist nicht rückgängig zu machen",
+  "sleepScoreChartTotalRecovery": "Gesamterholung",
+  "ansChartAbsent": "Abwesend",
+  "hrvChartHeartRate": "Herzfrequenz",
+  "hrvChartAdjustmentLine": "RMSSD-Anpassungslinie",
+  "brChartBreathingRate": "Atemfrequenz",
+  "movementsChartMovement": "Anzahl der großen Bewegungen",
+  "movementsChartTurns": "Drehungen/Nacht",
+  "sleepTimeChartAwake": "Wach",
+  "sleepTimeChartSleep": "Schlafen",
+  "sleepTimeChartAwakeHS": "Wach (std)",
+  "sleepTimeChartSleepHS": "Schlafen (std)",
+  "sleepArcChartAbsent": "Abwesend",
+  "sleepArcChartAbsentHS": "Abwesend (std)",
+  "sleepArcChartAwake": "Wach",
+  "sleepArcChartAwakeHS": "Wach (std)",
+  "sleepArcChartLight": "Leicht",
+  "sleepArcChartLightHS": "Leicht (std)",
+  "sleepArcChartDeep": "Tief",
+  "sleepArcChartDeepHS": "Tief (std)",
+  "sleepArcChartRem": "REM",
+  "sleepArcChartRemHS": "REM (std)",
+  "sleepArcChartTitle": "Schlafarchitektur"
+}
